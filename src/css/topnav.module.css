@@ -1,0 +1,44 @@
+.topnav{
+    display: flex;
+    position: sticky;
+    top:0px;
+    left:0px;
+    height: 60px;
+    overflow: hidden;
+    /* background-color: rgb(17, 17, 17); */
+}
+
+.topnav #logo{
+    position: absolute;
+    top:15px;
+    left: 10px;
+    font-size: 1.2rem;
+    font-weight: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.searchContainer{
+    position: relative;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: transparent;
+    width: 100%;
+    padding: 10px;
+
+}
+
+.searchBar{
+    outline: none;
+    border: none;
+    width: 350px;
+    position: relative;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    top: -3px;
+    background-color: rgb(39, 39, 39);
+    border-radius:2px ;
+    color: rgb(124, 124, 124);
+}

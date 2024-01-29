@@ -1,0 +1,105 @@
+.item{
+    position: relative;
+    width: 110px;
+    height: 135px;
+    display: block;
+    border-radius: 4px;
+    background-color: #e9e5dc;
+    flex-shrink: 0;
+    margin-left:5px ;
+    margin-right:5px ;
+    margin-bottom :10px ;
+    transition: all 0.05s ease-in-out;
+    padding-top: 0px;
+    padding-left: 0px;
+    text-decoration: none;
+    overflow: hidden;
+
+    text-align: center ;
+}
+
+.item:hover{
+    transform: scale(1);
+    transition: all 0.1s ease-in-out;
+}
+
+.item:focus{
+    transform: scale(1);
+}
+
+.itemIcon{
+    width: 110px;
+    height: 110px;
+    background-size: cover;
+    background-position: cover;
+    border-bottom-right-radius: 20px;
+}
+
+
+.itemImg{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    overflow: hidden;
+    border-bottom-right-radius: 20px;
+}
+
+
+.itemText{
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-left:auto ;
+    margin-right:auto ;
+    text-align: center;
+    font-family: ingame;
+    font-size: 14px;
+    color: #495366;
+    background-color: transparent;
+    margin-top: 3px;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.itemCategory{
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 25px;
+    height: 25px;
+    z-index: 10;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+
+}
+
+.itemRarity{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 10x;
+    background-color: #424651;
+}
+
+
+.dd{
+    position: relative;
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+    margin:0px;
+    color: white;
+    display: block;
+    margin-bottom: 5px;
+}

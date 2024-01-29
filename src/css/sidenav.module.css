@@ -1,0 +1,70 @@
+.sidenav{
+    width: 90px;
+    position: sticky;
+    height: 100vh;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top:5px;
+    z-index:10;
+    display: block;
+
+}
+
+.sidenav a{
+    position: relative;
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+    margin:0px;
+    color: white;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.sidenav a p{
+    font-size: 12px;
+    font-weight: 600;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.sidenav button{
+    height: 35px;
+    width: 100%;
+    border-radius: 20px;
+    transition: ease-in-out 0.3s;
+    
+}
+
+
+.sidenav img{
+    position: relative;
+    height: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    width: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+
+}
+
+.sidenav button i{
+    position: relative;
+    top:2px;
+    height: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}

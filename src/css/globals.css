@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'ingame';
+  src: url('../fonts/HanyiWenHei/zh-cn.ttf')
+}
+
+body {
+  font-family: 'CustomFont', sans-serif;
+}
+
+
+button .ripple {
+  position: relative;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 1.6);
+  position: absolute;
+  transform: scale(0);
+  animation: ripple 0.5s linear;
+  opacity: 0.1;
+}
+
+@keyframes ripple {
+  to {
+      transform: scale(2.5);
+      opacity: 0;
+  }
+}
+
+
+body{
+  background-color: #070707;
+  color:rgb(224, 224, 224);
+  display:flex;
+  overflow: auto;
+  overflow-x:hidden;
+}
+
+nav{
+  position: sticky;
+  top:0px;
+}
+
+.wrapper{
+  width:100%;
+  overflow-y: hidden;
+  
+}
+
+
+
+
+#content{
+  position: relative;
+  top:0px;
+  width: 100%;
+  overflow-y: auto;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  overflow-x:hidden;
+}
+
+@media all and (max-width: 1200px) {  
+  #content{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+}
+
+#content div{
+  height: 100%;
+  width: 100%;
+  overflow-x:hidden;
+
+}
+
+.active{
+  background-color: #00DC82;
+}
+
+
+.bg-4-star{
+  background-image: linear-gradient(to top, rgb(149, 112, 203, 0.5), rgb(106, 86, 136, 0.5)),
+  url('../assets/bg/4-star.png');
+}
+
+.bg-5-star{
+  background-image: linear-gradient(to top, rgba(220, 142, 73, 0.5), rgba(144, 101, 65, 0.5)),
+  url('../assets/bg/5-star.png');
+}
