@@ -1,5 +1,5 @@
 import explorePageCSS from '../../../css/explorePage.module.css'
-import CharacterItems from '../../../components/explore/characterItems'
+import CharacterItems from '../../../components/explore/CharacterItems'
 import { Button } from '@mui/material';
 
 export const metadata = {

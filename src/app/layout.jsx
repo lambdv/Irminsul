@@ -6,6 +6,8 @@ import "../css/waves.css"
 import Sidenav from "../components/navigation/Sidenav";
 import Topnav from "../components/navigation/Topnav";
 
+const inter = Inter({ subsets: ["latin"] });
+
 
 export const metadata = {
   title: "Irminsul",
@@ -21,7 +23,7 @@ export default function RootLayout({ children }) {
 
       </head>
 
-      <body>
+      <body className={inter.className}>
         <Sidenav/>
         <div className="wrapper">
           <Topnav/>
