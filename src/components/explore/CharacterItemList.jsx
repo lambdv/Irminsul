@@ -7,7 +7,7 @@ export default async function characterItems() {
 
     const characters = await useFetch('https://genshin.jmp.blue/characters', {
         next: {
-            revalidate: 60 * 10 //10 minuites
+            revalidate: 60 * 20 //20 minuites
         }
     })
 
