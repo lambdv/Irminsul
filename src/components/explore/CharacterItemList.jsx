@@ -3,7 +3,7 @@ import Item from '../../components/explore/Item.jsx'
 import explorePageCSS from '../../css/explorePage.module.css'
 
 
-export default async function characterItems() {
+export default async function CharacterItemList() {
 
     const characters = await useFetch('https://genshin.jmp.blue/characters', {
         next: {

@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
           </main>
         </div>
 
-        <script type="text/javascript" src="../js/waves.js" />
+        {/* <script type="text/javascript" src="../js/waves.js" /> */}
       </body>
     </html>
   );
