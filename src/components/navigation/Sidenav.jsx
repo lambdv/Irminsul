@@ -21,6 +21,11 @@ import Script from "next/script";
 export default function Sidenav() {
   const pathname = usePathname()
 
+  // useEffect(() => {
+  //   
+    
+  // }, []);
+
   return (
     <nav className={SidenavCSS.sidenav}>
 
