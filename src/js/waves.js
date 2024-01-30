@@ -1,4 +1,5 @@
-/* global define */
+"use client"
+if (typeof window !== 'undefined') {
 
 /*!
  * Waves v0.7.6
@@ -600,3 +601,4 @@
 
     return Waves;
 });
+}

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from 'next/navigation'
 import Image from "next/image";
 import { useEffect } from "react";
-// import Waves from '../../js/waves'
+import Waves from '../../js/waves'
 
 import SidenavCSS from "../../css/sidenav.module.css"
 
@@ -19,10 +19,10 @@ import leafIcon from '../../assets/icons/leaf.png'
 export default function Sidenav() {
   const pathname = usePathname()
 
-  // useEffect(() => {
-  //   Waves.attach('.ripple', ['waves-effect', 'waves-light']);
-  //   Waves.init();
-  // }, []);
+  useEffect(() => {
+    Waves.attach('.ripple', ['waves-effect', 'waves-light']);
+    Waves.init();
+  }, []);
 
   return (
     <nav className={SidenavCSS.sidenav}>
