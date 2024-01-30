@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "../css/globals.css";
 import "../css/waves.css"
+import Script from 'next/script'
 
 //components
 import Sidenav from "../components/navigation/Sidenav";
@@ -32,7 +33,7 @@ export default function RootLayout({ children }) {
           </main>
         </div>
 
-        <script type="text/javascript" src="../js/waves.js" />
+        <Script src="../js/waves.js" />
       </body>
     </html>
   );

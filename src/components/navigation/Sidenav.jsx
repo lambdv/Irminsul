@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useEffect } from "react";
 import Waves from '../../js/waves'
 
+
 import SidenavCSS from "../../css/sidenav.module.css"
 
 //images
@@ -14,15 +15,11 @@ import weaponIcon from '../../assets/icons/weaponIcon.png'
 import artifactIcon from '../../assets/icons/artifactIcon.png'
 import teamIcon from '../../assets/icons/teamIcon.png'
 import leafIcon from '../../assets/icons/leaf.png'
+import Script from "next/script";
 
 
 export default function Sidenav() {
   const pathname = usePathname()
-
-  useEffect(() => {
-    Waves.attach('.ripple', ['waves-effect', 'waves-light']);
-    Waves.init();
-  }, []);
 
   return (
     <nav className={SidenavCSS.sidenav}>
@@ -63,6 +60,7 @@ export default function Sidenav() {
         <p>TeamDPS</p>
       </Link>
 
+      <Script src="../js/waves.js" defer />
     </nav>
   )
 }

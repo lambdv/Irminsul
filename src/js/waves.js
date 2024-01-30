@@ -598,7 +598,7 @@ if (typeof window !== 'undefined') {
         console.error('Waves.displayEffect() has been deprecated and will be removed in future version. Please use Waves.init() to initialize Waves effect');
         Waves.init(options);
     };
-
+    Waves.init();
     return Waves;
 });
 }
