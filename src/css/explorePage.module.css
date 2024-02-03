@@ -69,3 +69,9 @@
     flex-wrap: wrap;
     margin-bottom: 5px;
 }
+
+.tagCatagory label{
+    position: relative;
+    font-size: 12px;
+    top:3px;
+}

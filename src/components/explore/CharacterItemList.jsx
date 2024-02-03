@@ -7,9 +7,11 @@ export default async function CharacterItemList() {
 
     const characters = await useFetch('https://genshin.jmp.blue/characters', {
         next: {
-            revalidate: 60 * 20 //20 minuites
+            revalidate: 60 * 60 * 24 * 7 // weekly
         }
     })
+
+    const filters = []
 
     return (
         <div className={explorePageCSS.itemContainer}>
