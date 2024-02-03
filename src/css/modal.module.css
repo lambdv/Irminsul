@@ -1,0 +1,111 @@
+
+.overlay{
+    /* background-color: rgba(19, 19, 19, 0.925); */
+    position: fixed;
+    top:0px;
+    left: 0px;
+    padding-left: 90px;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+
+    overflow: hidden;
+    text-align: center;
+    justify-content: center;
+    display: block;
+
+    margin-left: auto;
+    margin-bottom: auto;
+    text-align: center;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+    -o-backdrop-filter: blur(10px);
+    -ms-backdrop-filter: blur(10px);
+
+    transition: all 0.5s ease-in-out;
+    animation: fadeBackground 0.5s forwards; /* Apply animation */
+}
+
+@keyframes fadeBackground {
+    from {
+        background-color: rgba(19, 19, 19, 0); 
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+        -moz-backdrop-filter: blur(0px);
+        -o-backdrop-filter: blur(0px);
+        -ms-backdrop-filter: blur(0px);
+    }
+    to {
+        background-color: rgba(19, 19, 19, 0.555);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        -moz-backdrop-filter: blur(10px);
+        -o-backdrop-filter: blur(10px);
+        -ms-backdrop-filter: blur(10px);
+    }
+}
+
+.modal{
+    background-color: rgb(31, 31, 31);
+    display: block;
+    overflow: hidden;
+
+    position: fixed; 
+    left: 50%;
+    /* top: 50%;
+    transform: translate(-50%, -75%);   */
+
+    top: 50%; 
+    transform: translate(-50%, 0);
+
+    text-align: left;
+    padding: 15px;
+    border-radius: 5px;
+    border: solid 1px rgb(49, 49, 49);
+
+    animation: slideDown 0.5s forwards;
+    opacity: 0;
+
+    width: 800px;
+    height: auto;
+}
+
+@keyframes slideDown {
+    from {
+        top: 50%; 
+        transform: translate(-50%, calc(-60% - 60px));
+        opacity: 0;
+    }
+    to {
+        top: 50%; 
+        transform: translate(-50%, calc(-50% - 60px));   
+        opacity: 1;
+    }
+}
+
+.modal .header{
+    width: 100%;
+}
+
+.modal .header h1{
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.modal .body{
+    width: 100%;
+    padding-top: 10px;
+}
+
+.options{
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.options button{
+    margin-right:5px;
+}

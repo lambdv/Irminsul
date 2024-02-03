@@ -6,6 +6,8 @@
     height: 60px;
     overflow: hidden;
     /* background-color: rgb(17, 17, 17); */
+    background-color: transparent;
+    z-index: 10;
 }
 
 .topnav #logo{

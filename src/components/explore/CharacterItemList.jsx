@@ -15,7 +15,7 @@ export default async function CharacterItemList() {
         <div className={explorePageCSS.itemContainer}>
             {
                 characters.map((character, index) => (
-                    <Item key={index} name={character} src={`https://raw.githubusercontent.com/scafiy/AkashaDB/main/images/characters/${character}/profile.png`}/> 
+                    <Item tags="HP Pyro Claymore 5-star" key={index} name={character} src={`https://raw.githubusercontent.com/scafiy/AkashaDB/main/images/characters/${character}/profile.png`}/> 
                 ))
             } 
         </div>

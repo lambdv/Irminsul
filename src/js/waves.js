@@ -10,7 +10,7 @@ if (typeof window !== 'undefined') {
  * https://github.com/fians/Waves/blob/master/LICENSE
  */
 
-;(function(window, factory) {
+(function(window, factory) {
     'use strict';
 
     // AMD. Register as an anonymous module.  Wrap in function so we have access
@@ -599,8 +599,7 @@ if (typeof window !== 'undefined') {
         Waves.init(options);
     };
 
-    Waves.attach('.ripple', ['waves-effect', 'waves-light']);
-    Waves.init();
+
     
     return Waves;
 });

@@ -3,28 +3,47 @@
     src: url('../fonts/HanyiWenHei/zh-cn.ttf')
 }
 
-.ingameTitle{
-    font-family: ingame;
-    font-size: 22px;
-    top:5px;
-    position: relative;
-}
-
 .header{
     position: relative;
     display: flex;
     overflow: hidden;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 30px;
+    padding-top:10px;   
+    padding-bottom:5px;   
+    text-align: center;
+    margin-bottom: 5px;
+}
 
+.ingameTitle{
+    font-family: ingame;
+    font-size: 19px;
+    top:5px;
+    position: relative;
+    width: auto;
+}
+
+.header img{
+    position: relative;
+    top:0px;
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
 }
 
 .controller{
-    position: relative;
+    position: absolute;
     right: 0px;
-    width: 100%;
+    width: auto;
     background-color: transparent;
     text-align: right;
+    padding-right: 30px;
+
 }
 
 .itemContainer{
@@ -45,3 +64,8 @@
     align-items: center;
 }
 
+.tagCatagory{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+}

@@ -6,7 +6,7 @@ export default function Item(props) {
     const name = props.name
 
     return (
-        <div className={ItemCSS.item + ` waves-effect waves-light ripple`} style={{width:"110px"}} >
+        <div id={props.tags} className={ItemCSS.item + ` waves-effect waves-light ripple`} style={{width:"110px"}} >
             <Link href={`/characters/${name}`}>
                 {/* <img className={ItemCSS.itemCategory} src="https://akashadb.netlify.app/images/icons/Dendro.png"/> */}
                 <div className={ItemCSS.itemIcon + ` bg-5-star`} alt="alt">

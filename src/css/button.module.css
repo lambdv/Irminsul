@@ -1,0 +1,33 @@
+.btn{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 2px;
+    margin:0px;
+    transition: ease-in-out;
+    outline: none;
+    border: none;
+}   
+
+.btn:active{
+    outline: none;
+    border: none;
+}
+
+.btn div{
+    display: flex;
+}
+
+.btn div i{
+    position: relative;
+    font-size: 25px;
+    margin-top:0px ;
+    left: -2px;
+
+}
+
+.btn:hover{
+    background-color: rgba(77, 77, 77, 0.295);
+    transition: ease-in-out 0.2s;
+}
