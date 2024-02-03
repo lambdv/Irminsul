@@ -6,7 +6,6 @@ import Image from "next/image";
 import { useEffect } from "react";
 import Waves from '../../js/waves'
 import Script from "next/script";
-import Button from "../ui/button";
 import SidenavCSS from "../../css/sidenav.module.css"
 
 //images

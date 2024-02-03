@@ -1,11 +1,9 @@
-"use client"
 import modalCSS from '../../css/modal.module.css'
-import Button from './button';
 
 export default function Modal(props) {
     return (
         <div className={modalCSS.overlay} onClick={ 
-            (e) => { if (e.target === e.currentTarget) props.toggle() }
+            (e) => { if (e.target === e.currentTarget) props.toggle() } //close modal if overlay is clicked
         }>
             <div className={modalCSS.modal}>
                 <div className={modalCSS.header}>
