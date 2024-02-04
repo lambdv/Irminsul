@@ -1,11 +1,10 @@
 "use client"
 import explorePageCSS from '../../css/explorePage.module.css'
 import modalCSS from '../../css/modal.module.css'
-import TagCSS from '../../css/tag.module.css'
 
 import { useState } from 'react'
 import Modal from '../ui/modal'
-import Button from '../ui/button'
+import Btn from '../ui/Btn'
 import Tag from '../ui/tag'
 import Image from 'next/image'
 import characterIcon from '../../assets/icons/characterIcon.png'
@@ -49,16 +48,16 @@ export default function Header() {
                 {selectedFilters}
 
                 <div className={explorePageCSS.controller}>
-                    <Button onClick={toggleModal}> 
+                    <Btn onClick={toggleModal}> 
                         <i className="material-symbols-outlined">filter_list</i>
                         <p>Filters</p>
-                    </Button>
+                    </Btn>
                 </div>
             </div>
 
 
             {show &&  // if show is true, show the modal
-                <Modal title="Pick Your Poison" toggle={toggleModal} apply={applyFilters}>
+                <Modal title="Filters" toggle={toggleModal} apply={applyFilters}>
 
                     <div className={explorePageCSS.tagCatagory}>
                         <label>Rarity: </label>
@@ -90,8 +89,8 @@ export default function Header() {
                     </div>
 
                     <div className={modalCSS.options}>
-                        <Button onClick={toggleModal}>Cancel</Button>
-                        <Button onClick={applyFilters}>Apply</Button>
+                        <Btn onClick={toggleModal}>Cancel</Btn>
+                        <Btn onClick={applyFilters}>Apply</Btn>
                     </div>
                 </Modal>
             }
