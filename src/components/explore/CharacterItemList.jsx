@@ -11,12 +11,18 @@ async function getCharacters(){
     return response.json()
 }
 
+
 export default async function CharacterItemList() {
 
     const characters = await getCharacters();
 
-    const characterDataPromises = characters.map((character) => {
-        return useFetch(`https://genshin.jmp.blue/characters/${character}`);
+    const characterDataPromises = characters.map(async (character) => {
+        const characterData = await fetch(`https://genshin.jmp.blue/characters/${character}`, {
+            next: {
+                revalidate: 60 * 60 * 24 * 7 // weekly
+            }
+        })
+        return characterData.json();
     });
 
     const characterDataList = await Promise.all(characterDataPromises);
@@ -38,3 +44,4 @@ export default async function CharacterItemList() {
         </div>
     )
 }
+
