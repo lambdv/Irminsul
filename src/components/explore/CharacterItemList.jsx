@@ -2,24 +2,41 @@ import useFetch from '../../hooks/useFetch.js'
 import Item from '../../components/explore/Item.jsx'
 import explorePageCSS from '../../css/explorePage.module.css'
 
-
-export default async function CharacterItemList() {
-
-    const characters = await useFetch('https://genshin.jmp.blue/characters', {
+async function getCharacters(){
+    const response = await fetch('https://genshin.jmp.blue/characters', {
         next: {
             revalidate: 60 * 60 * 24 * 7 // weekly
         }
     })
+    return response.json()
+}
 
-    const filters = []
+export default async function CharacterItemList() {
+
+    const characters = await getCharacters();
+
+    const characterDataPromises = characters.map(async (character) => {
+        const characterData = await useFetch(`https://genshin.jmp.blue/characters/${character}`);
+        return characterData;
+    });
+
+    const characterDataList = await Promise.all(characterDataPromises);
 
     return (
         <div className={explorePageCSS.itemContainer}>
-            {
-                characters.map((character, index) => (
-                    <Item tags="HP Pyro Claymore 5-star" key={index} name={character} src={`https://raw.githubusercontent.com/scafiy/AkashaDB/main/images/characters/${character}/profile.png`}/> 
-                ))
-            } 
+
+            {characterDataList.map((characterData, index) => (
+                <Item 
+                    rarity={characterData.rarity}
+                    tags={ (characterData.rarity)+`-star ` + (characterData.vision) + ` ` + (characterData.weapon)} 
+                    key={index} 
+                    name={characterData.name}
+                    element={characterData.vision}
+                    src={`https://raw.githubusercontent.com/scafiy/Irminsul/master/src/assets/characters/${characters[index]}/profile.png`}
+                />
+            ))}
+
         </div>
     )
 }
+

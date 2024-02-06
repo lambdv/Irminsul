@@ -31,3 +31,50 @@
     background-color: rgba(77, 77, 77, 0.295);
     transition: ease-in-out 0.2s;
 }
+
+
+
+
+
+
+
+
+
+
+
+.roundBtn{
+    border-radius: 100px;
+    text-align: center;
+    margin:0px;
+    transition: ease-in-out;
+    outline: none;
+    border: none;
+    width:40px;
+    height: 40px;
+
+}   
+
+.roundBtn:active{
+    outline: none;
+    border: none;
+}
+
+.roundBtn div{
+    display: flex;
+}
+
+.roundBtn div i{
+    position: relative;
+    font-size: 25px;
+    margin-top:0px ;
+
+    text-align: center;
+    left:7.5px;
+    top:1px;
+
+}
+
+.roundBtn:hover{
+    background-color: rgba(77, 77, 77, 0.295);
+    transition: ease-in-out 0.2s;
+}

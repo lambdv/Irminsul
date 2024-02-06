@@ -1,4 +1,5 @@
 import modalCSS from '../../css/modal.module.css'
+import RoundBtn from '../ui/RoundBtn'
 
 export default function Modal(props) {
     return (
@@ -8,6 +9,9 @@ export default function Modal(props) {
             <div className={modalCSS.modal}>
                 <div className={modalCSS.header}>
                     <h1>{props.title}</h1>
+                    <div className={modalCSS.closeBTN}>
+                        <RoundBtn icon="close" onClick={props.toggle}/>
+                    </div>
                 </div>
 
                 <div className={modalCSS.body}>

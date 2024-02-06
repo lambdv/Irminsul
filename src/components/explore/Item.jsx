@@ -4,12 +4,13 @@ import ItemCSS from '../../css/item.module.css'
 export default function Item(props) {
     const src = props.src
     const name = props.name
+    const element = props.element.toLowerCase()
 
     return (
-        <div id={props.tags} className={ItemCSS.item + ` waves-effect waves-light ripple`} style={{width:"110px"}} >
+        <div id={props.tags} className={ItemCSS.item + ` waves-effect waves-light ripple ` + ` item `} style={{width:"110px"}} >
             <Link href={`/characters/${name}`}>
-                {/* <img className={ItemCSS.itemCategory} src="https://akashadb.netlify.app/images/icons/Dendro.png"/> */}
-                <div className={ItemCSS.itemIcon + ` bg-5-star`} alt="alt">
+                { props.element && <img className={ItemCSS.itemCategory} src={`https://raw.githubusercontent.com/scafiy/Irminsul/master/src/assets/icons/${element}.png`}/>}
+                <div className={ItemCSS.itemIcon + ` bg-${props.rarity}-star`} alt="alt">
                     <img src={src} className={ItemCSS.itemImg} alt="alt"/>
                 </div>
                 <p className={ItemCSS.itemText}>{name}</p>

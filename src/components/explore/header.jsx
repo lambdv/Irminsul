@@ -2,7 +2,7 @@
 import explorePageCSS from '../../css/explorePage.module.css'
 import modalCSS from '../../css/modal.module.css'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Modal from '../ui/modal'
 import Btn from '../ui/Btn'
 import Tag from '../ui/tag'
@@ -20,6 +20,22 @@ export default function Header() {
 
     const [ tempFilters, setTempFilters ] = useState([])
     const [ selectedFilters, setSelectedFilters ] = useState([])
+
+    useEffect(() => {
+        const items = document.querySelectorAll('.item');
+        items.forEach(item => {
+            const itemId = item.id;
+            
+            const containsAllFilters = selectedFilters.every(filter => itemId.includes(filter));
+
+            if (selectedFilters.length === 0 || containsAllFilters) {
+                item.style.display = 'block'; // Display the item
+            } else {
+                item.style.display = 'none'; // Hide the item
+            }
+        });
+    }, [selectedFilters]);
+    
 
     const toggleModal = () => {
         setShow(!show)

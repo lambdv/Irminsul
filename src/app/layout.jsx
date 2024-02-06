@@ -6,7 +6,6 @@ import Script from 'next/script'
 //components
 import Sidenav from "../components/navigation/Sidenav";
 import Topnav from "../components/navigation/Topnav";
-// import Button from "../components/ui/button";
 
 const inter = Inter({ subsets: ["latin"] });
 

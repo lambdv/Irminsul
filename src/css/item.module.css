@@ -5,6 +5,7 @@
     display: block;
     border-radius: 4px;
     background-color: #e9e5dc;
+    background-color: #2B271C;
     flex-shrink: 0;
     margin-left:5px ;
     margin-right:5px ;
@@ -14,6 +15,7 @@
     padding-left: 0px;
     text-decoration: none;
     overflow: hidden;
+    color:#C3BBB0;
 
     text-align: center ;
 }
@@ -60,6 +62,7 @@
     font-family: ingame;
     font-size: 14px;
     color: #495366;
+    color:#C3BBB0;
     background-color: transparent;
     margin-top: 3px;
     -webkit-user-drag: none;
@@ -67,6 +70,11 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+
+    
+    /* overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; */
 }
 
 .itemCategory{
@@ -75,7 +83,7 @@
     left: 2px;
     width: 25px;
     height: 25px;
-    z-index: 10;
+    z-index: 1;
     -webkit-user-drag: none;
     user-select: none;
     -moz-user-select: none;
@@ -88,18 +96,6 @@
     position: absolute;
     bottom: 0px;
     width: 100%;
-    padding: 10x;
-    background-color: #424651;
-}
-
-
-.dd{
-    position: relative;
-    width: 100%;
-    height: 70px;
     padding: 10px;
-    margin:0px;
-    color: white;
-    display: block;
-    margin-bottom: 5px;
+    background-color: #424651;
 }

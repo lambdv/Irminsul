@@ -4,16 +4,24 @@
     top:0px;
     left:0px;
     height: 60px;
-    overflow: hidden;
+    /* overflow: hidden; */
     /* background-color: rgb(17, 17, 17); */
     background-color: transparent;
     z-index: 10;
 }
 
+.topnav .hamburger{
+    display: flex;
+    width: 160px;
+    overflow: hidden;
+    padding-top:5px ;
+    padding-left: 15px;
+}
+
 .topnav #logo{
-    position: absolute;
-    top:15px;
-    left: 10px;
+    position: relative;
+    top:7px;
+    left: 5px;
     font-size: 1.2rem;
     font-weight: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -24,8 +32,7 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    background-color: transparent;
-    width: 100%;
+    width: 60%;
     padding: 10px;
 
 }
