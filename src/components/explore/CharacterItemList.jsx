@@ -15,9 +15,8 @@ export default async function CharacterItemList() {
 
     const characters = await getCharacters();
 
-    const characterDataPromises = characters.map(async (character) => {
-        const characterData = await useFetch(`https://genshin.jmp.blue/characters/${character}`);
-        return characterData;
+    const characterDataPromises = characters.map((character) => {
+        return useFetch(`https://genshin.jmp.blue/characters/${character}`);
     });
 
     const characterDataList = await Promise.all(characterDataPromises);
@@ -39,4 +38,3 @@ export default async function CharacterItemList() {
         </div>
     )
 }
-
