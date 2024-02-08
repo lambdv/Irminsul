@@ -5,9 +5,9 @@ import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 
-import TopnavCSS from "../../css/topnav.module.css"
-import RoundBtn from "../ui/RoundBtn";
-import SearchPallette from "./SearchPallette";
+import TopnavCSS from "@/css/topnav.module.css"
+import RoundBtn from "@/components/ui/RoundBtn";
+import SearchPallette from "@/components/navigation/SearchPallette";
 
 export default function Topnav() {
 

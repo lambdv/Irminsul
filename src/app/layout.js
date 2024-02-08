@@ -1,11 +1,11 @@
 import { Inter } from "next/font/google";
-import "../css/globals.css";
-import "../css/waves.css"
+import "@/css/globals.css";
+import "@/css/waves.css"
 import Script from 'next/script'
 
 //components
-import Sidenav from "../components/navigation/Sidenav";
-import Topnav from "../components/navigation/Topnav";
+import Sidenav from "@/components/navigation/Sidenav";
+import Topnav from "@/components/navigation/Topnav";
 
 const inter = Inter({ subsets: ["latin"] });
 

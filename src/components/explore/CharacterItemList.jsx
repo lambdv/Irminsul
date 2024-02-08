@@ -1,6 +1,6 @@
-import useFetch from '../../hooks/useFetch.js'
-import Item from '../../components/explore/Item.jsx'
-import explorePageCSS from '../../css/explorePage.module.css'
+import useFetch from '@/hooks/useFetch.js'
+import Item from '@/components/explore/Item.jsx'
+import explorePageCSS from '@/css/explorePage.module.css'
 
 async function getCharacters(){
     const response = await fetch('https://genshin.jmp.blue/characters', {

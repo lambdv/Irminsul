@@ -1,3 +1,4 @@
+import searchpalletteCSS from '@/css/searchpallette.module.css'
 
 export default function SearchPallette() {
     return (

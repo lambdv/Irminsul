@@ -1,7 +1,7 @@
 import React from 'react'; 
-import explorePageCSS from '../../../css/explorePage.module.css'
-import CharacterItemList from '../../../components/explore/CharacterItemList'
-import Header from '../../../components/explore/header'
+import explorePageCSS from '@/css/explorePage.module.css'
+import CharacterItemList from '@/components/explore/CharacterItemList'
+import Header from '@/components/explore/header'
 
 export const metadata = {
   title: "Characters | Irminsul",

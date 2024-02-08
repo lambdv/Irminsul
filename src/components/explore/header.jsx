@@ -1,13 +1,15 @@
 "use client"
-import explorePageCSS from '../../css/explorePage.module.css'
-import modalCSS from '../../css/modal.module.css'
 
 import { useState, useEffect } from 'react'
-import Modal from '../ui/modal'
-import Btn from '../ui/Btn'
-import Tag from '../ui/tag'
 import Image from 'next/image'
-import characterIcon from '../../assets/icons/characterIcon.png'
+
+import explorePageCSS from '@/css/explorePage.module.css'
+import modalCSS from '@/css/modal.module.css'
+
+import Modal from '@/components/ui/modal'
+import Btn from '@/components/ui/Btn'
+import Tag from '@/components/ui/tag'
+import characterIcon from '@/assets/icons/characterIcon.png'
 
 export default function Header() {
 

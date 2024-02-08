@@ -1,6 +1,4 @@
-
-
-import TagCSS from '../../css/tag.module.css'
+import TagCSS from '@/css/tag.module.css'
 
 export default function chip(props) {
 

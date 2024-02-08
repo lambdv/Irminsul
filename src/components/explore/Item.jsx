@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import ItemCSS from '../../css/item.module.css'
+import ItemCSS from '@/css/item.module.css'
 
 export default function Item(props) {
     const src = props.src
