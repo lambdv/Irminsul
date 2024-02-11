@@ -21,10 +21,9 @@ export default function Topnav() {
 
   const pathname = usePathname();
 
-
   const showPallette = () => {
 
-    return (!usePathname().includes("characters") && SearchQuery.replace(" ", "") !== "");
+    return (!pathname.includes("characters") && SearchQuery.replace(" ", "") !== "");
   };
 
   return (
