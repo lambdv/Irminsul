@@ -10,39 +10,42 @@ export default function CharacterItemList(props) {
 
     const characters = props.characters
     const { SearchQuery } = SearchStore()
-    const { selectedCharacterFilters, posibleCharacterRarityFilters, posibleCharacterElementFilters, posibleCharacterWeaponFilters, posibleCharacterStatFilters } = CharacterFilterStore()
+    const { selectedCharacterFilters, possibleCharacterRarityFilters, possibleCharacterElementFilters, possibleCharacterWeaponFilters, possibleCharacterStatFilters } = CharacterFilterStore()
 
     const filterItems = () => {
+        if(selectedCharacterFilters.length === 0 && SearchQuery === "") return characters //if search and filters empty then just return characters
+
         return characters.filter((character) => {
 
-            const characterRarity = character.rarity + "-star"
-            const characterElement = character.vision
-            const characterWeapon = character.weapon
-            // const characterStat = character.stat
-            const characterTags = []
-            characterTags.push(characterRarity, characterElement, characterWeapon)
+            //tags this character has
+            const characterTags = [ character.rarity + "-star", character.vision, character.weapon ]
 
-            const selectedRarityFilters = posibleCharacterRarityFilters.filter((tag) => selectedCharacterFilters.includes(tag))
-            const selectedElementFilters = posibleCharacterElementFilters.filter((tag) => selectedCharacterFilters.includes(tag))
-            const selectedWeaponFilters = posibleCharacterWeaponFilters.filter((tag) => selectedCharacterFilters.includes(tag))
-            // const selectedStatFilters = posibleCharacterStatFilters.filter((tag) => selectedCharacterFilters.includes(tag))
+            //partition the selected filters into categories 
+            const selectedRarityFilters = possibleCharacterRarityFilters.filter((tag) => selectedCharacterFilters.includes(tag))
+            const selectedElementFilters = possibleCharacterElementFilters.filter((tag) => selectedCharacterFilters.includes(tag))
+            const selectedWeaponFilters = possibleCharacterWeaponFilters.filter((tag) => selectedCharacterFilters.includes(tag))
+            const selectedStatFilters = possibleCharacterStatFilters.filter((tag) => selectedCharacterFilters.includes(tag))
+
+            //character pass a check for each filter category if they have at least one tag from the partition or if the partition is empty
+            let rarityCheck = selectedRarityFilters.length > 0 ? selectedRarityFilters.some((tag) => characterTags.includes(tag)) : true
+            let elementCheck = selectedElementFilters.length > 0 ? selectedElementFilters.some((tag) => characterTags.includes(tag)) : true
+            let weaponCheck = selectedWeaponFilters.length > 0 ? selectedWeaponFilters.some((tag) => characterTags.includes(tag)) : true
+            let statCheck = selectedStatFilters.length > 0 ? selectedStatFilters.some((tag) => characterTags.includes(tag)) : true
 
             if (selectedCharacterFilters.length > 0 && SearchQuery !== "") { 
-                return character.name.toLowerCase().includes(SearchQuery.toLowerCase()) && selectedCharacterFilters.every((tag) => characterTags.includes(tag));
+                return character.name.toLowerCase().includes(SearchQuery.toLowerCase()) && rarityCheck && elementCheck && weaponCheck
             }
             if (selectedCharacterFilters.length > 0){ 
-                return selectedCharacterFilters.every((tag) => characterTags.includes(tag));
+                return rarityCheck && elementCheck && weaponCheck
             }
             if (SearchQuery !== ""){  
                 return character.name.toLowerCase().includes(SearchQuery.toLowerCase()) 
             }
-            return characters;
         })
     }
 
     return (
         <div className={explorePageCSS.itemContainer}>
-
             {filterItems().map((character, index) => (
                 <Item 
                     rarity={character.rarity}
@@ -52,8 +55,6 @@ export default function CharacterItemList(props) {
                     src={`https://raw.githubusercontent.com/scafiy/Irminsul/master/src/assets/characters/${character.name.toLowerCase().replace(" ", "")}/profile.png`}
                 />
             ))}
-
         </div>
     )
 }
-
