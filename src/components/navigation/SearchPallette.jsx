@@ -1,9 +1,11 @@
 import searchpalletteCSS from '@/css/searchpallette.module.css'
+import { SearchStore } from '@/store/Search'
 
-export default function SearchPallette() {
+export default function SearchPalette() {
+    const { SearchQuery } = SearchStore()
     return (
-        <>
-            <h1>results:</h1>
-        </>
+        <div className='SearchPallette'>
+            {SearchQuery}
+        </div>
     )
 }

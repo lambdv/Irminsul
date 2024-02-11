@@ -58,7 +58,7 @@ export default function Sidenav() {
         <button className={` waves-effect waves-light ripple`}>
         <Image src={teamIcon} alt="" />
         </button>
-        <p>TeamDPS</p>
+        <p>Teams</p>
       </Link>
     </nav>
   )

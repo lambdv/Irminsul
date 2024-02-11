@@ -1,14 +1,13 @@
 import { Inter } from "next/font/google";
-import "@/css/globals.css";
-import "@/css/waves.css"
 import Script from 'next/script'
 
-//components
+import "@/css/globals.css";
+import "@/css/waves.css"
+
 import Sidenav from "@/components/navigation/Sidenav";
 import Topnav from "@/components/navigation/Topnav";
 
 const inter = Inter({ subsets: ["latin"] });
-
 export const metadata = {
   title: "Irminsul",
   description: "Information Respository for Genshin Impact.",
@@ -23,13 +22,13 @@ export default function RootLayout({ children }) {
       </head>
 
       <body className={inter.className}>
-        <Topnav/>
-        <div className="wrapper">
-          <Sidenav/>
-          <main id="content">
-            {children}
-          </main>
-        </div>
+          <Topnav/>
+          <div className="wrapper">
+            <Sidenav/>
+            <main id="content">
+              {children}
+            </main>
+          </div>
         <Script src="../js/waves.js" />
       </body>
 

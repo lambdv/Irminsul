@@ -9,24 +9,23 @@ import TopnavCSS from "@/css/topnav.module.css"
 import RoundBtn from "@/components/ui/RoundBtn";
 import SearchPallette from "@/components/navigation/SearchPallette";
 
+import { SearchStore } from "@/store/Search";
+
 export default function Topnav() {
 
   const toggleMenu = () => {
     alert("toggle menu")
   }
 
-  const [query, setQuery] = useState("");
-  const updateQuery = (e) => setQuery(e.target.value);
+  const { SearchQuery, updateQuery } = SearchStore();
 
   const pathname = usePathname();
 
-  const isNotExplorePage = () =>{
-    return (pathname !== "/characters") //return true if not on explore page
-  }
 
-  const showPallette = () =>{
-    return (query.length > 0 && isNotExplorePage() === true)
-  }
+  const showPallette = () => {
+
+    return (!usePathname().includes("characters") && SearchQuery.replace(" ", "") !== "");
+  };
 
   return (
     <nav className={TopnavCSS.topnav}>
@@ -42,13 +41,13 @@ export default function Topnav() {
             className={TopnavCSS.searchBar} 
             style={{ userSelect: "none" }} 
             placeholder="Search" 
-            value={query}
+            value={SearchQuery}
             onChange={updateQuery}
           />
 
-          {
-            showPallette() && <SearchPallette/>
-          }
+          {/* { 
+            showPallette && <SearchPallette/> 
+          } */}
           
       </div>
 

@@ -8,10 +8,10 @@ export default function Item(props) {
 
     return (
         <div id={props.tags} className={ItemCSS.item + ` waves-effect waves-light ripple ` + ` item `} style={{width:"110px"}} >
-            <Link href={`/characters/${name}`}>
+            <Link href={`/characters/${name.toLowerCase().replace(" ", "-")}`}>
                 { props.element && <img className={ItemCSS.itemCategory} src={`https://raw.githubusercontent.com/scafiy/Irminsul/master/src/assets/icons/${element}.png`}/>}
-                <div className={ItemCSS.itemIcon + ` bg-${props.rarity}-star`} alt="alt">
-                    <img src={src} className={ItemCSS.itemImg} alt="alt"/>
+                <div className={ItemCSS.itemIcon + ` bg-${props.rarity}-star`}>
+                    <img src={src} className={ItemCSS.itemImg} alt=" "/>
                 </div>
                 <p className={ItemCSS.itemText}>{name}</p>
             </Link>

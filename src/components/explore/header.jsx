@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 
 import explorePageCSS from '@/css/explorePage.module.css'
@@ -11,37 +11,25 @@ import Btn from '@/components/ui/Btn'
 import Tag from '@/components/ui/tag'
 import characterIcon from '@/assets/icons/characterIcon.png'
 
-export default function Header() {
+import { CharacterFilterStore } from '@/store/CharacterFilters'
+
+export default function Header(props) {
 
     const [show, setShow] = useState(false)
 
-    let rarityFilterList = ["5-star", "4-star"]
-    let elementFilterList = ["Pyro", "Hydro", "Dendro", "Electro", "Anemo", "Cryo", "Geo"]
-    let weaponFilterList = ["Sword", "Claymore", "Bow", "Polearm", "Catalyst"]
-    let ascensionFilterList = ["ATK", "DEF", "HP", "Crit Rate", "Crit DMG", "Elemental Mastery", "Energy Recharge"]
+    const { posibleCharacterRarityFilters, posibleCharacterElementFilters, posibleCharacterWeaponFilters, posibleCharacterStatFilters } = CharacterFilterStore()
+
+    let rarityFilterList = posibleCharacterRarityFilters
+    let elementFilterList = posibleCharacterElementFilters
+    let weaponFilterList = posibleCharacterWeaponFilters
+    let ascensionFilterList = posibleCharacterStatFilters
 
     const [ tempFilters, setTempFilters ] = useState([])
-    const [ selectedFilters, setSelectedFilters ] = useState([])
-
-    useEffect(() => {
-        const items = document.querySelectorAll('.item');
-        items.forEach(item => {
-            const itemId = item.id;
-            
-            const containsAllFilters = selectedFilters.every(filter => itemId.includes(filter));
-
-            if (selectedFilters.length === 0 || containsAllFilters) {
-                item.style.display = 'block'; // Display the item
-            } else {
-                item.style.display = 'none'; // Hide the item
-            }
-        });
-    }, [selectedFilters]);
-    
+    const { selectedCharacterFilters, setSelectedCharacterFilters } = CharacterFilterStore()
 
     const toggleModal = () => {
         setShow(!show)
-        setTempFilters(selectedFilters) //clear changes
+        setTempFilters(selectedCharacterFilters) //clear changes
     }
 
     const selectTag = (e) => {
@@ -51,19 +39,18 @@ export default function Header() {
     }
 
     const applyFilters = () => {
-        setSelectedFilters(tempFilters)
+        setSelectedCharacterFilters(tempFilters)
         setShow(false)
     }
-
 
     return (
         <>
             <div className={explorePageCSS.header}>
                 <div className='flex'>
                     <Image src={characterIcon} alt=''/>
-                    <h1 className={explorePageCSS.ingameTitle}>Character Archive</h1>
+                    <h1 className={explorePageCSS.ingameTitle}>{props.title}</h1>
                 </div>
-                {selectedFilters}
+                {selectedCharacterFilters}
 
                 <div className={explorePageCSS.controller}>
                     <Btn onClick={toggleModal}> 
@@ -79,31 +66,23 @@ export default function Header() {
 
                     <div className={explorePageCSS.tagCatagory}>
                         <label>Rarity: </label>
-                        {rarityFilterList.map((filter, index) => {
-                            return <Tag key={index} onClick={selectTag} selected={tempFilters.includes(filter)}>{filter}</Tag>
-                        })}
+                        {rarityFilterList.map((filter, index) => { return <Tag key={index} onClick={selectTag} selected={tempFilters.includes(filter)}>{filter}</Tag> })}
                     </div>
                     
                     <div className={explorePageCSS.tagCatagory}>
                         <label>Element: </label>
-                        {elementFilterList.map((filter, index) => {
-                            return <Tag key={index} onClick={selectTag} selected={tempFilters.includes(filter)}>{filter}</Tag>
-                        })}
+                        {elementFilterList.map((filter, index) => { return <Tag key={index} onClick={selectTag} selected={tempFilters.includes(filter)}>{filter}</Tag> })}
 
                     </div>
 
                     <div className={explorePageCSS.tagCatagory}>
                         <label>Weapon: </label>
-                        {weaponFilterList.map((filter, index) => {
-                            return <Tag key={index} onClick={selectTag} selected={tempFilters.includes(filter)}>{filter}</Tag>
-                        })}
+                        {weaponFilterList.map((filter, index) => { return <Tag key={index} onClick={selectTag} selected={tempFilters.includes(filter)}>{filter}</Tag> })}
                     </div>
 
                     <div className={explorePageCSS.tagCatagory}>
                         <label>Ascension Stat: </label>
-                        {ascensionFilterList.map((filter, index) => {
-                            return <Tag key={index} onClick={selectTag} selected={tempFilters.includes(filter)}>{filter}</Tag>
-                        })}
+                        {ascensionFilterList.map((filter, index) => { return <Tag key={index} onClick={selectTag} selected={tempFilters.includes(filter)}>{filter}</Tag> })}
                     </div>
 
                     <div className={modalCSS.options}>

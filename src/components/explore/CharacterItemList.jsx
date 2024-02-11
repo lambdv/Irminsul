@@ -1,43 +1,55 @@
+"use client"
+import explorePageCSS from '@/css/explorePage.module.css'
 import useFetch from '@/hooks/useFetch.js'
 import Item from '@/components/explore/Item.jsx'
-import explorePageCSS from '@/css/explorePage.module.css'
-
-async function getCharacters(){
-    const response = await fetch('https://genshin.jmp.blue/characters', {
-        next: {
-            revalidate: 60 * 60 * 24 * 7 // weekly
-        }
-    })
-    return response.json()
-}
+import { SearchStore } from '@/store/Search'
+import { CharacterFilterStore } from '@/store/CharacterFilters'
 
 
-export default async function CharacterItemList() {
+export default function CharacterItemList(props) {
 
-    const characters = await getCharacters();
+    const characters = props.characters
+    const { SearchQuery } = SearchStore()
+    const { selectedCharacterFilters, posibleCharacterRarityFilters, posibleCharacterElementFilters, posibleCharacterWeaponFilters, posibleCharacterStatFilters } = CharacterFilterStore()
 
-    const characterDataPromises = characters.map(async (character) => {
-        const characterData = await fetch(`https://genshin.jmp.blue/characters/${character}`, {
-            next: {
-                revalidate: 60 * 60 * 24 * 7 // weekly
+    const filterItems = () => {
+        return characters.filter((character) => {
+
+            const characterRarity = character.rarity + "-star"
+            const characterElement = character.vision
+            const characterWeapon = character.weapon
+            // const characterStat = character.stat
+            const characterTags = []
+            characterTags.push(characterRarity, characterElement, characterWeapon)
+
+            const selectedRarityFilters = posibleCharacterRarityFilters.filter((tag) => selectedCharacterFilters.includes(tag))
+            const selectedElementFilters = posibleCharacterElementFilters.filter((tag) => selectedCharacterFilters.includes(tag))
+            const selectedWeaponFilters = posibleCharacterWeaponFilters.filter((tag) => selectedCharacterFilters.includes(tag))
+            // const selectedStatFilters = posibleCharacterStatFilters.filter((tag) => selectedCharacterFilters.includes(tag))
+
+            if (selectedCharacterFilters.length > 0 && SearchQuery !== "") { 
+                return character.name.toLowerCase().includes(SearchQuery.toLowerCase()) && selectedCharacterFilters.every((tag) => characterTags.includes(tag));
             }
+            if (selectedCharacterFilters.length > 0){ 
+                return selectedCharacterFilters.every((tag) => characterTags.includes(tag));
+            }
+            if (SearchQuery !== ""){  
+                return character.name.toLowerCase().includes(SearchQuery.toLowerCase()) 
+            }
+            return characters;
         })
-        return characterData.json();
-    });
-
-    const characterDataList = await Promise.all(characterDataPromises);
+    }
 
     return (
         <div className={explorePageCSS.itemContainer}>
 
-            {characterDataList.map((characterData, index) => (
+            {filterItems().map((character, index) => (
                 <Item 
-                    rarity={characterData.rarity}
-                    tags={ (characterData.rarity)+`-star ` + (characterData.vision) + ` ` + (characterData.weapon)} 
+                    rarity={character.rarity}
                     key={index} 
-                    name={characterData.name}
-                    element={characterData.vision}
-                    src={`https://raw.githubusercontent.com/scafiy/Irminsul/master/src/assets/characters/${characters[index]}/profile.png`}
+                    name={character.name}
+                    element={character.vision}
+                    src={`https://raw.githubusercontent.com/scafiy/Irminsul/master/src/assets/characters/${character.name.toLowerCase().replace(" ", "")}/profile.png`}
                 />
             ))}
 
