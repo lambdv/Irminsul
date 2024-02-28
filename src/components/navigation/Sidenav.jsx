@@ -14,6 +14,8 @@ import weaponIcon from '@/assets/icons/weaponIcon.png'
 import artifactIcon from '@/assets/icons/artifactIcon.png'
 import teamIcon from '@/assets/icons/teamIcon.png'
 import leafIcon from '@/assets/icons/leaf.png'
+import enemyIcon from '@/assets/icons/enemyIcon.png'
+import wishIcon from '@/assets/icons/wish.png'
 
 
 export default function Sidenav() {
@@ -53,6 +55,20 @@ export default function Sidenav() {
         </button>
         <p>Artifacts</p>
       </Link>
+
+      {/* <Link href="/banners" className={pathname.includes('banners') ? 'active' : ''}>
+        <button className={` waves-effect waves-light ripple`}>
+          <Image src={wishIcon} alt="" />
+        </button>
+        <p>Banners</p>
+      </Link>
+
+      <Link href="/enemies" className={pathname.includes('enemies') ? 'active' : ''}>
+        <button className={` waves-effect waves-light ripple`}>
+          <Image src={enemyIcon} alt="" />
+        </button>
+        <p>Enemies</p>
+      </Link> */}
 
       <Link href="/teams" className={pathname.includes('teams') ? 'active' : ''}>
         <button className={` waves-effect waves-light ripple`}>

@@ -1,7 +1,7 @@
 import React from 'react'; 
 import explorePageCSS from '@/css/explorePage.module.css'
 import CharacterItemList from '@/components/explore/CharacterItemList'
-import Header from '@/components/explore/header'
+import BrowseHeader from '@/components/explore/BrowseHeader'
 
 export const metadata = {
   title: "Characters | Irminsul",
@@ -19,7 +19,6 @@ async function getCharacters(){
 export default async function Characters() {
 
   const characters = await getCharacters();
-
   const characterDataPromises = characters.map(async (character) => {
     const characterData = await fetch(`https://genshin.jmp.blue/characters/${character}`, {
         next: {
@@ -28,12 +27,11 @@ export default async function Characters() {
     })
     return characterData.json();
   });
-
   const characterDataList = await Promise.all(characterDataPromises);
 
   return (
     <div id="characters-page">
-      <Header title="Character Archive"/>
+      <BrowseHeader page="character"/>
       <CharacterItemList characters={characterDataList}/>
     </div>
   );

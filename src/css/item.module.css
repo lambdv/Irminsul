@@ -60,7 +60,6 @@
     margin-right:auto ;
     text-align: center;
     font-family: ingame;
-    font-size: 14px;
     color: #495366;
     color:#C3BBB0;
     background-color: transparent;
@@ -71,7 +70,8 @@
     -webkit-user-select: none;
     -ms-user-select: none;
 
-    
+    font-size: 12px;
+
     /* overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; */

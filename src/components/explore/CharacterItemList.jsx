@@ -48,11 +48,12 @@ export default function CharacterItemList(props) {
         <div className={explorePageCSS.itemContainer}>
             {filterItems().map((character, index) => (
                 <Item 
-                    rarity={character.rarity}
                     key={index} 
+                    category="character"
                     name={character.name}
+                    rarity={character.rarity}
                     element={character.vision}
-                    src={`https://raw.githubusercontent.com/scafiy/Irminsul/master/src/assets/characters/${character.name.toLowerCase().replace(" ", "")}/profile.png`}
+                    src={`https://raw.githubusercontent.com/scafiy/Irminsul/master/src/assets/characters/${character.name.toLowerCase().replaceAll(" ", "-")}/profile.png`}
                 />
             ))}
         </div>
