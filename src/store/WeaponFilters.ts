@@ -1,5 +1,14 @@
-import { create } from 'zustand';
-export const WeaponFilterStore = create((set) => ({
+import create from 'zustand';
+
+type State = {
+    selectedWeaponFilters: string[];
+    setSelectedWeaponFilters: (newFilters: string[]) => void;
+    possibleWeaponRarityFilters: string[];
+    possibleWeaponTypeFilters: string[];
+    possibleWeaponStatFilters: string[];
+};
+
+export const WeaponFilterStore = create<State>((set) => ({
     selectedWeaponFilters: [],
     setSelectedWeaponFilters: (newFilters) => set((state) => {
         return { selectedWeaponFilters: newFilters }

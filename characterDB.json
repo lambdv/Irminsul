@@ -1,0 +1,41 @@
+{
+    "characters": [
+        { "name": "amber",
+            "id": 1,
+            "keywords": ["amber", "outrider"],
+            "rarity": 4,
+            "element": "pyro",
+            "weapon": "bow",
+            "region": "mondstadt",
+            "basestats": [
+                [
+                    {"level": 90},
+                    {"baseHP": 9461},
+                    {"baseDEF": 601},
+                    {"ATK%": 24.0}
+                ]
+            ],
+            "ascensionStat": "ATK%",
+            "description": "Always energetic and full of life, Amber's the best — albeit only — Outrider of the Knights of Favonius.",
+            "talents": [
+                {"normalATK1": 0.1},
+                {"normalATK2": 0.3},
+                {"normalATK3": 0.4},
+                {"normalATK4": 1.2}
+            ],
+            "passives": [
+                {"Gliding Champion": "Decreases gliding Stamina consumption for your own party members by 20%. Not stackable with Passive Talents that provide the exact same effects."},
+                {"Every Arrow Finds Its Target": "Increases the CRIT Rate of Fiery Rain by 10% and widens its AoE by 30%."},
+                {"Precise Shot": "Aimed Shot hits on weak spots increase ATK by 15% for 10s."}
+            ],
+            "constellations": [
+                {"C1: One Arrow to Rule Them All": "Fires 2 arrows per Aimed Shot. The second arrow deals 20% of the first arrow's DMG."},
+                {"C2: Bunny Triggered": "Baron Bunny, new and improved! Hitting Baron Bunny's foot with a fully-charged Aimed Shot manually detonates it. Explosion via manual detonation deals 200% additional DMG."},
+                {"C3: It Burns!": "Increases the Level of Fiery Rain by 3.Maximum upgrade level is 15."},
+                {"C4: It's Not Just Any Doll...": "Decreases Explosive Puppet's CD by 20%. Adds 1 additional charge."},
+                {"C5: It's Baron Bunny!": "Increases the Level of Explosive Puppet by 3. Maximum upgrade level is 15."},
+                {"C6: Wildfire": "Fiery Rain increases all party members' Movement SPD by 15% and ATK by 15% for 10s."}
+            ]
+        }
+    ]
+}

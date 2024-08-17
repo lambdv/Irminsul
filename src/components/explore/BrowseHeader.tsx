@@ -6,7 +6,7 @@ import Image from 'next/image'
 import explorePageCSS from '@/css/explorePage.module.css'
 import modalCSS from '@/css/modal.module.css'
 
-import Modal from '@/components/ui/modal'
+import Modal from '@/components/ui/Modal'
 import Btn from '@/components/ui/Btn'
 import Tag from '@/components/ui/Tag'
 import characterIcon from '@/assets/icons/characterIcon.png'

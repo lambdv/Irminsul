@@ -1,7 +1,7 @@
 "use client"
 import explorePageCSS from '@/css/explorePage.module.css'
-import useFetch from '@/hooks/useFetch.js'
-import Item from '@/components/explore/Item.jsx'
+import useFetch from '@/hooks/useFetch'
+import Item from '@/components/explore/Item'
 import { SearchStore } from '@/store/Search'
 import { CharacterFilterStore } from '@/store/CharacterFilters'
 

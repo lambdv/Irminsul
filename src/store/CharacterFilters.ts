@@ -1,6 +1,15 @@
 import { create } from 'zustand';
 
-export const CharacterFilterStore = create((set) => ({
+type State = {
+    selectedCharacterFilters: string[];
+    setSelectedCharacterFilters: (newFilters: string[]) => void;
+    possibleCharacterRarityFilters: string[];
+    possibleCharacterElementFilters: string[];
+    possibleCharacterWeaponFilters: string[];
+    possibleCharacterStatFilters: string[];
+};
+
+export const CharacterFilterStore = create<State>((set) => ({
     selectedCharacterFilters: [],
     setSelectedCharacterFilters: (newFilters) => set((state) => {
         return { selectedCharacterFilters: newFilters }
