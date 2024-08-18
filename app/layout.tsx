@@ -1,37 +1,33 @@
 import { Inter } from "next/font/google";
-import Script from 'next/script'
-
-import "@/css/globals.css";
-import "@/css/waves.css"
-
+import Script from 'next/script';
+import "@/styles/index.css";
+import "@/styles/waves.css";
 import Sidenav from "@/components/navigation/Sidenav";
 import Topnav from "@/components/navigation/Topnav";
 
 const inter = Inter({ subsets: ["latin"] });
+
 export const metadata = {
   title: "Irminsul",
-  description: "Information Respository for Genshin Impact.",
+  description: "Genshin Impact Database",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-
       <head>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
       </head>
-
       <body className={inter.className}>
-          <Topnav/>
-          <div className="wrapper">
-            <Sidenav/>
-            <main id="content">
-              {children}
-            </main>
-          </div>
-        <Script src="../js/waves.js" />
+        <Topnav/>
+        <div className="wrapper">
+          <Sidenav/>
+          <main id="content">
+            {children}
+          </main>
+        </div>
+        <Script src="./waves.js" />
       </body>
-
     </html>
   );
 }

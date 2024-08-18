@@ -1,4 +1,4 @@
-import modalCSS from '@/css/modal.module.css'
+import modalCSS from './modal.module.css'
 import RoundBtn from '@/components/ui/RoundBtn'
 
 export default function Modal(props) {

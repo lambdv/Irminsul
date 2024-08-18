@@ -3,13 +3,13 @@
 import { useState } from 'react'
 import Image from 'next/image'
 
-import explorePageCSS from '@/css/explorePage.module.css'
-import modalCSS from '@/css/modal.module.css'
+import explorePageCSS from '@/styles/explorePage.module.css'
+import modalCSS from '@/components/ui/modal.module.css'
 
 import Modal from '@/components/ui/Modal'
 import Btn from '@/components/ui/Btn'
 import Tag from '@/components/ui/Tag'
-import characterIcon from '@/assets/icons/characterIcon.png'
+import characterIcon from '@/public/assets/icons/characterIcon.png'
 
 import { CharacterFilterStore } from '@/store/CharacterFilters'
 import { WeaponFilterStore } from '@/store/WeaponFilters'

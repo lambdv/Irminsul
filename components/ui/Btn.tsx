@@ -1,5 +1,5 @@
 "use client"
-import ButtonCSS from '@/css/button.module.css'
+import ButtonCSS from './button.module.css'
 
 export default function Btn(props) {
   return (<>

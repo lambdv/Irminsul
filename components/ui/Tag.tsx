@@ -1,4 +1,4 @@
-import TagCSS from '@/css/tag.module.css'
+import TagCSS from './tag.module.css'
 
 export default function Tag(props) {
   const selected = props.selected

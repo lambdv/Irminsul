@@ -1,5 +1,5 @@
 import React from 'react'; 
-import explorePageCSS from '@/css/explorePage.module.css'
+import explorePageCSS from '@/app/explorePage.module.css'
 import CharacterItemList from '@/components/explore/CharacterItemList'
 import BrowseHeader from '@/components/explore/BrowseHeader'
 
@@ -31,7 +31,7 @@ export default async function Characters() {
 
   return (
     <div id="characters-page">
-      <BrowseHeader page="character"/>
+      <BrowseHeader page="character" title="Characters"/>
       <CharacterItemList characters={characterDataList}/>
     </div>
   );

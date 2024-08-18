@@ -1,5 +1,5 @@
 "use client"
-import explorePageCSS from '@/css/explorePage.module.css'
+import explorePageCSS from '@/styles/explorePage.module.css'
 import useFetch from '@/hooks/useFetch'
 import Item from '@/components/explore/Item'
 import { SearchStore } from '@/store/Search'
@@ -17,7 +17,7 @@ export default function CharacterItemList(props) {
 
         return characters.filter((character) => {
 
-            //tags this character has
+            //tags this character hasexplorePageCSS
             const characterTags = [ character.rarity + "-star", character.vision, character.weapon ]
 
             //partition the selected filters into categories 

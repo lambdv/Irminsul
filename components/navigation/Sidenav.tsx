@@ -4,18 +4,18 @@ import Link from "next/link";
 import { usePathname } from 'next/navigation'
 import Image from "next/image";
 import { useEffect } from "react";
-import Waves from '@/js/waves'
+import Waves from '@/hooks/waves'
 import Script from "next/script";
-import SidenavCSS from "@/css/sidenav.module.css"
+import SidenavCSS from "./sidenav.module.css"
 
 //images
-import characterIcon from '@/assets/icons/characterIcon.png'
-import weaponIcon from '@/assets/icons/weaponIcon.png'
-import artifactIcon from '@/assets/icons/artifactIcon.png'
-import teamIcon from '@/assets/icons/teamIcon.png'
-import leafIcon from '@/assets/icons/leaf.png'
-import enemyIcon from '@/assets/icons/enemyIcon.png'
-import wishIcon from '@/assets/icons/wish.png'
+import characterIcon from '@/public/assets/icons/characterIcon.png'
+import weaponIcon from '@/public/assets/icons/weaponIcon.png'
+import artifactIcon from '@/public/assets/icons/artifactIcon.png'
+import teamIcon from '@/public/assets/icons/teamIcon.png'
+import leafIcon from '@/public/assets/icons/leaf.png'
+import enemyIcon from '@/public/assets/icons/enemyIcon.png'
+import wishIcon from '@/public/assets/icons/wish.png'
 
 
 export default function Sidenav() {

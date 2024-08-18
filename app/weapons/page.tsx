@@ -1,5 +1,5 @@
 import React from 'react'; 
-import explorePageCSS from '@/css/explorePage.module.css'
+import explorePageCSS from '@/styles/explorePage.module.css'
 import WeaponItemList from '@/components/explore/WeaponItemList'
 import BrowseHeader from '@/components/explore/BrowseHeader'
 
