@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
 import Image from "next/image";
-import { useEffect } from "react";
+import { use, useEffect, useState } from "react";
 import Waves from '@/hooks/waves'
 import Script from "next/script";
 import SidenavCSS from "./sidenav.module.css"
+import modalCSS from '../ui/modal.module.css'
+import { NavigationStore } from "@/store/Navigation";
 
 //images
 import characterIcon from '@/public/assets/icons/characterIcon.png'
@@ -17,65 +19,67 @@ import leafIcon from '@/public/assets/icons/leaf.png'
 import enemyIcon from '@/public/assets/icons/enemyIcon.png'
 import wishIcon from '@/public/assets/icons/wish.png'
 
-
 export default function Sidenav() {
-  const pathname = usePathname()
-
-  useEffect(() => {
+  const pathname = usePathname(); //get url path
+  
+  useEffect(() => { //initialize waves effect
     Waves.attach('.ripple', ['waves-effect', 'waves-light']);
     Waves.init();
   }, []);
 
+  
+  const { sideNavCollapsed, setSideNavCollapsed } = NavigationStore(); //get sidenav state
+
+  useEffect(() => { //handle sidenav state based on window width
+    const handleSidenavState = (): void => {
+      let width = window.innerWidth;
+      if (width > 1200)
+        setSideNavCollapsed(false);
+      if (width <= 1200 && width >= 768)
+        setSideNavCollapsed(true);
+    }
+
+    handleSidenavState();
+
+    if (window.innerWidth < 768) 
+      setSideNavCollapsed(true);
+
+    window.addEventListener('resize', handleSidenavState);
+  }, []);
+
   return (
-    <nav className={SidenavCSS.sidenav}>
-      <Link href="/" className={pathname === '/' ? 'active' : ''}>
-        <button className={` waves-effect waves-light ripple`}>
-          <Image src={leafIcon} alt="" className="SidenavCSS.iconImage"/>
-        </button>
-        <p>Home</p>
-      </Link>
+    <div>   
+      <nav className={SidenavCSS.sidenav + " " + (sideNavCollapsed ? SidenavCSS.sidenavCollapsed : '')}>
+        <Link href="/" className={SidenavCSS.sidenavLink +' '+ (pathname === '/' ? SidenavCSS.active : '') + (!sideNavCollapsed ? ' waves-effect waves-light ripple' : ' ')}>
+            <i className={SidenavCSS.sidenavLinkSymbol + ' material-symbols-outlined'}>
+              home
+            </i>
+            <p>Home</p>
+        </Link>
 
-      <Link href="/characters" className={pathname.includes('characters') ? 'active' : ''}>
-        <button className={` waves-effect waves-light ripple`}>
-          <Image src={characterIcon} alt="" />
-        </button>
-        <p>Characters</p>
-      </Link>
+        <Link href="/characters" className={SidenavCSS.sidenavLink +' '+ (pathname === '/characters' ? SidenavCSS.active : '') + (!sideNavCollapsed ? ' waves-effect waves-light ripple' : ' ')}>
+            <i className={SidenavCSS.sidenavLinkSymbol + ' material-symbols-outlined'}>
+              <Image src={characterIcon} alt="characters" width={100} height={100}/>
+            </i>
+            <p>Characters</p>
+        </Link>
 
-      <Link href="/weapons" className={pathname.includes('weapons') ? 'active' : ''}>
-        <button className={` waves-effect waves-light ripple`}>
-          <Image src={weaponIcon} alt="" />
-        </button>
-        <p>Weapons</p>
-      </Link>
+        <Link href="/weapons" className={SidenavCSS.sidenavLink +' '+ (pathname === '/weapons' ? SidenavCSS.active : '') + (!sideNavCollapsed ? ' waves-effect waves-light ripple' : ' ')}>
+            <i className={SidenavCSS.sidenavLinkSymbol + ' material-symbols-outlined'}>
+              <Image src={weaponIcon} alt="weapons" width={100} height={100}/>
+            </i>
 
-      <Link href="/artifacts" className={pathname.includes('artifacts') ? 'active' : ''}>
-        <button className={` waves-effect waves-light ripple`}>
-          <Image src={artifactIcon} alt="" />
-        </button>
-        <p>Artifacts</p>
-      </Link>
+            <p>Weapons</p>
 
-      {/* <Link href="/banners" className={pathname.includes('banners') ? 'active' : ''}>
-        <button className={` waves-effect waves-light ripple`}>
-          <Image src={wishIcon} alt="" />
-        </button>
-        <p>Banners</p>
-      </Link>
+        </Link>
 
-      <Link href="/enemies" className={pathname.includes('enemies') ? 'active' : ''}>
-        <button className={` waves-effect waves-light ripple`}>
-          <Image src={enemyIcon} alt="" />
-        </button>
-        <p>Enemies</p>
-      </Link> */}
-
-      <Link href="/teams" className={pathname.includes('teams') ? 'active' : ''}>
-        <button className={` waves-effect waves-light ripple`}>
-        <Image src={teamIcon} alt="" />
-        </button>
-        <p>Teams</p>
-      </Link>
-    </nav>
-  )
+        <Link href="/artifacts" className={SidenavCSS.sidenavLink +' '+ (pathname === '/artifacts' ? SidenavCSS.active : '') + (!sideNavCollapsed ? ' waves-effect waves-light ripple' : ' ')}>
+            <i className={SidenavCSS.sidenavLinkSymbol + ' material-symbols-outlined'}>
+              <Image src={artifactIcon} alt="artifacts" width={100} height={100}/>
+            </i>
+            <p>Artifacts</p>
+        </Link>
+      </nav>
+    </div>
+  );
 }

@@ -4,10 +4,13 @@
     top:0px;
     left:0px;
     height: 60px;
-    /* overflow: hidden; */
-    /* background-color: rgb(17, 17, 17); */
     background-color: transparent;
     z-index: 10;
+
+}
+
+.solidnav{
+    background-color: rgb(17, 17, 17);
 }
 
 .topnav .hamburger{
@@ -15,16 +18,39 @@
     width: 160px;
     overflow: hidden;
     padding-top:5px ;
-    padding-left: 20px;
+    padding-left: 10px;
+}
+
+.topnav .hamburger .hamburgerBtn{
+    color: white;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    padding-top: 5px;
+    padding-left: 2px;
+    transition: 0.2s ease-in-out;
+    margin-top: 5px;
+    margin-left: 5px;
+
+}
+
+.topnav .hamburger .hamburgerBtn:hover{
+    background-color: rgb(39, 39, 39);
+    transition: 0.2s ease-in-out;
 }
 
 .topnav #logo{
     position: relative;
-    top:7px;
+    top:10px;
     left: 5px;
     font-size: 1.2rem;
     font-weight: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    transition: 0.2s ease-in-out;
+
 }
 
 .searchContainer{
@@ -49,5 +75,21 @@
     top: -3px;
     background-color: rgb(39, 39, 39);
     border-radius:2px ;
+    color: rgb(230, 230, 230);
+}
+
+.searchBar::placeholder{
     color: rgb(124, 124, 124);
+}
+
+@media (max-width: 768px) { 
+    .searchContainer { 
+        display: none; 
+    } 
+
+    .searchContainer .searchBar{
+        display: none;
+    }
+
+
 }

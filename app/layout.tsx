@@ -4,6 +4,7 @@ import "@/styles/index.css";
 import "@/styles/waves.css";
 import Sidenav from "@/components/navigation/Sidenav";
 import Topnav from "@/components/navigation/Topnav";
+import Overlay from "@/components/navigation/Overlay";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,10 +16,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-      </head>
+      <head></head>
       <body className={inter.className}>
+        <Overlay/>
         <Topnav/>
         <div className="wrapper">
           <Sidenav/>

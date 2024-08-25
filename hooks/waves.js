@@ -311,7 +311,7 @@ if (typeof window !== 'undefined') {
 
             setTimeout(function() {
                 try {
-                    el.removeChild(ripple);
+                    //el.removeChild(ripple);
                 } catch (e) {
                     return false;
                 }

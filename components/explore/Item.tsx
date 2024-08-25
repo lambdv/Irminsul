@@ -12,7 +12,7 @@ export default function Item(props) {
             
             <Link href={`/characters/${name.toLowerCase().replaceAll(" ", "-")}`}>
 
-                { category === "character" ? <img className={ItemCSS.itemCategory} src={`https://raw.githubusercontent.com/scafiy/Irminsul/master/src/assets/icons/${element.toLowerCase()}.png`}/> : null}
+                { category === "character" ? <img className={ItemCSS.itemCategory} src={`assets/icons/${element.toLowerCase()}.png`}/> : null}
                 
                 <div className={ItemCSS.itemIcon + ` bg-${props.rarity}-star`}>
                     <img src={src} className={ItemCSS.itemImg} alt=" "/>

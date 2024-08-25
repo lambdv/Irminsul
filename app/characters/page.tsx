@@ -25,6 +25,7 @@ export default async function Characters() {
             revalidate: 60 * 60 * 24 * 7 // weekly
         }
     })
+    console.log(characterData)
     return characterData.json();
   });
   const characterDataList = await Promise.all(characterDataPromises);
@@ -33,6 +34,7 @@ export default async function Characters() {
     <div id="characters-page">
       <BrowseHeader page="character" title="Characters"/>
       <CharacterItemList characters={characterDataList}/>
+
     </div>
   );
 }
