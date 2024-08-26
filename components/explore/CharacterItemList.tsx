@@ -53,7 +53,7 @@ export default function CharacterItemList(props) {
                     name={character.name}
                     rarity={character.rarity}
                     element={character.vision}
-                    src={`assets/characters/${character.name.toLowerCase().replaceAll(" ", "-")}/profile.png`}
+                    src={`/assets/characters/${character.name.toLowerCase().replaceAll(" ", "-")}/profile.png`}
                 />
             ))}
         </div>

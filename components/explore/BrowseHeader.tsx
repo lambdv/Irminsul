@@ -117,7 +117,7 @@ export default function BrowseHeader(props) {
                         const filterTitle = Object.keys(filterCategory)[0];
                         const filterArray = filterCategory[Object.keys(filterCategory)[0]];
                         return (
-                            <div className={explorePageCSS.tagCatagory}>
+                            <div className={explorePageCSS.tagCatagory} key={index}>
                                 <label>{filterTitle}</label>
 
                                 {filterArray.map((tag, index) => ( 
