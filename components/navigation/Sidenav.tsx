@@ -79,7 +79,7 @@ export default function Sidenav() {
         <SideNavLink href="/wishes" img={wishIcon} text="Wishes"/>
       </nav>
 
-      {!sideNavCollapsed && window.innerWidth < 768 && <Overlay zIndex={1} onClick={() => { setSideNavCollapsed(true) }}/>}
+      {/* {!sideNavCollapsed && window.innerWidth < 768 && <Overlay zIndex={1} onClick={() => { setSideNavCollapsed(true) }}/>} */}
       
     </>);
 }
