@@ -1,5 +1,5 @@
 import React from 'react'
-import OverlayCSS from './overlay.module.css'
+import OverlayCSS from './Overlay.module.css'
 
 export default function Overlay(props: any) {
   const { zIndex } = props;
