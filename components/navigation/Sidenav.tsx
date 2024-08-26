@@ -25,6 +25,12 @@ export default function Sidenav() {
   const pathname = usePathname(); //get url path
   const { sideNavCollapsed, setSideNavCollapsed } = NavigationStore(); //get sidenav state
   const [activePage, setActivePage] = useState('');
+  const [windowWidth, setWindowWidth] = useState(1000);
+
+  useEffect(() => { 
+    let width = window.innerWidth;
+    setWindowWidth(width);
+  });
 
   useEffect(() => setActivePage(pathname), [pathname]);
 
@@ -68,8 +74,9 @@ export default function Sidenav() {
     );
   }
 
-  return (<>
-      <nav className={SidenavCSS.sidenav + " " + (sideNavCollapsed ? SidenavCSS.sidenavCollapsed : '')}>
+  return (
+    <>
+      <nav className={SidenavCSS.sidenav + ' ' + (sideNavCollapsed && SidenavCSS.sidenavCollapsed)}>
         <SideNavLink href="/" icon="home" text="Home"/>
         <SideNavLink href="/characters" img={characterIcon} text="Characters"/>
         <SideNavLink href="/weapons" img={weaponIcon} text="Weapons"/>
@@ -79,7 +86,8 @@ export default function Sidenav() {
         <SideNavLink href="/wishes" img={wishIcon} text="Wishes"/>
       </nav>
 
-      {/* {!sideNavCollapsed && window.innerWidth < 768 && <Overlay zIndex={1} onClick={() => { setSideNavCollapsed(true) }}/>} */}
-      
-    </>);
+      {!sideNavCollapsed && windowWidth < 768 && <Overlay zIndex={1} onClick={() => setSideNavCollapsed(true)}/>}
+
+    </>
+  );
 }

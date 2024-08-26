@@ -10,7 +10,6 @@
     z-index:10;
     display: block;
     transition: ease-in-out 0.3s;
-    background-color: #1f1f1f;
     background-color: transparent;
 
 }
@@ -29,7 +28,9 @@
     display: flex;
     margin-bottom: 5px;
     border-radius: 100px;
-    transition: 0.2s ease-in-out;
+    transition: 0.1s ease-in;
+    transition: 0.2s ease;
+
 
     margin-left: auto;
     margin-right: auto;
@@ -60,7 +61,7 @@
         position: absolute;
         display: block;
         height: 100%;
-        background-color: #1f1f1f;
+        /* background-color: #1f1f1f; */
         padding-top: 70px;
         z-index: 2;
         animation: slideIn 0.2s forwards;
