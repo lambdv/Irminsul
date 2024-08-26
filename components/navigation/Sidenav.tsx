@@ -9,6 +9,7 @@ import Script from "next/script";
 import SidenavCSS from "./sidenav.module.css"
 import modalCSS from '../ui/modal.module.css'
 import { NavigationStore } from "@/store/Navigation";
+import Overlay from '../ui/Overlay';
 
 //images
 import characterIcon from '@/public/assets/icons/characterIcon.png'
@@ -19,16 +20,20 @@ import leafIcon from '@/public/assets/icons/leaf.png'
 import enemyIcon from '@/public/assets/icons/enemyIcon.png'
 import wishIcon from '@/public/assets/icons/wish.png'
 
+
 export default function Sidenav() {
   const pathname = usePathname(); //get url path
+  const { sideNavCollapsed, setSideNavCollapsed } = NavigationStore(); //get sidenav state
+  const [activePage, setActivePage] = useState('');
+
+  useEffect(() => setActivePage(pathname), [pathname]);
+
+  const handleSideNavLinkClick = (href: string) => setActivePage(href); //optimistic update
   
   useEffect(() => { //initialize waves effect
     Waves.attach('.ripple', ['waves-effect', 'waves-light']);
     Waves.init();
   }, []);
-
-  
-  const { sideNavCollapsed, setSideNavCollapsed } = NavigationStore(); //get sidenav state
 
   useEffect(() => { //handle sidenav state based on window width
     const handleSidenavState = (): void => {
@@ -47,39 +52,34 @@ export default function Sidenav() {
     window.addEventListener('resize', handleSidenavState);
   }, []);
 
-  return (
-    <div>   
+  function SideNavLink(props: any) {
+    const { href, text, img, icon } = props;
+    return (
+      <Link 
+        href={href} 
+        className={SidenavCSS.sidenavLink +' '+ (activePage === href ? SidenavCSS.active : '') + (!sideNavCollapsed ? ' waves-effect waves-light ripple' : ' ')}
+        onClick={() => handleSideNavLinkClick(href)}  
+      >
+        <i className={SidenavCSS.sidenavLinkSymbol + ' material-symbols-outlined'}>
+          {img ? <Image src={img} alt = {text} width={24} height={24} /> : icon}
+        </i>
+        <p>{text}</p>
+    </Link>
+    );
+  }
+
+  return (<>
       <nav className={SidenavCSS.sidenav + " " + (sideNavCollapsed ? SidenavCSS.sidenavCollapsed : '')}>
-        <Link href="/" className={SidenavCSS.sidenavLink +' '+ (pathname === '/' ? SidenavCSS.active : '') + (!sideNavCollapsed ? ' waves-effect waves-light ripple' : ' ')}>
-            <i className={SidenavCSS.sidenavLinkSymbol + ' material-symbols-outlined'}>
-              home
-            </i>
-            <p>Home</p>
-        </Link>
-
-        <Link href="/characters" className={SidenavCSS.sidenavLink +' '+ (pathname === '/characters' ? SidenavCSS.active : '') + (!sideNavCollapsed ? ' waves-effect waves-light ripple' : ' ')}>
-            <i className={SidenavCSS.sidenavLinkSymbol + ' material-symbols-outlined'}>
-              <Image src={characterIcon} alt="characters" width={100} height={100}/>
-            </i>
-            <p>Characters</p>
-        </Link>
-
-        <Link href="/weapons" className={SidenavCSS.sidenavLink +' '+ (pathname === '/weapons' ? SidenavCSS.active : '') + (!sideNavCollapsed ? ' waves-effect waves-light ripple' : ' ')}>
-            <i className={SidenavCSS.sidenavLinkSymbol + ' material-symbols-outlined'}>
-              <Image src={weaponIcon} alt="weapons" width={100} height={100}/>
-            </i>
-
-            <p>Weapons</p>
-
-        </Link>
-
-        <Link href="/artifacts" className={SidenavCSS.sidenavLink +' '+ (pathname === '/artifacts' ? SidenavCSS.active : '') + (!sideNavCollapsed ? ' waves-effect waves-light ripple' : ' ')}>
-            <i className={SidenavCSS.sidenavLinkSymbol + ' material-symbols-outlined'}>
-              <Image src={artifactIcon} alt="artifacts" width={100} height={100}/>
-            </i>
-            <p>Artifacts</p>
-        </Link>
+        <SideNavLink href="/" icon="home" text="Home"/>
+        <SideNavLink href="/characters" img={characterIcon} text="Characters"/>
+        <SideNavLink href="/weapons" img={weaponIcon} text="Weapons"/>
+        <SideNavLink href="/artifacts" img={artifactIcon} text="Artifacts"/>
+        <SideNavLink href="/teams" img={teamIcon} text="Teams"/>
+        <SideNavLink href="/enemies" img={enemyIcon} text="Enemies"/>
+        <SideNavLink href="/wishes" img={wishIcon} text="Wishes"/>
       </nav>
-    </div>
-  );
+
+      {!sideNavCollapsed && window.innerWidth < 768 && <Overlay zIndex={1} onClick={() => { setSideNavCollapsed(true) }}/>}
+      
+    </>);
 }

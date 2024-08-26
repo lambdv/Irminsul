@@ -4,7 +4,6 @@ import "@/styles/index.css";
 import "@/styles/waves.css";
 import Sidenav from "@/components/navigation/Sidenav";
 import Topnav from "@/components/navigation/Topnav";
-import Overlay from "@/components/navigation/Overlay";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +17,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head></head>
       <body className={inter.className}>
-        <Overlay/>
         <Topnav/>
         <div className="wrapper">
           <Sidenav/>
