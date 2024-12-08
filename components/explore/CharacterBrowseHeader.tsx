@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useStore } from 'zustand'
 import Image from 'next/image'
 
 import explorePageCSS from '@/components/explore/explorePage.module.css'
@@ -14,14 +15,20 @@ import { CharacterFilterStore } from '@/store/CharacterFilters'
 import { WeaponFilterStore } from '@/store/WeaponFilters'
 import { ArtifactFilterStore } from '@/store/ArtifactFilters'
 
+/**
+ * Header for the character browse page: contains title, filter button/modal and active tags
+ * @note client-side only to allow for the use of useState and state management so user can select filters and toggle modal
+ * @param props 
+ * @returns 
+ */
+export default function CharacterBrowseHeader(props: {icon: any, title: string, filters: any}) {
 
+    const filters = props.filters //2d array of character category filters passed in from the parent component
+    //const [selectedFilters, setSelectedFilters] = useState([]) //state to store the selected filters
+    const { selectedCharacterFilters: selectedFilters, setSelectedCharacterFilters: setSelectedFilters } = CharacterFilterStore()
 
-export default function BrowseHeader(props: {icon: any, title: string, page: string}) {
-
-    let filters;
-    
-    const [selectedFilters, setSelectedFilters] = useState([]);
     const [tempFilters, setTempFilters] = useState([])
+
     const [showModal, setShowModal] = useState(false)
 
     /**
@@ -57,6 +64,11 @@ export default function BrowseHeader(props: {icon: any, title: string, page: str
 
     return (
         <>
+            <li>{JSON.stringify(filters)}</li>
+            <li>{JSON.stringify(selectedFilters)}</li>
+            <li>{JSON.stringify(tempFilters)}</li>
+
+
             <div className={explorePageCSS.header}>
                 <div className={explorePageCSS.titleWrapper}>
                     <Image src={props.icon} alt=''/>

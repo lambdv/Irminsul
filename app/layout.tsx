@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
-import "@/styles/index.css";
-import "@/styles/waves.css";
+import "./index.css";
+import "./waves.css";
 import Sidenav from "@/components/navigation/Sidenav";
 import Topnav from "@/components/navigation/Topnav";
 import ClientWrapper from "@/components/navigation/ClientWrapper";

@@ -1,13 +1,10 @@
-@font-face {
-    font-family: 'ingame';
-    src: url('../fonts/HanyiWenHei/zh-cn.ttf')
-}
+
 
 .header{
     position: relative;
     display: flex;
     overflow: hidden;
-    padding: 30px;
+    padding-left:15px;
     padding-top:10px;   
     padding-bottom:5px;   
     text-align: center;
@@ -34,6 +31,13 @@
     -moz-user-select: none;
     -ms-user-select: none;
     -webkit-touch-callout: none;
+}
+
+.header .titleWrapper{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
 }
 
 .controller{
@@ -80,7 +84,7 @@
     position: relative;
     display: flex;
     overflow: hidden;
-    padding: 30px;
+    padding: 15px;
     padding-top:0px;   
     padding-bottom:5px;   
     text-align: center;

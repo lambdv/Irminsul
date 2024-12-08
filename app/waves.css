@@ -72,6 +72,11 @@
   background-color:transparent;  
 }
 
+.waves-effect.waves-disable.waves-dark .waves-ripple {
+  background-color:transparent;  
+}
+
+
 
 .waves-effect.waves-red .waves-ripple {
   background-color:rgba(236, 94, 105,0.25);  

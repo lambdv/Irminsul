@@ -1,7 +1,7 @@
-"use server"
-import { stat } from "fs";
-import mongoose from "mongoose"
-import { NextResponse } from "next/server";
+// "use server"
+// import { stat } from "fs";
+// import mongoose from "mongoose"
+// import { NextResponse } from "next/server";
 
 // export async function GET(request, response){
 //     const URI = `${process.env.MONGO_URI}`

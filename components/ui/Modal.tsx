@@ -19,7 +19,7 @@ export default function Modal(props) {
                     </div>
                 </div>
                 <div className={modalCSS.body}>
-                    <p>{props.children}</p>
+                    {props.children}
                 </div>
             </div>
         </Overlay>

@@ -34,8 +34,6 @@ export default function Sidenav() {
 
   useEffect(() => setActivePage(pathname), [pathname]);
 
-  const handleSideNavLinkClick = (href: string) => setActivePage(href); //optimistic update
-  
   useEffect(() => { //initialize waves effect
     Waves.attach('.ripple', ['waves-effect', 'waves-light']);
     Waves.init();
@@ -60,6 +58,13 @@ export default function Sidenav() {
 
   function SideNavLink(props: any) {
     const { href, text, img, icon } = props;
+
+    const handleSideNavLinkClick = (href: string) => {
+      setActivePage(href);
+      if (windowWidth < 768) 
+        setSideNavCollapsed(true)
+    }
+
     return (
       <Link 
         href={href} 
@@ -76,17 +81,17 @@ export default function Sidenav() {
 
   return (
     <>
-      <nav className={SidenavCSS.sidenav + ' ' + (sideNavCollapsed && SidenavCSS.sidenavCollapsed)}>
+      <nav className={SidenavCSS.sidenav + ' ' + (sideNavCollapsed && SidenavCSS.sidenavCollapsed)} style={{zIndex: 10}}>
         <SideNavLink href="/" icon="home" text="Home"/>
         <SideNavLink href="/characters" img={characterIcon} text="Characters"/>
         <SideNavLink href="/weapons" img={weaponIcon} text="Weapons"/>
         <SideNavLink href="/artifacts" img={artifactIcon} text="Artifacts"/>
         <SideNavLink href="/teams" img={teamIcon} text="Teams"/>
         <SideNavLink href="/enemies" img={enemyIcon} text="Enemies"/>
-        <SideNavLink href="/wishes" img={wishIcon} text="Wishes"/>
+        <SideNavLink href="/wishes" img={wishIcon} text="Banners"/>
       </nav>
 
-      {!sideNavCollapsed && windowWidth < 768 && <Overlay zIndex={1} onClick={() => setSideNavCollapsed(true)}/>}
+      {!sideNavCollapsed && windowWidth < 768 && <Overlay zIndex={2} onClick={() => setSideNavCollapsed(true)}/>}
 
     </>
   );
