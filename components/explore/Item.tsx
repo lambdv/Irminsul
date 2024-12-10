@@ -12,7 +12,7 @@ export default function Item(props) {
     return (
         <div className={ItemCSS.item + ` waves-effect waves-light ripple ` + ` item `}>
             
-            <Link href={`/characters/${name.toLowerCase().replaceAll(" ", "-")}`}>
+            <Link href={`/${category}/${name.toLowerCase().replaceAll(" ", "-")}`}>
 
                 { category === "character" ? <img className={ItemCSS.itemCategory} src={`assets/icons/${element.toLowerCase()}.png`}/> : null}
                 

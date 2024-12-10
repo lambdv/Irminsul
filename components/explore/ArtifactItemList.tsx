@@ -3,23 +3,23 @@ import explorePageCSS from '@/components/explore/explorePage.module.css'
 import useFetch from '@/hooks/useFetch.js'
 import Item from '@/components/explore/Item'
 import { SearchStore } from '@/store/Search'
-import { WeaponFilterStore } from '@/store/WeaponFilters'
+import { ArtifactFilterStore } from '@/store/ArtifactFilters'
 
 
 export default function WeaponItemList(props) {
-    const weapons = props.weapons
+    const weapons: any[] = props.data
     const { SearchQuery } = SearchStore()
-    const { selectedFilters } = WeaponFilterStore()
+    const { selectedFilters } = ArtifactFilterStore()
 
     return (
         <div className={explorePageCSS.itemContainer}>
-            {weapons.map((weapon, index) => (
+            {weapons.map((artifact, index) => (
             <Item
                 key={index} 
-                category="weapon"
-                name={weapon.name}
-                rarity={weapon.rarity}
-                src={`/assets/weapons/${weapon.name.toLowerCase().replaceAll(" ", "-")}/profile.png`}
+                category="artifact"
+                name={artifact.name}
+                rarity={artifact.rarity}
+                src={`/assets/artifacts/${artifact.name.toLowerCase().replaceAll(" ", "-")}/profile.png`}
             />
             ))}
         </div>

@@ -7,16 +7,16 @@ import { CharacterFilterStore } from '@/store/CharacterFilters'
 // import { CharacterFilterStore } from '@/store/ExploreSearchFilters'
 
 
-export default function CharacterItemList(props: {characters: any, filters: any}) {
+export default function CharacterItemList(props: {characters: any}) {
 
     const characters = props.characters
     const { SearchQuery } = SearchStore()
-    const { selectedCharacterFilters: selectedFilters  } = CharacterFilterStore()
+    const { selectedFilters: selectedFilters, filters } = CharacterFilterStore()
 
-    const rarityFilters = props.filters[0].rarityFilters
-    const elementFilters = props.filters[1].elementFilters
-    const weaponFilters = props.filters[2].weaponFilters
-    const statFilters = props.filters[3].statFilters
+    const rarityFilters = filters[0].rarities
+    const elementFilters = filters[1].elements
+    const weaponFilters = filters[2].weapons
+    const statFilters = filters[3].ascensionstats
 
     const filterItems = () => {
         if(selectedFilters.length === 0 && SearchQuery === "") 

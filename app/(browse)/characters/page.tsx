@@ -2,9 +2,8 @@ import React from 'react';
 import explorePageCSS from '@/components/explore/explorePage.module.css';
 import CharacterItemList from '@/components/explore/CharacterItemList';
 import BrowseHeader from '@/components/explore/BrowseHeader';
-import CharacterBrowseHeader from '@/components/explore/CharacterBrowseHeader';
-
 import characterIcon from '@/public/assets/icons/characterIcon.png'
+import {CharacterFilterStore} from '@/store/CharacterFilters'
 
 export const metadata = {
   title: "Characters | Irminsul",
@@ -35,29 +34,19 @@ async function getCharacters(){
 
 
 export default async function Characters({searchParams}) {
-
   const characterDataList = await getCharacters();
-
-  const rarityFilters = ["5-star", "4-star"];
-  const elementFilters=  ["Pyro", "Hydro", "Dendro", "Electro", "Anemo", "Cryo", "Geo"];
-  const weaponFilters = ["Sword", "Claymore", "Bow", "Polearm", "Catalyst"];
-  const statFilters = ["ATK", "DEF", "HP", "Crit Rate", "Crit DMG", "Elemental Mastery", "Energy Recharge", "Healing Bonus", "Physical DMG Bonus", "Pyro DMG Bonus", "Hydro DMG Bonus", "Dendro DMG Bonus", "Electro DMG Bonus", "Anemo DMG Bonus", "Cryo DMG Bonus", "Geo DMG Bonus"];
-  const filters = [{rarityFilters}, {elementFilters}, {weaponFilters}, {statFilters}];
-  //const searchQuery: string = searchParams.search || "";
-  //const selectedFilters = Array.isArray(searchParams.filters) ? searchParams.filters : [searchParams.filters].filter(Boolean);
 
   return (
     <div id="characters-page">
-      <CharacterBrowseHeader
+      <BrowseHeader
         icon={characterIcon}
         title="Characters"
-        filters= {filters}
-        //store="CharacterFilterStore"
+        //filters= {filters}
+        store={CharacterFilterStore}
+        page="character"
       />
-
       <CharacterItemList 
         characters={characterDataList}
-        filters= {filters}
         //store="CharacterFilterStore"
       />
 
