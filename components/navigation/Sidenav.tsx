@@ -89,10 +89,10 @@ export default function Sidenav() {
         <SideNavLink href="/enemies" img={enemyIcon} text="Enemies"/>
         <SideNavLink href="/wishes" img={wishIcon} text="Banners"/>
 
-        <SideNavLink href="/wishes" img={wishIcon} text="Articles"/>
+        {/* <SideNavLink href="/wishes" img={wishIcon} text="Articles"/>
         <SideNavLink href="/wishes" img={wishIcon} text="Akademiya"/>
         <SideNavLink href="/wishes" img={wishIcon} text="Calculator"/>
-        <SideNavLink href="/wishes" img={wishIcon} text="SeelieGPT"/>
+        <SideNavLink href="/wishes" img={wishIcon} text="SeelieGPT"/> */}
 
       </nav>
       {!sideNavCollapsed && windowWidth < 768 && <Overlay zIndex={2} onClick={() => setSideNavCollapsed(true)}/>}

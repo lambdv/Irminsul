@@ -15,10 +15,30 @@
 
 .topnav .hamburger{
     display: flex;
-    width: 160px;
-    overflow: hidden;
+    /* width: 160px; */
+    width: 260px;
+    height: 100%;
+    overflow: show;
     padding-top:5px ;
     padding-left: 10px;
+    padding-right: 10px;
+    /* background-color: rgb(154, 82, 82); */
+    
+}
+
+
+.topnav .fries{
+    display: flex;
+    /* width: 160px; */
+    width: 260px;
+    height: 100%;
+    overflow: show;
+    padding-top:5px ;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: right;
+    justify-content: flex-end;
+    align-items: right;
 }
 
 .topnav .hamburger .hamburgerBtn{
@@ -33,7 +53,6 @@
     transition: 0.2s ease-in-out;
     margin-top: 5px;
     margin-left: 5px;
-
 }
 
 .topnav .hamburger .hamburgerBtn:hover{
@@ -53,14 +72,20 @@
 
 }
 
+.topnav a{
+    height: 40px;
+    padding-right: 10px;
+    transition: 0.2s ease-in-out;
+}
+
 .searchContainer{
     position: relative;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    width: 60%;
+    width:60%;
     padding: 10px;
-
+    /* background-color: red; */
 }
 
 .searchBar{

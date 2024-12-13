@@ -14,7 +14,7 @@ import { ArtifactFilterStore } from '@/store/ArtifactFilters'
 /**
  * Header for the character browse page: contains title, filter button/modal and active tags
  */
-export default function CharacterBrowseHeader(props: {icon: any, title: string, page: string, store: any}) {
+export default function CharacterBrowseHeader(props: {icon: any, title: string, store: any}) {
     const { filters, selectedFilters: selectedFilters, setSelectedFilters: setSelectedFilters } = props.store()
 
     //const filters = props.filters //2d array of character category filters passed in from the parent component
@@ -53,9 +53,9 @@ export default function CharacterBrowseHeader(props: {icon: any, title: string, 
 
 
     return (<>
-            <li>{JSON.stringify(filters)}</li>
+            {/* <li>{JSON.stringify(filters)}</li>
             <li>{JSON.stringify(selectedFilters)}</li>
-            <li>{JSON.stringify(tempFilters)}</li>
+            <li>{JSON.stringify(tempFilters)}</li> */}
             <div className={explorePageCSS.header}>
                 <div className={explorePageCSS.titleWrapper}>
                     <Image src={props.icon} alt=''/>

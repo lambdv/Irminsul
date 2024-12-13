@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:css": "tailwindcss -i ./app/index.css -o ./app/output.css --watch"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
@@ -15,23 +16,29 @@
     "@material/ripple": "^14.0.0",
     "@mui/icons-material": "^5.15.7",
     "@mui/material": "^5.15.6",
+    "@radix-ui/react-slot": "^1.1.0",
     "@vercel/kv": "^2.0.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "dotenv": "^16.4.1",
     "express": "^4.19.2",
     "irminsul-next": "file:",
+    "lucide-react": "^0.468.0",
     "next": "^15.0.4",
     "react": "^18",
     "react-dom": "^18",
     "server-only": "^0.0.1",
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss-animate": "^1.0.7",
     "zustand": "^4.5.0"
   },
   "devDependencies": {
     "@types/node": "20.11.6",
     "@types/react": "18.2.48",
-    "autoprefixer": "^10.0.1",
+    "autoprefixer": "^10.4.20",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0"
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.16"
   }
 }

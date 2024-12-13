@@ -4,7 +4,7 @@ import { create } from 'zustand';
 type State = {
     selectedFilters: string[];
     setSelectedFilters: (newFilters: string[]) => void;
-    rarities: string[];
+    // rarities: string[];
     filters: any[];
 };
 
@@ -15,9 +15,10 @@ export const ArtifactFilterStore = create<State>((set) => ({
         return { selectedFilters: newFilters }
     }),
 
-    rarities: ["5-star", "4-star", "3-star", "2-star", "1-star"],
+    // rarities: ["5-star", "4-star", "3-star", "2-star", "1-star"],
     filters: [
-        { rarities: ["5-star", "4-star", "3-star", "2-star", "1-star"] }
+        { rarities: ["5-star", "4-star", "3-star", "2-star", "1-star"] },
+        { mainStats: ["HP", "ATK", "DEF", "HP%", "ATK%", "DEF%", "Elemental Mastery", "Energy Recharge", "Crit Rate", "Crit DMG"] },
     ]
 
 }))

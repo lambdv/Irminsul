@@ -25,5 +25,6 @@ export const CharacterFilterStore = create<State>((set) => ({
         { elements: ["Pyro", "Hydro", "Dendro", "Electro", "Anemo", "Cryo", "Geo"] }, 
         { weapons: ["Sword", "Claymore", "Bow", "Polearm", "Catalyst"] }, 
         { ascensionstats: ["ATK", "DEF", "HP", "Crit Rate", "Crit DMG", "Elemental Mastery", "Energy Recharge", "Healing Bonus", "Physical DMG Bonus", "Pyro DMG Bonus", "Hydro DMG Bonus", "Dendro DMG Bonus", "Electro DMG Bonus", "Anemo DMG Bonus", "Cryo DMG Bonus", "Geo DMG Bonus"] }
-    ]
+    ],
+
 }))
