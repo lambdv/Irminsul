@@ -1,5 +1,7 @@
 .sidenav{
-    width: 280px;
+    /* width: 280px; */
+    /* width: 14vw; */
+    width: 20rem;
     position: sticky;
     height: 100vh;
     overflow: hidden;
@@ -15,7 +17,9 @@
 }
 
 .sidenavCollapsed {
-    width: 90px;
+    /* width: 90px; */
+    width: 6rem;
+    /* background-color: #1f1f1f; */
     transition: ease-in-out 0.3s;
 }
 
@@ -41,7 +45,8 @@
     position: relative;
     width: 90%;
     height: 70px;
-    padding: 10px;
+    /* padding: 10px; */
+    padding: 0px;
     margin:0px;
     color: white;
     display: block;

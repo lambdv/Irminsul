@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from 'next/navigation'
 import Image from "next/image";
 import { use, useEffect, useState } from "react";
-import Waves from '@/hooks/waves'
+import Waves from '@/scripts/waves'
 import Script from "next/script";
 import SidenavCSS from "./sidenav.module.css"
 import modalCSS from '../ui/modal.module.css'
@@ -86,13 +86,16 @@ export default function Sidenav() {
         <SideNavLink href="/characters" img={characterIcon} text="Characters"/>
         <SideNavLink href="/weapons" img={weaponIcon} text="Weapons"/>
         <SideNavLink href="/artifacts" img={artifactIcon} text="Artifacts"/>
-        <SideNavLink href="/teams" img={teamIcon} text="Teams"/>
         <SideNavLink href="/enemies" img={enemyIcon} text="Enemies"/>
         <SideNavLink href="/wishes" img={wishIcon} text="Banners"/>
+
+        {/* <SideNavLink href="/wishes" img={wishIcon} text="Articles"/>
+        <SideNavLink href="/wishes" img={wishIcon} text="Akademiya"/>
+        <SideNavLink href="/wishes" img={wishIcon} text="Calculator"/>
+        <SideNavLink href="/wishes" img={wishIcon} text="SeelieGPT"/> */}
+
       </nav>
-
       {!sideNavCollapsed && windowWidth < 768 && <Overlay zIndex={2} onClick={() => setSideNavCollapsed(true)}/>}
-
     </>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from 'react'
 import Script from "next/script";
-import Waves from '@/hooks/waves'
+import Waves from '@/scripts/waves'
 
 
 export default function ClientWrapper(props: any) {

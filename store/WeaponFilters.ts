@@ -1,19 +1,26 @@
+"use client";
 import { create } from 'zustand';
 
 type State = {
-    selectedWeaponFilters: string[];
-    setSelectedWeaponFilters: (newFilters: string[]) => void;
-    possibleWeaponRarityFilters: string[];
-    possibleWeaponTypeFilters: string[];
-    possibleWeaponStatFilters: string[];
+    selectedFilters: string[];
+    setSelectedFilters: (newFilters: string[]) => void;
+    // rarities: string[];
+    // weapons: string[];
+    // stats: string[];
+    filters: any[];
 };
 
 export const WeaponFilterStore = create<State>((set) => ({
-    selectedWeaponFilters: [],
-    setSelectedWeaponFilters: (newFilters) => set((state) => {
-        return { selectedWeaponFilters: newFilters }
+    selectedFilters: [],
+    setSelectedFilters: (newFilters) => set((state) => {
+        return { selectedFilters: newFilters }
     }),
-    possibleWeaponRarityFilters: ["5-star", "4-star", "3-star", "2-star", "1-star"],
-    possibleWeaponTypeFilters: ["Sword", "Claymore", "Bow", "Polearm", "Catalyst"],
-    possibleWeaponStatFilters: ["ATK", "DEF", "HP", "Crit Rate", "Crit DMG", "Elemental Mastery", "Energy Recharge"],
+    // rarities: ["5-star", "4-star", "3-star", "2-star", "1-star"],
+    // weapons: ["Sword", "Claymore", "Bow", "Polearm", "Catalyst"],
+    // stats: ["ATK", "DEF", "HP", "Crit Rate", "Crit DMG", "Elemental Mastery", "Energy Recharge"],
+    filters: [
+        { rarities: ["5-star", "4-star", "3-star", "2-star", "1-star"] }, 
+        { weapons: ["Sword", "Claymore", "Bow", "Polearm", "Catalyst"] }, 
+        { stats: ["ATK", "DEF", "HP", "CRIT Rate", "CRIT DMG", "Elemental Mastery", "Energy Recharge"] }
+    ]
 })) 
