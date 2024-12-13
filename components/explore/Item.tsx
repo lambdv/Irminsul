@@ -16,7 +16,7 @@ export default function Item(props) {
                 { category === "character" ? <img className={ItemCSS.itemCategory} src={`assets/icons/${flatten(element)}.png`}/> : null}
                 <div className={ItemCSS.itemIcon + ` bg-${props.rarity}-star`}>
                     {/* <img src={src} className={ItemCSS.itemImg} alt=" "/> */}
-                    <Image src={src} className={ItemCSS.itemImg} alt=" " width={500} height={500}/>
+                    <Image src={src} className={ItemCSS.itemImg} alt="" width={500} height={500}/>
                 </div>
                 <p className={ItemCSS.itemText} style={{ fontSize: category === "weapon" ? "12px" : "inherit" }}>{name}</p>
             </Link>
