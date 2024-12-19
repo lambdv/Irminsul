@@ -4,13 +4,13 @@
     top:0px;
     left:0px;
     height: 60px;
-    background-color: transparent;
+    background-color:rgb(7, 7, 7, 0.82);
     z-index: 10;
+    backdrop-filter: blur(35px);  
 
 }
 
 .solidnav{
-    background-color: rgb(17, 17, 17);
 }
 
 .topnav .hamburger{
@@ -20,12 +20,10 @@
     height: 100%;
     overflow: show;
     padding-top:5px ;
-    padding-left: 10px;
     padding-right: 10px;
+    padding-left: 10px;
     /* background-color: rgb(154, 82, 82); */
-    
 }
-
 
 .topnav .fries{
     display: flex;
@@ -49,7 +47,7 @@
     border: none;
     border-radius: 50%;
     padding-top: 5px;
-    padding-left: 2px;
+    padding-left: 0px;
     transition: 0.2s ease-in-out;
     margin-top: 5px;
     margin-left: 5px;

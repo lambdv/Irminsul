@@ -1,6 +1,6 @@
 .rightsidenav{
     width: 20rem;
-    position: absolute;
+    position: fixed;
     height: 60%;
     overflow: hidden;
     margin-left: auto;
@@ -9,7 +9,13 @@
     padding-top:5px;
     right: 0;
     top:60px;
-    z-index:10;
-    transition: ease-in-out 0.3s;
+    z-index:0;
+    transition: 0s;
     /* background-color: red; */
+}
+
+.rightsidenavCollapsed{
+    display: block;
+    position: relative;
+    top:0px;
 }

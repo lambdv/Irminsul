@@ -5,9 +5,7 @@ import Item from '@/components/explore/Item'
 import { SearchStore } from '@/store/Search'
 import { CharacterFilterStore } from '@/store/CharacterFilters'
 // import { CharacterFilterStore } from '@/store/ExploreSearchFilters'
-import flatten from '@/utils/standardizers'
-
-
+import { flatten } from '@/utils/standardizers'
 
 function filterMethod(characters: any, filters: string[][], selectedFilters: string[], query: string, itemTaggingFunction: (item: any)=> string[]){
     if(selectedFilters.length === 0 && query.length === 0)
@@ -60,7 +58,7 @@ export default function ItemsContainer(props: {data: any, store: any, type: stri
                         key={index} 
                         category={props.type}
                         name={String(character.name)}
-                        rarity={String(character.rarity)}
+                        rarity={character.rarity}
                         element={String(character.vision)}
                         src={`/assets/${props.type}s/${character.name.toLowerCase()}/profile.png`}
                     />

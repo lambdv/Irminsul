@@ -1,25 +1,24 @@
 .sidenav{
-    /* width: 280px; */
-    /* width: 14vw; */
-    width: 20rem;
-    position: sticky;
+    width: 15rem;
+    position: fixed; 
+    top: 0; 
+    left: 0;
     height: 100vh;
+    margin-top: 60px; 
     overflow: hidden;
-    margin-left: auto;
-    margin-right: auto;
     text-align: center;
-    padding-top:5px;
-    z-index:10;
+    padding-top: 5px;
+    z-index: 10;
     display: block;
-    transition: ease-in-out 0.3s;
-    background-color: transparent;
-
+    /* background-color: #1f1f1f; */
+    transition: transform 0.3s ease-in-out;
 }
 
 .sidenavCollapsed {
     /* width: 90px; */
-    width: 6rem;
-    /* background-color: #1f1f1f; */
+    width: 6.5rem;
+    padding:10px;
+    /* background-color:rgb(205, 91, 91); */
     transition: ease-in-out 0.3s;
 }
 
@@ -60,14 +59,13 @@
 }
 
 /** css window width condtional css */
-@media (max-width: 768px) {
-
+/* @media (max-width: 768px) { */
+@media (max-width: 1200px) {
     .sidenav {
-        position: absolute;
+        position: fixed;
         display: block;
         height: 100%;
         background-color: #1f1f1f;
-        padding-top: 70px;
         z-index: 2;
         animation: slideIn 0.2s forwards;
     }
