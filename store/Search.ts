@@ -11,7 +11,10 @@ export const SearchStore = create<State>((set) => ({
     setSearchQuery: (query: string) => set((state) => {
         return { SearchQuery: query }
     }),
-    updateQuery: (e: any) => set({SearchQuery: e.target.value}),
+    updateQuery: (e: any) => {
+        e.target.select();
+        set({SearchQuery: e.target.value});
+    },
 }));
 
 

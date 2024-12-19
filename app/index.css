@@ -15,7 +15,6 @@
   src: url('../fonts/MaterialIcons/material_icons.woff2') format('woff2');
 }
 
-
 .material-symbols-outlined {
   font-family: 'Material Symbols Outlined';
   font-weight: normal;
@@ -31,6 +30,48 @@
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
+
+.material-symbols-outlined-filled {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+
+/* fallback */
+@font-face {
+  font-family: 'Material Symbols Rounded';
+  font-style: normal;
+  font-weight: 100 700;
+  src: url(https://fonts.gstatic.com/s/materialsymbolsrounded/v222/sykg-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190Fjzag.woff2) format('woff2');
+}
+
+.material-symbols-rounded {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.material-symbols-rounded {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
 
 body {
   font-family: 'CustomFont', sans-serif;
@@ -53,7 +94,7 @@ button .ripple {
 body{
   background-color: #070707;
   color:rgb(206, 206, 206);
-  overflow: auto;
+  overflow-y: scroll;
   overflow-x:hidden;
 }
 
@@ -70,18 +111,23 @@ nav{
   overflow: hidden;
 }
 
-
 #content{
   position: relative;
   top:0px;
   width: 100%;
-  padding-left: 10rem;
-  /* padding-right: 10rem; */
-  padding-right: 10rem;
+  padding-left: 20rem;
+  padding-right: 20rem;
 
   overflow-y: auto;
   overflow-x:hidden;
   /* background-color: red; */
+}
+
+@media all and (max-width: 1500px) {  
+  #content{
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
 }
 
 @media all and (max-width: 1200px) {  
@@ -89,7 +135,6 @@ nav{
     padding-left: 1rem;
     padding-right: 1rem;
   }
-
 }
 
 /* .active button{

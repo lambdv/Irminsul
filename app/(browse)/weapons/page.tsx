@@ -11,8 +11,6 @@ export const metadata = {
   title: "Weapons | Irminsul",
 };
 
-
-
 export default async function Weapons() {
   const weapons = await getWeapons()
   return (

@@ -7,7 +7,7 @@
     padding-left: 90px;
     height: 100%;
     width: 100%;
-
+    z-index: 10;
     overflow: hidden;
     text-align: center;
     justify-content: center;

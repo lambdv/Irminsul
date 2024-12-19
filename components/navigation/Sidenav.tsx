@@ -10,6 +10,7 @@ import SidenavCSS from "./sidenav.module.css"
 import modalCSS from '../ui/modal.module.css'
 import { NavigationStore } from "@/store/Navigation";
 import Overlay from '../ui/Overlay';
+import { flatten } from "@/utils/standardizers"
 
 //images
 import characterIcon from '@/public/assets/icons/characterIcon.png'
@@ -20,68 +21,53 @@ import leafIcon from '@/public/assets/icons/leaf.png'
 import enemyIcon from '@/public/assets/icons/enemyIcon.png'
 import wishIcon from '@/public/assets/icons/wish.png'
 
-
+/**
+ * Side navigation component
+ */
 export default function Sidenav() {
   const pathname = usePathname(); //get url path
   const { sideNavCollapsed, setSideNavCollapsed } = NavigationStore(); //get sidenav state
   const [activePage, setActivePage] = useState('');
   const [windowWidth, setWindowWidth] = useState(1000);
 
-  useEffect(() => { 
-    let width = window.innerWidth;
-    setWindowWidth(width);
-  });
-
-  useEffect(() => setActivePage(pathname), [pathname]);
-
-  useEffect(() => { //initialize waves effect
-    Waves.attach('.ripple', ['waves-effect', 'waves-light']);
-    Waves.init();
-  }, []);
+  useEffect(() => setActivePage(pathname), [pathname])
+  useEffect(() => setWindowWidth(window.innerWidth), [])
 
   useEffect(() => { //handle sidenav state based on window width
     const handleSidenavState = (): void => {
       let width = window.innerWidth;
       if (width > 1200)
-        setSideNavCollapsed(false);
+        setSideNavCollapsed(true);
       if (width <= 1200 && width >= 768)
         setSideNavCollapsed(true);
     }
-
     handleSidenavState();
-
-    if (window.innerWidth < 768) 
-      setSideNavCollapsed(true);
-
+    if (window.innerWidth < 768) setSideNavCollapsed(true);
     window.addEventListener('resize', handleSidenavState);
-  }, []);
+  }, [setSideNavCollapsed]);
 
-  function SideNavLink(props: any) {
-    const { href, text, img, icon } = props;
-
-    const handleSideNavLinkClick = (href: string) => {
-      setActivePage(href);
-      if (windowWidth < 768) 
-        setSideNavCollapsed(true)
-    }
-
+  function SideNavLink(props: {href: string, text: string, img?: any, icon?: any}) {
+    const handleSideNavLinkClick = (href: string) => setActivePage(href);
     return (
       <Link 
-        href={href} 
-        className={SidenavCSS.sidenavLink +' '+ (activePage === href ? SidenavCSS.active : '') + (!sideNavCollapsed ? ' waves-effect waves-light ripple' : ' ')}
-        onClick={() => handleSideNavLinkClick(href)}  
+        href={props.href} 
+        className={SidenavCSS.sidenavLink +' '+ (props.href === activePage && SidenavCSS.active) + (!sideNavCollapsed ? ' waves-effect waves-light ripple ' : ' ')}
+        onClick={() => { 
+          handleSideNavLinkClick(props.href)
+          if (windowWidth < 1200) setSideNavCollapsed(true)
+        }}  
       >
         <i className={SidenavCSS.sidenavLinkSymbol + ' material-symbols-outlined'}>
-          {img ? <Image src={img} alt = {text} width={24} height={24} /> : icon}
+          {props.img ? <Image src={props.img} alt = {props.text} width={24} height={24} /> : props.icon}
         </i>
-        <p>{text}</p>
-    </Link>
+        <p>{props.text}</p>
+      </Link>
     );
   }
 
   return (
     <>
-      <nav className={SidenavCSS.sidenav + ' ' + (sideNavCollapsed && SidenavCSS.sidenavCollapsed)} style={{zIndex: 10}}>
+      <nav className={SidenavCSS.sidenav + " " + (sideNavCollapsed && SidenavCSS.sidenavCollapsed)} style={{zIndex: 10}}>
         <SideNavLink href="/" icon="home" text="Home"/>
         <SideNavLink href="/characters" img={characterIcon} text="Characters"/>
         <SideNavLink href="/weapons" img={weaponIcon} text="Weapons"/>
@@ -95,7 +81,9 @@ export default function Sidenav() {
         <SideNavLink href="/wishes" img={wishIcon} text="SeelieGPT"/> */}
 
       </nav>
-      {!sideNavCollapsed && windowWidth < 768 && <Overlay zIndex={2} onClick={() => setSideNavCollapsed(true)}/>}
+      {!sideNavCollapsed && windowWidth < 1200 && 
+        <Overlay zIndex={2} onClick={() => setSideNavCollapsed(true)}/>
+      }
     </>
   );
 }

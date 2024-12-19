@@ -22,13 +22,10 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <ClientWrapper>
           <Topnav/>
-          <div className="wrapper">
-            <Sidenav/>
-            <main id="content">
-              {children}
-            </main>
-            {/* <RightSidenav/> */}
-          </div>
+          <Sidenav/>
+          <main id="content">
+            {children}
+          </main>
         </ClientWrapper>
       </body>
     </html>
