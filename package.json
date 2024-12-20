@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:css": "tailwindcss -i ./app/index.css -o ./app/output.css --watch"
+    "build:css": "tailwindcss -i ./src/app/index.css -o ./src/app/output.css --watch"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",

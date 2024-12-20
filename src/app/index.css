@@ -147,32 +147,32 @@ nav{
 
 .bg-1-star{
   background-image: linear-gradient(to top, rgb(149, 112, 203, 0.5), rgb(106, 86, 136, 0.5)),
-  url('../public/assets/bg/1-star.png');
+  url('../../public/assets/bg/1-star.png');
 }
 
 .bg-2-star{
   background-image: linear-gradient(to top, rgb(149, 112, 203, 0.5), rgb(106, 86, 136, 0.5)),
-  url('../public/assets/bg/2-star.png');
+  url('../../public/assets/bg/2-star.png');
 }
 
 .bg-3-star{
   background-image: linear-gradient(to top, rgb(149, 112, 203, 0.5), rgb(106, 86, 136, 0.5)),
-  url('../public/assets/bg/3-star.png');
+  url('../../public/assets/bg/3-star.png');
 }
 
 .bg-4-star{
   background-image: linear-gradient(to top, rgb(149, 112, 203, 0.5), rgb(106, 86, 136, 0.5)),
-  url('../public/assets/bg/4-star.png');
+  url('../../public/assets/bg/4-star.png');
 }
 
 .bg-5-star{
   background-image: linear-gradient(to top, rgba(220, 142, 73, 0.5), rgba(144, 101, 65, 0.5)),
-  url('../public/assets/bg/5-star.png');
+  url('../../public/assets/bg/5-star.png');
 }
 
 .bg-5-5-star{
   background-image: linear-gradient(to top, rgb(149, 112, 203, 0.5), rgb(106, 86, 136, 0.5)),
-  url('../public/assets/bg/55-star.png');
+  url('../../public/assets/bg/55-star.png');
 }
 
 

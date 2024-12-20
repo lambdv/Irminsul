@@ -3,7 +3,7 @@ import explorePageCSS from '@/components/explore/explorePage.module.css'
 import WeaponItemList from '@/app/(browse)/weapons/WeaponItemList'
 import ItemsContainer from '@/components/explore/ItemsContainer'
 import BrowseHeader from '@/components/explore/BrowseHeader'
-import weaponIcon from '@/public/assets/icons/weaponIcon.png'
+import weaponIcon from '@public/assets/icons/weaponIcon.png'
 import {WeaponFilterStore} from '@/store/WeaponFilters'
 import {getWeapons} from '@/utils/DataGetters'
 

@@ -1,6 +1,5 @@
 import { Inter } from "next/font/google";
 import "./index.css";
-import "./output.css";
 import "./waves.css";
 import Sidenav from "@/components/navigation/Sidenav";
 import Topnav from "@/components/navigation/Topnav";
@@ -13,12 +12,10 @@ export const metadata = {
   description: "Genshin Impact Database",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({children}) {
   return (
     <html lang="en">
-      <head>
-        {/* <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"></link> */}
-      </head>
+      <head></head>
       <body className={inter.className}>
         <ClientWrapper>
           <Topnav/>

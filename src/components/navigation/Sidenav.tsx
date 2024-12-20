@@ -13,13 +13,13 @@ import Overlay from '../ui/Overlay';
 import { flatten } from "@/utils/standardizers"
 
 //images
-import characterIcon from '@/public/assets/icons/characterIcon.png'
-import weaponIcon from '@/public/assets/icons/weaponIcon.png'
-import artifactIcon from '@/public/assets/icons/artifactIcon.png'
-import teamIcon from '@/public/assets/icons/teamIcon.png'
-import leafIcon from '@/public/assets/icons/leaf.png'
-import enemyIcon from '@/public/assets/icons/enemyIcon.png'
-import wishIcon from '@/public/assets/icons/wish.png'
+import characterIcon from '@public/assets/icons/characterIcon.png'
+import weaponIcon from '@public/assets/icons/weaponIcon.png'
+import artifactIcon from '@public/assets/icons/artifactIcon.png'
+import teamIcon from '@public/assets/icons/teamIcon.png'
+import leafIcon from '@public/assets/icons/leaf.png'
+import enemyIcon from '@public/assets/icons/enemyIcon.png'
+import wishIcon from '@public/assets/icons/wish.png'
 
 /**
  * Side navigation component
@@ -28,7 +28,7 @@ export default function Sidenav() {
   const pathname = usePathname(); //get url path
   const { sideNavCollapsed, setSideNavCollapsed } = NavigationStore(); //get sidenav state
   const [activePage, setActivePage] = useState('');
-  const [windowWidth, setWindowWidth] = useState(1000);
+  const [windowWidth, setWindowWidth] = useState(1201);
 
   useEffect(() => setActivePage(pathname), [pathname])
   useEffect(() => setWindowWidth(window.innerWidth), [])
@@ -62,7 +62,7 @@ export default function Sidenav() {
         </i>
         <p>{props.text}</p>
       </Link>
-    );
+    )
   }
 
   return (
@@ -74,16 +74,14 @@ export default function Sidenav() {
         <SideNavLink href="/artifacts" img={artifactIcon} text="Artifacts"/>
         <SideNavLink href="/enemies" img={enemyIcon} text="Enemies"/>
         <SideNavLink href="/wishes" img={wishIcon} text="Banners"/>
-
-        {/* <SideNavLink href="/wishes" img={wishIcon} text="Articles"/>
-        <SideNavLink href="/wishes" img={wishIcon} text="Akademiya"/>
-        <SideNavLink href="/wishes" img={wishIcon} text="Calculator"/>
+        {/* <SideNavLink href="/" img={wishIcon} text="Articles"/>
+        <SideNavLink href="/" img={wishIcon} text="Akademiya"/>
+        <SideNavLink href="/" img={wishIcon} text="Calculator"/>
         <SideNavLink href="/wishes" img={wishIcon} text="SeelieGPT"/> */}
-
       </nav>
       {!sideNavCollapsed && windowWidth < 1200 && 
         <Overlay zIndex={2} onClick={() => setSideNavCollapsed(true)}/>
       }
     </>
-  );
+  )
 }
