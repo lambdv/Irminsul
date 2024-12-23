@@ -1,6 +1,5 @@
 "use client"
 import explorePageCSS from '@/components/explore/explorePage.module.css'
-import useFetch from '@/hooks/useFetch'
 import Item from '@/components/explore/Item'
 import { SearchStore } from '@/store/Search'
 import { CharacterFilterStore } from '@/store/CharacterFilters'
@@ -21,7 +20,7 @@ function filterMethod(characters: any, filters: string[][], selectedFilters: str
         })
         const nameMatch: boolean = query==="" || character.name.toLowerCase().includes(query.toLowerCase())
         return passed && nameMatch
-    });
+    })
 }
 
 export default function ItemsContainer(props: {data: any, store: any, type: string}) {
@@ -36,15 +35,15 @@ export default function ItemsContainer(props: {data: any, store: any, type: stri
         case "character":
             itemTaggingFunction = (character: any) => [flatten(character.rarity+"-star"), flatten(character.vision), flatten(character.weapon)]
             filters2d = [filters[0].rarities, filters[1].elements, filters[2].weapons]
-            break;
+            break
         case "weapon":
             itemTaggingFunction = (weapon: any) => [flatten(weapon.rarity+"-star"), flatten(weapon.type)]
             filters2d = [filters[0].rarities, filters[1].types]
-            break;
+            break
         case "artifact":
             itemTaggingFunction = (artifact: any) => [flatten(artifact.max_rarity+"-star")]
             filters2d = [filters[0].rarities]
-            break;
+            break
         default:
             itemTaggingFunction = (item: any) => []
             filters2d = []

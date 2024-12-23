@@ -83,8 +83,8 @@ export default function CharacterBrowseHeader(props: {icon: any, title: string, 
             {showModal &&  // if show is true, show the modal
                 <Modal title="Filters" toggle={toggleModal}>
                     {filters.map((filterCategory, index) => {
-                        const filterTitle = Object.keys(filterCategory)[0];
-                        const filterArray = filterCategory[Object.keys(filterCategory)[0]];
+                        const filterTitle = Object.keys(filterCategory)[0]
+                        const filterArray = filterCategory[Object.keys(filterCategory)[0]]
                         return (
                             <div className={explorePageCSS.tagCatagory} key={index}>
                                 <label>{filterTitle}</label>

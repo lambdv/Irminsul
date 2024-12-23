@@ -1,7 +1,7 @@
-import RightSidenav from "@/components/navigation/RightSidenav";
-import { getCharacter, getCharacters } from "@/utils/DataGetters";
-import { toTitleCase } from "@/utils/standardizers";
-import Image from 'next/image';
+import RightSidenav from "@/components/navigation/RightSidenav"
+import { getCharacter, getCharacters } from "@/utils/DataGetters"
+import { toTitleCase } from "@/utils/standardizers"
+import Image from 'next/image'
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -33,21 +33,14 @@ export default async function CharacterPage({params}) {
   const name = id.toLowerCase().replaceAll("-", " ")
   return (
     <div id="character-page">
-      <RightSidenav>
-        <ul>
-          <li><a href="#basestats">Base Stats</a></li>
-          <li><a href="#basestats">Ascention</a></li>
-          <li><a href="#basestats">Constellations</a></li>
-          <li><a href="#basestats">Talents</a></li>
-          <li><a href="#basestats">Passives</a></li>
-        </ul>
-      </RightSidenav>
-
-      <div className="flex" style={{
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundImage: `url(/assets/characters/${id}/banner.png)`,
-      }}>
+      <div 
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundImage: `url(/assets/characters/${id}/banner.png)`,
+        }}
+      >
         <div>
           <h1 className="bold">{data.name}</h1>
           <p>{data.description}</p>
@@ -59,6 +52,16 @@ export default async function CharacterPage({params}) {
           height={500}
         />
       </div>
+
+      <RightSidenav>
+        <ul>
+          <li><a href="#basestats">Base Stats</a></li>
+          <li><a href="#basestats">Ascention</a></li>
+          <li><a href="#basestats">Constellations</a></li>
+          <li><a href="#basestats">Talents</a></li>
+          <li><a href="#basestats">Passives</a></li>
+        </ul>
+      </RightSidenav>
 
       <div>
         <h1>base stats</h1>
@@ -98,6 +101,6 @@ export default async function CharacterPage({params}) {
         </tbody>
       </table>
     </div>
-  );
+  )
 }
   

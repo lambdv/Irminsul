@@ -7,10 +7,10 @@ export default function Modal(props) {
     const handleClose = (e) => {
         if (e.target === e.currentTarget) 
             props.toggle()
-    };
+    }
 
     return (
-        <Overlay zIndex={10} onClick={handleClose}>
+        <Overlay zIndex={50} onClick={handleClose}>
             <div className={modalCSS.modal}>
                 <div className={modalCSS.header}>
                     <h1>{props.title}</h1>

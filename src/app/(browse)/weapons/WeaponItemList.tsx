@@ -20,7 +20,7 @@ function filteredWeapons(weapons: any, filters: any, selectedFilters: string[], 
         })
         const nameMatch: boolean = query==="" || weapon.name.toLowerCase().includes(query.toLowerCase())
         return passed && nameMatch
-    });
+    })
 }
 
 export default function WeaponItemList(props:{data: any}) {

@@ -1,9 +1,12 @@
-import { create } from 'zustand';
+import { create } from 'zustand'
 
 type State = {
-    SearchQuery: string;
-    setSearchQuery: (query: string) => void;
-    updateQuery: (e: any) => void;
+    SearchQuery: string
+    setSearchQuery: (query: string) => void
+    updateQuery: (e: any) => void
+    showPallette: boolean
+    setShowPallette: (show: boolean) => void
+    togglePalette: () => void
 };
 
 export const SearchStore = create<State>((set) => ({
@@ -12,9 +15,13 @@ export const SearchStore = create<State>((set) => ({
         return { SearchQuery: query }
     }),
     updateQuery: (e: any) => {
-        e.target.select();
         set({SearchQuery: e.target.value});
     },
+    showPallette: false,
+    setShowPallette: (show: boolean) => set({ showPallette: show }),
+    togglePalette: () => set((state) => {
+        return { showPallette: !state.showPallette }
+    })
 }));
 
 

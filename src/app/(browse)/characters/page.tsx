@@ -1,18 +1,18 @@
-import React, { Suspense } from 'react'; 
-import CharacterItemList from '@/app/(browse)/characters/CharacterItemList';
-import ItemsContainer from '@/components/explore/ItemsContainer';
-import BrowseHeader from '@/components/explore/BrowseHeader';
+import React, { Suspense } from 'react' 
+import CharacterItemList from '@/app/(browse)/characters/CharacterItemList'
+import ItemsContainer from '@/components/explore/ItemsContainer'
+import BrowseHeader from '@/components/explore/BrowseHeader'
 import characterIcon from '@public/assets/icons/characterIcon.png'
 import {CharacterFilterStore} from '@/store/CharacterFilters'
 import {getCharacters} from '@/utils/DataGetters'
-import Loading from '../loading';
+import Loading from '../loading'
 
 export const metadata = {
   title: "Characters | Irminsul",
-};
+}
 
 export default async function Characters({searchParams}) {
-  const characters = await getCharacters();
+  const characters = await getCharacters()
   return (
     <Suspense fallback={<Loading/>}>
       <div id="characters-page">
@@ -31,6 +31,6 @@ export default async function Characters({searchParams}) {
         /> */}
       </div>
     </Suspense>
-  );
+  )
 }
   

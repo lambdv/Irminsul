@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import ItemCSS from './item.module.css'
-import Image from "next/image";
-import {flatten} from '@/utils/standardizers';
+import Image from "next/image"
+import {flatten} from '@/utils/standardizers'
 
 
 export default function Item(props: {
@@ -11,10 +11,10 @@ export default function Item(props: {
     element?: string,
     rarity: number
 }) {
-    const isLargeItem: boolean = props.category == "weapon" || props.category == "artifact";
-    const hasElement: boolean = props.element !== null && props.category == "character";
-    const hasStarsDisplayed: boolean = props.category == "artifact" || props.category == "weapon";
-    const id = props.name.toLowerCase().replaceAll(" ", "-");
+    const isLargeItem: boolean = props.category == "weapon" || props.category == "artifact"
+    const hasElement: boolean = props.element !== null && props.category == "character"
+    const hasStarsDisplayed: boolean = props.category == "artifact" || props.category == "weapon"
+    const id = props.name.toLowerCase().replaceAll(" ", "-")
     return (
         <div className={
                 ItemCSS.item + 

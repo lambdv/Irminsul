@@ -14,8 +14,17 @@
     /* background-color: red; */
 }
 
-.rightsidenavCollapsed{
+@media (max-width: 1500px) {
+    .rightsidenav{
+        display: block;
+        position: relative;
+        top:0px;
+    }
+}
+
+
+/* .rightsidenavCollapsed{
     display: block;
     position: relative;
     top:0px;
-}
+} */

@@ -1,6 +1,6 @@
-import { getArtifact, getArtifacts } from '@/utils/DataGetters';
-import { toTitleCase } from '@/utils/standardizers';
-import { Suspense } from 'react';
+import { getArtifact, getArtifacts } from '@/utils/DataGetters'
+import { toTitleCase } from '@/utils/standardizers'
+import { Suspense } from 'react'
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -34,5 +34,5 @@ export default async function ArtifactPage({params}) {
         {JSON.stringify(data)}
       </div>
     </Suspense>
-  );
+  )
 }

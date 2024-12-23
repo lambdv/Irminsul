@@ -1,6 +1,6 @@
 "use server"
-import { getWeapon, getWeapons } from '@/utils/DataGetters';
-import { toTitleCase } from '@/utils/standardizers';
+import { getWeapon, getWeapons } from '@/utils/DataGetters'
+import { toTitleCase } from '@/utils/standardizers'
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -32,6 +32,6 @@ export default async function WeaponPage({params}) {
       {id}
       {JSON.stringify(data)}
     </div>
-  );
+  )
 }
   

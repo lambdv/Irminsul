@@ -2,17 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --primary-color: #1a73e8;
+}
+
+/* Define dark theme colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #070707;
+    --text-color: #ffffff;
+    --primary-color: #bb86fc;
+  }
+}
+
 @font-face {
   font-family: 'ingame';
-  src: url('../fonts/HanyiWenHei/zh-cn.ttf')
+  src: url('../../public/fonts/HanyiWenHei/zh-cn.ttf')
 }
 
 @font-face {
   font-family: 'Material Symbols Outlined';
   font-style: normal;
   font-weight: 100 700;
-  /* src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v205/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsI.woff2) format('woff2'); */
-  src: url('../fonts/MaterialIcons/material_icons.woff2') format('woff2');
+  src: url('../../public/fonts/MaterialIcons/material_icons.woff2') format('woff2');
 }
 
 .material-symbols-outlined {
@@ -92,8 +106,8 @@ button .ripple {
 
 
 body{
-  background-color: #070707;
-  color:rgb(206, 206, 206);
+  background-color: var(--background-color);
+  color: var(--text-color);
   overflow-y: scroll;
   overflow-x:hidden;
 }

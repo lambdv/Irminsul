@@ -58,9 +58,9 @@
     justify-content: center ;
 }
 
-/** css window width condtional css */
-/* @media (max-width: 768px) { */
-@media (max-width: 1200px) {
+
+
+@media (max-width: 1500px) {
     .sidenav {
         position: fixed;
         display: block;
@@ -69,16 +69,25 @@
         z-index: 2;
         animation: slideIn 0.2s forwards;
     }
+    .sidenavCollapsed {
+        background-color: transparent;
+        animation: none;
+        transition: 0s ease;
+    }
+}
 
+
+/** css window width condtional css */
+/* @media (max-width: 768px) { */
+@media (max-width: 1200px) {
     .sidenavCollapsing{
         animation: slideOut 0.2s forwards;
     }
-    
     .sidenavCollapsed {
         display: none;
     }
-
 }
+
 
 
 @keyframes slideIn {
@@ -109,6 +118,8 @@
     background-color: transparent;
     cursor: pointer;
 }
+
+
 
 .sidenav .sidenavLink p{
     font-size: 12px;
@@ -167,7 +178,12 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;    
+    transition: 0.2s ease-in;
+
 }
+
+
+
 
 .sidenav .sidenavLink i{
     top:0px;
@@ -214,4 +230,16 @@
     width: 100%;
     padding: 5px;
     border-radius: 100px;
+}
+
+.sidenavCollapsed .sidenavLink:hover 
+    .sidenavLinkSymbol{
+    background-color: #1E1E1E;
+    cursor: pointer;
+}
+
+.sidenavCollapsed .active:hover 
+    .sidenavLinkSymbol{
+    background-color: rgb(53, 53, 53);
+    cursor: pointer;
 }

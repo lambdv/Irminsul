@@ -1,7 +1,7 @@
-import { Skeleton } from '@mui/material';
-import React from 'react';
-import explorePageCSS from '@/components/explore/explorePage.module.css';
-import ItemCSS from '@/components/explore/item.module.css';
+import { Skeleton } from '@mui/material'
+import React from 'react'
+import explorePageCSS from '@/components/explore/explorePage.module.css'
+import ItemCSS from '@/components/explore/item.module.css'
 
 function ItemSkelleton() {
   return (<>
@@ -25,6 +25,6 @@ export default function loading() {
         }
       </div>
     </div>
-  );
+  )
 }
 

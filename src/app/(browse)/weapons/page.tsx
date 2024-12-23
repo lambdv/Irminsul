@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React from 'react' 
 import explorePageCSS from '@/components/explore/explorePage.module.css'
 import WeaponItemList from '@/app/(browse)/weapons/WeaponItemList'
 import ItemsContainer from '@/components/explore/ItemsContainer'
@@ -9,7 +9,7 @@ import {getWeapons} from '@/utils/DataGetters'
 
 export const metadata = {
   title: "Weapons | Irminsul",
-};
+}
 
 export default async function Weapons() {
   const weapons = await getWeapons()
@@ -27,6 +27,6 @@ export default async function Weapons() {
       /> */}
       <WeaponItemList data={weapons} />
     </div>
-  );
+  )
 }
   
