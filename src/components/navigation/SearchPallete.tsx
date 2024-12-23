@@ -68,7 +68,7 @@ export default function SearchPallete() {
     function ResultItemComponent(item: ResultItem) {
         const imgName = item.category=="artifact" ? "flower" : "profile" 
         const imgURL = `/assets/${item.category.toLowerCase()}s/${item.id}/${imgName}.png`
-        ///assets/characters/${character.name.toLowerCase().replaceAll(" ", "-")}/profile.png
+        
         return (
             <Link 
                 key={item.id} 

@@ -1,6 +1,6 @@
-import { NextApiRequest, NextApiResponse } from 'next';
 import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(req: NextRequest) {
     return NextResponse.json({ message: 'Hello World' })
 }
