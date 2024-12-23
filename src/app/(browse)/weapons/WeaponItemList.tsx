@@ -1,6 +1,5 @@
 "use client"
 import explorePageCSS from '@/components/explore/explorePage.module.css'
-import useFetch from '@/hooks/useFetch.js'
 import Item from '@/components/explore/Item'
 import { SearchStore } from '@/store/Search'
 import { WeaponFilterStore } from '@/store/WeaponFilters'
