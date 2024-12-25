@@ -1,5 +1,4 @@
 ## TODO
-1. scrape data and build sqlite or json db
-3. search pallet component
-5. individual pages for records
+1. finish character data scraper
+5. character, weapon, artifact individual pages ui
 6. make landing/home page

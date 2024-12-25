@@ -5,6 +5,7 @@ import { SearchStore } from '@/store/Search'
 import { ArtifactFilterStore } from '@/store/ArtifactFilters'
 import { filterItemList } from '@/utils/filterers'
 import { flatten } from '@/utils/standardizers'
+import { useState } from 'react'
 
 
 // function filterArtifacts(artifacts: any, filters: any, selectedFilters: string[], query: string){
@@ -28,22 +29,27 @@ import { flatten } from '@/utils/standardizers'
 export default function ArtifactItemList(props) {
     const artifacts: any[] = props.data
     const { SearchQuery } = SearchStore()
-    const { selectedFilters, filters } = ArtifactFilterStore()
+    const { selectedFilters, filters, descending } = ArtifactFilterStore()
     const itemTaggingFunction = (artifact: any) => [artifact.rarity+"-star"]
     const filters2d = [filters[0].rarities]
+
+    const [sortBy , setSortBy] = useState("name")
+    
     
 
     return (
         <div className={explorePageCSS.itemContainer}>
-            {filterItemList(artifacts, filters2d, selectedFilters, SearchQuery, itemTaggingFunction).map((artifact, index) => (
-                <Item
-                    key={index} 
-                    category="artifact"
-                    name={artifact.name}
-                    rarity={artifact.max_rarity}
-                    src={`/assets/artifacts/${artifact.name.toLowerCase().replaceAll(" ", "-")}/flower.png`}
-                />
-            ))}
+            {filterItemList(artifacts, filters2d, selectedFilters, SearchQuery, itemTaggingFunction)
+                .sort((a, b) => a[sortBy].localeCompare(b[sortBy]) * (descending ? -1 : 1))
+                .map((artifact, index) => (
+                    <Item
+                        key={index} 
+                        category="artifact"
+                        name={artifact.name}
+                        rarity={artifact.max_rarity}
+                        src={`/assets/artifacts/${artifact.name.toLowerCase().replaceAll(" ", "-")}/flower.png`}
+                    />
+                ))}
         </div>
     )
 }

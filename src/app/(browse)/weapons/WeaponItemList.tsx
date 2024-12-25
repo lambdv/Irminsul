@@ -3,6 +3,7 @@ import explorePageCSS from '@/components/explore/explorePage.module.css'
 import Item from '@/components/explore/Item'
 import { SearchStore } from '@/store/Search'
 import { WeaponFilterStore } from '@/store/WeaponFilters'
+import { useState } from 'react'
 
 
 function filteredWeapons(weapons: any, filters: any, selectedFilters: string[], query: string){
@@ -25,19 +26,24 @@ function filteredWeapons(weapons: any, filters: any, selectedFilters: string[], 
 export default function WeaponItemList(props:{data: any}) {
     const weapons = props.data
     const { SearchQuery } = SearchStore()
-    const { selectedFilters, filters } = WeaponFilterStore()
+    const { selectedFilters, filters, descending } = WeaponFilterStore()
+
+    const [sortBy , setSortBy] = useState("name")
+    
 
     return (
         <div className={explorePageCSS.itemContainer}>
-            {filteredWeapons(weapons, filters, selectedFilters, SearchQuery).map((weapon, index) => (
-            <Item
-                key={index} 
-                category="weapon"
-                name={weapon.name}
-                rarity={weapon.rarity}
-                src={`/assets/weapons/${weapon.name.toLowerCase().replaceAll(" ", "-")}/profile.png`}
-            />
-            ))}
+            {filteredWeapons(weapons, filters, selectedFilters, SearchQuery)
+                .sort((a, b) => a[sortBy].localeCompare(b[sortBy]) * (descending ? -1 : 1))
+                .map((weapon, index) => (
+                    <Item
+                        key={index} 
+                        category="weapon"
+                        name={weapon.name}
+                        rarity={weapon.rarity}
+                        src={`/assets/weapons/${weapon.name.toLowerCase().replaceAll(" ", "-")}/profile.png`}
+                    />
+                ))}
         </div>
     )
 }

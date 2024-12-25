@@ -71,7 +71,7 @@
     text-align: center;
     left:7.5px;
     top:1px;
-
+    transition: 0.2s ease-in-out;
 }
 
 .roundBtn:hover{

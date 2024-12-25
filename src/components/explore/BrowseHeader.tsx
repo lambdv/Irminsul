@@ -10,9 +10,10 @@ import Tag from '@/components/ui/Tag'
 import { CharacterFilterStore } from '@/store/CharacterFilters'
 import { WeaponFilterStore } from '@/store/WeaponFilters'
 import { ArtifactFilterStore } from '@/store/ArtifactFilters'
+import RoundBtn from '../ui/RoundBtn'
 
 /**
- * Header for the character browse page: contains title, filter button/modal and active tags
+ * header for the character browse page: contains title, filter button/modal and active tags
  */
 export default function CharacterBrowseHeader(props: {icon: any, title: string, store: any}) {
     const { filters, selectedFilters: selectedFilters, setSelectedFilters: setSelectedFilters } = props.store()
@@ -21,18 +22,13 @@ export default function CharacterBrowseHeader(props: {icon: any, title: string, 
     const [tempFilters, setTempFilters] = useState([])
     const [showModal, setShowModal] = useState(false)
 
-    /**
-     * Toggles the visibility of the modal and resets the tempFilters to the selectedFilters
-     */
+    //toggle model visibility
     const toggleModal = () => {
         setShowModal(!showModal)
         setTempFilters(selectedFilters) //clear changes
     }
 
-    /**
-     * Adds or removes a tag from the tempFilters
-     * @param e - The event object
-     */
+    //toggle adding/removing a tag from the tempFilters list
     const toggleTempTag = (e) => {
         let tag = e.target.textContent //get tag label
         if(!tempFilters.includes(tag))
@@ -41,21 +37,19 @@ export default function CharacterBrowseHeader(props: {icon: any, title: string, 
             setTempFilters(tempFilters.filter((filter) => filter !== tag)) //remove tag from tempFilters
     }
 
-    /**
-     * Removes a tag from the selectedFilters
-     * @param e - The event object
-     * @returns void
-     */
+    //remove a tag from the selectedFilters list
     const removeSelectedTag = (e) => {
         let tag = e.target.textContent //get tag label
         setSelectedFilters(selectedFilters.filter((filter) => filter !== tag)) //remove tag from tempFilters
     }
 
+    const {descending , setDescending} = props.store()
+    const toggleDescending = () => setDescending(!descending)
 
-    return (<>
-            {/* <li>{JSON.stringify(filters)}</li>
-            <li>{JSON.stringify(selectedFilters)}</li>
-            <li>{JSON.stringify(tempFilters)}</li> */}
+
+
+    return (
+        <>
             <div className={explorePageCSS.header}>
                 <div className={explorePageCSS.titleWrapper}>
                     <Image src={props.icon} alt=''/>
@@ -67,20 +61,23 @@ export default function CharacterBrowseHeader(props: {icon: any, title: string, 
                         <i className="material-symbols-outlined">filter_list</i>
                         <p>Filters</p>
                     </Btn>
+                    <RoundBtn 
+                        onClick={toggleDescending}
+                        icon="arrow_drop_up"
+                        iconStyle={descending ? {transform: "rotate(180deg)"} : {transform: "rotate(0deg)"}}
+                    />
                 </div>
             </div>
+            {selectedFilters.length !== 0 && <div className={explorePageCSS.activeTagsRail}>
+                <Tag onClick={() => setSelectedFilters([])} style={{border: "none", paddingLeft: "5px"}}>Clear All</Tag>
+                
+                {selectedFilters.map((filter, index) => {
+                    return <Tag key={index} selected={true} onClick={removeSelectedTag}>{filter}</Tag> 
+                })}
+                </div>
+            }
 
-            <div className={explorePageCSS.activeTagsRail}>
-                { selectedFilters.length !== 0 && <>
-                    <Tag onClick={() => setSelectedFilters([])} style={{border: "none", paddingLeft: "5px"}}>Clear All</Tag>
-                    
-                    {selectedFilters.map((filter, index) => {
-                        return <Tag key={index} selected={true} onClick={removeSelectedTag}>{filter}</Tag> 
-                    })}
-                </> }
-            </div>
-
-            {showModal &&  // if show is true, show the modal
+            {showModal &&
                 <Modal title="Filters" toggle={toggleModal}>
                     {filters.map((filterCategory, index) => {
                         const filterTitle = Object.keys(filterCategory)[0]
@@ -101,7 +98,6 @@ export default function CharacterBrowseHeader(props: {icon: any, title: string, 
                             </div>
                         )
                     })}
-
                     <div className={modalCSS.options}>
                         <Btn onClick={toggleModal}>Cancel</Btn>
                         <Btn onClick={() => {
@@ -111,5 +107,6 @@ export default function CharacterBrowseHeader(props: {icon: any, title: string, 
                     </div>
                 </Modal>
             }
-    </>)
+        </>
+    )
 }
