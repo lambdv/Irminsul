@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation'
 import Link from "next/link"
 
 
+
 type ResultItem = {
     id: number
     name: string
@@ -16,13 +17,17 @@ type ResultItem = {
 }
 
 export default function SearchPallete() {
-    const [SearchQuery, setSearchQuery] = useState("")
+    const {SearchQuery, setSearchQuery} = SearchStore()
     const [results, setResults] = useState<ResultItem[]>([])
     const searchBarRef = useRef<HTMLInputElement | null>(null)
     const { setShowPallette } = SearchStore()
     const router = useRouter()
 
-    // Fetch data and flatten it into a single array
+    const closePalette = () => {
+        setShowPallette(false)
+    }
+
+    //fetch data and flatten it into a single array
     useEffect(() => {
         const getDatas = async () => {
             const jsonToResultItem = (json: any, category: string) => 
@@ -45,7 +50,7 @@ export default function SearchPallete() {
         }, 10)
     }, [])
 
-    // Handle keyboard events
+    //handle keyboard events
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             switch(event.key){
@@ -65,16 +70,20 @@ export default function SearchPallete() {
         return () => {window.removeEventListener('keydown', handleKeyDown)}
     })
 
+    /**
+     * Link component for each search result in the palette
+     * @param item 
+     * @returns 
+     */
     function ResultItemComponent(item: ResultItem) {
         const imgName = item.category=="artifact" ? "flower" : "profile" 
         const imgURL = `/assets/${item.category.toLowerCase()}s/${item.id}/${imgName}.png`
-        
         return (
             <Link 
                 key={item.id} 
                 className={SearchPaletteCSS.palletteResult} 
                 href={`/${item.category.toLowerCase()}s/${item.id}`}
-                onClick={() => setShowPallette(false)}
+                onClick={closePalette}
             >
                 <Image src={imgURL} alt="" width={100} height={100} />
                 <p>{item.name}</p>
@@ -100,10 +109,10 @@ export default function SearchPallete() {
                         .map(ResultItemComponent)
                     :
                     <>
-                        <a className={SearchPaletteCSS.palletteResult} href="/"><p>Home</p></a>
-                        <a className={SearchPaletteCSS.palletteResult} href=""><p></p></a>
-                        <a className={SearchPaletteCSS.palletteResult} href=""><p></p></a>
-                        <a className={SearchPaletteCSS.palletteResult} href=""><p></p></a>
+                        <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/" ><p>Home</p></Link>
+                        <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/characters"><p>Characters</p></Link>
+                        <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/weapons"><p>Weapons</p></Link>
+                        <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/artifacts"><p>Artifacts</p></Link>
                     </>
                 }
             </ul>

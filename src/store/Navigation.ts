@@ -7,7 +7,7 @@ type State = {
 };
 
 export const NavigationStore = create<State>((set) => ({
-    sideNavCollapsed: false,
+    sideNavCollapsed: true,
     setSideNavCollapsed: (collapsed) => set((state) => ({ sideNavCollapsed: collapsed })),
     toggleSideNavCollapsed: () => set((state) => ({
          sideNavCollapsed: !state.sideNavCollapsed 
