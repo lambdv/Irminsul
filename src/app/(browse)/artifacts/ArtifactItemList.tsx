@@ -29,7 +29,8 @@ export default function ArtifactItemList(props) {
     const { selectedFilters, filters, descending } = ArtifactFilterStore()
     const itemTaggingFunction = (artifact: any) => [artifact.rarity+"-star"]
     const filters2d = [filters[0].rarities]
-    const [sortBy , setSortBy] = useState("release_version")
+    const [sortBy, setSortBy] = useState("release_version")
+    const [filteredArtifacts, setFilteredArtifacts] = useState<any[]>([])
 
     const sortingFn = (a, b) => { 
         switch(sortBy){
@@ -46,16 +47,15 @@ export default function ArtifactItemList(props) {
         }
     }
 
-    let filtered = filterArtifacts(artifacts, filters2d, selectedFilters, SearchQuery)
-
     useEffect(() => {
-        filtered = filterArtifacts(artifacts, filters2d, selectedFilters, SearchQuery)
-    }, [artifacts, filters, selectedFilters, SearchQuery])
+        const filtered = filterArtifacts(artifacts, filters2d, selectedFilters, SearchQuery)
+        setFilteredArtifacts(filtered)
+    }, [filters, selectedFilters, SearchQuery])
     
     return (
         <div className={explorePageCSS.itemContainer}>
-            {filtered.length === 0 && <div>No results for "{SearchQuery}"</div>}
-            {filtered
+            {filteredArtifacts.length === 0 && <p>No results for {SearchQuery}</p>}
+            {filteredArtifacts
                 .sort(descending ? (a, b) => sortingFn(b, a) : sortingFn)
                 .map((artifact, index) => (
                     <Item

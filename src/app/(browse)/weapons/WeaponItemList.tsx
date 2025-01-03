@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react'
 import { flatten } from '@/utils/standardizers'
 
 
-function filteredWeapons(weapons: any, filters: any, selectedFilters: string[], query: string){
+function filterWeapons(weapons: any, filters: any, selectedFilters: string[], query: string): any[]{
     if(selectedFilters.length === 0 && query.length === 0)
         return weapons
     const filters2d = [flatten(filters[0].rarities), flatten(filters[1].weapons), flatten(filters[2].stats)]
@@ -30,7 +30,8 @@ export default function WeaponItemList(props:{data: any}) {
     const weapons = props.data
     const { SearchQuery } = SearchStore()
     const { selectedFilters, filters, descending } = WeaponFilterStore()
-    const [sortBy , setSortBy] = useState("release_date_epoch")
+    const [sortBy, setSortBy] = useState("release_date_epoch")
+    const [filteredWeapons, setFilteredWeapons] = useState<any[]>([])
     
     const sortingFn = (a: any, b: any) => { 
         switch(sortBy){
@@ -47,16 +48,15 @@ export default function WeaponItemList(props:{data: any}) {
         }
     }
 
-    let filtered = filteredWeapons(weapons, filters, selectedFilters, SearchQuery)
-
     useEffect(() => {
-        filtered = filteredWeapons(weapons, filters, selectedFilters, SearchQuery)
-    }, [weapons, filters, selectedFilters, SearchQuery]) 
+        const filtered = filterWeapons(weapons, filters, selectedFilters, SearchQuery)
+        setFilteredWeapons(filtered)
+    }, [filters, selectedFilters, SearchQuery]) 
 
     return (
         <div className={explorePageCSS.itemContainer}>
-            {filtered.length === 0 && <div>No results for "{SearchQuery}"</div>}
-            {filtered
+            {filteredWeapons.length === 0 && <p>No results for {SearchQuery}</p>}
+            {filteredWeapons
                 .sort(descending ? (a, b) => sortingFn(b, a) : sortingFn)
                 .map((weapon, index) => (
                     <Item

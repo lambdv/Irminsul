@@ -15,7 +15,8 @@ export default function CharacterItemList(props: {data: Character[]}) {
     const itemTaggingFunction = (character: any) => [flatten(character.rarity+"-star"), flatten(character.vision), flatten(character.weapon)]
     const filters2d = [filters[0].rarities, filters[1].elements, filters[2].weapons]
 
-    const [sortBy , setSortBy] = useState("release_date_epoch")
+    const [sortBy, setSortBy] = useState("release_date_epoch")
+    const [filteredCharacters, setFilteredCharacters] = useState<Character[]>([])
 
     const sortingFn = (a: Character, b: Character) => { 
         switch(sortBy){
@@ -30,16 +31,15 @@ export default function CharacterItemList(props: {data: Character[]}) {
         }
     }
 
-    let filtered = filterItemList(characters, filters2d, selectedFilters, SearchQuery, itemTaggingFunction)
-
     useEffect(() => {
-        filtered = filterItemList(characters, filters2d, selectedFilters, SearchQuery, itemTaggingFunction)
-    }, [characters, filters, selectedFilters, SearchQuery])
+        const filtered = filterItemList(characters, filters2d, selectedFilters, SearchQuery, itemTaggingFunction)
+        setFilteredCharacters(filtered)
+    }, [filters, selectedFilters, SearchQuery])
 
     return (
         <div className={explorePageCSS.itemContainer}>
-            {filtered.length === 0 && <div>No results for "{SearchQuery}"</div>}
-            {filtered
+            {filteredCharacters.length === 0 && <p>No results for {SearchQuery}</p>}
+            {filteredCharacters
                 .sort(descending ? (a, b) => sortingFn(b, a) : sortingFn)
                 .filter((character: any) => flatten(character.name) !== "traveler")
                 .map((character, index) => (
