@@ -1,50 +1,35 @@
 "use client"
 import React, { useState, useEffect, useRef }  from 'react'
-import { getArtifacts, getCharacters, getWeapons } from '@/utils/DataGetters'
+import { getAllPages, getArtifacts, getCharacters, getWeapons } from '@/utils/DataGetters'
 import SearchPaletteCSS from './searchpallette.module.css'
 import Image from 'next/image'
 import { SearchStore } from '@/store/Search'
 import { useRouter } from 'next/navigation'
 import Link from "next/link"
-
-
-
-type ResultItem = {
-    id: number
-    name: string
-    rarity: number
-    category: string
-}
+import { toKey } from '@/utils/standardizers'
 
 export default function SearchPallete() {
     const {SearchQuery, setSearchQuery} = SearchStore()
-    const [results, setResults] = useState<ResultItem[]>([])
+    const [pages, setPages] = useState<Page[]>([])
     const searchBarRef = useRef<HTMLInputElement | null>(null)
     const { setShowPallette } = SearchStore()
     const router = useRouter()
-
+    
+    //function to close the palette 
     const closePalette = () => {
         setShowPallette(false)
     }
 
-    //fetch data and flatten it into a single array
+    //loads pages state from server action
     useEffect(() => {
-        const getDatas = async () => {
-            const jsonToResultItem = (json: any, category: string) => 
-                json.map((item: any) => ({
-                    id: item.id, 
-                    name: item.name, 
-                    rarity: item.rarity, 
-                    category: category
-                }))
-            const characters = jsonToResultItem(await getCharacters(), "Character")
-            const weapons = jsonToResultItem(await getWeapons(), "Weapon")
-            const artifacts = jsonToResultItem(await getArtifacts(), "Artifact")
-            setResults([...characters, ...weapons, ...artifacts])
-        }
-        getDatas()
+        (async () => {
+            const ps = await getAllPages()
+            setPages(ps)
+        })()
+    }, [])
 
-        // Focus the search bar when the component mounts
+    // focus the search bar when the component mounts
+    useEffect(() => {
         setTimeout(() => {
             searchBarRef.current?.focus()
         }, 10)
@@ -57,13 +42,13 @@ export default function SearchPallete() {
                 case 'Escape':
                     setShowPallette(false)
                     break
-                case 'Enter':
-                    const firstResult = results.find(r => r.name.toLowerCase().includes(SearchQuery.toLowerCase()))
-                    if (firstResult){
-                        router.push('/'+firstResult.category.toLowerCase()+'s/'+firstResult.id)
-                        setShowPallette(false)
-                    }
-                    break
+                // case 'Enter':
+                //     const firstResult = results.find(r => r.name.toLowerCase().includes(SearchQuery.toLowerCase()))
+                //     if (firstResult){
+                //         router.push('/'+firstResult.category.toLowerCase()+'s/'+firstResult.id)
+                //         setShowPallette(false)
+                //     }
+                //     break
             }
         }
         window.addEventListener('keydown', handleKeyDown);
@@ -75,9 +60,24 @@ export default function SearchPallete() {
      * @param item 
      * @returns 
      */
-    function ResultItemComponent(item: ResultItem) {
-        const imgName = item.category=="artifact" ? "flower" : "profile" 
-        const imgURL = `/assets/${item.category.toLowerCase()}s/${item.id}/${imgName}.png`
+    function ResultItemComponent(item: Page) {
+        const imgName = item.category=="artifact" ? "flower" : "profile"
+        let fileName = ""
+
+        switch(item.category.toLowerCase()){
+            case "character":
+                fileName = `${toKey(item.name)}_avatar.png`
+                break
+            case "weapon":
+                fileName = `${toKey(item.name)}_base_avatar.png`
+                break
+            case "artifact":
+                fileName = `${toKey(item.name)}_flower.png`
+                break
+        }
+
+        const imgURL = `/assets/${item.category.toLowerCase()}s/${toKey(item.name)}/${fileName}`
+
         return (
             <Link 
                 key={item.id} 
@@ -104,8 +104,11 @@ export default function SearchPallete() {
             />
             <ul className={SearchPaletteCSS.searchPaletteResults}>
                 {SearchQuery.length > 0 ?
-                    results
-                        .filter(r => r.name.toLowerCase().includes(SearchQuery.toLowerCase()))
+                    pages
+                        .filter(r => r.name
+                            .toLowerCase()
+                            .includes(SearchQuery.toLowerCase())
+                        )
                         .map(ResultItemComponent)
                     :
                     <>

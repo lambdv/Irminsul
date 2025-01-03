@@ -11,7 +11,6 @@ export const metadata = {
 
 export default async function Artifacts({searchParams}) {
   const artifacts = await getArtifacts()
-
   return (
     <div id="artifacts-page">
       <BrowseHeader

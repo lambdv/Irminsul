@@ -1,0 +1,557 @@
+{
+    "name": "Kaeya",
+    "key": "kaeya",
+    "title": "Frostwind Swordsman",
+    "rarity": 4,
+    "element": "cryo",
+    "weapon": "sword",
+    "release_date": "september 28, 2020",
+    "release_date_epoch": 1601251200,
+    "constellation": "pavo ocellus",
+    "birthday": "november 30th",
+    "affiliation": "knights of favonius (on profile)khaenri'ahalberich clan ",
+    "region": "mondstadt",
+    "special_dish": "fruity skewers",
+    "alternate_title": "quartermaster of the knights[1]",
+    "description": "",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "975.62",
+            "BaseATK": "18.70",
+            "BaseDEF": "66.38",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2506.36",
+            "BaseATK": "48.04",
+            "BaseDEF": "170.53",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3235.19",
+            "BaseATK": "62.01",
+            "BaseDEF": "220.12",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "4845.94",
+            "BaseATK": "92.88",
+            "BaseDEF": "329.72",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "5363.79",
+            "BaseATK": "102.80",
+            "BaseDEF": "364.95",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "6.7%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6169.65",
+            "BaseATK": "118.25",
+            "BaseDEF": "419.78",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "6.7%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "6860.13",
+            "BaseATK": "131.48",
+            "BaseDEF": "466.76",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "13.4%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "7665.99",
+            "BaseATK": "146.93",
+            "BaseDEF": "521.59",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "13.4%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "8183.84",
+            "BaseATK": "156.85",
+            "BaseDEF": "556.83",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "13.4%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "8988.73",
+            "BaseATK": "172.28",
+            "BaseDEF": "611.59",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "13.4%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "9506.58",
+            "BaseATK": "182.20",
+            "BaseDEF": "646.83",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "20.1%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "10312.44",
+            "BaseATK": "197.65",
+            "BaseDEF": "701.66",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "20.1%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "10830.30",
+            "BaseATK": "207.57",
+            "BaseDEF": "736.89",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "26.8%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "11636.16",
+            "BaseATK": "223.02",
+            "BaseDEF": "791.72",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "26.8%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Shivada Jade Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Calla Lily",
+                    "amount": "3"
+                },
+                {
+                    "name": "Treasure Hoarder Insignia",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Hoarfrost Core",
+                    "amount": "2"
+                },
+                {
+                    "name": "Shivada Jade Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Calla Lily",
+                    "amount": "10"
+                },
+                {
+                    "name": "Treasure Hoarder Insignia",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Hoarfrost Core",
+                    "amount": "4"
+                },
+                {
+                    "name": "Shivada Jade Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Calla Lily",
+                    "amount": "20"
+                },
+                {
+                    "name": "Silver Raven Insignia",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Hoarfrost Core",
+                    "amount": "8"
+                },
+                {
+                    "name": "Shivada Jade Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Calla Lily",
+                    "amount": "30"
+                },
+                {
+                    "name": "Silver Raven Insignia",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Hoarfrost Core",
+                    "amount": "12"
+                },
+                {
+                    "name": "Shivada Jade Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Calla Lily",
+                    "amount": "45"
+                },
+                {
+                    "name": "Golden Raven Insignia",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Hoarfrost Core",
+                    "amount": "20"
+                },
+                {
+                    "name": "Shivada Jade Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Calla Lily",
+                    "amount": "60"
+                },
+                {
+                    "name": "Golden Raven Insignia",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Ceremonial Bladework",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 5 rapid strikes.\nCharged Attack\nConsumes a certain amount of Stamina to unleash 2 rapid sword strikes.\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        53.75,
+                        58.13,
+                        62.5,
+                        68.75,
+                        73.13,
+                        78.13,
+                        85.0,
+                        91.88,
+                        98.75,
+                        106.25,
+                        114.84
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        51.69,
+                        55.89,
+                        60.1,
+                        66.11,
+                        70.32,
+                        75.13,
+                        81.74,
+                        88.35,
+                        94.96,
+                        102.17,
+                        110.43
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        65.27,
+                        70.59,
+                        75.9,
+                        83.49,
+                        88.8,
+                        94.88,
+                        103.22,
+                        111.57,
+                        119.92,
+                        129.03,
+                        139.47
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        70.86,
+                        76.63,
+                        82.4,
+                        90.64,
+                        96.41,
+                        103.0,
+                        112.06,
+                        121.13,
+                        130.19,
+                        140.08,
+                        151.41
+                    ]
+                },
+                {
+                    "hit": "5-Hit DMG (%)",
+                    "values": [
+                        88.24,
+                        95.42,
+                        102.6,
+                        112.86,
+                        120.04,
+                        128.25,
+                        139.54,
+                        150.82,
+                        162.11,
+                        174.42,
+                        188.53
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        "55.04+73.1",
+                        "59.52+79.05",
+                        "64+85",
+                        "70.4+93.5",
+                        "74.88+99.45",
+                        "80+106.25",
+                        "87.04+115.6",
+                        "94.08+124.95",
+                        "101.12+134.3",
+                        "108.8+144.5",
+                        "117.6+156.19"
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        63.93,
+                        69.14,
+                        74.34,
+                        81.77,
+                        86.98,
+                        92.92,
+                        101.1,
+                        109.28,
+                        117.46,
+                        126.38,
+                        135.3
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        127.84,
+                        138.24,
+                        148.65,
+                        163.51,
+                        173.92,
+                        185.81,
+                        202.16,
+                        218.51,
+                        234.86,
+                        252.7,
+                        270.54
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        159.68,
+                        172.67,
+                        185.67,
+                        204.24,
+                        217.23,
+                        232.09,
+                        252.51,
+                        272.93,
+                        293.36,
+                        315.64,
+                        337.92
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Frostgnaw",
+            "type": "Elemental Skill",
+            "description": "Unleashes a frigid blast, dealing Cryo DMG to opponents in front of Kaeya.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        191.2,
+                        205.54,
+                        219.88,
+                        239.0,
+                        253.34,
+                        267.68,
+                        286.8,
+                        305.92,
+                        325.04,
+                        344.16,
+                        363.28,
+                        382.4,
+                        406.3,
+                        430.0
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Glacial Waltz",
+            "type": "Elemental Burst",
+            "description": "Coalescing the frost in the air, Kaeya summons 3 icicles that revolve around him.\nThese icicles will follow the character around and deal Cryo DMG to opponents in their path for the ability's duration.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        77.6,
+                        83.42,
+                        89.24,
+                        97.0,
+                        102.82,
+                        108.64,
+                        116.4,
+                        124.16,
+                        131.92,
+                        139.68,
+                        147.44,
+                        155.2,
+                        164.9,
+                        175.0
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Cold-Blooded Strike",
+            "type": "1st Ascension Passive",
+            "description": "Every hit with Frostgnaw regenerates HP for Kaeya equal to 15% of his ATK."
+        },
+        {
+            "name": "Glacial Heart",
+            "type": "4th Ascension Passive",
+            "description": "Opponents Frozen by Frostgnaw will drop additional Elemental Particles.\nFrostgnaw may only produce a maximum of 2 additional Elemental Particles per use."
+        },
+        {
+            "name": "Hidden Strength",
+            "type": "Utility Passive",
+            "description": "Decreases sprinting Stamina consumption for your own party members by 20%.\nNot stackable with Passive Talents that provide the exact same effects."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Excellent Blood",
+            "description": "The CRIT Rate of Kaeya's Normal and Charge Attacks against opponents affected by  is increased by 15%.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Never-Ending Performance",
+            "description": "When Glacial Waltz is in effect, for each opponent defeated, its base duration is increased by 2.5s, up to a maximum of 15s.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Dance of Frost",
+            "description": "Increases the Level of Frostgnaw by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Frozen Kiss",
+            "description": "Triggers automatically when Kaeya's HP falls below 20%:\nCreates a shield that absorbs damage equal to 30% of Kaeya's Max HP. Lasts for 20s.\nThis shield absorbs Cryo DMG with 250% efficiency.\nCan only occur once every 60s.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Frostbiting Embrace",
+            "description": "Increases the Level of Glacial Waltz by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Glacial Whirlwind",
+            "description": "Glacial Waltz will generate 1 additional icicle, and will regenerate 15 Energy when cast.",
+            "properties": []
+        }
+    ],
+    "ascension_stat": "Energy Recharge"
+}

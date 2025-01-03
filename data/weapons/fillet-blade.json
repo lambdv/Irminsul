@@ -1,0 +1,122 @@
+{
+    "name": "Fillet Blade",
+    "key": "fillet-blade",
+    "description": "A sharp filleting knife. The blade is long, thin, and incredibly sharp.",
+    "rarity": 3,
+    "category": "sword",
+    "series": "chests",
+    "release_date": "september 28, 2020",
+    "base_atk_min": 39,
+    "base_atk_max": 401,
+    "sub_stat_type": "atk",
+    "sub_stat_value_min": "7.7% ",
+    "sub_stat_value_max": " 35.2%",
+    "refinement_name": "\n\ngash\n\n",
+    "refinements": [
+        "On hit, has 50% chance to deal **240**\n% ATK DMG to a single enemy. Can only occur once every **15**\ns.",
+        "On hit, has 50% chance to deal **280**\n% ATK DMG to a single enemy. Can only occur once every **14**\ns.",
+        "On hit, has 50% chance to deal **320**\n% ATK DMG to a single enemy. Can only occur once every **13**\ns.",
+        "On hit, has 50% chance to deal **360**\n% ATK DMG to a single enemy. Can only occur once every **12**\ns.",
+        "On hit, has 50% chance to deal **400**\n% ATK DMG to a single enemy. Can only occur once every **11**\ns."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "39",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "7.7%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "94",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "13.5%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "113",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "13.5%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "169",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "19.7%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "189",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "19.7%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "216",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "22.8%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "236",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "22.8%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "263",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "25.9%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "282",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "25.9%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "309",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "29.0%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "329",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "29.0%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "355",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "32.1%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "375",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "32.1%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "401",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "35.2%",
+            "ascension_phase": 6
+        }
+    ]
+}

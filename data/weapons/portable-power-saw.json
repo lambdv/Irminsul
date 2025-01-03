@@ -1,0 +1,122 @@
+{
+    "name": "Portable Power Saw",
+    "key": "portable-power-saw",
+    "description": "An old-school power saw that you can rarely find nowadays. It was once a cutting tool trusted by workers all around.",
+    "rarity": 4,
+    "category": "claymore",
+    "series": "construction series",
+    "release_date": "september 27, 2023",
+    "base_atk_min": 41,
+    "base_atk_max": 454,
+    "sub_stat_type": "hp",
+    "sub_stat_value_min": "12% ",
+    "sub_stat_value_max": " 55.1%",
+    "refinement_name": "\n\nsea shanty\n\n",
+    "refinements": [
+        "When the wielder is healed or heals others, they will gain a Stoic's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Roused effect will be granted for 10s. For each Symbol consumed, gain **40**\n Elemental Mastery, and 2s after the effect occurs, **2**\n Energy per Symbol consumed will be restored for said character. The Roused effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
+        "When the wielder is healed or heals others, they will gain a Stoic's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Roused effect will be granted for 10s. For each Symbol consumed, gain **50**\n Elemental Mastery, and 2s after the effect occurs, **2.5**\n Energy per Symbol consumed will be restored for said character. The Roused effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
+        "When the wielder is healed or heals others, they will gain a Stoic's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Roused effect will be granted for 10s. For each Symbol consumed, gain **60**\n Elemental Mastery, and 2s after the effect occurs, **3**\n Energy per Symbol consumed will be restored for said character. The Roused effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
+        "When the wielder is healed or heals others, they will gain a Stoic's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Roused effect will be granted for 10s. For each Symbol consumed, gain **70**\n Elemental Mastery, and 2s after the effect occurs, **3.5**\n Energy per Symbol consumed will be restored for said character. The Roused effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
+        "When the wielder is healed or heals others, they will gain a Stoic's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Roused effect will be granted for 10s. For each Symbol consumed, gain **80**\n Elemental Mastery, and 2s after the effect occurs, **4**\n Energy per Symbol consumed will be restored for said character. The Roused effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "41",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "12%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "99",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "21.2%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "125",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "21.2%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "184",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "30.9%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "210",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "30.9%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "238",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "35.7%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "264",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "35.7%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "293",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "40.6%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "319",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "40.6%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "347",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "45.4%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "373",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "45.4%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "401",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "50.3%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "427",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "50.3%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "454",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "55.1%",
+            "ascension_phase": 6
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Initiate",
+    "key": "initiate",
+    "flower_description": "A small flower. Cute and adorable, just like the early spring of North Teyvat.",
+    "feather_description": "An item attached to the grip of a traveler's first sword, bearing the modest dreams of its wielder.",
+    "sand_description": "",
+    "goblet_description": "",
+    "circlet_description": "",
+    "flower_name": "Initiate's Flower",
+    "feather_name": "Initiate's Feather",
+    "sand_name": "",
+    "goblet_name": "",
+    "circlet_name": "",
+    "two_pc_bonus": "",
+    "four_pc_bonus": "",
+    "rarity_min": 1,
+    "rarity_max": 1,
+    "release_version": 1.0
+}

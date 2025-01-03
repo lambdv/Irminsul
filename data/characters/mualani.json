@@ -1,0 +1,564 @@
+{
+    "name": "Mualani",
+    "key": "mualani",
+    "title": "Splish-Splash Wavechaser",
+    "rarity": 5,
+    "element": "hydro",
+    "weapon": "catalyst",
+    "release_date": "august 28, 2024",
+    "release_date_epoch": 1724803200,
+    "constellation": "phoca neomonachus",
+    "birthday": "august 3rd",
+    "affiliation": "meztli (on profile)leisurely puffer ",
+    "region": "natlan",
+    "special_dish": "pass the luck",
+    "alternate_title": "meztli guide",
+    "description": "",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "1182.12",
+            "BaseATK": "14.15",
+            "BaseDEF": "44.39",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "3066.41",
+            "BaseATK": "36.71",
+            "BaseDEF": "115.16",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "4079.97",
+            "BaseATK": "48.84",
+            "BaseDEF": "153.22",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "6104.94",
+            "BaseATK": "73.08",
+            "BaseDEF": "229.27",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "6825.10",
+            "BaseATK": "81.70",
+            "BaseDEF": "256.31",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "7852.35",
+            "BaseATK": "94.00",
+            "BaseDEF": "294.89",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "8812.57",
+            "BaseATK": "105.49",
+            "BaseDEF": "330.95",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "9850.47",
+            "BaseATK": "117.92",
+            "BaseDEF": "369.93",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "10570.63",
+            "BaseATK": "126.54",
+            "BaseDEF": "396.98",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "11617.98",
+            "BaseATK": "139.08",
+            "BaseDEF": "436.31",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "12338.14",
+            "BaseATK": "147.70",
+            "BaseDEF": "463.36",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "13397.32",
+            "BaseATK": "160.38",
+            "BaseDEF": "503.13",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "14117.48",
+            "BaseATK": "169.00",
+            "BaseDEF": "530.18",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "15184.93",
+            "BaseATK": "181.78",
+            "BaseDEF": "570.27",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Varunada Lazurite Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Sprayfeather Gill",
+                    "amount": "3"
+                },
+                {
+                    "name": "Sentry's Wooden Whistle",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Mark of the Binding Blessing",
+                    "amount": "2"
+                },
+                {
+                    "name": "Varunada Lazurite Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Sprayfeather Gill",
+                    "amount": "10"
+                },
+                {
+                    "name": "Sentry's Wooden Whistle",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Mark of the Binding Blessing",
+                    "amount": "4"
+                },
+                {
+                    "name": "Varunada Lazurite Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Sprayfeather Gill",
+                    "amount": "20"
+                },
+                {
+                    "name": "Warrior's Metal Whistle",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Mark of the Binding Blessing",
+                    "amount": "8"
+                },
+                {
+                    "name": "Varunada Lazurite Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Sprayfeather Gill",
+                    "amount": "30"
+                },
+                {
+                    "name": "Warrior's Metal Whistle",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Mark of the Binding Blessing",
+                    "amount": "12"
+                },
+                {
+                    "name": "Varunada Lazurite Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Sprayfeather Gill",
+                    "amount": "45"
+                },
+                {
+                    "name": "Saurian-Crowned Warrior's Golden Whistle",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Mark of the Binding Blessing",
+                    "amount": "20"
+                },
+                {
+                    "name": "Varunada Lazurite Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Sprayfeather Gill",
+                    "amount": "60"
+                },
+                {
+                    "name": "Saurian-Crowned Warrior's Golden Whistle",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Cooling Treatment",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 3 attacks that deal Hydro DMG.\nCharged Attack\nConsumes a certain amount of Stamina to smack a Pufferball into the air that deals AoE Hydro DMG upon landing.\nPlunging Attack\nGathers the power of Hydro and plunges towards the ground from mid-air, damaging all opponents in her path. Deals AoE Hydro DMG upon impact with the ground.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        51.4,
+                        55.25,
+                        59.11,
+                        64.24,
+                        68.1,
+                        71.95,
+                        77.09,
+                        82.23,
+                        87.37,
+                        92.51,
+                        97.65
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        44.63,
+                        47.97,
+                        51.32,
+                        55.78,
+                        59.13,
+                        62.48,
+                        66.94,
+                        71.4,
+                        75.86,
+                        80.33,
+                        84.79
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        70.03,
+                        75.29,
+                        80.54,
+                        87.54,
+                        92.8,
+                        98.05,
+                        105.05,
+                        112.05,
+                        119.06,
+                        126.06,
+                        133.07
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        142.88,
+                        153.6,
+                        164.31,
+                        178.6,
+                        189.32,
+                        200.03,
+                        214.32,
+                        228.61,
+                        242.9,
+                        257.18,
+                        271.47
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.17,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Surfshark Wavebreaker",
+            "type": "Elemental Skill",
+            "description": "Combining her mastery of speed and the waves and water, Mualani can surf anytime, anywhere.\nAfter using this skill, Mualani will gain 60 Nightsoul points and enter the Nightsoul's Blessing state.\n**Nightsoul's Blessing: Mualani**\nContinuously consume Nightsoul points. When they are depleted or when the skill is used again, Mualani's Nightsoul's Blessing will end. The state itself has the following traits:\n- Mualani mounts her Sharky Surfboard, increasing Mualani's Movement SPD and interruption resistance. Mualani can move on water and Liquid Phlogiston while this state is active, and she will take no DMG from the latter.\n- Normal Attacks will be converted to Sharky's Bites, dealing Nightsoul-aligned Hydro DMG based on Mualani's Max HP. Sharky's Bites can be used in mid-air. DMG dealt this way is considered Normal Attack DMG.\n- When she makes contact with opponents in this state, Mualani applies \"Marked as Prey\" to them and gains 1 Wave Momentum stack. Max 3 stacks. 1 stack can be gained from the same opponent every 0.7s.\n**Wave Momentum and Marked as Prey**\nWhen Mualani uses Sharky's Bite, her DMG dealt increases based on Wave Momentum stacks. When she has 3 stacks, a Normal Attack will use Sharky's Surging Bite instead, further increasing her DMG and removing all her stacks afterward.\nWhen Sharky's Bites hit opponents Marked as Prey, that mark is removed, and she will fire Shark Missiles at up to 5 nearby opponents Marked as Prey, dealing DMG to them equal to this Sharky's Bite instance and clearing their Marks. If more than 1 opponent is the target of Sharky's Bite and Shark Missiles, the DMG dealt will decrease, with 28% being the maximum decrease when at least 3 opponents are targeted.",
+            "attributes": [
+                {
+                    "hit": "Sharky's Bite Base DMG (Max HP%)",
+                    "values": [
+                        8.68,
+                        9.33,
+                        9.98,
+                        10.85,
+                        11.5,
+                        12.15,
+                        13.02,
+                        13.89,
+                        14.76,
+                        15.62,
+                        16.49,
+                        17.36,
+                        18.45
+                    ]
+                },
+                {
+                    "hit": "Wave Momentum DMG Bonus (Max HP%/Stack)",
+                    "values": [
+                        4.34,
+                        4.67,
+                        4.99,
+                        5.42,
+                        5.75,
+                        6.08,
+                        6.51,
+                        6.94,
+                        7.38,
+                        7.81,
+                        8.25,
+                        8.68,
+                        9.22
+                    ]
+                },
+                {
+                    "hit": "Sharky's Surging Bite Additional DMG Bonus (Max HP%)",
+                    "values": [
+                        21.7,
+                        23.33,
+                        24.95,
+                        27.13,
+                        28.75,
+                        30.38,
+                        32.55,
+                        34.72,
+                        36.89,
+                        39.06,
+                        41.23,
+                        43.4,
+                        46.11
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Boomsharka-laka",
+            "type": "Elemental Burst",
+            "description": "Fires a Super Shark Missile that can track opponents, dealing Nightsoul-aligned AoE Hydro DMG based on Mualani's Max HP.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (Max HP%)",
+                    "values": [
+                        58.44,
+                        62.82,
+                        67.21,
+                        73.05,
+                        77.43,
+                        81.81,
+                        87.66,
+                        93.5,
+                        99.35,
+                        105.19,
+                        111.03,
+                        116.88,
+                        124.18
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Crests and Troughs",
+            "type": "Night Realm's Gift Passive",
+            "description": "After her Nightsoul points are depleted, Mualani will switch to consuming Phlogiston to maintain her Nightsoul's Blessing.\nWhile in an area with Phlogiston Mechanics within Natlan, she can use Nightsoul Transmission: Mualani. When the active character is currently sprinting, swimming, in a movement mode caused by certain Talents, or at a certain height in the air, the following will trigger when switching to Mualani: Mualani will enter the Nightsoul's Blessing state and gain 40 Nightsoul points. Nightsoul Transmission can be triggered once every 10s by your own team.\nAdditionally, Mualani's Nightsoul point or Phlogiston consumption while moving on water and Liquid Phlogiston during Nightsoul's Blessing is decreased by 75% while in Natlan, and her Nightsoul point consumption is decreased by 35% while doing the same outside Natlan."
+        }
+    ],
+    "passives": [
+        {
+            "name": "Heat-Resistant Freshwater Floater",
+            "type": "1st Ascension Passive",
+            "description": "When Sharky's Surging Bite hits an opponent, a Puffer will be generated nearby. Mualani will restore 20 Nightsoul points when she picks up a Puffer. Only 2 such Puffers can be created in this way during a single instance of being in Nightsoul's Blessing."
+        },
+        {
+            "name": "Natlan's Greatest Guide",
+            "type": "4th Ascension Passive",
+            "description": "When a nearby party member triggers a Nightsoul Burst, Mualani will gain 1 stack of Wavechaser's Exploits, which lasts for 20s. Max 3 stacks. When she uses Boomsharka-laka, Mualani will clear all Wavechaser's Exploits stacks and increase the DMG of this Boomsharka-laka by 15%/30%/45% of her Max HP based on the number of stacks cleared."
+        },
+        {
+            "name": "The Trick Is to Keep Smiling!",
+            "type": "Utility Passive",
+            "description": "While in an area with Phlogiston Mechanics within Natlan, 15 Phlogiston will be restored when interacting with some harvestable items. Additionally, the location of nearby resources unique to Natlan will appear on your mini-map."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "The Leisurely \"Meztli\"...",
+            "description": "The DMG dealt by the first Sharky's Surging Bite after Mualani enters Nightsoul's Blessing and the Shark Missiles it triggers is increased by 66% of Mualani's Max HP. This instance of increased DMG is subject to the diminishing DMG rules of Surfshark Wavebreaker.\nIn addition, while out of combat, Mualani's Nightsoul's Blessing state consumes 30% less Phlogiston and Nightsoul points.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Mualani, Going All Out!",
+            "description": "Mualani gains 2 of Surfshark Wavebreaker's Wave Momentum stacks when she enters Nightsoul's Blessing. She will gain 1 stack when obtaining a Puffer.\nIn addition, whenever Mualani obtains 2 Puffers within a single instance of the Nightsoul's Blessing state, she will recover an additional 12 Nightsoul points over 2s. This effect requires the Passive Talent \"Heat-Resistant Freshwater Puffer\" to be unlocked first.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Surfing Atop Joyous Seas",
+            "description": "Increases the Level of Surfshark Wavebreaker by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Sharky Eats Puffies",
+            "description": "Mualani regenerates 8 Energy when obtaining a Puffer. Must first unlock the Passive Talent \"Heat-Resistant Freshwater Puffer.\"\nAdditionally, Boomsharka-laka deals 75% increased DMG.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Same Style of Surfboard on Sale!",
+            "description": "Increases the Level of Boomsharka-laka by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Spirit of the Springs' People",
+            "description": "The DMG increase from the Constellation \"The Leisurely 'Meztli'...\" is no longer limited to being triggered once every Nightsoul's Blessing.",
+            "properties": []
+        }
+    ],
+    "ascension_stat": "CRIT Rate"
+}

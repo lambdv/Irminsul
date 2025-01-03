@@ -1,0 +1,592 @@
+{
+    "name": "Yelan",
+    "key": "yelan",
+    "title": "Valley Orchid",
+    "rarity": 5,
+    "element": "hydro",
+    "weapon": "bow",
+    "release_date": "may 31, 2022",
+    "release_date_epoch": 1653955200,
+    "constellation": "umbrabilis orchis",
+    "birthday": "april 20th",
+    "affiliation": "yanshang teahouse (on profile)ministry of civil affairs ",
+    "region": "liyue",
+    "special_dish": "dew-dipped shrimp",
+    "alternate_title": "a mysterious person who claims to work for the ministry of civil affairs",
+    "description": "",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "1124.92",
+            "BaseATK": "18.99",
+            "BaseDEF": "42.66",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2918.04",
+            "BaseATK": "49.27",
+            "BaseDEF": "110.66",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3882.55",
+            "BaseATK": "65.55",
+            "BaseDEF": "147.23",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "5809.54",
+            "BaseATK": "98.08",
+            "BaseDEF": "220.31",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "6494.85",
+            "BaseATK": "109.65",
+            "BaseDEF": "246.30",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "7472.40",
+            "BaseATK": "126.16",
+            "BaseDEF": "283.37",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "8386.15",
+            "BaseATK": "141.58",
+            "BaseDEF": "318.02",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "9373.83",
+            "BaseATK": "158.26",
+            "BaseDEF": "355.47",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "10059.14",
+            "BaseATK": "169.83",
+            "BaseDEF": "381.46",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "11055.82",
+            "BaseATK": "186.66",
+            "BaseDEF": "419.26",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "11741.13",
+            "BaseATK": "198.23",
+            "BaseDEF": "445.25",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "12749.06",
+            "BaseATK": "215.24",
+            "BaseDEF": "483.47",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "13434.37",
+            "BaseATK": "226.81",
+            "BaseDEF": "509.46",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "14450.17",
+            "BaseATK": "243.96",
+            "BaseDEF": "547.98",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Varunada Lazurite Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Starconch",
+                    "amount": "3"
+                },
+                {
+                    "name": "Recruit's Insignia",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Runic Fang",
+                    "amount": "2"
+                },
+                {
+                    "name": "Varunada Lazurite Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Starconch",
+                    "amount": "10"
+                },
+                {
+                    "name": "Recruit's Insignia",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Runic Fang",
+                    "amount": "4"
+                },
+                {
+                    "name": "Varunada Lazurite Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Starconch",
+                    "amount": "20"
+                },
+                {
+                    "name": "Sergeant's Insignia",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Runic Fang",
+                    "amount": "8"
+                },
+                {
+                    "name": "Varunada Lazurite Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Starconch",
+                    "amount": "30"
+                },
+                {
+                    "name": "Sergeant's Insignia",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Runic Fang",
+                    "amount": "12"
+                },
+                {
+                    "name": "Varunada Lazurite Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Starconch",
+                    "amount": "45"
+                },
+                {
+                    "name": "Lieutenant's Insignia",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Runic Fang",
+                    "amount": "20"
+                },
+                {
+                    "name": "Varunada Lazurite Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Starconch",
+                    "amount": "60"
+                },
+                {
+                    "name": "Lieutenant's Insignia",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Stealthy Bowshot",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 4 consecutive shots with a bow.\nCharged Attack\nPerform a more precise Aimed Shot with increased DMG.\nWhile aiming, flowing water will accumulate on the arrowhead. A fully charged torrential arrow will deal Hydro DMG.\nBreakthrough\nYelan will enter a \"Breakthrough\" state after spending 5s out of combat, which will cause her next Charged Aimed Shot to have 80% decreased charge time, and once charged, she can fire a \"Breakthrough Barb\" that will deal AoE Hydro DMG based on Yelan's Max HP.\nPlunging Attack\nFires off a shower of arrows in mid-air before falling and striking the ground, dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        40.68,
+                        43.99,
+                        47.3,
+                        52.03,
+                        55.34,
+                        59.13,
+                        64.33,
+                        69.53,
+                        74.73,
+                        80.41,
+                        86.09
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        39.04,
+                        42.22,
+                        45.4,
+                        49.94,
+                        53.12,
+                        56.75,
+                        61.74,
+                        66.74,
+                        71.73,
+                        77.18,
+                        82.63
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        51.6,
+                        55.8,
+                        60.0,
+                        66.0,
+                        70.2,
+                        75.0,
+                        81.6,
+                        88.2,
+                        94.8,
+                        102.0,
+                        109.2
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        "32.51+32.51",
+                        "35.15+35.15",
+                        "37.8+37.8",
+                        "41.58+41.58",
+                        "44.23+44.23",
+                        "47.25+47.25",
+                        "51.41+51.41",
+                        "55.57+55.57",
+                        "59.72+59.72",
+                        "64.26+64.26",
+                        "68.8+68.8"
+                    ]
+                },
+                {
+                    "hit": "Aimed Shot (%)",
+                    "values": [
+                        43.86,
+                        47.43,
+                        51.0,
+                        56.1,
+                        59.67,
+                        63.75,
+                        69.36,
+                        74.97,
+                        80.58,
+                        86.7,
+                        92.82
+                    ]
+                },
+                {
+                    "hit": "Fully-Charged Aimed Shot (%)",
+                    "values": [
+                        124.0,
+                        133.3,
+                        142.6,
+                        155.0,
+                        164.3,
+                        173.6,
+                        186.0,
+                        198.4,
+                        210.8,
+                        223.2,
+                        235.6
+                    ]
+                },
+                {
+                    "hit": "Breakthrough Barb DMG (% Max HP)",
+                    "values": [
+                        11.58,
+                        12.44,
+                        13.31,
+                        14.47,
+                        15.34,
+                        16.21,
+                        17.36,
+                        18.52,
+                        19.68,
+                        20.84,
+                        21.99
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.17,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Lingering Lifeline",
+            "type": "Elemental Skill",
+            "description": "Fires off a Lifeline that allows her to move rapidly, entangling and marking opponents along its path.\nWhen this rapid movement ends, the Lifeline will explode, dealing Hydro DMG to the marked opponents based on Yelan's Max HP.\nTap\nMoves a certain distance forward swiftly.\nHold\nEngages in continuous, swift movement, during which Yelan's resistance to interruption is increased.\nDuring this time, Yelan can control this rapid movement and end it by using this Skill again.\nAdditionally, each opponent marked by the Lifeline when it explodes grants Yelan a 34% chance to reset her Breakthrough state.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (% Max HP)",
+                    "values": [
+                        22.61,
+                        24.31,
+                        26.01,
+                        28.27,
+                        29.96,
+                        31.66,
+                        33.92,
+                        36.18,
+                        38.44,
+                        40.7,
+                        42.97,
+                        45.23,
+                        48.05,
+                        50.88
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Depth-Clarion Dice",
+            "type": "Elemental Burst",
+            "description": "Deals  and creates an \"Exquisite Throw,\" which aids her in battle.\n**Exquisite Throw**\nFollows the character around and will initiate a coordinated attack under the following circumstances, dealing  based on Yelan's Max HP:- Can occur once every second when your active character uses a Normal Attack.\n- Will occur each time Yelan's Lifeline explodes and hits opponents.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (% Max HP)",
+                    "values": [
+                        7.31,
+                        7.86,
+                        8.4,
+                        9.13,
+                        9.68,
+                        10.23,
+                        10.96,
+                        11.69,
+                        12.42,
+                        13.15,
+                        13.89,
+                        14.62,
+                        15.53,
+                        16.44
+                    ]
+                },
+                {
+                    "hit": "Exquisite Throw DMG (% Max HP)",
+                    "values": [
+                        "4.87\u00d73",
+                        "5.24\u00d73",
+                        "5.6\u00d73",
+                        "6.09\u00d73",
+                        "6.46\u00d73",
+                        "6.82\u00d73",
+                        "7.31\u00d73",
+                        "7.8\u00d73",
+                        "8.28\u00d73",
+                        "8.77\u00d73",
+                        "9.26\u00d73",
+                        "9.74\u00d73",
+                        "10.35\u00d73",
+                        "10.96\u00d73"
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Turn Control",
+            "type": "1st Ascension Passive",
+            "description": "When the party has 1/2/3/4 Elemental Types, Yelan's Max HP is increased by 6%/12%/18%/30%."
+        },
+        {
+            "name": "Adapt With Ease",
+            "type": "4th Ascension Passive",
+            "description": "So long as an Exquisite Throw is in play, your own active character deals 1% more DMG. This increases by a further 3.5% DMG every second. The maximum increase to DMG dealt is 50%.\nThe pre-existing effect will be dispelled if Depth-Clarion Dice is recast during its duration."
+        },
+        {
+            "name": "Necessary Calculation",
+            "type": "Utility Passive",
+            "description": "Gains 25% more rewards when dispatched on a Liyue Expedition for 20 hours."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Enter the Plotters",
+            "description": "Lingering Lifeline gains 1 additional charge.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Taking All Comers",
+            "description": "When Exquisite Throw conducts a coordinated attack, it will fire an additional water arrow that will deal 14% of Yelan's Max HP as Hydro DMG.\nThis effect can trigger once every 1.8s.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Beware the Trickster's Dice",
+            "description": "Increases the Level of Depth-Clarion Dice by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Bait-and-Switch",
+            "description": "Increases all party members' Max HP by 10% for 25s for every opponent marked by Lifeline when the Lifeline explodes. A maximum increase of 40% Max HP can be attained in this manner.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Dealer's Sleight",
+            "description": "Increases the Level of Lingering Lifeline by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Winner Takes All",
+            "description": "After using Depth-Clarion Dice, Yelan will enter the Mastermind state.\nIn this state, all of Yelan's Normal Attacks will be special Breakthrough Barbs. These Breakthrough Barbs will have similar abilities to normal ones and the DMG dealt will be considered Charged Attack DMG, dealing 156% of a normal Breakthrough Barb's DMG.\nThe Mastermind state lasts 20s and will be cleared after Yelan fires 5 arrows.",
+            "properties": []
+        }
+    ],
+    "ascension_stat": "CRIT Rate"
+}

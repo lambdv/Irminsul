@@ -1,0 +1,559 @@
+{
+    "name": "Sucrose",
+    "key": "sucrose",
+    "title": "Harmless Sweetie",
+    "rarity": 4,
+    "element": "anemo",
+    "weapon": "catalyst",
+    "release_date": "september 28, 2020",
+    "release_date_epoch": 1601251200,
+    "constellation": "ampulla",
+    "birthday": "november 26th",
+    "affiliation": "knights of favonius",
+    "region": "mondstadt",
+    "special_dish": "nutritious meal (v.593)",
+    "alternate_title": "knights of favonius alchemist",
+    "description": "",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "775.02",
+            "BaseATK": "14.25",
+            "BaseDEF": "58.94",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "1991.03",
+            "BaseATK": "36.60",
+            "BaseDEF": "151.42",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "2570.01",
+            "BaseATK": "47.24",
+            "BaseDEF": "195.45",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "3849.58",
+            "BaseATK": "70.76",
+            "BaseDEF": "292.77",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "4260.96",
+            "BaseATK": "78.33",
+            "BaseDEF": "324.05",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "4901.13",
+            "BaseATK": "90.09",
+            "BaseDEF": "372.74",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "5449.63",
+            "BaseATK": "100.18",
+            "BaseDEF": "414.45",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "6089.80",
+            "BaseATK": "111.94",
+            "BaseDEF": "463.14",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "6501.18",
+            "BaseATK": "119.51",
+            "BaseDEF": "494.43",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "7140.58",
+            "BaseATK": "131.26",
+            "BaseDEF": "543.05",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "7551.96",
+            "BaseATK": "138.82",
+            "BaseDEF": "574.34",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "8192.13",
+            "BaseATK": "150.59",
+            "BaseDEF": "623.03",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "8603.51",
+            "BaseATK": "158.15",
+            "BaseDEF": "654.31",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "9243.68",
+            "BaseATK": "169.92",
+            "BaseDEF": "703.00",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Vayuda Turquoise Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Windwheel Aster",
+                    "amount": "3"
+                },
+                {
+                    "name": "Whopperflower Nectar",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Hurricane Seed",
+                    "amount": "2"
+                },
+                {
+                    "name": "Vayuda Turquoise Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Windwheel Aster",
+                    "amount": "10"
+                },
+                {
+                    "name": "Whopperflower Nectar",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Hurricane Seed",
+                    "amount": "4"
+                },
+                {
+                    "name": "Vayuda Turquoise Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Windwheel Aster",
+                    "amount": "20"
+                },
+                {
+                    "name": "Shimmering Nectar",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Hurricane Seed",
+                    "amount": "8"
+                },
+                {
+                    "name": "Vayuda Turquoise Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Windwheel Aster",
+                    "amount": "30"
+                },
+                {
+                    "name": "Shimmering Nectar",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Hurricane Seed",
+                    "amount": "12"
+                },
+                {
+                    "name": "Vayuda Turquoise Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Windwheel Aster",
+                    "amount": "45"
+                },
+                {
+                    "name": "Energy Nectar",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Hurricane Seed",
+                    "amount": "20"
+                },
+                {
+                    "name": "Vayuda Turquoise Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Windwheel Aster",
+                    "amount": "60"
+                },
+                {
+                    "name": "Energy Nectar",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Wind Spirit Creation",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 4 attacks using Wind Spirits, dealing Anemo DMG.\nCharged Attack\nConsumes a certain amount of Stamina and deals  after a short casting time.\nPlunging Attack\nCalling upon the power of her Wind Spirits, Sucrose plunges towards the ground from mid-air, damaging all opponents in her path. Deals AoE Anemo DMG upon impact with the ground.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        33.46,
+                        35.97,
+                        38.48,
+                        41.83,
+                        44.34,
+                        46.85,
+                        50.2,
+                        53.54,
+                        56.89,
+                        60.24,
+                        63.58
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        30.62,
+                        32.91,
+                        35.21,
+                        38.27,
+                        40.57,
+                        42.86,
+                        45.92,
+                        48.99,
+                        52.05,
+                        55.11,
+                        58.17
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        38.45,
+                        41.33,
+                        44.22,
+                        48.06,
+                        50.94,
+                        53.83,
+                        57.67,
+                        61.52,
+                        65.36,
+                        69.21,
+                        73.05
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        47.92,
+                        51.51,
+                        55.11,
+                        59.9,
+                        63.49,
+                        67.08,
+                        71.88,
+                        76.67,
+                        81.46,
+                        86.25,
+                        91.04
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        120.16,
+                        129.17,
+                        138.18,
+                        150.2,
+                        159.21,
+                        168.22,
+                        180.24,
+                        192.26,
+                        204.27,
+                        216.29,
+                        228.3
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.17,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Astable Anemohypostasis Creation - 6308",
+            "type": "Elemental Skill",
+            "description": "Creates a small Wind Spirit that pulls opponents and objects towards its location, launches opponents within its AoE, and deals Anemo DMG.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        211.2,
+                        227.04,
+                        242.88,
+                        264.0,
+                        279.84,
+                        295.68,
+                        316.8,
+                        337.92,
+                        359.04,
+                        380.16,
+                        401.28,
+                        422.4,
+                        448.8
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Forbidden Creation - Isomer 75 / Type II",
+            "type": "Elemental Burst",
+            "description": "Sucrose hurls an unstable concoction that creates a Large Wind Spirit.\nWhile it persists, the Large Wind Spirit will continuously pull in surrounding opponents and objects, launch nearby opponents, and deal Anemo DMG.\nElemental Absorption\nIf the Wind Spirit comes into contact with Hydro/Pyro/Cryo/Electro energy, it will deal additional Elemental DMG of that type.\nElemental Absorption may only occur once per use.",
+            "attributes": [
+                {
+                    "hit": "DoT (%)",
+                    "values": [
+                        148.0,
+                        159.1,
+                        170.2,
+                        185.0,
+                        196.1,
+                        207.2,
+                        222.0,
+                        236.8,
+                        251.6,
+                        266.4,
+                        281.2,
+                        296.0,
+                        314.5,
+                        333.0
+                    ]
+                },
+                {
+                    "hit": "Additional Elemental DMG (%)",
+                    "values": [
+                        44.0,
+                        47.3,
+                        50.6,
+                        55.0,
+                        58.3,
+                        61.6,
+                        66.0,
+                        70.4,
+                        74.8,
+                        79.2,
+                        83.6,
+                        88.0,
+                        93.5,
+                        99.0
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Catalyst Conversion",
+            "type": "1st Ascension Passive",
+            "description": "When Sucrose triggers a Swirl effect, all characters in the party with the matching element (excluding Sucrose) have their Elemental Mastery increased by 50 for 8s."
+        },
+        {
+            "name": "Mollis Favonius",
+            "type": "4th Ascension Passive",
+            "description": "When Astable Anemohypostasis Creation - 6308 or Forbidden Creation - Isomer 75 / Type II hits an opponent, increases all party members' (excluding Sucrose) Elemental Mastery based on 20% of Sucrose's Elemental Mastery for 8s."
+        },
+        {
+            "name": "Astable Invention",
+            "type": "Utility Passive",
+            "description": "When Sucrose crafts Character and Weapon Enhancement Materials, she has a 10% chance to obtain double the product."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Clustered Vacuum Field",
+            "description": "Astable Anemohypostasis Creation - 6308 gains 1 additional charge.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Beth: Unbound Form",
+            "description": "The duration of Forbidden Creation - Isomer 75 / Type II is increased by 2s.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Flawless Alchemistress",
+            "description": "Increases the Level of Astable Anemohypostasis Creation - 6308 by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Alchemania",
+            "description": "Every 7 Normal and Charged Attacks, Sucrose will reduce the CD of Astable Anemohypostasis Creation - 6308 by 1-7s.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Caution: Standard Flask",
+            "description": "Increases the Level of Forbidden Creation - Isomer 75 / Type II by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Chaotic Entropy",
+            "description": "If Forbidden Creation - Isomer 75 / Type II triggers an Elemental Absorption, all party members gain a 20% Elemental DMG Bonus for the corresponding absorbed element during its duration.",
+            "properties": []
+        }
+    ],
+    "ascension_stat": "Anemo DMG Bonus"
+}

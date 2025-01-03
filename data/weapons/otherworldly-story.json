@@ -1,0 +1,122 @@
+{
+    "name": "Otherworldly Story",
+    "key": "otherworldly-story",
+    "description": "A cheap fantasy novel with no value whatsoever. Any claim that it possesses the power of catalysis is also pure fantasy.",
+    "rarity": 3,
+    "category": "catalyst",
+    "series": "chests",
+    "release_date": "september 28, 2020",
+    "base_atk_min": 39,
+    "base_atk_max": 401,
+    "sub_stat_type": "energy recharge",
+    "sub_stat_value_min": "8.5% ",
+    "sub_stat_value_max": " 39.0%",
+    "refinement_name": "\n\nenergy shower\n\n",
+    "refinements": [
+        "Each Elemental Orb or Particle collected restores **1**\n% HP.",
+        "Each Elemental Orb or Particle collected restores **1.25**\n% HP.",
+        "Each Elemental Orb or Particle collected restores **1.5**\n% HP.",
+        "Each Elemental Orb or Particle collected restores **1.75**\n% HP.",
+        "Each Elemental Orb or Particle collected restores **2**\n% HP."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "39",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "8.5%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "94",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "15.0%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "113",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "15.0%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "169",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "21.9%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "189",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "21.9%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "216",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "25.3%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "236",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "25.3%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "263",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "28.8%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "282",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "28.8%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "309",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "32.2%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "329",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "32.2%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "355",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "35.6%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "375",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "35.6%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "401",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "39.0%",
+            "ascension_phase": 6
+        }
+    ]
+}

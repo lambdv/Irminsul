@@ -1,0 +1,627 @@
+{
+    "name": "Dehya",
+    "key": "dehya",
+    "title": "Flame-Mane",
+    "rarity": 5,
+    "element": "pyro",
+    "weapon": "claymore",
+    "release_date": "march 01, 2023",
+    "release_date_epoch": 1677628800,
+    "constellation": "mantichora",
+    "birthday": "april 7th",
+    "affiliation": "the eremites (on profile)blazing beastscorps of thirty (formerly) ",
+    "region": "sumeru",
+    "special_dish": "goldflame tajine",
+    "alternate_title": "unfettered desert mercenary",
+    "description": "",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "1220.25",
+            "BaseATK": "20.67",
+            "BaseDEF": "48.88",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "3165.33",
+            "BaseATK": "53.61",
+            "BaseDEF": "126.80",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "4211.58",
+            "BaseATK": "71.33",
+            "BaseDEF": "168.71",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "6301.87",
+            "BaseATK": "106.74",
+            "BaseDEF": "252.44",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "7045.26",
+            "BaseATK": "119.33",
+            "BaseDEF": "282.22",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "7.2%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "8105.66",
+            "BaseATK": "137.29",
+            "BaseDEF": "324.70",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "7.2%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "9096.84",
+            "BaseATK": "154.08",
+            "BaseDEF": "364.41",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "10168.22",
+            "BaseATK": "172.22",
+            "BaseDEF": "407.32",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "10911.61",
+            "BaseATK": "184.81",
+            "BaseDEF": "437.10",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "11992.76",
+            "BaseATK": "203.13",
+            "BaseDEF": "480.41",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "12736.15",
+            "BaseATK": "215.72",
+            "BaseDEF": "510.19",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "21.6%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "13829.49",
+            "BaseATK": "234.23",
+            "BaseDEF": "553.99",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "21.6%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "14572.88",
+            "BaseATK": "246.82",
+            "BaseDEF": "583.77",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "15674.77",
+            "BaseATK": "265.49",
+            "BaseDEF": "627.91",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Agnidus Agate Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Sand Grease Pupa",
+                    "amount": "3"
+                },
+                {
+                    "name": "Faded Red Satin",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Light Guiding Tetrahedron",
+                    "amount": "2"
+                },
+                {
+                    "name": "Agnidus Agate Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Sand Grease Pupa",
+                    "amount": "10"
+                },
+                {
+                    "name": "Faded Red Satin",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Light Guiding Tetrahedron",
+                    "amount": "4"
+                },
+                {
+                    "name": "Agnidus Agate Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Sand Grease Pupa",
+                    "amount": "20"
+                },
+                {
+                    "name": "Trimmed Red Silk",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Light Guiding Tetrahedron",
+                    "amount": "8"
+                },
+                {
+                    "name": "Agnidus Agate Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Sand Grease Pupa",
+                    "amount": "30"
+                },
+                {
+                    "name": "Trimmed Red Silk",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Light Guiding Tetrahedron",
+                    "amount": "12"
+                },
+                {
+                    "name": "Agnidus Agate Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Sand Grease Pupa",
+                    "amount": "45"
+                },
+                {
+                    "name": "Rich Red Brocade",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Light Guiding Tetrahedron",
+                    "amount": "20"
+                },
+                {
+                    "name": "Agnidus Agate Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Sand Grease Pupa",
+                    "amount": "60"
+                },
+                {
+                    "name": "Rich Red Brocade",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Sandstorm Assault",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 4 consecutive strikes using her Claymore and her martial arts.\nCharged Attack\nDrains Stamina over time to perform continuous slashes.\nAt the end of the sequence, performs a more powerful slash.\nPlunging Attack\nPlunges from mid-air to strike the ground, damaging opponents along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        62.12,
+                        67.17,
+                        72.23,
+                        79.45,
+                        84.51,
+                        90.29,
+                        98.23,
+                        106.18,
+                        114.12,
+                        122.79,
+                        131.46
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        61.71,
+                        66.73,
+                        71.76,
+                        78.93,
+                        83.95,
+                        89.7,
+                        97.59,
+                        105.48,
+                        113.37,
+                        121.99,
+                        130.6
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        76.63,
+                        82.87,
+                        89.11,
+                        98.02,
+                        104.25,
+                        111.38,
+                        121.18,
+                        130.99,
+                        140.79,
+                        151.48,
+                        162.17
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        95.29,
+                        103.05,
+                        110.8,
+                        121.88,
+                        129.64,
+                        138.5,
+                        150.69,
+                        162.88,
+                        175.07,
+                        188.37,
+                        201.66
+                    ]
+                },
+                {
+                    "hit": "Charged Attack Cyclic DMG (%)",
+                    "values": [
+                        56.33,
+                        60.91,
+                        65.5,
+                        72.05,
+                        76.63,
+                        81.88,
+                        89.08,
+                        96.28,
+                        103.49,
+                        111.35,
+                        119.21
+                    ]
+                },
+                {
+                    "hit": "Charged Attack Final DMG (%)",
+                    "values": [
+                        101.82,
+                        110.11,
+                        118.4,
+                        130.24,
+                        138.53,
+                        148.0,
+                        161.02,
+                        174.05,
+                        187.07,
+                        201.28,
+                        215.49
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        74.59,
+                        80.66,
+                        86.73,
+                        95.4,
+                        101.47,
+                        108.41,
+                        117.95,
+                        127.49,
+                        137.03,
+                        147.44,
+                        157.85
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        149.14,
+                        161.28,
+                        173.42,
+                        190.77,
+                        202.91,
+                        216.78,
+                        235.86,
+                        254.93,
+                        274.01,
+                        294.82,
+                        315.63
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        186.29,
+                        201.45,
+                        216.62,
+                        238.28,
+                        253.44,
+                        270.77,
+                        294.6,
+                        318.42,
+                        342.25,
+                        368.25,
+                        394.24
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Molten Inferno",
+            "type": "Elemental Skill",
+            "description": "This art of Dehya's own invention changes its method of use depending on the combat situation.\nIndomitable Flame\nThis skill will be unleashed should there be no Fiery Sanctum field created by Dehya herself present at the time.\nDeals AoE Pyro DMG, and creates a field known as Fiery Sanctum.\nRanging Flame\nThis skill will be unleashed should a Fiery Sanctum field created by Dehya herself already exist.\nDehya will perform a leaping attack, dealing AoE Pyro DMG before recreating a Fiery Sanctum field at her new position.\nA Fiery Sanctum field created this way will inherit the remaining duration of the previous field.\nRanging Flame can be used only once throughout a single Fiery Sanctum field's duration.\nFiery Sanctum\nWhen an opponent within a Fiery Sanctum field takes DMG, the field will unleash a coordinated attack, dealing AoE Pyro DMG to them based on Dehya's ATK and Max HP. This effect can be triggered once every 2.5s.\nActive characters within this field have their resistance to interruption increased, and when such characters take DMG, a portion of that damage will be mitigated and flow into Redmane's Blood. Dehya will then take this DMG over 10s. When the mitigated DMG stored by Redmane's Blood reaches or goes over a certain percentage of Dehya's Max HP, she will stop mitigating DMG in this way.\nOnly 1 Fiery Sanctum created by Dehya herself can exist at the same time.",
+            "attributes": [
+                {
+                    "hit": "Indomitable Flame DMG (%)",
+                    "values": [
+                        112.88,
+                        121.35,
+                        129.81,
+                        141.1,
+                        149.57,
+                        158.03,
+                        169.32,
+                        180.61,
+                        191.9,
+                        203.18,
+                        214.47,
+                        225.76,
+                        239.87
+                    ]
+                },
+                {
+                    "hit": "Ranging Flame DMG (%)",
+                    "values": [
+                        132.8,
+                        142.76,
+                        152.72,
+                        166.0,
+                        175.96,
+                        185.92,
+                        199.2,
+                        212.48,
+                        225.76,
+                        239.04,
+                        252.32,
+                        265.6,
+                        282.2
+                    ]
+                },
+                {
+                    "hit": "Field DMG",
+                    "values": [
+                        "60.2% ATK+1.03% Max HP",
+                        "64.72% ATK+1.11% Max HP",
+                        "69.23% ATK+1.19% Max HP",
+                        "75.25% ATK+1.29% Max HP",
+                        "79.77% ATK+1.37% Max HP",
+                        "84.28% ATK+1.44% Max HP",
+                        "90.3% ATK+1.55% Max HP",
+                        "96.32% ATK+1.65% Max HP",
+                        "102.34% ATK+1.75% Max HP",
+                        "108.36% ATK+1.86% Max HP",
+                        "114.38% ATK+1.96% Max HP",
+                        "120.4% ATK+2.06% Max HP",
+                        "127.92% ATK+2.19% Max HP"
+                    ]
+                },
+                {
+                    "hit": "Mitigation (%)",
+                    "values": [
+                        32.0,
+                        34.0,
+                        36.0,
+                        38.0,
+                        40.0,
+                        42.0,
+                        44.0,
+                        46.0,
+                        48.0,
+                        50.0,
+                        52.0,
+                        54.0,
+                        56.0
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Leonine Bite",
+            "type": "Elemental Burst",
+            "description": "Unleashing her burning anger and casting her inconvenient blade aside, Dehya enters the Blazing Lioness state and increases her resistance to interruption.\nIn this state, Dehya will automatically and continuously unleash the Flame-Mane's Fists, dealing Pyro DMG based on her ATK and Max HP, and when its duration ends, she will unleash an Incineration Drive, dealing AoE Pyro DMG based on her ATK and Max HP.\nIf a Fiery Sanctum field created by Dehya's own Elemental Skill \"Molten Inferno\" exists when this ability is unleashed, Dehya will retrieve it, and then create another field once Blazing Lioness's duration expires. This field will take on the retrieved field's duration at the moment of its retrieval.\nIn this state, Dehya will be unable to cast her Elemental Skill, or perform Normal, Charged, and Plunging Attacks. \"Normal Attack: Sandstorm Assault\" and Elemental Skill \"Molten Inferno\" will be replaced by \"Roaring Barrage.\"\nRoaring Barrage\nUnleashing Roaring Barrage within 0.4s after each Flame-Mane's Fist strike will increase the speed at which the next Flame-Mane's Fist strike will be triggered.",
+            "attributes": [
+                {
+                    "hit": "Flame-Mane's Fist DMG",
+                    "values": [
+                        "98.7% ATK+1.69% Max HP",
+                        "106.1% ATK+1.82% Max HP",
+                        "113.5% ATK+1.95% Max HP",
+                        "123.37% ATK+2.11% Max HP",
+                        "130.78% ATK+2.24% Max HP",
+                        "138.18% ATK+2.37% Max HP",
+                        "148.05% ATK+2.54% Max HP",
+                        "157.92% ATK+2.71% Max HP",
+                        "167.79% ATK+2.88% Max HP",
+                        "177.66% ATK+3.05% Max HP",
+                        "187.53% ATK+3.21% Max HP",
+                        "197.4% ATK+3.38% Max HP",
+                        "209.74% ATK+3.6% Max HP"
+                    ]
+                },
+                {
+                    "hit": "Incineration Drive DMG",
+                    "values": [
+                        "139.3% ATK+2.39% Max HP",
+                        "149.75% ATK+2.57% Max HP",
+                        "160.19% ATK+2.75% Max HP",
+                        "174.13% ATK+2.99% Max HP",
+                        "184.57% ATK+3.16% Max HP",
+                        "195.02% ATK+3.34% Max HP",
+                        "208.95% ATK+3.58% Max HP",
+                        "222.88% ATK+3.82% Max HP",
+                        "236.81% ATK+4.06% Max HP",
+                        "250.74% ATK+4.3% Max HP",
+                        "264.67% ATK+4.54% Max HP",
+                        "278.6% ATK+4.78% Max HP",
+                        "296.01% ATK+5.07% Max HP"
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Unstinting Succor",
+            "type": "1st Ascension Passive",
+            "description": "Within 6 seconds after Dehya retrieves the Fiery Sanctum field through Molten Inferno: Ranging Flame or Leonine Bite, she will take 60% less DMG when receiving DMG from Redmane's Blood. This effect can be triggered once every 2s.Additionally, within 9s after Dehya unleashes Molten Inferno: Indomitable Flame, she will grant all party members the Gold-Forged Form state. This state will further increase a character's resistance to interruption when they are within the Fiery Sanctum field. Gold-Forged Form can be activated once every 18s."
+        },
+        {
+            "name": "Stalwart and True",
+            "type": "4th Ascension Passive",
+            "description": "When her HP is less than 40%, Dehya will recover 20% of her Max HP and will restore 6% of her Max HP every 2s for the next 10s. This effect can be triggered once every 20s."
+        },
+        {
+            "name": "The Sunlit Way",
+            "type": "Utility Passive",
+            "description": "During the day (6:00 \u2013 18:00), your party members gain the Swift Stride effect: Movement SPD increased by 10%.\nDoes not take effect in Domains, Trounce Domains, or Spiral Abyss. Swift Stride does not stack."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "The Flame Incandescent",
+            "description": "Dehya's Max HP is increased by 20%, and she deals bonus DMG based on her Max HP when using the following attacks:- Molten Inferno's DMG will be increased by 3.6% of her Max HP.\n- Leonine Bite's DMG will be increased by 6% of her Max HP.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "The Sand-Blades Glittering",
+            "description": "When Dehya uses Molten Inferno: Ranging Flame, the duration of the recreated Fiery Sanctum field will be increased by 6s.\nAdditionally, when a Fiery Sanctum exists on the field, DMG dealt by its next coordinated attack will be increased by 50% when active character(s) within the Fiery Sanctum field are attacked.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "A Rage Swift as Fire",
+            "description": "Increases the Level of Leonine Bite by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "An Oath Abiding",
+            "description": "When Flame-Mane's Fist and Incineration Drive attacks unleashed during Leonine Bite hit opponents, they will restore 1.5 Energy for Dehya and 2.5% of her Max HP. This effect can be triggered once every 0.2s.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "The Alpha Unleashed",
+            "description": "Increases the Level of Molten Inferno by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "The Burning Claws Cleaving",
+            "description": "The CRIT Rate of Leonine Bite is increased by 10%.\nAdditionally, after a Flame-Mane's Fist attack hits an opponent and deals CRIT Hits during a single Blazing Lioness state, it will cause the CRIT DMG of Leonine Bite to increase by 15% for the rest of Blazing Lioness's duration and extend that duration by 0.5s. This effect can be triggered every 0.2s. The duration can be extended for a maximum of 2s and CRIT DMG can be increased by a maximum of 60% this way.",
+            "properties": []
+        }
+    ],
+    "ascension_stat": "HP"
+}

@@ -1,11 +1,6 @@
-import { NextResponse, NextRequest } from 'next/server';
-import { promises as fs } from 'fs';
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
-
-export async function GET(req: NextRequest): Promise<NextResponse> {
-    //request can be a id for the character
-
-    return NextResponse.json({
-        data: "a"
-    });
+export async function GET(req: NextRequest) {
+    return NextResponse.json({ message: 'Hello World' })
 }

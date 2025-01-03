@@ -1,0 +1,19 @@
+{
+    "name": "Gambler",
+    "key": "gambler",
+    "flower_description": "A big, luxurious flower that can hide a loaded dice.",
+    "feather_description": "The tail feather of a large bird. Perfect for discretely concealing a trump card.",
+    "sand_description": "A shattered pocket watch that once took a lethal hit for its owner.",
+    "goblet_description": "This vessel was specially made for a single purpose. It has absolutely no secret compartments built into it.",
+    "circlet_description": "A pair of blue earrings that, when worn, calm the mind and encourage a rational assessment of risks.",
+    "flower_name": "Gambler's Brooch",
+    "feather_name": "Gambler's Feather Accessory",
+    "sand_name": "Gambler's Pocket Watch",
+    "goblet_name": "Gambler's Dice Cup",
+    "circlet_name": "Gambler's Earrings",
+    "two_pc_bonus": "Increases Elemental Skill DMG by 20%.",
+    "four_pc_bonus": "Defeating an opponent has a 100% chance to remove Elemental Skill CD. Can only occur once every 15s.",
+    "rarity_min": 3,
+    "rarity_max": 4,
+    "release_version": 1.0
+}

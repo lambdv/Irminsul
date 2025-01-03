@@ -1,0 +1,122 @@
+{
+    "name": "Hamayumi",
+    "key": "hamayumi",
+    "description": "A certain shrine maiden once owned this warbow. It was made with surpassing skill, and is both intricate and sturdy.",
+    "rarity": 4,
+    "category": "bow",
+    "series": "amethyst series",
+    "release_date": "july 21, 2021",
+    "base_atk_min": 41,
+    "base_atk_max": 454,
+    "sub_stat_type": "atk",
+    "sub_stat_value_min": "12% ",
+    "sub_stat_value_max": " 55.1%",
+    "refinement_name": "\n\nfull draw\n\n",
+    "refinements": [
+        "Increases Normal Attack DMG by **16**\n% and Charged Attack DMG by **12**\n%. When the equipping character's Energy reaches 100%, this effect is increased by 100%.",
+        "Increases Normal Attack DMG by **20**\n% and Charged Attack DMG by **15**\n%. When the equipping character's Energy reaches 100%, this effect is increased by 100%.",
+        "Increases Normal Attack DMG by **24**\n% and Charged Attack DMG by **18**\n%. When the equipping character's Energy reaches 100%, this effect is increased by 100%.",
+        "Increases Normal Attack DMG by **28**\n% and Charged Attack DMG by **21**\n%. When the equipping character's Energy reaches 100%, this effect is increased by 100%.",
+        "Increases Normal Attack DMG by **32**\n% and Charged Attack DMG by **24**\n%. When the equipping character's Energy reaches 100%, this effect is increased by 100%."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "41",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "12%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "99",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "21.2%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "125",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "21.2%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "184",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "30.9%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "210",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "30.9%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "238",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "35.7%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "264",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "35.7%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "293",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "40.6%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "319",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "40.6%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "347",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "45.4%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "373",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "45.4%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "401",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "50.3%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "427",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "50.3%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "454",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "55.1%",
+            "ascension_phase": 6
+        }
+    ]
+}

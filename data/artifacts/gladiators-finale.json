@@ -1,0 +1,19 @@
+{
+    "name": "Gladiator's Finale",
+    "key": "gladiators-finale",
+    "flower_description": "No one knows why the legendary gladiator wore this flower on his chest. It was the brutal warrior's only weakness.",
+    "feather_description": "A feather of dreams that soars free like an eagle. At the end of the gladiator's legendary life, this parting gift was left upon his chest by a bird that knew true freedom.",
+    "sand_description": "A timepiece that recorded the gladiator's days in the bloodstained Colosseum. To him, it counted down the days on his long road to freedom.",
+    "goblet_description": "The golden cup a champion gladiator drank from in ancient times. It brimmed with his glory for years until the fateful day of his fall.",
+    "circlet_description": "The helmet of a legendary gladiator from ancient times, who would proudly stretch out his bloodied arms to welcome the thunderous applause of his audience.",
+    "flower_name": "Gladiator's Nostalgia",
+    "feather_name": "Gladiator's Destiny",
+    "sand_name": "Gladiator's Longing",
+    "goblet_name": "Gladiator's Intoxication",
+    "circlet_name": "Gladiator's Triumphus",
+    "two_pc_bonus": "ATK +18%.",
+    "four_pc_bonus": "If the wielder of this artifact set uses a Sword, Claymore or Polearm, increases their Normal Attack DMG by 35%.",
+    "rarity_min": 4,
+    "rarity_max": 5,
+    "release_version": 1.0
+}

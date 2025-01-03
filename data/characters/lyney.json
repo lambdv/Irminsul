@@ -1,0 +1,688 @@
+{
+    "name": "Lyney",
+    "key": "lyney",
+    "title": "Spectacle of Phantasmagoria",
+    "rarity": 5,
+    "element": "pyro",
+    "weapon": "bow",
+    "release_date": "august 16, 2023",
+    "release_date_epoch": 1692144000,
+    "constellation": "felis fuscus",
+    "birthday": "february 2nd",
+    "affiliation": "hotel bouffes d'ete (on profile)house of the hearthfatui ",
+    "region": "fontaine",
+    "special_dish": "cubic tricks",
+    "alternate_title": "celebrated magician of the court of fontaine",
+    "description": "",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "857.99",
+            "BaseATK": "24.76",
+            "BaseDEF": "41.88",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2225.62",
+            "BaseATK": "64.24",
+            "BaseDEF": "108.64",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "2961.27",
+            "BaseATK": "85.47",
+            "BaseDEF": "144.55",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "4431.00",
+            "BaseATK": "127.89",
+            "BaseDEF": "216.29",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "4953.70",
+            "BaseATK": "142.98",
+            "BaseDEF": "241.81",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "5699.29",
+            "BaseATK": "164.50",
+            "BaseDEF": "278.20",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "6396.22",
+            "BaseATK": "184.61",
+            "BaseDEF": "312.22",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "7149.53",
+            "BaseATK": "206.36",
+            "BaseDEF": "348.99",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "7672.23",
+            "BaseATK": "221.44",
+            "BaseDEF": "374.51",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "8432.41",
+            "BaseATK": "243.38",
+            "BaseDEF": "411.61",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "8955.10",
+            "BaseATK": "258.47",
+            "BaseDEF": "437.13",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "9723.86",
+            "BaseATK": "280.66",
+            "BaseDEF": "474.65",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "10246.56",
+            "BaseATK": "295.74",
+            "BaseDEF": "500.17",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "11021.32",
+            "BaseATK": "318.11",
+            "BaseDEF": "537.99",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Agnidus Agate Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Rainbow Rose",
+                    "amount": "3"
+                },
+                {
+                    "name": "Recruit's Insignia",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Emperor's Resolution",
+                    "amount": "2"
+                },
+                {
+                    "name": "Agnidus Agate Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Rainbow Rose",
+                    "amount": "10"
+                },
+                {
+                    "name": "Recruit's Insignia",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Emperor's Resolution",
+                    "amount": "4"
+                },
+                {
+                    "name": "Agnidus Agate Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Rainbow Rose",
+                    "amount": "20"
+                },
+                {
+                    "name": "Sergeant's Insignia",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Emperor's Resolution",
+                    "amount": "8"
+                },
+                {
+                    "name": "Agnidus Agate Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Rainbow Rose",
+                    "amount": "30"
+                },
+                {
+                    "name": "Sergeant's Insignia",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Emperor's Resolution",
+                    "amount": "12"
+                },
+                {
+                    "name": "Agnidus Agate Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Rainbow Rose",
+                    "amount": "45"
+                },
+                {
+                    "name": "Lieutenant's Insignia",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Emperor's Resolution",
+                    "amount": "20"
+                },
+                {
+                    "name": "Agnidus Agate Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Rainbow Rose",
+                    "amount": "60"
+                },
+                {
+                    "name": "Lieutenant's Insignia",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Card Force Translocation",
+            "type": "Normal Attack",
+            "description": "**Normal Attack**\nPerforms up to 4 consecutive shots with a bow.\n**Plunging Attack**\nFires off a shower of arrows in mid-air before falling and striking the ground, dealing AoE DMG upon impact.\n**Charged Attack**\nPerforms a more precise Aimed Shot with increased DMG.\nWhile aiming, flames will run across the arrowhead before being fired. Different effects will occur based on the time spent charging.\n- Charge Level 1: Fires off a Pyro-infused arrow, dealing Pyro DMG.\n- Charge Level 2: Fires off a Prop Arrow that deals Pyro DMG, and upon hit, it will summon a Grin-Malkin Hat.\nWhen firing the Prop Arrow, and when Lyney has more than 60% HP, he will consume a portion of his HP to obtain 1 Prop Surplus stack. Max 5 stacks. The effect will be removed after the character spends 30s out of combat.\nThe lowest Lyney can drop to through this method is 60% of his Max HP.\n**Grin-Malkin Hat**\n- Can taunt nearby opponents and attract their attacks. Each opponent can only be taunted by the Hat once every 5s.\n- The Hat will inherit a percentage of Lyney's Max HP.\n- If destroyed, or if its duration expires, it will fire off a Pyrotechnic Strike at 1 nearby opponent, dealing Pyro DMG.\nOnly 1 Hat can exist at any given time.\n**Arkhe: Pneuma**\nAt certain intervals, the Prop Arrow will cause a Spiritbreath Thorn to descend upon its hit location, dealing Pneuma-aligned .",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG",
+                    "values": [
+                        38.79,
+                        41.94,
+                        45.1,
+                        49.61,
+                        52.77,
+                        56.38,
+                        61.34,
+                        66.3,
+                        71.26,
+                        76.67,
+                        82.08,
+                        87.49,
+                        92.91,
+                        98.32
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG",
+                    "values": [
+                        38.01,
+                        41.11,
+                        44.2,
+                        48.62,
+                        51.71,
+                        55.25,
+                        60.11,
+                        64.97,
+                        69.84,
+                        75.14,
+                        80.44,
+                        85.75,
+                        91.05,
+                        96.36
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG",
+                    "values": [
+                        "27.26+27.26",
+                        "29.48+29.48",
+                        "31.7+31.7",
+                        "34.87+34.87",
+                        "37.09+37.09",
+                        "39.63+39.63",
+                        "43.11+43.11",
+                        "46.6+46.6",
+                        "50.09+50.09",
+                        "53.89+53.89",
+                        "57.69+57.69",
+                        "61.5+61.5",
+                        "65.3+65.3",
+                        "69.11+69.11"
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG",
+                    "values": [
+                        56.93,
+                        61.57,
+                        66.2,
+                        72.82,
+                        77.45,
+                        82.75,
+                        90.03,
+                        97.31,
+                        104.6,
+                        112.54,
+                        120.48,
+                        128.43,
+                        136.37,
+                        144.32
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27,
+                        128.2,
+                        136.12,
+                        144.05
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.16,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48,
+                        256.34,
+                        272.19,
+                        288.05
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37,
+                        320.18,
+                        339.98,
+                        359.79
+                    ]
+                },
+                {
+                    "hit": "Aimed Shot",
+                    "values": [
+                        43.86,
+                        47.43,
+                        51.0,
+                        56.1,
+                        59.67,
+                        63.75,
+                        69.36,
+                        74.97,
+                        80.58,
+                        86.7,
+                        92.82,
+                        98.94,
+                        105.06,
+                        111.18
+                    ]
+                },
+                {
+                    "hit": "Aimed Shot Charge Level 1",
+                    "values": [
+                        124.0,
+                        133.3,
+                        142.6,
+                        155.0,
+                        164.3,
+                        173.6,
+                        186.0,
+                        198.4,
+                        210.8,
+                        223.2,
+                        235.6,
+                        248.0,
+                        263.5,
+                        279.0
+                    ]
+                },
+                {
+                    "hit": "Prop Arrow DMG",
+                    "values": [
+                        172.8,
+                        185.76,
+                        198.72,
+                        216.0,
+                        228.96,
+                        241.92,
+                        259.2,
+                        276.48,
+                        293.76,
+                        311.04,
+                        328.32,
+                        345.6,
+                        367.2,
+                        388.8
+                    ]
+                },
+                {
+                    "hit": "Grin-Malkin Hat Inherited HP",
+                    "values": [
+                        64.0,
+                        68.8,
+                        73.6,
+                        80.0,
+                        84.8,
+                        89.6,
+                        96.0,
+                        102.4,
+                        108.8,
+                        115.2,
+                        121.6,
+                        128.0,
+                        136.0,
+                        144.0
+                    ]
+                },
+                {
+                    "hit": "Pyrotechnic Strike DMG",
+                    "values": [
+                        212.0,
+                        227.9,
+                        243.8,
+                        265.0,
+                        280.9,
+                        296.8,
+                        318.0,
+                        339.2,
+                        360.4,
+                        381.6,
+                        402.8,
+                        424.0,
+                        450.5,
+                        477.0
+                    ]
+                },
+                {
+                    "hit": "Spiritbreath Thorn DMG",
+                    "values": [
+                        27.55,
+                        29.62,
+                        31.68,
+                        34.44,
+                        36.51,
+                        38.57,
+                        41.33,
+                        44.08,
+                        46.84,
+                        49.59,
+                        52.35,
+                        55.1,
+                        58.55,
+                        61.99
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Bewildering Lights",
+            "type": "Elemental Skill",
+            "description": "Lyney does a flourish with his hat, unleashing a firework surprise!\nWhen used, he will clear all current Prop Surplus stacks and deal AoE Pyro DMG to opponents in front of him. DMG will be increased according to the stacks cleared, and this will also regenerate Lyney's HP based on his Max HP.\nWhen a Grin-Malkin Hat created by Lyney is on the field, the fireworks will cause it to explode, dealing AoE Pyro DMG equal to that of a Pyrotechnic Strike.\nThe DMG dealt through the Grin-Malkin Hat in this way is considered Charged Attack DMG.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG",
+                    "values": [
+                        167.2,
+                        179.74,
+                        192.28,
+                        209.0,
+                        221.54,
+                        234.08,
+                        250.8,
+                        267.52,
+                        284.24,
+                        300.96
+                    ]
+                },
+                {
+                    "hit": "Skill DMG Bonus",
+                    "values": [
+                        "53.2 ATK/Stack",
+                        "57.19 ATK/Stack",
+                        "61.18 ATK/Stack",
+                        "66.5 ATK/Stack",
+                        "70.49 ATK/Stack",
+                        "74.48 ATK/Stack",
+                        "79.8 ATK/Stack",
+                        "85.12 ATK/Stack",
+                        "90.44 ATK/Stack",
+                        "95.76 ATK/Stack"
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Wondrous Trick: Miracle Parade",
+            "type": "Elemental Burst",
+            "description": "Unleashing his magic, Lyney turns himself into a Grin-Malkin Cat that can move around quickly. (Not to be mistaken for the Grin-Malkin Hat. They're two different props!)\nWhen the Grin-Malkin Cat gets close to opponents, it will send flames falling down on them, dealing at most 1 instance of Pyro DMG to each opponent. When the duration ends, he will dismiss the Grin-Malkin Cat and ignite fireworks that deal AoE Pyro DMG, summon 1 Grin-Malkin Hat, and grant himself 1 Prop Surplus stack.\nGrin-Malkin Cat can be actively canceled.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG",
+                    "values": [
+                        154.0,
+                        165.55,
+                        177.1,
+                        192.5,
+                        204.05,
+                        215.6,
+                        231.0,
+                        246.4,
+                        261.8,
+                        277.2,
+                        292.6,
+                        308.0,
+                        327.25
+                    ]
+                },
+                {
+                    "hit": "Explosive Firework DMG",
+                    "values": [
+                        414.0,
+                        445.05,
+                        476.1,
+                        517.5,
+                        548.55,
+                        579.6,
+                        621.0,
+                        662.4,
+                        703.8,
+                        745.2,
+                        786.6,
+                        828.0,
+                        879.75
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Perilous Performance",
+            "type": "1st Ascension Passive",
+            "description": "If Lyney consumes HP when firing off a Prop Arrow, the Grin-Malkin hat summoned by the arrow will, upon hitting an opponent, restore 3 Energy to Lyney and increase DMG dealt by 80% of his ATK."
+        },
+        {
+            "name": "Conclusive Ovation",
+            "type": "4th Ascension Passive",
+            "description": "The DMG Lyney deals to opponents affected by Pyro will receive the following buffs:Increases the DMG dealt by 60%.Each Pyro party member other than Lyney will cause the DMG dealt to increase by an additional 20%.Lyney can deal up to 100% increased DMG to opponents affected by Pyro in this way."
+        },
+        {
+            "name": "Trivial Observations",
+            "type": "Utility Passive",
+            "description": "Displays the location of nearby resources unique to Fontaine on the mini-map."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Whimsical Wonders",
+            "description": "Lyney can have 2 Grin-Malkin Hats present at once.\nAdditionally, Prop Arrows will summon 2 Grin-Malkin Hats and grant Lyney 1 extra stack of Prop Surplus. This effect can occur once every 15s.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Loquacious Cajoling",
+            "description": "When Lyney is on the field, he will gain a stack of Crisp Focus every 2s. This will increase his CRIT DMG by 20%. Max 3 stacks. This effect will be canceled when Lyney leaves the field.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Prestidigitation",
+            "description": "Increases the Level of Normal Attack: Card Force Translocation by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Well-Versed, Well-Rehearsed",
+            "description": "After an opponent is hit by Lyney's  Charged Attack, this opponent's  will be decreased by 20% for 6s.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "To Pierce Enigmas",
+            "description": "Increases the Level of Wondrous Trick: Miracle Parade by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Guarded Smile",
+            "description": "When Lyney fires a Prop Arrow, he will fire a Pyrotechnic Strike: Reprised that will deal 80% of a Pyrotechnic Strike's DMG. This DMG is considered Charged Attack DMG.",
+            "properties": []
+        }
+    ],
+    "ascension_stat": "CRIT Rate"
+}

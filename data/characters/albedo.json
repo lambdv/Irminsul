@@ -1,0 +1,595 @@
+{
+    "name": "Albedo",
+    "key": "albedo",
+    "title": "Kreideprinz",
+    "rarity": 5,
+    "element": "geo",
+    "weapon": "sword",
+    "release_date": "december 23, 2020",
+    "release_date_epoch": 1608681600,
+    "constellation": "princeps cretaceus",
+    "birthday": "september 13th",
+    "affiliation": "knights of favonius",
+    "region": "mondstadt",
+    "special_dish": "woodland dream",
+    "alternate_title": "chief alchemist of the knights of favonius",
+    "description": "",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "1029.59",
+            "BaseATK": "19.55",
+            "BaseDEF": "68.21",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2670.75",
+            "BaseATK": "50.72",
+            "BaseDEF": "176.93",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3553.52",
+            "BaseATK": "67.48",
+            "BaseDEF": "235.41",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "5317.20",
+            "BaseATK": "100.97",
+            "BaseDEF": "352.25",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "5944.44",
+            "BaseATK": "112.88",
+            "BaseDEF": "393.80",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "7.2%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6839.15",
+            "BaseATK": "129.87",
+            "BaseDEF": "453.07",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "7.2%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "7675.46",
+            "BaseATK": "145.75",
+            "BaseDEF": "508.47",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "8579.44",
+            "BaseATK": "162.91",
+            "BaseDEF": "568.36",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "9206.67",
+            "BaseATK": "174.82",
+            "BaseDEF": "609.91",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "10118.89",
+            "BaseATK": "192.15",
+            "BaseDEF": "670.34",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "10746.12",
+            "BaseATK": "204.06",
+            "BaseDEF": "711.90",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "21.6%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "11668.63",
+            "BaseATK": "221.57",
+            "BaseDEF": "773.01",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "21.6%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "12295.87",
+            "BaseATK": "233.48",
+            "BaseDEF": "814.56",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "13225.58",
+            "BaseATK": "251.14",
+            "BaseDEF": "876.15",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Prithiva Topaz Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Cecilia",
+                    "amount": "3"
+                },
+                {
+                    "name": "Divining Scroll",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Basalt Pillar",
+                    "amount": "2"
+                },
+                {
+                    "name": "Prithiva Topaz Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Cecilia",
+                    "amount": "10"
+                },
+                {
+                    "name": "Divining Scroll",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Basalt Pillar",
+                    "amount": "4"
+                },
+                {
+                    "name": "Prithiva Topaz Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Cecilia",
+                    "amount": "20"
+                },
+                {
+                    "name": "Sealed Scroll",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Basalt Pillar",
+                    "amount": "8"
+                },
+                {
+                    "name": "Prithiva Topaz Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Cecilia",
+                    "amount": "30"
+                },
+                {
+                    "name": "Sealed Scroll",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Basalt Pillar",
+                    "amount": "12"
+                },
+                {
+                    "name": "Prithiva Topaz Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Cecilia",
+                    "amount": "45"
+                },
+                {
+                    "name": "Forbidden Curse Scroll",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Basalt Pillar",
+                    "amount": "20"
+                },
+                {
+                    "name": "Prithiva Topaz Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Cecilia",
+                    "amount": "60"
+                },
+                {
+                    "name": "Forbidden Curse Scroll",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Favonius Bladework - Weiss",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 5 rapid strikes.\nCharged Attack\nConsumes a certain amount of Stamina to unleash 2 rapid sword strikes.\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        36.74,
+                        39.73,
+                        42.72,
+                        46.99,
+                        49.98,
+                        53.4,
+                        58.1,
+                        62.8,
+                        67.5,
+                        72.62,
+                        78.5
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        36.74,
+                        39.73,
+                        42.72,
+                        46.99,
+                        49.98,
+                        53.4,
+                        58.1,
+                        62.8,
+                        67.5,
+                        72.62,
+                        78.5
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        47.45,
+                        51.32,
+                        55.18,
+                        60.7,
+                        64.56,
+                        68.97,
+                        75.04,
+                        81.11,
+                        87.18,
+                        93.81,
+                        101.39
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        49.75,
+                        53.8,
+                        57.85,
+                        63.63,
+                        67.68,
+                        72.31,
+                        78.68,
+                        85.04,
+                        91.4,
+                        98.34,
+                        106.3
+                    ]
+                },
+                {
+                    "hit": "5-Hit DMG (%)",
+                    "values": [
+                        62.07,
+                        67.13,
+                        72.18,
+                        79.4,
+                        84.45,
+                        90.22,
+                        98.16,
+                        106.1,
+                        114.04,
+                        122.7,
+                        132.63
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        "47.3+60.2",
+                        "51.15+65.1",
+                        "55+70",
+                        "60.5+77",
+                        "64.35+81.9",
+                        "68.75+87.5",
+                        "74.8+95.2",
+                        "80.85+102.9",
+                        "86.9+110.6",
+                        "93.5+119",
+                        "101.06+128.63"
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        63.93,
+                        69.14,
+                        74.34,
+                        81.77,
+                        86.98,
+                        92.92,
+                        101.1,
+                        109.28,
+                        117.46,
+                        126.38,
+                        135.3
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        127.84,
+                        138.24,
+                        148.65,
+                        163.51,
+                        173.92,
+                        185.81,
+                        202.16,
+                        218.51,
+                        234.86,
+                        252.7,
+                        270.54
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        159.68,
+                        172.67,
+                        185.67,
+                        204.24,
+                        217.23,
+                        232.09,
+                        252.51,
+                        272.93,
+                        293.36,
+                        315.64,
+                        337.92
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Abiogenesis: Solar Isotoma",
+            "type": "Elemental Skill",
+            "description": "Albedo creates a Solar Isotoma using alchemy, which deals  on appearance.\n**Solar Isotoma**\nhas the following properties:- When opponents within the Solar Isotoma field take DMG, the Solar Isotoma will generate Transient Blossoms which deal AoE Geo DMG. DMG dealt scales off Albedo's DEF.\n- Transient Blossoms can only be generated once every 2s.\n- When a character is located at the locus of the Solar Isotoma, the Solar Isotoma will accumulate Geo power to form a crystallized platform that lifts the character up to a certain height. Only one crystallized platform can exist at a time.\n- Solar Isotoma is considered a Geo construct. Only one Solar Isotoma created by Albedo himself can exist at a time.\n**Hold**\n to designate the location of the skill.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        130.4,
+                        140.18,
+                        149.96,
+                        163.0,
+                        172.78,
+                        182.56,
+                        195.6,
+                        208.64,
+                        221.68,
+                        234.72,
+                        247.76,
+                        260.8,
+                        277.1,
+                        293.4
+                    ]
+                },
+                {
+                    "hit": "Transient Blossom DMG (% DEF)",
+                    "values": [
+                        133.6,
+                        143.62,
+                        153.64,
+                        167.0,
+                        177.02,
+                        187.04,
+                        200.4,
+                        213.76,
+                        227.12,
+                        240.48,
+                        253.84,
+                        267.2,
+                        283.9,
+                        300.6
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Rite of Progeniture: Tectonic Tide",
+            "type": "Elemental Burst",
+            "description": "Under Albedo's command, Geo crystals surge and burst forth, dealing  in front of him.\nIf a Solar Isotoma created by Albedo himself is on the field, 7 Fatal Blossoms will be generated in the Solar Isotoma field, bursting violently into bloom and dealing AoE Geo DMG.\nTectonic Tide DMG and Fatal Blossom DMG will not generate Transient Blossoms.",
+            "attributes": [
+                {
+                    "hit": "Elemental Burst DMG (%)",
+                    "values": [
+                        367.2,
+                        394.74,
+                        422.28,
+                        459.0,
+                        486.54,
+                        514.08,
+                        550.8,
+                        587.52,
+                        624.24,
+                        660.96,
+                        697.68,
+                        734.4,
+                        780.3,
+                        826.0
+                    ]
+                },
+                {
+                    "hit": "Fatal Blossom DMG",
+                    "values": [
+                        "72% each",
+                        "77.4% each",
+                        "82.8% each",
+                        "90% each",
+                        "95.4% each",
+                        "100.8% each",
+                        "108% each",
+                        "115.2% each",
+                        "122.4% each",
+                        "129.6% each",
+                        "136.8% each",
+                        "144% each",
+                        "153% each",
+                        "162% each"
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Calcite Might",
+            "type": "1st Ascension Passive",
+            "description": "Transient Blossoms generated by Abiogenesis: Solar Isotoma deal 25% more DMG to opponents whose HP is below 50%."
+        },
+        {
+            "name": "Homuncular Nature",
+            "type": "4th Ascension Passive",
+            "description": "Using Rite of Progeniture: Tectonic Tide increases the Elemental Mastery of nearby party members by 125 for 10s."
+        },
+        {
+            "name": "Flash of Genius",
+            "type": "Utility Passive",
+            "description": "When Albedo crafts Weapon Ascension Materials, he has a 10% chance to receive double the product."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Flower of Eden",
+            "description": "Transient Blossoms generated by Albedo's Abiogenesis: Solar Isotoma regenerate 1.2 Energy for Albedo.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Opening of Phanerozoic",
+            "description": "Transient Blossoms generated by Abiogenesis: Solar Isotoma grant Albedo Fatal Reckoning for 30s:\n- Unleashing Rite of Progeniture: Tectonic Tide consumes all stacks of Fatal Reckoning. Each stack of Fatal Reckoning consumed increases the DMG dealt by Fatal Blossoms and Rite of Progeniture: Tectonic Tide's burst DMG by 30% of Albedo's DEF.\n- This effect stacks up to 4 times.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Grace of Helios",
+            "description": "Increases the Level of Abiogenesis: Solar Isotoma by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Descent of Divinity",
+            "description": "Active party members within the Solar Isotoma field have their Plunging Attack DMG increased by 30%.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Tide of Hadean",
+            "description": "Increases the Level of Rite of Progeniture: Tectonic Tide by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Dust of Purification",
+            "description": "Active party members within the Solar Isotoma field who are protected by a shield created by Crystallize have their DMG increased by 17%.",
+            "properties": []
+        }
+    ],
+    "ascension_stat": "Geo DMG Bonus"
+}

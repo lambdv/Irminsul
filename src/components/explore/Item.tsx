@@ -9,7 +9,8 @@ export default function Item(props: {
     src: string,
     name: string,
     element?: string,
-    rarity: number
+    rarity: number,
+    alt?: string
 }) {
     const isLargeItem: boolean = props.category == "weapon" || props.category == "artifact"
     const hasElement: boolean = props.element !== null && props.category == "character"
@@ -26,7 +27,9 @@ export default function Item(props: {
             }}
         >
             <Link href={`/${props.category}s/${id}`}>
-                {hasElement && <Image className={ItemCSS.itemCategory} src={`/assets/icons/${flatten(props.element)}.png`} alt=" " width="100" height="100"/>}
+                {hasElement && 
+                    <Image className={ItemCSS.itemCategory} src={`/assets/icons/${flatten(props.element)}.png`} alt=" " width="100" height="100"/>
+                }
                 {hasStarsDisplayed && 
                     <div className={ItemCSS.itemRarity}>
                         {[...Array(props.rarity)].map((_, index) => (
@@ -38,16 +41,16 @@ export default function Item(props: {
                     <Image 
                         src={props.src} 
                         className={ItemCSS.itemImg} 
-                        alt="" 
+                        alt={props.alt || props.name}
                         width={500} 
                         height={500}
                     />
                 </div>
-                <p className={ItemCSS.itemText} 
+                <p 
+                    className={ItemCSS.itemText} 
                     style={{ 
                         fontSize: isLargeItem ? "12px" : "inherit",
                         height: isLargeItem && "35px"
-
                     }}
                 >   
                     {props.name.length > 22 ? props.name.substring(0, 22) + '...' : props.name}

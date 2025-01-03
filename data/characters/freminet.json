@@ -1,0 +1,696 @@
+{
+    "name": "Freminet",
+    "key": "freminet",
+    "title": "Yearning for Unseen Depths",
+    "rarity": 4,
+    "element": "cryo",
+    "weapon": "claymore",
+    "release_date": "september 05, 2023",
+    "release_date_epoch": 1693872000,
+    "constellation": "automaton",
+    "birthday": "september 24th",
+    "affiliation": "hotel bouffes d'ete (on profile)house of the hearthfatui ",
+    "region": "fontaine",
+    "special_dish": "\"seabird's sojourn\"",
+    "alternate_title": "renowned diver of the court of fontaine",
+    "description": "",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "1012.09",
+            "BaseATK": "21.37",
+            "BaseDEF": "59.40",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2600.05",
+            "BaseATK": "54.90",
+            "BaseDEF": "152.60",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3356.14",
+            "BaseATK": "70.86",
+            "BaseDEF": "196.97",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "5027.09",
+            "BaseATK": "106.14",
+            "BaseDEF": "295.04",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "5564.31",
+            "BaseATK": "117.49",
+            "BaseDEF": "326.57",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6400.29",
+            "BaseATK": "135.14",
+            "BaseDEF": "375.63",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "7116.58",
+            "BaseATK": "150.26",
+            "BaseDEF": "417.67",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "7952.57",
+            "BaseATK": "167.91",
+            "BaseDEF": "466.74",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "8489.78",
+            "BaseATK": "179.26",
+            "BaseDEF": "498.27",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "9324.75",
+            "BaseATK": "196.89",
+            "BaseDEF": "547.27",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "9861.97",
+            "BaseATK": "208.23",
+            "BaseDEF": "578.80",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "10697.95",
+            "BaseATK": "225.88",
+            "BaseDEF": "627.86",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "11235.17",
+            "BaseATK": "237.23",
+            "BaseDEF": "659.39",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "12071.16",
+            "BaseATK": "254.88",
+            "BaseDEF": "708.46",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Shivada Jade Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Romaritime Flower",
+                    "amount": "3"
+                },
+                {
+                    "name": "Transoceanic Pearl",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Artificed Spare Clockwork Component \u2014 Coppelius",
+                    "amount": "2"
+                },
+                {
+                    "name": "Shivada Jade Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Romaritime Flower",
+                    "amount": "10"
+                },
+                {
+                    "name": "Transoceanic Pearl",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Artificed Spare Clockwork Component \u2014 Coppelius",
+                    "amount": "4"
+                },
+                {
+                    "name": "Shivada Jade Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Romaritime Flower",
+                    "amount": "20"
+                },
+                {
+                    "name": "Transoceanic Chunk",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Artificed Spare Clockwork Component \u2014 Coppelius",
+                    "amount": "8"
+                },
+                {
+                    "name": "Shivada Jade Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Romaritime Flower",
+                    "amount": "30"
+                },
+                {
+                    "name": "Transoceanic Chunk",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Artificed Spare Clockwork Component \u2014 Coppelius",
+                    "amount": "12"
+                },
+                {
+                    "name": "Shivada Jade Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Romaritime Flower",
+                    "amount": "45"
+                },
+                {
+                    "name": "Xenochromatic Crystal",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Artificed Spare Clockwork Component \u2014 Coppelius",
+                    "amount": "20"
+                },
+                {
+                    "name": "Shivada Jade Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Romaritime Flower",
+                    "amount": "60"
+                },
+                {
+                    "name": "Xenochromatic Crystal",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Flowing Eddies",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 4 consecutive strikes.\nCharged Attack\nDrains Stamina over time to perform continuous spinning attacks against all nearby opponents.\nAt the end of the sequence, performs a more powerful slash. \nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG",
+                    "values": [
+                        84.24,
+                        91.09,
+                        97.95,
+                        107.75,
+                        114.6,
+                        122.44,
+                        133.21,
+                        143.99,
+                        154.76,
+                        166.52,
+                        178.27,
+                        190.02,
+                        201.78
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG",
+                    "values": [
+                        80.68,
+                        87.24,
+                        93.81,
+                        103.19,
+                        109.76,
+                        117.26,
+                        127.58,
+                        137.9,
+                        148.22,
+                        159.48,
+                        170.73,
+                        181.99,
+                        193.25
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG",
+                    "values": [
+                        101.9,
+                        110.2,
+                        118.49,
+                        130.34,
+                        138.64,
+                        148.12,
+                        161.15,
+                        174.18,
+                        187.22,
+                        201.44,
+                        215.66,
+                        229.88,
+                        244.1
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG",
+                    "values": [
+                        123.8,
+                        133.88,
+                        143.96,
+                        158.35,
+                        168.43,
+                        179.95,
+                        195.78,
+                        211.62,
+                        227.46,
+                        244.73,
+                        262.01,
+                        279.28,
+                        296.56
+                    ]
+                },
+                {
+                    "hit": "Charged Attack Cyclic DMG",
+                    "values": [
+                        62.52,
+                        67.61,
+                        72.7,
+                        79.97,
+                        85.06,
+                        90.87,
+                        98.87,
+                        106.87,
+                        114.87,
+                        123.59,
+                        132.31,
+                        141.04,
+                        149.76
+                    ]
+                },
+                {
+                    "hit": "Charged Attack Final DMG",
+                    "values": [
+                        113.09,
+                        122.29,
+                        131.5,
+                        144.65,
+                        153.86,
+                        164.37,
+                        178.84,
+                        193.31,
+                        207.77,
+                        223.55,
+                        239.33,
+                        255.11,
+                        270.89
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG",
+                    "values": [
+                        74.59,
+                        80.66,
+                        86.73,
+                        95.4,
+                        101.47,
+                        108.41,
+                        117.95,
+                        127.49,
+                        137.03,
+                        147.44,
+                        157.85,
+                        168.26,
+                        178.66
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG",
+                    "values": [
+                        149.14,
+                        161.28,
+                        173.42,
+                        190.77,
+                        202.91,
+                        216.78,
+                        235.86,
+                        254.93,
+                        274.01,
+                        294.82,
+                        315.63,
+                        336.44,
+                        357.25
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG",
+                    "values": [
+                        186.29,
+                        201.45,
+                        216.62,
+                        238.28,
+                        253.44,
+                        270.77,
+                        294.6,
+                        318.42,
+                        342.25,
+                        368.25,
+                        394.24,
+                        420.23,
+                        446.23
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Pressurized Floe",
+            "type": "Elemental Skill",
+            "description": "Performs an upward thrust that deals  and causes Freminet to enter Pers Timer for 10s.\nWhile Pers Timer is active, his Elemental Skill will turn into Shattering Pressure.\n**Shattering Pressure**\nExecutes different sorts of attacks based on the Pressure Level of Pers Timer, and then cancels Pers Timer.\n- Level 0: Unleashes a vertical cut, dealing Cryo DMG.\n- Levels 1 to 3: Unleashes a vertical cut alongside Pers, dealing Cryo DMG and Physical DMG. DMG dealt scales based on Pressure Level.\n- Level 4: Borrows the power of a fully-pressurized Pers to deal Physical DMG. Meanwhile, Normal Attack: Flowing Eddies will be replaced by Shattering Pressure.\n**Pers Timer**\nWhen Freminet uses Normal Attacks, he will also unleash waves of frost that deal  and increase Pers's Pressure Level.\nThe accompanying  dealt this way is considered Elemental Skill DMG.\n**Arkhe: Pneuma**\nAt certain intervals, after using the upward thrust, a Spiritbreath Thorn in the form of another upward thrust will be created, dealing Pneuma-aligned .",
+            "attributes": [
+                {
+                    "hit": "Upward Thrust DMG",
+                    "values": [
+                        83.04,
+                        89.27,
+                        95.5,
+                        103.8,
+                        110.03,
+                        116.26,
+                        124.56,
+                        132.86,
+                        141.17,
+                        149.47,
+                        157.78,
+                        166.08,
+                        176.46
+                    ]
+                },
+                {
+                    "hit": "Frost DMG",
+                    "values": [
+                        7.16,
+                        7.7,
+                        8.23,
+                        8.95,
+                        9.49,
+                        10.02,
+                        10.74,
+                        11.46,
+                        12.17,
+                        12.89,
+                        13.6,
+                        14.32,
+                        15.22
+                    ]
+                },
+                {
+                    "hit": "Level 0 Shattering Pressure DMG",
+                    "values": [
+                        200.48,
+                        215.52,
+                        230.55,
+                        250.6,
+                        265.64,
+                        280.67,
+                        300.72,
+                        320.77,
+                        340.82,
+                        360.86,
+                        380.91,
+                        400.96,
+                        426.02
+                    ]
+                },
+                {
+                    "hit": "Level 1 Shattering Pressure DMG (% Cryo + % Physical)",
+                    "values": [
+                        "100.24 + 48.69",
+                        "107.76 + 52.34",
+                        "115.28 + 55.99",
+                        "125.3 + 60.86",
+                        "132.82 + 64.51",
+                        "140.34 + 68.16",
+                        "150.36 + 73.03",
+                        "160.38 + 77.9",
+                        "170.41 + 82.77",
+                        "180.43 + 87.64",
+                        "190.46 + 92.51",
+                        "200.48 + 97.38",
+                        "213.01 + 103.46"
+                    ]
+                },
+                {
+                    "hit": "Level 2 Shattering Pressure DMG (% Cryo + % Physical)",
+                    "values": [
+                        "70.17 + 85.2",
+                        "75.43 + 91.59",
+                        "80.69 + 97.98",
+                        "87.71 + 106.51",
+                        "92.97 + 112.9",
+                        "98.24 + 119.29",
+                        "105.25 + 127.81",
+                        "112.27 + 136.33",
+                        "119.29 + 144.85",
+                        "126.3 + 153.37",
+                        "133.32 + 161.89",
+                        "140.34 + 170.41",
+                        "149.11 + 181.06"
+                    ]
+                },
+                {
+                    "hit": "Level 3 Shattering Pressure DMG (% Cryo + % Physical)",
+                    "values": [
+                        "40.1 + 121.72",
+                        "43.1 + 130.85",
+                        "46.11 + 139.98",
+                        "50.12 + 152.15",
+                        "53.13 + 161.28",
+                        "56.13 + 170.41",
+                        "60.14 + 182.58",
+                        "64.15 + 194.75",
+                        "68.16 + 206.92",
+                        "72.17 + 219.1",
+                        "76.18 + 231.27",
+                        "80.19 + 243.44",
+                        "85.2 + 258.65"
+                    ]
+                },
+                {
+                    "hit": "Level 4 Shattering Pressure DMG",
+                    "values": [
+                        243.44,
+                        261.7,
+                        279.96,
+                        304.3,
+                        322.56,
+                        340.82,
+                        365.16,
+                        389.5,
+                        413.85,
+                        438.19,
+                        462.54,
+                        486.88,
+                        517.31
+                    ]
+                },
+                {
+                    "hit": "Spiritbreath Thorn DMG",
+                    "values": [
+                        14.4,
+                        15.48,
+                        16.56,
+                        18.0,
+                        19.08,
+                        20.16,
+                        21.6,
+                        23.04,
+                        24.48,
+                        25.92,
+                        27.36,
+                        28.8,
+                        30.6
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Shadowhunter's Ambush",
+            "type": "Elemental Burst",
+            "description": "Unleashes a wave of untouchable cold, dealing , resetting the CD of the Elemental Skill \"Pressurized Floe,\" and causing Freminet to enter the Subnautical Hunter mode for 10s.\nWhile in Subnautical Hunter mode, Freminet's resistance to interruption will increase, and his Elemental Skill \"Pressurized Floe\" will obtain the following buffs:\n- CD is decreased by 70%.\n- Normal Attacks will increase the Pers Timer by 1 additional Pressure Level, and the frost released by his Normal Attacks deal 200% of their original DMG.\nThese effects will be canceled when Freminet leaves the field.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG",
+                    "values": [
+                        318.4,
+                        342.28,
+                        366.16,
+                        398.0,
+                        421.88,
+                        445.76,
+                        477.6,
+                        509.44,
+                        541.28,
+                        573.12
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Saturation Deep Dive",
+            "type": "1st Ascension Passive",
+            "description": "When Freminet unleashes Pressurized Floe: Shattering Pressure, if Pers Timer has yet to reach Pressure Level 4, the CD of Pressurized Floe will be decreased by 1s."
+        },
+        {
+            "name": "Parallel Condensers",
+            "type": "4th Ascension Passive",
+            "description": "When Freminet triggers Shatter against opponents, the DMG dealt by Pressurized Floe: Shattering Pressure will be increased by 40% for 5s."
+        },
+        {
+            "name": "Deepwater Navigation",
+            "type": "Utility Passive",
+            "description": "Decreases Aquatic Stamina consumption for your own party members by 35%.Not stackable with Passive Talents that provide the exact same effects."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Dreams of the Foamy Deep",
+            "description": "The CRIT Rate of Pressurized Floe: Shattering Pressure will be increased by 15%.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Penguins and the Land of Plenty",
+            "description": "Unleashing Pressurized Floe: Shattering Pressure will restore 2 Energy to Freminet. If a Pressure Level 4 Shattering Pressure is unleashed, this will restore 3 Energy.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Song of the Eddies and Bleached Sands",
+            "description": "Increases the Level of Normal Attack: Flowing Eddies by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Dance of the Snowy Moon and Flute",
+            "description": "After Freminet triggers Frozen, Shatter, or Superconduct against opponents, his ATK will be increased by 9% for 6s. Max 2 stacks. This can be triggered once every 0.3s.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Nights of Hearth and Happiness",
+            "description": "Increases the Level of Pressurized Floe by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Moment of Waking and Resolve",
+            "description": "After Freminet triggers Frozen, Shatter, or Superconduct against opponents, his CRIT DMG will be increased by 12% for 6s. Max 3 stacks. This can be triggered once every 0.3s.",
+            "properties": []
+        }
+    ],
+    "ascension_stat": "ATK"
+}
