@@ -1,0 +1,122 @@
+{
+    "name": "Silvershower Heartstrings",
+    "key": "silvershower-heartstrings",
+    "description": "Legendary bow of the fairies. Whether on the stage or the battlefield, it can easily touch the hearts of the listener.",
+    "rarity": 5,
+    "category": "bow",
+    "series": "weapon event wishes",
+    "release_date": "june 25, 2024",
+    "base_atk_min": 44,
+    "base_atk_max": 542,
+    "sub_stat_type": "hp",
+    "sub_stat_value_min": "14.4% ",
+    "sub_stat_value_max": " 66.2%",
+    "refinement_name": "\n\ndryas's nocturne\n\n",
+    "refinements": [
+        "The equipping character can gain the Remedy effect. When they possess 1/2/3 Remedy stacks, Max HP will increase by **12%/24%/40%**\n. 1 stack may be gained when the following conditions are met: 1 stack for 25s when using an Elemental Skill; 1 stack for 25s when the value of a Bond of Life value increases; 1 stack for 20s for performing healing. Stacks can still be triggered when the equipping character is not on the field. Each stack's duration is counted independently. In addition, when 3 stacks are active, Elemental Burst CRIT Rate will be increased by **28%**\n. This effect will be canceled 4s after falling under 3 stacks.",
+        "The equipping character can gain the Remedy effect. When they possess 1/2/3 Remedy stacks, Max HP will increase by **15%/30%/50%**\n. 1 stack may be gained when the following conditions are met: 1 stack for 25s when using an Elemental Skill; 1 stack for 25s when the value of a Bond of Life value increases; 1 stack for 20s for performing healing. Stacks can still be triggered when the equipping character is not on the field. Each stack's duration is counted independently. In addition, when 3 stacks are active, Elemental Burst CRIT Rate will be increased by **35%**\n. This effect will be canceled 4s after falling under 3 stacks.",
+        "The equipping character can gain the Remedy effect. When they possess 1/2/3 Remedy stacks, Max HP will increase by **18%/36%/60%**\n. 1 stack may be gained when the following conditions are met: 1 stack for 25s when using an Elemental Skill; 1 stack for 25s when the value of a Bond of Life value increases; 1 stack for 20s for performing healing. Stacks can still be triggered when the equipping character is not on the field. Each stack's duration is counted independently. In addition, when 3 stacks are active, Elemental Burst CRIT Rate will be increased by **42%**\n. This effect will be canceled 4s after falling under 3 stacks.",
+        "The equipping character can gain the Remedy effect. When they possess 1/2/3 Remedy stacks, Max HP will increase by **21%/42%/70%**\n. 1 stack may be gained when the following conditions are met: 1 stack for 25s when using an Elemental Skill; 1 stack for 25s when the value of a Bond of Life value increases; 1 stack for 20s for performing healing. Stacks can still be triggered when the equipping character is not on the field. Each stack's duration is counted independently. In addition, when 3 stacks are active, Elemental Burst CRIT Rate will be increased by **49%**\n. This effect will be canceled 4s after falling under 3 stacks.",
+        "The equipping character can gain the Remedy effect. When they possess 1/2/3 Remedy stacks, Max HP will increase by **24%/48%/80%**\n. 1 stack may be gained when the following conditions are met: 1 stack for 25s when using an Elemental Skill; 1 stack for 25s when the value of a Bond of Life value increases; 1 stack for 20s for performing healing. Stacks can still be triggered when the equipping character is not on the field. Each stack's duration is counted independently. In addition, when 3 stacks are active, Elemental Burst CRIT Rate will be increased by **56%**\n. This effect will be canceled 4s after falling under 3 stacks."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "44",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "14.4%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "110",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "25.4%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "141",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "25.4%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "210",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "37.1%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "241",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "37.1%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "275",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "42.9%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "307",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "42.9%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "341",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "48.7%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "373",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "48.7%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "408",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "54.5%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "439",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "54.5%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "475",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "60.3%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "506",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "60.3%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "542",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "66.2%",
+            "ascension_phase": 6
+        }
+    ]
+}

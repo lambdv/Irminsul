@@ -1,0 +1,610 @@
+{
+    "name": "Shikanoin Heizou",
+    "key": "shikanoin-heizou",
+    "alt": "Heizou",
+    "title": "Analytical Harmony",
+    "rarity": 4,
+    "element": "anemo",
+    "weapon": "catalyst",
+    "release_date": "july 13, 2022",
+    "release_date_epoch": 1657670400,
+    "constellation": "cervus minor",
+    "birthday": "july 24th",
+    "affiliation": "tenryou commission (on profile)bantan sango detective agency (formerly) ",
+    "region": "inazuma",
+    "special_dish": "the only truth",
+    "alternate_title": "detective of the tenryou commission",
+    "description": "",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "893.56",
+            "BaseATK": "18.88",
+            "BaseDEF": "57.34",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2295.54",
+            "BaseATK": "48.49",
+            "BaseDEF": "147.31",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "2963.07",
+            "BaseATK": "62.60",
+            "BaseDEF": "190.14",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "4438.33",
+            "BaseATK": "93.76",
+            "BaseDEF": "284.81",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "4912.63",
+            "BaseATK": "103.78",
+            "BaseDEF": "315.24",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "5650.71",
+            "BaseATK": "119.37",
+            "BaseDEF": "362.61",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "6283.11",
+            "BaseATK": "132.73",
+            "BaseDEF": "403.19",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "7021.18",
+            "BaseATK": "148.32",
+            "BaseDEF": "450.55",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "7495.48",
+            "BaseATK": "158.34",
+            "BaseDEF": "480.99",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "8232.67",
+            "BaseATK": "173.92",
+            "BaseDEF": "528.29",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "8706.96",
+            "BaseATK": "183.94",
+            "BaseDEF": "558.73",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "9445.04",
+            "BaseATK": "199.53",
+            "BaseDEF": "606.09",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "9919.34",
+            "BaseATK": "209.55",
+            "BaseDEF": "636.52",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "10657.42",
+            "BaseATK": "225.14",
+            "BaseDEF": "683.89",
+            "AscensionStatType": "Anemo DMG Bonus",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Vayuda Turquoise Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Onikabuto",
+                    "amount": "3"
+                },
+                {
+                    "name": "Treasure Hoarder Insignia",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Runic Fang",
+                    "amount": "2"
+                },
+                {
+                    "name": "Vayuda Turquoise Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Onikabuto",
+                    "amount": "10"
+                },
+                {
+                    "name": "Treasure Hoarder Insignia",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Runic Fang",
+                    "amount": "4"
+                },
+                {
+                    "name": "Vayuda Turquoise Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Onikabuto",
+                    "amount": "20"
+                },
+                {
+                    "name": "Silver Raven Insignia",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Runic Fang",
+                    "amount": "8"
+                },
+                {
+                    "name": "Vayuda Turquoise Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Onikabuto",
+                    "amount": "30"
+                },
+                {
+                    "name": "Silver Raven Insignia",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Runic Fang",
+                    "amount": "12"
+                },
+                {
+                    "name": "Vayuda Turquoise Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Onikabuto",
+                    "amount": "45"
+                },
+                {
+                    "name": "Golden Raven Insignia",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Runic Fang",
+                    "amount": "20"
+                },
+                {
+                    "name": "Vayuda Turquoise Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Onikabuto",
+                    "amount": "60"
+                },
+                {
+                    "name": "Golden Raven Insignia",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Fudou Style Martial Arts",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 5 fisticuffs empowered by a mighty wind, dealing Anemo DMG.\nCharged Attack\nConsumes a certain amount of Stamina and performs a sweeping kick that deals Anemo DMG.\nPlunging Attack\nCalling upon the surging wind, Heizou plunges towards the ground from mid-air, damaging all opponents in his path. Deals AoE Anemo DMG upon impact with the ground.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        37.47,
+                        40.28,
+                        43.09,
+                        46.84,
+                        49.65,
+                        52.46,
+                        56.21,
+                        59.96,
+                        63.71,
+                        67.45,
+                        71.2
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        36.85,
+                        39.62,
+                        42.38,
+                        46.06,
+                        48.83,
+                        51.59,
+                        55.28,
+                        58.96,
+                        62.65,
+                        66.33,
+                        70.02
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        51.06,
+                        54.89,
+                        58.72,
+                        63.82,
+                        67.65,
+                        71.48,
+                        76.59,
+                        81.7,
+                        86.8,
+                        91.91,
+                        97.01
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        "14.78+16.26+19.22",
+                        "15.89+17.48+20.66",
+                        "17+18.7+22.1",
+                        "18.48+20.33+24.02",
+                        "19.59+21.55+25.46",
+                        "20.7+22.77+26.9",
+                        "22.17+24.39+28.83",
+                        "23.65+26.02+30.75",
+                        "25.13+27.64+32.67",
+                        "26.61+29.27+34.59",
+                        "28.09+30.9+36.51"
+                    ]
+                },
+                {
+                    "hit": "5-Hit DMG (%)",
+                    "values": [
+                        61.45,
+                        66.06,
+                        70.67,
+                        76.81,
+                        81.42,
+                        86.03,
+                        92.17,
+                        98.32,
+                        104.46,
+                        110.61,
+                        116.75
+                    ]
+                },
+                {
+                    "hit": "Charged Attack (%)",
+                    "values": [
+                        73.0,
+                        78.47,
+                        83.95,
+                        91.25,
+                        96.73,
+                        102.2,
+                        109.5,
+                        116.8,
+                        124.1,
+                        131.4,
+                        138.7
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.17,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Heartstopper Strike",
+            "type": "Elemental Skill",
+            "description": "Press\nWields the swift winds to launch a Heartstopper Strike that deals Anemo DMG.\nHold\nCharges energy to unleash an even stronger blow. He will obtain the Declension effect while charging, which will increase the power of the Heartstopper Strike. When the skill button is released or the skill finishes charging, he will strike forward, dealing Anemo DMG.\nDeclension\nIncreases the power of the next Heartstopper Strike. Max 4 stacks. When you possess 4 Declension stacks, the Conviction effect will be produced, which will cause the next Heartstopper Strike to be even stronger and have a larger AoE.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        227.52,
+                        244.58,
+                        261.65,
+                        284.4,
+                        301.46,
+                        318.53,
+                        341.28,
+                        364.03,
+                        386.78,
+                        409.54,
+                        432.29,
+                        455.04,
+                        483.48
+                    ]
+                },
+                {
+                    "hit": "Declension DMG Bonus (%/stack)",
+                    "values": [
+                        56.88,
+                        61.15,
+                        65.41,
+                        71.1,
+                        75.37,
+                        79.63,
+                        85.32,
+                        91.01,
+                        96.7,
+                        102.38,
+                        108.07,
+                        113.76,
+                        120.87
+                    ]
+                },
+                {
+                    "hit": "Conviction DMG Bonus (%)",
+                    "values": [
+                        113.76,
+                        122.29,
+                        130.82,
+                        142.2,
+                        150.73,
+                        159.26,
+                        170.64,
+                        182.02,
+                        193.39,
+                        204.77,
+                        216.14,
+                        227.52,
+                        241.74
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Windmuster Kick",
+            "type": "Elemental Burst",
+            "description": "Leaps into the air and uses the Fudou Style Vacuum Slugger and kicks his opponent. The Vacuum Slugger will explode upon hit and create an Arresting Windtunnel that pulls in nearby objects and opponents, dealing AoE Anemo DMG.\nWhen Vacuum Slugger hits opponents affected by Hydro/Pyro/Cryo/Electro, these opponents will be afflicted with Windmuster Iris. This Windmuster Iris will explode after a moment and dissipate, dealing AoE DMG of the corresponding elemental type.\nVacuum Slugger can afflict a maximum of 4 opponents with the Windmuster Iris. A single opponent cannot be under the effect of Windmuster Irises of different elements at the same time.",
+            "attributes": [
+                {
+                    "hit": "Fudou Style Vacuum Slugger DMG (%)",
+                    "values": [
+                        314.69,
+                        338.29,
+                        361.89,
+                        393.36,
+                        416.96,
+                        440.56,
+                        472.03,
+                        503.5,
+                        534.97,
+                        566.44,
+                        597.91,
+                        629.38,
+                        668.71
+                    ]
+                },
+                {
+                    "hit": "Windmuster Iris DMG (%)",
+                    "values": [
+                        21.46,
+                        23.07,
+                        24.67,
+                        26.82,
+                        28.43,
+                        30.04,
+                        32.18,
+                        34.33,
+                        36.48,
+                        38.62,
+                        40.77,
+                        42.91,
+                        45.59
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Paradoxical Practice",
+            "type": "1st Ascension Passive",
+            "description": "When Shikanoin Heizou activates a Swirl reaction while on the field, he will gain 1 Declension stack for Heartstopper Strike. This effect can be triggered every 0.1s."
+        },
+        {
+            "name": "Penetrative Reasoning",
+            "type": "4th Ascension Passive",
+            "description": "After Shikanoin Heizou's Heartstopper Strike hits an opponent, increases all party members' (excluding Shikanoin Heizou) Elemental Mastery by 80 for 10s."
+        },
+        {
+            "name": "Pre-Existing Guilt",
+            "type": "Utility Passive",
+            "description": "Decreases sprinting Stamina consumption for your own party members by 20%.\nNot stackable with Passive Talents that provide the exact same effects."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Named Juvenile Casebook",
+            "description": "For 5s after Shikanoin Heizou takes the field, his Normal Attack SPD is increased by 15%. He also gains 1 Declension stack for Heartstopper Strike. This effect can be triggered once every 10s.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Investigative Collection",
+            "description": "The pull effect of the Arresting Windtunnel created by Windmuster Kick is enhanced, and its duration is increased to 1s.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Esoteric Puzzle Book",
+            "description": "Increases the Level of Heartstopper Strike by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Tome of Lies",
+            "description": "The first Windmuster Iris explosion in each Windmuster Kick will regenerate 9 Elemental Energy for Shikanoin Heizou. Every subsequent explosion in that Windmuster Kick will each regenerate an additional 1.5 Energy for Heizou.\nOne Windmuster Kick can regenerate a total of 13.5 Energy for Heizou in this manner.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Secret Archive",
+            "description": "Increases the Level of Windmuster Kick by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Curious Casefiles",
+            "description": "Each Declension stack will increase the CRIT Rate of the Heartstopper Strike unleashed by 4%. When Heizou possesses Conviction, this Heartstopper Strike's CRIT DMG is increased by 32%.",
+            "properties": []
+        }
+    ],
+    "ascension_stat": "Anemo DMG Bonus"
+}

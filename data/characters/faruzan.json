@@ -1,0 +1,591 @@
+{
+    "name": "Faruzan",
+    "key": "faruzan",
+    "title": "Enigmatic Machinist",
+    "rarity": 4,
+    "element": "anemo",
+    "weapon": "bow",
+    "release_date": "december 07, 2022",
+    "release_date_epoch": 1670371200,
+    "constellation": "flosculi implexi",
+    "birthday": "august 20th",
+    "affiliation": "haravatat",
+    "region": "sumeru",
+    "special_dish": "traditionally-made charcoal-baked ajilenakh cake",
+    "alternate_title": "haravatat household name",
+    "description": "",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "802.38",
+            "BaseATK": "16.47",
+            "BaseDEF": "52.65",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2061.30",
+            "BaseATK": "42.32",
+            "BaseDEF": "135.25",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "2660.72",
+            "BaseATK": "54.62",
+            "BaseDEF": "174.58",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "3985.44",
+            "BaseATK": "81.82",
+            "BaseDEF": "261.50",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "4411.34",
+            "BaseATK": "90.56",
+            "BaseDEF": "289.45",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "5074.11",
+            "BaseATK": "104.17",
+            "BaseDEF": "332.93",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "5641.97",
+            "BaseATK": "115.83",
+            "BaseDEF": "370.19",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "6304.74",
+            "BaseATK": "129.43",
+            "BaseDEF": "413.68",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "6730.64",
+            "BaseATK": "138.18",
+            "BaseDEF": "441.62",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "7392.60",
+            "BaseATK": "151.77",
+            "BaseDEF": "485.06",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "7818.50",
+            "BaseATK": "160.51",
+            "BaseDEF": "513.00",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "8481.26",
+            "BaseATK": "174.12",
+            "BaseDEF": "556.49",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "8907.16",
+            "BaseATK": "182.86",
+            "BaseDEF": "584.43",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "9569.93",
+            "BaseATK": "196.47",
+            "BaseDEF": "627.92",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Vayuda Turquoise Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Henna Berry",
+                    "amount": "3"
+                },
+                {
+                    "name": "Faded Red Satin",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Light Guiding Tetrahedron",
+                    "amount": "2"
+                },
+                {
+                    "name": "Vayuda Turquoise Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Henna Berry",
+                    "amount": "10"
+                },
+                {
+                    "name": "Faded Red Satin",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Light Guiding Tetrahedron",
+                    "amount": "4"
+                },
+                {
+                    "name": "Vayuda Turquoise Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Henna Berry",
+                    "amount": "20"
+                },
+                {
+                    "name": "Trimmed Red Silk",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Light Guiding Tetrahedron",
+                    "amount": "8"
+                },
+                {
+                    "name": "Vayuda Turquoise Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Henna Berry",
+                    "amount": "30"
+                },
+                {
+                    "name": "Trimmed Red Silk",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Light Guiding Tetrahedron",
+                    "amount": "12"
+                },
+                {
+                    "name": "Vayuda Turquoise Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Henna Berry",
+                    "amount": "45"
+                },
+                {
+                    "name": "Rich Red Brocade",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Light Guiding Tetrahedron",
+                    "amount": "20"
+                },
+                {
+                    "name": "Vayuda Turquoise Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Henna Berry",
+                    "amount": "60"
+                },
+                {
+                    "name": "Rich Red Brocade",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Parthian Shot",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 4 consecutive shots with a bow.\nCharged Attack\nPerforms a more precise Aimed Shot with increased DMG.\nWhile aiming, mighty winds will accumulate on the arrowhead. A fully charged wind arrow will deal Anemo DMG.\nPlunging Attack\nFires off a shower of arrows in mid-air before falling and striking the ground, hitting opponents along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        44.73,
+                        48.37,
+                        52.01,
+                        57.21,
+                        60.85,
+                        65.01,
+                        70.73,
+                        76.46,
+                        82.18,
+                        88.42,
+                        94.66
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        42.19,
+                        45.62,
+                        49.05,
+                        53.96,
+                        57.39,
+                        61.32,
+                        66.71,
+                        72.11,
+                        77.51,
+                        83.39,
+                        89.28
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        53.16,
+                        57.49,
+                        61.82,
+                        68.0,
+                        72.33,
+                        77.27,
+                        84.07,
+                        90.87,
+                        97.67,
+                        105.09,
+                        112.51
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        70.62,
+                        76.37,
+                        82.12,
+                        90.33,
+                        96.08,
+                        102.65,
+                        111.68,
+                        120.71,
+                        129.74,
+                        139.6,
+                        149.45
+                    ]
+                },
+                {
+                    "hit": "Aimed Shot",
+                    "values": [
+                        43.86,
+                        47.43,
+                        51.0,
+                        56.1,
+                        59.67,
+                        63.75,
+                        69.36,
+                        74.97,
+                        80.58,
+                        86.7,
+                        92.82
+                    ]
+                },
+                {
+                    "hit": "Fully-Charged Aimed Shot",
+                    "values": [
+                        124.0,
+                        133.3,
+                        142.6,
+                        155.0,
+                        164.3,
+                        173.6,
+                        186.0,
+                        198.4,
+                        210.8,
+                        223.2,
+                        235.6
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.17,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Wind Realm of Nasamjnin",
+            "type": "Elemental Skill",
+            "description": "Faruzan deploys a polyhedron that deals AoE Anemo DMG to nearby opponents. She will also enter the Manifest Gale state.\nWhile in the Manifest Gale state, Faruzan's next fully charged shot will consume this state and will become a Hurricane Arrow that contains high-pressure currents. This arrow deals Anemo DMG based on the DMG of a fully charged Aimed Shot from \"Normal Attack: Parthian Shot.\"\nPressurized Collapse\nThe Hurricane Arrow will apply a Pressurized Collapse effect to the opponent or character hit. This effect will be removed after a short delay, creating a vortex that deals AoE Anemo DMG and pulls nearby objects and opponents in. If the Hurricane Arrow does not hit any opponent or character, it will create a Pressurized Collapse effect at its point of impact.\nThe vortex DMG is considered Elemental Skill DMG.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        148.8,
+                        159.96,
+                        171.12,
+                        186.0,
+                        197.16,
+                        208.32,
+                        223.2,
+                        238.08,
+                        252.96,
+                        267.84,
+                        282.72,
+                        297.6,
+                        316.2
+                    ]
+                },
+                {
+                    "hit": "Pressurized Collapse Vortex DMG (%)",
+                    "values": [
+                        108.0,
+                        116.1,
+                        124.2,
+                        135.0,
+                        143.1,
+                        151.2,
+                        162.0,
+                        172.8,
+                        183.6,
+                        194.4,
+                        205.2,
+                        216.0,
+                        229.5
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "The Wind's Secret Ways",
+            "type": "Elemental Burst",
+            "description": "Faruzan deploys a Dazzling Polyhedron that unleashes a Whirlwind Pulse and deals .\nWhile the Dazzling Polyhedron persists, it will continuously move along a triangular path. Once it reaches each corner of that triangular path, it will unleash 1 more Whirlwind Pulse.\n**Whirlwind Pulse**\n- When the Whirlwind Pulse is unleashed, it will apply Perfidious Wind's Bale to nearby opponents, decreasing their Anemo RES.\n- The Whirlwind Pulse will also apply Prayerful Wind's Benefit to all nearby party members when it is unleashed, granting them an Anemo DMG Bonus.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        377.6,
+                        405.92,
+                        434.24,
+                        472.0,
+                        500.32,
+                        528.64,
+                        566.4,
+                        604.16,
+                        641.92,
+                        679.68,
+                        717.44,
+                        755.2,
+                        802.4
+                    ]
+                },
+                {
+                    "hit": "Anemo DMG Bonus (%)",
+                    "values": [
+                        18.0,
+                        19.35,
+                        20.7,
+                        22.5,
+                        23.85,
+                        25.2,
+                        27.0,
+                        28.8,
+                        30.6,
+                        32.4,
+                        34.2,
+                        36.0,
+                        38.25
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Impetuous Flow",
+            "type": "1st Ascension Passive",
+            "description": "When Faruzan is in the Manifest Gale state created by Wind Realm of Nasamjnin, the amount of time taken to charge a shot is decreased by 60%, and she can apply The Wind's Secret Ways' Perfidious Wind's Bale to opponents who are hit by the vortex created by Pressurized Collapse."
+        },
+        {
+            "name": "Lost Wisdom of the Seven Caverns",
+            "type": "4th Ascension Passive",
+            "description": "When characters affected by The Wind's Secret Ways' Prayerful Wind's Benefit deal Anemo DMG using Normal, Charged, Plunging Attacks, Elemental Skills, or Elemental Bursts to opponents, they will gain the Hurricane Guard effect: This DMG will be increased based on 32% of Faruzan's Base ATK. 1 instance of Hurricane Guard can occur once every 0.8s. This DMG Bonus will be cleared after Prayerful Wind's Benefit expires or after the effect is triggered once."
+        },
+        {
+            "name": "Tomes Light the Path",
+            "type": "Utility Passive",
+            "description": "Gains 25% more rewards when dispatched on a Sumeru Expedition for 20 hours."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Truth by Any Means",
+            "description": "Faruzan can fire off a maximum of 2 Hurricane Arrows using fully charged Aimed Shots while under the effect of a single Manifest Gale created by Wind Realm of Nasamjnin.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Overzealous Intellect",
+            "description": "The duration of the Dazzling Polyhedron created by The Wind's Secret Ways is increased by 6s.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Spirit-Orchard Stroll",
+            "description": "Increases the Level of Wind Realm of Nasamjnin by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Divine Comprehension",
+            "description": "The vortex created by Pressurized Collapses will restore Energy to Faruzan based on the number of opponents hit: If it hits 1 opponent, it will restore 2 Energy for Faruzan. Each additional opponent hit will restore 0.5 more Energy for Faruzan.\nA maximum of 4 Energy can be restored to her per vortex.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Wonderland of Rumination",
+            "description": "Increases the Level of The Wind's Secret Ways by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "The Wondrous Path of Truth",
+            "description": "Characters affected by The Wind's Secret Ways' Prayerful Wind's Benefit have 40% increased CRIT DMG when they deal . When the active character deals DMG while affected by Prayerful Wind's Benefit, they will apply Pressurized Collapse to the opponent damaged. This effect can be triggered once every 3s. This CD is shared between all party members.",
+            "properties": []
+        }
+    ],
+    "ascension_stat": "ATK"
+}

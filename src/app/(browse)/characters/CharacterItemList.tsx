@@ -4,30 +4,53 @@ import Item from '@/components/explore/Item'
 import { SearchStore } from '@/store/Search'
 import { CharacterFilterStore } from '@/store/CharacterFilters'
 import { filterItemList } from '@/utils/filterers'
-import { flatten } from '@/utils/standardizers'
-import { useState } from 'react'
+import { flatten, toKey } from '@/utils/standardizers'
+import { useEffect, useState } from 'react'
+import { Character } from '@/utils/DataGetters'
 
-export default function CharacterItemList(props: {data: any}) {
+export default function CharacterItemList(props: {data: Character[]}) {
     const characters = props.data
     const { SearchQuery } = SearchStore()
     const { selectedFilters, filters, descending } = CharacterFilterStore()
     const itemTaggingFunction = (character: any) => [flatten(character.rarity+"-star"), flatten(character.vision), flatten(character.weapon)]
     const filters2d = [filters[0].rarities, filters[1].elements, filters[2].weapons]
 
-    const [sortBy , setSortBy] = useState("release")
+    const [sortBy, setSortBy] = useState("release_date_epoch")
+    const [filteredCharacters, setFilteredCharacters] = useState<Character[]>([])
+
+    const sortingFn = (a: Character, b: Character) => { 
+        switch(sortBy){
+            case "release_date_epoch":
+                const releaseDiff = (a.release_date_epoch - b.release_date_epoch)
+                if(releaseDiff !== 0)
+                    return releaseDiff
+                const rarityDiff = a.rarity - b.rarity
+                if(rarityDiff !== 0)
+                    return rarityDiff
+                return a.name.localeCompare(b.name)           
+        }
+    }
+
+    useEffect(() => {
+        const filtered = filterItemList(characters, filters2d, selectedFilters, SearchQuery, itemTaggingFunction)
+        setFilteredCharacters(filtered)
+    }, [filters, selectedFilters, SearchQuery])
 
     return (
         <div className={explorePageCSS.itemContainer}>
-            {filterItemList(characters, filters2d, selectedFilters, SearchQuery, itemTaggingFunction)
-                .sort((a, b) => a[sortBy].localeCompare(b[sortBy]) * (descending ? -1 : 1))
+            {filteredCharacters.length === 0 && <p>No results for {SearchQuery}</p>}
+            {filteredCharacters
+                .sort(descending ? (a, b) => sortingFn(b, a) : sortingFn)
+                .filter((character: any) => flatten(character.name) !== "traveler")
                 .map((character, index) => (
                     <Item 
-                    key={index} 
-                    category="character"
-                    name={character.name}
-                    rarity={character.rarity}
-                    element={character.vision}
-                    src={`/assets/characters/${character.name.toLowerCase().replaceAll(" ", "-")}/profile.png`}
+                        key={index} 
+                        category="character"
+                        name={character.name}
+                        rarity={character.rarity}
+                        element={character.element}
+                        src={`/assets/characters/${toKey(character.name)}/${toKey(character.name)}_avatar.png`}
+                        alt={toKey(character.name)}
                     />
                     )
                 )}

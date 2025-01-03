@@ -1,0 +1,19 @@
+{
+    "name": "Retracing Bolide",
+    "key": "retracing-bolide",
+    "flower_description": "A man-made flower in eternal bloom. Who knows if there truly is life in there?",
+    "feather_description": "A well-crafted wooden dart. It will only stop once it has reached its destination.",
+    "sand_description": "A pocketwatch that has stopped at a certain point in time.",
+    "goblet_description": "Water balloons can be seen everywhere during the summer festival, but none are as finely-wrought as this one.",
+    "circlet_description": "A popular mask cast in the image of a deity, as described in the legends.",
+    "flower_name": "Summer Night's Bloom",
+    "feather_name": "Summer Night's Finale",
+    "sand_name": "Summer Night's Moment",
+    "goblet_name": "Summer Night's Waterballoon",
+    "circlet_name": "Summer Night's Mask",
+    "two_pc_bonus": "Increases Shield Strength by 35%.",
+    "four_pc_bonus": "While protected by a shield, gain an additional 40% Normal and Charged Attack DMG.",
+    "rarity_min": 4,
+    "rarity_max": 5,
+    "release_version": 1.0
+}

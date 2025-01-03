@@ -1,0 +1,19 @@
+{
+    "name": "Lucky Dog",
+    "key": "lucky-dog",
+    "flower_description": "A four-leaf clover that grows in the wild. It was picked because it is said to bring good luck.",
+    "feather_description": "A monster once cornered an adventurer, but was then picked off by a hunting eagle... That eagle dropped this feather, which now carries some of the adventurer's good luck.",
+    "sand_description": "A broken hourglass from which all the sand has escaped. But it's fine, because the passage of time means nothing to someone without a single worry in the whole world.",
+    "goblet_description": "An exquisite metallic vessel that was once used to knock out a thief.",
+    "circlet_description": "Its former owner once fell into a cave and found the treasure trove of an exiled royal. This is a souvenir from that incident.",
+    "flower_name": "Lucky Dog's Clover",
+    "feather_name": "Lucky Dog's Eagle Feather",
+    "sand_name": "Lucky Dog's Hourglass",
+    "goblet_name": "Lucky Dog's Goblet",
+    "circlet_name": "Lucky Dog's Silver Circlet",
+    "two_pc_bonus": "DEF increased by 100.",
+    "four_pc_bonus": "Picking up Mora restores 300 HP.",
+    "rarity_min": 1,
+    "rarity_max": 3,
+    "release_version": 1.0
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Flower of Paradise Lost",
+    "key": "flower-of-paradise-lost",
+    "flower_description": "An amethyst bloom that has been beautifully sculpted in the image of an ancient, extinct flower.",
+    "feather_description": "A feather left behind by a long-extinct bird species. It was inlaid with gold and gems by the ancient adherents of the Goddess of Flowers.",
+    "sand_description": "These sands no longer move no matter how you tilt the hourglass, now and forever defying the drift of time itself.",
+    "goblet_description": "A small bottle made of purple crystal. An emerald cap keeps it tightly sealed.",
+    "circlet_description": "A crown inlaid with amethyst and emerald. It seems to have been the headgear worn by ancient priests of the Goddess of Flowers.",
+    "flower_name": "Ay-Khanoum's Myriad",
+    "feather_name": "Wilting Feast",
+    "sand_name": "A Moment Congealed",
+    "goblet_name": "Secret-Keeper's Magic Bottle",
+    "circlet_name": "Amethyst Crown",
+    "two_pc_bonus": "Increases Elemental Mastery by 80.",
+    "four_pc_bonus": "The equipping character's Bloom, Hyperbloom, and Burgeon reaction DMG are increased by 40%. Additionally, after the equipping character triggers Bloom, Hyperbloom, or Burgeon, they will gain another 25% bonus to the effect mentioned prior. Each stack of this lasts 10s. Max 4 stacks simultaneously. This effect can only be triggered once per second. The character who equips this can still trigger its effects when not on the field.",
+    "rarity_min": 4,
+    "rarity_max": 5,
+    "release_version": 3.3
+}

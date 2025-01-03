@@ -1,0 +1,562 @@
+{
+    "name": "Kachina",
+    "key": "kachina",
+    "title": "Mottled Gold Yet Unsmelted",
+    "rarity": 4,
+    "element": "geo",
+    "weapon": "polearm",
+    "release_date": "august 28, 2024",
+    "release_date_epoch": 1724803200,
+    "constellation": "ochotona princeps",
+    "birthday": "april 22nd",
+    "affiliation": "nanatzcayan",
+    "region": "natlan",
+    "special_dish": "impeccably organized",
+    "alternate_title": "nanatzcayan young braveheart",
+    "description": "",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "989.29",
+            "BaseATK": "18.16",
+            "BaseDEF": "66.44",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2541.49",
+            "BaseATK": "46.66",
+            "BaseDEF": "170.68",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3280.55",
+            "BaseATK": "60.23",
+            "BaseDEF": "220.31",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "4913.87",
+            "BaseATK": "90.22",
+            "BaseDEF": "330.00",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "5438.99",
+            "BaseATK": "99.86",
+            "BaseDEF": "365.27",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6256.14",
+            "BaseATK": "114.87",
+            "BaseDEF": "420.15",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "6956.30",
+            "BaseATK": "127.72",
+            "BaseDEF": "467.17",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "7773.45",
+            "BaseATK": "142.73",
+            "BaseDEF": "522.04",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "8298.57",
+            "BaseATK": "152.37",
+            "BaseDEF": "557.31",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "9114.74",
+            "BaseATK": "167.35",
+            "BaseDEF": "612.12",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "9639.85",
+            "BaseATK": "177.00",
+            "BaseDEF": "647.39",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "10457.01",
+            "BaseATK": "192.00",
+            "BaseDEF": "702.26",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "10982.13",
+            "BaseATK": "201.64",
+            "BaseDEF": "737.53",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "11799.28",
+            "BaseATK": "216.65",
+            "BaseDEF": "792.41",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Prithiva Topaz Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Quenepa Berry",
+                    "amount": "3"
+                },
+                {
+                    "name": "Sentry's Wooden Whistle",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Overripe Flamegranate",
+                    "amount": "2"
+                },
+                {
+                    "name": "Prithiva Topaz Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Quenepa Berry",
+                    "amount": "10"
+                },
+                {
+                    "name": "Sentry's Wooden Whistle",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Overripe Flamegranate",
+                    "amount": "4"
+                },
+                {
+                    "name": "Prithiva Topaz Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Quenepa Berry",
+                    "amount": "20"
+                },
+                {
+                    "name": "Warrior's Metal Whistle",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Overripe Flamegranate",
+                    "amount": "8"
+                },
+                {
+                    "name": "Prithiva Topaz Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Quenepa Berry",
+                    "amount": "30"
+                },
+                {
+                    "name": "Warrior's Metal Whistle",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Overripe Flamegranate",
+                    "amount": "12"
+                },
+                {
+                    "name": "Prithiva Topaz Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Quenepa Berry",
+                    "amount": "45"
+                },
+                {
+                    "name": "Saurian-Crowned Warrior's Golden Whistle",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Overripe Flamegranate",
+                    "amount": "20"
+                },
+                {
+                    "name": "Prithiva Topaz Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Quenepa Berry",
+                    "amount": "60"
+                },
+                {
+                    "name": "Saurian-Crowned Warrior's Golden Whistle",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Cragbiter",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 4 consecutive spear strikes.\nCharged Attack\nConsumes a certain amount of Stamina to lunge forward, dealing damage to opponents along the way.\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        49.4,
+                        53.42,
+                        57.44,
+                        63.18,
+                        67.2,
+                        71.8,
+                        78.12,
+                        84.44,
+                        90.76,
+                        97.65,
+                        104.54
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        "27.57+30.63",
+                        "29.81+33.13",
+                        "32.06+35.62",
+                        "35.26+39.18",
+                        "37.51+41.67",
+                        "40.07+44.52",
+                        "43.6+48.44",
+                        "47.12+52.36",
+                        "50.65+56.28",
+                        "54.5+60.55",
+                        "58.34+64.83"
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        70.43,
+                        76.16,
+                        81.89,
+                        90.08,
+                        95.81,
+                        102.36,
+                        111.37,
+                        120.38,
+                        129.39,
+                        139.22,
+                        149.04
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        77.44,
+                        83.74,
+                        90.04,
+                        99.05,
+                        105.35,
+                        112.55,
+                        122.46,
+                        132.36,
+                        142.27,
+                        153.07,
+                        163.88
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        112.66,
+                        121.83,
+                        131.0,
+                        144.1,
+                        153.27,
+                        163.75,
+                        178.16,
+                        192.57,
+                        206.98,
+                        222.7,
+                        238.42
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        63.93,
+                        69.14,
+                        74.34,
+                        81.77,
+                        86.98,
+                        92.92,
+                        101.1,
+                        109.28,
+                        117.46,
+                        126.38,
+                        135.3
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        127.84,
+                        138.24,
+                        148.65,
+                        163.51,
+                        173.92,
+                        185.81,
+                        202.16,
+                        218.51,
+                        234.86,
+                        252.7,
+                        270.54
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        159.68,
+                        172.67,
+                        185.67,
+                        204.24,
+                        217.23,
+                        232.09,
+                        252.51,
+                        272.93,
+                        293.36,
+                        315.64,
+                        337.92
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Go, Go Turbo Twirly!",
+            "type": "Elemental Skill",
+            "description": "Fight alongside the turbo trusty Turbo Twirly!\nSummons Turbo Twirly. When the skill is Held and released, Kachina will summon and ride Turbo Twirly.\nAfter the Skill is used, Kachina will gain 60 Nightsoul points and enter the Nightsoul's Blessing state.\n**Nightsoul's Blessing: Kachina**\nTurbo Twirly's various actions consume Kachina's Nightsoul points.\nThe Nightsoul's Blessing state will end when these points have been depleted.\n**Turbo Twirly**\nCan exist independently or be ridden and operated by Kachina. When Turbo Twirly is present, Kachina's Elemental Skill, \"Go, Go Turbo Twirly!\", will change to an option to Mount/Dismount Turbo Twirly.\n- When present independent of Kachina, it will slam the ground at intervals, dealing Nightsoul-aligned AoE Geo DMG based on Kachina's DEF.\n- When Kachina is riding Turbo Twirly, she can control it to move and climb swiftly, and use Normal Attacks to slam the ground, dealing Nightsoul-aligned AoE Geo DMG based on Kachina's DEF.\nTurbo Twirly will disappear once Kachina's Nightsoul's Blessing state ends, and it is considered a Geo Construct. 1 Turbo Twirly can exist on the field at any one time.",
+            "attributes": [
+                {
+                    "hit": "Turbo Twirly Mounted DMG (%DEF)",
+                    "values": [
+                        87.76,
+                        94.34,
+                        100.92,
+                        109.7,
+                        116.28,
+                        122.86,
+                        131.64,
+                        140.42,
+                        149.19,
+                        157.97,
+                        166.74,
+                        175.52,
+                        186.49
+                    ]
+                },
+                {
+                    "hit": "Turbo Twirly Independent DMG (%DEF)",
+                    "values": [
+                        63.76,
+                        68.54,
+                        73.32,
+                        79.7,
+                        84.48,
+                        89.26,
+                        95.64,
+                        102.02,
+                        108.39,
+                        114.77,
+                        121.14,
+                        127.52,
+                        135.49
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Time to Get Serious!",
+            "type": "Elemental Burst",
+            "description": "Striking the ground, Kachina deals AoE Geo DMG based on her DEF and creates a Turbo Drill Field.\nThe Field increases Turbo Twirly's attack AoE and its movement speed when Kachina is riding it.\nIf Kachina's own Turbo Twirly is present when this is used, Turbo Twirly will be summoned to her side.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%DEF)",
+                    "values": [
+                        380.57,
+                        413.66,
+                        442.52,
+                        481.0,
+                        509.86,
+                        538.72,
+                        577.2,
+                        615.68,
+                        654.16,
+                        692.64,
+                        731.12,
+                        769.6,
+                        817.7
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Heart of Unity",
+            "type": "Night Realm's Gift Passive",
+            "description": "After her Nightsoul points are depleted, Kachina will switch to consuming Phlogiston to maintain her Nightsoul's Blessing.\nWhile in an area with Phlogiston Mechanics within Natlan, she can use Nightsoul Transmission: Kachina. When the active character is currently sprinting, climbing, in a movement mode caused by certain Talents, or at a certain height in the air, the following will trigger when switching to Kachina: Kachina will enter the Nightsoul's Blessing state and ride Turbo Twirly when taking the field while gaining 30 Nightsoul points. Nightsoul Transmission can be triggered once every 10s by your own team.\nAdditionally, while in Natlan, Kachina will consume 90% less Stamina when climbing while riding Turbo Twirly."
+        }
+    ],
+    "passives": [
+        {
+            "name": "Mountain Echoes",
+            "type": "1st Ascension Passive",
+            "description": "When nearby party members trigger a Nightsoul Burst, Kachina's Geo DMG Bonus increases by 20% for 12s."
+        },
+        {
+            "name": "The Weight of Stone",
+            "type": "4th Ascension Passive",
+            "description": "Turbo Twirly's DMG is increased by 20% of Kachina's DEF."
+        },
+        {
+            "name": "Boon of Crystal Flame",
+            "type": "Utility Passive",
+            "description": "While in an area with Phlogiston Mechanics within Natlan, 20 Stamina will be restored when interacting with some harvestable items. Additionally, the location of nearby resources unique to Natlan will appear on your mini-map."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Shards Are Gems Too",
+            "description": "When Kachina mounts or dismounts Turbo Twirly, she will absorb nearby Elemental Shards created by Crystallize.\nAdditionally, when a party member picks up such a Shard, 3 Energy will be restored to Kachina. Energy can be restored this way once every 5s.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Never Leave Home Without... Turbo Twirly",
+            "description": "When Kachina uses \"Time to Get Serious!\", she will regain 20 Nightsoul points. If there is no Turbo Twirly belonging to her on the field, she will enter Nightsoul's Blessing and summon one.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Improved Stabilizer",
+            "description": "Increases the Level of Go, Go Turbo Twirly! by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "More Foes, More Caution",
+            "description": "When there are 1/2/3/4 (or more) opponents within the Turbo Drill Field created by \"Time to Get Serious!\", the active character within the field gains 8%/12%/16%/20% increased DEF.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "All I've Collected Till Now",
+            "description": "Increases the Level of Time to Get Serious! by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "This Time, I've Gotta Win",
+            "description": "When your active character's shield is replaced or destroyed for any reason, Kachina will deal 200% of her DEF as AoE Geo DMG. This effect can be triggered once every 5s.",
+            "properties": []
+        }
+    ],
+    "ascension_stat": "Geo DMG Bonus"
+}

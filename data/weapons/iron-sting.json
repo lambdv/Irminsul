@@ -1,0 +1,122 @@
+{
+    "name": "Iron Sting",
+    "key": "iron-sting",
+    "description": "An exotic long-bladed rapier that somehow found its way into Liyue via foreign traders. It is light, agile, and sharp.",
+    "rarity": 4,
+    "category": "sword",
+    "series": "infusion series",
+    "release_date": "september 28, 2020",
+    "base_atk_min": 42,
+    "base_atk_max": 510,
+    "sub_stat_type": "elemental mastery",
+    "sub_stat_value_min": "36 ",
+    "sub_stat_value_max": " 165",
+    "refinement_name": "\n\ninfusion stinger\n\n",
+    "refinements": [
+        "Dealing  increases all DMG by **6**\n% for 6s. Max 2 stacks. Can only occur once every 1s.",
+        "Dealing  increases all DMG by **7.5**\n% for 6s. Max 2 stacks. Can only occur once every 1s.",
+        "Dealing  increases all DMG by **9**\n% for 6s. Max 2 stacks. Can only occur once every 1s.",
+        "Dealing  increases all DMG by **10.5**\n% for 6s. Max 2 stacks. Can only occur once every 1s.",
+        "Dealing  increases all DMG by **12**\n% for 6s. Max 2 stacks. Can only occur once every 1s."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "42",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "36",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "109",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "64",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "135",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "64",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "205",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "93",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "231",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "93",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "266",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "107",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "292",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "107",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "327",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "122",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "353",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "122",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "388",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "136",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "414",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "136",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "449",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "151",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "475",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "151",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "510",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "165",
+            "ascension_phase": 6
+        }
+    ]
+}

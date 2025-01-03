@@ -1,0 +1,123 @@
+{
+    "name": "Ultimate Overlords Mega Magic Sword",
+    "key": "ultimate-overlords-mega-magic-sword",
+    "description": "A magical sword that can only be wielded by the ultimate overlord who rules the seas. As it has been made with special water-resistant materials, it will not get ruined by water damage even after being immersed. Why, one might even call it invincible!",
+    "rarity": 4,
+    "category": "claymore",
+    "series": "roses and muskets",
+    "release_date": "december 21, 2023",
+    "release_date_epoch": 1703070000.0,
+    "base_atk_min": 44,
+    "base_atk_max": 565,
+    "sub_stat_type": "energy recharge",
+    "sub_stat_value_min": "6.7%",
+    "sub_stat_value_max": "30.6%",
+    "refinement_name": "melussistance",
+    "refinements": [
+        "ATK increased by **12**\n%. That's not all! The support from all Melusines you've helped in Merusea Village fills you with strength! Based on the number of them you've helped, your ATK is increased by up to an additional **12**\n%.",
+        "ATK increased by **15**\n%. That's not all! The support from all Melusines you've helped in Merusea Village fills you with strength! Based on the number of them you've helped, your ATK is increased by up to an additional **15**\n%.",
+        "ATK increased by **18**\n%. That's not all! The support from all Melusines you've helped in Merusea Village fills you with strength! Based on the number of them you've helped, your ATK is increased by up to an additional **18**\n%.",
+        "ATK increased by **21**\n%. That's not all! The support from all Melusines you've helped in Merusea Village fills you with strength! Based on the number of them you've helped, your ATK is increased by up to an additional **21**\n%.",
+        "ATK increased by **24**\n%. That's not all! The support from all Melusines you've helped in Merusea Village fills you with strength! Based on the number of them you've helped, your ATK is increased by up to an additional **24**\n%."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "44",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "6.7%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "119",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "11.8%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "144",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "11.8%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "226",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "17.2%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "252",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "17.2%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "293",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "19.9%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "319",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "19.9%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "361",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "22.6%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "387",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "22.6%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "429",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "25.2%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "455",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "25.2%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "497",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "27.9%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "523",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "27.9%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "565",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "30.6%",
+            "ascension_phase": 6
+        }
+    ]
+}

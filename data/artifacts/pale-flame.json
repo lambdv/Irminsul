@@ -1,0 +1,19 @@
+{
+    "name": "Pale Flame",
+    "key": "pale-flame",
+    "flower_description": "A hard, blue artificial flower. Its petals shall never wither, nor shall its colors fade.",
+    "feather_description": "An ominous pinion with edges of unsurpassed keenness. Perhaps it represents an unnaturally uninhibited nature.",
+    "sand_description": "A pocket watch with a cover that cannot be opened. Yet it ticks and tocks away, following the inexorable flow of time.",
+    "goblet_description": "An intricately-made cup. Its appearance betrays nothing of its age to an observer.",
+    "circlet_description": "A mask that covers the face, hiding one's expression from others.",
+    "flower_name": "Stainless Bloom",
+    "feather_name": "Wise Doctor's Pinion",
+    "sand_name": "Moment of Cessation",
+    "goblet_name": "Surpassing Cup",
+    "circlet_name": "Mocking Mask",
+    "two_pc_bonus": "Physical DMG Bonus +25%",
+    "four_pc_bonus": "When an Elemental Skill hits an opponent, ATK is increased by 9% for 7s. This effect stacks up to 2 times and can be triggered once every 0.3s. Once 2 stacks are reached, the 2-set effect is increased by 100%.",
+    "rarity_min": 4,
+    "rarity_max": 5,
+    "release_version": 1.5
+}

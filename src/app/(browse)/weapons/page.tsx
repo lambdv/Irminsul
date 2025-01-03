@@ -20,11 +20,6 @@ export default async function Weapons() {
         icon={weaponIcon} 
         store={WeaponFilterStore}
       />
-      {/* <ItemsContainer 
-        data={weapons}
-        store={WeaponFilterStore}
-        type="weapon" 
-      /> */}
       <WeaponItemList data={weapons} />
     </div>
   )

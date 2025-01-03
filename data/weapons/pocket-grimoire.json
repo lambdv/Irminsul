@@ -1,0 +1,68 @@
+{
+    "name": "Pocket Grimoire",
+    "key": "pocket-grimoire",
+    "description": "A carefully compiled notebook featuring the essentials needed to pass a magic exam.",
+    "rarity": 2,
+    "category": "catalyst",
+    "series": "2-star series",
+    "release_date": "september 28, 2020",
+    "base_atk_min": 33,
+    "base_atk_max": 243,
+    "sub_stat_type": "none",
+    "sub_stat_value_min": 0,
+    "sub_stat_value_max": 0,
+    "refinement_name": "",
+    "refinements": [],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "33",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "80",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "91",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "139",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "151",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "174",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "186",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "209",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "220",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "243",
+            "ascension_phase": 4
+        }
+    ]
+}

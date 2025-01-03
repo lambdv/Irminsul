@@ -1,0 +1,19 @@
+{
+    "name": "Traveling Doctor",
+    "key": "traveling-doctor",
+    "flower_description": "A precious medicinal ingredient that has lost all medicinal value after years in storage.",
+    "feather_description": "The durable feather of an owl. Emblematic of nocturnal supremacy, it gave some encouragement to the Traveling Doctor when venturing out to visit patients late at night.",
+    "sand_description": "A precise instrument used for keeping time. For a doctor, every second counts.",
+    "goblet_description": "This pot used to carry concentrated and extremely potent concoctions. It is now empty, but still gives off a strong smell of medicine.",
+    "circlet_description": "Used to tie back the doctor's hair when treating patients. Can also be used as a sling for sprains and broken arms in emergencies.",
+    "flower_name": "Traveling Doctor's Silver Lotus",
+    "feather_name": "Traveling Doctor's Owl Feather",
+    "sand_name": "Traveling Doctor's Pocket Watch",
+    "goblet_name": "Traveling Doctor's Medicine Pot",
+    "circlet_name": "Traveling Doctor's Handkerchief",
+    "two_pc_bonus": "Increases incoming healing by 20%.",
+    "four_pc_bonus": "Using Elemental Burst restores 20% HP.",
+    "rarity_min": 1,
+    "rarity_max": 3,
+    "release_version": 1.0
+}

@@ -1,0 +1,122 @@
+{
+    "name": "Fang of the Mountain King",
+    "key": "fang-of-the-mountain-king",
+    "description": "A giant sword forged from pure turquoise. Due to its greater weight than most ordinary weapons, it was named for Kongomato the Mountain King.",
+    "rarity": 5,
+    "category": "claymore",
+    "series": "weapon event wishes",
+    "release_date": "september 17, 2024",
+    "base_atk_min": 49,
+    "base_atk_max": 741,
+    "sub_stat_type": "crit rate",
+    "sub_stat_value_min": "2.4% ",
+    "sub_stat_value_max": " 11.0%",
+    "refinement_name": "\n\nturquoise hunt\n\n",
+    "refinements": [
+        "Gain 1 stack of Canopy's Favor after hitting an opponent with an Elemental Skill. This can be triggered once every 0.5s. After a nearby party member triggers a Burning or Burgeon reaction, the equipping character will gain 3 stacks. This effect can be triggered once every 2s and can be triggered even when the triggering party member is off-field. Canopy's Favor: Elemental Skill and Burst DMG is increased by **10**\n% for 6s. Max 6 stacks. Each stack is counted independently.",
+        "Gain 1 stack of Canopy's Favor after hitting an opponent with an Elemental Skill. This can be triggered once every 0.5s. After a nearby party member triggers a Burning or Burgeon reaction, the equipping character will gain 3 stacks. This effect can be triggered once every 2s and can be triggered even when the triggering party member is off-field. Canopy's Favor: Elemental Skill and Burst DMG is increased by **12.5**\n% for 6s. Max 6 stacks. Each stack is counted independently.",
+        "Gain 1 stack of Canopy's Favor after hitting an opponent with an Elemental Skill. This can be triggered once every 0.5s. After a nearby party member triggers a Burning or Burgeon reaction, the equipping character will gain 3 stacks. This effect can be triggered once every 2s and can be triggered even when the triggering party member is off-field. Canopy's Favor: Elemental Skill and Burst DMG is increased by **15**\n% for 6s. Max 6 stacks. Each stack is counted independently.",
+        "Gain 1 stack of Canopy's Favor after hitting an opponent with an Elemental Skill. This can be triggered once every 0.5s. After a nearby party member triggers a Burning or Burgeon reaction, the equipping character will gain 3 stacks. This effect can be triggered once every 2s and can be triggered even when the triggering party member is off-field. Canopy's Favor: Elemental Skill and Burst DMG is increased by **17.5**\n% for 6s. Max 6 stacks. Each stack is counted independently.",
+        "Gain 1 stack of Canopy's Favor after hitting an opponent with an Elemental Skill. This can be triggered once every 0.5s. After a nearby party member triggers a Burning or Burgeon reaction, the equipping character will gain 3 stacks. This effect can be triggered once every 2s and can be triggered even when the triggering party member is off-field. Canopy's Favor: Elemental Skill and Burst DMG is increased by **20**\n% for 6s. Max 6 stacks. Each stack is counted independently."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "49",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "2.4%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "145",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "4.2%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "176",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "4.2%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "286",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "6.2%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "317",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "6.2%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "374",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "7.1%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "406",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "7.1%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "464",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "8.1%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "495",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "8.1%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "555",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "9.1%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "586",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "9.1%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "648",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "10.1%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "679",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "10.1%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "741",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "11.0%",
+            "ascension_phase": 6
+        }
+    ]
+}
