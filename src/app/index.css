@@ -91,9 +91,7 @@ body {
   font-family: 'CustomFont', sans-serif;
 }
 
-
 button .ripple {
-
   animation: ripple 0.5s linear;
 }
 
@@ -103,7 +101,6 @@ button .ripple {
       opacity: 0;
   }
 }
-
 
 body{
   background-color: var(--background-color);
@@ -117,17 +114,16 @@ nav{
   top:0px;
 }
 
-.wrapper{
+/* .wrapper{
   width:100%;
   height: calc(100vh - 60px);
   overflow-y: hidden;
   display: flex;
   overflow: hidden;
-}
+} */
 
 #content{
   position: relative;
-  top:0px;
   width: 100%;
   padding-left: 20rem;
   padding-right: 20rem;
@@ -135,6 +131,8 @@ nav{
   overflow-y: auto;
   overflow-x:hidden;
   /* background-color: red; */
+  top: -60px;
+  padding-top: 60px;
 }
 
 @media all and (max-width: 1500px) {  
