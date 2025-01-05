@@ -4,9 +4,8 @@ import { createCanvas, loadImage } from 'canvas'
 
 async function getMainColor(imageURL: string) {
     // Convert relative URL to absolute URL
-    const absoluteURL = imageURL.startsWith('http') 
-        ? imageURL 
-        : `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}${imageURL}`;
+    const absoluteURL = process.cwd() + '/public' + imageURL
+        
         
     const img = await loadImage(absoluteURL);
     const canvas = createCanvas(img.width, img.height);
