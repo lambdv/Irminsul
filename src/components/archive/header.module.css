@@ -53,7 +53,7 @@
     align-items: flex-start;
     /* var(--background-color) */
     /* background-image: linear-gradient(to left, transparent, var(--background-color) 80%); */
-    border-radius: 10px;
+    border-radius: 9px;
 
 
 }
