@@ -4,10 +4,9 @@
     top:0px;
     left:0px;
     height: 60px;
-    background-color:rgb(7, 7, 7, 0.82);
     z-index: 10;
-    backdrop-filter: blur(35px);  
-
+    /* background-color:rgb(7, 7, 7, 0.82);
+    backdrop-filter: blur(35px);   */
 }
 
 .solidnav{
@@ -65,7 +64,11 @@
     font-size: 1.2rem;
     font-weight: 10px;
 
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ; */
+    font-family: ingame;
+    font-size: 1rem;
+    top:12.5px;
+
     transition: 0.2s ease-in-out;
 
 }

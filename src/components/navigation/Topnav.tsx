@@ -80,7 +80,7 @@ function LeftContainer(){
         <i className="material-symbols-outlined" >menu</i>
       </button>
       <Link href="/">
-        <p id={TopnavCSS.logo}>Irminsul</p>
+        <p id={TopnavCSS.logo}>{process.env.NEXT_PUBLIC_WEBSITE_NAME}</p>
       </Link>
     </div>
   )

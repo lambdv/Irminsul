@@ -6,25 +6,26 @@ import { WeaponFilterStore } from '@/store/WeaponFilters'
 import { toKey } from '@/utils/standardizers'
 import { useState, useEffect } from 'react'
 import { flatten } from '@/utils/standardizers'
+import { filterItemList } from '@/utils/filterers'
 
 
-function filterWeapons(weapons: any, filters: any, selectedFilters: string[], query: string): any[]{
-    if(selectedFilters.length === 0 && query.length === 0)
-        return weapons
-    const filters2d = [flatten(filters[0].rarities), flatten(filters[1].weapons), flatten(filters[2].stats)]
+// function filterWeapons(weapons: any, filters: any, selectedFilters: string[], query: string): any[]{
+//     if(selectedFilters.length === 0 && query.length === 0)
+//         return weapons
+//     const filters2d = [flatten(filters[0].rarities), flatten(filters[1].weapons), flatten(filters[2].stats)]
 
-    return weapons.filter((weapon) => { //for each character
-        const tags: string[] = [weapon.rarity+"-star", weapon.category, weapon.sub_stat_type] //tags for this character
-        const passed: boolean = filters2d.every((filter) => { //for each filter category
-            const subset = selectedFilters.filter((tag) => filter.includes(tag))
-            if(subset.length === 0) 
-                return true //skip if selectedFilters doesn't have any tags for this category
-            return subset.some((tag) => tags.includes(tag)) //check if character has at least one tag from this category
-        })
-        const nameMatch: boolean = query==="" || weapon.name.toLowerCase().includes(query.toLowerCase())
-        return passed && nameMatch
-    })
-}
+//     return weapons.filter((weapon) => { //for each character
+//         const tags: string[] = [weapon.rarity+"-star", weapon.category, weapon.sub_stat_type] //tags for this character
+//         const passed: boolean = filters2d.every((filter) => { //for each filter category
+//             const subset = selectedFilters.filter((tag) => filter.includes(tag))
+//             if(subset.length === 0) 
+//                 return true //skip if selectedFilters doesn't have any tags for this category
+//             return subset.some((tag) => tags.includes(tag)) //check if character has at least one tag from this category
+//         })
+//         const nameMatch: boolean = query==="" || weapon.name.toLowerCase().includes(query.toLowerCase())
+//         return passed && nameMatch
+//     })
+// }
 
 export default function WeaponItemList(props:{data: any}) {
     const weapons = props.data
@@ -32,7 +33,10 @@ export default function WeaponItemList(props:{data: any}) {
     const { selectedFilters, filters, descending } = WeaponFilterStore()
     const [sortBy, setSortBy] = useState("release_date_epoch")
     const [filteredWeapons, setFilteredWeapons] = useState<any[]>([])
-    
+
+    const itemTaggingFunction = (item: any) => [item.rarity+"-star", item.category, item.sub_stat_type]
+    const filters2d = [filters[0].rarities, filters[1].weapons, filters[2].stats.map((stat: any) => stat)]
+
     const sortingFn = (a: any, b: any) => { 
         switch(sortBy){
             case "release_date_epoch":
@@ -49,7 +53,7 @@ export default function WeaponItemList(props:{data: any}) {
     }
 
     useEffect(() => {
-        const filtered = filterWeapons(weapons, filters, selectedFilters, SearchQuery)
+        const filtered = filterItemList(weapons, filters2d, selectedFilters, SearchQuery, itemTaggingFunction)
         setFilteredWeapons(filtered)
     }, [filters, selectedFilters, SearchQuery]) 
 

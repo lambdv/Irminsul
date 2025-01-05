@@ -12,9 +12,10 @@ export default function CharacterItemList(props: {data: Character[]}) {
     const characters = props.data
     const { SearchQuery } = SearchStore()
     const { selectedFilters, filters, descending } = CharacterFilterStore()
-    const itemTaggingFunction = (character: any) => [flatten(character.rarity+"-star"), flatten(character.vision), flatten(character.weapon)]
-    const filters2d = [filters[0].rarities, filters[1].elements, filters[2].weapons]
-
+    const itemTaggingFunction = (character: any) => [
+        flatten(character.rarity+"-star"), flatten(character.vision), flatten(character.weapon), flatten(character.ascension_stat)
+    ]
+    const filters2d = [filters[0].rarities, filters[1].elements, filters[2].weapons, filters[3].ascensionstats]
     const [sortBy, setSortBy] = useState("release_date_epoch")
     const [filteredCharacters, setFilteredCharacters] = useState<Character[]>([])
 
