@@ -106,6 +106,34 @@ export default async function CharacterPage({params}) {
             <div key={index}>
               <h2>{talent.name}</h2>
               <p>{talent.description}</p>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Hit</th>
+                    {
+                      talent.attributes?.[0]?.values?.map((value, index) => (
+                        <th key={index}>Lvl {index+1}</th>
+                      ))
+                    }
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    talent.attributes?.map((attribute, index) => (
+                      <tr key={index}>
+                        <td>{attribute.hit}</td>
+                        {
+                          attribute.values?.map((value, index) => (
+                            <td key={index}>{value}</td>
+                          ))
+                        }
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+              <br/>
             </div>
           ))}
         </div>
