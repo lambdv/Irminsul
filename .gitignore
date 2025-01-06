@@ -45,5 +45,5 @@ next-env.d.ts
 scrapper/data/
 scrapper/assets/
 
-scrapper/pycache/
-scrapper/venv/
+./pycache/
+./venv/
