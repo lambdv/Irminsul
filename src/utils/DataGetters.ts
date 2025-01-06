@@ -150,22 +150,6 @@ export async function getAllPages(): Promise<Page[]>{
 } 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
  * helper method that fetches data from an api 
  */
