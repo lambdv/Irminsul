@@ -16,7 +16,9 @@ export default async function LandingPage() {
     return (
         <div className="">
             <div className="flex flex-col items-left justify-center p-10 pb-0" style={{ backgroundImage: "url('')" }}>
-                <h1 className="text-6xl font-bold text-white text-left">"Repository for all of the information and memories of Teyvat"</h1>
+                <h1 className="text-6xl font-bold text-white text-left">
+                    &quot;Repository for all of the information and memories of Teyvat&quot;
+                </h1>
                 <p className=" mb-8 text-white text-left pt-2" >- It is unclear exactly how the repository works, However, the Traveler seems to correctly understand how the repository works.</p>
             </div>
             
