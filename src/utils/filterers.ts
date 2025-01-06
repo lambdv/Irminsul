@@ -18,3 +18,18 @@ export function filterItemList(characters: any, filters: string[][], selectedFil
         return passed && nameMatch
     })
 }
+
+export function sortItems(a: any, b: any, sortBy: string, descending: boolean){
+    if(descending) 
+        [a, b] = [b, a]
+    switch(sortBy){
+        case "release_version":
+            return (a.release_version - b.release_version) || (a.rarity_max - b.rarity_max) || a.name.localeCompare(b.name)
+        case "name":
+            return a.name.localeCompare(b.name)
+        case "release_date_epoch":
+            return (a.release_date_epoch - b.release_date_epoch) || a.rarity - b.rarity || a.name.localeCompare(b.name)
+        default:
+            return a[sortBy].localeCompare(b[sortBy])
+    }
+}

@@ -7,9 +7,18 @@
     z-index: 10;
     /* background-color:rgb(7, 7, 7, 0.82);
     backdrop-filter: blur(35px);   */
+    transition: 0.1s ease-in-out;
 }
 
 .solidnav{
+    display: flex;
+    position: sticky;
+    top:0px;
+    left:0px;
+    height: 60px;
+    z-index: 10;
+    background-color:rgb(7, 7, 7, 0.82);
+    backdrop-filter: blur(35px);  
 }
 
 .topnav .hamburger{

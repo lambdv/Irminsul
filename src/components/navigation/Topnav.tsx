@@ -15,9 +15,19 @@ import Overlay from "../ui/Overlay"
  */
 export default function Topnav() {
   const { showPallette, setShowPallette } = SearchStore()
+
+  const [isAtTop, setIsAtTop] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => setIsAtTop(window.scrollY === 0);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [])
+
+
   return (
     <>
-      <nav className={TopnavCSS.topnav}>
+      <nav className={TopnavCSS.topnav + " " + (!isAtTop && TopnavCSS.solidnav)}>
         <LeftContainer/>
         <CenterContainer
           showPallette={showPallette}

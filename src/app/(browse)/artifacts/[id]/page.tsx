@@ -15,13 +15,13 @@ export async function generateMetadata({params}) {
 }
 
 //statically generate all character pages from api at build time
-export async function generateStaticParams() {
-  const artifacts = await getArtifacts()
-  return artifacts.map((artifact) => ({
-    id: artifact.id,
-    data: artifact
-  }))
-}
+// export async function generateStaticParams() {
+//   const artifacts = await getArtifacts()
+//   return artifacts.map((artifact) => ({
+//     id: artifact.id,
+//     data: artifact
+//   }))
+// }
 
 
 export default async function ArtifactPage({params}) {

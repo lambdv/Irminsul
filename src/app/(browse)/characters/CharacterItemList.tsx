@@ -3,45 +3,29 @@ import explorePageCSS from '@/components/explore/explorePage.module.css'
 import Item from '@/components/explore/Item'
 import { SearchStore } from '@/store/Search'
 import { CharacterFilterStore } from '@/store/CharacterFilters'
-import { filterItemList } from '@/utils/filterers'
+import { filterItemList, sortItems } from '@/utils/filterers'
 import { flatten, toKey } from '@/utils/standardizers'
 import { useEffect, useState } from 'react'
-import { Character } from '@/utils/DataGetters'
+import { Character } from '@/types/character'
 
 export default function CharacterItemList(props: {data: Character[]}) {
     const characters = props.data
     const { SearchQuery } = SearchStore()
     const { selectedFilters, filters, descending } = CharacterFilterStore()
-    const itemTaggingFunction = (character: any) => [
-        flatten(character.rarity+"-star"), flatten(character.vision), flatten(character.weapon), flatten(character.ascension_stat)
-    ]
-    const filters2d = [filters[0].rarities, filters[1].elements, filters[2].weapons, filters[3].ascensionstats]
     const [sortBy, setSortBy] = useState("release_date_epoch")
-    const [filteredCharacters, setFilteredCharacters] = useState<Character[]>([])
 
-    const sortingFn = (a: Character, b: Character) => { 
-        switch(sortBy){
-            case "release_date_epoch":
-                const releaseDiff = (a.release_date_epoch - b.release_date_epoch)
-                if(releaseDiff !== 0)
-                    return releaseDiff
-                const rarityDiff = a.rarity - b.rarity
-                if(rarityDiff !== 0)
-                    return rarityDiff
-                return a.name.localeCompare(b.name)           
-        }
-    }
-
+    const [filteredCharacters, setFilteredCharacters] = useState<Character[]>(characters)
     useEffect(() => {
+        const filters2d = [filters[0].rarities, filters[1].elements, filters[2].weapons, filters[3].ascensionstats]
+        const itemTaggingFunction = (character: any) => [flatten(character.rarity+"-star"), flatten(character.vision), flatten(character.weapon), flatten(character.ascension_stat)]
         const filtered = filterItemList(characters, filters2d, selectedFilters, SearchQuery, itemTaggingFunction)
         setFilteredCharacters(filtered)
-    }, [filters, selectedFilters, SearchQuery])
+    }, [characters, filters, selectedFilters, SearchQuery])
 
     return (
         <div className={explorePageCSS.itemContainer}>
-            {filteredCharacters.length === 0 && <p>No results for {SearchQuery}</p>}
             {filteredCharacters
-                .sort(descending ? (a, b) => sortingFn(b, a) : sortingFn)
+                .sort((a,b)=>sortItems(a, b, sortBy, descending))
                 .filter((character: any) => flatten(character.name) !== "traveler")
                 .map((character, index) => (
                     <Item 

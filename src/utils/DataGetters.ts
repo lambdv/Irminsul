@@ -1,74 +1,10 @@
 "use server"
-
 import * as fs from 'fs';
+import { Character } from '@/types/character';
+import { Weapon } from '@/types/weapon';
+import { Artifact } from '@/types/artifact';
 
-export type Character = {
-    id: string
-    name: string
-    key: string
-    title: string
-    rarity: number
-    element: string
-    weapon: string
-    release_date: string
-    release_date_epoch: number
-    // constellation: string
-    // birthday: string
-    // affiliation: string
-    // region: string
-    // special_dish: string
-    // alternate_title?: string
-    // description: string
-    // base_stats: CharacterBaseStat[]
-    // ascension_costs: CharacterAscensionCost[]
-    // talents: CharacterTalent[]
-    // passives: CharacterPassive[]
-    // constellations: CharacterConstellation[]
-    // ascension_stat: string
-}
 
-// type CharacterBaseStat = {
-//     LVL: string
-//     BaseHP: string
-//     BaseATK: string
-//     BaseDEF: string
-//     AscensionStatType: string
-//     AscensionStatValue: string
-//     AscensionPhase: number
-// }
-
-// type CharacterConstellation = {
-//     level: number
-//     name: string
-//     description: string
-//     properties: any[]
-// }
-
-// type CharacterTalent = {
-//     name: string
-//     type: string
-//     description: string
-//     attributes: any[]
-// }
-
-// type CharacterPassive = {
-//     name: string
-//     type: string
-//     description: string
-// }
-
-// type CharacterAscensionCost = {
-//     AscensionPhase: number
-//     materials: {
-//         name: string
-//         amount: string
-//     }[]
-// }
-
-/**
- * fetches character data from the database api
- * @returns array of character json objects
- */
 export async function getCharacters(): Promise<Character[]> {
     // "use cache"
     return fs.readdirSync('data/characters/')
@@ -79,11 +15,7 @@ export async function getCharacters(): Promise<Character[]> {
         })
 }
 
-/**
- * fetches weapon data from the database api
- * @returns array of weapon json objects
- */
-export async function getWeapons(){
+export async function getWeapons(): Promise<Weapon[]> {
     //"use cache"
     return fs.readdirSync('data/weapons/')
         .map(file => {
@@ -94,11 +26,7 @@ export async function getWeapons(){
         })
 }
 
-/**
- * fetches artifact data from the database api
- * @returns array of artifact json objects
- */
-export async function getArtifacts(){
+export async function getArtifacts(): Promise<Artifact[]> {
     //"use cache"
     return fs.readdirSync('data/artifacts/')
         .map(file => {
@@ -108,13 +36,7 @@ export async function getArtifacts(){
         })
 }
 
-export async function getArtifact(id: string){
-    "use cache"
-    const artifacts = await getArtifacts()
-    return artifacts.find(artifact => artifact.key === id)
-}
-
-export async function getCharacter(id: string){
+export async function getCharacter(id: string): Promise<Character> {
     "use cache"
     const characters = await getCharacters()
     return characters.find(character => character.key === id)
@@ -126,13 +48,20 @@ export async function getWeapon(id: string){
     return weapons.find(weapon => weapon.key === id)
 }
 
+export async function getArtifact(id: string){
+    "use cache"
+    const artifacts = await getArtifacts()
+    return artifacts.find(artifact => artifact.key === id)
+}
+
+
 /**
  * get all data from api and flatten it into a single array of type page
  */
 export async function getAllPages(): Promise<Page[]>{
     // "use cache"
     let pages: Page[] = []
-    const jsonToResultItem = (json: any, category: string) => 
+    const jsonToResultItem = (json: any, category: string): Page[] => 
         json.map((item: any) => ({
             id: item.id, 
             name: item.name, 
@@ -142,10 +71,10 @@ export async function getAllPages(): Promise<Page[]>{
     let characters = await getCharacters()
     let weapons = await getWeapons()
     let artifacts = await getArtifacts()
-    characters = jsonToResultItem(characters, "Character")
-    weapons = jsonToResultItem(weapons, "Weapon")
-    artifacts = jsonToResultItem(artifacts, "Artifact")
-    pages = [...characters, ...weapons, ...artifacts]
+    const characterPages: Page[] = jsonToResultItem(characters, "Character")
+    const weaponsPages: Page[] = jsonToResultItem(weapons, "Weapon")
+    const artifactsPages: Page[] = jsonToResultItem(artifacts, "Artifact")
+    pages = [...characterPages, ...weaponsPages, ...artifactsPages]
     return pages
 } 
 

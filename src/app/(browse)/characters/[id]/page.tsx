@@ -17,13 +17,13 @@ export async function generateMetadata({params}) {
 }
 
 //statically generate all character pages from api at build time
-export async function generateStaticParams() {
-  const characters = await getCharacters()
-  return characters.map((character) => ({
-    id: character.key,
-    data: character
-  }))
-}
+// export async function generateStaticParams() {
+//   const characters = await getCharacters()
+//   return characters.map((character) => ({
+//     id: character.key,
+//     data: character
+//   }))
+// }
 
 /**
  * Page containing details for individual characters in the game
@@ -31,6 +31,7 @@ export async function generateStaticParams() {
 export default async function CharacterPage({params}) {
   const {id} = await params
   const data = params.data ? params.data : await getCharacter(id)
+
   return (
     <div id="character-page">
 
@@ -53,7 +54,6 @@ export default async function CharacterPage({params}) {
         </>
       </Header>
 
-
       <RightSidenav>
         <ul>
           <li><a href="#basestats">Base Stats</a></li>
@@ -64,11 +64,8 @@ export default async function CharacterPage({params}) {
         </ul>
       </RightSidenav>
 
-      <div
-        style={{
-          padding: '50px',
-        }}
-      >
+      <div style={{padding: '50px'}}>
+        
         <div>
           <h2>Base Stats</h2>
           <table>
@@ -97,7 +94,8 @@ export default async function CharacterPage({params}) {
               ))}
             </tbody>
           </table>
-        </div>  
+        </div>
+
         <br/>
           
         <div>
