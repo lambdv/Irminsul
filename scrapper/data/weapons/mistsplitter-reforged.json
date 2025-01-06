@@ -1,0 +1,122 @@
+{
+    "name": "Mistsplitter Reforged",
+    "key": "mistsplitter-reforged",
+    "description": "A sword that blazes with a fierce violet light. The name \"Reforged\" comes from it having been broken once before.",
+    "rarity": 5,
+    "category": "sword",
+    "series": "inazuma series",
+    "release_date": "july 21, 2021",
+    "base_atk_min": 48,
+    "base_atk_max": 674,
+    "sub_stat_type": "crit dmg",
+    "sub_stat_value_min": "9.6% ",
+    "sub_stat_value_max": " 44.1%",
+    "refinement_name": "\n\nmistsplitter's edge\n\n",
+    "refinements": [
+        "Gain a **12**\n% Elemental DMG Bonus for all elements and receive the might of the Mistsplitter's Emblem. At stack levels 1/2/3, Mistsplitter's Emblem provides a **8/16/28**\n% Elemental DMG Bonus for the character's Elemental Type. The character will obtain 1 stack of Mistsplitter's Emblem in each of the following scenarios: Normal Attack deals Elemental DMG (stack lasts 5s), casting Elemental Burst (stack lasts 10s); Energy is less than 100% (stack disappears when Energy is full). Each stack's duration is calculated independently.",
+        "Gain a **15**\n% Elemental DMG Bonus for all elements and receive the might of the Mistsplitter's Emblem. At stack levels 1/2/3, Mistsplitter's Emblem provides a **10/20/35**\n% Elemental DMG Bonus for the character's Elemental Type. The character will obtain 1 stack of Mistsplitter's Emblem in each of the following scenarios: Normal Attack deals Elemental DMG (stack lasts 5s), casting Elemental Burst (stack lasts 10s); Energy is less than 100% (stack disappears when Energy is full). Each stack's duration is calculated independently.",
+        "Gain a **18**\n% Elemental DMG Bonus for all elements and receive the might of the Mistsplitter's Emblem. At stack levels 1/2/3, Mistsplitter's Emblem provides a **12/24/42**\n% Elemental DMG Bonus for the character's Elemental Type. The character will obtain 1 stack of Mistsplitter's Emblem in each of the following scenarios: Normal Attack deals Elemental DMG (stack lasts 5s), casting Elemental Burst (stack lasts 10s); Energy is less than 100% (stack disappears when Energy is full). Each stack's duration is calculated independently.",
+        "Gain a **21**\n% Elemental DMG Bonus for all elements and receive the might of the Mistsplitter's Emblem. At stack levels 1/2/3, Mistsplitter's Emblem provides a **14/28/49**\n% Elemental DMG Bonus for the character's Elemental Type. The character will obtain 1 stack of Mistsplitter's Emblem in each of the following scenarios: Normal Attack deals Elemental DMG (stack lasts 5s), casting Elemental Burst (stack lasts 10s); Energy is less than 100% (stack disappears when Energy is full). Each stack's duration is calculated independently.",
+        "Gain a **24**\n% Elemental DMG Bonus for all elements and receive the might of the Mistsplitter's Emblem. At stack levels 1/2/3, Mistsplitter's Emblem provides a **16/32/56**\n% Elemental DMG Bonus for the character's Elemental Type. The character will obtain 1 stack of Mistsplitter's Emblem in each of the following scenarios: Normal Attack deals Elemental DMG (stack lasts 5s), casting Elemental Burst (stack lasts 10s); Energy is less than 100% (stack disappears when Energy is full). Each stack's duration is calculated independently."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "48",
+            "sub_stat_type": "crit dmg",
+            "sub_stat_value": "9.6%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "133",
+            "sub_stat_type": "crit dmg",
+            "sub_stat_value": "17%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "164",
+            "sub_stat_type": "crit dmg",
+            "sub_stat_value": "17%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "261",
+            "sub_stat_type": "crit dmg",
+            "sub_stat_value": "24.7%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "292",
+            "sub_stat_type": "crit dmg",
+            "sub_stat_value": "24.7%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "341",
+            "sub_stat_type": "crit dmg",
+            "sub_stat_value": "28.6%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "373",
+            "sub_stat_type": "crit dmg",
+            "sub_stat_value": "28.6%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "423",
+            "sub_stat_type": "crit dmg",
+            "sub_stat_value": "32.5%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "455",
+            "sub_stat_type": "crit dmg",
+            "sub_stat_value": "32.5%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "506",
+            "sub_stat_type": "crit dmg",
+            "sub_stat_value": "36.4%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "537",
+            "sub_stat_type": "crit dmg",
+            "sub_stat_value": "36.4%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "590",
+            "sub_stat_type": "crit dmg",
+            "sub_stat_value": "40.2%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "621",
+            "sub_stat_type": "crit dmg",
+            "sub_stat_value": "40.2%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "674",
+            "sub_stat_type": "crit dmg",
+            "sub_stat_value": "44.1%",
+            "ascension_phase": 6
+        }
+    ]
+}

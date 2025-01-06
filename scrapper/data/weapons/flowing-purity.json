@@ -1,0 +1,122 @@
+{
+    "name": "Flowing Purity",
+    "key": "flowing-purity",
+    "description": "A strangely-shaped anthology of scripts. All the scripts written by Coppelius are recorded within.",
+    "rarity": 4,
+    "category": "catalyst",
+    "series": "beaumont series",
+    "release_date": "august 16, 2023",
+    "base_atk_min": 44,
+    "base_atk_max": 565,
+    "sub_stat_type": "atk",
+    "sub_stat_value_min": "6% ",
+    "sub_stat_value_max": " 27.6%",
+    "refinement_name": "\n\nunfinished masterpiece\n\n",
+    "refinements": [
+        "When using an Elemental Skill, All Elemental DMG Bonus will be increased by **8**\n% for 15s, and a Bond of Life worth 24% of Max HP will be granted. This effect can be triggered once every 10s. When the Bond Of Life is cleared, every 1,000 HP cleared in the process will provide **2**\n% All Elemental DMG Bonus, up to a maximum of **12**\n%. This effect lasts 15s.",
+        "When using an Elemental Skill, All Elemental DMG Bonus will be increased by **10**\n% for 15s, and a Bond of Life worth 24% of Max HP will be granted. This effect can be triggered once every 10s. When the Bond Of Life is cleared, every 1,000 HP cleared in the process will provide **2.5**\n% All Elemental DMG Bonus, up to a maximum of **15**\n%. This effect lasts 15s.",
+        "When using an Elemental Skill, All Elemental DMG Bonus will be increased by **12**\n% for 15s, and a Bond of Life worth 24% of Max HP will be granted. This effect can be triggered once every 10s. When the Bond Of Life is cleared, every 1,000 HP cleared in the process will provide **3**\n% All Elemental DMG Bonus, up to a maximum of **18**\n%. This effect lasts 15s.",
+        "When using an Elemental Skill, All Elemental DMG Bonus will be increased by **14**\n% for 15s, and a Bond of Life worth 24% of Max HP will be granted. This effect can be triggered once every 10s. When the Bond Of Life is cleared, every 1,000 HP cleared in the process will provide **3.5**\n% All Elemental DMG Bonus, up to a maximum of **21**\n%. This effect lasts 15s.",
+        "When using an Elemental Skill, All Elemental DMG Bonus will be increased by **16**\n% for 15s, and a Bond of Life worth 24% of Max HP will be granted. This effect can be triggered once every 10s. When the Bond Of Life is cleared, every 1,000 HP cleared in the process will provide **4**\n% All Elemental DMG Bonus, up to a maximum of **24**\n%. This effect lasts 15s."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "44",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "6%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "119",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "10.6%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "144",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "10.6%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "226",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "15.5%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "252",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "15.5%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "293",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "17.9%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "319",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "17.9%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "361",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "20.3%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "387",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "20.3%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "429",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "22.7%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "455",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "22.7%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "497",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "25.1%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "523",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "25.1%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "565",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "27.6%",
+            "ascension_phase": 6
+        }
+    ]
+}

@@ -130,9 +130,8 @@ export async function getWeapon(id: string){
  * get all data from api and flatten it into a single array of type page
  */
 export async function getAllPages(): Promise<Page[]>{
-    "use cache"
+    // "use cache"
     let pages: Page[] = []
-
     const jsonToResultItem = (json: any, category: string) => 
         json.map((item: any) => ({
             id: item.id, 
@@ -140,11 +139,13 @@ export async function getAllPages(): Promise<Page[]>{
             rarity: item.rarity, 
             category: category
         }))
-    const characters = jsonToResultItem(await getCharacters(), "Character")
-    const weapons = jsonToResultItem(await getWeapons(), "Weapon")
-    const artifacts = jsonToResultItem(await getArtifacts(), "Artifact")
+    let characters = await getCharacters()
+    let weapons = await getWeapons()
+    let artifacts = await getArtifacts()
+    characters = jsonToResultItem(characters, "Character")
+    weapons = jsonToResultItem(weapons, "Weapon")
+    artifacts = jsonToResultItem(artifacts, "Artifact")
     pages = [...characters, ...weapons, ...artifacts]
-
     return pages
 } 
 

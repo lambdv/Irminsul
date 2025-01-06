@@ -1,0 +1,122 @@
+{
+    "name": "Lions Roar",
+    "key": "lions-roar",
+    "description": "A sharp blade with extravagant carvings that somehow does not compromise on durability and sharpness. It roars like a lion as it cuts through the air.",
+    "rarity": 4,
+    "category": "sword",
+    "series": "kunwu series",
+    "release_date": "september 28, 2020",
+    "base_atk_min": 42,
+    "base_atk_max": 510,
+    "sub_stat_type": "atk",
+    "sub_stat_value_min": "9% ",
+    "sub_stat_value_max": " 41.3%",
+    "refinement_name": "\n\nbane of fire and thunder\n\n",
+    "refinements": [
+        "Increases DMG against enemies affected by Pyro or Electro by **20**\n%.",
+        "Increases DMG against enemies affected by Pyro or Electro by **24**\n%.",
+        "Increases DMG against enemies affected by Pyro or Electro by **28**\n%.",
+        "Increases DMG against enemies affected by Pyro or Electro by **32**\n%.",
+        "Increases DMG against enemies affected by Pyro or Electro by **36**\n%."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "42",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "9%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "109",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "15.9%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "135",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "15.9%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "205",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "23.2%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "231",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "23.2%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "266",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "26.8%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "292",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "26.8%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "327",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "30.4%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "353",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "30.4%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "388",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "34.1%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "414",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "34.1%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "449",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "37.7%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "475",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "37.7%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "510",
+            "sub_stat_type": "atk",
+            "sub_stat_value": "41.3%",
+            "ascension_phase": 6
+        }
+    ]
+}

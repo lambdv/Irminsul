@@ -1,0 +1,122 @@
+{
+    "name": "Jadefalls Splendor",
+    "key": "jadefalls-splendor",
+    "description": "A ritual vessel carved from jade that reflects the luster of the skies and the clear waters.",
+    "rarity": 5,
+    "category": "catalyst",
+    "series": "primordial jade series",
+    "release_date": "may 02, 2023",
+    "base_atk_min": 46,
+    "base_atk_max": 608,
+    "sub_stat_type": "hp",
+    "sub_stat_value_min": "10.8% ",
+    "sub_stat_value_max": " 49.6%",
+    "refinement_name": "\n\nprimordial jade regalia\n\n",
+    "refinements": [
+        "For 3s after using an Elemental Burst or creating a shield, the equipping character can gain the Primordial Jade Regalia effect: Restore **4.5**\n Energy every 2.5s, and gain **0.3**\n% Elemental DMG Bonus for their corresponding Elemental Type for every 1,000 Max HP they possess, up to **12**\n%. Primordial Jade Regalia will still take effect even if the equipping character is not on the field.",
+        "For 3s after using an Elemental Burst or creating a shield, the equipping character can gain the Primordial Jade Regalia effect: Restore **5**\n Energy every 2.5s, and gain **0.5**\n% Elemental DMG Bonus for their corresponding Elemental Type for every 1,000 Max HP they possess, up to **20**\n%. Primordial Jade Regalia will still take effect even if the equipping character is not on the field.",
+        "For 3s after using an Elemental Burst or creating a shield, the equipping character can gain the Primordial Jade Regalia effect: Restore **5.5**\n Energy every 2.5s, and gain **0.7**\n% Elemental DMG Bonus for their corresponding Elemental Type for every 1,000 Max HP they possess, up to **28**\n%. Primordial Jade Regalia will still take effect even if the equipping character is not on the field.",
+        "For 3s after using an Elemental Burst or creating a shield, the equipping character can gain the Primordial Jade Regalia effect: Restore **6**\n Energy every 2.5s, and gain **0.9**\n% Elemental DMG Bonus for their corresponding Elemental Type for every 1,000 Max HP they possess, up to **36**\n%. Primordial Jade Regalia will still take effect even if the equipping character is not on the field.",
+        "For 3s after using an Elemental Burst or creating a shield, the equipping character can gain the Primordial Jade Regalia effect: Restore **6.5**\n Energy every 2.5s, and gain **1.1**\n% Elemental DMG Bonus for their corresponding Elemental Type for every 1,000 Max HP they possess, up to **44**\n%. Primordial Jade Regalia will still take effect even if the equipping character is not on the field."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "46",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "10.8%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "122",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "19.1%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "153",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "19.1%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "235",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "27.8%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "266",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "27.8%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "308",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "32.2%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "340",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "32.2%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "382",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "36.5%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "414",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "36.5%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "457",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "40.9%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "488",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "40.9%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "532",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "45.3%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "563",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "45.3%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "608",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "49.6%",
+            "ascension_phase": 6
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+./assets/
+./node_modules/
+./data
+./dist
+./pycache/
+./venv/

@@ -1,0 +1,122 @@
+{
+    "name": "The Alley Flash",
+    "key": "the-alley-flash",
+    "description": "A straight sword as black as the night. It once belonged to a thief who roamed the benighted streets.",
+    "rarity": 4,
+    "category": "sword",
+    "series": "alley series",
+    "release_date": "march 17, 2021",
+    "base_atk_min": 45,
+    "base_atk_max": 620,
+    "sub_stat_type": "elemental mastery",
+    "sub_stat_value_min": "12 ",
+    "sub_stat_value_max": " 55",
+    "refinement_name": "\n\nitinerant hero\n\n",
+    "refinements": [
+        "Increases DMG dealt by the character equipping this weapon by **12**\n%. Taking DMG disables this effect for 5s.",
+        "Increases DMG dealt by the character equipping this weapon by **15**\n%. Taking DMG disables this effect for 5s.",
+        "Increases DMG dealt by the character equipping this weapon by **18**\n%. Taking DMG disables this effect for 5s.",
+        "Increases DMG dealt by the character equipping this weapon by **21**\n%. Taking DMG disables this effect for 5s.",
+        "Increases DMG dealt by the character equipping this weapon by **24**\n%. Taking DMG disables this effect for 5s."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "45",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "12",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "128",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "21",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "154",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "21",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "247",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "31",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "273",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "31",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "321",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "36",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "347",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "36",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "395",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "41",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "421",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "41",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "470",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "45",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "496",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "45",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "545",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "50",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "571",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "50",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "620",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "55",
+            "ascension_phase": 6
+        }
+    ]
+}

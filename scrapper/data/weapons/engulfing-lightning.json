@@ -1,0 +1,122 @@
+{
+    "name": "Engulfing Lightning",
+    "key": "engulfing-lightning",
+    "description": "A naginata used to \"cut grass.\" Any army that stands before this weapon will probably be likewise cut down...",
+    "rarity": 5,
+    "category": "polearm",
+    "series": "inazuma series",
+    "release_date": "september 01, 2021",
+    "base_atk_min": 46,
+    "base_atk_max": 608,
+    "sub_stat_type": "energy recharge",
+    "sub_stat_value_min": "12% ",
+    "sub_stat_value_max": " 55.1%",
+    "refinement_name": "\n\ntimeless dream: eternal stove\n\n",
+    "refinements": [
+        "ATK increased by **28**\n% of Energy Recharge over the base 100%. You can gain a maximum bonus of **80**\n% ATK. Gain **30**\n% Energy Recharge for 12s after using an Elemental Burst.",
+        "ATK increased by **35**\n% of Energy Recharge over the base 100%. You can gain a maximum bonus of **90**\n% ATK. Gain **35**\n% Energy Recharge for 12s after using an Elemental Burst.",
+        "ATK increased by **42**\n% of Energy Recharge over the base 100%. You can gain a maximum bonus of **100**\n% ATK. Gain **40**\n% Energy Recharge for 12s after using an Elemental Burst.",
+        "ATK increased by **49**\n% of Energy Recharge over the base 100%. You can gain a maximum bonus of **110**\n% ATK. Gain **45**\n% Energy Recharge for 12s after using an Elemental Burst.",
+        "ATK increased by **56**\n% of Energy Recharge over the base 100%. You can gain a maximum bonus of **120**\n% ATK. Gain **50**\n% Energy Recharge for 12s after using an Elemental Burst."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "46",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "12%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "122",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "21.2%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "153",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "21.2%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "235",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "30.9%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "266",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "30.9%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "308",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "35.7%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "340",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "35.7%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "382",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "40.6%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "414",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "40.6%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "457",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "45.4%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "488",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "45.4%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "532",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "50.3%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "563",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "50.3%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "608",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "55.1%",
+            "ascension_phase": 6
+        }
+    ]
+}

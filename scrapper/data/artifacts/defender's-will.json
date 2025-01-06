@@ -1,0 +1,18 @@
+{
+    "name": "Defender's Will",
+    "key": "defender's-will",
+    "flower_description": "An iris that was cherished by the Guardian. Unfortunately, the chance never came for it to be given to whom the Guardian loved.",
+    "feather_description": "A feather-shaped brooch that symbolizes someone's yearning to defend others like a shield.",
+    "sand_description": "A small timekeeping gadget. On moonless nights, it was the only way its former owner could know the time.",
+    "goblet_description": "A metal vessel that can be filled with a drink to dispel the loneliness of the long watch.",
+    "circlet_description": "A fabric band dyed indigo by the darkness of night. Can also double as a bandage in the event of an emergency.",
+    "flower_name": "Guardian's Flower",
+    "feather_name": "Guardian's Sigil",
+    "sand_name": "Guardian's Clock",
+    "goblet_name": "Guardian's Vessel",
+    "circlet_name": "Guardian's Band",
+    "two_pc_bonus": "DEF +30%",
+    "four_pc_bonus": "For each different element present in your own party, the wearer's Elemental RES to that corresponding element is increased by 30%.",
+    "rarity_min": 3,
+    "rarity_max": 4
+}

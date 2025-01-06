@@ -1,0 +1,610 @@
+{
+    "name": "Razor",
+    "key": "razor",
+    "title": "Wolf Boy",
+    "rarity": 4,
+    "element": "electro",
+    "weapon": "claymore",
+    "release_date": "september 28, 2020",
+    "release_date_epoch": 1601251200,
+    "constellation": "lupus minor",
+    "birthday": "september 9th",
+    "affiliation": "wolvendom (boreas)",
+    "region": "mondstadt",
+    "special_dish": "puppy-paw hash brown",
+    "alternate_title": "legend of wolvendom",
+    "description": "",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "1002.97",
+            "BaseATK": "19.59",
+            "BaseDEF": "62.95",
+            "AscensionStatType": "Physical DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2576.63",
+            "BaseATK": "50.32",
+            "BaseDEF": "161.71",
+            "AscensionStatType": "Physical DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3325.90",
+            "BaseATK": "64.96",
+            "BaseDEF": "208.74",
+            "AscensionStatType": "Physical DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "4981.80",
+            "BaseATK": "97.30",
+            "BaseDEF": "312.66",
+            "AscensionStatType": "Physical DMG Bonus",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "5514.18",
+            "BaseATK": "107.70",
+            "BaseDEF": "346.08",
+            "AscensionStatType": "Physical DMG Bonus",
+            "AscensionStatValue": "7.5%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6342.63",
+            "BaseATK": "123.88",
+            "BaseDEF": "398.07",
+            "AscensionStatType": "Physical DMG Bonus",
+            "AscensionStatValue": "7.5%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "7052.47",
+            "BaseATK": "137.74",
+            "BaseDEF": "442.62",
+            "AscensionStatType": "Physical DMG Bonus",
+            "AscensionStatValue": "15.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "7880.92",
+            "BaseATK": "153.92",
+            "BaseDEF": "494.62",
+            "AscensionStatType": "Physical DMG Bonus",
+            "AscensionStatValue": "15.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "8413.30",
+            "BaseATK": "164.32",
+            "BaseDEF": "528.03",
+            "AscensionStatType": "Physical DMG Bonus",
+            "AscensionStatValue": "15.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "9240.75",
+            "BaseATK": "180.48",
+            "BaseDEF": "579.96",
+            "AscensionStatType": "Physical DMG Bonus",
+            "AscensionStatValue": "15.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "9773.12",
+            "BaseATK": "190.88",
+            "BaseDEF": "613.37",
+            "AscensionStatType": "Physical DMG Bonus",
+            "AscensionStatValue": "22.5%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "10601.58",
+            "BaseATK": "207.06",
+            "BaseDEF": "665.37",
+            "AscensionStatType": "Physical DMG Bonus",
+            "AscensionStatValue": "22.5%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "11133.95",
+            "BaseATK": "217.46",
+            "BaseDEF": "698.78",
+            "AscensionStatType": "Physical DMG Bonus",
+            "AscensionStatValue": "30.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "11962.41",
+            "BaseATK": "233.64",
+            "BaseDEF": "750.77",
+            "AscensionStatType": "Physical DMG Bonus",
+            "AscensionStatValue": "30.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Vajrada Amethyst Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Wolfhook",
+                    "amount": "3"
+                },
+                {
+                    "name": "Damaged Mask",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Lightning Prism",
+                    "amount": "2"
+                },
+                {
+                    "name": "Vajrada Amethyst Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Wolfhook",
+                    "amount": "10"
+                },
+                {
+                    "name": "Damaged Mask",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Lightning Prism",
+                    "amount": "4"
+                },
+                {
+                    "name": "Vajrada Amethyst Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Wolfhook",
+                    "amount": "20"
+                },
+                {
+                    "name": "Stained Mask",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Lightning Prism",
+                    "amount": "8"
+                },
+                {
+                    "name": "Vajrada Amethyst Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Wolfhook",
+                    "amount": "30"
+                },
+                {
+                    "name": "Stained Mask",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Lightning Prism",
+                    "amount": "12"
+                },
+                {
+                    "name": "Vajrada Amethyst Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Wolfhook",
+                    "amount": "45"
+                },
+                {
+                    "name": "Ominous Mask",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Lightning Prism",
+                    "amount": "20"
+                },
+                {
+                    "name": "Vajrada Amethyst Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Wolfhook",
+                    "amount": "60"
+                },
+                {
+                    "name": "Ominous Mask",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Steel Fang",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 4 consecutive strikes.\nCharged Attack\nDrains Stamina over time to perform continuous spinning attacks against all nearby opponents.\nAt the end of the sequence, performs a more powerful slash.\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        95.92,
+                        102.46,
+                        109.0,
+                        117.72,
+                        124.26,
+                        131.89,
+                        141.7,
+                        151.51,
+                        161.32,
+                        171.13,
+                        180.94
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        82.63,
+                        88.27,
+                        93.9,
+                        101.41,
+                        107.05,
+                        113.62,
+                        122.07,
+                        130.52,
+                        138.97,
+                        147.42,
+                        155.87
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        103.31,
+                        110.36,
+                        117.4,
+                        126.79,
+                        133.84,
+                        142.05,
+                        152.62,
+                        163.19,
+                        173.75,
+                        184.32,
+                        194.88
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        136.05,
+                        145.32,
+                        154.6,
+                        166.97,
+                        176.24,
+                        187.07,
+                        200.98,
+                        214.89,
+                        228.81,
+                        242.72,
+                        256.64
+                    ]
+                },
+                {
+                    "hit": "Charged Attack Cyclic DMG (%)",
+                    "values": [
+                        62.54,
+                        67.63,
+                        72.72,
+                        79.99,
+                        85.08,
+                        90.9,
+                        98.9,
+                        106.9,
+                        114.9,
+                        123.62,
+                        132.35
+                    ]
+                },
+                {
+                    "hit": "Charged Attack Final DMG (%)",
+                    "values": [
+                        113.09,
+                        122.3,
+                        131.5,
+                        144.65,
+                        153.86,
+                        164.38,
+                        178.84,
+                        193.31,
+                        207.77,
+                        223.55,
+                        239.33
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        82.05,
+                        88.72,
+                        95.4,
+                        104.94,
+                        111.62,
+                        119.25,
+                        129.75,
+                        140.24,
+                        150.74,
+                        162.19,
+                        173.63
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        164.06,
+                        177.41,
+                        190.77,
+                        209.84,
+                        223.2,
+                        238.46,
+                        259.44,
+                        280.43,
+                        301.41,
+                        324.3,
+                        347.19
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        204.92,
+                        221.6,
+                        238.28,
+                        262.1,
+                        278.78,
+                        297.85,
+                        324.06,
+                        350.27,
+                        376.48,
+                        405.07,
+                        433.66
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Claw and Thunder",
+            "type": "Elemental Skill",
+            "description": "Hunts his prey using the techniques taught to him by his master and his lupical.\n(PressPressText for mouse and keyboard and controller/TapTapText for touch screen)\nSwings the Thunder Wolf Claw, dealing Electro DMG to opponents in front of Razor.\nUpon striking an opponent, Razor will gain an Electro Sigil, which increases his Energy Recharge rate.\nRazor can have up to 3 Electro Sigils simultaneously, and gaining a new Electro Sigil refreshes their duration.\nHold\nGathers Electro energy to unleash a lightning storm over a small AoE, causing massive Electro DMG, and clears all of Razor's Electro Sigils.\nEach Electro Sigil cleared in this manner will be converted into Energy for Razor.",
+            "attributes": [
+                {
+                    "hit": "Press Skill DMG (%)",
+                    "values": [
+                        199.2,
+                        214.14,
+                        229.08,
+                        249.0,
+                        263.94,
+                        278.88,
+                        298.8,
+                        318.72,
+                        338.64,
+                        358.56,
+                        378.48,
+                        398.4,
+                        423.3,
+                        448.0
+                    ]
+                },
+                {
+                    "hit": "Hold Skill DMG (%)",
+                    "values": [
+                        295.2,
+                        317.34,
+                        339.48,
+                        369.0,
+                        391.14,
+                        413.28,
+                        442.8,
+                        472.32,
+                        501.84,
+                        531.36,
+                        560.88,
+                        590.4,
+                        627.3,
+                        664.0
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Lightning Fang",
+            "type": "Elemental Burst",
+            "description": "Summons the Wolf Within, which deals  to all nearby opponents. This clears all of Razor's Electro Sigils, which will be converted into Elemental Energy for him.\nThe Wolf Within will fight alongside Razor for the skill's duration.\n**The Wolf Within**\n- Strikes alongside Razor's normal attacks, dealing Electro DMG.\n- Raises Razor's ATK SPD and Electro RES.\n- Causes Razor to be immune to DMG inflicted by the Electro-Charged status.\n- Disables Razor's Charged Attacks.\n- Increases Razor's resistance to interruption.\nThese effects end when Razor leaves the battlefield.\nWhen Razor leaves the field, a maximum of 10 Energy will be returned to him based off the duration remaining on this skill.",
+            "attributes": [
+                {
+                    "hit": "Elemental Burst DMG (%)",
+                    "values": [
+                        160.0,
+                        172.0,
+                        184.0,
+                        200.0,
+                        212.0,
+                        224.0,
+                        240.0,
+                        256.0,
+                        272.0,
+                        288.0,
+                        304.0,
+                        320.0,
+                        340.0,
+                        360.0
+                    ]
+                },
+                {
+                    "hit": "Soul Companion DMG (% Normal Attack DMG)",
+                    "values": [
+                        24.0,
+                        25.8,
+                        27.6,
+                        30.0,
+                        31.8,
+                        33.6,
+                        36.0,
+                        38.4,
+                        40.8,
+                        43.2,
+                        45.6,
+                        48.0,
+                        51.0,
+                        54.0
+                    ]
+                },
+                {
+                    "hit": "Normal ATK SPD Bonus",
+                    "values": [
+                        26.0,
+                        28.0,
+                        30.0,
+                        32.0,
+                        34.0,
+                        36.0,
+                        37.0,
+                        38.0,
+                        39.0,
+                        40.0
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Awakening",
+            "type": "1st Ascension Passive",
+            "description": "Decreases Claw and Thunder's CD by 18%. Using Lightning Fang resets the CD of Claw and Thunder."
+        },
+        {
+            "name": "Hunger",
+            "type": "4th Ascension Passive",
+            "description": "When Razor's Energy is below 50%, increases Energy Recharge by 30%."
+        },
+        {
+            "name": "Wolvensprint",
+            "type": "Utility Passive",
+            "description": "Decreases sprinting Stamina consumption for your own party members by 20%.\nNot stackable with Passive Talents that provide the exact same effects."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Wolf's Instinct",
+            "description": "Picking up an Elemental Orb or Particle increases Razor's DMG by 10% for 8s.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Suppression",
+            "description": "Increases CRIT Rate against opponents with less than 30% HP by 10%.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Soul Companion",
+            "description": "Increases the Level of Lightning Fang by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Bite",
+            "description": "When casting Claw and Thunder ((/)), opponents hit will have their DEF decreased by 15% for 7s.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Sharpened Claws",
+            "description": "Increases the Level of Claw and Thunder by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Lupus Fulguris",
+            "description": "Every 10s, Razor's sword charges up, causing the next Normal Attack to release lightning that deals 100% of Razor's ATK as Electro DMG.\nWhen Razor is not using Lightning Fang, a lightning strike on an opponent will grant Razor an Electro Sigil for Claw and Thunder.",
+            "properties": []
+        }
+    ],
+    "ascension_stat": "Physical DMG Bonus"
+}

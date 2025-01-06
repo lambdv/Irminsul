@@ -1,0 +1,19 @@
+{
+    "name": "Brave Heart",
+    "key": "brave-heart",
+    "flower_description": "A simple flower brooch that is a keepsake from someone's first adventure.",
+    "feather_description": "A shimmering feather from a songbird that brings a nudge of courage to its wearer.",
+    "sand_description": "A dated miniature hourglass that serves no practical purpose. It seems as elusive as time itself.",
+    "goblet_description": "A crude wooden vessel filled only with memories.",
+    "circlet_description": "A rough-and-ready laurel wreath that seems as precious as a king's golden crown.",
+    "flower_name": "Medal of the Brave",
+    "feather_name": "Prospect of the Brave",
+    "sand_name": "Fortitude of the Brave",
+    "goblet_name": "Outset of the Brave",
+    "circlet_name": "Crown of the Brave",
+    "two_pc_bonus": "ATK +18%.",
+    "four_pc_bonus": "Increases DMG by 30% against opponents with more than 50% HP.",
+    "rarity_min": 3,
+    "rarity_max": 4,
+    "release_version": 1.0
+}

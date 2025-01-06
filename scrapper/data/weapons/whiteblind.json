@@ -1,0 +1,122 @@
+{
+    "name": "Whiteblind",
+    "key": "whiteblind",
+    "description": "An exotic sword with one section of the blade left blunt. It made its way into Liyue via the hands of foreign traders. Incredibly powerful in the hands of someone who knows how to use it.",
+    "rarity": 4,
+    "category": "claymore",
+    "series": "infusion series",
+    "release_date": "september 28, 2020",
+    "base_atk_min": 42,
+    "base_atk_max": 510,
+    "sub_stat_type": "def",
+    "sub_stat_value_min": "11.3% ",
+    "sub_stat_value_max": " 51.7%",
+    "refinement_name": "\n\ninfusion blade\n\n",
+    "refinements": [
+        "On hit, Normal or Charged Attacks increase ATK and DEF by **6**\n% for 6s. Max 4 stacks (**24**\n%  total). Can only occur once every 0.5s.",
+        "On hit, Normal or Charged Attacks increase ATK and DEF by **7.5**\n% for 6s. Max 4 stacks (**30**\n%  total). Can only occur once every 0.5s.",
+        "On hit, Normal or Charged Attacks increase ATK and DEF by **9**\n% for 6s. Max 4 stacks (**36**\n%  total). Can only occur once every 0.5s.",
+        "On hit, Normal or Charged Attacks increase ATK and DEF by **10.5**\n% for 6s. Max 4 stacks (**42**\n%  total). Can only occur once every 0.5s.",
+        "On hit, Normal or Charged Attacks increase ATK and DEF by **12**\n% for 6s. Max 4 stacks (**48**\n%  total). Can only occur once every 0.5s."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "42",
+            "sub_stat_type": "def",
+            "sub_stat_value": "11.3%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "109",
+            "sub_stat_type": "def",
+            "sub_stat_value": "20.0%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "135",
+            "sub_stat_type": "def",
+            "sub_stat_value": "20.0%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "205",
+            "sub_stat_type": "def",
+            "sub_stat_value": "29.0%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "231",
+            "sub_stat_type": "def",
+            "sub_stat_value": "29.0%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "266",
+            "sub_stat_type": "def",
+            "sub_stat_value": "33.5%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "292",
+            "sub_stat_type": "def",
+            "sub_stat_value": "33.5%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "327",
+            "sub_stat_type": "def",
+            "sub_stat_value": "38.1%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "353",
+            "sub_stat_type": "def",
+            "sub_stat_value": "38.1%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "388",
+            "sub_stat_type": "def",
+            "sub_stat_value": "42.6%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "414",
+            "sub_stat_type": "def",
+            "sub_stat_value": "42.6%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "449",
+            "sub_stat_type": "def",
+            "sub_stat_value": "47.2%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "475",
+            "sub_stat_type": "def",
+            "sub_stat_value": "47.2%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "510",
+            "sub_stat_type": "def",
+            "sub_stat_value": "51.7%",
+            "ascension_phase": 6
+        }
+    ]
+}

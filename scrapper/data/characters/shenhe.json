@@ -1,0 +1,629 @@
+{
+    "name": "Shenhe",
+    "key": "shenhe",
+    "title": "Lonesome Transcendence",
+    "rarity": 5,
+    "element": "cryo",
+    "weapon": "polearm",
+    "release_date": "january 05, 2022",
+    "release_date_epoch": 1641340800,
+    "constellation": "crista doloris",
+    "birthday": "march 10th",
+    "affiliation": "cloud retainer's abode (on profile)adepti (disciple)[note 1]wanmin restaurant ",
+    "region": "liyue",
+    "special_dish": "heartstring noodles",
+    "alternate_title": "ethereal soul amidst the mortal realm",
+    "description": "",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "1011.47",
+            "BaseATK": "23.65",
+            "BaseDEF": "64.62",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2623.76",
+            "BaseATK": "61.34",
+            "BaseDEF": "167.61",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3491.01",
+            "BaseATK": "81.62",
+            "BaseDEF": "223.02",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "5223.66",
+            "BaseATK": "122.12",
+            "BaseDEF": "333.71",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "5839.86",
+            "BaseATK": "136.53",
+            "BaseDEF": "373.07",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "7.2%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6718.83",
+            "BaseATK": "157.08",
+            "BaseDEF": "429.22",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "7.2%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "7540.43",
+            "BaseATK": "176.29",
+            "BaseDEF": "481.71",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "8428.50",
+            "BaseATK": "197.05",
+            "BaseDEF": "538.45",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "9044.71",
+            "BaseATK": "211.45",
+            "BaseDEF": "577.81",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "9940.87",
+            "BaseATK": "232.40",
+            "BaseDEF": "635.06",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "10557.07",
+            "BaseATK": "246.81",
+            "BaseDEF": "674.43",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "21.6%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "11463.35",
+            "BaseATK": "268.00",
+            "BaseDEF": "732.32",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "21.6%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "12079.55",
+            "BaseATK": "282.40",
+            "BaseDEF": "771.69",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "12992.91",
+            "BaseATK": "303.76",
+            "BaseDEF": "830.04",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Shivada Jade Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Qingxin",
+                    "amount": "3"
+                },
+                {
+                    "name": "Whopperflower Nectar",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Dragonheir's False Fin",
+                    "amount": "2"
+                },
+                {
+                    "name": "Shivada Jade Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Qingxin",
+                    "amount": "10"
+                },
+                {
+                    "name": "Whopperflower Nectar",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Dragonheir's False Fin",
+                    "amount": "4"
+                },
+                {
+                    "name": "Shivada Jade Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Qingxin",
+                    "amount": "20"
+                },
+                {
+                    "name": "Shimmering Nectar",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Dragonheir's False Fin",
+                    "amount": "8"
+                },
+                {
+                    "name": "Shivada Jade Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Qingxin",
+                    "amount": "30"
+                },
+                {
+                    "name": "Shimmering Nectar",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Dragonheir's False Fin",
+                    "amount": "12"
+                },
+                {
+                    "name": "Shivada Jade Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Qingxin",
+                    "amount": "45"
+                },
+                {
+                    "name": "Energy Nectar",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Dragonheir's False Fin",
+                    "amount": "20"
+                },
+                {
+                    "name": "Shivada Jade Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Qingxin",
+                    "amount": "60"
+                },
+                {
+                    "name": "Energy Nectar",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Dawnstar Piercer",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 5 consecutive spear strikes.\nCharged Attack\nConsumes a certain amount of Stamina to lunge forward, dealing damage to opponents along the way.\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        43.26,
+                        46.78,
+                        50.3,
+                        55.33,
+                        58.85,
+                        62.88,
+                        68.41,
+                        73.94,
+                        79.47,
+                        85.51,
+                        91.55
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        40.25,
+                        43.52,
+                        46.8,
+                        51.48,
+                        54.76,
+                        58.5,
+                        63.65,
+                        68.8,
+                        73.94,
+                        79.56,
+                        85.18
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        53.32,
+                        57.66,
+                        62.0,
+                        68.2,
+                        72.54,
+                        77.5,
+                        84.32,
+                        91.14,
+                        97.96,
+                        105.4,
+                        112.84
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        "26.32+26.32",
+                        "28.46+28.46",
+                        "30.6+30.6",
+                        "33.66+33.66",
+                        "35.8+35.8",
+                        "38.25+38.25",
+                        "41.62+41.62",
+                        "44.98+44.98",
+                        "48.35+48.35",
+                        "52.02+52.02",
+                        "55.69+55.69"
+                    ]
+                },
+                {
+                    "hit": "5-Hit DMG (%)",
+                    "values": [
+                        65.62,
+                        70.96,
+                        76.3,
+                        83.93,
+                        89.27,
+                        95.38,
+                        103.77,
+                        112.16,
+                        120.55,
+                        129.71,
+                        138.87
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        110.67,
+                        119.68,
+                        128.69,
+                        141.56,
+                        150.57,
+                        160.86,
+                        175.02,
+                        189.17,
+                        203.33,
+                        218.77,
+                        234.22
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        63.93,
+                        69.14,
+                        74.34,
+                        81.77,
+                        86.98,
+                        92.92,
+                        101.1,
+                        109.28,
+                        117.46,
+                        126.38,
+                        135.3
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        127.84,
+                        138.24,
+                        148.65,
+                        163.51,
+                        173.92,
+                        185.81,
+                        202.16,
+                        218.51,
+                        234.86,
+                        252.7,
+                        270.54
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        159.68,
+                        172.67,
+                        185.67,
+                        204.24,
+                        217.23,
+                        232.09,
+                        252.51,
+                        272.93,
+                        293.36,
+                        315.64,
+                        337.92
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Spring Spirit Summoning",
+            "type": "Elemental Skill",
+            "description": "The frosted dew, silvery and dense, shall exorcise all demons.\nGrants all nearby party members the Icy Quill effect and deals Cryo DMG in different ways based on whether it is (pressed/tapped) or held.\n(PressPressText for mouse and keyboard and controller/TapTapText for touch screen)\nRushes forward together with a Talisman Spirit, dealing Cryo DMG to opponents along the path.\nHold\nCommands the Talisman Spirit to deal AoE Cryo DMG.\nIcy Quill\nWhen Normal, Charged, and Plunging Attacks, Elemental Skills, and Elemental Bursts deal Cryo DMG to opponents, the DMG dealt is increased based on Shenhe's current ATK.\nThe Icy Quill's effects will be cleared once its duration ends or after being triggered a certain number of times.\nWhen held rather than (pressed/tapped), the Icy Quill's effect lasts longer and can be triggered more times.\nWhen one Cryo DMG instance strikes multiple opponents, the effect is triggered multiple times based on the number of opponents hit. The number of times the effect is triggered is calculated independently for each party member with the Icy Quill.",
+            "attributes": [
+                {
+                    "hit": "Press Skill DMG (%)",
+                    "values": [
+                        139.2,
+                        149.64,
+                        160.08,
+                        174.0,
+                        184.44,
+                        194.88,
+                        208.8,
+                        222.72,
+                        236.64,
+                        250.56,
+                        264.48,
+                        278.4,
+                        295.8,
+                        313.0
+                    ]
+                },
+                {
+                    "hit": "Hold Skill DMG (%)",
+                    "values": [
+                        188.8,
+                        202.96,
+                        217.12,
+                        236.0,
+                        250.16,
+                        264.32,
+                        283.2,
+                        302.08,
+                        320.96,
+                        339.84,
+                        358.72,
+                        377.6,
+                        401.2,
+                        424.8
+                    ]
+                },
+                {
+                    "hit": "DMG Bonus (% ATK)",
+                    "values": [
+                        45.66,
+                        49.08,
+                        52.5,
+                        57.07,
+                        60.49,
+                        63.92,
+                        68.48,
+                        73.05,
+                        77.62,
+                        82.18,
+                        86.75,
+                        91.31,
+                        97.02,
+                        102.7
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Divine Maiden's Deliverance",
+            "type": "Elemental Burst",
+            "description": "Unleashes the power of the Talisman Spirit, allowing it to roam free in this plane, dealing AoE Cryo DMG.\nThe Talisman Spirit then creates a field that decreases the Cryo RES and Physical RES of opponents within it. It also deals periodic Cryo DMG to opponents within the field.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        100.8,
+                        108.36,
+                        115.92,
+                        126.0,
+                        133.56,
+                        141.12,
+                        151.2,
+                        161.28,
+                        171.36,
+                        181.44,
+                        191.52,
+                        201.6,
+                        214.2,
+                        227.0
+                    ]
+                },
+                {
+                    "hit": "RES Decrease (%)",
+                    "values": [
+                        6.0,
+                        7.0,
+                        8.0,
+                        9.0,
+                        10.0,
+                        11.0,
+                        12.0,
+                        13.0,
+                        14.0,
+                        15.0
+                    ]
+                },
+                {
+                    "hit": "DoT (%)",
+                    "values": [
+                        33.12,
+                        35.6,
+                        38.09,
+                        41.4,
+                        43.88,
+                        46.37,
+                        49.68,
+                        52.99,
+                        56.3,
+                        59.62,
+                        62.93,
+                        66.24,
+                        70.38,
+                        74.5
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Deific Embrace",
+            "type": "1st Ascension Passive",
+            "description": "An active character within the field created by Divine Maiden's Deliverance gains 15% Cryo DMG Bonus."
+        },
+        {
+            "name": "Spirit Communion Seal",
+            "type": "4th Ascension Passive",
+            "description": "After Shenhe uses Spring Spirit Summoning, she will grant all nearby party members the following effects:\n- (PressPressText for mouse and keyboard and controller/TapTapText for touch screen): Elemental Skill and Elemental Burst DMG increased by 15% for 10s.\n- Hold: Normal, Charged, and Plunging Attack DMG increased by 15% for 15s."
+        },
+        {
+            "name": "Precise Comings and Goings",
+            "type": "Utility Passive",
+            "description": "Gains 25% more rewards when dispatched on a Liyue Expedition for 20 hours."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Clarity of Heart",
+            "description": "Spring Spirit Summoning can be used 1 more time.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Centered Spirit",
+            "description": "Divine Maiden's Deliverance lasts for 6 seconds longer.\nActive characters within the skill's field deal 15% increased Cryo CRIT DMG.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Seclusion",
+            "description": "Increases Level of Spring Spirit Summoning by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Insight",
+            "description": "When characters under the effect of Icy Quill applied by Shenhe triggers its DMG Bonus effects, Shenhe will gain a Skyfrost Mantra stack:\n- When Shenhe uses Spring Spirit Summoning, she will consume all stacks of Skyfrost Mantra, increasing the DMG of that Spring Spirit Summoning by 5% for each stack consumed.\n- Max 50 stacks. Stacks last for 60s.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Divine Attainment",
+            "description": "Increases the Level of Divine Maiden's Deliverance by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Mystical Abandon",
+            "description": "When characters trigger Icy Quill's effects using Normal and Charged Attack DMG, it does not count toward the Trigger Quota.",
+            "properties": []
+        }
+    ],
+    "ascension_stat": "ATK"
+}
