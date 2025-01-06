@@ -16,7 +16,7 @@ export default async function Header(props: {
         <div 
             className={HeaderCSS.archiveRecordHeader}
             style={{
-                boxShadow: `0px 0px 1000px -50px rgba(${color.slice(4, -1)}, 0.4)`
+                boxShadow: `0px 0px 1000px 0px rgba(${color.slice(4, -1)}, 0.5)`
             }}
         > 
             <div className={HeaderCSS.archiveRecordHeaderWrapper} style={{ 
@@ -27,7 +27,6 @@ export default async function Header(props: {
                     style={{
                         backgroundImage: `linear-gradient(to left, rgba(${color.slice(4, -1)}, 0.2), var(--background-color) 80%)`,
                         backdropFilter: `blur(5px)`,
-
                     }}
                 >
                     <div className={HeaderCSS.archiveRecordHeaderDetailsContent} id={HeaderCSS.archiveRecordHeaderTitle}>
@@ -38,10 +37,12 @@ export default async function Header(props: {
                 
                 <div className={HeaderCSS.archiveRecordHeaderSplash}>
                     <Image
-                        src={props.splashImage}
-                        alt={props.title}
                         width={1000}
                         height={1000}
+                        src={props.splashImage}
+                        alt={props.title}
+                        placeholder="blur"
+                        blurDataURL={props.splashImage} // Add a valid blurDataURL
                     />
                 </div>
             </div>
