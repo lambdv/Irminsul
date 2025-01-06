@@ -1,20 +1,5 @@
-import SearchPallet from "@/components/navigation/SearchPallete"
-
-export const metadata = {
-  title: "Irminsul",
-}
+import LandingPage from './_landing/page';
 
 export default function Home() {
-
-  return (    
-    <div id="home-page">
-          
-
-    <h1 className="text-4xl text-center text-red-500">Hello World</h1>      
-      {/* <h1 className="text-4xl text-center text-red-500">Hello World</h1>
-      {Array.from({ length: 1000 }, (_, i) => i + 1).map((i) => (
-        <div key={i}>Hello, world</div>
-      ))} */}
-    </div>
-  )
+    return <LandingPage />;
 }
