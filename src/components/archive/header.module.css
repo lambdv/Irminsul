@@ -12,6 +12,7 @@
     border-radius: 10px;
     /* box-shadow: 0 0 150px -20px var(--glow-color, rgba(255, 255, 255, 0.3)); */
     transition: box-shadow 0.3s ease;
+    
 }
 
 .archiveRecordHeaderWrapper{
@@ -39,6 +40,8 @@
     text-align: center;
     border-radius: 10px;
 
+    flexwrap: reverse-wrap;
+
 }
 
 /* 
@@ -65,7 +68,8 @@
     height: auto;
     background-color: transparent;
     margin-left: 50px;
-    
+    z-index: 2;
+
 }
 
 .archiveRecordHeaderDetailsContent h1{
@@ -102,8 +106,9 @@
     width: 50%;
     top: 0px;
     width: auto;
-
     position: absolute;
+    z-index: 1;
+
 
 }
 
@@ -118,10 +123,72 @@
     background-color: transparent;
 
     height: 120%;
-    width: auto;
+    width: auto;  
+    z-index: 1;
 
-
-    width: auto;
-    height: 120%;  
 }
 
+
+@media screen and (max-width: 768px) {
+    .archiveRecordHeaderSplash {
+
+    }
+
+    .archiveRecordHeaderSplash img {
+        height: auto;
+        width: 100%;
+        max-height: 100%;
+        margin-left: 400px;
+    }
+
+    .archiveRecordHeader {
+        overflow: hidden;
+        height: auto;
+    }
+
+
+
+    .archiveRecordHeaderDetailsContent {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .archiveRecordHeader {
+        height: auto;
+    }
+
+    .archiveRecordHeaderWrapper {
+        flex-wrap: reverse-wrap;
+    }
+
+
+}
+
+@media screen and (max-width: 400px) {
+    .archiveRecordHeaderSplash {
+        position: relative;
+        width: 100%;
+        height: auto;
+        right: 0;
+        margin-top: 20px;
+        margin-left: auto;
+
+    }
+
+    .archiveRecordHeaderSplash img {
+        height: auto;
+        width: 100%;
+        max-height: 300px;
+        object-fit: contain;
+    }
+
+    .archiveRecordHeaderDetailsContent {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .archiveRecordHeader {
+        flex-direction: column;
+        height: auto;
+    }
+}

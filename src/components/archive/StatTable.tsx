@@ -1,34 +1,39 @@
 import StatTableCSS from './stattable.module.css'
 
-export default async function StatTable(props: {
-    table: any[]
-}) {
+export default async function StatTable(props: {table: any[]}) {
+
+    let headers = Object.keys(props.table[0])
+
+    let newTable = props.table
+    if (headers.includes('AscensionStatType') && headers.includes('AscensionStatValue')) {
+        newTable = props.table.map(stat => {
+            let newStat = {...stat}
+            delete newStat.substat_type
+            newStat[newStat.substat_type] = stat.substat_value
+            delete newStat.substat_value
+            return newStat
+        })
+        headers = headers.filter(header => header !== 'AscensionStatType' && header !== 'AscensionStatValue')
+    }
+    
 
     return (
         <table>
             <thead>
-            <tr>
-                <th>LVL</th>
-                <th>BaseHP</th>
-                <th>BaseATK</th>
-                <th>BaseDEF</th>
-                <th>AscensionStatType</th>
-                <th>AscensionStatValue</th>
-                <th>AscensionPhase</th>
-            </tr>
+                <tr>
+                    {headers.map((header, index) => (
+                        <th key={index}>{header}</th>
+                    ))}
+                </tr>
             </thead>
             <tbody>
-            {props.table.map((stat, index) => (
-                <tr key={index}>
-                <td>{stat.LVL}</td>
-                <td>{stat.BaseHP}</td>
-                <td>{stat.BaseATK}</td>
-                <td>{stat.BaseDEF}</td>
-                <td>{stat.AscensionStatType}</td>
-                <td>{stat.AscensionStatValue}</td>
-                <td>{stat.AscensionPhase}</td>
-                </tr>
-            ))}
+                {newTable.map((stat, index) => (
+                    <tr key={index}>
+                        {headers.map((header, cellIndex) => (
+                            <td key={cellIndex}>{stat[header]}</td>
+                        ))}
+                    </tr>
+                ))}
             </tbody>
         </table>
     )

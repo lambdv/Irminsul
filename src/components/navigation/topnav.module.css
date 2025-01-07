@@ -44,6 +44,10 @@
     text-align: right;
     justify-content: flex-end;
     align-items: right;
+
+    background-color: rgb(39, 39, 39);
+
+    right:0px;
 }
 
 .topnav .hamburger .hamburgerBtn{
@@ -116,6 +120,10 @@
     color: rgb(124, 124, 124);
 }
 
+.mobileFries{
+    display: none;
+}
+
 @media (max-width: 768px) { 
     .searchContainer { 
         display: none; 
@@ -125,5 +133,18 @@
         display: none;
     }
 
+    .topnav .hamburger{
+        display: flex;
+        width: 100%;
+    }
 
+    .topnav .fries{
+        display: flex;
+        width: 60%;
+    }
+    .mobileFries{
+        display: block;
+
+    }
 }
+

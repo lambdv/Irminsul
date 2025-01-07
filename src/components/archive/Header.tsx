@@ -29,22 +29,21 @@ export default async function Header(props: {
                         backdropFilter: `blur(5px)`,
                     }}
                 >
+                    <div className={HeaderCSS.archiveRecordHeaderSplash}>
+                        <Image
+                            width={1000}
+                            height={1000}
+                            src={props.splashImage}
+                            alt={props.title}
+                        />
+                    </div>
                     <div className={HeaderCSS.archiveRecordHeaderDetailsContent} id={HeaderCSS.archiveRecordHeaderTitle}>
                         <h1>{props.title}</h1>
                         {props.children}
                     </div>
                 </div>
                 
-                <div className={HeaderCSS.archiveRecordHeaderSplash}>
-                    <Image
-                        width={1000}
-                        height={1000}
-                        src={props.splashImage}
-                        alt={props.title}
-                        placeholder="blur"
-                        blurDataURL={props.splashImage} // Add a valid blurDataURL
-                    />
-                </div>
+
             </div>
         </div>
     )

@@ -102,6 +102,13 @@ function RightContainer(){
 
   return (
     <div id="topnavRight" className={TopnavCSS.fries + " " + TopnavCSS.hamburger}>
+      <button 
+            className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple ' + TopnavCSS.mobileFries}
+            onClick={() => SearchStore.getState().setShowPallette(true)}
+          >
+        <i className="material-symbols-outlined">search</i>
+      </button>
+
       <button className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '}
         onClick={toggleTheme}
       >
@@ -111,5 +118,6 @@ function RightContainer(){
         <i className="material-symbols-outlined">account_circle</i>
       </button>
     </div>
+
   )
 }
