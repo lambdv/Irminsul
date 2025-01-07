@@ -3,6 +3,8 @@ import { getCharacter, getCharacters } from "@/utils/DataGetters"
 import { toTitleCase } from "@/utils/standardizers"
 import Image from 'next/image'
 import Header from "@/components/archive/Header"
+import StatTable from "@/components/archive/StatTable"
+import { Character } from "@/types/character"
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -30,7 +32,7 @@ export async function generateMetadata({params}) {
  */
 export default async function CharacterPage({params}) {
   const {id} = await params
-  const data = params.data ? params.data : await getCharacter(id)
+  const data: Character = params.data ? params.data : await getCharacter(id)
 
   return (
     <div id="character-page">
@@ -66,35 +68,7 @@ export default async function CharacterPage({params}) {
 
       <div style={{padding: '50px'}}>
         
-        <div>
-          <h2>Base Stats</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>LVL</th>
-                <th>BaseHP</th>
-                <th>BaseATK</th>
-                <th>BaseDEF</th>
-                <th>AscensionStatType</th>
-                <th>AscensionStatValue</th>
-                <th>AscensionPhase</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.base_stats.map((stat, index) => (
-                <tr key={index}>
-                  <td>{stat.LVL}</td>
-                  <td>{stat.BaseHP}</td>
-                  <td>{stat.BaseATK}</td>
-                  <td>{stat.BaseDEF}</td>
-                  <td>{stat.AscensionStatType}</td>
-                  <td>{stat.AscensionStatValue}</td>
-                  <td>{stat.AscensionPhase}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <StatTable table={data.base_stats}/>
 
         <br/>
           
