@@ -46,11 +46,7 @@ export default async function CharacterPage({params}) {
         <>
           <div>
             {Array.from({length: data.rarity}).map((_, index) => (
-              <i key={index} className="material-symbols-rounded"
-                style={{
-                  color: '#FFD700',
-                }}
-              >star</i>
+              <i key={index} className="material-symbols-rounded"style={{color: '#FFD700'}}>star</i>
             ))}
           </div>
           <p>A young researcher well-versed in botany who currently serves as a Forest Watcher in Avidya Forest. He is a straight shooter with a warm heart — and a dab hand at guiding even the dullest of pupils.</p>
@@ -70,7 +66,7 @@ export default async function CharacterPage({params}) {
       <div style={{padding: '50px'}}>
         
         <div>
-          <h2>Base Stats</h2>
+          <h2 className="mb-2 text-2xl font-bold">Base Stats</h2>
           <BaseStatTable 
             table={data.base_stats}
             cost={data.ascension_costs}
@@ -80,11 +76,23 @@ export default async function CharacterPage({params}) {
         <br/>
 
         <div>
-          <h2>Talents</h2>
+          <h2 className="mb-2 text-2xl font-bold">Talents</h2>
           {data.talents.map((talent, index) => (
+              <Talent 
+                key={index}
+                data={talent}
+              />
+          ))}
+        </div>
+
+        <br/>
+
+        <div>
+          <h2 className="mb-2 text-2xl font-bold">Passives</h2>
+          {data.passives.map((passive, index) => (
             <Talent 
               key={index}
-              data={talent}
+              data={passive}
             />
           ))}
         </div>
@@ -92,11 +100,16 @@ export default async function CharacterPage({params}) {
         <br/>
 
         <div>
-          <h2>Passives</h2>
-          {data.passives.map((passive, index) => (
+          <h2 className="mb-2 text-2xl font-bold">Constellations</h2>
+          {data.constellations.map((constellation, index) => (
             <Talent 
               key={index}
-              data={passive}
+              data={{
+                type: "C" + (index+1),
+                name: constellation.name,
+                description: constellation.description,
+                properties: constellation.properties,
+              }}
             />
           ))}
         </div>

@@ -1,67 +1,56 @@
 import React from 'react'
 import Image from 'next/image'
+import Table from './Table'
+import BaseStatTableCSS from './stattable.module.css'
 import TalentCSS from './talent.module.css'
-import StatTableCSS from './stattable.module.css'
-import StatTable from './BaseStatTable'
+import ExampleIcon from '@public/assets/icons/bow.png'
 
-type Talent = {
-    name: string;
-    type: string;
-    description: string;
-    attributes?: TalentAttribute[];
-    properties?: TalentProperty[];
-}
+import { CharacterTalent, CharacterTalentAttribute } from '@/types/character'
 
-type TalentAttribute = {
-    hit: string;
-    values: number[];
-}
+export default function Talent(props: {data: CharacterTalent}) {
 
-type TalentProperty = any;
-
-export default function Talent(props: {data: Talent}) {
   return (
     <div className={TalentCSS.talent}>
-        <div id="talent-header">
-          <Image src={`/images/talents/${props.data.name}.png`} alt={props.data.name} width={100} height={100} />
-          <h2>{props.data.name}</h2>
-          <h3>{props.data.type}</h3>
+        <div className={`${TalentCSS.talentHeader}`}>
+          <Image 
+            src={ExampleIcon} 
+            alt={props.data.name} 
+            width={100} 
+            height={100} 
+            className={TalentCSS.talentIcon}
+          />
+          <h1>{props.data.type}: {props.data.name}</h1>
         </div>
         
-        <div id="talent-description" className="mb-4" style={{fontFamily: ''}}>
-          <p>{props.data.description}</p>
+        <div id="talent-description" className={TalentCSS.talentDescription}>
+          <p dangerouslySetInnerHTML={{ __html: props.data.description
+            .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')
+            .replace(/\n/g, '<br/>') 
+          }}/>
         </div>
 
-        {
-          props.data.attributes && <TalentAttributeTable data={props.data} />
-        }
+        <div className="mb-4 overflow-x-auto">
+          {props.data.attributes && 
+              <Table
+                className={TalentCSS.talentTable}
+                header={<>
+                  <th>Hit</th>
+                  {[...Array(props.data.attributes?.[0]?.values.length)].map((_, index) => (
+                    <th key={index}>Lv {index + 1}</th>
+                  ))}
+                </>}
+                body={
+                  props.data.attributes?.map((attribute: CharacterTalentAttribute, i: number) => (
+                    <tr key={i} className={i % 2 === 0 ? BaseStatTableCSS.even : BaseStatTableCSS.odd}>
+                      <td>{attribute.hit}</td>
+                      {attribute.values.map((value: number, index: number) => (
+                        <td key={index} className="whitespace-normal">{value}</td>
+                      ))}
+                  </tr>
+                ))}
+              />
+          }
+        </div>
     </div>
   )
-}
-
-
-function TalentAttributeTable(props: {data: any}) {
-  return         <table className={`${StatTableCSS.stattable} ${TalentCSS.talentTable}`}>
-  <thead>
-    <tr>
-      <th className={StatTableCSS.header}>Hit</th>
-        {(() => {
-          const maxNumValues = props.data.attributes?.[0]?.values.length;
-          return Array.from({length: maxNumValues}, (_, index) => (
-            <th key={index} className={StatTableCSS.header}>Lv {index + 1}</th>
-          ))
-        })()}
-    </tr>
-  </thead>
-  <tbody>
-    {props.data.attributes?.map((attribute: TalentAttribute, index: number) => (
-      <tr key={index} className={index % 2 === 0 ? StatTableCSS.even : StatTableCSS.odd}>
-        <td className={StatTableCSS.label}>{attribute.hit}</td>
-        {attribute.values.map((value: number, index: number) => (
-          <td key={index} className={StatTableCSS.value}>{value}</td>
-        ))}
-      </tr>
-    ))}
-  </tbody>
-</table>
 }

@@ -7,10 +7,12 @@ import ClientWrapper from "@/components/navigation/ClientWrapper"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  description: "Genshin Impact Database",
+  title: "Irminsul",
+  url: "https://irminsul.moe",
+  description: "Genshin Impact curated ingame & meta/tc information Database & Tools",
 }
 
-export default function RootLayout({children}) {
+export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
       <head>
@@ -25,11 +27,7 @@ export default function RootLayout({children}) {
           </main>
         </ClientWrapper>
       </body>
-      <script 
-        async 
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1739492299738628"
-        crossOrigin="anonymous"
-      ></script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1739492299738628" crossOrigin="anonymous"></script>
     </html>
   )
 }

@@ -42,11 +42,20 @@ type CharacterConstellation = {
 }
 
 type CharacterTalent = {
-    name: string
-    type: string
-    description: string
-    attributes: any[]
+    name: string;
+    type: string;
+    description: string;
+    attributes?: CharacterTalentAttribute[];
+    properties?: CharacterTalentProperty[];
 }
+
+type CharacterTalentAttribute = {
+    hit: string;
+    values: number[];
+}
+
+type CharacterTalentProperty = any;
+
 
 type CharacterPassive = {
     name: string
@@ -61,5 +70,3 @@ type CharacterAscensionCost = {
         amount: string
     }[]
 }
-
-

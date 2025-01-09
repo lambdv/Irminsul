@@ -89,13 +89,14 @@ function CenterContainer(props: any){
 
 function LeftContainer(){
   const { toggleSideNavCollapsed } = NavigationStore()
+  const websiteName = "Irminsul"
   return (
     <div id="topnavLeft" className={TopnavCSS.hamburger}>
       <button className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '} onClick={ toggleSideNavCollapsed }>
         <i className="material-symbols-outlined" >menu</i>
       </button>
       <Link href="/">
-        <p id={TopnavCSS.logo}>Irminsul</p>
+        <p id={TopnavCSS.logo}>{websiteName} <span>Beta</span></p>
       </Link>
     </div>
   )
@@ -107,7 +108,7 @@ function RightContainer(){
   return (
     <div id="topnavRight" className={TopnavCSS.fries + " " + TopnavCSS.hamburger}>
       <button 
-            className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple ' + TopnavCSS.mobileFries}
+            className={TopnavCSS.mobileOnly + " " + TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '}
             onClick={() => SearchStore.getState().setShowPallette(true)}
           >
         <i className="material-symbols-outlined">search</i>

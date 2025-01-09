@@ -80,7 +80,17 @@
     top:12.5px;
 
     transition: 0.2s ease-in-out;
+}
 
+.topnav #logo span{
+    font-size: 10px;
+    font-weight: 100;
+    position: relative;
+    top: -2px;
+    color: black;
+    background-color: var(--ingame-primary-color);
+    padding: 2px 4px;
+    border-radius: 4px;
 }
 
 .topnav a{
@@ -118,7 +128,7 @@
     color: rgb(124, 124, 124);
 }
 
-.mobileFries{
+.mobileOnly{
     display: none;
 }
 
@@ -140,9 +150,8 @@
         display: flex;
         width: 60%;
     }
-    .mobileFries{
+    .mobileOnly{
         display: block;
-
     }
 }
 

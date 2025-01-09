@@ -25,7 +25,7 @@
     "express": "^4.19.2",
     "irminsul-next": "file:",
     "lucide-react": "^0.468.0",
-    "next": "^15.1.1-canary.25",
+    "next": "^15.2.0-canary.2",
     "react": "^18",
     "react-dom": "^18",
     "recharts": "^2.15.0",

@@ -55,7 +55,7 @@ export default function Sidenav() {
         className={SidenavCSS.sidenavLink +' '+ (onLinkedPage && SidenavCSS.active) + (!sideNavCollapsed ? ' waves-effect waves-light ripple ' : ' ')}
         onClick={() => handleSideNavLinkClick(props.href)}  
       >
-        <i className={SidenavCSS.sidenavLinkSymbol + ' material-symbols-outlined'}>
+        <i className={SidenavCSS.sidenavLinkSymbol + ' material-symbols-rounded'}>
           {props.img ? <Image src={props.img} alt = {props.text} width={24} height={24} /> : props.icon}
         </i>
         <p>{props.text}</p>
@@ -67,7 +67,7 @@ export default function Sidenav() {
     <>
       <nav className={SidenavCSS.sidenav + " " + (sideNavCollapsed && SidenavCSS.sidenavCollapsed)} style={{zIndex: 10}}>
         <SideNavLink href="/" icon="home" text="Home"/>
-        {/* <SideNavLink href="#" icon="search" text="Search" onClick={togglePalette}/> */}
+        {/* <SideNavLink href="/Archive" icon="database" text="Archive"/> */}
         <SideNavLink href="/characters" img={characterIcon} text="Characters"/>
         <SideNavLink href="/weapons" img={weaponIcon} text="Weapons"/>
         <SideNavLink href="/artifacts" img={artifactIcon} text="Artifacts"/>
