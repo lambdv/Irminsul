@@ -29,21 +29,19 @@ export default function Topnav() {
     <>
       <nav className={TopnavCSS.topnav + " " + (!isAtTop && TopnavCSS.solidnav)}>
         <LeftContainer/>
-        <CenterContainer
-          showPallette={showPallette}
-          setShowPallette={setShowPallette}
-        />
+        <CenterContainer showPallette={showPallette} setShowPallette={setShowPallette}/>
         <RightContainer/>
       </nav>
-        {showPallette &&
-          <Overlay 
-            zIndex={100} 
-            onClick={()=>setShowPallette(false)} 
-            style={{ display: showPallette ? 'block' : 'none' }}
-          >
-            <SearchPallette/>
-          </Overlay>
-        }
+
+      {showPallette &&
+        <Overlay 
+          zIndex={100} 
+          onClick={()=>setShowPallette(false)} 
+          style={{ display: showPallette ? 'block' : 'none' }}
+        >
+          <SearchPallette/>
+        </Overlay>
+      }
     </>
   )
 }
@@ -61,9 +59,19 @@ function CenterContainer(props: any){
     return pathname === "/characters" || pathname === "/weapons" || pathname === "/artifacts"
   }
 
-  const toggleSearchPallette = () => {
-    if(!isExplorePage() && !showPallette)
+  const openSearchPallette = (e) => {
+    if(!isExplorePage() && !showPallette && SearchQuery !== "" && SearchQuery !== undefined)
       setShowPallette(!showPallette)
+  }
+
+  const handleSearchBarChange = (e) => {
+    if(e.target.selectionStart !== 0 && !isExplorePage()){
+      setShowPallette(!showPallette)
+      updateQuery(e)
+    }
+
+    if(isExplorePage()) 
+      updateQuery(e)
   }
 
   return (
@@ -72,11 +80,8 @@ function CenterContainer(props: any){
           className={TopnavCSS.searchBar} 
           placeholder="Search" 
           value={SearchQuery}
-          onChange={(e) => {
-            if(isExplorePage()) 
-              updateQuery(e)
-          }}
-          onMouseDown={toggleSearchPallette}
+          onChange={handleSearchBarChange}
+          onMouseDown={openSearchPallette}
         />
     </div>
   )
@@ -97,8 +102,7 @@ function LeftContainer(){
 }
 
 function RightContainer(){
-  const toggleTheme = () => { 
-  }
+  const toggleTheme = () => {}
 
   return (
     <div id="topnavRight" className={TopnavCSS.fries + " " + TopnavCSS.hamburger}>

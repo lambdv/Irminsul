@@ -1,4 +1,5 @@
-## Long Term TODOS
+- scrape weapon costs
+
 - individual page ui
 - landing page
 - optimize preformance and make ui better adapt to mobile

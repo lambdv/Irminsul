@@ -3,8 +3,9 @@ import { getCharacter, getCharacters } from "@/utils/DataGetters"
 import { toTitleCase } from "@/utils/standardizers"
 import Image from 'next/image'
 import Header from "@/components/archive/Header"
-import StatTable from "@/components/archive/StatTable"
 import { Character } from "@/types/character"
+import BaseStatTable from "@/components/archive/BaseStatTable"
+import Talent from "@/components/archive/Talent"
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -68,59 +69,38 @@ export default async function CharacterPage({params}) {
 
       <div style={{padding: '50px'}}>
         
-        <StatTable table={data.base_stats}/>
+        <div>
+          <h2>Base Stats</h2>
+          <BaseStatTable 
+            table={data.base_stats}
+            cost={data.ascension_costs}
+          />
+        </div>
 
         <br/>
-          
+
         <div>
           <h2>Talents</h2>
           {data.talents.map((talent, index) => (
-            <div key={index}>
-              <h2>{talent.name}</h2>
-              <p>{talent.description}</p>
-
-              <table>
-                <thead>
-                  <tr>
-                    <th>Hit</th>
-                    {
-                      talent.attributes?.[0]?.values?.map((value, index) => (
-                        <th key={index}>Lvl {index+1}</th>
-                      ))
-                    }
-                  </tr>
-                </thead>
-                <tbody>
-                  {
-                    talent.attributes?.map((attribute, index) => (
-                      <tr key={index}>
-                        <td>{attribute.hit}</td>
-                        {
-                          attribute.values?.map((value, index) => (
-                            <td key={index}>{value}</td>
-                          ))
-                        }
-                      </tr>
-                    ))
-                  }
-                </tbody>
-              </table>
-              <br/>
-            </div>
+            <Talent 
+              key={index}
+              data={talent}
+            />
           ))}
         </div>
 
         <br/>
 
         <div>
-          <h2>Constellations</h2>
-          {data.constellations.map((constellation, index) => (
-            <div key={index}>
-              <h2>{constellation.name}</h2>
-              <p>{constellation.description}</p>
-            </div>
+          <h2>Passives</h2>
+          {data.passives.map((passive, index) => (
+            <Talent 
+              key={index}
+              data={passive}
+            />
           ))}
         </div>
+
 
       </div>
     </div>

@@ -12,7 +12,7 @@ import weaponIcon from '@public/assets/icons/weaponIcon.png'
 import artifactIcon from '@public/assets/icons/artifactIcon.png'
 import enemyIcon from '@public/assets/icons/enemyIcon.png'
 import wishIcon from '@public/assets/icons/wish.png'
-
+import partyIcon from '@public/assets/icons/party.png'
 /**
  * Side navigation component
  */
@@ -71,12 +71,12 @@ export default function Sidenav() {
         <SideNavLink href="/characters" img={characterIcon} text="Characters"/>
         <SideNavLink href="/weapons" img={weaponIcon} text="Weapons"/>
         <SideNavLink href="/artifacts" img={artifactIcon} text="Artifacts"/>
-        <SideNavLink href="/enemies" img={enemyIcon} text="Enemies"/>
-        <SideNavLink href="/wishes" img={wishIcon} text="Banners"/>
-        {/* <SideNavLink href="/" img={wishIcon} text="Articles"/>
-        <SideNavLink href="/" img={wishIcon} text="Akademiya"/>
-        <SideNavLink href="/" img={wishIcon} text="Archipelago"/>
-        <SideNavLink href="/wishes" img={wishIcon} text="SeelieGPT"/> */}
+        {/* <SideNavLink href="/enemies" img={enemyIcon} text="Enemies"/>
+        <SideNavLink href="/wishes" img={wishIcon} text="Banners"/> */}
+        <SideNavLink href="/articles" img={wishIcon} text="Articles"/>
+        <SideNavLink href="/teams" img={partyIcon} text="Teams"/>
+
+
       </nav>
       {!sideNavCollapsed && windowWidth < 1500 && 
         <Overlay zIndex={2} onClick={() => setSideNavCollapsed(true)}></Overlay>

@@ -1,0 +1,11 @@
+.talent {
+    padding: 10px; 
+    background-color: #161616;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.talentTable{
+    overflow-x: scroll;
+    width: 100%;
+}
