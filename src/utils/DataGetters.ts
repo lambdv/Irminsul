@@ -5,22 +5,23 @@ import { Weapon } from '@/types/weapon';
 import { Artifact } from '@/types/artifact';
 
 // Function to read and parse JSON files from a given directory
-const readDataFromDirectory = (directory: string, type: 'character' | 'weapon' | 'artifact') => {
-    return fs.readdirSync(directory)
-        .map(file => {
-            const data = JSON.parse(fs.readFileSync(`${directory}/${file}`, 'utf8'));
-            data.id = file.split('.')[0];
-            if (type === 'weapon') {
-                data.release_date_epoch = new Date(data.release_date).getTime() / 1000;
-            }
-            return data;
-        });
+const readDataFromDirectory = async (directory: string, type: 'character' | 'weapon' | 'artifact') => {
+    const files = await fs.promises.readdir(directory);
+    const dataPromises = files.map(async (file) => {
+        const data = JSON.parse(await fs.promises.readFile(`${directory}/${file}`, 'utf8'));
+        data.id = file.split('.')[0];
+        if (type === 'weapon') {
+            data.release_date_epoch = new Date(data.release_date).getTime() / 1000;
+        }
+        return data;
+    });
+    return Promise.all(dataPromises);
 };
 
 // Load data at build time
-const characterData = readDataFromDirectory("data/characters/", 'character');
-const weaponData = readDataFromDirectory("data/weapons/", 'weapon');
-const artifactData = readDataFromDirectory("data/artifacts/", 'artifact');
+const characterData = await readDataFromDirectory("data/characters/", 'character');
+const weaponData = await readDataFromDirectory("data/weapons/", 'weapon');
+const artifactData = await readDataFromDirectory("data/artifacts/", 'artifact');
 
 export async function getCharacters(): Promise<Character[]> {
     return characterData;
