@@ -29,6 +29,7 @@ export default async function ArtifactPage({params}) {
   const {id} = await params
   const data = params.data ? params.data : await getArtifact(id)
   return (
+    <Suspense fallback={<div>Loading...</div>}>
       <div id="">
         <Header 
           title={data.name} 
@@ -62,5 +63,6 @@ export default async function ArtifactPage({params}) {
 
         </div>
       </div>
+    </Suspense>
   )
 }

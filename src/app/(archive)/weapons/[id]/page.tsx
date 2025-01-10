@@ -5,6 +5,7 @@ import BaseStatTable from '@/components/archive/BaseStatTable'
 import { getWeapon, getWeapons } from '@/utils/DataGetters'
 import { toTitleCase } from '@/utils/standardizers'
 import Talent from '@/components/archive/Talent'
+import { Suspense } from 'react'
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -32,6 +33,7 @@ export default async function WeaponPage({params}) {
   const data = params.data ? params.data : await getWeapon(id)
 
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <div id="">
       <Header 
         title={data.name}
@@ -80,6 +82,7 @@ export default async function WeaponPage({params}) {
 
       </div>
     </div>
+    </Suspense>
   )
 }
   

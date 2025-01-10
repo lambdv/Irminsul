@@ -6,6 +6,7 @@ import Header from "@/components/archive/Header"
 import { Character } from "@/types/character"
 import BaseStatTable from "@/components/archive/BaseStatTable"
 import Talent from "@/components/archive/Talent"
+import { Suspense } from "react"
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -36,6 +37,7 @@ export default async function CharacterPage({params}) {
   const data: Character = params.data ? params.data : await getCharacter(id)
 
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <div id="character-page">
 
       <Header 
@@ -117,6 +119,7 @@ export default async function CharacterPage({params}) {
 
       </div>
     </div>
+    </Suspense>
   )
 }
   
