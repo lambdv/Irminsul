@@ -6,7 +6,7 @@ import { Artifact } from '@/types/artifact';
 
 
 export async function getCharacters(): Promise<Character[]> {
-    "use cache"
+    //"use cache"
     return fs.readdirSync('data/characters/')
         .map(file => {
             const character = JSON.parse(fs.readFileSync(`data/characters/${file}`, 'utf8'))
@@ -16,7 +16,7 @@ export async function getCharacters(): Promise<Character[]> {
 }
 
 export async function getWeapons(): Promise<Weapon[]> {
-    "use cache"
+    //"use cache"
     return fs.readdirSync('data/weapons/')
         .map(file => {
             const weapon = JSON.parse(fs.readFileSync(`data/weapons/${file}`, 'utf8'))
@@ -27,7 +27,7 @@ export async function getWeapons(): Promise<Weapon[]> {
 }
 
 export async function getArtifacts(): Promise<Artifact[]> {
-    "use cache"
+    //"use cache"
     return fs.readdirSync('data/artifacts/')
         .map(file => {
             const artifact = JSON.parse(fs.readFileSync(`data/artifacts/${file}`, 'utf8'))
@@ -37,19 +37,19 @@ export async function getArtifacts(): Promise<Artifact[]> {
 }
 
 export async function getCharacter(id: string): Promise<Character> {
-    "use cache"
+    //"use cache"
     const characters = await getCharacters()
     return characters.find(character => character.key === id)
 }
 
 export async function getWeapon(id: string){
-    "use cache"
+    //"use cache"
     const weapons = await getWeapons()
     return weapons.find(weapon => weapon.key === id)
 }
 
 export async function getArtifact(id: string){
-    "use cache"
+    //"use cache"
     const artifacts = await getArtifacts()
     return artifacts.find(artifact => artifact.key === id)
 }
@@ -59,7 +59,7 @@ export async function getArtifact(id: string){
  * get all data from api and flatten it into a single array of type page
  */
 export async function getAllPages(): Promise<Page[]> {
-    "use cache"
+    //"use cache"
     let pages: Page[] = [];
     const jsonToResultItem = (json: any, category: string): Page[] => 
         json.map((item: any) => ({

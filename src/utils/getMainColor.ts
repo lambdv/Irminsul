@@ -1,7 +1,7 @@
 import { createCanvas, loadImage } from 'canvas'
 
 export async function getMainColor(imageURL: string): Promise<string> {
-    "use cache"
+    //"use cache"
     
     const fs = require('fs');
     const path = require('path');
