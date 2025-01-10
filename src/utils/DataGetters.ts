@@ -7,9 +7,9 @@ import { Artifact } from '@/types/artifact';
 
 export async function getCharacters(): Promise<Character[]> {
     //"use cache"
-    return fs.readdirSync('data/characters/')
+    return fs.readdirSync("@data/characters/")
         .map(file => {
-            const character = JSON.parse(fs.readFileSync(`data/characters/${file}`, 'utf8'))
+            const character = JSON.parse(fs.readFileSync(`@data/characters/${file}`, 'utf8'))
             character.id = file.split('.')[0]
             return character
         })
@@ -17,9 +17,9 @@ export async function getCharacters(): Promise<Character[]> {
 
 export async function getWeapons(): Promise<Weapon[]> {
     //"use cache"
-    return fs.readdirSync('data/weapons/')
+    return fs.readdirSync("@data/weapons/")
         .map(file => {
-            const weapon = JSON.parse(fs.readFileSync(`data/weapons/${file}`, 'utf8'))
+            const weapon = JSON.parse(fs.readFileSync(`@data/weapons/${file}`, 'utf8'))
             weapon.id = file.split('.')[0]
             weapon.release_date_epoch = new Date(weapon.release_date).getTime() / 1000
             return weapon
@@ -28,9 +28,9 @@ export async function getWeapons(): Promise<Weapon[]> {
 
 export async function getArtifacts(): Promise<Artifact[]> {
     //"use cache"
-    return fs.readdirSync('data/artifacts/')
+    return fs.readdirSync("@data/artifacts/")
         .map(file => {
-            const artifact = JSON.parse(fs.readFileSync(`data/artifacts/${file}`, 'utf8'))
+            const artifact = JSON.parse(fs.readFileSync(`@data/artifacts/${file}`, 'utf8'))
             artifact.id = file.split('.')[0]
             return artifact
         })

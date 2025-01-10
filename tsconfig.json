@@ -16,6 +16,9 @@
       "@utils/*": [
         "./src/utils/*"
       ],
+      "@data/*": [
+        "./data/*"
+      ],
     },
     "lib": [
       "dom",
