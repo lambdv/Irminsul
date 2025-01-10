@@ -22,7 +22,7 @@ export async function getMainColor(imageURL: string): Promise<string> {
     catch(e) { return "rgb(0,0,0)" }
 
     // Maintain aspect ratio while scaling down
-    const maxDimension = 1250;
+    const maxDimension = 250;
     const scale = Math.min(maxDimension / img.width, maxDimension / img.height);
     const width = Math.round(img.width * scale);
     const height = Math.round(img.height * scale);

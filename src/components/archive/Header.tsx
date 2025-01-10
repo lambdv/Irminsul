@@ -8,6 +8,8 @@ export default async function Header(props: {
     bgImage?: string
     color?: string
     children?: React.ReactNode
+    imageWidth?: number
+    imageHeight?: number
 }){
     let color = await getMainColor(props.splashImage) || "rgb(0,0,0)"
     return (
@@ -24,10 +26,13 @@ export default async function Header(props: {
                 >
                     <div className={HeaderCSS.archiveRecordHeaderSplash}>
                         <Image
-                            width={1000}
-                            height={1000}
+                            width={props.imageWidth || 1000}
+                            height={props.imageHeight || 1000}
                             src={props.splashImage}
                             alt={props.title}
+                            style={{
+
+                            }}
                         />
                     </div>
                     <div className={HeaderCSS.archiveRecordHeaderDetailsContent} id={HeaderCSS.archiveRecordHeaderTitle}>

@@ -7,18 +7,21 @@ import ExampleIcon from '@public/assets/icons/bow.png'
 
 import { CharacterTalent, CharacterTalentAttribute } from '@/types/character'
 
-export default function Talent(props: {data: CharacterTalent}) {
+export default function Talent(props: {
+  data: CharacterTalent,
+  icon?: boolean
+}) {
 
   return (
     <div className={TalentCSS.talent}>
         <div className={`${TalentCSS.talentHeader}`}>
-          <Image 
+          {!props.icon && <Image 
             src={ExampleIcon} 
-            alt={props.data.name} 
-            width={100} 
-            height={100} 
-            className={TalentCSS.talentIcon}
-          />
+              alt={props.data.name} 
+              width={100} 
+              height={100} 
+              className={TalentCSS.talentIcon}
+            />}
           <h1>{props.data.type}: {props.data.name}</h1>
         </div>
         

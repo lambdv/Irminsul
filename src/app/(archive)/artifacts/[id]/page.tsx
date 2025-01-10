@@ -1,3 +1,4 @@
+import Header from '@/components/archive/Header'
 import { getArtifact, getArtifacts } from '@/utils/DataGetters'
 import { toTitleCase } from '@/utils/standardizers'
 import { Suspense } from 'react'
@@ -28,11 +29,38 @@ export default async function ArtifactPage({params}) {
   const {id} = await params
   const data = params.data ? params.data : await getArtifact(id)
   return (
-    <Suspense fallback={<div>Loading...</div>}>
       <div id="">
-        {id}
-        {JSON.stringify(data)}
+        <Header 
+          title={data.name} 
+          splashImage={`/assets/artifacts/${data.key}/${data.key}_flower.png`}
+          imageWidth={200}
+        >
+          <div>
+            {Array.from({length: data.rarity_max}).map((_, index) => (
+              <i key={index} className="material-symbols-rounded"
+                style={{
+                  color: '#FFD700',
+                }}
+              >star</i>
+            ))}
+            <p>{data.flower_description}</p>
+          </div>
+        </Header>
+
+        
+
+        <div id="pagecontent" style={{paddingLeft: '50px', paddingRight: '50px'}}>
+          <br/>
+
+          
+          <div className="bg-zinc-900 p-4 rounded-md shadow-md">
+            <h2 className="text-lg font-semibold text-gray-100">Set Bonus</h2>
+            <div className="text-gray-400 flex"><b className="mr-2" style={{whiteSpace: 'nowrap'}}>2-Piece Set:</b> <span className="font-medium text-gray-200 font-mono">{data.two_pc_bonus}</span></div>
+            <div className="text-gray-400 flex"><b className="mr-2" style={{whiteSpace: 'nowrap'}}>4-Piece Set:</b> <span className="font-medium text-gray-200 font-mono">{data.four_pc_bonus}</span></div>
+          </div>
+
+
+        </div>
       </div>
-    </Suspense>
   )
 }

@@ -6,7 +6,7 @@ import { Artifact } from '@/types/artifact';
 
 
 export async function getCharacters(): Promise<Character[]> {
-    // "use cache"
+    "use cache"
     return fs.readdirSync('data/characters/')
         .map(file => {
             const character = JSON.parse(fs.readFileSync(`data/characters/${file}`, 'utf8'))
@@ -16,7 +16,7 @@ export async function getCharacters(): Promise<Character[]> {
 }
 
 export async function getWeapons(): Promise<Weapon[]> {
-    //"use cache"
+    "use cache"
     return fs.readdirSync('data/weapons/')
         .map(file => {
             const weapon = JSON.parse(fs.readFileSync(`data/weapons/${file}`, 'utf8'))
@@ -27,7 +27,7 @@ export async function getWeapons(): Promise<Weapon[]> {
 }
 
 export async function getArtifacts(): Promise<Artifact[]> {
-    //"use cache"
+    "use cache"
     return fs.readdirSync('data/artifacts/')
         .map(file => {
             const artifact = JSON.parse(fs.readFileSync(`data/artifacts/${file}`, 'utf8'))
@@ -58,24 +58,34 @@ export async function getArtifact(id: string){
 /**
  * get all data from api and flatten it into a single array of type page
  */
-export async function getAllPages(): Promise<Page[]>{
-    // "use cache"
-    let pages: Page[] = []
+export async function getAllPages(): Promise<Page[]> {
+    "use cache"
+    let pages: Page[] = [];
     const jsonToResultItem = (json: any, category: string): Page[] => 
         json.map((item: any) => ({
             id: item.id, 
             name: item.name, 
             rarity: item.rarity, 
             category: category
-        }))
-    let characters = await getCharacters()
-    let weapons = await getWeapons()
-    let artifacts = await getArtifacts()
-    const characterPages: Page[] = jsonToResultItem(characters, "Character")
-    const weaponsPages: Page[] = jsonToResultItem(weapons, "Weapon")
-    const artifactsPages: Page[] = jsonToResultItem(artifacts, "Artifact")
-    pages = [...characterPages, ...weaponsPages, ...artifactsPages]
-    return pages
+        }));
+
+    try {
+        let characters = await getCharacters();
+        let weapons = await getWeapons();
+        let artifacts = await getArtifacts();
+        
+        const characterPages: Page[] = jsonToResultItem(characters, "Character");
+        const weaponsPages: Page[] = jsonToResultItem(weapons, "Weapon");
+        const artifactsPages: Page[] = jsonToResultItem(artifacts, "Artifact");
+        
+        pages = [...characterPages, ...weaponsPages, ...artifactsPages];
+    } catch (error) {
+        console.error("Error fetching pages:", error);
+        // Handle error appropriately, possibly returning an empty array or a fallback
+        return [];
+    }
+
+    return pages;
 } 
 
 

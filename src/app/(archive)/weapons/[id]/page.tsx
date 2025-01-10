@@ -1,7 +1,10 @@
 "use server"
 import Header from '@/components/archive/Header'
+import Table from '@/components/archive/Table'
+import BaseStatTable from '@/components/archive/BaseStatTable'
 import { getWeapon, getWeapons } from '@/utils/DataGetters'
 import { toTitleCase } from '@/utils/standardizers'
+import Talent from '@/components/archive/Talent'
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -47,8 +50,35 @@ export default async function WeaponPage({params}) {
           </div>
         </>
       </Header>
-      {id}
-      {JSON.stringify(data)}
+      
+      <div style={{paddingLeft: '50px', paddingRight: '50px'}}>
+          <br/>
+          <div className="flex">
+            <div className="mr-10">
+              <BaseStatTable 
+                table={data.base_stats.map(stat => ({
+                  lvl: stat.level,
+                  base_atk: stat.base_atk,
+                  AscensionStatValue: stat.sub_stat_value,
+                  AscensionStatType: stat.sub_stat_type,
+                  ascention: stat.ascension_phase,
+                }))} 
+                cost={[]}
+              />
+            </div>
+            <div>
+                <Talent
+                  data = {{
+                    type: "Passive",
+                    name: data.refinement_name,
+                    description: data.refinements[0],
+                  }}
+                  icon={true}
+                />
+            </div>
+          </div>
+
+      </div>
     </div>
   )
 }
