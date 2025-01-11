@@ -18,11 +18,10 @@ let characterData: any[] = [];
 let weaponData: any[] = [];
 let artifactData: any[] = [];
 
-if (process.env.NODE_ENV === 'development' || process.env.NEXT_PHASE === 'build') {
   characterData = await loadData("data/characters/");
   weaponData = await loadData("data/weapons/"); 
   artifactData = await loadData("data/artifacts/");
-}
+
 
 export async function getCharacters(): Promise<Character[]> {
     return characterData;
