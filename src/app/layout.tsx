@@ -3,6 +3,7 @@ import "./globals.css"
 import Sidenav from "@/components/navigation/Sidenav"
 import Topnav from "@/components/navigation/Topnav"
 import ClientWrapper from "@/components/navigation/ClientWrapper"
+import { Suspense } from "react"
 
 const inter = Inter({ subsets: ["latin"] })
 

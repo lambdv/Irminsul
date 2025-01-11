@@ -1,4 +1,3 @@
-"use server"
 import Header from '@/components/archive/Header'
 import Table from '@/components/archive/Table'
 import BaseStatTable from '@/components/archive/BaseStatTable'
@@ -20,20 +19,22 @@ export async function generateMetadata({params}) {
 }
 
 //statically generate all character pages from api at build time
-export async function generateStaticParams() {
-  const weapons = await getWeapons()
-  return weapons.map((weapon) => ({
-    id: weapon.id,
-    data: weapon
-  }))
-}
+// export async function generateStaticParams() {
+//   const weapons = await getWeapons()
+//   return weapons.map((weapon) => ({
+//     id: weapon.id,
+//     data: weapon
+//   }))
+// }
+
+
+
 
 export default async function WeaponPage({params}) {
   const {id} = await params
   const data = params.data ? params.data : await getWeapon(id)
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
     <div id="">
       <Header 
         title={data.name}
@@ -82,7 +83,6 @@ export default async function WeaponPage({params}) {
 
       </div>
     </div>
-    </Suspense>
   )
 }
   
