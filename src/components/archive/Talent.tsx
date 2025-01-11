@@ -25,12 +25,12 @@ export default function Talent(props: {
           <h1>{props.data.type}: {props.data.name}</h1>
         </div>
         
-        <div id="talent-description" className={TalentCSS.talentDescription}>
+        {props.data.description && <div id="talent-description" className={TalentCSS.talentDescription}>
           <p dangerouslySetInnerHTML={{ __html: props.data.description
             .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')
             .replace(/\n/g, '<br/>') 
           }}/>
-        </div>
+        </div>}
 
         <div className="mb-4 overflow-x-auto">
           {props.data.attributes && 
