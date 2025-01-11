@@ -1,0 +1,647 @@
+{
+    "name": "Charlotte",
+    "key": "charlotte",
+    "title": "Lens of Verity",
+    "rarity": 4,
+    "element": "cryo",
+    "weapon": "catalyst",
+    "release_date": "november 08, 2023",
+    "release_date_epoch": 1699401600,
+    "constellation": "hualina veritas",
+    "birthday": "april 10th",
+    "affiliation": "the steambird",
+    "region": "fontaine",
+    "special_dish": "exclusive scoop: gourmet column",
+    "alternate_title": "reporter of the steambird",
+    "description": "",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "902.67",
+            "BaseATK": "14.51",
+            "BaseDEF": "45.78",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2318.97",
+            "BaseATK": "37.29",
+            "BaseDEF": "117.61",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "2993.31",
+            "BaseATK": "48.13",
+            "BaseDEF": "151.81",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "4483.62",
+            "BaseATK": "72.09",
+            "BaseDEF": "227.39",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "4962.76",
+            "BaseATK": "79.79",
+            "BaseDEF": "251.69",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "5708.37",
+            "BaseATK": "91.78",
+            "BaseDEF": "289.51",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "6347.22",
+            "BaseATK": "102.05",
+            "BaseDEF": "321.91",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "7092.83",
+            "BaseATK": "114.04",
+            "BaseDEF": "359.72",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "7571.97",
+            "BaseATK": "121.75",
+            "BaseDEF": "384.02",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "8316.67",
+            "BaseATK": "133.72",
+            "BaseDEF": "421.79",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "8795.81",
+            "BaseATK": "141.42",
+            "BaseDEF": "446.09",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "9541.42",
+            "BaseATK": "153.41",
+            "BaseDEF": "483.90",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "10020.56",
+            "BaseATK": "161.12",
+            "BaseDEF": "508.20",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "10766.17",
+            "BaseATK": "173.10",
+            "BaseDEF": "546.02",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Shivada Jade Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Beryl Conch",
+                    "amount": "3"
+                },
+                {
+                    "name": "Meshing Gear",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "\"Tourbillon Device\"",
+                    "amount": "2"
+                },
+                {
+                    "name": "Shivada Jade Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Beryl Conch",
+                    "amount": "10"
+                },
+                {
+                    "name": "Meshing Gear",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "\"Tourbillon Device\"",
+                    "amount": "4"
+                },
+                {
+                    "name": "Shivada Jade Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Beryl Conch",
+                    "amount": "20"
+                },
+                {
+                    "name": "Mechanical Spur Gear",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "\"Tourbillon Device\"",
+                    "amount": "8"
+                },
+                {
+                    "name": "Shivada Jade Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Beryl Conch",
+                    "amount": "30"
+                },
+                {
+                    "name": "Mechanical Spur Gear",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "\"Tourbillon Device\"",
+                    "amount": "12"
+                },
+                {
+                    "name": "Shivada Jade Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Beryl Conch",
+                    "amount": "45"
+                },
+                {
+                    "name": "Artificed Dynamic Gear",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "\"Tourbillon Device\"",
+                    "amount": "20"
+                },
+                {
+                    "name": "Shivada Jade Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Beryl Conch",
+                    "amount": "60"
+                },
+                {
+                    "name": "Artificed Dynamic Gear",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Cool-Color Capture",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nTaking aim at targets using Monsieur Verite, her custom Kamera, Charlotte performs up to 3 consecutive attacks, dealing Cryo DMG.\nCharged Attack\nConsumes a fixed amount of Stamina, and after a moment's preparation, will deploy Monsieur Verite to deal AoE Cryo DMG.\nPlunging Attack\nGathering the power of Cryo, Charlotte plunges toward the ground, dealing DMG to all opponents in her path and dealing AoE Cryo DMG upon landing.\nArkhe: Pneuma\nAt certain intervals, upon using a Charged Attack, Charlotte will cause a Spiritbreath Thorn to descend and pierce opponents, dealing Pneuma-aligned AoE Cryo DMG.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        49.85,
+                        53.58,
+                        57.32,
+                        62.31,
+                        66.05,
+                        69.78,
+                        74.77,
+                        79.75,
+                        84.74,
+                        89.72,
+                        94.71
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        43.38,
+                        46.63,
+                        49.88,
+                        54.22,
+                        57.47,
+                        60.73,
+                        65.06,
+                        69.4,
+                        73.74,
+                        78.08,
+                        82.41
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        64.6,
+                        69.45,
+                        74.29,
+                        80.75,
+                        85.6,
+                        90.44,
+                        96.9,
+                        103.36,
+                        109.82,
+                        116.28,
+                        122.74
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        100.51,
+                        108.05,
+                        115.59,
+                        125.64,
+                        133.18,
+                        140.72,
+                        150.77,
+                        160.82,
+                        170.87,
+                        180.92,
+                        190.97
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.16,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37
+                    ]
+                },
+                {
+                    "hit": "Spiritbreath Thorn DMG (%)",
+                    "values": [
+                        11.17,
+                        12.01,
+                        12.84,
+                        13.96,
+                        14.8,
+                        15.64,
+                        16.75,
+                        17.87,
+                        18.99,
+                        20.1,
+                        21.22
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Framing: Freezing Point Composition",
+            "type": "Elemental Skill",
+            "description": "Using the keen instincts of an ace reporter, Charlotte uses her photography skills to produce different effects based on whether the ability is Tapped or Held.\nTap\nTakes a snapshot using Monsieur Verite, dealing AoE Cryo DMG to opponents in front of her and applying Snappy Silhouette to a maximum of 5 opponents. During this effect's duration, it will deal Cryo DMG to affected opponents at intervals.\nHold\nPopping Monsieur Verite's viewfinder open, Charlotte enters Composition Mode, and during this time, the viewfinder will expand as you hold until you reach a Finisher Frame state. In this state, Charlotte can move and change direction freely.\nWhen the hold state ends, Monsieur Verite will deal Cryo DMG to all opponents locked on within the viewfinder, and apply the same Snappy Silhouette as Tap Mode does to them. If you unleash this ability only after reaching Finisher Frame, you will instead apply Focused Impression, which lasts longer and deals more DMG, although the Skill CD will be longer.\nComposition Mode lasts a maximum of 15s and allows a maximum of 5 opponents to be selected.",
+            "attributes": [
+                {
+                    "hit": "Photo DMG (Press) (%)",
+                    "values": [
+                        67.2,
+                        72.24,
+                        77.28,
+                        84.0,
+                        89.04,
+                        94.08,
+                        100.8,
+                        107.52,
+                        114.24,
+                        120.96,
+                        127.68,
+                        134.4,
+                        142.8
+                    ]
+                },
+                {
+                    "hit": "Photo DMG (Hold) (%)",
+                    "values": [
+                        139.2,
+                        149.64,
+                        160.08,
+                        174.0,
+                        184.44,
+                        194.88,
+                        208.8,
+                        222.72,
+                        236.64,
+                        250.56,
+                        264.48,
+                        278.4,
+                        295.8
+                    ]
+                },
+                {
+                    "hit": "\"Snappy Silhouette\" Mark DMG (%)",
+                    "values": [
+                        39.2,
+                        42.14,
+                        45.08,
+                        49.0,
+                        51.94,
+                        54.88,
+                        58.8,
+                        62.72,
+                        66.64,
+                        70.56,
+                        74.48,
+                        78.4,
+                        83.3
+                    ]
+                },
+                {
+                    "hit": "\"Focused Impression\" Mark DMG (%)",
+                    "values": [
+                        40.6,
+                        43.65,
+                        46.69,
+                        50.75,
+                        53.79,
+                        56.84,
+                        60.9,
+                        64.96,
+                        69.02,
+                        73.08,
+                        77.14,
+                        81.2,
+                        86.27
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Still Photo: Comprehensive Confirmation",
+            "type": "Elemental Burst",
+            "description": "Condensing ice to create The Steambird's signature, Charlotte creates a Newsflash Field that will deal  and restores HP for all nearby party members based on Charlotte's ATK.\n**Newsflash Field**\n- While the ability is active, Monsieur Verite will deal Cryo DMG at intervals to opponents within its AoE.\n- Will continuously restore HP to active character(s) within its AoE based on Charlotte's ATK.",
+            "attributes": [
+                {
+                    "hit": "Cast Healing",
+                    "values": [
+                        "256.57% ATK +1,608",
+                        "275.82% ATK +1,769",
+                        "295.06% ATK +1,944",
+                        "320.72% ATK +2,131",
+                        "339.96% ATK +2,332",
+                        "359.2% ATK +2,547",
+                        "384.86% ATK +2,775",
+                        "410.52% ATK +3,016",
+                        "436.17% ATK +3,271",
+                        "461.83% ATK +3,539",
+                        "487.49% ATK +3,820",
+                        "513.15% ATK +4,115",
+                        "545.22% ATK +4,424"
+                    ]
+                },
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        77.62,
+                        83.44,
+                        89.26,
+                        97.02,
+                        102.84,
+                        108.66,
+                        116.42,
+                        124.19,
+                        131.95,
+                        139.71,
+                        147.47,
+                        155.23,
+                        164.93
+                    ]
+                },
+                {
+                    "hit": "Kamera Continuous Regeneration",
+                    "values": [
+                        "9.22% ATK +57",
+                        "9.91% ATK +63",
+                        "10.6% ATK +69",
+                        "11.52% ATK +76",
+                        "12.21% ATK +83",
+                        "12.9% ATK +91",
+                        "13.82% ATK +99",
+                        "14.75% ATK +108",
+                        "15.67% ATK +117",
+                        "16.59% ATK +126",
+                        "17.51% ATK +136",
+                        "18.43% ATK +147",
+                        "19.58% ATK +158"
+                    ]
+                },
+                {
+                    "hit": "Kamera DMG (%)",
+                    "values": [
+                        6.47,
+                        6.95,
+                        7.44,
+                        8.08,
+                        8.57,
+                        9.06,
+                        9.7,
+                        10.35,
+                        11.0,
+                        11.64,
+                        12.29,
+                        12.94,
+                        13.74
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Moment of Impact",
+            "type": "1st Ascension Passive",
+            "description": "When opponents marked by \"Focused Impression\" are defeated, Framing: Freezing Point Composition's CD will be decreased by 2s. This CD decrease can be triggered 4 times every 12s."
+        },
+        {
+            "name": "Diversified Investigation",
+            "type": "4th Ascension Passive",
+            "description": "When the party contains 1/2/3 Fontainians other than herself, Charlotte gains a 5%/10%/15% Healing Bonus. When the party contains 1/2/3 non-Fontainians, Charlotte gains a 5%/10%/15% Cryo DMG Bonus."
+        },
+        {
+            "name": "First-Person Shutter",
+            "type": "Utility Passive",
+            "description": "After activating the Special Analysis Zoom Lens, Charlotte's \"Framing: Freezing Point Composition\" Hold Mode cannot trigger its original effects, but instead enables her to take photos in a rather unique manner..."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "A Need to Verify Facts",
+            "description": "After Still Photo: Comprehensive Confirmation heals a character, it will mark them with Verification, which will heal them once every 2s for 80% of Charlotte's ATK. This effect lasts 6s.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "A Duty to Pursue Truth",
+            "description": "When using Framing: Freezing Point Composition, when Monsieur Verite hits 1/2/3 (or more) opponents, Charlotte's own ATK will be increased by 10%/20%/30% for 12s.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "An Imperative to Independence",
+            "description": "Increases the Level of Still Photo: Comprehensive Confirmation by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "A Responsibility to Oversee",
+            "description": "When Still Photo: Comprehensive Confirmation hits an opponent marked by Snappy Silhouette or Focused Impression, it will deal 10% more DMG and restore 2 Energy to Charlotte. This restoration can be triggered 5 times every 20s.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "A Principle of Conscience",
+            "description": "Increases the Level of Framing: Freezing Point Composition by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "A Summation of Interest",
+            "description": "When the active character's Normal and Charged Attacks hit an opponent marked by Framing: Freezing Point Composition's Focused Impression, Monsieur Verite will initiate a coordinated attack that deals 180% of Charlotte's ATK as AoE Cryo DMG and heals active character(s) within the AoE for 42% of Charlotte's ATK. This effect can be triggered once every 6s and both DMG and healing dealt in this way will be considered as having been done by Charlotte's Elemental Burst.",
+            "properties": []
+        }
+    ],
+    "ascension_stat": "ATK"
+}

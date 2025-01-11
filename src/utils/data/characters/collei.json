@@ -1,0 +1,574 @@
+{
+    "name": "Collei",
+    "key": "collei",
+    "title": "Sprout of Rebirth",
+    "rarity": 4,
+    "element": "dendro",
+    "weapon": "bow",
+    "release_date": "august 24, 2022",
+    "release_date_epoch": 1661299200,
+    "constellation": "leptailurus cervarius",
+    "birthday": "may 8th",
+    "affiliation": "gandharva ville (on profile)forest rangers ",
+    "region": "sumeru",
+    "special_dish": "yearning",
+    "alternate_title": "avidya forest ranger trainee",
+    "description": "",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "820.61",
+            "BaseATK": "16.74",
+            "BaseDEF": "50.36",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2108.15",
+            "BaseATK": "43.00",
+            "BaseDEF": "129.37",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "2721.19",
+            "BaseATK": "55.51",
+            "BaseDEF": "166.99",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "4076.02",
+            "BaseATK": "83.15",
+            "BaseDEF": "250.13",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "4511.60",
+            "BaseATK": "92.03",
+            "BaseDEF": "276.86",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "5189.43",
+            "BaseATK": "105.86",
+            "BaseDEF": "318.46",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "5770.20",
+            "BaseATK": "117.71",
+            "BaseDEF": "354.10",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "6448.03",
+            "BaseATK": "131.53",
+            "BaseDEF": "395.69",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "6883.61",
+            "BaseATK": "140.42",
+            "BaseDEF": "422.42",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "7560.61",
+            "BaseATK": "154.23",
+            "BaseDEF": "463.97",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "7996.19",
+            "BaseATK": "163.11",
+            "BaseDEF": "490.70",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "8674.02",
+            "BaseATK": "176.94",
+            "BaseDEF": "532.29",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "9109.60",
+            "BaseATK": "185.83",
+            "BaseDEF": "559.02",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "9787.42",
+            "BaseATK": "199.65",
+            "BaseDEF": "600.62",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Nagadus Emerald Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Rukkhashava Mushrooms",
+                    "amount": "3"
+                },
+                {
+                    "name": "Firm Arrowhead",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Majestic Hooked Beak",
+                    "amount": "2"
+                },
+                {
+                    "name": "Nagadus Emerald Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Rukkhashava Mushrooms",
+                    "amount": "10"
+                },
+                {
+                    "name": "Firm Arrowhead",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Majestic Hooked Beak",
+                    "amount": "4"
+                },
+                {
+                    "name": "Nagadus Emerald Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Rukkhashava Mushrooms",
+                    "amount": "20"
+                },
+                {
+                    "name": "Sharp Arrowhead",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Majestic Hooked Beak",
+                    "amount": "8"
+                },
+                {
+                    "name": "Nagadus Emerald Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Rukkhashava Mushrooms",
+                    "amount": "30"
+                },
+                {
+                    "name": "Sharp Arrowhead",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Majestic Hooked Beak",
+                    "amount": "12"
+                },
+                {
+                    "name": "Nagadus Emerald Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Rukkhashava Mushrooms",
+                    "amount": "45"
+                },
+                {
+                    "name": "Weathered Arrowhead",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Majestic Hooked Beak",
+                    "amount": "20"
+                },
+                {
+                    "name": "Nagadus Emerald Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Rukkhashava Mushrooms",
+                    "amount": "60"
+                },
+                {
+                    "name": "Weathered Arrowhead",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Supplicant's Bowmanship",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 4 consecutive shots with a bow.\nCharged Attack\nPerforms a more precise Aimed Shot with increased DMG.\nWhile aiming, Dendro energy will accumulate on the arrowhead. A fully charged arrow will deal Dendro DMG.\nPlunging Attack\nFires off a shower of arrows in mid-air before falling and striking the ground, dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        43.6,
+                        47.15,
+                        50.7,
+                        55.77,
+                        59.32,
+                        63.38,
+                        68.95,
+                        74.53,
+                        80.11,
+                        86.19,
+                        92.27
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        42.66,
+                        46.13,
+                        49.6,
+                        54.56,
+                        58.03,
+                        62.0,
+                        67.46,
+                        72.91,
+                        78.37,
+                        84.32,
+                        90.27
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        54.09,
+                        58.5,
+                        62.9,
+                        69.19,
+                        73.59,
+                        78.63,
+                        85.54,
+                        92.46,
+                        99.38,
+                        106.93,
+                        114.48
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        68.03,
+                        73.56,
+                        79.1,
+                        87.01,
+                        92.55,
+                        98.88,
+                        107.58,
+                        116.28,
+                        124.98,
+                        134.47,
+                        143.96
+                    ]
+                },
+                {
+                    "hit": "Aimed Shot (%)",
+                    "values": [
+                        43.86,
+                        47.43,
+                        51.0,
+                        56.1,
+                        59.67,
+                        63.75,
+                        69.36,
+                        74.97,
+                        80.58,
+                        86.7,
+                        92.82
+                    ]
+                },
+                {
+                    "hit": "Fully-Charged Aimed Shot (%)",
+                    "values": [
+                        124.0,
+                        133.3,
+                        142.6,
+                        155.0,
+                        164.3,
+                        173.6,
+                        186.0,
+                        198.4,
+                        210.8,
+                        223.2,
+                        235.6
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.17,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Floral Brush",
+            "type": "Elemental Skill",
+            "description": "Throws out a Floral Ring that deals 1 instance of Dendro DMG to targets it comes into contact with.\nThe Floral Ring will return after a set time, dealing Dendro DMG once again.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        151.2,
+                        162.54,
+                        173.88,
+                        189.0,
+                        200.34,
+                        211.68,
+                        226.8,
+                        241.92,
+                        257.04,
+                        272.16,
+                        287.28,
+                        302.4,
+                        321.3
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Trump-Card Kitty",
+            "type": "Elemental Burst",
+            "description": "Trusty Cuilein-Anbar comes to save the day!\nThrows the doll named Cuilein-Anbar, causing an explosion that deals AoE Dendro DMG, creating a Cuilein-Anbar Zone. Cuilein-Anbar will bounce around within this zone, dealing AoE Dendro DMG.",
+            "attributes": [
+                {
+                    "hit": "Explosion DMG (%)",
+                    "values": [
+                        201.82,
+                        216.96,
+                        232.1,
+                        252.28,
+                        267.42,
+                        282.55,
+                        302.74,
+                        322.92,
+                        343.1,
+                        363.28,
+                        383.47,
+                        403.65,
+                        428.88
+                    ]
+                },
+                {
+                    "hit": "Leap DMG (%)",
+                    "values": [
+                        43.25,
+                        46.49,
+                        49.74,
+                        54.06,
+                        57.3,
+                        60.55,
+                        64.87,
+                        69.2,
+                        73.52,
+                        77.85,
+                        82.17,
+                        86.5,
+                        91.9
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Floral Sidewinder",
+            "type": "1st Ascension Passive",
+            "description": "If one of your party members has triggered Burning, Quicken, Aggravate, Spread, Bloom, Hyperbloom, or Burgeon reactions before the Floral Ring returns, it will grant the character the Sprout effect upon return, which will continuously deal Dendro DMG equivalent to 40% of Collei's ATK to nearby opponents for 3s.\nIf another Sprout effect is triggered during its initial duration, the initial effect will be removed. DMG dealt by Sprout is considered Elemental Skill DMG.",
+            "properties": []
+        },
+        {
+            "name": "The Languid Wood",
+            "type": "4th Ascension Passive",
+            "description": "When a character within the Cuilein-Anbar Zone triggers Burning, Quicken, Aggravate, Spread, Bloom, Hyperbloom, or Burgeon reactions, the Zone's duration will be increased by 1s.A single Trump-Card Kitty can be extended by up to 3s."
+        },
+        {
+            "name": "Gliding Champion of Sumeru",
+            "type": "Utility Passive",
+            "description": "Decreases gliding Stamina consumption for your own party members by 20%.\nNot stackable with Passive Talents that provide the exact same effects."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Deepwood Patrol",
+            "description": "When in the party and not on the field, Collei's Energy Recharge is increased by 20%.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Through Hill and Copse",
+            "description": "The Passive Talent Floral Sidewinder is changed to this:\nThe Floral Ring will grant the character the Sprout effect from Floral Sidewinder upon return, dealing 40% of Collei's ATK as Dendro DMG to nearby opponents for 3s.\nFrom the moment of using Floral Brush to the moment when this instance of Sprout effect ends, if any of your party members triggers Burning, Quicken, Aggravate, Spread, Bloom, Hyperbloom, or Burgeon reactions, the Sprout effect will be extended by 3s.\nThe Sprout effect can only be extended this way once. If another Sprout effect is triggered during its initial duration, the initial effect will be removed.\nRequires you to have unlocked the Floral Sidewinder Passive Talent.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Scent of Summer",
+            "description": "Increases the Level of Floral Brush by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Gift of the Woods",
+            "description": "Using Trump-Card Kitty will increase all nearby characters' Elemental Mastery by 60 for 12s (not including Collei herself).",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "All Embers",
+            "description": "Increases the Level of Trump-Card Kitty by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Forest of Falling Arrows",
+            "description": "When the Floral Ring hits, it will create a miniature Cuilein-Anbar that will deal 200% of Collei's ATK as Dendro DMG.\nEach Floral Brush can only create one such miniature Cuilein-Anbar.",
+            "properties": []
+        }
+    ],
+    "ascension_stat": "ATK"
+}

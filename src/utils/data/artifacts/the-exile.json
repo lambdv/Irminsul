@@ -1,0 +1,19 @@
+{
+    "name": "The Exile",
+    "key": "the-exile",
+    "flower_description": "A withered flower worn on the shirt. Its former owner insisted on wearing it even in exile, so it must mean something.",
+    "feather_description": "Not an actual accessory per se. Just a random bird feather that was found somewhere in the wilderness by the exile.",
+    "sand_description": "Even after the crystal watch face was shattered and the hands lost, its former owner kept it until the end.",
+    "goblet_description": "A dull goblet made of a heavy metal. It was once inlaid with gemstones, but they have since been stripped off.",
+    "circlet_description": "A prestigious circlet. However, the royal insignia has been scratched out, and it is no longer the symbol of distinguished status that it once was.",
+    "flower_name": "Exile's Flower",
+    "feather_name": "Exile's Feather",
+    "sand_name": "Exile's Pocket Watch",
+    "goblet_name": "Exile's Goblet",
+    "circlet_name": "Exile's Circlet",
+    "two_pc_bonus": "Energy Recharge +20%",
+    "four_pc_bonus": "Using an Elemental Burst regenerates 2 Energy for all party members (excluding the wearer) every 2s for 6s. This effect cannot stack.",
+    "rarity_min": 3,
+    "rarity_max": 4,
+    "release_version": 1.0
+}

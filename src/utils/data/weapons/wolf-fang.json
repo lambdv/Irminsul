@@ -1,0 +1,122 @@
+{
+    "name": "Wolf-Fang",
+    "key": "wolf-fang",
+    "description": "Legend has it that this longsword was once used by a wandering knight in the distant past.",
+    "rarity": 4,
+    "category": "sword",
+    "series": "gnostic hymn 2 series",
+    "release_date": "august 16, 2023",
+    "base_atk_min": 42,
+    "base_atk_max": 510,
+    "sub_stat_type": "crit rate",
+    "sub_stat_value_min": "6% ",
+    "sub_stat_value_max": " 27.6%",
+    "refinement_name": "\n\nnorthwind wolf\n\n",
+    "refinements": [
+        "DMG dealt by Elemental Skill and Elemental Burst is increased by **16**\n%. When an Elemental Skill hits an opponent, its CRIT Rate will be increased by **2**\n%. When an Elemental Burst hits an opponent, its CRIT Rate will be increased by **2**\n%. Both of these effects last 10s separately, have 4 max stacks, and can be triggered once every 0.1s.",
+        "DMG dealt by Elemental Skill and Elemental Burst is increased by **20**\n%. When an Elemental Skill hits an opponent, its CRIT Rate will be increased by **2.5**\n%. When an Elemental Burst hits an opponent, its CRIT Rate will be increased by **2.5**\n%. Both of these effects last 10s separately, have 4 max stacks, and can be triggered once every 0.1s.",
+        "DMG dealt by Elemental Skill and Elemental Burst is increased by **24**\n%. When an Elemental Skill hits an opponent, its CRIT Rate will be increased by **3**\n%. When an Elemental Burst hits an opponent, its CRIT Rate will be increased by **3**\n%. Both of these effects last 10s separately, have 4 max stacks, and can be triggered once every 0.1s.",
+        "DMG dealt by Elemental Skill and Elemental Burst is increased by **28**\n%. When an Elemental Skill hits an opponent, its CRIT Rate will be increased by **3.5**\n%. When an Elemental Burst hits an opponent, its CRIT Rate will be increased by **3.5**\n%. Both of these effects last 10s separately, have 4 max stacks, and can be triggered once every 0.1s.",
+        "DMG dealt by Elemental Skill and Elemental Burst is increased by **32**\n%. When an Elemental Skill hits an opponent, its CRIT Rate will be increased by **4**\n%. When an Elemental Burst hits an opponent, its CRIT Rate will be increased by **4**\n%. Both of these effects last 10s separately, have 4 max stacks, and can be triggered once every 0.1s."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "42",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "6%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "109",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "10.6%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "135",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "10.6%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "205",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "15.5%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "231",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "15.5%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "266",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "17.9%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "292",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "17.9%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "327",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "20.3%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "353",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "20.3%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "388",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "22.7%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "414",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "22.7%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "449",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "25.1%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "475",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "25.1%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "510",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "27.6%",
+            "ascension_phase": 6
+        }
+    ]
+}

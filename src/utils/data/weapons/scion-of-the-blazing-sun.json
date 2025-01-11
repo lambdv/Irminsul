@@ -1,0 +1,122 @@
+{
+    "name": "Scion of the Blazing Sun",
+    "key": "scion-of-the-blazing-sun",
+    "description": "An ancient longbow that is a remnant of King Deshret's ancient era. An indecipherable ancient text and solemn patterns have been carved into it. ",
+    "rarity": 4,
+    "category": "bow",
+    "series": "gnostic hymn 2 series",
+    "release_date": "august 16, 2023",
+    "base_atk_min": 44,
+    "base_atk_max": 565,
+    "sub_stat_type": "crit rate",
+    "sub_stat_value_min": "4% ",
+    "sub_stat_value_max": " 18.4%",
+    "refinement_name": "\n\nthe way of sunfire\n\n",
+    "refinements": [
+        "After a Charged Attack hits an opponent, a Sunfire Arrow will descend upon the opponent hit, dealing **60**\n% ATK as DMG, and applying the Heartsearer effect to the opponent damaged by said Arrow for 10s. Opponents affected by Heartsearer take **28**\n% more Charged Attack DMG from the wielder. A Sunfire Arrow can be triggered once every 10s.",
+        "After a Charged Attack hits an opponent, a Sunfire Arrow will descend upon the opponent hit, dealing **75**\n% ATK as DMG, and applying the Heartsearer effect to the opponent damaged by said Arrow for 10s. Opponents affected by Heartsearer take **35**\n% more Charged Attack DMG from the wielder. A Sunfire Arrow can be triggered once every 10s.",
+        "After a Charged Attack hits an opponent, a Sunfire Arrow will descend upon the opponent hit, dealing **90**\n% ATK as DMG, and applying the Heartsearer effect to the opponent damaged by said Arrow for 10s. Opponents affected by Heartsearer take **42**\n% more Charged Attack DMG from the wielder. A Sunfire Arrow can be triggered once every 10s.",
+        "After a Charged Attack hits an opponent, a Sunfire Arrow will descend upon the opponent hit, dealing **105**\n% ATK as DMG, and applying the Heartsearer effect to the opponent damaged by said Arrow for 10s. Opponents affected by Heartsearer take **49**\n% more Charged Attack DMG from the wielder. A Sunfire Arrow can be triggered once every 10s.",
+        "After a Charged Attack hits an opponent, a Sunfire Arrow will descend upon the opponent hit, dealing **120**\n% ATK as DMG, and applying the Heartsearer effect to the opponent damaged by said Arrow for 10s. Opponents affected by Heartsearer take **56**\n% more Charged Attack DMG from the wielder. A Sunfire Arrow can be triggered once every 10s."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "44",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "4%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "119",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "7.1%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "144",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "7.1%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "226",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "10.3%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "252",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "10.3%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "293",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "11.9%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "319",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "11.9%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "361",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "13.5%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "387",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "13.5%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "429",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "15.1%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "455",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "15.1%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "497",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "16.8%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "523",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "16.8%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "565",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "18.4%",
+            "ascension_phase": 6
+        }
+    ]
+}

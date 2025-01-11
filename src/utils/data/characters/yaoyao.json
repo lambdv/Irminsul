@@ -1,0 +1,593 @@
+{
+    "name": "Yaoyao",
+    "key": "yaoyao",
+    "title": "Burgeoning Grace",
+    "rarity": 4,
+    "element": "dendro",
+    "weapon": "polearm",
+    "release_date": "january 18, 2023",
+    "release_date_epoch": 1674000000,
+    "constellation": "osmanthus",
+    "birthday": "march 6th",
+    "affiliation": "streetward rambler's abode (on profile)adepti (disciple) ",
+    "region": "liyue",
+    "special_dish": "qingce household dish",
+    "alternate_title": "disciple of streetward rambler",
+    "description": "",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "1030.32",
+            "BaseATK": "17.81",
+            "BaseDEF": "62.95",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2646.90",
+            "BaseATK": "45.75",
+            "BaseDEF": "161.71",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3416.61",
+            "BaseATK": "59.05",
+            "BaseDEF": "208.74",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "5117.67",
+            "BaseATK": "88.45",
+            "BaseDEF": "312.66",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "5664.57",
+            "BaseATK": "97.91",
+            "BaseDEF": "346.08",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6515.61",
+            "BaseATK": "112.62",
+            "BaseDEF": "398.07",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "7244.81",
+            "BaseATK": "125.22",
+            "BaseDEF": "442.62",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "8095.86",
+            "BaseATK": "139.93",
+            "BaseDEF": "494.62",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "8642.75",
+            "BaseATK": "149.38",
+            "BaseDEF": "528.03",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "9492.77",
+            "BaseATK": "164.07",
+            "BaseDEF": "579.96",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "10039.66",
+            "BaseATK": "173.53",
+            "BaseDEF": "613.37",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "10890.71",
+            "BaseATK": "188.24",
+            "BaseDEF": "665.37",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "11437.61",
+            "BaseATK": "197.69",
+            "BaseDEF": "698.78",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "12288.65",
+            "BaseATK": "212.40",
+            "BaseDEF": "750.77",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Nagadus Emerald Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Jueyun Chili",
+                    "amount": "3"
+                },
+                {
+                    "name": "Slime Condensate",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Quelled Creeper",
+                    "amount": "2"
+                },
+                {
+                    "name": "Nagadus Emerald Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Jueyun Chili",
+                    "amount": "10"
+                },
+                {
+                    "name": "Slime Condensate",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Quelled Creeper",
+                    "amount": "4"
+                },
+                {
+                    "name": "Nagadus Emerald Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Jueyun Chili",
+                    "amount": "20"
+                },
+                {
+                    "name": "Slime Secretions",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Quelled Creeper",
+                    "amount": "8"
+                },
+                {
+                    "name": "Nagadus Emerald Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Jueyun Chili",
+                    "amount": "30"
+                },
+                {
+                    "name": "Slime Secretions",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Quelled Creeper",
+                    "amount": "12"
+                },
+                {
+                    "name": "Nagadus Emerald Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Jueyun Chili",
+                    "amount": "45"
+                },
+                {
+                    "name": "Slime Concentrate",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Quelled Creeper",
+                    "amount": "20"
+                },
+                {
+                    "name": "Nagadus Emerald Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Jueyun Chili",
+                    "amount": "60"
+                },
+                {
+                    "name": "Slime Concentrate",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Toss 'N' Turn Spear",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 4 consecutive spear strikes.\nCharged Attack\nConsumes a certain amount of Stamina to lunge forward, dealing damage to opponents along the way.\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG",
+                    "values": [
+                        51.0,
+                        55.15,
+                        59.3,
+                        65.23,
+                        69.39,
+                        74.13,
+                        80.65,
+                        87.18,
+                        93.7,
+                        100.82,
+                        107.93
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG",
+                    "values": [
+                        47.44,
+                        51.3,
+                        55.17,
+                        60.68,
+                        64.54,
+                        68.96,
+                        75.03,
+                        81.09,
+                        87.16,
+                        93.78,
+                        100.4
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG",
+                    "values": [
+                        "31.38+32.95",
+                        "33.93+35.63",
+                        "36.48+38.31",
+                        "40.13+42.14",
+                        "42.69+44.82",
+                        "45.61+47.89",
+                        "49.62+52.1",
+                        "53.63+56.31",
+                        "57.65+60.53",
+                        "62.02+65.13",
+                        "66.4+69.72"
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG",
+                    "values": [
+                        77.93,
+                        84.27,
+                        90.62,
+                        99.68,
+                        106.02,
+                        113.27,
+                        123.24,
+                        133.21,
+                        143.18,
+                        154.05,
+                        164.92
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG",
+                    "values": [
+                        112.66,
+                        121.83,
+                        131.0,
+                        144.1,
+                        153.27,
+                        163.75,
+                        178.16,
+                        192.57,
+                        206.98,
+                        222.7,
+                        238.42
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG",
+                    "values": [
+                        63.93,
+                        69.14,
+                        74.34,
+                        81.77,
+                        86.98,
+                        92.92,
+                        101.1,
+                        109.28,
+                        117.46,
+                        126.38,
+                        135.3
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG",
+                    "values": [
+                        127.84,
+                        138.24,
+                        148.65,
+                        163.51,
+                        173.92,
+                        185.81,
+                        202.16,
+                        218.51,
+                        234.86,
+                        252.7,
+                        270.54
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG",
+                    "values": [
+                        159.68,
+                        172.67,
+                        185.67,
+                        204.24,
+                        217.23,
+                        232.09,
+                        252.51,
+                        272.93,
+                        293.36,
+                        315.64,
+                        337.92
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Raphanus Sky Cluster",
+            "type": "Elemental Skill",
+            "description": "Calls upon \"Yuegui: Throwing Mode,\" a special device created by a certain adeptus to help Yaoyao solve her problems.\nThis skill will be used differently in Holding Mode.\n**Hold**\nEnters Aiming Mode to adjust the throw direction.\n**Yuegui: Throwing Mode**\nThrows out White Jade Radishes that will explode upon hitting characters or opponents, dealing  to opponents within a certain AoE, and healing characters within that same AoE based on Yaoyao's Max HP. If a radish does not hit either an opponent or a character, the radish will remain where it is and explode on contact with a character or opponent, or will explode after its duration expires.\nYuegui: Throwing Mode will choose its radish-throw targets.- If all nearby characters have more than 70% HP remaining, then it will throw the radish at a nearby opponent.\n- If nearby characters have 70% or less HP remaining, it will throw a radish at the character with the lowest HP percentage remaining. If no opponents exist nearby, Yuegui will throw White Jade Radishes at characters even if they all have more than 70% HP remaining.\nA maximum of 2 instances Yuegui: Throwing Mode can exist at any one time.",
+            "attributes": [
+                {
+                    "hit": "White Jade Radish DMG (%)",
+                    "values": [
+                        29.92,
+                        32.16,
+                        34.41,
+                        37.4,
+                        39.64,
+                        41.89,
+                        44.88,
+                        47.87,
+                        50.86,
+                        53.86,
+                        56.85,
+                        59.84,
+                        63.58
+                    ]
+                },
+                {
+                    "hit": "White Jade Radish Healing",
+                    "values": [
+                        "1.71% Max HP+165.07991",
+                        "1.84% Max HP+181.5902",
+                        "1.97% Max HP+199.47635",
+                        "2.14% Max HP+218.73834",
+                        "2.27% Max HP+239.3762",
+                        "2.4% Max HP+261.38992",
+                        "2.57% Max HP+284.77948",
+                        "2.74% Max HP+309.54492",
+                        "2.91% Max HP+335.6862",
+                        "3.09% Max HP+363.20334",
+                        "3.26% Max HP+392.09634",
+                        "3.43% Max HP+422.3652",
+                        "3.64% Max HP+454.00992"
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Moonjade Descent",
+            "type": "Elemental Burst",
+            "description": "At the enjoinment of a certain adeptus, Yuegui's full potential can be unleashed in an emergency, dealing  to nearby opponents and entering an (in some sense) unsurpassed Adeptal Legacy state.\n**Adeptal Legacy**\n- White Jade Radishes generated will be changed to heal and deal DMG according to this skill. Explosions will heal all nearby party members, and the Dendro DMG that they deal will be viewed as Elemental Burst DMG instead.\n- Summons \"Yuegui: Jumping Mode\" at intervals until their limit has been reached. The behavior of this version of Yuegui is the same as that of \"Yuegui: Throwing Mode\" in the Elemental Skill, Raphanus Sky Cluster. A maximum of 3 Yuegui: Jumping Mode can exist at any one time.\n- Yaoyao's Movement SPD is increased by 15%.\n- Yaoyao's Dendro RES will be increased.\nThe Adeptal Legacy state will end once Yaoyao is off-field, and all remaining Yuegui: Jumping Mode will be cleared once this state ends.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        114.56,
+                        123.15,
+                        131.74,
+                        143.2,
+                        151.79,
+                        160.38,
+                        171.84,
+                        183.3,
+                        194.75,
+                        206.21,
+                        217.66,
+                        229.12,
+                        243.44
+                    ]
+                },
+                {
+                    "hit": "Adeptal Legacy White Jade Radish DMG (%)",
+                    "values": [
+                        72.16,
+                        77.57,
+                        82.98,
+                        90.2,
+                        95.61,
+                        101.02,
+                        108.24,
+                        115.46,
+                        122.67,
+                        129.89,
+                        137.1,
+                        144.32,
+                        153.34
+                    ]
+                },
+                {
+                    "hit": "Adeptal Legacy White Jade Radish Healing",
+                    "values": [
+                        "2.02% Max HP+194.21231",
+                        "2.17% Max HP+213.63625",
+                        "2.32% Max HP+234.67883",
+                        "2.52% Max HP+257.3401",
+                        "2.67% Max HP+281.62",
+                        "2.82% Max HP+307.5186",
+                        "3.03% Max HP+335.0358",
+                        "3.23% Max HP+364.1717",
+                        "3.43% Max HP+394.92627",
+                        "3.63% Max HP+427.29947",
+                        "3.83% Max HP+461.29135",
+                        "4.03% Max HP+496.9019",
+                        "4.29% Max HP+534.1311"
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Starscatter",
+            "type": "1st Ascension Passive",
+            "description": "While affected by the Adeptal Legacy state caused by Moonjade Descent, Yaoyao will constantly throw White Jade Radishes at nearby opponents when she is sprinting, jumping, or running. She can throw 1 White Jade Radish this way once every 0.6s."
+        },
+        {
+            "name": "In Others' Shoes",
+            "type": "4th Ascension Passive",
+            "description": "When White Jade Radishes explode, active characters within their AoE will regain HP every 1s based on 0.8% of Yaoyao's Max HP. This effect lasts 5s."
+        },
+        {
+            "name": "Tailing on Tiptoes",
+            "type": "Utility Passive",
+            "description": "When Yaoyao is in the party, your characters will not startle Crystalflies and certain other animals when getting near them.\nCheck the \"Other\" sub-category of the \"Living Beings / Wildlife\" section in the Archive for creatures this skill works on."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Adeptus' Tutelage",
+            "description": "When White Jade Radishes explode, active characters within their AoE will gain 15%  for 8s and have 15 Stamina restored to them. This form of Stamina Restoration can only be triggered every 5s.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Innocent",
+            "description": "While affected by the Adeptal Legacy state caused by Moonjade Descent, if White Jade Radish explosions damage opponents, 3 Energy will be restored to Yaoyao. This form of Energy regeneration can occur once every 0.8s.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Loyal and Kind",
+            "description": "Increases the Level of Raphanus Sky Cluster by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Winsome",
+            "description": "After using Raphanus Sky Cluster or Moonjade Descent, Yaoyao's Elemental Mastery will be increased based on 0.3% of her Max HP for 8s. The maximum Elemental Mastery she can gain this way is 120.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Compassionate",
+            "description": "Increases the Level of Moonjade Descent by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Beneficent",
+            "description": "For every 2 White Jade Radishes Yuegui: Throwing Mode throws out, it will also throw a Mega Radish that will have a larger AoE than the standard White Jade Radish and have the following effects upon exploding:- Deals AoE Dendro DMG based on 75% of Yaoyao's ATK.\n- Restores HP for the active character based on 7.5% of Yaoyao's Max HP.\nEvery Yuegui: Throwing Mode can throw out a maximum of 2 Mega Radishes.",
+            "properties": []
+        }
+    ],
+    "ascension_stat": "HP"
+}

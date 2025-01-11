@@ -1,0 +1,122 @@
+{
+    "name": "Crimson Moons Semblance",
+    "key": "crimson-moons-semblance",
+    "description": "A keen-edged weapon, luster dazzling as the crimson moon. It is said that an ancient dynasty once regarded it as a ritual object that could bridge two worlds, but none still remember the beliefs and ceremonies of that bygone age.",
+    "rarity": 5,
+    "category": "polearm",
+    "series": "weapon event wishes",
+    "release_date": "april 24, 2024",
+    "base_atk_min": 48,
+    "base_atk_max": 674,
+    "sub_stat_type": "crit rate",
+    "sub_stat_value_min": "4.8% ",
+    "sub_stat_value_max": " 22.1%",
+    "refinement_name": "\n\nashen sun's shadow\n\n",
+    "refinements": [
+        "Grants a Bond of Life equal to 25% of Max HP when a Charged Attack hits an opponent. This effect can be triggered up to once every 14s. In addition, when the equipping character has a Bond of Life, they gain a **12**\n% DMG Bonus; if the value of the Bond of Life is greater than or equal to 30% of Max HP, then gain an additional **24**\n% DMG.",
+        "Grants a Bond of Life equal to 25% of Max HP when a Charged Attack hits an opponent. This effect can be triggered up to once every 14s. In addition, when the equipping character has a Bond of Life, they gain a **16**\n% DMG Bonus; if the value of the Bond of Life is greater than or equal to 30% of Max HP, then gain an additional **32**\n% DMG.",
+        "Grants a Bond of Life equal to 25% of Max HP when a Charged Attack hits an opponent. This effect can be triggered up to once every 14s. In addition, when the equipping character has a Bond of Life, they gain a **20**\n% DMG Bonus; if the value of the Bond of Life is greater than or equal to 30% of Max HP, then gain an additional **40**\n% DMG.",
+        "Grants a Bond of Life equal to 25% of Max HP when a Charged Attack hits an opponent. This effect can be triggered up to once every 14s. In addition, when the equipping character has a Bond of Life, they gain a **24**\n% DMG Bonus; if the value of the Bond of Life is greater than or equal to 30% of Max HP, then gain an additional **48**\n% DMG.",
+        "Grants a Bond of Life equal to 25% of Max HP when a Charged Attack hits an opponent. This effect can be triggered up to once every 14s. In addition, when the equipping character has a Bond of Life, they gain a **28**\n% DMG Bonus; if the value of the Bond of Life is greater than or equal to 30% of Max HP, then gain an additional **56**\n% DMG."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "48",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "4.8%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "133",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "8.5%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "164",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "8.5%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "261",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "12.4%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "292",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "12.4%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "341",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "14.3%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "373",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "14.3%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "423",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "16.2%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "455",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "16.2%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "506",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "18.2%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "537",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "18.2%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "590",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "20.1%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "621",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "20.1%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "674",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "22.1%",
+            "ascension_phase": 6
+        }
+    ]
+}

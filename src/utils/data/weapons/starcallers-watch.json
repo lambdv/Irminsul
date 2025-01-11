@@ -1,0 +1,123 @@
+{
+    "name": "Starcallers Watch",
+    "key": "starcallers-watch",
+    "description": "A statue carved in the shape of an eagle, a sacred relic of the Masters of the Night-Wind that has been passed down from generation to generation.",
+    "rarity": 5,
+    "category": "catalyst",
+    "series": "weapon event wishes",
+    "release_date": "january 01, 2025",
+    "release_date_epoch": 1735642800.0,
+    "base_atk_min": 44,
+    "base_atk_max": 542,
+    "sub_stat_type": "elemental mastery",
+    "sub_stat_value_min": "58",
+    "sub_stat_value_max": "265",
+    "refinement_name": "offeringuntowindandsun",
+    "refinements": [
+        "Increases Elemental Mastery by **100**\n. Gain the \"Mirror of Night\" effect within 15s after the equipping character creates a shield: The current active party member deals **28**\n% increased DMG to nearby opponents. You can gain the \"Mirror of Night\" effect once every 14s.",
+        "Increases Elemental Mastery by **125**\n. Gain the \"Mirror of Night\" effect within 15s after the equipping character creates a shield: The current active party member deals **35**\n% increased DMG to nearby opponents. You can gain the \"Mirror of Night\" effect once every 14s.",
+        "Increases Elemental Mastery by **150**\n. Gain the \"Mirror of Night\" effect within 15s after the equipping character creates a shield: The current active party member deals **42**\n% increased DMG to nearby opponents. You can gain the \"Mirror of Night\" effect once every 14s.",
+        "Increases Elemental Mastery by **175**\n. Gain the \"Mirror of Night\" effect within 15s after the equipping character creates a shield: The current active party member deals **49**\n% increased DMG to nearby opponents. You can gain the \"Mirror of Night\" effect once every 14s.",
+        "Increases Elemental Mastery by **200**\n. Gain the \"Mirror of Night\" effect within 15s after the equipping character creates a shield: The current active party member deals **56**\n% increased DMG to nearby opponents. You can gain the \"Mirror of Night\" effect once every 14s."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "44",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "58",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "110",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "102",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "141",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "102",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "210",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "148",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "241",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "148",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "275",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "172",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "307",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "172",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "341",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "195",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "373",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "195",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "408",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "218",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "439",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "218",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "475",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "241",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "506",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "241",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "542",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "265",
+            "ascension_phase": 6
+        }
+    ]
+}

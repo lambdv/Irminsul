@@ -1,0 +1,595 @@
+{
+    "name": "Yae Miko",
+    "key": "yae-miko",
+    "title": "Astute Amusement",
+    "rarity": 5,
+    "element": "electro",
+    "weapon": "catalyst",
+    "release_date": "february 16, 2022",
+    "release_date_epoch": 1644969600,
+    "constellation": "divina vulpes",
+    "birthday": "june 27th",
+    "affiliation": "grand narukami shrine (on profile)yae publishing house ",
+    "region": "inazuma",
+    "special_dish": "fukuuchi udon",
+    "alternate_title": "guuji of the grand narukami shrine",
+    "description": "",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "807.46",
+            "BaseATK": "26.44",
+            "BaseDEF": "44.27",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2094.56",
+            "BaseATK": "68.59",
+            "BaseDEF": "114.85",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "2786.88",
+            "BaseATK": "91.25",
+            "BaseDEF": "152.81",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "4170.06",
+            "BaseATK": "136.55",
+            "BaseDEF": "228.65",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "4661.98",
+            "BaseATK": "152.65",
+            "BaseDEF": "255.62",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "5363.66",
+            "BaseATK": "175.63",
+            "BaseDEF": "294.10",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "6019.55",
+            "BaseATK": "197.11",
+            "BaseDEF": "330.06",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "6728.50",
+            "BaseATK": "220.32",
+            "BaseDEF": "368.94",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "7220.42",
+            "BaseATK": "236.43",
+            "BaseDEF": "395.91",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "7935.83",
+            "BaseATK": "259.85",
+            "BaseDEF": "435.13",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "8427.75",
+            "BaseATK": "275.96",
+            "BaseDEF": "462.11",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "9151.23",
+            "BaseATK": "299.65",
+            "BaseDEF": "501.78",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "9643.15",
+            "BaseATK": "315.76",
+            "BaseDEF": "528.75",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "10372.29",
+            "BaseATK": "339.63",
+            "BaseDEF": "568.73",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Vajrada Amethyst Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Sea Ganoderma",
+                    "amount": "3"
+                },
+                {
+                    "name": "Old Handguard",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Dragonheir's False Fin",
+                    "amount": "2"
+                },
+                {
+                    "name": "Vajrada Amethyst Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Sea Ganoderma",
+                    "amount": "10"
+                },
+                {
+                    "name": "Old Handguard",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Dragonheir's False Fin",
+                    "amount": "4"
+                },
+                {
+                    "name": "Vajrada Amethyst Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Sea Ganoderma",
+                    "amount": "20"
+                },
+                {
+                    "name": "Kageuchi Handguard",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Dragonheir's False Fin",
+                    "amount": "8"
+                },
+                {
+                    "name": "Vajrada Amethyst Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Sea Ganoderma",
+                    "amount": "30"
+                },
+                {
+                    "name": "Kageuchi Handguard",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Dragonheir's False Fin",
+                    "amount": "12"
+                },
+                {
+                    "name": "Vajrada Amethyst Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Sea Ganoderma",
+                    "amount": "45"
+                },
+                {
+                    "name": "Famed Handguard",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Dragonheir's False Fin",
+                    "amount": "20"
+                },
+                {
+                    "name": "Vajrada Amethyst Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Sea Ganoderma",
+                    "amount": "60"
+                },
+                {
+                    "name": "Famed Handguard",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Spiritfox Sin-Eater",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nSummons forth kitsune spirits, initiating a maximum of 3 attacks that deal Electro DMG.\nCharged Attack\nConsumes a certain amount of Stamina to deal Electro DMG after a short casting time.\nPlunging Attack\nPlunges towards the ground from mid-air, damaging all opponents in her path with thunderous might. Deals  upon impact with the ground.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        39.66,
+                        42.63,
+                        45.61,
+                        49.57,
+                        52.55,
+                        55.52,
+                        59.49,
+                        63.45,
+                        67.42,
+                        71.39,
+                        75.35
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        38.52,
+                        41.41,
+                        44.3,
+                        48.15,
+                        51.04,
+                        53.93,
+                        57.78,
+                        61.63,
+                        65.48,
+                        69.33,
+                        73.19
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        56.89,
+                        61.16,
+                        65.42,
+                        71.11,
+                        75.38,
+                        79.64,
+                        85.33,
+                        91.02,
+                        96.71,
+                        102.4,
+                        108.09
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        142.89,
+                        153.61,
+                        164.33,
+                        178.62,
+                        189.34,
+                        200.05,
+                        214.34,
+                        228.63,
+                        242.92,
+                        257.21,
+                        271.5
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.17,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Yakan Evocation: Sesshou Sakura",
+            "type": "Elemental Skill",
+            "description": "To Yae, such dull tasks as can be accomplished by driving spirits out need not be done personally.\nMoves swiftly, leaving a Sesshou Sakura behind.\n**Sesshou Sakura**\nHas the following properties:- Periodically strikes one nearby opponent with lightning, dealing Electro DMG\n- When there are other Sesshou Sakura nearby, their level will increase, boosting the DMG dealt by these lightning strikes.\nThis skill has three charges.\nA maximum of 3 Sesshou Sakura can exist simultaneously. The initial level of each Sesshou Sakura is 1, and the initial highest level each sakura can reach is 3. If a new Sesshou Sakura is created too close to an existing one, the existing one will be destroyed.",
+            "attributes": [
+                {
+                    "hit": "Sesshou Sakura DMG: Level 1 (%)",
+                    "values": [
+                        60.67,
+                        65.22,
+                        69.77,
+                        75.84,
+                        80.39,
+                        84.94,
+                        91.01,
+                        97.08,
+                        103.14,
+                        109.21,
+                        115.28,
+                        121.34,
+                        128.93
+                    ]
+                },
+                {
+                    "hit": "Sesshou Sakura DMG: Level 2 (%)",
+                    "values": [
+                        75.84,
+                        81.53,
+                        87.22,
+                        94.8,
+                        100.49,
+                        106.18,
+                        113.76,
+                        121.34,
+                        128.93,
+                        136.51,
+                        144.1,
+                        151.68,
+                        161.16
+                    ]
+                },
+                {
+                    "hit": "Sesshou Sakura DMG: Level 3 (%)",
+                    "values": [
+                        94.8,
+                        101.91,
+                        109.02,
+                        118.5,
+                        125.61,
+                        132.72,
+                        142.2,
+                        151.68,
+                        161.16,
+                        170.64,
+                        180.12,
+                        189.6,
+                        201.45
+                    ]
+                },
+                {
+                    "hit": "Sesshou Sakura DMG: Level 4 (%)",
+                    "values": [
+                        118.5,
+                        127.39,
+                        136.27,
+                        148.13,
+                        157.01,
+                        165.9,
+                        177.75,
+                        189.6,
+                        201.45,
+                        213.3,
+                        225.15,
+                        237.0,
+                        251.81
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Great Secret Art: Tenko Kenshin",
+            "type": "Elemental Burst",
+            "description": "Legends of \"kitsunetsuki,\" or the manifestations of a kitsune's might, are common in Inazuma's folktales. One that particularly captures the imagination is that of the Sky Kitsune, said to cause lightning to fall down upon the foes of the Grand Narukami Shrine. Summons a lightning strike, dealing AoE Electro DMG.\nWhen she uses this skill, Yae Miko will unseal nearby Sesshou Sakura, destroying their outer forms and transforming them into Tenko Thunderbolts that descend from the skies, dealing AoE Electro DMG. Each Sesshou Sakura destroyed in this way will create one Tenko Thunderbolt.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        260.0,
+                        279.5,
+                        299.0,
+                        325.0,
+                        344.5,
+                        364.0,
+                        390.0,
+                        416.0,
+                        442.0,
+                        468.0,
+                        494.0,
+                        520.0,
+                        552.5
+                    ]
+                },
+                {
+                    "hit": "Tenko Thunderbolt DMG (%)",
+                    "values": [
+                        333.82,
+                        358.85,
+                        383.89,
+                        417.27,
+                        442.31,
+                        467.34,
+                        500.72,
+                        534.11,
+                        567.49,
+                        600.87,
+                        634.25,
+                        667.63,
+                        709.36
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "The Shrine's Sacred Shade",
+            "type": "1st Ascension Passive",
+            "description": "When casting Great Secret Art: Tenko Kenshin, each Sesshou Sakura destroyed resets the cooldown for 1 charge of Yakan Evocation: Sesshou Sakura."
+        },
+        {
+            "name": "Enlightened Blessing",
+            "type": "4th Ascension Passive",
+            "description": "Every point of Elemental Mastery Yae Miko possesses will increase Sesshou Sakura DMG by 0.15%."
+        },
+        {
+            "name": "Meditations of a Yako",
+            "type": "Utility Passive",
+            "description": "Has a 25% chance to get 1 regional Character Talent Material (base material excluded) when crafting. The rarity is that of the base material."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Yakan Offering",
+            "description": "Each time Great Secret Art: Tenko Kenshin activates a Tenko Thunderbolt, Yae Miko will restore 8 Elemental Energy for herself.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Fox's Mooncall",
+            "description": "Sesshou Sakura start at Level 2 when created, their max level is increased to 4, and their attack range is increased by 60%.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "The Seven Glamours",
+            "description": "Increases the Level of Yakan Evocation: Sesshou Sakura by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Sakura Channeling",
+            "description": "When Sesshou Sakura lightning hits opponents, the  of all nearby party members is increased by 20% for 5s.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Mischievous Teasing",
+            "description": "Increases the Level of Great Secret Art: Tenko Kenshin by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Forbidden Art: Daisesshou",
+            "description": "The Sesshou Sakura's attacks will ignore 60% of the opponent's DEF.",
+            "properties": []
+        }
+    ],
+    "ascension_stat": "CRIT Rate"
+}

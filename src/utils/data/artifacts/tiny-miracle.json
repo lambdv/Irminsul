@@ -1,0 +1,19 @@
+{
+    "name": "Tiny Miracle",
+    "key": "tiny-miracle",
+    "flower_description": "A flower that grew from a rock, breaking through the stone as it strove to reach the light.",
+    "feather_description": "A feather from a bird of prey that flies almost too fast for the human eye to detect.",
+    "sand_description": "Just an ordinary everyday hourglass. Turn it upside down and sure enough, the dry sand starts trickling down like water.",
+    "goblet_description": "A cup commonly used for fortunetelling. It can also hold water, of course.",
+    "circlet_description": "A cheap accessory that is actually made from ancient meteoric ore.",
+    "flower_name": "Tiny Miracle's Flower",
+    "feather_name": "Tiny Miracle's Feather",
+    "sand_name": "Tiny Miracle's Hourglass",
+    "goblet_name": "Tiny Miracle's Goblet",
+    "circlet_name": "Tiny Miracle's Earrings",
+    "two_pc_bonus": "All Elemental RES increased by 20%.",
+    "four_pc_bonus": "Incoming Elemental DMG increases corresponding Elemental RES by 30% for 10s. Can only occur once every 10s.",
+    "rarity_min": 3,
+    "rarity_max": 4,
+    "release_version": 1.0
+}

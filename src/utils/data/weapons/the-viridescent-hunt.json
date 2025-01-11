@@ -1,0 +1,122 @@
+{
+    "name": "The Viridescent Hunt",
+    "key": "the-viridescent-hunt",
+    "description": "A pure green hunting bow. This once belonged to a certain hunter whose home was the forest.",
+    "rarity": 4,
+    "category": "bow",
+    "series": "gnostic hymn 1 series",
+    "release_date": "september 28, 2020",
+    "base_atk_min": 42,
+    "base_atk_max": 510,
+    "sub_stat_type": "crit rate",
+    "sub_stat_value_min": "6% ",
+    "sub_stat_value_max": " 27.6%",
+    "refinement_name": "\n\nverdant wind\n\n",
+    "refinements": [
+        "Upon hit, Normal and Aimed Shot Attacks have a 50% chance to generate a Cyclone, which will continuously attract surrounding opponents, dealing **40**\n% of ATK as DMG to these opponents every 0.5s for 4s. This effect can only occur once every **14**\ns.",
+        "Upon hit, Normal and Aimed Shot Attacks have a 50% chance to generate a Cyclone, which will continuously attract surrounding opponents, dealing **50**\n% of ATK as DMG to these opponents every 0.5s for 4s. This effect can only occur once every **13**\ns.",
+        "Upon hit, Normal and Aimed Shot Attacks have a 50% chance to generate a Cyclone, which will continuously attract surrounding opponents, dealing **60**\n% of ATK as DMG to these opponents every 0.5s for 4s. This effect can only occur once every **12**\ns.",
+        "Upon hit, Normal and Aimed Shot Attacks have a 50% chance to generate a Cyclone, which will continuously attract surrounding opponents, dealing **70**\n% of ATK as DMG to these opponents every 0.5s for 4s. This effect can only occur once every **11**\ns.",
+        "Upon hit, Normal and Aimed Shot Attacks have a 50% chance to generate a Cyclone, which will continuously attract surrounding opponents, dealing **80**\n% of ATK as DMG to these opponents every 0.5s for 4s. This effect can only occur once every **10**\ns."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "42",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "6%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "109",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "10.6%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "135",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "10.6%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "205",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "15.5%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "231",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "15.5%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "266",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "17.9%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "292",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "17.9%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "327",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "20.3%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "353",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "20.3%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "388",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "22.7%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "414",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "22.7%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "449",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "25.1%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "475",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "25.1%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "510",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "27.6%",
+            "ascension_phase": 6
+        }
+    ]
+}

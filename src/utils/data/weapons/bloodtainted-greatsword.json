@@ -1,0 +1,122 @@
+{
+    "name": "Bloodtainted Greatsword",
+    "key": "bloodtainted-greatsword",
+    "description": "A steel sword that is said to have been coated with dragon blood, rendering it invulnerable to damage. This effect is not extended to its wielder, however.",
+    "rarity": 3,
+    "category": "claymore",
+    "series": "3-star bane series",
+    "release_date": "september 28, 2020",
+    "base_atk_min": 38,
+    "base_atk_max": 354,
+    "sub_stat_type": "elemental mastery",
+    "sub_stat_value_min": "41 ",
+    "sub_stat_value_max": " 187",
+    "refinement_name": "\n\nbane of fire and thunder\n\n",
+    "refinements": [
+        "Increases DMG against opponents affected by Pyro or Electro by **12**\n%.",
+        "Increases DMG against opponents affected by Pyro or Electro by **15**\n%.",
+        "Increases DMG against opponents affected by Pyro or Electro by **18**\n%.",
+        "Increases DMG against opponents affected by Pyro or Electro by **21**\n%.",
+        "Increases DMG against opponents affected by Pyro or Electro by **24**\n%."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "38",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "41",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "86",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "72",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "105",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "72",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "151",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "105",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "171",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "105",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "193",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "122",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "212",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "122",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "234",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "138",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "253",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "138",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "274",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "154",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "294",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "154",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "314",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "171",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "334",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "171",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "354",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "187",
+            "ascension_phase": 6
+        }
+    ]
+}

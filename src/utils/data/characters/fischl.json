@@ -1,0 +1,594 @@
+{
+    "name": "Fischl",
+    "key": "fischl",
+    "title": "Prinzessin der Verurteilung!",
+    "rarity": 4,
+    "element": "electro",
+    "weapon": "bow",
+    "release_date": "september 28, 2020",
+    "release_date_epoch": 1601251200,
+    "constellation": "corvus",
+    "birthday": "may 27th",
+    "affiliation": "adventurers' guild",
+    "region": "mondstadt",
+    "special_dish": "die heilige sinfonie",
+    "alternate_title": "sovereign of immernachtreich",
+    "description": "",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "770.46",
+            "BaseATK": "20.48",
+            "BaseDEF": "49.79",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "1979.32",
+            "BaseATK": "52.61",
+            "BaseDEF": "127.90",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "2554.90",
+            "BaseATK": "67.91",
+            "BaseDEF": "165.09",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "3826.93",
+            "BaseATK": "101.72",
+            "BaseDEF": "247.29",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "0%",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "4235.89",
+            "BaseATK": "112.59",
+            "BaseDEF": "273.71",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "4872.30",
+            "BaseATK": "129.51",
+            "BaseDEF": "314.84",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "5417.58",
+            "BaseATK": "144.00",
+            "BaseDEF": "350.07",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "6053.98",
+            "BaseATK": "160.92",
+            "BaseDEF": "391.20",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "6462.94",
+            "BaseATK": "171.79",
+            "BaseDEF": "417.62",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "7098.57",
+            "BaseATK": "188.68",
+            "BaseDEF": "458.70",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "7507.54",
+            "BaseATK": "199.55",
+            "BaseDEF": "485.12",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "8143.94",
+            "BaseATK": "216.47",
+            "BaseDEF": "526.24",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "8552.90",
+            "BaseATK": "227.34",
+            "BaseDEF": "552.67",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "9189.30",
+            "BaseATK": "244.26",
+            "BaseDEF": "593.79",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Vajrada Amethyst Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Small Lamp Grass",
+                    "amount": "3"
+                },
+                {
+                    "name": "Firm Arrowhead",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Lightning Prism",
+                    "amount": "2"
+                },
+                {
+                    "name": "Vajrada Amethyst Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Small Lamp Grass",
+                    "amount": "10"
+                },
+                {
+                    "name": "Firm Arrowhead",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Lightning Prism",
+                    "amount": "4"
+                },
+                {
+                    "name": "Vajrada Amethyst Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Small Lamp Grass",
+                    "amount": "20"
+                },
+                {
+                    "name": "Sharp Arrowhead",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Lightning Prism",
+                    "amount": "8"
+                },
+                {
+                    "name": "Vajrada Amethyst Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Small Lamp Grass",
+                    "amount": "30"
+                },
+                {
+                    "name": "Sharp Arrowhead",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Lightning Prism",
+                    "amount": "12"
+                },
+                {
+                    "name": "Vajrada Amethyst Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Small Lamp Grass",
+                    "amount": "45"
+                },
+                {
+                    "name": "Weathered Arrowhead",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Lightning Prism",
+                    "amount": "20"
+                },
+                {
+                    "name": "Vajrada Amethyst Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Small Lamp Grass",
+                    "amount": "60"
+                },
+                {
+                    "name": "Weathered Arrowhead",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Bolts of Downfall",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 5 consecutive shots with a bow.\nCharged Attack\nPerforms a more precise Aimed Shot with increased DMG.\nWhile aiming, the dark lightning spirits of Immernachtreich shall heed the call of their Prinzessin and indwell the enchanted arrowhead. When fully indwelt, the Rachs\u00fcchtig Blitz shall deal immense Electro DMG.\nPlunging Attack\nFires off a shower of arrows in mid-air before falling and striking the ground, dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        44.12,
+                        47.71,
+                        51.3,
+                        56.43,
+                        60.02,
+                        64.13,
+                        69.77,
+                        75.41,
+                        81.05,
+                        87.21,
+                        93.37
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        46.78,
+                        50.59,
+                        54.4,
+                        59.84,
+                        63.65,
+                        68.0,
+                        73.98,
+                        79.97,
+                        85.95,
+                        92.48,
+                        99.01
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        58.14,
+                        62.87,
+                        67.6,
+                        74.36,
+                        79.09,
+                        84.5,
+                        91.94,
+                        99.37,
+                        106.81,
+                        114.92,
+                        123.03
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        57.71,
+                        62.4,
+                        67.1,
+                        73.81,
+                        78.51,
+                        83.88,
+                        91.26,
+                        98.64,
+                        106.02,
+                        114.07,
+                        122.12
+                    ]
+                },
+                {
+                    "hit": "5-Hit DMG (%)",
+                    "values": [
+                        72.07,
+                        77.93,
+                        83.8,
+                        92.18,
+                        98.05,
+                        104.75,
+                        113.97,
+                        123.19,
+                        132.4,
+                        142.46,
+                        152.52
+                    ]
+                },
+                {
+                    "hit": "Aimed Shot (%)",
+                    "values": [
+                        43.86,
+                        47.43,
+                        51.0,
+                        56.1,
+                        59.67,
+                        63.75,
+                        69.36,
+                        74.97,
+                        80.58,
+                        86.7,
+                        92.82
+                    ]
+                },
+                {
+                    "hit": "Fully-Charged Aimed Shot (%)",
+                    "values": [
+                        124.0,
+                        133.3,
+                        142.6,
+                        155.0,
+                        164.3,
+                        173.6,
+                        186.0,
+                        198.4,
+                        210.8,
+                        223.2,
+                        235.6
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.17,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Nightrider",
+            "type": "Elemental Skill",
+            "description": "Summons Oz. The night raven forged of darkness and lightning descends upon the land, dealing Electro DMG in a small AoE.\nFor the ability's duration, Oz will continuously attack nearby opponents with Freikugel.\nHold to adjust the location Oz will be summoned to.\n(Press/Tap) again any time during the ability's duration to once again summon him to Fischl's side.",
+            "attributes": [
+                {
+                    "hit": "Oz's ATK DMG (%)",
+                    "values": [
+                        88.8,
+                        95.46,
+                        102.12,
+                        111.0,
+                        117.66,
+                        124.32,
+                        133.2,
+                        142.08,
+                        150.96,
+                        159.84,
+                        168.72,
+                        177.6,
+                        188.7,
+                        200.0
+                    ]
+                },
+                {
+                    "hit": "Summoning DMG (%)",
+                    "values": [
+                        115.44,
+                        124.1,
+                        132.76,
+                        144.3,
+                        152.96,
+                        161.62,
+                        173.16,
+                        184.7,
+                        196.25,
+                        207.79,
+                        219.34,
+                        230.88,
+                        245.31,
+                        260.0
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Midnight Phantasmagoria",
+            "type": "Elemental Burst",
+            "description": "Summons Oz to spread his twin wings of twilight and defend Fischl.\nHas the following properties during the ability's duration:- Fischl takes on Oz's form, greatly increasing her Movement Speed.\n- Strikes nearby opponents with lightning, dealing Electro DMG to opponents she comes into contact with. Each opponent can only be struck once.\n- Once this ability's effects end, Oz will remain on the battlefield and attack his Prinzessin's foes. If Oz is already on the field, then this will reset the duration of his presence.",
+            "attributes": [
+                {
+                    "hit": "Falling Thunder DMG (%)",
+                    "values": [
+                        208.0,
+                        223.6,
+                        239.2,
+                        260.0,
+                        275.6,
+                        291.2,
+                        312.0,
+                        332.8,
+                        353.6,
+                        374.4,
+                        395.2,
+                        416.0,
+                        442.0,
+                        468.0
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Stellar Predator",
+            "type": "1st Ascension Passive",
+            "description": "When Fischl hits Oz with a fully-charged Aimed Shot, Oz brings down Thundering Retribution, dealing  equal to 152.7% of the arrow's DMG.",
+            "properties": []
+        },
+        {
+            "name": "Undone Be Thy Sinful Hex",
+            "type": "4th Ascension Passive",
+            "description": "If your active character triggers an  when Oz is on the field, the opponent shall be stricken with Thundering Retribution that deals Electro DMG equal to 80% of Fischl's ATK.",
+            "properties": []
+        },
+        {
+            "name": "Mein Hausgarten",
+            "type": "Utility Passive",
+            "description": "When dispatched on an expedition in Mondstadt, time consumed is reduced by 25%."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Gaze of the Deep",
+            "description": "Even when Oz is not present in combat, he can still watch over Fischl through his raven eyes. When Fischl performs a Normal Attack against an opponent, Oz fires a coordinated attack, dealing DMG equal to 22% of Fischl's ATK.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Devourer of All Sins",
+            "description": "When Nightrider is used, it deals an additional 200% ATK as DMG, and its AoE is increased by 50%.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Wings of Nightmare",
+            "description": "Increases the Level of Nightrider by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Her Pilgrimage of Bleak",
+            "description": "When Midnight Phantasmagoria is used, it deals 222% of ATK as Electro DMG to surrounding opponents.\nWhen the skill duration ends, Fischl regenerates 20% of her HP.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Against the Fleeing Light",
+            "description": "Increases the Level of Midnight Phantasmagoria by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Evernight Raven",
+            "description": "Extends the duration of Oz's presence on the field by 2s. Additionally, Oz performs coordinated attacks with your active character when present, dealing 30% of Fischl's ATK as Electro DMG.",
+            "properties": []
+        }
+    ],
+    "ascension_stat": "ATK"
+}
