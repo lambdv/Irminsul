@@ -36,10 +36,12 @@ export async function getWeapon(id: string): Promise<Weapon | null>{
 }
 
 async function loadJSON(path: string): Promise<any>{
+    "use cache"
     return JSON.parse(fs.readFileSync(path, 'utf8'))
 }
 
 async function loadJSONs(directory: string): Promise<any[]>{
+    "use cache"
     const files = await fs.readdirSync(directory)
     const objects = await Promise.all(files.map(async (file) => await loadJSON(`${directory}/${file}`)))
     return objects
