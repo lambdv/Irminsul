@@ -12,7 +12,7 @@ export default function WeaponItemList(props:{data: any}) {
     const weapons = props.data
     const { SearchQuery } = SearchStore()
     const { selectedFilters, filters, descending } = WeaponFilterStore()
-    const [sortBy, setSortBy] = useState("release_date_epoch")
+    const [sortBy, setSortBy] = useState("release_date")
     
     const [filteredWeapons, setFilteredWeapons] = useState<any[]>(weapons)
     useEffect(() => {

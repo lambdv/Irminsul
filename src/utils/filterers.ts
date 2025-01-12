@@ -28,7 +28,9 @@ export function sortItems(a: any, b: any, sortBy: string, descending: boolean){
         case "name":
             return a.name.localeCompare(b.name)
         case "release_date_epoch":
-            return (a.release_date_epoch - b.release_date_epoch) || a.rarity - b.rarity || a.name.localeCompare(b.name)
+            return (Number(a.release_date_epoch) - Number(b.release_date_epoch)) || (a.rarity - b.rarity) || a.name.localeCompare(b.name)
+        case "release_date":
+            return (new Date(a.release_date).getTime() - new Date(b.release_date).getTime()) || (a.rarity - b.rarity) || a.name.localeCompare(b.name)
         default:
             return a[sortBy].localeCompare(b[sortBy])
     }

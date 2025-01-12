@@ -82,9 +82,6 @@ export async function generateStaticParams() {
   }))
 }
 
-
-
-
 export default async function WeaponPage({params}) {
   const {id} = await params
   const data = params.data ? params.data : await getWeapon(id)
