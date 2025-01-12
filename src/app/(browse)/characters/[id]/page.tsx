@@ -178,13 +178,13 @@ export async function generateMetadata({params}) {
 }
 
 // //statically generate all character pages from api at build time
-// export async function generateStaticParams() {
-//   const characters = await getCharacters()
-//   return characters.map((character) => ({
-//     id: character.key,
-//     // data: character
-//   }))
-// }
+export async function generateStaticParams() {
+  const characters = await getCharacters()
+  return characters.map((character) => ({
+    id: character.key,
+    // data: character
+  }))
+}
 
 
 export default async function CharacterPage({params}) {
