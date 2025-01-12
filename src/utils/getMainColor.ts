@@ -1,7 +1,7 @@
 import { createCanvas, loadImage } from 'canvas'
 
 export async function getMainColor(imageURL: string): Promise<string> {
-    "use cache"
+    //"use cache"
     
     const fs = require('fs');
     const path = require('path');
@@ -66,5 +66,45 @@ export async function getMainColor(imageURL: string): Promise<string> {
         console.log('Cache write error:', e);
     }
 
-    return dominantColor;
+    return adjustBrightness(dominantColor);
+}
+
+function adjustBrightness(color: string, targetBrightness: number = 0.6): string {
+    // Extract RGB values
+    const match = color.match(/rgb\((\d+),(\d+),(\d+)\)/);
+    if (!match) return color;
+
+    const [_, r, g, b] = match.map(Number);
+    
+    // Calculate current brightness (using perceived brightness formula)
+    const currentBrightness = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+    
+    // Calculate adjustment factor
+    const factor = targetBrightness / currentBrightness;
+    
+    // Adjust RGB values while keeping them in bounds
+    const newR = Math.min(255, Math.max(0, Math.round(r * factor)));
+    const newG = Math.min(255, Math.max(0, Math.round(g * factor)));
+    const newB = Math.min(255, Math.max(0, Math.round(b * factor)));
+    
+    return `rgb(${newR},${newG},${newB})`;
+}
+
+const elementColorBias: { [key: string]: { r: number, g: number, b: number } } = {
+    geo: { r: 255, g: 165, b: 0 },    // Orange
+    pyro: { r: 255, g: 0, b: 0 },     // Red
+    hydro: { r: 0, g: 191, b: 255 },  // Blue
+    electro: { r: 147, g: 0, b: 255 }, // Purple
+    dendro: { r: 50, g: 205, b: 50 },  // Green
+    cryo: { r: 135, g: 206, b: 235 },  // Light Blue
+    anemo: { r: 127, g: 255, b: 212 }  // Turquoise
+};
+
+// Helper function to calculate color similarity
+function getColorSimilarity(color1: { r: number, g: number, b: number }, color2: { r: number, g: number, b: number }): number {
+    return Math.sqrt(
+        Math.pow(color1.r - color2.r, 2) +
+        Math.pow(color1.g - color2.g, 2) +
+        Math.pow(color1.b - color2.b, 2)
+    );
 }

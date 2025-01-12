@@ -11,7 +11,7 @@ export default async function Home() {
 
     const latestCharacters = characters.sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime()).slice(0, 5);
     const latestWeapons = weapons.sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime()).slice(0, 5);
-    const latestArtifacts = artifacts.sort((a, b) => b.release_version - a.release_version).slice(0, 5);
+    const latestArtifacts = artifacts.sort((a, b) => Number(b.release_version) - Number(a.release_version)).slice(0, 5);
 
     return (
         <div className="">
