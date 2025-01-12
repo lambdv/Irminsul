@@ -1,14 +1,17 @@
 import { getCharacters, getWeapons, getArtifacts } from '@/utils/DataGetters';
+import CharacterItemList from '@/app/(browse)/characters/CharacterItemList';
+import WeaponItemList from '@/app/(browse)/weapons/WeaponItemList';
+import ArtifactItemList from '@/app/(browse)/artifacts/ArtifactItemList';
 import Item from '@/components/explore/Item';
 
-export default async function LandingPage() {
+export default async function Home() {
     const characters = await getCharacters()
     const weapons = await getWeapons()
     const artifacts = await getArtifacts()
 
     const latestCharacters = characters.sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime()).slice(0, 5);
     const latestWeapons = weapons.sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime()).slice(0, 5);
-    const latestArtifacts = artifacts.sort((a, b) => Number(b.release_version) - Number(a.release_version)).slice(0, 5);
+    const latestArtifacts = artifacts.sort((a, b) => b.release_version - a.release_version).slice(0, 5);
 
     return (
         <div className="">
@@ -69,4 +72,4 @@ export default async function LandingPage() {
             </div>
         </div>
     );
-}
+} 

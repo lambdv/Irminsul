@@ -1,6 +1,6 @@
 import React from 'react' 
 import explorePageCSS from '@/components/explore/explorePage.module.css'
-import WeaponItemList from './WeaponItemList'
+import WeaponItemList from '@/app/(browse)/weapons/WeaponItemList'
 import ItemsContainer from '@/components/explore/ItemsContainer'
 import BrowseHeader from '@/components/explore/BrowseHeader'
 import weaponIcon from '@public/assets/icons/weaponIcon.png'

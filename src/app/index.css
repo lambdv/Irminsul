@@ -12,10 +12,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: #070707;
-    --elevation-color: #161616;
     --text-color: #ffffff;
     --primary-color: #bb86fc;
-    --ingame-primary-color: #E7C073;
   }
 }
 
@@ -111,7 +109,10 @@ body{
   overflow-x:hidden;
 }
 
-
+nav{
+  position: sticky;
+  top:0px;
+}
 
 /* .wrapper{
   width:100%;
@@ -129,10 +130,9 @@ body{
 
   overflow-y: auto;
   overflow-x:hidden;
+  /* background-color: red; */
   top: -60px;
   padding-top: 60px;
-  min-height: 90vh;
-  background-color: transparent;
 }
 
 @media all and (max-width: 1500px) {  
@@ -313,6 +313,8 @@ body{
     --chart-5: 340 75% 55%
   }
 }
+
+
 
 @layer base {
   * {

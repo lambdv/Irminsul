@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react' 
-import CharacterItemList from './CharacterItemList'
+import CharacterItemList from '@/app/(browse)/characters/CharacterItemList'
 import ItemsContainer from '@/components/explore/ItemsContainer'
 import BrowseHeader from '@/components/explore/BrowseHeader'
 import characterIcon from '@public/assets/icons/characterIcon.png'
