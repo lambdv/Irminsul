@@ -1,76 +1,65 @@
 "use server"
 import * as fs from 'fs';
 import { Character } from '@/types/character';
+import { Weapon } from '@/types/weapon';
+import { Artifact } from '@/types/artifact';
+import { toKey } from '@/utils/standardizers'
 
-
-/**
- * fetches character data from the database api
- * @returns array of character json objects
- */
-export async function getCharacters(): Promise<Character[]> {
-    // "use cache"
-    return fs.readdirSync('src/data/characters/')
-        .map(file => {
-            const character = JSON.parse(fs.readFileSync(`src/data/characters/${file}`, 'utf8'))
-            character.id = file.split('.')[0]
-            return character
-        })
+export async function getCharacters(): Promise<Character[]>{
+    return await getJSONs('characters') as Character[]
 }
 
-/**
- * fetches weapon data from the database api
- * @returns array of weapon json objects
- */
-export async function getWeapons(){
-    //"use cache"
-    return fs.readdirSync('src/data/weapons/')
-        .map(file => {
-            const weapon = JSON.parse(fs.readFileSync(`src/data/weapons/${file}`, 'utf8'))
-            weapon.id = file.split('.')[0]
-            weapon.release_date_epoch = new Date(weapon.release_date).getTime() / 1000
-            return weapon
-        })
+export async function getWeapons(): Promise<Weapon[]>{
+    return await getJSONs('weapons') as Weapon[]    
 }
 
-/**
- * fetches artifact data from the database api
- * @returns array of artifact json objects
- */
-export async function getArtifacts(){
-    //"use cache"
-    return fs.readdirSync('src/data/artifacts/')
-        .map(file => {
-            const artifact = JSON.parse(fs.readFileSync(`src/data/artifacts/${file}`, 'utf8'))
-            artifact.id = file.split('.')[0]
-            return artifact
-        })
+export async function getArtifacts(): Promise<Artifact[]>{
+    return await getJSONs('artifacts') as Artifact[]
 }
 
-export async function getArtifact(id: string){
+export async function getArtifact(id: string): Promise<Artifact | null>{
+    return await getJSONs('artifacts')
+    .then(artifacts => artifacts.find(artifact => artifact.id === id) || null)
+    .catch(() => null)
+}
+
+export async function getCharacter(id: string): Promise<Character | null>{
+    return await getJSONs('characters')
+    .then(characters => characters.find(character => character.id === id) || null)
+    .catch(() => null)
+}
+
+export async function getWeapon(id: string): Promise<Weapon | null>{
+    return await getJSONs('weapons')
+    .then(weapons => weapons.find(weapon => weapon.id === id) || null)
+    .catch(() => null)
+}
+
+async function loadJSON(path: string): Promise<any>{
+    return JSON.parse(fs.readFileSync(path, 'utf8'))
+}
+
+async function loadJSONs(directory: string): Promise<any[]>{
+    const files = await fs.readdirSync(directory)
+    const objects = await Promise.all(files.map(async (file) => await loadJSON(`${directory}/${file}`)))
+    return objects
+}
+
+async function getJSONs(category: 'characters' | 'weapons' | 'artifacts'): Promise<any[]>{
     "use cache"
-    const artifacts = await getArtifacts()
-    return artifacts.find(artifact => artifact.key === id)
+    const objects = await loadJSONs('public/data/' + category)
+    const res: any[] = objects.map((obj, index) => ({
+        ...obj,
+        id: toKey(obj.name),
+        index: index
+    }))
+    return res
 }
 
-export async function getCharacter(id: string){
-    "use cache"
-    const characters = await getCharacters()
-    return characters.find(character => character.key === id)
-}
-
-export async function getWeapon(id: string){
-    "use cache"
-    const weapons = await getWeapons()
-    return weapons.find(weapon => weapon.key === id)
-}
-
-/**
- * get all data from api and flatten it into a single array of type page
- */
 export async function getAllPages(): Promise<Page[]>{
     // "use cache"
     let pages: Page[] = []
-    const jsonToResultItem = (json: any, category: string) => 
+    const jsonToResultItem = (json: any, category: string): Page[] => 
         json.map((item: any) => ({
             id: item.id, 
             name: item.name, 
@@ -80,32 +69,9 @@ export async function getAllPages(): Promise<Page[]>{
     let characters = await getCharacters()
     let weapons = await getWeapons()
     let artifacts = await getArtifacts()
-    characters = jsonToResultItem(characters, "Character")
-    weapons = jsonToResultItem(weapons, "Weapon")
-    artifacts = jsonToResultItem(artifacts, "Artifact")
-    pages = [...characters, ...weapons, ...artifacts]
+    let charactersPages = jsonToResultItem(characters, "Character")
+    let weaponsPages = jsonToResultItem(weapons, "Weapon")
+    let artifactsPages = jsonToResultItem(artifacts, "Artifact")
+    pages = [...charactersPages, ...weaponsPages, ...artifactsPages]
     return pages
 } 
-
-
-/**
- * helper method that fetches data from an api 
- */
-// async function getFrom(url){
-//     const res = await fetch(url, {
-//         next: {
-//             revalidate: 60 * 60 * 24 * 7 // weekly
-//         }
-//     })
-//     const weapons = await res.json()
-//     const weaponDataPromises = weapons.map(async (weapon) => {
-//         const weaponData = await fetch(url+`/${weapon}`, {
-//             next: {
-//                 revalidate: 60 * 60 * 24 * 7 // weekly
-//             }
-//         })
-//         return weaponData.json();
-//     })
-//     const weaponDataList = await Promise.all(weaponDataPromises);
-//     return weaponDataList;
-// }
