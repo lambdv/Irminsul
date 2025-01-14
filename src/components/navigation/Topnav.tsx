@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link"
-import React, { use, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
 import TopnavCSS from "./topnav.module.css"
 import SearchPallette from "@components/navigation/SearchPallete"
@@ -107,18 +107,22 @@ function RightContainer(){
 
   return (
     <div id="topnavRight" className={TopnavCSS.fries + " " + TopnavCSS.hamburger}>
-      <button 
-            className={TopnavCSS.mobileOnly + " " + TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '}
-            onClick={() => SearchStore.getState().setShowPallette(true)}
-          >
-        <i className="material-symbols-outlined">search</i>
-      </button>
 
-      <button className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '}
+      <div className={TopnavCSS.mobileOnly}>
+        <button 
+              className={TopnavCSS.mobileOnly + " " + TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '}
+              onClick={() => SearchStore.getState().setShowPallette(true)}
+            >
+          <i className="material-symbols-outlined">search</i>
+        </button>
+      </div>
+
+
+      {/* <button className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '}
         onClick={toggleTheme}
       >
         <i className="material-symbols-outlined">dark_mode</i>
-      </button>
+      </button> */}
       <button className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '}>
         <i className="material-symbols-outlined">account_circle</i>
       </button>

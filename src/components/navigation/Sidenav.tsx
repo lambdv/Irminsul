@@ -7,12 +7,13 @@ import SidenavCSS from "./sidenav.module.css"
 import { NavigationStore } from "@/store/Navigation"
 import { SearchStore } from "@/store/Search"
 import Overlay from '../ui/Overlay'
-import characterIcon from '@public/assets/icons/characterIcon.png'
-import weaponIcon from '@public/assets/icons/weaponIcon.png'
-import artifactIcon from '@public/assets/icons/artifactIcon.png'
-import enemyIcon from '@public/assets/icons/enemyIcon.png'
-import wishIcon from '@public/assets/icons/wish.png'
-import partyIcon from '@public/assets/icons/party.png'
+import characterIcon from '@public/imgs/icons/characterIcon.png'
+import weaponIcon from '@public/imgs/icons/weaponIcon.png'
+import artifactIcon from '@public/imgs/icons/artifactIcon.png'
+import enemyIcon from '@public/imgs/icons/enemyIcon.png'
+import wishIcon from '@public/imgs/icons/wish.png'
+import partyIcon from '@public/imgs/icons/party.png'
+
 /**
  * Side navigation component
  */
@@ -20,8 +21,7 @@ export default function Sidenav() {
   const pathname = usePathname() //get path url
   const { sideNavCollapsed, setSideNavCollapsed } = NavigationStore() //get sidenav state
   const [activePage, setActivePage] = useState('') //keep track of active page
-  const [windowWidth, setWindowWidth] = useState(1201) //keep track of window width
-  const { togglePalette } = SearchStore() //get search pallette state
+  const [windowWidth, setWindowWidth] = useState(1980) //keep track of window width
 
   useEffect(() => setActivePage(pathname), [pathname]) //update active page on path change
   useEffect(() => setWindowWidth(window.innerWidth), []) //update window width on load
@@ -75,9 +75,8 @@ export default function Sidenav() {
         <SideNavLink href="/wishes" img={wishIcon} text="Banners"/> */}
         {/* <SideNavLink href="/articles" img={wishIcon} text="Articles"/>
         <SideNavLink href="/teams" img={partyIcon} text="Teams"/> */}
-
-
       </nav>
+
       {!sideNavCollapsed && windowWidth < 1500 && 
         <Overlay zIndex={2} onClick={() => setSideNavCollapsed(true)}></Overlay>
       }

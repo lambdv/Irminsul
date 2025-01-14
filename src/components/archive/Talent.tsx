@@ -3,20 +3,20 @@ import Image from 'next/image'
 import Table from './Table'
 import BaseStatTableCSS from './stattable.module.css'
 import TalentCSS from './talent.module.css'
-import ExampleIcon from '@public/assets/icons/bow.png'
+import ExampleIcon from '@public/imgs/icons/bow.png'
 
 import { CharacterTalent, CharacterTalentAttribute } from '@/types/character'
 
 export default function Talent(props: {
   data: CharacterTalent,
-  icon?: boolean
+  icon?: string
 }) {
 
   return (
     <div className={TalentCSS.talent}>
         <div className={`${TalentCSS.talentHeader}`}>
-          {!props.icon && <Image 
-            src={ExampleIcon} 
+          {props.icon && <Image 
+            src={props.icon} 
               alt={props.data.name} 
               width={100} 
               height={100} 

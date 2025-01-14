@@ -128,7 +128,6 @@ export default async function WeaponPage({params}) {
                     name: data.refinement_name,
                     description: data.refinements[0],
                   }}
-                  icon={true}
                 />
             </div>
           </div>

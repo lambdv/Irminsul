@@ -33,6 +33,31 @@
     text-align: left;
 }
 
+@media (max-width: 1600px) {
+    .searchPalette {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .searchPalette {
+        width: 100%;
+        top: 0px;
+    }
+    .searchPalette .searchBar{
+        height: 60px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .searchPaletteResults{
+        max-height: 100%;
+        top: 60px;
+    }
+}
+
+
+
 .palletteResult {
     display: flex;
     align-items: center; 

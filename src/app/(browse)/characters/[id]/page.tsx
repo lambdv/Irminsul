@@ -239,24 +239,50 @@ function CharacterContent({ data }) {
 
         <div>
           <h2 className="mb-2 text-2xl font-bold">Talents</h2>
-          {data.talents.map((talent, index) => (
-              <Talent 
+          {data.talents.map((talent, index) => {
+              let icon = ""
+              switch(talent.type) {
+                case "Normal Attack":
+                  icon = `/imgs/icons/${data.weapon}.png`
+                  break
+                case "Elemental Skill":
+                  icon = `/assets/talents/characters/${data.key}/${data.key}_skill.png`
+                  break
+                case "Elemental Burst":
+                  icon = `/assets/talents/characters/${data.key}/${data.key}_burst.png`
+                  break
+              }
+              return <Talent 
                 key={index}
                 data={talent}
+                icon={icon}
               />
-          ))}
+          })}
         </div>
 
         <br/>
 
         <div>
           <h2 className="mb-2 text-2xl font-bold">Passives</h2>
-          {data.passives.map((passive, index) => (
-            <Talent 
+          {data.passives.map((passive, index) => {
+            let icon = ""
+            switch(passive.type) {
+              case "1st Ascension Passive":
+                icon = `/assets/talents/characters/${data.key}/${data.key}_a1.png`
+                break
+              case "4th Ascension Passive":
+                icon = `/assets/talents/characters/${data.key}/${data.key}_a4.png`
+                break
+              case "Utility Passive":
+                icon = `/assets/talents/characters/${data.key}/${data.key}_passive.png`
+                break
+            }
+            return <Talent 
               key={index}
               data={passive}
+              icon={icon}
             />
-          ))}
+          })}
         </div>
 
         <br/>
@@ -266,6 +292,7 @@ function CharacterContent({ data }) {
           {data.constellations.map((constellation, index) => (
             <Talent 
               key={index}
+              icon={`/assets/talents/characters/${data.key}/${data.key}_c${index + 1}.png`}
               data={{
                 type: "C" + (index + 1),
                 name: constellation.name,

@@ -18,11 +18,9 @@ export default function loading() {
     <div style={{"overflow":"hidden"}} className="">
       <div className='width-500 height-500'></div>
       <div className={explorePageCSS.itemContainer}>
-        {
-          Array.from({ length: 32 }).map((_, i) => (
-            <ItemSkelleton key={i} />
-          ))
-        }
+        {Array.from({ length: 32 }).map((_, i) => (
+          <ItemSkelleton key={i} />
+        ))}
       </div>
     </div>
   )

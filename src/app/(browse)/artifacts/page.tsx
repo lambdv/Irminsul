@@ -1,7 +1,7 @@
 import React from 'react' 
 import ArtifactItemList from '@/app/(browse)/artifacts/ArtifactItemList'
 import BrowseHeader from '@/components/explore/BrowseHeader'
-import artifactIcon from '@public/assets/icons/artifactIcon.png'
+import artifactIcon from '@public/imgs/icons/artifactIcon.png'
 import {ArtifactFilterStore} from '@/store/ArtifactFilters'
 import {getArtifacts} from '@/utils/DataGetters'
 
