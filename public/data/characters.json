@@ -7376,7 +7376,7 @@
             "region": "natlan",
             "special_dish": "moment of respite",
             "alternate_title": "Peacemaker of the Tlalocan",
-            "description": "",
+            "description": "The Peacemaker of the Tlalocan, the ender of all disputes.",
             "ascension_stat": "CRIT Rate",
             "base_stats": [
                 {
@@ -9790,7 +9790,7 @@
             "region": "natlan",
             "special_dish": "secret art",
             "alternate_title": "Stargazer of Mictlan",
-            "description": "",
+            "description": "The great shaman from the Masters of the Night-Wind, the universally-revered Granny Itztli.",
             "ascension_stat": "Elemental Mastery",
             "base_stats": [
                 {
@@ -14757,7 +14757,7 @@
             "region": "fontaine",
             "special_dish": "a fragrant feast of flavors",
             "alternate_title": "Renowned Perfumer",
-            "description": "",
+            "description": "A Fontainian perfumer, one who bottles secrets.",
             "ascension_stat": "CRIT DMG",
             "base_stats": [
                 {
@@ -21636,7 +21636,7 @@
             "region": "natlan",
             "special_dish": "impeccably organized",
             "alternate_title": "Nanatzcayan Young Braveheart",
-            "description": "",
+            "description": "A young warrior of the Nanatzcayan, given the Ancient Name of \"Uthabiti.\" Kind-hearted and insatiably persistent, she grows stronger and more capable with each setback she faces.",
             "ascension_stat": "Geo DMG Bonus",
             "base_stats": [
                 {
@@ -25813,7 +25813,7 @@
             "region": "natlan",
             "special_dish": "saurian hunter's reward",
             "alternate_title": "Huitztlan Saurian Hunter",
-            "description": "",
+            "description": "A Huitztlan Saurian Hunter skilled at counting costs.",
             "ascension_stat": "CRIT DMG",
             "base_stats": [
                 {
@@ -31231,7 +31231,7 @@
             "region": "natlan",
             "special_dish": "hymn of gathered flame",
             "alternate_title": "Natlan's Radiant Sun",
-            "description": "",
+            "description": "The leader of Natlan who inherited the Ancient Name of \"Kiongozi.\" She made a vow to illuminate the future of the nation of war with the Sacred Flame.",
             "ascension_stat": "CRIT DMG",
             "base_stats": [
                 {
@@ -33228,7 +33228,7 @@
             "region": "natlan",
             "special_dish": "pass the luck",
             "alternate_title": "Meztli Guide",
-            "description": "",
+            "description": "A well-known guide in Natlan who owns a watersports shop, and expert in all forms of wave-chasing.",
             "ascension_stat": "CRIT Rate",
             "base_stats": [
                 {
@@ -37411,7 +37411,7 @@
             "region": "natlan",
             "special_dish": "honey-glazed ceviche",
             "alternate_title": "Shrouded Bat of Mictlan",
-            "description": "",
+            "description": "A young man from the Masters of the Night-Wind who instead lives in the wild alongside all manner of life.",
             "ascension_stat": "ATK",
             "base_stats": [
                 {
@@ -43724,7 +43724,7 @@
             "region": "fontaine",
             "special_dish": "well-balanced meal",
             "alternate_title": "Melusine Head Nurse",
-            "description": "",
+            "description": "A Melusine and the Fortress of Meropide's head nurse. She cares equally for every convict locked in the undersea prison.",
             "ascension_stat": "HP",
             "base_stats": [
                 {
@@ -50485,7 +50485,7 @@
             "region": "natlan",
             "special_dish": "fruit-flavored milk candies",
             "alternate_title": "Nanatzcayan Smith",
-            "description": "",
+            "description": "A Name Engraver of the Nanatzcayan, she is especially skilled at finding a good balance between the heavy responsibilities of her job and living well.",
             "ascension_stat": "DEF",
             "base_stats": [
                 {
