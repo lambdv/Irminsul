@@ -2,6 +2,7 @@ import Header from '@/components/archive/Header'
 import { getArtifact, getArtifacts } from '@/utils/DataGetters'
 import { toTitleCase } from '@/utils/standardizers'
 import { Suspense } from 'react'
+import ArchivePageCSS from "@/components/archive/archivePage.module.css"
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -28,7 +29,7 @@ export default async function ArtifactPage({params}) {
   const {id} = await params
   const data = params.data ? params.data : await getArtifact(id)
   return (
-      <div id="">
+      <div id={ArchivePageCSS.archiveRecordContentContainer}>
         <Header 
           title={data.name} 
           splashImage={`/assets/artifacts/${data.key}/${data.key}_flower.png`}
@@ -47,19 +48,12 @@ export default async function ArtifactPage({params}) {
           </div>
         </Header>
 
-        
-
-        <div id="pagecontent" style={{paddingLeft: '50px', paddingRight: '50px'}}>
-          <br/>
-
-          
+        <div id="pagecontent" className={ArchivePageCSS.archiveRecordContentContainer}>
           <div className="bg-zinc-900 p-4 rounded-md shadow-md">
             <h2 className="text-lg font-semibold text-gray-100">Set Bonus</h2>
             <div className="text-gray-400 flex"><b className="mr-2" style={{whiteSpace: 'nowrap'}}>2-Piece Set:</b> <span className="font-medium text-gray-200 font-mono">{data.two_pc_bonus}</span></div>
             <div className="text-gray-400 flex"><b className="mr-2" style={{whiteSpace: 'nowrap'}}>4-Piece Set:</b> <span className="font-medium text-gray-200 font-mono">{data.four_pc_bonus}</span></div>
           </div>
-
-
         </div>
       </div>
   )

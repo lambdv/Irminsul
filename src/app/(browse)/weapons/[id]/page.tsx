@@ -5,6 +5,8 @@ import { getWeapon, getWeapons } from '@/utils/DataGetters'
 import { toTitleCase } from '@/utils/standardizers'
 import Talent from '@/components/archive/Talent'
 import { Suspense } from 'react'
+import ArchivePageCSS from "@/components/archive/archivePage.module.css"
+
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -38,7 +40,7 @@ export default async function WeaponPage({params}) {
         splashImage={`/assets/weapons/${data.key}/${data.key}_splash_art.png`}
       >
         <>
-          <div>
+          <section className={ArchivePageCSS.archiveRecordSection}>
             {Array.from({length: data.rarity}).map((_, index) => (
               <i key={index} className="material-symbols-rounded"
                 style={{
@@ -47,12 +49,11 @@ export default async function WeaponPage({params}) {
               >star</i>
             ))}
             <p>{data.description}</p>
-          </div>
+          </section>
         </>
       </Header>
       
-      <div style={{paddingLeft: '50px', paddingRight: '50px'}}>
-          <br/>
+      <div className={ArchivePageCSS.archiveRecordContentContainer}>
           <div className="flex">
             <div className="mr-10">
               <BaseStatTable 
