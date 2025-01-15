@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getCharacter } from '@/utils/DataGetters';
+import { getArtifacts } from '@/utils/DataGetters';
 
 export async function GET(req: NextRequest) {
-    const id = req.nextUrl.pathname.split("/")[3]
-    const data = await getCharacter(id)
+    const data = await getArtifacts()
     try {
         return NextResponse.json({
             data: data
