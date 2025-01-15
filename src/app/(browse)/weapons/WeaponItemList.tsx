@@ -37,6 +37,7 @@ export default function WeaponItemList(props:{data: any}) {
                     />
                 )
             }
+            {filteredWeapons.length === 0 && <p>No weapons found </p>}
         </div>
     )
 }

@@ -35,6 +35,7 @@ export default function ArtifactItemList(props) {
                         alt={toKey(artifact.name)}
                     />
                 ))}
+                {filteredArtifacts.length === 0 && <p>No artifacts found </p>}
         </div>
     )
 }

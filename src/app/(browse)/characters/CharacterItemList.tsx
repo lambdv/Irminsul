@@ -39,6 +39,7 @@ export default function CharacterItemList(props: {data: Character[]}) {
                     />
                     )
                 )}
+                {filteredCharacters.length === 0 && <p>No characters found </p>}
         </div>
     )
 }
