@@ -38,6 +38,7 @@ export async function getArtifacts(): Promise<Artifact[]>{
             ...artifact,
             id: artifact.key,
             index: index,
+            release_version: artifact.release_version.toString()
         })) as Artifact[]
     return artifacts
 }
