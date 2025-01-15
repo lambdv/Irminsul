@@ -1,7 +1,7 @@
 import { createCanvas, loadImage } from 'canvas'
 
 export async function getMainColor(imageURL: string): Promise<string> {
-    //"use cache"
+    "use cache"
     
     const fs = require('fs');
     const path = require('path');
@@ -18,8 +18,13 @@ export async function getMainColor(imageURL: string): Promise<string> {
 
     // If not in cache, process the image
     let img;
-    try { img = await loadImage(process.cwd() + '/public' + imageURL) } 
-    catch(e) { return "rgb(0,0,0)" }
+    try { 
+        img = await loadImage(process.cwd() + '/public' + imageURL) 
+    } 
+    catch(e) { 
+        console.log('Image load error:', e);
+        return "rgb(165, 165, 165)" 
+    }
 
     // Maintain aspect ratio while scaling down
     const maxDimension = 250;
@@ -90,21 +95,21 @@ function adjustBrightness(color: string, targetBrightness: number = 0.6): string
     return `rgb(${newR},${newG},${newB})`;
 }
 
-const elementColorBias: { [key: string]: { r: number, g: number, b: number } } = {
-    geo: { r: 255, g: 165, b: 0 },    // Orange
-    pyro: { r: 255, g: 0, b: 0 },     // Red
-    hydro: { r: 0, g: 191, b: 255 },  // Blue
-    electro: { r: 147, g: 0, b: 255 }, // Purple
-    dendro: { r: 50, g: 205, b: 50 },  // Green
-    cryo: { r: 135, g: 206, b: 235 },  // Light Blue
-    anemo: { r: 127, g: 255, b: 212 }  // Turquoise
-};
+// const elementColorBias: { [key: string]: { r: number, g: number, b: number } } = {
+//     geo: { r: 255, g: 165, b: 0 },    // Orange
+//     pyro: { r: 255, g: 0, b: 0 },     // Red
+//     hydro: { r: 0, g: 191, b: 255 },  // Blue
+//     electro: { r: 147, g: 0, b: 255 }, // Purple
+//     dendro: { r: 50, g: 205, b: 50 },  // Green
+//     cryo: { r: 135, g: 206, b: 235 },  // Light Blue
+//     anemo: { r: 127, g: 255, b: 212 }  // Turquoise
+// };
 
-// Helper function to calculate color similarity
-function getColorSimilarity(color1: { r: number, g: number, b: number }, color2: { r: number, g: number, b: number }): number {
-    return Math.sqrt(
-        Math.pow(color1.r - color2.r, 2) +
-        Math.pow(color1.g - color2.g, 2) +
-        Math.pow(color1.b - color2.b, 2)
-    );
-}
+// // Helper function to calculate color similarity
+// function getColorSimilarity(color1: { r: number, g: number, b: number }, color2: { r: number, g: number, b: number }): number {
+//     return Math.sqrt(
+//         Math.pow(color1.r - color2.r, 2) +
+//         Math.pow(color1.g - color2.g, 2) +
+//         Math.pow(color1.b - color2.b, 2)
+//     );
+// }

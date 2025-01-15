@@ -1,8 +1,9 @@
 - scrape weapon costs
-- scrape missing assets (weapon splashs, character talent icons)
+- fix missing/improperly named assets
 
+
+-  ui better adapt to mobile
 - landing page
-- optimize preformance and make ui better adapt to mobile
 
 - auth & comment section (set up drizzle orm with sql db)
 - light/dark mode toggle

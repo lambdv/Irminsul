@@ -5,75 +5,113 @@ import { Weapon } from '@/types/weapon';
 import { Artifact } from '@/types/artifact';
 import { toKey } from '@/utils/standardizers'
 
+import artifactData from '@public/data/artifacts.json'
+import characterData from '@public/data/characters.json'
+import weaponData from '@public/data/weapons.json'
+
 export async function getCharacters(): Promise<Character[]>{
-    return await getJSONs('characters') as Character[]
-}
+    "use cache"
+    const characters = characterData.data 
+        .map((character, index) => ({
+            ...character,
+            id: toKey(character.name),
+            index: index,
+        })) as Character[]
+    return characters
+} 
 
 export async function getWeapons(): Promise<Weapon[]>{
-    return await getJSONs('weapons') as Weapon[]    
+    "use cache"
+    const weapons = weaponData.data 
+        .map((weapon, index) => ({
+            ...weapon,
+            id: toKey(weapon.name),
+            index: index,
+        })) as Weapon[]
+    return weapons
 }
 
 export async function getArtifacts(): Promise<Artifact[]>{
-    return await getJSONs('artifacts') as Artifact[]
-}
-
-export async function getArtifact(id: string): Promise<Artifact | null>{
-    return await getJSONs('artifacts')
-    .then(artifacts => artifacts.find(artifact => artifact.id === id) || null)
-    .catch(() => null)
+    "use cache"
+    const artifacts = artifactData.data 
+        .map((artifact, index) => ({
+            ...artifact,
+            id: artifact.key,
+            index: index,
+        })) as Artifact[]
+    return artifacts
 }
 
 export async function getCharacter(id: string): Promise<Character | null>{
-    return await getJSONs('characters')
-    .then(characters => characters.find(character => character.id === id) || null)
-    .catch(() => null)
+    "use cache"
+    return await getCharacters()
+        .then(characters => characters.find(character => character.id === id) || null)
+        .catch(() => null)
 }
 
 export async function getWeapon(id: string): Promise<Weapon | null>{
-    return await getJSONs('weapons')
-    .then(weapons => weapons.find(weapon => weapon.id === id) || null)
-    .catch(() => null)
+    "use cache"
+    return await getWeapons()
+        .then(weapons => weapons.find(weapon => weapon.id === id) || null)
+        .catch(() => null)
 }
 
-async function loadJSON(path: string): Promise<any>{
+export async function getArtifact(id: string): Promise<Artifact | null>{
     "use cache"
-    return JSON.parse(fs.readFileSync(path, 'utf8'))
+    return await getArtifacts()
+        .then(artifacts => artifacts.find(artifact => artifact.id === id) || null)
+        .catch(() => null)
 }
 
-async function loadJSONs(directory: string): Promise<any[]>{
-    "use cache"
-    const files = await fs.readdirSync(directory)
-    const objects = await Promise.all(files.map(async (file) => await loadJSON(`${directory}/${file}`)))
-    return objects
-}
+// async function loadJSON(path: string): Promise<any>{
+//     "use cache"
+//     return JSON.parse(fs.readFileSync(path, 'utf8'))
+// }
 
-async function getJSONs(category: 'characters' | 'weapons' | 'artifacts'): Promise<any[]>{
-    "use cache"
-    const objects = await loadJSONs('public/data/' + category)
-    const res: any[] = objects.map((obj, index) => ({
-        ...obj,
-        id: toKey(obj.name),
-        index: index
-    }))
-    return res
-}
+// async function loadJSONs(directory: string): Promise<any[]>{
+//     "use cache"
+//     const files = await fs.readdirSync(directory)
+//     const objects = await Promise.all(files.map(async (file) => await loadJSON(`${directory}/${file}`)))
+//     return objects
+// }
+
+// async function getJSONs(category: 'characters' | 'weapons' | 'artifacts'): Promise<any[]>{
+//     "use cache"
+//     const objects = await loadJSONs('public/data/' + category)
+//     const res: any[] = objects.map((obj, index) => ({
+//         ...obj,
+//         id: toKey(obj.name),
+//         index: index
+//     }))
+//     return res
+// }
 
 export async function getAllPages(): Promise<Page[]>{
-    // "use cache"
-    let pages: Page[] = []
-    const jsonToResultItem = (json: any, category: string): Page[] => 
-        json.map((item: any) => ({
-            id: item.id, 
+    "use cache"
+    const [characters, weapons, artifacts] = await Promise.all([
+        getCharacters(),
+        getWeapons(), 
+        getArtifacts()
+    ])
+
+    return [
+        ...characters.map((item, index) => ({
+            id: index,
+            name: item.name,
+            rarity: item.rarity,
+            category: "Character"
+        })),
+        ...weapons.map((item, index) => ({
+            id: characters.length + index,
             name: item.name, 
-            rarity: item.rarity, 
-            category: category
+            rarity: item.rarity,
+            category: "Weapon"
+        })),
+        ...artifacts.map((item, index) => ({
+            id: characters.length + weapons.length + index,
+            name: item.name,
+            rarity: item.rarity_max,
+            category: "Artifact" 
         }))
-    let characters = await getCharacters()
-    let weapons = await getWeapons()
-    let artifacts = await getArtifacts()
-    let charactersPages = jsonToResultItem(characters, "Character")
-    let weaponsPages = jsonToResultItem(weapons, "Weapon")
-    let artifactsPages = jsonToResultItem(artifacts, "Artifact")
-    pages = [...charactersPages, ...weaponsPages, ...artifactsPages]
-    return pages
+    ]
 } 

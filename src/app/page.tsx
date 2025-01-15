@@ -1,7 +1,4 @@
 import { getCharacters, getWeapons, getArtifacts } from '@/utils/DataGetters';
-import CharacterItemList from '@/app/(browse)/characters/CharacterItemList';
-import WeaponItemList from '@/app/(browse)/weapons/WeaponItemList';
-import ArtifactItemList from '@/app/(browse)/artifacts/ArtifactItemList';
 import Item from '@/components/explore/Item';
 
 export default async function Home() {

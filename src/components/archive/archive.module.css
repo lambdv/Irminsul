@@ -1,0 +1,9 @@
+.archiveRecordContentContainer{
+    /* padding: 50px; */
+}
+
+@media (max-width: 768px) {
+    .archiveRecordContentContainer{
+        padding: 0rem;
+    }
+}

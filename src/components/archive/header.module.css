@@ -125,6 +125,9 @@
     height: 120%;
     width: auto;  
     z-index: 1;
+    
+    position: relative;
+    left: 00px;
 
 }
 
@@ -135,10 +138,13 @@
     }
 
     .archiveRecordHeaderSplash img {
+        position: relative;
         height: auto;
-        width: 100%;
         max-height: 100%;
-        margin-left: 400px;
+        width: 100%;
+        
+        left: 15%;
+        top:-10%;
     }
 
     .archiveRecordHeader {
@@ -151,6 +157,10 @@
     .archiveRecordHeaderDetailsContent {
         width: 90%;
         margin: 20px auto;
+
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+
     }
 
     .archiveRecordHeader {
@@ -159,36 +169,7 @@
 
     .archiveRecordHeaderWrapper {
         flex-wrap: reverse-wrap;
+
     }
-
-
 }
 
-@media screen and (max-width: 400px) {
-    .archiveRecordHeaderSplash {
-        position: relative;
-        width: 100%;
-        height: auto;
-        right: 0;
-        margin-top: 20px;
-        margin-left: auto;
-
-    }
-
-    .archiveRecordHeaderSplash img {
-        height: auto;
-        width: 100%;
-        max-height: 300px;
-        object-fit: contain;
-    }
-
-    .archiveRecordHeaderDetailsContent {
-        width: 90%;
-        margin: 20px auto;
-    }
-
-    .archiveRecordHeader {
-        flex-direction: column;
-        height: auto;
-    }
-}
