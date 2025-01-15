@@ -12,11 +12,11 @@ import ArchivePageCSS from "@/components/archive/archivePage.module.css"
 //page metadata
 export async function generateMetadata({params}) {
   const {id} = await params
-  const name = toTitleCase(id)
+  const data = await getCharacter(id)
   return {
-    title: `${name} | Irminsul`,
-    description: "",
-    image: `/assets/characters/${id}/splash.png`,
+    title: `${data.name} | Irminsul`,
+    description: data.description,
+    image: `/assets/characters/${data.key}/${data.key}_splash.png`,
     url: `/characters/${id}`,
   }
 }
@@ -49,8 +49,6 @@ export default async function CharacterPage({params}) {
         <br/>
         <CharacterConstellations data={data}/>
       </div>
-
-      {/* <CharacterContent data={data}/> */}
     </Suspense>
   )
 }

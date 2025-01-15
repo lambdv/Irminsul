@@ -96,19 +96,19 @@ export async function getAllPages(): Promise<Page[]>{
 
     return [
         ...characters.map((item, index) => ({
-            id: index,
+            id: item.id,
             name: item.name,
             rarity: item.rarity,
             category: "Character"
         })),
         ...weapons.map((item, index) => ({
-            id: characters.length + index,
+            id: item.id,
             name: item.name, 
             rarity: item.rarity,
             category: "Weapon"
         })),
         ...artifacts.map((item, index) => ({
-            id: characters.length + weapons.length + index,
+            id: item.id,
             name: item.name,
             rarity: item.rarity_max,
             category: "Artifact" 

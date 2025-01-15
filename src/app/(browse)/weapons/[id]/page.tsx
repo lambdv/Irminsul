@@ -11,11 +11,11 @@ import ArchivePageCSS from "@/components/archive/archivePage.module.css"
 //page metadata
 export async function generateMetadata({params}) {
   const {id} = await params
-  const name = toTitleCase(id)
+  const data = await getWeapon(id)
   return {
-    title: `${name} | Irminsul`,
-    description: "",
-    image: `/assets/weapons/${id}/splash.png`,
+    title: `${data.name} | Irminsul`,
+    description: data.description,
+    image: `/assets/weapons/${data.key}/${data.key}_splash_art.png`,
     url: `/weapons/${id}`,
   }
 }

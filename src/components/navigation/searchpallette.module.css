@@ -11,6 +11,8 @@
     border-radius: 5px;
 }
 
+
+
 .searchPalette .searchBar{
     width: 100%;
     display: flex;
@@ -27,9 +29,7 @@
 .searchPaletteResults {
     width: 100%;
     padding: 10px;
-    padding-top: 0;
     overflow-y: auto;
-    max-height: 50%;
     text-align: left;
 }
 
@@ -71,6 +71,10 @@
 }
 
 .palletteResult:hover {
+    background-color: rgb(48, 48, 48);
+}
+
+.palletteResult.highlighted {
     background-color: rgb(48, 48, 48);
 }
 

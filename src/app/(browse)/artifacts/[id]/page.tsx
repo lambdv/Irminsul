@@ -7,11 +7,11 @@ import ArchivePageCSS from "@/components/archive/archivePage.module.css"
 //page metadata
 export async function generateMetadata({params}) {
   const {id} = await params
-  const name = toTitleCase(id)
+  const data = await getArtifact(id)
   return {
-    title: `${name} | Irminsul`,
-    description: "",
-    image: `/assets/artifacts/${id}/flower.png`,
+    title: `${data.name} | Irminsul`,
+    description: data.flower_description,
+    image: `/assets/artifacts/${data.key}/${data.key}_flower.png`,
     url: `/artifacts/${id}`,
   }
 }

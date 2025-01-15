@@ -9,13 +9,23 @@ import Link from "next/link"
 import { toKey } from '@/utils/standardizers'
 
 export default function SearchPallete() {
+    const router = useRouter()
     const {SearchQuery, setSearchQuery} = SearchStore()
     const [pages, setPages] = useState<Page[]>([])
     const searchBarRef = useRef<HTMLInputElement | null>(null)
     const { setShowPallette } = SearchStore()
-    const router = useRouter()
+    const [results, setResults] = useState<Page[]>([])
+
+    useEffect(() => {
+        const res = pages
+        .filter(r => r.name
+            .toLowerCase()
+            .includes(SearchQuery.toLowerCase())
+        )
+        setResults(res)
+
+    }, [SearchQuery, pages])    
     
-    //function to close the palette 
     const closePalette = () => {
         setShowPallette(false)
     }
@@ -42,13 +52,15 @@ export default function SearchPallete() {
                 case 'Escape':
                     setShowPallette(false)
                     break
-                // case 'Enter':
-                //     const firstResult = results.find(r => r.name.toLowerCase().includes(SearchQuery.toLowerCase()))
-                //     if (firstResult){
-                //         router.push('/'+firstResult.category.toLowerCase()+'s/'+firstResult.id)
-                //         setShowPallette(false)
-                //     }
-                //     break
+                case 'Enter':
+                    if(SearchQuery.length === 0)
+                        break
+                    const firstResult = results[0]
+                    if (firstResult){
+                        router.push('/'+firstResult.category.toLowerCase()+'s/'+toKey(firstResult.name))
+                        setShowPallette(false)
+                    }
+                    break
             }
         }
         window.addEventListener('keydown', handleKeyDown);
@@ -56,12 +68,11 @@ export default function SearchPallete() {
     })
 
     /**
-     * Link component for each search result in the palette
+     * link component for each search result in the palette
      * @param item 
      * @returns 
      */
-    function ResultItemComponent(item: Page) {
-        const imgName = item.category=="artifact" ? "flower" : "profile"
+    function ResultItemComponent(item: Page, highlighted: boolean) {
         let fileName = ""
 
         switch(item.category.toLowerCase()){
@@ -81,7 +92,7 @@ export default function SearchPallete() {
         return (
             <Link 
                 key={item.id} 
-                className={SearchPaletteCSS.palletteResult} 
+                className={`${SearchPaletteCSS.palletteResult} ${highlighted ? SearchPaletteCSS.highlighted : ""}`} 
                 href={`/${item.category.toLowerCase()}s/${item.id}`}
                 onClick={closePalette}
             >
@@ -103,21 +114,24 @@ export default function SearchPallete() {
                 onChange={(e) => setSearchQuery(e.target.value)}
             />
             <ul className={SearchPaletteCSS.searchPaletteResults}>
-                {SearchQuery.length > 0 ?
-                    pages
-                        .filter(r => r.name
-                            .toLowerCase()
-                            .includes(SearchQuery.toLowerCase())
-                        )
-                        .map(ResultItemComponent)
-                    :
+                {SearchQuery.length > 0 ? (
+                    results.length > 0 ? (
+                        results.map((item, index) => (
+                            ResultItemComponent(item, index === 0)
+                        ))
+                    ) : (
+                        <div className={SearchPaletteCSS.palletteResult}>
+                            <p>No results found</p>
+                        </div>
+                    )
+                ) : (
                     <>
                         <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/" ><p>Home</p></Link>
                         <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/characters"><p>Characters</p></Link>
                         <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/weapons"><p>Weapons</p></Link>
                         <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/artifacts"><p>Artifacts</p></Link>
                     </>
-                }
+                )}
             </ul>
         </div>
   )

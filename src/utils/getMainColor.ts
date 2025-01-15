@@ -10,8 +10,10 @@ export async function getMainColor(imageURL: string): Promise<string> {
     try {
         if (fs.existsSync(cachePath)) {
             const cache = JSON.parse(fs.readFileSync(cachePath, 'utf8'))
-            if (cache[imageURL])
+            if (cache[imageURL]) {
+                // Don't adjust brightness of cached colors
                 return cache[imageURL]
+            }
         }
     } catch(e){console.log('Cache read error:', e)}
     
@@ -60,18 +62,21 @@ export async function getMainColor(imageURL: string): Promise<string> {
         }
     }
 
+    // Adjust brightness before caching
+    const adjustedColor = adjustBrightness(dominantColor);
+
     // Save to cache
     try {
         const cache = fs.existsSync(cachePath) 
             ? JSON.parse(fs.readFileSync(cachePath, 'utf8'))
             : {};
-        cache[imageURL] = dominantColor;
+        cache[imageURL] = adjustedColor;
         fs.writeFileSync(cachePath, JSON.stringify(cache));
     } catch (e) {
         console.log('Cache write error:', e);
     }
 
-    return adjustBrightness(dominantColor);
+    return adjustedColor;
 }
 
 function adjustBrightness(color: string, targetBrightness: number = 0.6): string {
@@ -101,15 +106,3 @@ function adjustBrightness(color: string, targetBrightness: number = 0.6): string
 //     hydro: { r: 0, g: 191, b: 255 },  // Blue
 //     electro: { r: 147, g: 0, b: 255 }, // Purple
 //     dendro: { r: 50, g: 205, b: 50 },  // Green
-//     cryo: { r: 135, g: 206, b: 235 },  // Light Blue
-//     anemo: { r: 127, g: 255, b: 212 }  // Turquoise
-// };
-
-// // Helper function to calculate color similarity
-// function getColorSimilarity(color1: { r: number, g: number, b: number }, color2: { r: number, g: number, b: number }): number {
-//     return Math.sqrt(
-//         Math.pow(color1.r - color2.r, 2) +
-//         Math.pow(color1.g - color2.g, 2) +
-//         Math.pow(color1.b - color2.b, 2)
-//     );
-// }
