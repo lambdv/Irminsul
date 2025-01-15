@@ -20,6 +20,7 @@ export default function Topnav() {
 
   useEffect(() => {
     const handleScroll = () => setIsAtTop(window.scrollY === 0);
+    handleScroll()
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [])
