@@ -1,7 +1,7 @@
 import Header from '@/components/archive/Header'
 import Table from '@/components/archive/Table'
 import BaseStatTable from '@/components/archive/BaseStatTable'
-import { getWeapon, getWeapons } from '@/utils/DataGetters'
+import { getWeapon, getWeapons } from '@/utils/genshinData'
 import { toTitleCase } from '@/utils/standardizers'
 import Talent from '@/components/archive/Talent'
 import { Suspense } from 'react'
@@ -54,8 +54,8 @@ export default async function WeaponPage({params}) {
       </Header>
       
       <div className={ArchivePageCSS.archiveRecordContentContainer}>
-          <div className="flex">
-            <div className="mr-10">
+          <div className="flex flex-col md:flex-row">
+            <div className="mr-3 mb-3">
               <BaseStatTable 
                 table={data.base_stats.map(stat => ({
                   lvl: stat.level,

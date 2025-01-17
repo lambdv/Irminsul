@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getCharacter } from '@/utils/DataGetters';
+import { getCharacter } from '@/utils/genshinData';
 
 export async function GET(req: NextRequest) {
     const id = req.nextUrl.pathname.split("/")[3]

@@ -67,14 +67,14 @@ export default function Sidenav() {
     <>
       <nav className={SidenavCSS.sidenav + " " + (sideNavCollapsed && SidenavCSS.sidenavCollapsed)} style={{zIndex: 10}}>
         <SideNavLink href="/" icon="home" text="Home"/>
+        <SideNavLink href="/articles" icon="article" text="Articles"/>
         {/* <SideNavLink href="/Archive" icon="database" text="Archive"/> */}
         <SideNavLink href="/characters" img={characterIcon} text="Characters"/>
         <SideNavLink href="/weapons" img={weaponIcon} text="Weapons"/>
         <SideNavLink href="/artifacts" img={artifactIcon} text="Artifacts"/>
         {/* <SideNavLink href="/enemies" img={enemyIcon} text="Enemies"/>
         <SideNavLink href="/wishes" img={wishIcon} text="Banners"/> */}
-        {/* <SideNavLink href="/articles" img={wishIcon} text="Articles"/>
-        <SideNavLink href="/teams" img={partyIcon} text="Teams"/> */}
+        {/* <SideNavLink href="/teams" img={partyIcon} text="Teams"/> */}
       </nav>
 
       {!sideNavCollapsed && windowWidth < 1500 && 

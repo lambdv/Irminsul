@@ -1,10 +1,10 @@
 import React, { Suspense } from 'react' 
-import CharacterItemList from '@/app/(browse)/characters/CharacterItemList'
+import CharacterItemList from './CharacterItemList'
 import ItemsContainer from '@/components/explore/ItemsContainer'
 import BrowseHeader from '@/components/explore/BrowseHeader'
 import characterIcon from '@public/imgs/icons/characterIcon.png'
 import {CharacterFilterStore} from '@/store/CharacterFilters'
-import {getCharacters} from '@/utils/DataGetters'
+import {getCharacters} from '@/utils/genshinData'
 import Loading from '../loading'
 
 export const metadata = {

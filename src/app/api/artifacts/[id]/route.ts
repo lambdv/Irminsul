@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getArtifact } from '@/utils/DataGetters';
+import { getArtifact } from '@/utils/genshinData';
 
 export async function GET(req: NextRequest) {
     const id = req.nextUrl.pathname.split("/")[3]

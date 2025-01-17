@@ -7,6 +7,7 @@ import SearchPallette from "@components/navigation/SearchPallete"
 import { SearchStore } from "@/store/Search"
 import { NavigationStore } from "@/store/Navigation"
 import Overlay from "../ui/Overlay"
+import Btn from "@/components/ui/Btn"
 
 /**
  * Top navigation bar component
@@ -53,7 +54,7 @@ export default function Topnav() {
  */
 function CenterContainer(props: any){
   const { showPallette, setShowPallette } = props
-  const { SearchQuery, updateQuery } = SearchStore()
+  const { SearchQuery, updateQuery, setFirstKeyPress, firstKeyPress } = SearchStore()
   const pathname = usePathname()
 
   const isExplorePage = () => { 
@@ -61,8 +62,13 @@ function CenterContainer(props: any){
   }
 
   const openSearchPallette = (e) => {
-    if(!isExplorePage() && !showPallette && SearchQuery !== "" && SearchQuery !== undefined)
+    if(!isExplorePage() && !showPallette && SearchQuery !== "" && SearchQuery !== undefined){
+      if(firstKeyPress && SearchQuery.length > 1){
+        setFirstKeyPress(false)
+      }
       setShowPallette(!showPallette)
+     
+    }
   }
 
   const handleSearchBarChange = (e) => {
@@ -124,9 +130,16 @@ function RightContainer(){
       >
         <i className="material-symbols-outlined">dark_mode</i>
       </button> */}
-      <button className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '}>
+      {/* <button className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '}>
         <i className="material-symbols-outlined">account_circle</i>
-      </button>
+      </button> */}
+
+      <Link href="/signup">
+        <Btn>Sign Up</Btn>
+      </Link>
+      <Link href="/login">
+        <Btn>Log In</Btn>
+      </Link>
     </div>
 
   )

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Character } from '@/types/character';
-import { getCharacters } from '@/utils/DataGetters';
+import { getCharacters } from '@/utils/genshinData';
 
 export async function GET(req: NextRequest) {
     const data = await getCharacters()

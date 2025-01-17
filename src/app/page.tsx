@@ -1,4 +1,4 @@
-import { getCharacters, getWeapons, getArtifacts } from '@/utils/DataGetters';
+import { getCharacters, getWeapons, getArtifacts } from '@/utils/genshinData';
 import Item from '@/components/explore/Item';
 
 export default async function Home() {

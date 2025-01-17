@@ -1,5 +1,5 @@
 import RightSidenav from "@/components/navigation/RightSidenav"
-import { getCharacter, getCharacters } from "@/utils/DataGetters"
+import { getCharacter, getCharacters } from "@/utils/genshinData"
 import { toTitleCase } from "@/utils/standardizers"
 import Image from 'next/image'
 import Header from "@/components/archive/Header"
@@ -8,11 +8,17 @@ import BaseStatTable from "@/components/archive/BaseStatTable"
 import Talent from "@/components/archive/Talent"
 import { Suspense } from "react"
 import ArchivePageCSS from "@/components/archive/archivePage.module.css"
+import { unstable_cache, unstable_cacheLife } from "next/cache"
+import db from "@/db/db"
+import { eq } from "drizzle-orm"
+import { commentsTableBG } from "@/db/schema"
+
 
 //page metadata
 export async function generateMetadata({params}) {
   const {id} = await params
   const data = await getCharacter(id)
+  if(data === undefined || data === null) return {}
   return {
     title: `${data.name} | Irminsul`,
     description: data.description,
@@ -26,20 +32,25 @@ export async function generateMetadata({params}) {
 //   const characters = await getCharacters()
 //   return characters.map((character) => ({
 //     id: character.key,
-//     // data: character
+//     data: character
 //   }))
 // }
 
 
+
 export default async function CharacterPage({params}) {
-  const id = params.then(p => p.id)
-  const data = params.data ? params.data : await getCharacter(await id)
+  // "use cache"
+  // unstable_cacheLife({stale: 300, revalidate: 2592000, expire: undefined})
+  const {id} = await params
+  const data = params.data ? params.data : await getCharacter(id)
+
+  if(data === undefined || data === null) return <div>Character data not found</div>
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <CharacterHeader data={data}/>
       <TableOfContents/>
-      <div className={ArchivePageCSS.archiveRecordContentContainer}>
+      <div id="pagecontent" className={ArchivePageCSS.archiveRecordContentContainer}>
         <br/>
         <CharacterBaseStats data={data}/>
         <br/>
@@ -48,6 +59,8 @@ export default async function CharacterPage({params}) {
         <CharacterPassives data={data}/>
         <br/>
         <CharacterConstellations data={data}/>
+        <br/>
+        <CommentSection data={data}/>
       </div>
     </Suspense>
   )
@@ -60,14 +73,12 @@ function CharacterHeader({data}){
       splashImage={`/assets/characters/${data.key}/${data.key}_splash.png`}
       bgImage={`/assets/characters/${data.key}/${data.key}_namecard.png`}
     >
-      <>
-        <div>
-          {Array.from({length: data.rarity}).map((_, index) => (
-            <i key={index} className="material-symbols-rounded" style={{color: '#FFD700'}}>star</i>
-          ))}
-        </div>
-        <p>{data.description}</p>
-      </>
+      <div>
+        {Array.from({length: data.rarity}).map((_, index) => (
+          <i key={index} className="material-symbols-rounded" style={{color: '#FFD700'}}>star</i>
+        ))}
+      </div>
+      <p>{data.description}</p>
     </Header>
   )
 }
@@ -169,4 +180,23 @@ function CharacterConstellations({data}){
       ))}
     </section>
   )
+}
+
+async function CommentSection({data}){
+  const comments = await getComments(data.key)
+  return (
+    <section id="comments" className={ArchivePageCSS.archiveRecordSection}>
+      <h2 className="mb-2 text-2xl font-bold">Comments</h2>
+      <div>
+        {comments.map((comment) => (
+          <div key={comment.id}>{comment.comment}</div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+async function getComments(page: string){
+  const comments = await db.select().from(commentsTableBG).where(eq(commentsTableBG.page, page))
+  return comments
 }

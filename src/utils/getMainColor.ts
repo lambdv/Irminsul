@@ -9,7 +9,6 @@ export async function getMainColor(imageURL: string): Promise<string> {
         if (fs.existsSync(cachePath)) {
             const cache = JSON.parse(fs.readFileSync(cachePath, 'utf8'))
             if (cache[imageURL]) {
-                // Don't adjust brightness of cached colors
                 return cache[imageURL]
             }
         }

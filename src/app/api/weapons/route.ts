@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getWeapons } from '@/utils/DataGetters';
+import { getWeapons } from '@/utils/genshinData';
 
 export async function GET(req: NextRequest) {
     const data = await getWeapons()

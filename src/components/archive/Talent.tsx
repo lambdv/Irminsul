@@ -15,13 +15,16 @@ export default function Talent(props: {
   return (
     <div className={TalentCSS.talent}>
         <div className={`${TalentCSS.talentHeader}`}>
-          {props.icon && <Image 
-            src={props.icon} 
-              alt={props.data.name} 
-              width={100} 
-              height={100} 
-              className={TalentCSS.talentIcon}
-            />}
+          {props.icon && 
+            <Image 
+              src={props.icon} 
+                alt={props.data.name} 
+                width={100} 
+                height={100} 
+                className={TalentCSS.talentIcon}
+                loading="lazy"
+              />
+            }
           <h1>{props.data.type}: {props.data.name}</h1>
         </div>
         

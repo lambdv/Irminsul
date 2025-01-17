@@ -125,29 +125,30 @@ body{
   overflow: hidden;
 } */
 
-#content{
+.pageContentContainer{
   position: relative;
   width: 100%;
-  padding-left: 20rem;
-  padding-right: 20rem;
+  padding-left: 25rem;
+  padding-right: 25rem;
 
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x:hidden;
   top: -60px;
   padding-top: 60px;
-  min-height: 90vh;
+  min-height: 95vh;
   background-color: transparent;
+
 }
 
 @media all and (max-width: 1500px) {  
-  #content{
+  .pageContentContainer{
     padding-left: 8rem;
     padding-right: 8rem;
   }
 }
 
 @media all and (max-width: 1200px) {  
-  #content{
+  .pageContentContainer{
     padding-left: 1rem;
     padding-right: 1rem;
   }

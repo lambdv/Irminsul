@@ -14,15 +14,6 @@
     /* background-color: red; */
 }
 
-@media (max-width: 1500px) {
-    .rightsidenav{
-        display: block;
-        position: relative;
-        top:0px;
-        width: 100%;
-    }
-}
-
 .rightsidenav ul{
     list-style-type: none;
     padding: 0;
@@ -38,4 +29,30 @@
     font-size: 16px;
     font-weight: 500;
     color: #ffffffaf;
+}
+
+@media (max-width: 1500px) {
+    .rightsidenav{
+        display: block;
+        position: relative;
+        top:0px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 1500px) {
+    .rightsidenav ul{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+        padding-left: 15px;
+        width: 100%;
+        margin: 0;
+    }
+    
+    .rightsidenav ul li{
+
+    }
+    
 }

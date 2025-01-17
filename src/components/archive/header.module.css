@@ -155,9 +155,9 @@
 
 
     .archiveRecordHeaderDetailsContent {
-        width: 90%;
+        width: 70%;
+        left: -10%;
         margin: 20px auto;
-
         padding-top: 5rem;
         padding-bottom: 5rem;
 

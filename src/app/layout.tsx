@@ -3,6 +3,7 @@ import "./globals.css"
 import Sidenav from "@/components/navigation/Sidenav"
 import Topnav from "@/components/navigation/Topnav"
 import ClientWrapper from "@/components/navigation/ClientWrapper"
+import Footer from "@/components/navigation/Footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -20,10 +21,12 @@ export default function RootLayout({children}) {
         <ClientWrapper>
           <Topnav/>
           <Sidenav/>
-          <main id="content">
+          <main className="pageContentContainer">
             {children}
+            {/* <Footer/> */}
           </main>
         </ClientWrapper>
+        
       </body>
       <script 
         async 

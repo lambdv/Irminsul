@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect, useRef }  from 'react'
-import { getAllPages, getArtifacts, getCharacters, getWeapons } from '@/utils/DataGetters'
+import { getAllPages, getArtifacts, getCharacters, getWeapons } from '@/utils/genshinData'
 import SearchPaletteCSS from './searchpallette.module.css'
 import Image from 'next/image'
 import { SearchStore } from '@/store/Search'
@@ -10,7 +10,7 @@ import { toKey } from '@/utils/standardizers'
 
 export default function SearchPallete() {
     const router = useRouter()
-    const {SearchQuery, setSearchQuery} = SearchStore()
+    const {SearchQuery, setSearchQuery, setFirstKeyPress, firstKeyPress} = SearchStore()
     const [pages, setPages] = useState<Page[]>([])
     const searchBarRef = useRef<HTMLInputElement | null>(null)
     const { setShowPallette } = SearchStore()
@@ -42,6 +42,11 @@ export default function SearchPallete() {
     useEffect(() => {
         setTimeout(() => {
             searchBarRef.current?.focus()
+            //highlight the text in the search bar
+            if(!firstKeyPress && SearchQuery.length > 1){
+                searchBarRef.current?.setSelectionRange(0, SearchQuery.length)
+                
+            }
         }, 10)
     }, [])
 
@@ -114,24 +119,18 @@ export default function SearchPallete() {
                 onChange={(e) => setSearchQuery(e.target.value)}
             />
             <ul className={SearchPaletteCSS.searchPaletteResults}>
-                {SearchQuery.length > 0 ? (
-                    results.length > 0 ? (
-                        results.map((item, index) => (
-                            ResultItemComponent(item, index === 0)
-                        ))
-                    ) : (
-                        <div className={SearchPaletteCSS.palletteResult}>
-                            <p>No results found</p>
-                        </div>
+                {SearchQuery.length > 0 ?
+                    results.map((item, index) => 
+                        ResultItemComponent(item, index === 0)
                     )
-                ) : (
+                : 
                     <>
-                        <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/" ><p>Home</p></Link>
+                        <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/"><p>Home</p></Link>
                         <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/characters"><p>Characters</p></Link>
                         <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/weapons"><p>Weapons</p></Link>
                         <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/artifacts"><p>Artifacts</p></Link>
                     </>
-                )}
+                }
             </ul>
         </div>
   )

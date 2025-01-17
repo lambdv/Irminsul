@@ -8,8 +8,7 @@ export default async function Header(props: {
     bgImage?: string
     color?: string
     children?: React.ReactNode
-    imageWidth?: string
-    imageHeight?: string
+    imageStyle?: React.CSSProperties
 }){
     let color = await getMainColor(props.splashImage) || "rgb(0,0,0)"
     const headerGlow = {boxShadow: `0px 0px 1000px 0px rgba(${color.slice(4, -1)}, 0.5)`}
@@ -21,11 +20,13 @@ export default async function Header(props: {
                 <div className={HeaderCSS.archiveRecordHeaderDetailsContainer} style={headerGradient}>
                     <div className={HeaderCSS.archiveRecordHeaderSplash}>
                         <Image
-                            width={ 1000}
+                            width={1000}
                             height={1000}
                             src={props.splashImage}
                             alt={props.title}
-                            style={{}}
+                            style={props.imageStyle}
+                            priority={false}
+                            loading="eager"
                         />
                     </div>
                     <div className={HeaderCSS.archiveRecordHeaderDetailsContent} id={HeaderCSS.archiveRecordHeaderTitle}>
