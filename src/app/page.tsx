@@ -1,6 +1,16 @@
 import { getCharacters, getWeapons, getArtifacts } from '@/utils/genshinData';
 import Item from '@/components/explore/Item';
 
+//meta data
+export const metadata = {
+    title: "Irminsul: Repository for all of the information and memories of Teyvat",
+    metadataBase: new URL("https://irminsul.moe"),
+    description: "Repository for all of the information and memories of Teyvat",
+    keywords: ["Genshin Impact", "Teyvat", "Irminsul", "Repository", "Information", "Memories"],
+    author: "Irminsul",
+    robots: "index, follow",
+}
+
 export default async function Home() {
     const characters = await getCharacters()
     const weapons = await getWeapons()

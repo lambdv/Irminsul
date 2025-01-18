@@ -9,12 +9,10 @@
     "lint": "next lint",
     "build:css": "tailwindcss -i ./src/app/index.css -o ./src/app/output.css --watch",
     "db:push": "drizzle-kit push",
-    "db:studio": "drizzle-kit studio",
-    "migration:generate": "drizzle-kit generate",
-    "migration:up": "drizzle-kit up",
-    "migration:drop": "drizzle-kit drop"
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@auth/drizzle-adapter": "^1.7.4",
     "@emotion/react": "^11.11.3",
     "@fontsource/roboto": "^5.0.8",
     "@libsql/client": "^0.14.0",
@@ -30,7 +28,9 @@
     "drizzle-orm": "^0.38.4",
     "irminsul-next": "file:",
     "lucide-react": "^0.468.0",
-    "next": "^15.1.1-canary.25",
+    "next": "^15.1.5",
+    "next-auth": "^5.0.0-beta.25",
+    "nodemailer": "^6.9.16",
     "pg": "^8.13.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

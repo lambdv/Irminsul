@@ -10,7 +10,7 @@ import characterData from '@public/data/characters.json'
 import weaponData from '@public/data/weapons.json'
 
 export async function getCharacters(): Promise<Character[]>{
-    "use cache"
+    //"use cache"
     const characters = characterData.data 
         .map((character, index) => ({
             ...character,
@@ -21,7 +21,7 @@ export async function getCharacters(): Promise<Character[]>{
 } 
 
 export async function getWeapons(): Promise<Weapon[]>{
-    "use cache"
+    //"use cache"
     const weapons = weaponData.data 
         .map((weapon, index) => ({
             ...weapon,
@@ -32,7 +32,7 @@ export async function getWeapons(): Promise<Weapon[]>{
 }
 
 export async function getArtifacts(): Promise<Artifact[]>{
-    "use cache"
+    //"use cache"
     const artifacts = artifactData.data 
         .map((artifact, index) => ({
             ...artifact,
@@ -44,21 +44,21 @@ export async function getArtifacts(): Promise<Artifact[]>{
 }
 
 export async function getCharacter(id: string): Promise<Character | null>{
-    "use cache"
+    //"use cache"
     return await getCharacters()
         .then(characters => characters.find(character => character.id === id) || null)
         .catch(() => null)
 }
 
 export async function getWeapon(id: string): Promise<Weapon | null>{
-    "use cache"
+    //"use cache"
     return await getWeapons()
         .then(weapons => weapons.find(weapon => weapon.id === id) || null)
         .catch(() => null)
 }
 
 export async function getArtifact(id: string): Promise<Artifact | null>{
-    "use cache"
+    //"use cache"
     return await getArtifacts()
         .then(artifacts => artifacts.find(artifact => artifact.id === id) || null)
         .catch(() => null)
@@ -88,7 +88,7 @@ export async function getArtifact(id: string): Promise<Artifact | null>{
 // }
 
 export async function getAllPages(): Promise<Page[]>{
-    "use cache"
+    //"use cache"
     const [characters, weapons, artifacts] = await Promise.all([
         getCharacters(),
         getWeapons(), 

@@ -31,3 +31,5 @@
 # refactoring
 - move ingame assets to blob storage
 - character,artifact and weapon item list into 1 component 
+
+    //"next": "^15.1.1-canary.25",

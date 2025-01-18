@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
-        dynamicIO: true,
+        // dynamicIO: true,
     },
     // images: {
     //     domains: ['www.irminsul.moe'],
