@@ -1,5 +1,4 @@
 import React from 'react'
-import { handleSignUpSubmit } from '../actions'
 import { signIn } from '@/app/auth'
 
 
