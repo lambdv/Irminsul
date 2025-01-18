@@ -155,9 +155,8 @@ function LeftContainer(){
 
       {session?.user ?
         <>
-          <p>{session?.user?.name}</p>
-          <Link href="/api/logout">Logout</Link>
-
+          <p>{session?.user?.email}</p>
+          <a href="/api/logout">Logout</a>
         </>
         :
         <Link href="/login">
