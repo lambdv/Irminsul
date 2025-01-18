@@ -4,6 +4,7 @@ import { DrizzleAdapter } from "@auth/drizzle-adapter"
 import db from "@/db/db"
  
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  secret: process.env.AUTH_SECRET,
   adapter: DrizzleAdapter(db),
   providers: [
     GithubProvider({
