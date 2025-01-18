@@ -8,7 +8,8 @@ import { SearchStore } from "@/store/Search"
 import { NavigationStore } from "@/store/Navigation"
 import Overlay from "../ui/Overlay"
 import Btn from "@/components/ui/Btn"
-
+import { getSession, signIn, signOut, useSession } from "next-auth/react"
+import { auth } from "@/app/auth"
 /**
  * Top navigation bar component
  * @note displayed at the top of every page
@@ -109,7 +110,18 @@ function LeftContainer(){
   )
 }
 
-function RightContainer(){
+ function RightContainer(){
+
+    const [session, setSession] = useState(null)
+
+    useEffect(() => {
+      const fetchSession = async () => {
+        const session = await getSession()
+        setSession(session)
+      }
+      fetchSession()
+    }, [])
+
   const toggleTheme = () => {}
 
   return (
@@ -134,12 +146,24 @@ function RightContainer(){
         <i className="material-symbols-outlined">account_circle</i>
       </button> */}
 
-      <Link href="/signup">
+      {/* <Link href="/signup">
         <Btn>Sign Up</Btn>
       </Link>
       <Link href="/login">
         <Btn>Log In</Btn>
-      </Link>
+      </Link> */}
+
+      {session?.user ?
+        <>
+          <p>{session?.user?.name}</p>
+          <Link href="/api/logout">Logout</Link>
+
+        </>
+        :
+        <Link href="/login">
+          <Btn>Log In</Btn>
+        </Link>
+      }
     </div>
 
   )

@@ -4,6 +4,7 @@ import Sidenav from "@/components/navigation/Sidenav"
 import Topnav from "@/components/navigation/Topnav"
 import ClientWrapper from "@/components/navigation/ClientWrapper"
 import Footer from "@/components/navigation/Footer"
+import { SessionProvider } from "next-auth/react"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -18,15 +19,16 @@ export default function RootLayout({children}) {
         <meta name="google-adsense-account" content="ca-pub-1739492299738628"/>
       </head>
       <body className={inter.className}>
-        <ClientWrapper>
-          <Topnav/>
-          <Sidenav/>
-          <main className="pageContentContainer">
-            {children}
-            {/* <Footer/> */}
-          </main>
-        </ClientWrapper>
-        
+        <SessionProvider>
+          <ClientWrapper>
+            <Topnav/>
+            <Sidenav/>
+            <main className="pageContentContainer">
+              {children}
+              {/* <Footer/> */}
+            </main>
+          </ClientWrapper>
+        </SessionProvider>
       </body>
       <script 
         async 

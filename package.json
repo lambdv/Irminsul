@@ -9,7 +9,10 @@
     "lint": "next lint",
     "build:css": "tailwindcss -i ./src/app/index.css -o ./src/app/output.css --watch",
     "db:push": "drizzle-kit push",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "db:migrate": "drizzle-kit migrate",
+    "db:generate": "drizzle-kit generate",
+    "db:drop": "drizzle-kit drop"
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.7.4",
