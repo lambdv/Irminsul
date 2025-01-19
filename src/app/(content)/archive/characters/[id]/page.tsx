@@ -9,9 +9,8 @@ import Talent from "@/components/archive/Talent"
 import { Suspense } from "react"
 import ArchivePageCSS from "@/components/archive/archivePage.module.css"
 import { unstable_cache, unstable_cacheLife } from "next/cache"
-import db from "@/db/db"
-import { eq } from "drizzle-orm"
-import { commentsTableBG } from "@/db/schema"
+import CommentSection from "@/components/ui/CommentSection"
+import { getMainColor } from "@/utils/getMainColor"
 
 
 //page metadata
@@ -46,6 +45,8 @@ export default async function CharacterPage({params}) {
 
   if(data === undefined || data === null) return <div>Character data not found</div>
 
+  const color = await getMainColor(`/assets/characters/${data.key}/${data.key}_splash.png`)
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <CharacterHeader data={data}/>
@@ -60,7 +61,8 @@ export default async function CharacterPage({params}) {
         <br/>
         <CharacterConstellations data={data}/>
         <br/>
-        <CommentSection data={data}/>
+        {/* <h1 className="text-2xl font-bold">Comments</h1> */}
+        <CommentSection pageID={data.key} color={color} />
       </div>
     </Suspense>
   )
@@ -182,21 +184,3 @@ function CharacterConstellations({data}){
   )
 }
 
-async function CommentSection({data}){
-  const comments = await getComments(data.key)
-  return (
-    <section id="comments" className={ArchivePageCSS.archiveRecordSection}>
-      <h2 className="mb-2 text-2xl font-bold">Comments</h2>
-      <div>
-        {comments.map((comment) => (
-          <div key={comment.id}>{comment.comment}</div>
-        ))}
-      </div>
-    </section>
-  )
-}
-
-async function getComments(page: string){
-  const comments = await db.select().from(commentsTableBG).where(eq(commentsTableBG.page, page))
-  return comments
-}

@@ -69,9 +69,9 @@ export default function Sidenav() {
         <SideNavLink href="/" icon="home" text="Home"/>
         <SideNavLink href="/articles" icon="article" text="Articles"/>
         {/* <SideNavLink href="/Archive" icon="database" text="Archive"/> */}
-        <SideNavLink href="/characters" img={characterIcon} text="Characters"/>
-        <SideNavLink href="/weapons" img={weaponIcon} text="Weapons"/>
-        <SideNavLink href="/artifacts" img={artifactIcon} text="Artifacts"/>
+        <SideNavLink href="/archive/characters" img={characterIcon} text="Characters"/>
+        <SideNavLink href="/archive/weapons" img={weaponIcon} text="Weapons"/>
+        <SideNavLink href="/archive/artifacts" img={artifactIcon} text="Artifacts"/>
         {/* <SideNavLink href="/enemies" img={enemyIcon} text="Enemies"/>
         <SideNavLink href="/wishes" img={wishIcon} text="Banners"/> */}
         {/* <SideNavLink href="/teams" img={partyIcon} text="Teams"/> */}

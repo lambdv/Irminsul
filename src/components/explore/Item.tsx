@@ -26,7 +26,7 @@ export default function Item(props: {
                 height: isLargeItem && "150px"
             }}
         >
-            <Link href={`/${props.category}s/${id}`}>
+            <Link href={`/archive/${props.category}s/${id}`}>
                 {hasElement && 
                     <Image className={ItemCSS.itemCategory} src={`/imgs/icons/${flatten(props.element)}.png`} alt=" " width="100" height="100"/>
                 }

@@ -1,5 +1,5 @@
-import React from 'react'
 import { signIn } from '@/app/auth'
+import { redirect } from 'next/navigation'
 
 export default function Page() {
   return (
@@ -13,49 +13,28 @@ export default function Page() {
         border: "1px solid #ccc",
         borderRadius: "10px",
       }}>
-        <h1 className='text-2xl font-bold'>Sign Up</h1>
-        <div className=''>
-              <form action={async (credentials) => {
-                "use server"
-                try{
-                  await signIn("credentials", credentials)
-                }catch(e){
-                  console.log(e)
-                }
-
-              }}
-                className='flex flex-col gap-2'
-              >
-                <label htmlFor="username">
-                  Username
-                  <input type="text" name="username" placeholder="Username" className="border border-gray-300 rounded-md p-2 text-black" />
-                </label>
-                <label htmlFor="email">
-                  Email
-                  <input type="email" name="email" placeholder="Email" className="border border-gray-300 rounded-md p-2 text-black" />
-                </label>
-                <label htmlFor="password">
-                  Password
-                  <input type="password" name="password" placeholder="Password" className="border border-gray-300 rounded-md p-2 text-black" />
-                </label>
-                <button type="submit" className='bg-gray-500 text-white p-2 rounded-md'>Sign Up</button>
-            </form>
-          </div>
-
-            
-            <p className='text-center'>or</p>
-
+        <h1 className='text-2xl font-bold'>Login</h1>
+        <div>
             <form action={async () => {
               "use server"
-              await signIn("discord")
-            }} className="flex flex-col gap-2">
-
-              <button type="submit" className='bg-blue-500 text-white p-2 rounded-md'>Sign Up With Discord</button>
+              await signIn("discord", { callbackUrl: "/" })
+            }} 
+            className="flex flex-col gap-2">
+              <p>we use discord&apos;s oauth2 for authentication. no, this will not hack your account. (source: trust me bro)</p>
+              <p>learn more: <a href="https://discord.com/developers/docs/topics/oauth2" className="text-blue-500" target="_blank" rel="noopener noreferrer">https://discord.com/developers/docs/topics/oauth2</a></p>
+              <button type="submit" className='bg-blue-500 text-white p-2 rounded-md flex flex-row gap-2 justify-center items-center'>
+                <img 
+                  src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0a6ca814282eca7172c6_icon_clyde_white_RGB.svg" 
+                  alt="Discord Icon" 
+                  width={20}
+                  height={20}
+                  className="select-none"
+                />
+                <p>Sign in with Discord</p>
+              </button>
             </form>
+        </div>
       </div>
-
-
-
     </div>
   )
 }

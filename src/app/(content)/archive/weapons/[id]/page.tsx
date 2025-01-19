@@ -6,6 +6,7 @@ import { toTitleCase } from '@/utils/standardizers'
 import Talent from '@/components/archive/Talent'
 import { Suspense } from 'react'
 import ArchivePageCSS from "@/components/archive/archivePage.module.css"
+import CommentSection from "@/components/ui/CommentSection"
 
 
 //page metadata
@@ -77,7 +78,8 @@ export default async function WeaponPage({params}) {
                 />
             </div>
           </div>
-
+          <br/>
+          <CommentSection pageID={data.key}/>
       </div>
     </div>
   )

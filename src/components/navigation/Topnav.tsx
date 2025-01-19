@@ -10,6 +10,7 @@ import Overlay from "../ui/Overlay"
 import Btn from "@/components/ui/Btn"
 import { getSession, signIn, signOut, useSession } from "next-auth/react"
 import { auth } from "@/app/auth"
+import Image from "next/image"
 /**
  * Top navigation bar component
  * @note displayed at the top of every page
@@ -58,8 +59,8 @@ function CenterContainer(props: any){
   const { SearchQuery, updateQuery, setFirstKeyPress, firstKeyPress } = SearchStore()
   const pathname = usePathname()
 
-  const isExplorePage = () => { 
-    return pathname === "/characters" || pathname === "/weapons" || pathname === "/artifacts"
+  const isExplorePage = () => {
+    return pathname === "/archive/characters" || pathname === "/archive/weapons" || pathname === "/archive/artifacts"
   }
 
   const openSearchPallette = (e) => {
@@ -155,8 +156,15 @@ function LeftContainer(){
 
       {session?.user ?
         <>
-          <p>{session?.user?.email}</p>
-          <a href="/api/logout">Logout</a>
+          <a href="/api/logout">
+            <Image 
+              src={session?.user?.image} 
+              alt="User Avatar" 
+              className="w-10 h-10 rounded-full p-1 border border-gray-300"
+              width={40}
+              height={40}
+            />
+          </a>
         </>
         :
         <Link href="/login">

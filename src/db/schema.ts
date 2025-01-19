@@ -17,15 +17,25 @@ export const usersTablePG = pgTable("user", {
   image: varchar("image"),
 });
 
+// export const commentsTableBG = pgTable("comments", {
+//   id: integer().primaryKey().generatedAlwaysAsIdentity(),
+//   page: varchar("page").notNull(),
+//   userId: varchar("userId").references(() => usersTablePG.id),
+//   comment: varchar("comment").notNull(),
+//   createdAt: timestamp("created_at", { mode: "date" }).notNull()
+// });
+
 export const commentsTableBG = pgTable("comments", {
-  id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
   page: varchar("page").notNull(),
-  userId: varchar("userId").references(() => usersTablePG.id),
+  userId: varchar("userId").notNull().references(() => usersTablePG.id),
   comment: varchar("comment").notNull(),
   createdAt: timestamp("created_at", { mode: "date" }).notNull()
 });
 
+
 export const accountsTablePG = pgTable("account", {
+  // id: varchar("id").primaryKey(),
   userId: varchar("userId")
     .notNull()
     .references(() => usersTablePG.id),
@@ -50,6 +60,7 @@ export const sessionsTablePG = pgTable("session", {
 });
 
 export const verificationTokensTablePG = pgTable("verificationToken", {
+  // id: varchar("id").primaryKey(),
   identifier: varchar("identifier").notNull(),
   token: varchar("token").notNull().unique(),
   expires: timestamp("expires", { mode: "date" }).notNull(),

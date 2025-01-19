@@ -3,6 +3,7 @@ import { getArtifact, getArtifacts } from '@/utils/genshinData'
 import { toTitleCase } from '@/utils/standardizers'
 import { Suspense } from 'react'
 import ArchivePageCSS from "@/components/archive/archivePage.module.css"
+import CommentSection from "@/components/ui/CommentSection"
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -33,7 +34,9 @@ export default async function ArtifactPage({params}) {
         <ArtifactHeader data={data} />
         <div id="pagecontent" className={ArchivePageCSS.archiveRecordContentContainer}>
           <ArtifactSetBonus data={data} />
-        </div>
+          <br/>
+          <CommentSection pageID={data.key}/>
+        </div>     
       </Suspense>
   )
 }

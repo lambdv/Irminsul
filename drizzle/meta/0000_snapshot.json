@@ -1,5 +1,5 @@
 {
-  "id": "cb3b9e12-348d-40b4-aa2c-f51ab7c01007",
+  "id": "08e9f9ac-8014-4c14-b15f-31b7760508b4",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -8,8 +8,14 @@
       "name": "account",
       "schema": "",
       "columns": {
-        "userId": {
-          "name": "userId",
+        "id": {
+          "name": "id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "userid": {
+          "name": "userid",
           "type": "varchar",
           "primaryKey": false,
           "notNull": true
@@ -77,12 +83,12 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "account_userId_user_id_fk": {
-          "name": "account_userId_user_id_fk",
+        "account_userid_user_id_fk": {
+          "name": "account_userid_user_id_fk",
           "tableFrom": "account",
           "tableTo": "user",
           "columnsFrom": [
-            "userId"
+            "userid"
           ],
           "columnsTo": [
             "id"
@@ -126,7 +132,7 @@
         },
         "userid": {
           "name": "userid",
-          "type": "integer",
+          "type": "varchar",
           "primaryKey": false,
           "notNull": false
         },
@@ -169,6 +175,12 @@
       "name": "session",
       "schema": "",
       "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
         "sessionToken": {
           "name": "sessionToken",
           "type": "varchar",
