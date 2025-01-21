@@ -1,5 +1,5 @@
 "use client"
-import { signIn } from '@/app/auth'
+import { signIn } from '@/app/(auth)/auth'
 import { redirect } from 'next/navigation'
 //next/navigation
 import { useRouter } from 'next/navigation'
