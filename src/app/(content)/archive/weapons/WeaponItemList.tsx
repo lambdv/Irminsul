@@ -7,6 +7,7 @@ import { toKey } from '@/utils/standardizers'
 import { useState, useEffect } from 'react'
 import { flatten } from '@/utils/standardizers'
 import { filterItemList, sortItems } from '@/utils/filterers'
+import { getAssetURL } from '@/utils/getAssetURL'
 
 export default function WeaponItemList(props:{data: any}) {
     const weapons = props.data
@@ -32,7 +33,7 @@ export default function WeaponItemList(props:{data: any}) {
                         category="weapon"
                         name={weapon.name}
                         rarity={weapon.rarity}
-                        src={`/assets/weapons/${toKey(weapon.name)}/${toKey(weapon.name)}_base_avatar.png`}
+                        src={getAssetURL("weapon", weapon.name, "base_avatar.png")}
                         alt={toKey(weapon.name)}
                     />
                 )

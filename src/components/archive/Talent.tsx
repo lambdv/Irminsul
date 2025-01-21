@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Table from './Table'
 import BaseStatTableCSS from './stattable.module.css'
 import TalentCSS from './talent.module.css'
-import ExampleIcon from '@public/imgs/icons/bow.png'
 
 import { CharacterTalent, CharacterTalentAttribute } from '@/types/character'
 

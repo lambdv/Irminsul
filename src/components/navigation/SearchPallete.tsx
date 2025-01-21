@@ -7,6 +7,7 @@ import { SearchStore } from '@/store/Search'
 import { useRouter } from 'next/navigation'
 import Link from "next/link"
 import { toKey } from '@/utils/standardizers'
+import { getAssetURL } from '@/utils/getAssetURL'
 
 export default function SearchPallete() {
     const router = useRouter()
@@ -82,23 +83,24 @@ export default function SearchPallete() {
 
         switch(item.category.toLowerCase()){
             case "character":
-                fileName = `${toKey(item.name)}_avatar.png`
+                fileName = `avatar.png`
                 break
             case "weapon":
-                fileName = `${toKey(item.name)}_base_avatar.png`
+                //fileName = `baseicon.png`
+                fileName = `base_avatar.png`
                 break
             case "artifact":
-                fileName = `${toKey(item.name)}_flower.png`
+                fileName = `flower.png`
                 break
         }
 
-        const imgURL = `/assets/${item.category.toLowerCase()}s/${toKey(item.name)}/${fileName}`
+        const imgURL = getAssetURL(item.category, item.name, fileName)
 
         return (
             <Link 
                 key={item.id} 
                 className={`${SearchPaletteCSS.palletteResult} ${highlighted ? SearchPaletteCSS.highlighted : ""}`} 
-                href={`/${item.category.toLowerCase()}s/${item.id}`}
+                href={`/archive/${item.category.toLowerCase()}s/${item.id}`}
                 onClick={closePalette}
             >
                 <Image src={imgURL} alt="" width={100} height={100} />

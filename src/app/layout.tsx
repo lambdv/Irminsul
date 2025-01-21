@@ -5,6 +5,8 @@ import Topnav from "@/components/navigation/Topnav"
 import ClientWrapper from "@/components/navigation/ClientWrapper"
 import Footer from "@/components/navigation/Footer"
 import { SessionProvider } from "next-auth/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 
 const inter = Inter({ subsets: ["latin"] })
 

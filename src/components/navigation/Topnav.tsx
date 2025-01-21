@@ -9,7 +9,7 @@ import { NavigationStore } from "@/store/Navigation"
 import Overlay from "../ui/Overlay"
 import Btn from "@/components/ui/Btn"
 import { getSession, signIn, signOut, useSession } from "next-auth/react"
-import { auth } from "@/app/auth"
+import { auth } from "@/app/(auth)/auth"
 import Image from "next/image"
 /**
  * Top navigation bar component

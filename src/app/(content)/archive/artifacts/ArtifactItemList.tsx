@@ -6,6 +6,7 @@ import { ArtifactFilterStore } from '@/store/ArtifactFilters'
 import { filterItemList, sortItems } from '@/utils/filterers'
 import { flatten, toKey } from '@/utils/standardizers'
 import { useEffect, useState } from 'react'
+import { getAssetURL } from '@/utils/getAssetURL'
 
 export default function ArtifactItemList(props) {
     const artifacts: any[] = props.data
@@ -31,7 +32,7 @@ export default function ArtifactItemList(props) {
                         category="artifact"
                         name={artifact.name}
                         rarity={artifact.rarity_max}
-                        src={`/assets/artifacts/${toKey(artifact.name)}/${toKey(artifact.name)}_flower.png`}
+                        src={getAssetURL("artifact", artifact.name, "flower.png")}
                         alt={toKey(artifact.name)}
                     />
                 ))}
