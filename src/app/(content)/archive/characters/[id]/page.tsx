@@ -11,7 +11,8 @@ import ArchivePageCSS from "@/components/archive/archivePage.module.css"
 import { unstable_cache, unstable_cacheLife } from "next/cache"
 import CommentSection from "@/components/ui/CommentSection"
 import { getMainColor } from "@/utils/getMainColor"
-
+import TalentCSS from '@/components/archive/talent.module.css'
+import { getAssetURL } from '@/utils/getAssetURL'
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -21,7 +22,7 @@ export async function generateMetadata({params}) {
   return {
     title: `${data.name} | Irminsul`,
     description: data.description,
-    image: `/assets/characters/${data.key}/${data.key}_splash.png`,
+    image: getAssetURL("character", data.name, "splash.png"),
     url: `/characters/${id}`,
   }
 }
@@ -35,36 +36,31 @@ export async function generateMetadata({params}) {
 //   }))
 // }
 
-
-
 export default async function CharacterPage({params}) {
   // "use cache"
   // unstable_cacheLife({stale: 300, revalidate: 2592000, expire: undefined})
   const {id} = await params
   const data = params.data ? params.data : await getCharacter(id)
 
-  if(data === undefined || data === null) return <div>Character data not found</div>
+  if(data === undefined || data === null) 
+    return <div>Character data not found</div>
 
-  const color = await getMainColor(`/assets/characters/${data.key}/${data.key}_splash.png`)
+  const color = await getMainColor(getAssetURL("character", data.name, "splash.png"))
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <CharacterHeader data={data}/>
-      <TableOfContents/>
-      <div id="pagecontent" className={ArchivePageCSS.archiveRecordContentContainer}>
-        <br/>
-        <CharacterBaseStats data={data}/>
-        <br/>
-        <CharacterTalents data={data}/>
-        <br/>
-        <CharacterPassives data={data}/>
-        <br/>
-        <CharacterConstellations data={data}/>
-        <br/>
-        {/* <h1 className="text-2xl font-bold">Comments</h1> */}
-        <CommentSection pageID={data.key} color={color} />
-      </div>
-    </Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
+        <CharacterHeader data={data}/>
+        <TableOfContents/>
+        <div id="pagecontent" className={ArchivePageCSS.archiveRecordContentContainer}>
+          <br/>
+          <CharacterBaseStats data={data}/>
+          <CharacterTalents data={data}/>
+          <CharacterPassives data={data}/>
+          <CharacterConstellations data={data}/>
+          <br/>
+          <CommentSection pageID={data.key} color={color} />
+        </div>
+      </Suspense>
   )
 }
 
@@ -72,8 +68,8 @@ function CharacterHeader({data}){
   return (
     <Header 
       title={data.name}
-      splashImage={`/assets/characters/${data.key}/${data.key}_splash.png`}
-      bgImage={`/assets/characters/${data.key}/${data.key}_namecard.png`}
+      splashImage={getAssetURL("character", data.name, "splash.png")}
+      bgImage={getAssetURL("character", data.name, "namecard.png")}
     >
       <div>
         {Array.from({length: data.rarity}).map((_, index) => (
@@ -102,10 +98,12 @@ function CharacterBaseStats({data}){
   return (
     <section id="basestats" className={ArchivePageCSS.archiveRecordSection}>
       <h2 className="mb-2 text-2xl font-bold">Base Stats</h2>
-      <BaseStatTable 
-        table={data.base_stats}
-        cost={data.ascension_costs}
-      />
+        <div className="mb-4 overflow-x-auto">
+          <BaseStatTable 
+            table={data.base_stats}
+            cost={data.ascension_costs}
+          />        
+        </div>
     </section>
   )
 }
@@ -121,10 +119,10 @@ function CharacterTalents({data}){
               icon = `/imgs/icons/${data.weapon}.png`
               break
             case "Elemental Skill":
-              icon = `/assets/talents/characters/${data.key}/${data.key}_skill.png`
+              icon = getAssetURL("character", data.name, "skill.png")
               break
             case "Elemental Burst":
-              icon = `/assets/talents/characters/${data.key}/${data.key}_burst.png`
+              icon = getAssetURL("character", data.name, "burst.png")
               break
           }
           return <Talent 
@@ -145,13 +143,13 @@ function CharacterPassives({data}){
         let icon = ""
         switch(passive.type) {
           case "1st Ascension Passive":
-            icon = `/assets/talents/characters/${data.key}/${data.key}_a1.png`
+            icon = getAssetURL("character", data.name, "a1.png")
             break
           case "4th Ascension Passive":
-            icon = `/assets/talents/characters/${data.key}/${data.key}_a4.png`
+            icon = getAssetURL("character", data.name, "a4.png")
             break
           case "Utility Passive":
-            icon = `/assets/talents/characters/${data.key}/${data.key}_passive.png`
+            icon = getAssetURL("character", data.name, "passive.png")
             break
         }
         return <Talent 
@@ -171,7 +169,7 @@ function CharacterConstellations({data}){
       {data.constellations.map((constellation, index) => (
         <Talent 
           key={index}
-          icon={`/assets/talents/characters/${data.key}/${data.key}_c${index + 1}.png`}
+          icon={getAssetURL("character", data.name, `c${index + 1}.png`)}
           data={{
             type: "C" + (index + 1),
             name: constellation.name,

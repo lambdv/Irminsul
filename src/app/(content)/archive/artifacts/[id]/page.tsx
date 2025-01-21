@@ -4,6 +4,7 @@ import { toTitleCase } from '@/utils/standardizers'
 import { Suspense } from 'react'
 import ArchivePageCSS from "@/components/archive/archivePage.module.css"
 import CommentSection from "@/components/ui/CommentSection"
+import { getAssetURL } from '@/utils/getAssetURL'
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -45,7 +46,7 @@ async function ArtifactHeader({data}){
   return (
     <Header 
       title={data.name} 
-      splashImage={`/assets/artifacts/${data.key}/${data.key}_flower.png`}
+      splashImage={getAssetURL("artifact", data.name, "flower.png")}
       imageStyle={{
         width: "100%",
         height: "auto",

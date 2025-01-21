@@ -1,5 +1,6 @@
 import { getCharacters, getWeapons, getArtifacts } from '@/utils/genshinData';
 import Item from '@/components/explore/Item';
+import { getAssetURL } from '@/utils/getAssetURL'
 
 //meta data
 export const metadata = {
@@ -37,7 +38,7 @@ export default async function Home() {
                     {latestCharacters.map((character) => (
                         <Item 
                             category="character"
-                            src={`/assets/characters/${character.key}/${character.key}_avatar.png`}
+                            src={getAssetURL("character", character.name, "avatar.png")}
                             name={character.name}
                             rarity={character.rarity}
                             element={character.element}
@@ -53,7 +54,7 @@ export default async function Home() {
                     {latestWeapons.map((weapon) => (
                         <Item 
                             category="weapon"
-                            src={`/assets/weapons/${weapon.key}/${weapon.key}_base_avatar.png`}
+                            src={getAssetURL("weapon", weapon.name, "base_avatar.png")}
                             name={weapon.name}
                             rarity={weapon.rarity}
                             key={weapon.id}
@@ -68,7 +69,7 @@ export default async function Home() {
                     {latestArtifacts.map((artifact) => (
                         <Item 
                             category="artifact"
-                            src={`/assets/artifacts/${artifact.key}/${artifact.key}_flower.png`}
+                            src={getAssetURL("artifact", artifact.name, "flower.png")}
                             name={artifact.name}
                             rarity={artifact.rarity_max}
                             key={artifact.id}

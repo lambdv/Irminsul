@@ -7,6 +7,7 @@ import { filterItemList, sortItems } from '@/utils/filterers'
 import { flatten, toKey } from '@/utils/standardizers'
 import { useEffect, useState } from 'react'
 import { Character } from '@/types/character'
+import { getAssetURL } from '@/utils/getAssetURL'
 
 export default function CharacterItemList(props: {data: Character[]}) {
     const characters = props.data
@@ -34,7 +35,7 @@ export default function CharacterItemList(props: {data: Character[]}) {
                         name={character.name}
                         rarity={character.rarity}
                         element={character.element}
-                        src={`/assets/characters/${toKey(character.name)}/${toKey(character.name)}_avatar.png`}
+                        src={getAssetURL("character", character.name, "avatar.png")}
                         alt={toKey(character.name)}
                     />
                     )

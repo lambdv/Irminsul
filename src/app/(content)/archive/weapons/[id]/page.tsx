@@ -1,13 +1,11 @@
 import Header from '@/components/archive/Header'
-import Table from '@/components/archive/Table'
 import BaseStatTable from '@/components/archive/BaseStatTable'
 import { getWeapon, getWeapons } from '@/utils/genshinData'
-import { toTitleCase } from '@/utils/standardizers'
 import Talent from '@/components/archive/Talent'
 import { Suspense } from 'react'
 import ArchivePageCSS from "@/components/archive/archivePage.module.css"
 import CommentSection from "@/components/ui/CommentSection"
-
+import { getAssetURL } from '@/utils/getAssetURL'
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -33,12 +31,26 @@ export async function generateMetadata({params}) {
 export default async function WeaponPage({params}) {
   const {id} = await params
   const data = params.data ? params.data : await getWeapon(id)
-
   return (
-    <div id="">
-      <Header 
+      <Suspense fallback={<div>Loading...</div>}>
+        <WeaponHeader data={data}/>
+        <div className={ArchivePageCSS.archiveRecordContentContainer}>
+            <div className="flex flex-col md:flex-row">
+                <WeaponBaseStats data={data}/>
+                <WeaponPassives data={data}/>
+            </div>
+          <br/>
+          <CommentSection pageID={data.key}/>
+      </div>
+    </Suspense>
+  )
+}
+
+function WeaponHeader({data}){
+  return (
+    <Header 
         title={data.name}
-        splashImage={`/assets/weapons/${data.key}/${data.key}_splash_art.png`}
+        splashImage={getAssetURL("weapon", data.name, "splash_art.png")}
       >
         <>
           <section className={ArchivePageCSS.archiveRecordSection}>
@@ -53,35 +65,37 @@ export default async function WeaponPage({params}) {
           </section>
         </>
       </Header>
-      
-      <div className={ArchivePageCSS.archiveRecordContentContainer}>
-          <div className="flex flex-col md:flex-row">
-            <div className="mr-3 mb-3">
-              <BaseStatTable 
-                table={data.base_stats.map(stat => ({
-                  lvl: stat.level,
-                  base_atk: stat.base_atk,
-                  AscensionStatValue: stat.sub_stat_value,
-                  AscensionStatType: stat.sub_stat_type,
-                  ascention: stat.ascension_phase,
-                }))} 
-                cost={[]}
-              />
-            </div>
-            <div>
-                <Talent
-                  data = {{
-                    type: "Passive",
-                    name: data.refinement_name,
-                    description: data.refinements[0],
-                  }}
-                />
-            </div>
-          </div>
-          <br/>
-          <CommentSection pageID={data.key}/>
-      </div>
+  )
+}
+
+function WeaponBaseStats({data}){
+  return (
+    <div className="mr-3 mb-3 mb-4 overflow-x-auto">
+      <BaseStatTable 
+        table={data.base_stats.map(stat => ({
+          lvl: stat.level,
+          base_atk: stat.base_atk,
+          AscensionStatValue: stat.sub_stat_value,
+          AscensionStatType: stat.sub_stat_type,
+          ascention: stat.ascension_phase,
+        }))} 
+        cost={[]}
+      />
     </div>
   )
 }
-  
+
+
+function WeaponPassives({data}){
+  return (
+    <div>
+    <Talent
+      data = {{
+        type: "Passive",
+        name: data.refinement_name,
+        description: data.refinements[0],
+      }}
+    />
+</div>
+  )
+}
