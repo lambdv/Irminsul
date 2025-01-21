@@ -7,6 +7,8 @@ type State = {
     showPallette: boolean
     setShowPallette: (show: boolean) => void
     togglePalette: () => void
+    firstKeyPress: boolean
+    setFirstKeyPress: (firstKeyPress: boolean) => void
 };
 
 export const SearchStore = create<State>((set) => ({
@@ -18,10 +20,21 @@ export const SearchStore = create<State>((set) => ({
         set({SearchQuery: e.target.value});
     },
     showPallette: false,
-    setShowPallette: (show: boolean) => set({ showPallette: show }),
+    setShowPallette: (show: boolean) => { 
+        if(!show){
+            set({ firstKeyPress: true })
+        }
+        set({ showPallette: show })
+        
+    },
     togglePalette: () => set((state) => {
+        if(!state.showPallette){
+            set({ firstKeyPress: true })
+        }
         return { showPallette: !state.showPallette }
-    })
+    }),
+    firstKeyPress: true,
+    setFirstKeyPress: (firstKeyPress: boolean) => set({ firstKeyPress: firstKeyPress })
 }));
 
 

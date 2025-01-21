@@ -4,8 +4,6 @@ export type Artifact = {
     key: string
     rarity_max: number
     rarity_min: number
-    set: string
-    description: string
     release_version: string
     flower_description?: string
     feather_description?: string

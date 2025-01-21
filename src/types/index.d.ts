@@ -1,6 +1,6 @@
 declare global {
     type Page = {
-        id: number;
+        id: string;
         name: string;
         rarity: number;
         category: string;

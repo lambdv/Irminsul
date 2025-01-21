@@ -11,6 +11,8 @@
     border-radius: 5px;
 }
 
+
+
 .searchPalette .searchBar{
     width: 100%;
     display: flex;
@@ -27,11 +29,34 @@
 .searchPaletteResults {
     width: 100%;
     padding: 10px;
-    padding-top: 0;
     overflow-y: auto;
-    max-height: 50%;
     text-align: left;
 }
+
+@media (max-width: 1600px) {
+    .searchPalette {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .searchPalette {
+        width: 100%;
+        top: 0px;
+    }
+    .searchPalette .searchBar{
+        height: 60px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .searchPaletteResults{
+        max-height: 100%;
+        top: 60px;
+    }
+}
+
+
 
 .palletteResult {
     display: flex;
@@ -46,6 +71,10 @@
 }
 
 .palletteResult:hover {
+    background-color: rgb(48, 48, 48);
+}
+
+.palletteResult.highlighted {
     background-color: rgb(48, 48, 48);
 }
 

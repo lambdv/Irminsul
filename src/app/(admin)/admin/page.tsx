@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect } from "react"
-import { getCharacters, getWeapons, getArtifacts } from "@/utils/DataGetters"
+import { getCharacters, getWeapons, getArtifacts } from "@/utils/genshinData"
 
 export default function Page() {
     const [currentTab, setCurrentTab] = useState("charactersdata")  

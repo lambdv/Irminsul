@@ -1,14 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
-        dynamicIO: true,
+        // dynamicIO: true,
     },
     images: {
-        domains: ['www.irminsul.moe'],
-    },
-    env: {
-        GOOGLE_ADSENSE_ACCOUNT: 'ca-pub-1739492299738628',
-    },
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'cdn.discordapp.com'
+            },
+            {
+                protocol: 'https',
+                hostname: 'avatars.githubusercontent.com'
+            }
+        ]
+    }
 };
 
 export default nextConfig;

@@ -1,8 +1,6 @@
 import { createCanvas, loadImage } from 'canvas'
 
 export async function getMainColor(imageURL: string): Promise<string> {
-    //"use cache"
-    
     const fs = require('fs');
     const path = require('path');
     const cachePath = path.join(process.cwd(), 'src/utils/colorcache');
@@ -10,16 +8,22 @@ export async function getMainColor(imageURL: string): Promise<string> {
     try {
         if (fs.existsSync(cachePath)) {
             const cache = JSON.parse(fs.readFileSync(cachePath, 'utf8'))
-            if (cache[imageURL])
+            if (cache[imageURL]) {
                 return cache[imageURL]
+            }
         }
     } catch(e){console.log('Cache read error:', e)}
     
 
     // If not in cache, process the image
     let img;
-    try { img = await loadImage(process.cwd() + '/public' + imageURL) } 
-    catch(e) { return "rgb(0,0,0)" }
+    try { 
+        img = await loadImage(process.cwd() + '/public' + imageURL) 
+    } 
+    catch(e) { 
+        console.log('Image load error:', e);
+        return "rgb(165, 165, 165)" 
+    }
 
     // Maintain aspect ratio while scaling down
     const maxDimension = 250;
@@ -55,18 +59,21 @@ export async function getMainColor(imageURL: string): Promise<string> {
         }
     }
 
+    // Adjust brightness before caching
+    const adjustedColor = adjustBrightness(dominantColor);
+
     // Save to cache
     try {
         const cache = fs.existsSync(cachePath) 
             ? JSON.parse(fs.readFileSync(cachePath, 'utf8'))
             : {};
-        cache[imageURL] = dominantColor;
+        cache[imageURL] = adjustedColor;
         fs.writeFileSync(cachePath, JSON.stringify(cache));
     } catch (e) {
         console.log('Cache write error:', e);
     }
 
-    return adjustBrightness(dominantColor);
+    return adjustedColor;
 }
 
 function adjustBrightness(color: string, targetBrightness: number = 0.6): string {
@@ -90,21 +97,9 @@ function adjustBrightness(color: string, targetBrightness: number = 0.6): string
     return `rgb(${newR},${newG},${newB})`;
 }
 
-const elementColorBias: { [key: string]: { r: number, g: number, b: number } } = {
-    geo: { r: 255, g: 165, b: 0 },    // Orange
-    pyro: { r: 255, g: 0, b: 0 },     // Red
-    hydro: { r: 0, g: 191, b: 255 },  // Blue
-    electro: { r: 147, g: 0, b: 255 }, // Purple
-    dendro: { r: 50, g: 205, b: 50 },  // Green
-    cryo: { r: 135, g: 206, b: 235 },  // Light Blue
-    anemo: { r: 127, g: 255, b: 212 }  // Turquoise
-};
-
-// Helper function to calculate color similarity
-function getColorSimilarity(color1: { r: number, g: number, b: number }, color2: { r: number, g: number, b: number }): number {
-    return Math.sqrt(
-        Math.pow(color1.r - color2.r, 2) +
-        Math.pow(color1.g - color2.g, 2) +
-        Math.pow(color1.b - color2.b, 2)
-    );
-}
+// const elementColorBias: { [key: string]: { r: number, g: number, b: number } } = {
+//     geo: { r: 255, g: 165, b: 0 },    // Orange
+//     pyro: { r: 255, g: 0, b: 0 },     // Red
+//     hydro: { r: 0, g: 191, b: 255 },  // Blue
+//     electro: { r: 147, g: 0, b: 255 }, // Purple
+//     dendro: { r: 50, g: 205, b: 50 },  // Green

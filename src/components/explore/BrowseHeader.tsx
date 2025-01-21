@@ -56,9 +56,9 @@ export default function CharacterBrowseHeader(props: {icon: any, title: string, 
                     <h1 className={explorePageCSS.ingameTitle}>{props.title}</h1>
                 </div>
 
-                <div className={explorePageCSS.controller}>
+                <div className={explorePageCSS.controller + " flex"}>
                     <Btn onClick={toggleModal}> 
-                        <i className="material-symbols-outlined">filter_list</i>
+                        <i className="material-symbols-rounded">filter_list</i>
                         <p>Filters</p>
                     </Btn>
                     <RoundBtn 

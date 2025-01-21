@@ -1,13 +1,16 @@
 'use client'
 import Link from "next/link"
-import React, { use, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
 import TopnavCSS from "./topnav.module.css"
 import SearchPallette from "@components/navigation/SearchPallete"
 import { SearchStore } from "@/store/Search"
 import { NavigationStore } from "@/store/Navigation"
 import Overlay from "../ui/Overlay"
-
+import Btn from "@/components/ui/Btn"
+import { getSession, signIn, signOut, useSession } from "next-auth/react"
+import { auth } from "@/app/auth"
+import Image from "next/image"
 /**
  * Top navigation bar component
  * @note displayed at the top of every page
@@ -20,6 +23,7 @@ export default function Topnav() {
 
   useEffect(() => {
     const handleScroll = () => setIsAtTop(window.scrollY === 0);
+    handleScroll()
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [])
@@ -52,16 +56,21 @@ export default function Topnav() {
  */
 function CenterContainer(props: any){
   const { showPallette, setShowPallette } = props
-  const { SearchQuery, updateQuery } = SearchStore()
+  const { SearchQuery, updateQuery, setFirstKeyPress, firstKeyPress } = SearchStore()
   const pathname = usePathname()
 
-  const isExplorePage = () => { 
-    return pathname === "/characters" || pathname === "/weapons" || pathname === "/artifacts"
+  const isExplorePage = () => {
+    return pathname === "/archive/characters" || pathname === "/archive/weapons" || pathname === "/archive/artifacts"
   }
 
   const openSearchPallette = (e) => {
-    if(!isExplorePage() && !showPallette && SearchQuery !== "" && SearchQuery !== undefined)
+    if(!isExplorePage() && !showPallette && SearchQuery !== "" && SearchQuery !== undefined){
+      if(firstKeyPress && SearchQuery.length > 1){
+        setFirstKeyPress(false)
+      }
       setShowPallette(!showPallette)
+     
+    }
   }
 
   const handleSearchBarChange = (e) => {
@@ -102,26 +111,66 @@ function LeftContainer(){
   )
 }
 
-function RightContainer(){
+ function RightContainer(){
+
+    const [session, setSession] = useState(null)
+
+    useEffect(() => {
+      const fetchSession = async () => {
+        const session = await getSession()
+        setSession(session)
+      }
+      fetchSession()
+    }, [])
+
   const toggleTheme = () => {}
 
   return (
     <div id="topnavRight" className={TopnavCSS.fries + " " + TopnavCSS.hamburger}>
-      <button 
-            className={TopnavCSS.mobileOnly + " " + TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '}
-            onClick={() => SearchStore.getState().setShowPallette(true)}
-          >
-        <i className="material-symbols-outlined">search</i>
-      </button>
 
-      <button className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '}
+      <div className={TopnavCSS.mobileOnly}>
+        <button 
+              className={TopnavCSS.mobileOnly + " " + TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '}
+              onClick={() => SearchStore.getState().setShowPallette(true)}
+            >
+          <i className="material-symbols-outlined">search</i>
+        </button>
+      </div>
+
+
+      {/* <button className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '}
         onClick={toggleTheme}
       >
         <i className="material-symbols-outlined">dark_mode</i>
-      </button>
-      <button className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '}>
+      </button> */}
+      {/* <button className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '}>
         <i className="material-symbols-outlined">account_circle</i>
-      </button>
+      </button> */}
+
+      {/* <Link href="/signup">
+        <Btn>Sign Up</Btn>
+      </Link>
+      <Link href="/login">
+        <Btn>Log In</Btn>
+      </Link> */}
+
+      {session?.user ?
+        <>
+          <a href="/api/logout">
+            <Image 
+              src={session?.user?.image} 
+              alt="User Avatar" 
+              className="w-10 h-10 rounded-full p-1 border border-gray-300"
+              width={40}
+              height={40}
+            />
+          </a>
+        </>
+        :
+        <Link href="/login">
+          <Btn>Log In</Btn>
+        </Link>
+      }
     </div>
 
   )
