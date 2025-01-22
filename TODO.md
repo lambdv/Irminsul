@@ -8,6 +8,8 @@
 
 # data
 - weapon costs scraping
+- add release version for characters and weapons
+- 
 
 # ui
 - add footer
@@ -23,11 +25,12 @@
 - heyseelie
 - tools (damage calc, er calc)
 - user dashboard/settings
-- akadymia
+- akadymia (user generated guides, articles, calcs, posts)
 
 # refactoring
 - move ingame assets to blob storage
 - character,artifact and weapon item list into 1 component 
+- monorepo
 
 //"next": "^15.1.1-canary.25",
 

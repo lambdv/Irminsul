@@ -58,7 +58,9 @@ export default async function CharacterPage({params}) {
           <CharacterPassives data={data}/>
           <CharacterConstellations data={data}/>
           <br/>
-          <CommentSection pageID={data.key} color={color} />
+          <Suspense fallback={<div>Loading...</div>}> 
+            <CommentSection pageID={data.key} color={color} />
+          </Suspense>
         </div>
       </Suspense>
   )

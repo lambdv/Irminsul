@@ -9,6 +9,7 @@ import Btn from "./Btn"
 import { redirect } from "next/navigation"
 import { format } from "timeago.js"
 import Link from "next/link"
+import { Suspense } from "react"
 
 export default async function CommentSection(props: {
     pageID: string,
@@ -33,40 +34,40 @@ export default async function CommentSection(props: {
         <div className={CommentSectionCSS.commentSectionContainer} id="comments">
             <h1>{numberOfComments} Comments</h1>
             <div className={`${CommentSectionCSS.commentTextAreaContainer} flex flex-row mb-5`}>
-                <Image 
-                    src={user ? user.image : "/imgs/icons/defaultavatar.png"} 
-                    alt="User Avatar" 
-                    width={100} 
-                    height={100} 
-                    className={CommentSectionCSS.commentUserAvatar}
+            <Image 
+                src={user ? user.image : "/imgs/icons/defaultavatar.png"} 
+                alt="User Avatar" 
+                width={100} 
+                height={100} 
+                className={CommentSectionCSS.commentUserAvatar}
+            />
+            <form className="flex flex-col gap-2 w-full" action={handleCommentSubmit}>
+                <input
+                    name="comment"
+                    placeholder="Add a comment..." 
+                    className={CommentSectionCSS.commentTextArea}
+                    style={{resize: "none"}}
+                    required
+                    autoComplete="off"
+                    // Event handlers need to be in a client component
                 />
-                <form className="flex flex-col gap-2 w-full" action={handleCommentSubmit}>
-                    <input
-                        name="comment"
-                        placeholder="Add a comment..." 
-                        className={CommentSectionCSS.commentTextArea}
-                        style={{resize: "none"}}
-                        required
-                        autoComplete="off"
-                        // Event handlers need to be in a client component
-                    />
-                    {/* <div className="flex flex-row justify-end gap-2">
-                        <Btn type="button">Cancel</Btn>
-                        <Btn type="submit" style={{backgroundColor: props.color || "blue"}}>Comment</Btn>
-                    </div> */}
-                </form>
-            </div>
-
-            <ul>
-                {comments
-                    .map((comment) => (
-                        <Comment 
-                            key={comment.id}
-                            comment={comment}
-                        />
-                ))}
-            </ul>
+                {/* <div className="flex flex-row justify-end gap-2">
+                    <Btn type="button">Cancel</Btn>
+                    <Btn type="submit" style={{backgroundColor: props.color || "blue"}}>Comment</Btn>
+                </div> */}
+            </form>
         </div>
+
+        <ul>
+            {comments
+                .map((comment) => (
+                    <Comment 
+                        key={comment.id}
+                        comment={comment}
+                    />
+            ))}
+        </ul>
+    </div>
     )
 }
 

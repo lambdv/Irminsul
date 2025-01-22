@@ -70,7 +70,7 @@ function WeaponHeader({data}){
 
 function WeaponBaseStats({data}){
   return (
-    <div className="mr-3 mb-3 mb-4 overflow-x-auto">
+    <div className="mr-3 mb-3 mb-4 overflow-x-auto w-full">
       <BaseStatTable 
         table={data.base_stats.map(stat => ({
           lvl: stat.level,
@@ -88,14 +88,14 @@ function WeaponBaseStats({data}){
 
 function WeaponPassives({data}){
   return (
-    <div>
-    <Talent
-      data = {{
-        type: "Passive",
-        name: data.refinement_name,
-        description: data.refinements[0],
-      }}
-    />
-</div>
+    <div className='w-auto'>
+      <Talent
+        data = {{
+          type: "Passive",
+          name: data.refinement_name,
+          description: data.refinements[0],
+        }}
+      />
+  </div>
   )
 }
