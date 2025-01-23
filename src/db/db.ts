@@ -5,7 +5,6 @@ import { eq } from 'drizzle-orm';
 import { usersTablePG } from './schema';
 import type { InferSelectModel } from "drizzle-orm";
 
-
 const db = drizzle(process.env.DATABASE_URL!)
 
 export default db;

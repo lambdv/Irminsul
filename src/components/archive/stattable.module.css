@@ -1,16 +1,28 @@
 .stattable {
     background-color: #121212;
     color: #d0d0d0;
-    padding: 16px;
     border-radius: 5px;
-    /* border: 1px solid #1a1a1a; */
-    /* box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1); */
     transition: all 0.2s ease-in-out;
     font-family: 'Inter', sans-serif;
     box-sizing: border-box;
-    width: auto;
     white-space: nowrap; /* Prevent text wrapping for header */
     overflow-x: auto; /* Allow horizontal overflow */
+    border-radius: 5px;
+    width: auto;
+
+}
+
+.stattable table {
+    width: 100%;
+}
+
+/**
+    scrollwheel for table
+*/
+
+.stattable::-webkit-scrollbar {
+    max-height: 10px;
+
 }
 
 .stattable thead th {
@@ -46,7 +58,7 @@
      /* Allow text wrapping for body cells */
 }
 
-.stattable tbody tr:last-child td {
+.stattable tbody tr:last-child tr {
     border-bottom: none;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;

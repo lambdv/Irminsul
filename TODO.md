@@ -1,7 +1,8 @@
 ## milestones
 1. get adge
     - articles
-    - data
+    - seelie gpt
+    - teamdps
 2. public beta
 3. release
 
@@ -12,6 +13,7 @@
 - 
 
 # ui
+- improve mobile (top nav spacing, search pallette clear and back buttons)
 - add footer
 - add breadcrums
 - redesign/condense siderail (https://m3.material.io/styles)

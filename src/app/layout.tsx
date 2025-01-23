@@ -1,12 +1,11 @@
 import { Inter } from "next/font/google"
 import "./globals.css"
-import Sidenav from "@/components/navigation/Sidenav"
+import SideRail from "@/components/navigation/SideRail"
 import Topnav from "@/components/navigation/Topnav"
 import ClientWrapper from "@/components/navigation/ClientWrapper"
 import Footer from "@/components/navigation/Footer"
 import { SessionProvider } from "next-auth/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
-
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -24,7 +23,7 @@ export default function RootLayout({children}) {
         <SessionProvider>
           <ClientWrapper>
             <Topnav/>
-            <Sidenav/>
+            <SideRail/>
             <main className="pageContentContainer">
               {children}
               {/* <Footer/> */}

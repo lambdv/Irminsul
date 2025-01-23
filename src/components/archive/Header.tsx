@@ -35,7 +35,10 @@ export default async function Header(props: {
                     </div>
                 </div>
             </div>
-            <style>{`::selection { background-color: ${color}; color: black;}`}</style>
+            {/* <style>{`::selection { background-color: ${color}; color: black;}`}</style> */}
+            <style>{`
+                :root { --primary-color: ${color}; }
+            `}</style>
         </div>
     )
 }

@@ -2,26 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @media (prefers-color-scheme: dark) { */
+
 :root {
-  --background-color: #ffffff;
-  --text-color: #000000;
-  --primary-color: #1a73e8;
+  --background-color: #070707;
+  --elevation-color: #161616;
+  --text-color: #f3f3f3;
+  --primary-color: #676767;
+  --ingame-primary-color: #E7C073;
 
   --mobile-width: 768px;
   --tablet-width: 1024px;
   --desktop-width: 1600px;
 }
 
-/* Define dark theme colors */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: #070707;
-    --elevation-color: #161616;
-    --text-color: #ffffff;
-    --primary-color: #bb86fc;
-    --ingame-primary-color: #E7C073;
-  }
+
+::selection { 
+  background-color: var(--primary-color); 
+  color: black;
 }
+
 
 @font-face {
   font-family: 'ingame';

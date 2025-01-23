@@ -63,7 +63,7 @@ export default function SearchPallete() {
                         break
                     const firstResult = results[0]
                     if (firstResult){
-                        router.push('/'+firstResult.category.toLowerCase()+'s/'+toKey(firstResult.name))
+                        router.push('/archive/'+firstResult.category.toLowerCase()+'s/'+toKey(firstResult.name))
                         setShowPallette(false)
                     }
                     break
