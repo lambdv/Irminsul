@@ -14,7 +14,7 @@ import enemyIcon from '@public/imgs/icons/enemyIcon.png'
 import wishIcon from '@public/imgs/icons/wish.png'
 import partyIcon from '@public/imgs/icons/party.png'
 import gadgetsIcon from '@public/imgs/icons/gadgets.png'
-// import seelieIcon from '@public/imgs/icons/seelie.png'
+import seelieIcon from '@public/imgs/icons/seelie.png'
 
 /**
  * Side navigation component
@@ -68,8 +68,7 @@ export default function SideRail() {
     <>
       <nav className={`${SidenavCSS.sidenav} ${SidenavCSS.sidenavCollapsed} z-10`}>
         <SideNavLink href="/" icon="home" text="Home"/>
-        <SideNavLink href="/seelie" icon="hotel_class" text="Ask AI"/>
-
+        <SideNavLink href="/seelie" img={seelieIcon} text="Ask AI"/>
         <SideNavLink href="/articles" icon="article" text="Articles"/>
         {/* <SideNavLink href="/archive/characters" icon="database" text="Archive"/> */}
         <SideNavLink href="/archive/characters" img={characterIcon} text="Characters"/>

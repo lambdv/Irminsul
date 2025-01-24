@@ -1,30 +1,26 @@
-import { NextResponse } from 'next/server'
-import { isAuthenticated } from './app/(auth)/auth'
+import { NextResponse, NextRequest } from 'next/server'
+import { getToken } from "next-auth/jwt";
+import { cookies } from 'next/headers'
+// import Gatekeeper from './app/(content)/seelie/gatekeeper'
 
-export async function middleware(request) {
-    const path = request.nextUrl.pathname
-    if(path.startsWith('/characters/ayaka') || path.startsWith('/characters/ayaka/') ){
-        return NextResponse.redirect(new URL('/archive/characters/kamisato-ayaka', request.url))
-    }
+export async function middleware(req: NextRequest) {
+    const pathname = req.nextUrl.pathname
+    const cookieStore = await cookies()
 
-    if(path.startsWith('/characters/')){
-        return NextResponse.redirect(new URL('/archive/characters/' + path.split('/')[2], request.url))
-    }
-
+    if(pathname.startsWith('/characters/'))
+        return NextResponse.redirect(new URL('/archive/characters/' + pathname.split('/')[2], req.url))
+    if(pathname.startsWith('/weapons/'))
+        return NextResponse.redirect(new URL('/archive/weapons/' + pathname.split('/')[2], req.url))
+    if(pathname.startsWith('/artifacts/'))
+        return NextResponse.redirect(new URL('/archive/artifacts/' + pathname.split('/')[2], req.url))
     
+    // if (req.nextUrl.pathname.startsWith("/seelie")) {
+    //     const sessionCookie = cookieStore.get('authjs.session-token')
+    //     if(!sessionCookie)
+    //         return NextResponse.rewrite(Gatekeeper())
+    // }
 
-    if(path.startsWith('/weapons/')){
-        return NextResponse.redirect(new URL('/archive/weapons/' + path.split('/')[2], request.url))
-    }
-
-    if(path.startsWith('/artifacts/')){
-        return NextResponse.redirect(new URL('/archive/artifacts/' + path.split('/')[2], request.url))
-    }
-
-
-
-
-
+    return NextResponse.next()
 }
 
 // export const config = {

@@ -35,3 +35,9 @@ export async function getUser(userName: string){
   return user[0]
 }
 
+export async function getUserById(userId: string){
+  const user = await db.select().from(usersTablePG).where(eq(usersTablePG.id, userId))
+  if(user.length === 0) return null
+  return user[0]
+}
+

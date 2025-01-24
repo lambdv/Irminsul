@@ -2,7 +2,6 @@
 1. get adge
     - articles
     - seelie gpt
-    - teamdps
 2. public beta
 3. release
 

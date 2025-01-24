@@ -6,6 +6,7 @@ import { Suspense } from 'react'
 import ArchivePageCSS from "@/components/archive/archivePage.module.css"
 import CommentSection from "@/components/ui/CommentSection"
 import { getAssetURL } from '@/utils/getAssetURL'
+import WeaponPassives from './WeaponPassive'
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -40,7 +41,9 @@ export default async function WeaponPage({params}) {
                 <WeaponPassives data={data}/>
             </div>
           <br/>
-          <CommentSection pageID={data.key}/>
+          <Suspense fallback={<div>Loading...</div>}>
+            <CommentSection pageID={data.key}/>
+          </Suspense>
       </div>
     </Suspense>
   )
@@ -86,16 +89,3 @@ function WeaponBaseStats({data}){
 }
 
 
-function WeaponPassives({data}){
-  return (
-    <div className='w-auto'>
-      <Talent
-        data = {{
-          type: "Passive",
-          name: data.refinement_name,
-          description: data.refinements[0],
-        }}
-      />
-  </div>
-  )
-}

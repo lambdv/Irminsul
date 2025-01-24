@@ -13,7 +13,8 @@ import { Suspense } from "react"
 
 export default async function CommentSection(props: {
     pageID: string,
-    color?: string
+    color?: string,
+    owner?: string
 }, searchParams: {page: string}) {
     let comments = await getComments(props.pageID)
     comments.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
@@ -64,6 +65,7 @@ export default async function CommentSection(props: {
                     <Comment 
                         key={comment.id}
                         comment={comment}
+                        owner={props.owner}
                     />
             ))}
         </ul>
@@ -109,11 +111,13 @@ async function postComment(pageID: string, comment: string) {
     revalidatePath("/")
 }
 
-async function Comment(props: {comment: any}) {
+async function Comment(props: {comment: any, owner?: string}) {
     const commentUser = await db.select().from(usersTablePG).where(eq(usersTablePG.id, props.comment.userId))
     const session = await auth()
     const currentUser = session?.user
     const relativeDate = format(props.comment.createdAt)
+
+    const commentUserIsOwnerOfCommentSection = props.comment.userId === props.owner || props.owner !== undefined
     
     const handleDeleteComment = async () => {
         "use server"
@@ -126,7 +130,14 @@ async function Comment(props: {comment: any}) {
             <Image src={commentUser[0].image} alt="User Avatar" width={100} height={100} className={CommentSectionCSS.commentUserAvatar}/>
             <div className="flex flex-col">
                 <div className="flex flex-row gap-2">
-                    <h1>{commentUser[0].name}</h1>
+                    <h1 style={{fontWeight: "600"}}>
+                        {commentUser[0].name}
+                        {commentUser[0].id === "d4882fcc-8326-4fbb-8b32-d09c0fb86875" && (
+                            <span style={{fontSize: "16px", top: "2px", userSelect: "none"}} className="material-symbols-rounded ml-1 relative" title="Verified">verified</span>
+                        )}
+                        {commentUserIsOwnerOfCommentSection && (<span style={{color: "#FFD700", fontSize: "13px"}}>  (OP)</span>)}
+
+                    </h1>
                     <p>{relativeDate}</p>
                 </div>
                 <p>{props.comment.comment}</p>

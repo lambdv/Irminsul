@@ -1,0 +1,5 @@
+This article is a list of terms and their definitions.
+
+- DPS: Acronym for Damage Per Second.
+- MainDPS: Often refers to units that primarily deals the most damage <b>and or</b> take the most continuous field time in the team. 
+Due to field time and team damage contribution not being mutually exclusive and the ambiguity between what people&apos;s own definition of the term, it is recommended to use more explicit terms such as &quot;<b>On-Field Damage Dealer</b>&quot; or &quot;<b>Off-Field Damage Dealer</b>&quot;

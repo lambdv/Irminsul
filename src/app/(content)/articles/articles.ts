@@ -6,16 +6,16 @@ export function articles(){
     ]
 }
 
-export type Article = {
-    title: string
-    description: string
-    authorUserID: string
-    date: string
-    slug: string
-    content: React.ReactNode
+// export type Article = {
+//     title: string
+//     description: string
+//     authorUserID: string
+//     date: string
+//     slug: string
+//     content: React.ReactNode
     
-    tags?: string[]
-    headerType?: "default" | "archive"
-    headerImageURL?: string
-    headerBGURL?: string
-}
+//     tags?: string[]
+//     headerType?: "default" | "archive"
+//     headerImageURL?: string
+//     headerBGURL?: string
+// }
