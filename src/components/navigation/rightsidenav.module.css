@@ -7,7 +7,7 @@
     margin-right: auto;
     text-align: center;
     padding-top:5px;
-    right: 60;
+    right: 60px;
     top:60px;
     z-index:0;
     transition: 0s;
@@ -31,7 +31,7 @@
     color: #ffffffaf;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1800px) {
     .rightsidenav{
         display: block;
         position: relative;
@@ -41,7 +41,7 @@
     }
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1800px) {
     .rightsidenav ul{
         list-style-type: none;
         padding: 0;
@@ -56,9 +56,7 @@
     }
 }
 
-
-/**
-*/
+/* 
 
 .leftsidenav{
     width: 20rem;
@@ -73,7 +71,6 @@
     top:60px;
     z-index:0;
     transition: 0s;
-    /* background-color: red; */
 }
 
 .leftsidenav ul{
@@ -117,4 +114,4 @@
 
     }
     
-}
+} */
