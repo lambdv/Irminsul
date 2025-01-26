@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google"
 import "./globals.css"
 import SideRail from "@/components/navigation/SideRail"
+import Sidebar from "@/components/navigation/Sidenav"
 import Topnav from "@/components/navigation/Topnav"
 import ClientWrapper from "@/components/navigation/ClientWrapper"
 import Footer from "@/components/navigation/Footer"
@@ -23,7 +24,7 @@ export default function RootLayout({children}) {
         <SessionProvider>
           <ClientWrapper>
             <Topnav/>
-            <SideRail/>
+            <Sidebar/>
             <main className="pageContentContainer">
               {children}
               {/* <Footer/> */}

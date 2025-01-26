@@ -16,6 +16,7 @@ export default async function CommentSection(props: {
     color?: string,
     owner?: string
 }, searchParams: {page: string}) {
+    
     let comments = await getComments(props.pageID)
     comments.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
     const numberOfComments = comments.length

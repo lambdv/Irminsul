@@ -1,112 +1,97 @@
 "use client"
-import React, { useState } from 'react'
-import { generateResponse } from './ai'
+import React from 'react'
+import { useChat } from 'ai/react'
 import Image from 'next/image'
+import styles from './seelie.module.css'
+import SeelieIcon from '@public/imgs/icons/seelie.png'
 
-function Message({user, message}: {user: string, message: string}) {
-    const isUser = user === "User"
+export default function Chat(props: {
+    user: any
+}) {
+    const { messages, input, handleInputChange, handleSubmit } = useChat({
+        api: '/api/chat',
+        initialMessages: [],
+        streamProtocol: 'text'
+    })
+
     return (
-        <div
-            style={{
-                padding: "10px",
-                backgroundColor: "#2e2e2e",
-                color: "#e0e0e0",
-                borderRadius: "5px",
-                marginBottom: "10px",
-                width: "fit-content", // Changed to fit-content to adapt to content
-                maxWidth: "50%",
-                marginLeft: isUser ? "auto" : "0", // Align user messages to right, AI to left
-                marginRight: isUser ? "0" : "auto",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: isUser ? "flex-end" : "flex-start"
-            }}
-        >
-            <div style={{display: "flex", alignItems: "center", gap: "10px"}}>
-                {user !== "User" && <Image src="/imgs/icons/seelie.png" alt="Seelie" width={50} height={50} style={{
-                    alignSelf: "flex-start",
-                    padding: "8px",
-                    margin: "0",
-                    backgroundColor: "#282828",
-                    borderRadius: "50%",
-                    border: "0.2px solid #c0c0c0",
-                }} />}
-                <p style={{fontSize: "15px"}}>{message}</p>
+        <div id="chat">
+            <div className={styles.chatHistory}>
+                <Message 
+                    messageUser="Seelie" 
+                    message="Ad astra abyssosque traveler! I'm seelie, your ai guide for genshin impact helping you with your journey. How can I assist you today?"
+                    userImage={props.user?.image} 
+                />
+                {messages.map((message, index) => (
+                    <div key={index}>
+                        <Message 
+                            messageUser={message.role === 'user' ? 'User' : 'Seelie'} 
+                            message={message.content}
+                            userImage={props.user?.image} 
+                        />
+                    </div>
+                ))}
+                <br />
             </div>
+            <form className="flex flex-col gap-2 w-full" onSubmit={handleSubmit}>
+                <textarea 
+                    placeholder="Ask Seelie" 
+                    value={input} 
+                    onChange={handleInputChange} 
+                    className={styles.chatTextField}
+                    autoFocus={true}
+                    //when user presses enter, submit the form
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter' && !e.shiftKey) {
+                            e.preventDefault();
+                            handleSubmit(e);
+                        }
+                    }}
+                    rows={2}
+                />
+            </form>
         </div>
     )
 }
 
-export default function Chat() {
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        if(input.length === 0) return
-        setUserMessages([...userMessages, input])
-
-        const prompt = e.currentTarget.querySelector('input')?.value
-        setInput("")
-        let response = await generateResponse(prompt)
-
-        //only allow the response to be after thge </think> tag
-        const startIndex = response.indexOf("</think>")
-        if(startIndex !== -1) {
-            response = response.substring(startIndex + 8)
-        }
-            
-        setAiMessages([...aiMessages, response])
-    }
-
-    const [userMessages, setUserMessages] = useState<string[]>([])
-    const [aiMessages, setAiMessages] = useState<string[]>([])
-
-    const [input, setInput] = useState<string>("")
-
+function Message({messageUser, message, userImage}: {messageUser: string, message: string, userImage?: string}) {
+    const isUser = messageUser === "User"
     return (
-    <div>
-        <div id="chat" style={{
-            width: "60%",
-            height: "100%", 
-            backgroundColor: "black",
-            color: "white",
-            top: "0",
-            overflowY: "auto",
-            margin: "0 auto",
-            padding: "0",
-
-        }}>
-            {
-                aiMessages.map((message, index) => (
-                    <div key={index}>
-                        <Message user="User" message={userMessages[index]} />
-                        <Message user="Seelie" message={message} />
-                    </div>
-                ))
-            }
+        <div
+            style={{
+                display: "flex",
+                flexDirection: isUser ? "row-reverse" : "row",
+                gap: "10px",
+                padding: "10px",
+                alignItems: "flex-start",
+            }}
+        >
+            <div style={{
+                width: "40px",
+                height: "40px",
+                borderRadius: "50%",
+                backgroundColor:  "#1d1d1d",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexShrink: 0,
+                border: "1px solid #303030",
+            }}>
+                {messageUser === "Seelie" ? (
+                    <Image src={SeelieIcon} alt="Seelie" width={40} height={40} className="rounded-full"/>
+                ) : (
+                    <Image src={userImage || SeelieIcon} alt="User" width={40} height={40} className="rounded-full"/>
+                )}
+            </div>
+            <div style={{
+                backgroundColor: isUser ? "#4d4d4d" : "#303030",
+                padding: "10px",
+                borderRadius: "10px",
+                maxWidth: "80%",
+                whiteSpace: "pre-wrap",
+            }}>
+                {message}
+            </div>
         </div>
-
-        <form className="flex flex-col gap-2 w-full" onSubmit={handleSubmit}>
-            <input 
-                type="text" 
-                placeholder="Ask Seelie" 
-                value={input} 
-                onChange={(e) => setInput(e.target.value)} 
-                style={{
-                    width: "35%",
-                    padding: "20px",
-                    border: "1px solid #ccc",
-                    borderRadius: "5px",
-                    outline: "none",
-                    color: "white",
-                    backgroundColor: "black",
-                    position: "fixed",
-                    bottom: "0",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-
-                }}    
-            />
-        </form>
-    </div>
     )
 }

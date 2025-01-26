@@ -13,6 +13,8 @@ import CommentSection from "@/components/ui/CommentSection"
 import { getMainColor } from "@/utils/getMainColor"
 import TalentCSS from '@/components/archive/talent.module.css'
 import { getAssetURL } from '@/utils/getAssetURL'
+import Link from "next/link"
+import Table from "@/components/archive/Table"
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -53,6 +55,7 @@ export default async function CharacterPage({params}) {
         <TableOfContents/>
         <div id="pagecontent" className={ArchivePageCSS.archiveRecordContentContainer}>
           <br/>
+          {/* <CharacterDetails data={data}/> */}
           <CharacterBaseStats data={data}/>
           <CharacterTalents data={data}/>
           <CharacterPassives data={data}/>
@@ -87,12 +90,31 @@ function TableOfContents(){
   return (
     <RightSidenav>
       <ul>
-        <li><a href="#basestats">Base Stats</a></li>
-        <li><a href="#talents">Talents</a></li>
-        <li><a href="#passives">Passives</a></li>
-        <li><a href="#constellations">Constellations</a></li>
+        {/* <li><Link href="#details">Details</Link></li> */}
+        <li><Link href="#basestats">Base Stats</Link></li>
+        <li><Link href="#talents">Talents</Link></li>
+        <li><Link href="#passives">Passives</Link></li>
+        <li><Link href="#constellations">Constellations</Link></li>
       </ul>
     </RightSidenav>
+  )
+}
+
+function CharacterDetails({data}){
+  const keys = Object.keys(data)
+  const values = Object.values(data)
+
+  return (
+    <section id="details" className={ArchivePageCSS.archiveRecordSection}>
+      <h2 className="mb-2 text-2xl font-bold">Details</h2>
+      <div className="mb-4 overflow-x-auto">
+        {/* {JSON.stringify(data)} */}
+          <Table 
+            header={keys.map((key, index) => <th key={index}>{key}</th>)}
+            body={values.map((v, index) => <td key={index}>{String(v)}</td>)}
+          />         
+        </div>
+    </section>
   )
 }
 

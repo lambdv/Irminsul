@@ -15,7 +15,16 @@ import RoundBtn from '../ui/RoundBtn'
 /**
  * header for the character browse page: contains title, filter button/modal and active tags
  */
-export default function CharacterBrowseHeader(props: {icon: any, title: string, store: any}) {
+export default function BrowseHeader(props: {
+    materialIcon?: string,
+    icon?: any, 
+    title: string, 
+    store: any
+}) {
+
+    if(!(props.icon) && !(props.materialIcon))
+        throw new Error("BrowseHeader: icon or materialIcon is required")
+
     const { filters, selectedFilters: selectedFilters, setSelectedFilters: setSelectedFilters } = props.store()
 
     //const filters = props.filters //2d array of character category filters passed in from the parent component
@@ -52,7 +61,7 @@ export default function CharacterBrowseHeader(props: {icon: any, title: string, 
         <>
             <div className={explorePageCSS.header}>
                 <div className={explorePageCSS.titleWrapper}>
-                    <Image src={props.icon} alt=''/>
+                    {props.icon ? <Image src={props.icon} alt=''/> : <span className="material-symbols-rounded" style={{fontSize: "30px", marginRight: "10px", position: "relative", top: "5px"}}>{props.materialIcon}</span>}
                     <h1 className={explorePageCSS.ingameTitle}>{props.title}</h1>
                 </div>
 

@@ -35,29 +35,27 @@ export default async function ArticlePage({params}) {
   const {slug} = await params
   const article = params.data ? params.data : articles().find((article) => article.slug === slug)
   
-  if(article === undefined) return <div>Article not found</div>
+  if(article === undefined) 
+    return <div>Article not found</div>
 
   return (
     <div>
       <ArticleHeader article={article} />
-      
       <main className={articleCSS.articleContent}>
         <Divider/>
         <RightSidenav>
           <ul>
-            {article.tableOfContents && article.tableOfContents.length > 0 && 
-              article.tableOfContents.map((item, index) => {
-                return <li key={index}><Link href={`/articles/${article.slug}#${item.slug}`}>{item.title}</Link></li>
-              })}
+            {article.tableOfContents.map((item, index) => {
+                return <li key={index}><Link href={`/articles/${article.slug}#${item.slug}`}>{item.title}</Link></li>  
+            })}
           </ul>
           <br/>
         </RightSidenav>
-       
         {article.content}
         <br />
-        {/* <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div>Loading...</div>}>
           <CommentSection pageID={`articles/${article.slug}`}/>
-        </Suspense> */}
+        </Suspense>
       </main>
     </div>
   )
@@ -65,12 +63,11 @@ export default async function ArticlePage({params}) {
 
 async function ArticleHeader(props: {article: any}) {
   const user = await getUserById(props.article.authorUserID)
-
   return (
     <div className={articleCSS.articleHeader} style={{paddingTop: '1rem', paddingBottom: '1rem'}}>
       <p className={articleCSS.articleDate} >{props.article.date}</p>
       <h1 className={articleCSS.articleTitle}>{props.article.title}</h1>
-      <p className={articleCSS.articleDescription}>{props.article.description}</p>
+      {/* <p className={articleCSS.articleDescription}>{props.article.description}</p> */}
       <div className="mb-1"></div>
       <p className="text-sm" style={{color: '#878787'}}>Posted by</p>
       <div className={articleCSS.articleAuthor + " flex items-center gap-2"}>

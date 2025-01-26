@@ -7,14 +7,21 @@ import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { generateResponse } from './ai';
 import Chat from './chat';
+import { auth } from '@/app/(auth)/auth';
 
 export default async function Page() {
   const cookieStore = await cookies()
-  if(!cookieStore.get('authjs.session-token')) 
+  
+
+  let session = cookieStore.get('authjs.session-token') || cookieStore.get('__Secure-authjs.session-token')
+  if(!session) 
     return <Gatekeeper />
+
+  const user = await auth().then(res => res?.user)
+
   return (
     <div>
-      <Chat />
+      <Chat user={user}/>
     </div>
   )
 }
