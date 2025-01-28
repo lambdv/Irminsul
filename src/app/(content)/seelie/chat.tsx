@@ -5,31 +5,24 @@ import Image from 'next/image'
 import styles from './seelie.module.css'
 import SeelieIcon from '@public/imgs/icons/seelie.png'
 
-export default function Chat(props: {
-    user: any
-}) {
+export default function Chat(props: {user: any}) {
+    
     const { messages, input, handleInputChange, handleSubmit } = useChat({
         api: '/api/chat',
-        initialMessages: [],
+        initialMessages: [{id: "1", role: 'assistant', content: 'Ad astra abyssosque traveler! I\'m seelie, your ai guide for genshin impact helping you with your journey. How can I assist you today?'}],
         streamProtocol: 'text'
     })
 
     return (
         <div id="chat">
             <div className={styles.chatHistory}>
-                <Message 
-                    messageUser="Seelie" 
-                    message="Ad astra abyssosque traveler! I'm seelie, your ai guide for genshin impact helping you with your journey. How can I assist you today?"
-                    userImage={props.user?.image} 
-                />
                 {messages.map((message, index) => (
-                    <div key={index}>
-                        <Message 
-                            messageUser={message.role === 'user' ? 'User' : 'Seelie'} 
-                            message={message.content}
-                            userImage={props.user?.image} 
-                        />
-                    </div>
+                    <Message 
+                        key={index}
+                        messageUser={message.role === 'user' ? 'User' : 'Seelie'} 
+                        message={message.content}
+                        userImage={props.user?.image} 
+                    />
                 ))}
                 <br />
             </div>
@@ -40,12 +33,9 @@ export default function Chat(props: {
                     onChange={handleInputChange} 
                     className={styles.chatTextField}
                     autoFocus={true}
-                    //when user presses enter, submit the form
                     onKeyDown={(e) => {
-                        if (e.key === 'Enter' && !e.shiftKey) {
-                            e.preventDefault();
-                            handleSubmit(e);
-                        }
+                        if (e.key === 'Enter' && !e.shiftKey)
+                            handleSubmit(e)
                     }}
                     rows={2}
                 />
@@ -56,6 +46,22 @@ export default function Chat(props: {
 
 function Message({messageUser, message, userImage}: {messageUser: string, message: string, userImage?: string}) {
     const isUser = messageUser === "User"
+    
+    // Filter out content between <think> tags
+    let displayMessage = message
+    while (displayMessage.includes('<think>')) {
+        const thinkStart = displayMessage.indexOf('<think>')
+        const thinkEnd = displayMessage.indexOf('</think>')
+        if (thinkEnd > thinkStart) {
+            displayMessage = displayMessage.slice(0, thinkStart) + displayMessage.slice(thinkEnd + 8)
+        } else {
+            break // Prevent infinite loop if closing tag is missing
+        }
+    }
+
+    //filder out text "[TOOL_REQUEST"
+    displayMessage = displayMessage.replace(/\[TOOL_REQUEST/g, '')
+
     return (
         <div
             style={{
@@ -90,7 +96,7 @@ function Message({messageUser, message, userImage}: {messageUser: string, messag
                 maxWidth: "80%",
                 whiteSpace: "pre-wrap",
             }}>
-                {message}
+                {displayMessage}
             </div>
         </div>
     )

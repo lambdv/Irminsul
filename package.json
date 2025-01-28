@@ -34,6 +34,7 @@
     "clsx": "^2.1.1",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.38.4",
+    "drizzle-zod": "^0.6.1",
     "irminsul-next": "file:",
     "lucide-react": "^0.468.0",
     "next": "^15.1.5",

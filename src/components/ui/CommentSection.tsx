@@ -1,6 +1,8 @@
 import CommentSectionCSS from "./commentsection.module.css"
 import db from "@/db/db"
-import { commentsTableBG, usersTablePG } from "@/db/schema"
+// import { commentsTable, usersTable } from "@/db/schema"
+import { commentsTable } from "@/db/schema/comment"
+import { usersTable } from "@/db/schema/user"
 import { eq, type InferInsertModel } from "drizzle-orm"
 import { auth } from "@/app/(auth)/auth"
 import Image from "next/image"
@@ -78,8 +80,8 @@ export default async function CommentSection(props: {
 async function getComments(pageID: string): Promise<any[]> {
     "use server"
     const comments = await db.select()
-        .from(commentsTableBG)
-        .where(eq(commentsTableBG.page, pageID))
+        .from(commentsTable)
+        .where(eq(commentsTable.page, pageID))
     return comments
 }
 
@@ -103,7 +105,7 @@ async function postComment(pageID: string, comment: string) {
     if(comment === " ")
         throw new Error("Comment cannot be just spaces")
 
-    await db.insert(commentsTableBG).values({
+    await db.insert(commentsTable).values({
         page: pageID,
         userId: user.id,
         comment: comment,
@@ -113,7 +115,7 @@ async function postComment(pageID: string, comment: string) {
 }
 
 async function Comment(props: {comment: any, owner?: string}) {
-    const commentUser = await db.select().from(usersTablePG).where(eq(usersTablePG.id, props.comment.userId))
+    const commentUser = await db.select().from(usersTable).where(eq(usersTable.id, props.comment.userId))
     const session = await auth()
     const currentUser = session?.user
     const relativeDate = format(props.comment.createdAt)
@@ -122,7 +124,7 @@ async function Comment(props: {comment: any, owner?: string}) {
     
     const handleDeleteComment = async () => {
         "use server"
-        await db.delete(commentsTableBG).where(eq(commentsTableBG.id, props.comment.id))
+        await db.delete(commentsTable).where(eq(commentsTable.id, props.comment.id))
         revalidatePath("/")
     }
 

@@ -9,7 +9,6 @@
 # data
 - weapon costs scraping
 - add release version for characters and weapons
-- 
 
 # ui
 - improve mobile (top nav spacing, search pallette clear and back buttons)

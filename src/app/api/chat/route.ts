@@ -1,6 +1,8 @@
 import { generateResponse } from '@/app/(content)/seelie/ai'
 
-export const runtime = 'edge'
+// export const runtime = 'edge'
+
+export const maxDuration = 30;
 
 export async function POST(req: Request) {
     const { messages } = await req.json()
