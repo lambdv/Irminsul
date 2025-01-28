@@ -27,6 +27,7 @@ export async function generateMetadata({params}) {
 //   }));
 // }
 
+
 export default async function ArtifactPage({params}) {
   const {id} = await params
   const data = params.data ? params.data : await getArtifact(id)
