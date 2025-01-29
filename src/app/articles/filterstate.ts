@@ -10,15 +10,13 @@ type State = {
   };
   
 export const ArticleFitlerStore = create<State>((set) => ({
-  
     selectedFilters: [],
     setSelectedFilters: (newFilters) => set((state) => {
         return { selectedFilters: newFilters }
     }),
   
     filters: [
-        { rarities: ["5-star", "4-star", "3-star", "2-star", "1-star"] },
-        { mainStats: ["HP", "ATK", "DEF", "HP%", "ATK%", "DEF%", "Elemental Mastery", "Energy Recharge", "Crit Rate", "Crit DMG"] },
+        {type: ["Blog", "Character Guide", "Literature Review", "Meta Analysis"]}
     ],
     descending: true,
     setDescending: (newDescending) => set((state) => {

@@ -10,7 +10,9 @@ export default function Item(props: {
     name: string,
     element?: string,
     rarity: number,
-    alt?: string
+    alt?: string,
+    style?: React.CSSProperties,
+    href?: string,
 }) {
     const isLargeItem: boolean = props.category == "weapon" || props.category == "artifact"
     const hasElement: boolean = props.element !== null && props.category == "character"
@@ -23,10 +25,11 @@ export default function Item(props: {
                 ` item `
             } 
             style={{ 
-                height: isLargeItem && "150px"
+                height: isLargeItem && "150px",
+                ...props.style
             }}
         >
-            <Link href={`/archive/${props.category}s/${id}`}>
+            <Link href={props.href || `/archive/${props.category}s/${id}`}>
                 {hasElement && 
                     <Image className={ItemCSS.itemCategory} src={`/imgs/icons/${flatten(props.element)}.png`} alt=" " width="100" height="100"/>
                 }

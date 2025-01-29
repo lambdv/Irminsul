@@ -7,14 +7,15 @@ import Link from 'next/link'
 
 const article = {
   title: "Terminology",
-  description: "",
+  description: "Glossary of fan-made terms and their semantics.",
   authorUserID: "d4882fcc-8326-4fbb-8b32-d09c0fb86875",
-  date: "January 22, 2025", 
+  date: new Date("2025-01-22"),
   slug: "terminology",
   content: Body(),
   tableOfContents: [
     { title: "Character Roles", slug: "character-roles" },
-  ]
+  ],
+  gradient: "linear-gradient(45deg, rgba(44, 243, 124, 0.82), rgba(255, 237, 40, 1)), linear-gradient(135deg, rgba(219, 255, 41, 0.903), transparent)",
 }
 
 function Body(){

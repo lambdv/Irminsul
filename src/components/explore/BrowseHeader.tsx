@@ -19,7 +19,8 @@ export default function BrowseHeader(props: {
     materialIcon?: string,
     icon?: any, 
     title: string, 
-    store: any
+    store?: any,
+    useFilter?: boolean 
 }) {
 
     if(!(props.icon) && !(props.materialIcon))
@@ -61,15 +62,15 @@ export default function BrowseHeader(props: {
         <>
             <div className={explorePageCSS.header}>
                 <div className={explorePageCSS.titleWrapper}>
-                    {props.icon ? <Image src={props.icon} alt=''/> : <span className="material-symbols-rounded" style={{fontSize: "30px", marginRight: "10px", position: "relative", top: "5px"}}>{props.materialIcon}</span>}
+                    {props.icon ? <Image src={props.icon} alt=''/> : <span className="material-symbols-rounded" style={{fontSize: "30px", marginRight: "5px", position: "relative", top: "5px"}}>{props.materialIcon}</span>}
                     <h1 className={explorePageCSS.ingameTitle}>{props.title}</h1>
                 </div>
 
                 <div className={explorePageCSS.controller + " flex"}>
-                    <Btn onClick={toggleModal}> 
+                    {props.useFilter !== false && <Btn onClick={toggleModal}> 
                         <i className="material-symbols-rounded">filter_list</i>
                         <p>Filters</p>
-                    </Btn>
+                    </Btn>}
                     <RoundBtn 
                         onClick={toggleDescending}
                         icon="arrow_drop_up"

@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import { articles } from '../articles'
+import { articles } from '../router'
 import articleCSS from './article.module.css'
 import RightSidenav from '@/components/navigation/RightSidenav'
 import { Metadata } from 'next'
@@ -11,7 +11,7 @@ import Link from 'next/link'
 
 export async function generateMetadata({params}) {
   const {slug} = await params
-  const article =  articles().find((article) => article.slug === slug)
+  const article =  articles.find((article) => article.slug === slug)
   if(article === undefined)
     return {}
   return {
@@ -21,7 +21,7 @@ export async function generateMetadata({params}) {
 }
 
 export async function generateStaticParams() {
-  const articleList = articles()
+  const articleList = articles
   const articleIDs = articleList.map((article) => ({ slug: article.slug }))
   return articleIDs.map(a => {
     return {
@@ -33,7 +33,7 @@ export async function generateStaticParams() {
 
 export default async function ArticlePage({params}) {
   const {slug} = await params
-  const article = params.data ? params.data : articles().find((article) => article.slug === slug)
+  const article = params.data ? params.data : articles.find((article) => article.slug === slug)
   
   if(article === undefined) 
     return <div>Article not found</div>
@@ -65,7 +65,7 @@ async function ArticleHeader(props: {article: any}) {
   const user = await getUserById(props.article.authorUserID)
   return (
     <div className={articleCSS.articleHeader} style={{paddingTop: '1rem', paddingBottom: '1rem'}}>
-      <p className={articleCSS.articleDate} >{props.article.date}</p>
+      <p className={articleCSS.articleDate} >{props.article.date.toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'})}</p>
       <h1 className={articleCSS.articleTitle}>{props.article.title}</h1>
       {/* <p className={articleCSS.articleDescription}>{props.article.description}</p> */}
       <div className="mb-1"></div>

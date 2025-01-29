@@ -15,7 +15,7 @@
 - add footer
 - add breadcrums
 - redesign/condense siderail (https://m3.material.io/styles)
-- improve landing page
+- improve landing page (adge for seelie or bento menu)
 - light/dark mode toggle (use css variables for color pallette)
 - convert client components to server (state in cookies or url) 
 - add explore page sort by dropdown
