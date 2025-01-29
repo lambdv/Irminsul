@@ -1,4 +1,4 @@
-import { generateResponse } from '@/app/(content)/seelie/ai'
+import { generateResponse } from '@/app//seelie/ai'
 
 // export const runtime = 'edge'
 

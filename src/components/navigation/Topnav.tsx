@@ -60,7 +60,7 @@ function CenterContainer(props: any){
   const pathname = usePathname()
 
   const isExplorePage = () => {
-    return pathname === "/archive/characters" || pathname === "/archive/weapons" || pathname === "/archive/artifacts" || pathname === "/articles/team-dps"
+    return pathname === "/archive/characters" || pathname === "/archive/weapons" || pathname === "/archive/artifacts"
   }
 
   const openSearchPallette = (e) => {

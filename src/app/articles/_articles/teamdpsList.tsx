@@ -1,22 +1,37 @@
 "use client"
 
-import React from 'react';
+import React, { useState } from 'react';
 import teams from './teams.json'
 import Item from '@/components/explore/Item'
 import { toKey } from '@/utils/standardizers'
 
-//import search bar store
-import {SearchStore} from '@/store/Search'
-
 export default function TeamdpsList() {
-const {SearchQuery, setSearchQuery} = SearchStore()
-
+    const [searchQuery, setSearchQuery] = useState("")
   return (
+    <>
+        <input 
+            style={{
+                marginBottom: "10px",
+                width: "100%",
+                padding: "10px",
+                borderRadius: "5px",
+                border: "1px solid #232323",
+                backgroundColor: "#1010106e",
+                color: "#e2e2e2",
+                outline: "none",
+            }}
+            type="text" 
+            onChange={(e) => setSearchQuery(e.target.value)} 
+            placeholder="Search..."
+        />
+    
+
     <div className="flex flex-row flex-wrap justify-center gap-4"   >
         {teams.data
-            .filter(team => team.name.toLowerCase().includes(SearchQuery.toLowerCase()) || team.characters.some(char => char.name.toLowerCase().includes(SearchQuery.toLowerCase())))
+            .filter(team => team.name.toLowerCase().includes(searchQuery.toLowerCase()) || team.characters.some(char => char.name.toLowerCase().includes(searchQuery.toLowerCase())))
             .filter(team => team.name !== "")
             .sort((a, b) => 
+
 
                 b.characters.reduce((acc, char) => acc + char.dpr, 0) - 
                 a.characters.reduce((acc, char) => acc + char.dpr, 0)
@@ -84,5 +99,6 @@ const {SearchQuery, setSearchQuery} = SearchStore()
                     </div>
             ))}
         </div>
+    </>
   )
 }
