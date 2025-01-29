@@ -1,7 +1,6 @@
 import { NextResponse, NextRequest } from 'next/server'
 import { getToken } from "next-auth/jwt";
 import { cookies } from 'next/headers'
-// import Gatekeeper from './app/(content)/seelie/gatekeeper'
 
 export async function middleware(req: NextRequest) {
     const pathname = req.nextUrl.pathname

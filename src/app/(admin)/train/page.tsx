@@ -1,5 +1,5 @@
 import { auth, isAuthenticated, getUserFromSession } from '@/app/(auth)/auth'
-import { generateResponse } from '@/app/(content)/seelie/ai'
+import { generateResponse } from '@/app//seelie/ai'
 import db from '@/db/db'
 import { resources as resourcesTable } from '@/db/schema/resources'
 import { embeddings as embeddingsTable } from '@/db/schema/embeddings'
