@@ -24,14 +24,13 @@ function ArticleCard(props: {article: any}){
     return (
         <Link href={`/articles/${props.article.slug}`} className="waves-effect waves-light ripple" style={{borderRadius: "10px"}}>
             <div className={styles.articleCard}>
-                <div style={{
-                  position: "relative", 
-                  width: "100%", 
-                  height: "180px",
-                  overflow: "hidden",
-                  borderRadius: "10px",
-                  background: props.article.gradient
-                }}>
+                <div 
+                  className={styles.articleHeader}
+                  style={{
+                    background: props.article.gradient,
+                    backgroundSize: "200% 200%",
+                    animation: "gradientMove 5s ease infinite"
+                  }}>
                 </div>
                 
                 <p className="text-sm text-gray-400" style={{top: "5px", position: "relative"}}>{props.article.date.toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'})}</p>

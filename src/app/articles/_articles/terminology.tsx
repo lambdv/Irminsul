@@ -15,6 +15,7 @@ const article = {
   tableOfContents: [
     { title: "Character Roles", slug: "character-roles" },
   ],
+  thumbnail: "https://upload-os-bbs.hoyolab.com/upload/2023/06/13/40172375/4433c3416c51c41fd26a8ae1c6cc0dea_396608951338175362.jpg?x-oss-process=image%2Fresize%2Cs_1000%2Fauto-orient%2C0%2Finterlace%2C1%2Fformat%2Cwebp%2Fquality%2Cq_70",
   gradient: "linear-gradient(45deg, rgba(44, 243, 124, 0.82), rgba(255, 237, 40, 1)), linear-gradient(135deg, rgba(219, 255, 41, 0.903), transparent)",
 }
 

@@ -57,7 +57,7 @@ export default async function Home() {
                     {latestWeapons.map((weapon) => (
                         <Item 
                             category="weapon"
-                            src={getAssetURL("weapon", weapon.name, "base_avatar.png")}
+                            src={getAssetURL("weapon", weapon.name, "baseicon.png")}
                             name={weapon.name}
                             rarity={weapon.rarity}
                             key={weapon.id}

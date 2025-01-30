@@ -33,7 +33,7 @@ export default function WeaponItemList(props:{data: any}) {
                         category="weapon"
                         name={weapon.name}
                         rarity={weapon.rarity}
-                        src={getAssetURL("weapon", weapon.name, "base_avatar.png")}
+                        src={getAssetURL("weapon", weapon.name, "baseicon.png")}
                         alt={toKey(weapon.name)}
                     />
                 )

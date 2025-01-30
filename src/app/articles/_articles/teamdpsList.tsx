@@ -4,12 +4,15 @@ import React, { useState } from 'react';
 import teams from './teams.json'
 import Item from '@/components/explore/Item'
 import { toKey } from '@/utils/standardizers'
+import { SearchStore } from '@/store/Search';
 
 export default function TeamdpsList() {
-    const [searchQuery, setSearchQuery] = useState("")
+    const { SearchQuery, setSearchQuery } = SearchStore()
   return (
     <>
-        <input 
+        {/* <input 
+
+
             style={{
                 marginBottom: "10px",
                 width: "100%",
@@ -24,13 +27,14 @@ export default function TeamdpsList() {
             onChange={(e) => setSearchQuery(e.target.value)} 
             placeholder="Search..."
         />
-    
+     */}
 
     <div className="flex flex-row flex-wrap justify-center gap-4"   >
         {teams.data
-            .filter(team => team.name.toLowerCase().includes(searchQuery.toLowerCase()) || team.characters.some(char => char.name.toLowerCase().includes(searchQuery.toLowerCase())))
+            .filter(team => team.name.toLowerCase().includes(SearchQuery.toLowerCase()) || team.characters.some(char => char.name.toLowerCase().includes(SearchQuery.toLowerCase())))
             .filter(team => team.name !== "")
             .sort((a, b) => 
+
 
 
                 b.characters.reduce((acc, char) => acc + char.dpr, 0) - 
@@ -66,6 +70,7 @@ export default function TeamdpsList() {
                                         />
                                         <p className="text-center text-sm" style={{fontFamily: "", color: "#5e5e5e"}}>{char.specs}</p>
                                         <p className="text-center text-sm" style={{fontFamily: "", color: "#5e5e5e"}}>DPR: {Number(char.dpr).toFixed(0)}</p>
+                                        <p className="text-center text-sm" style={{fontFamily: "", color: "#5e5e5e"}}>DPS: {Number(char.dpr / team.rotation).toFixed(0)}</p>
                                         <p className="text-center text-sm" style={{fontFamily: "", color: "#5e5e5e"}}>Ratio: {Math.round(teamContribution * 100)}%</p>
                                     </div>)
                              })}

@@ -9,6 +9,7 @@ import { getCharacter } from '@/utils/genshinData'
 import teams from './teams.json'
 import TeamdpsList from './teamdpsList'
 
+
 // type Team = {
 //     name: string
 //     rotation: number
@@ -133,5 +134,6 @@ const article = {
     content: Body(),
     tableOfContents: [],
     gradient: "linear-gradient(45deg, rgba(243, 124, 44, 0.82), rgba(187, 40, 255, 1)), linear-gradient(135deg, rgba(255, 52, 41, 0.903), transparent)",
+    thumbnail: "https://64.media.tumblr.com/cf94fc48a2b8707722c74cd246c2594d/9a6524a562ae5d30-b7/s1280x1920/764e57ce9d171c1643fbe4eed75c35e07fdf7af8.jpg",
 }
 export default article

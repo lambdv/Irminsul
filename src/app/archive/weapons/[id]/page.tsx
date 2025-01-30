@@ -53,7 +53,7 @@ function WeaponHeader({data}){
   return (
     <Header 
         title={data.name}
-        splashImage={getAssetURL("weapon", data.name, "splash_art.png")}
+        splashImage={getAssetURL("weapon", data.name, "splash.png")}
       >
         <>
           <section className={ArchivePageCSS.archiveRecordSection}>

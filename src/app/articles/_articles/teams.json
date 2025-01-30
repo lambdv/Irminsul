@@ -377,7 +377,7 @@
             "rotation": 22,
             "characters": [
                 {"name": "Raiden Shogun", "dpr": 667048, "specs": "c0 r5 catch eosf", "rarity": 5},
-                {"name": "Kujou Sara", "dpr": 65361, "specs": "c6 r5 fav eosf", "rarity": 4},
+                {"name": "Kujou Sara", "dpr": 65361, "specs": "c6 r5 fading twilight eosf", "rarity": 4},
                 {"name": "Bennett", "dpr": 39935, "specs": "c6 r5 sw no", "rarity": 4},
                 {"name": "Kaedehara Kazuha", "dpr": 276501, "specs": "c0 r5 iron sting vv", "rarity": 5}
             ]
@@ -443,83 +443,96 @@
             ]
         },
         {
-            "name": "",
-            "rotation": 0,
+            "name": "Melt Ganyu",
+            "rotation": 20,
             "characters": [
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0},
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0}, 
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0},
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0}
+                {"name": "Ganyu", "dpr": 727652, "specs": "c0 r5 prototype crecent wt", "rarity": 5},
+                {"name": "Xiangling", "dpr": 144377, "specs": "c6 r5 fav eosf", "rarity": 4},
+                {"name": "Bennett", "dpr": 28840, "specs": "c5 r5 sw no", "rarity": 4},
+                {"name": "Zhongli", "dpr": 1777, "specs": "c0 r5 fav totm", "rarity": 5}
             ]
         },
         {
-            "name": "",
-            "rotation": 0,
+            "name": "Fireworks (2 Target Primary)",
+            "rotation":26,
             "characters": [
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0},
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0}, 
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0},
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0}
+                {"name": "Beidou", "dpr": 549815, "specs": "c6 r5 sealord eosf", "rarity": 4},
+                {"name": "Tartaglia", "dpr": 198207, "specs": "c0 r5 viridescent hunt hod", "rarity": 5}, 
+                {"name": "Fischl", "dpr": 370378, "specs": "c6 r5 stringless ts", "rarity": 4},
+                {"name": "Bennett", "dpr": 35821, "specs": "c6 r5 sw no", "rarity": 4}
             ]
         },
         {
-            "name": "",
-            "rotation": 0,
+            "name": "Fireworks (Single Target)",
+            "rotation":26,
             "characters": [
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0},
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0}, 
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0},
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0}
+                {"name": "Beidou", "dpr": 227151, "specs": "c6 r5 sealord eosf", "rarity": 4},
+                {"name": "Tartaglia", "dpr": 198207, "specs": "c0 r5 viridescent hunt hod", "rarity": 5}, 
+                {"name": "Fischl", "dpr": 370378, "specs": "c6 r5 stringless ts", "rarity": 4},
+                {"name": "Bennett", "dpr": 35821, "specs": "c6 r5 sw no", "rarity": 4}
             ]
         },
         {
-            "name": "",
-            "rotation": 0,
+            "name": "Yae Raiden",
+            "rotation": 25,
             "characters": [
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0},
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0}, 
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0},
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0}
+                {"name": "Raiden Shogun", "dpr": 468406, "specs": "c0 r5 catch eosf", "rarity": 5},
+                {"name": "Yae Miko", "dpr": 294136, "specs": "c0 r5 oathswan eosf", "rarity": 5},
+                {"name": "Bennett", "dpr": 39935, "specs": "c5 r5 sw no", "rarity": 4},
+                {"name": "Kaedehara Kazuha", "dpr": 343993, "specs": "c0 r5 iron sting vv", "rarity": 5}
             ]
         },
         {
-            "name": "",
-            "rotation": 0,
+            "name": "Chongyun Reverse Melt Quickswap",
+            "rotation": 21,
             "characters": [
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0},
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0}, 
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0},
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0}
+                {"name": "Chongyun", "dpr": 125592, "specs": "c6 r5 sealord eosf", "rarity": 4},
+                {"name": "Xiangling", "dpr": 167217, "specs": "c6 r5 fav eosf", "rarity": 4},
+                {"name": "Bennett", "dpr": 82068, "specs": "c5 r5 sw no", "rarity": 4},
+                {"name": "Rosaria", "dpr": 492254, "specs": "c6 r5 db lavawalker", "rarity": 4}
+            ]
+        },
+
+        {
+            "name": "Kauzha Melt Ganyu 5ca",
+            "rotation": 22.5,
+            "characters": [
+                {"name": "Ganyu", "dpr": 884892, "specs": "c0 r1 prototype crescent wt", "rarity": 5},
+                {"name": "Kaedehara Kazuha", "dpr": 117913, "specs": "c0 r5 fav vv", "rarity": 5},
+                {"name": "Bennett", "dpr": 26671, "specs": "c5 r5 sw no", "rarity": 4}, 
+                {"name": "Zhongli", "dpr": 1551, "specs": "c0 r5 fav totm", "rarity": 5}
             ]
         },
         {
-            "name": "",
-            "rotation": 0,
+            "name": "Double Hydro Hyperbloom (24 seeds)",
+            "rotation": 22,
             "characters": [
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0},
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0}, 
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0},
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0}
+                {"name": "Nahida", "dpr": 188284, "specs": "c0 r5 sac frag deepwood", "rarity": 5},
+                {"name": "Xingqiu", "dpr": 161504, "specs": "c6 r5 fav eosf", "rarity": 4},
+                {"name": "Yelan", "dpr": 237159, "specs": "c0 r5 fav eosf", "rarity": 5},
+                {"name": "Raiden Shogun", "dpr": 770094, "specs": "c0 r5 db gilded", "rarity": 5}
             ]
         },
         {
-            "name": "",
-            "rotation": 0,
+            "name": "Raiden Hypercarry (TTDS Lisa)",
+            "rotation": 22,
             "characters": [
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0},
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0}, 
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0},
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0}
+                {"name": "Raiden Shogun", "dpr": 645412, "specs": "c0 r5 catch eosf", "rarity": 5},
+                {"name": "Lisa", "dpr": 58914, "specs": "c0 r5 ttds eosf", "rarity": 4},
+                {"name": "Bennett", "dpr": 39935, "specs": "c5 r5 sw no", "rarity": 4},
+                {"name": "Kaedehara Kazuha", "dpr": 274847, "specs": "c0 r5 iron sting vv", "rarity": 5}
             ]
         },
         {
-            "name": "",
-            "rotation": 0,
+            "name": "Raiden Hypercarry (c5 Sara)",
+            "rotation": 22,
             "characters": [
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0},
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0}, 
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0},
-                {"name": "", "dpr": 0, "specs": "", "rarity": 0}
+                {"name": "Raiden Shogun", "dpr": 622345, "specs": "c0 r5 catch eosf", "rarity": 5},
+                {"name": "Kujou Sara", "dpr": 54449, "specs": "c5 r5 fading twilight eosf", "rarity": 4},
+                {"name": "Bennett", "dpr": 39935, "specs": "c5 r5 sw no", "rarity": 4},
+
+
+                {"name": "Kaedehara Kazuha", "dpr": 274847, "specs": "c0 r5 iron sting vv", "rarity": 5}
             ]
         }
 
