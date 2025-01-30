@@ -7,7 +7,7 @@ import { toKey } from "@/utils/standardizers"
  * @returns 
  */
 export function getAssetURL(category: string, name: string, fileName: string): string{
-    const cdn = "https://nerdhida.netlify.app/api/nerdhida/public/assets/"
+    const cdn = "https://genshindata.vercel.app/assets/"
 
     //old naming convention adaptor
     if(category.toLowerCase() === "weapon"){

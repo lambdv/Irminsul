@@ -2,6 +2,7 @@ import Link from 'next/link'
 import ItemCSS from './item.module.css'
 import Image from "next/image"
 import {flatten, toKey} from '@/utils/standardizers'
+import placeholder from '@public/imgs/icons/fallback.png'
 
 
 export default function Item(props: {
@@ -48,6 +49,8 @@ export default function Item(props: {
                         width={500} 
                         height={500}
                         loading="lazy"
+                        placeholder="blur"
+                        blurDataURL={placeholder.src}
                     />
                 </div>
                 <p 
