@@ -1,6 +1,7 @@
 import { getCharacters, getWeapons, getArtifacts } from '@/utils/genshinData';
 import Item from '@/components/explore/Item';
 import { getAssetURL } from '@/utils/getAssetURL'
+import Image from 'next/image'
 
 //meta data
 export const metadata = {
@@ -43,6 +44,8 @@ export default async function Home() {
             {/* <div className="flex flex-col items-left justify-center p-10 pb-0">
                 <p className="text-left pt-2">Disclaimer: Irminsul is currently in open beta. Expect somethings to not work or break. </p>
             </div> */}
+            <Image src="https://genshindata.vercel.app/assets/characters/amber/avatar.png" alt="background" width={400} height={1200}/>
+
             <div className="flex flex-col items-left justify-center p-10 pb-0" style={{ backgroundImage: "url('')" }}>
                 <h1 className="text-6xl font-bold text-white text-left">
                     &quot;Repository for all of the information and memories of Teyvat&quot;
