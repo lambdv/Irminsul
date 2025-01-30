@@ -44,6 +44,7 @@ export default async function CommentSection(props: {
                 width={100} 
                 height={100} 
                 className={CommentSectionCSS.commentUserAvatar}
+                unoptimized
             />
             <form className="flex flex-col gap-2 w-full" action={handleCommentSubmit}>
                 <input
@@ -130,7 +131,7 @@ async function Comment(props: {comment: any, owner?: string}) {
 
     return (
         <div className="flex flex-row gap-2 rounded-md mb-5">
-            <Image src={commentUser[0].image} alt="User Avatar" width={100} height={100} className={CommentSectionCSS.commentUserAvatar}/>
+            <Image src={commentUser[0].image} alt="User Avatar" width={100} height={100} className={CommentSectionCSS.commentUserAvatar} unoptimized/>
             <div className="flex flex-col">
                 <div className="flex flex-row gap-2">
                     <h1 style={{fontWeight: "600"}}>

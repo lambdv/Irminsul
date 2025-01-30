@@ -71,7 +71,14 @@ async function ArticleHeader(props: {article: any}) {
       <div className="mb-1"></div>
       <p className="text-sm" style={{color: '#878787'}}>Posted by</p>
       <div className={articleCSS.articleAuthor + " flex items-center gap-2"}>
-        <Image className="rounded-full" src={user?.image ?? "/assets/images/default-avatar.png"} alt={user?.name ?? "Unknown"} width={35} height={35} />
+        <Image 
+          className="rounded-full" 
+          src={user?.image ?? "/assets/images/default-avatar.png"} 
+          alt={user?.name ?? "Unknown"} 
+          width={35} 
+          height={35} 
+          unoptimized
+        />
         {user ? user.name : "Unknown"}
         {user.id === "d4882fcc-8326-4fbb-8b32-d09c0fb86875" && (
           <span style={{fontSize: "16px", top: "0px", left: "-3px", userSelect: "none"}} className="material-symbols-rounded relative" title="Verified">verified</span>

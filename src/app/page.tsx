@@ -44,7 +44,6 @@ export default async function Home() {
             {/* <div className="flex flex-col items-left justify-center p-10 pb-0">
                 <p className="text-left pt-2">Disclaimer: Irminsul is currently in open beta. Expect somethings to not work or break. </p>
             </div> */}
-            <Image src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg" alt="background" width={400} height={1200}/>
 
             <div className="flex flex-col items-left justify-center p-10 pb-0" style={{ backgroundImage: "url('')" }}>
                 <h1 className="text-6xl font-bold text-white text-left">

@@ -33,6 +33,7 @@ export default function Page() {
                 width={20}
                 height={20}
                 className="select-none"
+                unoptimized
               />
               <p>Sign in with Discord</p>
             </button>

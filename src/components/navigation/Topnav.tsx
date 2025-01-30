@@ -163,6 +163,7 @@ function LeftContainer(){
               className="w-10 h-10 rounded-full p-0"
               width={40}
               height={40}
+              unoptimized
             />
           </a>
         </>

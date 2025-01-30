@@ -86,7 +86,7 @@ function Message({messageUser, message, userImage}: {messageUser: string, messag
                 {messageUser === "Seelie" ? (
                     <Image src={SeelieIcon} alt="Seelie" width={40} height={40} className="rounded-full"/>
                 ) : (
-                    <Image src={userImage || SeelieIcon} alt="User" width={40} height={40} className="rounded-full"/>
+                    <Image src={userImage || SeelieIcon} alt="User" width={40} height={40} className="rounded-full" unoptimized/>
                 )}
             </div>
             <div style={{

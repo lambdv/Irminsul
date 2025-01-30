@@ -58,7 +58,7 @@ export default function SideRail() {
         onClick={() => handleSideNavLinkClick(props.href)}  
       >
         <i className={SidenavCSS.sidenavLinkSymbol + ' material-symbols-rounded'}>
-          {props.img ? <Image src={props.img} alt = {props.text} width={24} height={24} /> : props.icon}
+          {props.img ? <Image src={props.img} alt = {props.text} width={24} height={24} unoptimized/> : props.icon}
         </i>
         <p>{props.text}</p>
       </Link>
