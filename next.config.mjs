@@ -22,6 +22,10 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'genshindata.vercel.app'
             },
+            {
+                protocol: 'https',
+                hostname: 'upload.wikimedia.org'
+            }
         ]
     }
 };
