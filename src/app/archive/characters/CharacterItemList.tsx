@@ -29,7 +29,7 @@ export default function CharacterItemList(props: {data: Character[]}) {
                 .sort((a,b)=>sortItems(a, b, sortBy, descending))
                 .filter((character: any) => flatten(character.name) !== "traveler")
                 .map((character, index) => {
-                    console.log(getAssetURL("character", character.name, "avatar.png"))
+                    // console.log(getAssetURL("character", character.name, "avatar.png"))
                     return <Item 
                         key={index} 
                         category="character"

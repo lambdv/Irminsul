@@ -42,7 +42,7 @@ export default function Item(props: {
                     </div>
                 }
                 <div className={ItemCSS.itemIcon + ` bg-${props.rarity}-star`}>
-                    <Image 
+                    {/* <Image 
                         src={props.src} 
                         className={ItemCSS.itemImg} 
                         alt={props.alt || props.name}
@@ -51,7 +51,8 @@ export default function Item(props: {
                         loading="lazy"
                         placeholder="blur"
                         blurDataURL={placeholder.src}
-                    />
+                    /> */}
+                    <img src={props.src} alt={props.alt || props.name}/>
                 </div>
                 <p 
                     className={ItemCSS.itemText} 

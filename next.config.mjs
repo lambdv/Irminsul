@@ -4,6 +4,7 @@ const nextConfig = {
         // dynamicIO: true,
     },
     images: {
+        // domains: ['cdn.discordapp.com', 'avatars.githubusercontent.com', 'nerdhida.netlify.app', 'genshindata.vercel.app'],
         remotePatterns: [
             {
                 protocol: 'https',
