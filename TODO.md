@@ -1,10 +1,7 @@
 # to ship
-
-- set up stripe payment on website
-- ship irminsul (get ads and advertise)
-	- get seelie gpt running (with deepseek)
-	- set up stripe and rate limitting (ip based)
-	- touch ups (term article, landing page)    
+- get seelie gpt running (with deepseek)
+- set up stripe and rate limitting (ip based)
+- touch ups (term article, landing page)    
 
 
 

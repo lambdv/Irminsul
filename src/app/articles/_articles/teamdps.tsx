@@ -28,6 +28,14 @@ function Body(){
 
         <br />
 
+        <h1 className="text-2xl font-bold mb-2" id="">Disclaimer</h1>
+        <p className="mb-2 text-sm">Damage numbers for each team shown are only 1 metric of team strenth/preformance. Comparing 1 team dps number to another and concluding that one is better than the other is disregarding nuance and other factors.</p>
+        <p className="mb-2 text-sm">Numbers and assumptions may not be up to date or 100% accurate and should be taken as estimates with a grain of salt. Numbers should be used as a guideline for team damage output in a vacume with the given assumptions.</p>
+        <p className="mb-2 text-sm">Assumptions for each team, (total stats, gearing, rotation, individual hit calculation, erc, ect) and more detailed information can be found in the sheet below.</p>
+        <i className="mb-2 text-sm">note that this collection is old, doesn&apos;t include all teams or all characters, and has varying assumptions</i>
+        
+        <br />
+        <br />
         <h1 className="text-2xl font-bold mb-2" id="">Teams</h1>
         
 
@@ -47,81 +55,33 @@ function Body(){
             <a style={{color: "#b1bdfb", textDecoration: "underline"}} href="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8PwXV03Gyfr2g60gWFoCZrhdvZhvCT0vW9Vf3KvGT62ZbzdZrG4nzJroC0iNqQg/pubhtml?widget=true&amp;headers=false" target="_blank" rel="noopener noreferrer">docs.google.com/spreadsheets/u/2/d/1K8Idip4i-uP9eTuLmWJkZAMBM5u2E3fX</a>
         </div>
 
-                {/** link to google sheet */}
         <TeamdpsList />
 
+        <br />
+        <h1 className="text-2xl font-bold mb-2" id="">Analysis</h1>
+        <section>
+            <li>neuvillette is pretty good</li>
+            <li>diluc with xianyun is gives a team competitive with other good teams in terms of damage. this is less diluc doing things and more furina and xianyun. hu tao and gaming have similar-ish preforamnce with this team</li>
+            <li>100% collison plunge rate with 8 plunges is a optimisitc senario. more realistic team output would be using 50% collision rate and with 6 plunges. where you wait a bit inbetween each plunge to allow for furina hydro app to have time to apply</li>
+            <li>morganya is a team theorized before ayaka release and the primary target results gotten against 5 targets are very unrealistic. preformance is a lot closer to the single target result</li>
+            <li>the charlotte furina ayaka team is a very good option. it beats her old team premium team in terms of single target damage output on a sheet but may not be a strict upgrade due to ayaka damage being lower which doesn&apos;t play up to her strenths of nuking with all the damage coming from her burst window.</li>
+            <li>faruzan c6 gives xiao a hyper carry team on par in-terms of damage against his vv fav teams. this is with our assumptions and will scale better with more investment into xiao, such as a 5* weapon and senarios where focusing your damage output on xiao will preform better than teams with off field damage.</li>
+            <li>xiao and wanderer output is similar. preforamnce would come down to the gameplay difference in aoe and rotation lengths. xiao having longer rotations to produce his output but doing more damage in single target/bossing scenarios where collsion plunges are more reliable</li>
+            <li>aggrevate gives keqing a viable team. note that c6 fischl is doing a lot of heavy lifting here still</li>
+            <li>lisa with ttods is better than sara before c6</li>
+            <li>bennett furina teams gives a high damage option for hu tao on par with vv vape while being comfy like double hydro. due to the weird single target healing rotation here reducing bennett uptime and increasing rotation length the dps is lower than vv vape but dpr is simliar.
+                you could say it does&apos;t &quot;beat&quot; her vv vape team but it does beat her old double hydro teams
+            </li>
+            <li>kokomi/mona&apos;s ttds and totm buffs outscale xingqiu damage in ayaka teams</li>
 
-        {/* <div className="flex flex-row flex-wrap justify-center gap-4"   >
-            {teams.data
-            .filter(team => team.name !== "")
-            .sort((a, b) => 
-                b.characters.reduce((acc, char) => acc + char.dpr, 0) - 
-                a.characters.reduce((acc, char) => acc + char.dpr, 0)
-            )
-            .map((team, teamIndex) => (
-                    <div key={teamIndex} className="" style={{
-                        width: "390px",
-                        height: "auto",
-                        backgroundColor: "#1010106e",
-                        borderRadius: "5px",
-                        padding: "10px 20px",
-                        overflow: "hidden",
-                        border: "1px solid #232323",
-                        // margin: "0 auto",
-                        // marginBottom: "10px",
-                    }}>
-                        <h3 style={{fontWeight: "bold", fontSize: "1rem", marginLeft: "-5px", fontFamily: "", color: "#e2e2e2"}}>{team.name}</h3>
-                        <div className="flex flex-row gap-4 justify-center" style={{transform: "scale(0.7)", marginTop: "-20px", marginBottom: "-20px"}}>
-                            {team.characters
-                                .sort((a, b) => Number(b.dpr) - Number(a.dpr))
-                                .map((char, charIndex) => {
-                                    const totalDamage = team.characters.reduce((acc, c) => acc + Number(c.dpr), 0);
-                                    const teamContribution = Number(char.dpr) / totalDamage;
-                                    return (<div key={charIndex}>
-                                        <Item
-                                            category="character"
-                                            src={`/assets/characters/${toKey(char.name)}/avatar.png`}
-                                            name={char.name}
-                                            rarity={char.rarity}
-                                            element={null}
-                                            href={`/archive/characters/${toKey(char.name)}`}
-                                        />
-                                        <p className="text-center text-sm" style={{fontFamily: "", color: "#5e5e5e"}}>{char.specs}</p>
-                                        <p className="text-center text-sm" style={{fontFamily: "", color: "#5e5e5e"}}>DPR: {Number(char.dpr).toFixed(0)}</p>
-                                        <p className="text-center text-sm" style={{fontFamily: "", color: "#5e5e5e"}}>Ratio: {Math.round(teamContribution * 100)}%</p>
-                                    </div>)
-                             })}
-                        </div>
-                        <div className="flex flex-row gap-4 justify-end">
-                            
-                            <p className="text-sm" style={{fontFamily: "", whiteSpace: "nowrap", color: "#5e5e5e"}}>Total Damage: <span
-                                    style={{
-                                        fontWeight: "bold",
-                                        fontFamily: "ingame",
-                                        color: "var(--ingame-primary-color)",
-                                    }}
-                                >{Number(team.characters.reduce((acc, char) => acc + char.dpr, 0)) < 1000000 ? 
-                                (Number(team.characters.reduce((acc, char) => acc + char.dpr, 0)) / 1000).toFixed(2) + 'k' :
-                                (Number(team.characters.reduce((acc, char) => acc + char.dpr, 0)) / 1000000).toFixed(2) + ' million'}</span>
-                            </p>
+            <li>although international&apos;s teamdps doesn&apos;t sheet well, its damage output is still pretty good and not that far behind the other best options. again the gameplay of international is what makes the team strong</li>
+            <li>double hydro hyperbloom team is good. its damage competes with the other best options. remember that it still requires investment. yelan, nahida and c6 xingqiu are not free, em artifacts with a set bonus are not nessecarly significantly cheapter than other carries.
+                the damage output being higher than raidens other teams being used to say that the team is better than raidens other teams is also a nessecarly true statement and does ignore a lot of nuance.
+            </li>
+            <li>2e rotations in vv vape hutao leads to a dps loss on sheet compared to 1e rotations and just running higher er on yelan due to buff uptime on hutao being worse</li>
+        </section>
 
-
-                            <p className="text-sm" style={{fontFamily: "", whiteSpace: "nowrap", color: "#5e5e5e"}}>DPS ({team.rotation}s): 
-                                <span
-                                    style={{
-                                        fontWeight: "900px",
-                                        fontFamily: "ingame",
-                                        color: "var(--ingame-primary-color)",
-                                        // backgroundColor: "var(--ingame-primary-color)",
-                                        padding: "2px 5px",
-                                        borderRadius: "2px",
-                                    }}>{(Number(team.characters.reduce((acc, char) => acc + char.dpr, 0)) / team.rotation / 1000).toFixed(2)}k</span>
-                            </p>
-                        </div>
-                    </div>
-            ))}
-        </div> */}
-
+        <br />
     </>
 }
 
