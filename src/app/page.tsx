@@ -4,10 +4,27 @@ import { getAssetURL } from '@/utils/getAssetURL'
 
 //meta data
 export const metadata = {
-    title: "Irminsul: Repository for all of the information and memories of Teyvat",
+    title: "Irminsul.moe",
     metadataBase: new URL("https://irminsul.moe"),
-    description: "Repository for all of the information and memories of Teyvat",
-    keywords: ["Genshin Impact", "Teyvat", "Irminsul", "Repository", "Information", "Memories"],
+    description: "Repository for all of metagaming information of Teyvat",
+    keywords: [
+        "Genshin Impact", 
+        "Teyvat", 
+        "Irminsul", 
+        "Repository", 
+        "Information", 
+        "Metagaming", 
+        "Database", 
+        "Meta", 
+        "Theorycrafting", 
+        "Knowledge Base", 
+        "Genshin Impact", 
+        "Teyvat",
+        "Guides",
+        "Articles",
+        "Genshin Data",
+        "Tools",
+    ],
     author: "Irminsul",
     robots: "index, follow",
 }

@@ -28,8 +28,9 @@ export default function CharacterItemList(props: {data: Character[]}) {
             {filteredCharacters
                 .sort((a,b)=>sortItems(a, b, sortBy, descending))
                 .filter((character: any) => flatten(character.name) !== "traveler")
-                .map((character, index) => (
-                    <Item 
+                .map((character, index) => {
+                    console.log(getAssetURL("character", character.name, "avatar.png"))
+                    return <Item 
                         key={index} 
                         category="character"
                         name={character.name}
@@ -38,7 +39,7 @@ export default function CharacterItemList(props: {data: Character[]}) {
                         src={getAssetURL("character", character.name, "avatar.png")}
                         alt={toKey(character.name)}
                     />
-                    )
+                }
                 )}
                 {filteredCharacters.length === 0 && <p>No characters found </p>}
         </div>

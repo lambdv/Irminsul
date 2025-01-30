@@ -1,6 +1,16 @@
+# to ship
+
+- set up stripe payment on website
+- ship irminsul (get ads and advertise)
+	- get seelie gpt running (with deepseek)
+	- set up stripe and rate limitting (ip based)
+	- touch ups (term article, landing page)    
+
+
+
+
 ## milestones
 1. get adge
-    - articles
     - seelie gpt
 2. public beta
 3. release

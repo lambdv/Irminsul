@@ -21,14 +21,6 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'genshindata.vercel.app'
             },
-            {
-                protocol: 'https',
-                hostname: '64.media.tumblr.com'
-            },
-            {
-                protocol: 'https',
-                hostname: 'hoyolab.com'
-            }
         ]
     }
 };

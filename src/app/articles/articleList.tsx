@@ -27,12 +27,9 @@ function ArticleCard(props: {article: any}){
                 <div 
                   className={styles.articleHeader}
                   style={{
-                    background: props.article.gradient,
-                    backgroundSize: "200% 200%",
-                    animation: "gradientMove 5s ease infinite"
+                    background: props.article.gradient
                   }}>
                 </div>
-                
                 <p className="text-sm text-gray-400" style={{top: "5px", position: "relative"}}>{props.article.date.toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'})}</p>
                 <h1>{props.article.title}</h1>
                 <p>{props.article.description}</p>
