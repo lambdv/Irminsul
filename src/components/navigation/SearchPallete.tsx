@@ -63,7 +63,7 @@ export default function SearchPallete() {
                         break
                     const firstResult = results[0]
                     if (firstResult){
-                        router.push('/'+firstResult.category.toLowerCase()+'s/'+toKey(firstResult.name))
+                        router.push('/archive/'+firstResult.category.toLowerCase()+'s/'+toKey(firstResult.name))
                         setShowPallette(false)
                     }
                     break
@@ -103,7 +103,7 @@ export default function SearchPallete() {
                 href={`/archive/${item.category.toLowerCase()}s/${item.id}`}
                 onClick={closePalette}
             >
-                <Image src={imgURL} alt="" width={100} height={100} />
+                <Image src={imgURL} alt="" width={100} height={100} unoptimized/>
                 <p>{item.name}</p>
             </Link>
         )

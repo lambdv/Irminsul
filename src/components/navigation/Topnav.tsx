@@ -60,7 +60,7 @@ function CenterContainer(props: any){
   const pathname = usePathname()
 
   const isExplorePage = () => {
-    return pathname === "/archive/characters" || pathname === "/archive/weapons" || pathname === "/archive/artifacts"
+    return pathname === "/archive/characters" || pathname === "/archive/weapons" || pathname === "/archive/artifacts" || pathname === "/articles/team-dps"
   }
 
   const openSearchPallette = (e) => {
@@ -160,9 +160,10 @@ function LeftContainer(){
             <Image 
               src={session?.user?.image} 
               alt="User Avatar" 
-              className="w-10 h-10 rounded-full p-1 border border-gray-300"
+              className="w-10 h-10 rounded-full p-0"
               width={40}
               height={40}
+              unoptimized
             />
           </a>
         </>

@@ -1,78 +1,67 @@
 import NextAuth from "next-auth"
-import GithubProvider from "next-auth/providers/github"
 import DiscordProvider from "next-auth/providers/discord"
-import CredentialsProvider from "next-auth/providers/credentials"
 import { DrizzleAdapter } from "@auth/drizzle-adapter"
 import db from "@/db/db"
-import { usersTablePG, accountsTablePG, sessionsTablePG, verificationTokensTablePG } from "@/db/schema"
-import bcrypt from "bcrypt"
+// import { usersTable, accountsTable, sessionsTable, verificationTokensTable } from "@/db/schema"
+import { usersTable } from "@/db/schema/user"
+import { accountsTable } from "@/db/schema/account"
+import { sessionsTable } from "@/db/schema/session"
+import { verificationTokensTable } from "@/db/schema/token"
 import { eq } from "drizzle-orm"
-import crypto from "crypto"
+import { cookies } from "next/headers"
+import React from "react"
  
-
 const adapter = DrizzleAdapter(db, {
-  usersTable: usersTablePG,
-  accountsTable: accountsTablePG,
-  sessionsTable: sessionsTablePG,
-  verificationTokensTable: verificationTokensTablePG,
+  usersTable: usersTable,
+  accountsTable: accountsTable,
+  sessionsTable: sessionsTable,
+  verificationTokensTable: verificationTokensTable,
 })
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: adapter,
   providers: [
-    // GithubProvider({
-    //   clientId: process.env.AUTH_GITHUB_ID!,
-    //   clientSecret: process.env.AUTH_GITHUB_SECRET!,
-    // }),
-    DiscordProvider,
-    // CredentialsProvider({
-    //   name: "Credentials",
-    //   credentials: {
-    //     username: { label: "Username", type: "text", placeholder: "jsmith" },
-    //     email: { label: "Email", type: "email", placeholder: "jsmith@example.com" },
-    //     password: { label: "Password", type: "password" }
-    //   },
-    //   authorize: async (credentials) => {
-    //     const {username, email, password} = credentials as { username: string, email: string, password: string }
-    //     if (!username || !email || !password) {
-    //       throw new Error("Missing credentials")
-    //     }
-
-    //     // Check if user exists
-    //     const existingUsers = await db.select().from(usersTablePG).where(eq(usersTablePG.email, email))
-        
-    //     if(existingUsers.length > 0) {
-    //       // User exists - this should be a login attempt
-    //       const user = existingUsers[0]
-    //       if (!user.password) {
-    //         throw new Error("Please login with OAuth provider")
-    //       }
-          
-    //       const passwordMatch = await bcrypt.compare(password, user.password)
-    //       if (!passwordMatch) {
-    //         throw new Error("Invalid password")
-    //       }
-          
-    //       return user
-    //     }
-
-    //     // Create new user
-    //     const salt = await bcrypt.genSalt(10)
-    //     const pwHash = await bcrypt.hash(password, salt)
-
-    //     const newUser = {
-    //       id: crypto.randomUUID(),
-    //       name: username,
-    //       email: email,
-    //       emailVerified: new Date(),
-    //       image: "",
-    //       password: pwHash,
-    //     }
-            
-    //     await db.insert(usersTablePG).values(newUser)
-    //     return newUser
-    //   }
-    // })
-
+    DiscordProvider
   ],
 })
+
+export async function getUser(userName: string){
+  const user = await db.select().from(usersTable).where(eq(usersTable.name, userName))
+  if(user.length === 0) return null
+  return user[0]
+}
+
+export async function getUserById(userId: string){
+  const user = await db.select().from(usersTable).where(eq(usersTable.id, userId))
+  if(user.length === 0) return null
+  return user[0]
+}
+
+
+/**
+ * uses cookies from the header to check if user has a valid session token
+ */
+export async function isAuthenticated(){
+  const cookieStore = await cookies()
+  let session = cookieStore.get('authjs.session-token') || cookieStore.get('__Secure-authjs.session-token')
+  //check if session cookie exists
+  if(!session) 
+    return false
+  //verify session token
+  const sessionToken = session.value
+  const dbSession = await db.select().from(sessionsTable).where(eq(sessionsTable.sessionToken, sessionToken))
+  if(dbSession.length !== 0) 
+    return true
+  return false
+}
+
+
+export const getUserFromSession = async () => {
+  const cookieStore = await cookies()
+  let session = cookieStore.get('authjs.session-token') || cookieStore.get('__Secure-authjs.session-token')
+  if(!session) return null
+  const sessionToken = session.value
+  const dbSession = await db.select().from(sessionsTable).where(eq(sessionsTable.sessionToken, sessionToken))
+  if(dbSession.length === 0) return null
+  return dbSession[0]
+}

@@ -1,0 +1,26 @@
+.chatTextField {
+    width: 35%;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 4px;
+    outline: none;
+    color: #9b9b9b;
+    background-color: #232323;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+}
+
+.chatHistory {
+    width: 60%;
+    height: 100%;
+    color: white;
+    top: 0;
+    overflow-y: auto;
+    margin: 0 auto;
+    padding: 0;
+}

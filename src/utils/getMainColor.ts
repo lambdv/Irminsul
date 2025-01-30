@@ -18,7 +18,8 @@ export async function getMainColor(imageURL: string): Promise<string> {
     // If not in cache, process the image
     let img;
     try { 
-        img = await loadImage(process.cwd() + '/public' + imageURL) 
+        // img = await loadImage(process.cwd() + '/public' + imageURL)
+        img = await loadImage(imageURL)      
     } 
     catch(e) { 
         console.log('Image load error:', e);

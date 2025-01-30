@@ -2,6 +2,10 @@ import FooterCSS from './footer.module.css'
 import Link from 'next/link'
 
 export default function Footer() {
+    if (true)
+        return <div className="flex flex-col items-left justify-center p-10 pb-0 m-0">
+            <p>This website is fan-made and not affiliated with miHoYo. All information and images are property of miHoYo. This website is for educational purposes only.</p>
+        </div>
   return (
     <div className={FooterCSS.footer}>
         <div className={FooterCSS.footerTable}>

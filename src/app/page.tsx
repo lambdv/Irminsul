@@ -1,13 +1,31 @@
 import { getCharacters, getWeapons, getArtifacts } from '@/utils/genshinData';
 import Item from '@/components/explore/Item';
 import { getAssetURL } from '@/utils/getAssetURL'
+import Image from 'next/image'
 
 //meta data
 export const metadata = {
-    title: "Irminsul: Repository for all of the information and memories of Teyvat",
+    title: "Irminsul.moe",
     metadataBase: new URL("https://irminsul.moe"),
-    description: "Repository for all of the information and memories of Teyvat",
-    keywords: ["Genshin Impact", "Teyvat", "Irminsul", "Repository", "Information", "Memories"],
+    description: "Repository for all of metagaming information of Teyvat",
+    keywords: [
+        "Genshin Impact", 
+        "Teyvat", 
+        "Irminsul", 
+        "Repository", 
+        "Information", 
+        "Metagaming", 
+        "Database", 
+        "Meta", 
+        "Theorycrafting", 
+        "Knowledge Base", 
+        "Genshin Impact", 
+        "Teyvat",
+        "Guides",
+        "Articles",
+        "Genshin Data",
+        "Tools",
+    ],
     author: "Irminsul",
     robots: "index, follow",
 }
@@ -23,6 +41,10 @@ export default async function Home() {
 
     return (
         <div className="">
+            {/* <div className="flex flex-col items-left justify-center p-10 pb-0">
+                <p className="text-left pt-2">Disclaimer: Irminsul is currently in open beta. Expect somethings to not work or break. </p>
+            </div> */}
+
             <div className="flex flex-col items-left justify-center p-10 pb-0" style={{ backgroundImage: "url('')" }}>
                 <h1 className="text-6xl font-bold text-white text-left">
                     &quot;Repository for all of the information and memories of Teyvat&quot;
@@ -34,7 +56,7 @@ export default async function Home() {
 
             <section className="w-full">
                 <h2 className="text-2xl font-semibold mb-2">Latest Characters</h2>
-                <div className="flex">
+                <div className="flex" style={{ overflowX: "auto"}}>
                     {latestCharacters.map((character) => (
                         <Item 
                             category="character"
@@ -48,13 +70,13 @@ export default async function Home() {
                 </div>
             </section>
 
-            <section className="w-full mb-8">
+            <section className="w-full">
                 <h2 className="text-2xl font-semibold mb-2">Latest Weapons</h2>
-                <div className="flex">
+                <div className="flex" style={{ overflowX: "auto"}}>
                     {latestWeapons.map((weapon) => (
                         <Item 
                             category="weapon"
-                            src={getAssetURL("weapon", weapon.name, "base_avatar.png")}
+                            src={getAssetURL("weapon", weapon.name, "baseicon.png")}
                             name={weapon.name}
                             rarity={weapon.rarity}
                             key={weapon.id}
@@ -63,9 +85,9 @@ export default async function Home() {
                 </div>
             </section>
 
-            <section className="w-full mb-8">
+            <section className="w-full">
                 <h2 className="text-2xl font-semibold mb-2">Latest Artifacts</h2>
-                <div className="flex">
+                <div className="flex" style={{ overflowX: "auto"}}>
                     {latestArtifacts.map((artifact) => (
                         <Item 
                             category="artifact"

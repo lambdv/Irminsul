@@ -7,11 +7,10 @@
     margin-right: auto;
     text-align: center;
     padding-top:5px;
-    right: 0;
+    right: 60px;
     top:60px;
     z-index:0;
     transition: 0s;
-    /* background-color: red; */
 }
 
 .rightsidenav ul{
@@ -22,7 +21,8 @@
     margin: 30px;
     padding-left: 15px;
     width: 100%;
-    border-left: 1px solid #ffffffaf;
+    border:none;
+    border-left: 0.5px solid #ffffffaf;
 }
 
 .rightsidenav ul li{
@@ -31,8 +31,67 @@
     color: #ffffffaf;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1800px) {
     .rightsidenav{
+        display: block;
+        position: relative;
+        top:0px;
+        left: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 1800px) {
+    .rightsidenav ul{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+        padding-left: 15px;
+        width: 100%;
+        margin: 0;
+    }
+    
+    .rightsidenav ul li{
+    }
+}
+
+/* 
+
+.leftsidenav{
+    width: 20rem;
+    position: fixed;
+    height: 60%;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top:5px;
+    left: 0;
+    top:60px;
+    z-index:0;
+    transition: 0s;
+}
+
+.leftsidenav ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    margin: 30px;
+    padding-left: 15px;
+    width: 100%;
+    border-right: 1px solid #ffffffaf;
+}
+
+.leftsidenav ul li{
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffffaf;
+}
+
+@media (max-width: 1500px) {
+    .leftsidenav{
         display: block;
         position: relative;
         top:0px;
@@ -41,7 +100,7 @@
 }
 
 @media (max-width: 1500px) {
-    .rightsidenav ul{
+    .leftsidenav ul{
         list-style-type: none;
         padding: 0;
         margin: 0;
@@ -55,4 +114,4 @@
 
     }
     
-}
+} */

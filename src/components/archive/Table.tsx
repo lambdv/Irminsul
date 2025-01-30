@@ -8,7 +8,8 @@ export default function Table(props: {
     style?: React.CSSProperties
 }) {
     return (
-        <table className={`${StatTableCSS.stattable} ${props.className}`} style={props.style}>
+    <div className={`${StatTableCSS.stattable} ${props.className}`} style={props.style}>
+        <table>
             <thead>
                 <tr>
                     {props.header}
@@ -18,5 +19,6 @@ export default function Table(props: {
                 {props.body}
             </tbody>
         </table>
+    </div>
     )
 }

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import ItemCSS from './item.module.css'
 import Image from "next/image"
 import {flatten, toKey} from '@/utils/standardizers'
+import placeholder from '@public/imgs/icons/fallback.png'
 
 
 export default function Item(props: {
@@ -10,7 +11,9 @@ export default function Item(props: {
     name: string,
     element?: string,
     rarity: number,
-    alt?: string
+    alt?: string,
+    style?: React.CSSProperties,
+    href?: string,
 }) {
     const isLargeItem: boolean = props.category == "weapon" || props.category == "artifact"
     const hasElement: boolean = props.element !== null && props.category == "character"
@@ -23,10 +26,11 @@ export default function Item(props: {
                 ` item `
             } 
             style={{ 
-                height: isLargeItem && "150px"
+                height: isLargeItem && "150px",
+                ...props.style
             }}
         >
-            <Link href={`/archive/${props.category}s/${id}`}>
+            <Link href={props.href || `/archive/${props.category}s/${id}`}>
                 {hasElement && 
                     <Image className={ItemCSS.itemCategory} src={`/imgs/icons/${flatten(props.element)}.png`} alt=" " width="100" height="100"/>
                 }
@@ -45,6 +49,9 @@ export default function Item(props: {
                         width={500} 
                         height={500}
                         loading="lazy"
+                        placeholder="blur"
+                        blurDataURL={placeholder.src}
+                        unoptimized
                     />
                 </div>
                 <p 
