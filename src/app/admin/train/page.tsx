@@ -11,13 +11,16 @@ import { generateEmbeddings } from '@/lib/ai/embedding'
 import { eq } from 'drizzle-orm'
 import { revalidatePath } from 'next/cache'
 
-export default async function Page() {
-    
+async function isAdmin(){
     if (!isAuthenticated())
         redirect('/login')
     const user = await getUserFromSession()
     if(user.userId !== "d4882fcc-8326-4fbb-8b32-d09c0fb86875")
         redirect('/')
+}
+
+export default async function Page() {
+    await isAdmin()
 
     const resources = await db.select().from(resourcesTable)
     const embeddings = await db.select().from(embeddingsTable)
@@ -26,13 +29,14 @@ export default async function Page() {
         <div>
             <form action={async (formData) => {
                 "use server"
+                
                 //prevent reload
                 const prompt = formData.get('prompt') as string
                 // await createResource({content: prompt})
                 // const embeddings = await generateEmbeddings(prompt)
                 // console.log(embeddings)
                 const res = await createResource({content: prompt})
-                console.log(res)
+                //console.log(res)
             }}>
                 <textarea name="prompt" 
                     style={{

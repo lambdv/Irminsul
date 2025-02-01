@@ -9,11 +9,15 @@ export const resources = pgTable("resources", {
   id: varchar("id", { length: 191 })
     .primaryKey()
     .$defaultFn(() => nanoid()),
+
   content: text("content").notNull(),
+
+  source: text("source").default(""),
 
   createdAt: timestamp("created_at")
     .notNull()
     .default(sql`now()`),
+    
   updatedAt: timestamp("updated_at")
     .notNull()
     .default(sql`now()`),

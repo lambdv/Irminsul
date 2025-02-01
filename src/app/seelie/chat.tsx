@@ -1,21 +1,47 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useChat } from 'ai/react'
 import Image from 'next/image'
 import styles from './seelie.module.css'
 import SeelieIcon from '@public/imgs/icons/seelie.png'
+import { getAiTokensLeft } from './ai'
 
 export default function Chat(props: {user: any}) {
     
-    const { messages, input, handleInputChange, handleSubmit } = useChat({
+    const { messages, input, handleInputChange, handleSubmit, setInput, isLoading } = useChat({
+        body: {
+            userId: props.user?.id
+        },
         api: '/api/chat',
         initialMessages: [{id: "1", role: 'assistant', content: 'Ad astra abyssosque traveler! I\'m seelie, your ai guide for genshin impact helping you with your journey. How can I assist you today?'}],
         streamProtocol: 'text'
     })
 
+    const [tokensLeft, setTokensLeft] = useState(-1)
+
+    useEffect(() => {
+        const getTokensLeft = async () => {
+            const tokens = await getAiTokensLeft(props.user.id)
+            setTokensLeft(tokens)
+        }
+        getTokensLeft()
+    }, [props.user?.id])
+    
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault()
+        if(tokensLeft <= 0){
+            alert("You've run out of tokens. Please come back later!")
+            setInput("")
+            return
+        }
+        setTokensLeft(tokensLeft - 1)
+        handleSubmit()
+    }
+
     return (
         <div id="chat">
-            <div className={styles.chatHistory}>
+            <div className={styles.chatHistory} style={{marginBottom: "60px"}}>
                 {messages.map((message, index) => (
                     <Message 
                         key={index}
@@ -24,22 +50,30 @@ export default function Chat(props: {user: any}) {
                         userImage={props.user?.image} 
                     />
                 ))}
-                <br />
             </div>
-            <form className="flex flex-col gap-2 w-full" onSubmit={handleSubmit}>
-                <textarea 
-                    placeholder="Ask Seelie" 
-                    value={input} 
-                    onChange={handleInputChange} 
-                    className={styles.chatTextField}
-                    autoFocus={true}
-                    onKeyDown={(e) => {
-                        if (e.key === 'Enter' && !e.shiftKey)
-                            handleSubmit(e)
-                    }}
-                    rows={2}
-                />
-            </form>
+
+            <div className={styles.chatTextFieldContainer}>
+                <p className="text-sm text-gray-500">Tokens Left: {tokensLeft}</p>
+                <form className="flex flex-col gap-2 w-full" onSubmit={handleFormSubmit}>
+                    <textarea 
+                        placeholder="Ask Seelie" 
+                        value={input} 
+                        onChange={handleInputChange} 
+                        className={styles.chatTextField}
+                        autoFocus={true}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter' && !e.shiftKey)
+                                handleFormSubmit(e)
+                        }}
+                        rows={2}
+                        required
+                        autoComplete="off"
+                        style={{resize: "none"}}
+                    />
+                </form>
+
+            </div>
+
         </div>
     )
 }
@@ -76,12 +110,11 @@ function Message({messageUser, message, userImage}: {messageUser: string, messag
                 width: "40px",
                 height: "40px",
                 borderRadius: "50%",
-                backgroundColor:  "#1d1d1d",
+                backgroundColor:  "#000000",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
                 flexShrink: 0,
-                border: "1px solid #303030",
             }}>
                 {messageUser === "Seelie" ? (
                     <Image src={SeelieIcon} alt="Seelie" width={40} height={40} className="rounded-full"/>
@@ -91,10 +124,11 @@ function Message({messageUser, message, userImage}: {messageUser: string, messag
             </div>
             <div style={{
                 backgroundColor: isUser ? "#4d4d4d" : "#303030",
-                padding: "10px",
-                borderRadius: "10px",
+                padding: "7px 10px",
+                borderRadius: "5px",
                 maxWidth: "80%",
                 whiteSpace: "pre-wrap",
+                color: "#e7e7e7",
             }}>
                 {displayMessage}
             </div>

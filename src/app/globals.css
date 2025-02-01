@@ -164,17 +164,17 @@ body{
 } */
 
 .bg-1-star{
-  background-image: linear-gradient(to top, rgb(149, 112, 203, 0.5), rgb(106, 86, 136, 0.5)),
+  background-image: linear-gradient(to bottom, rgb(140, 140, 140, 0.5), rgb(102, 102, 102, 0.5)),
   url('../../public/imgs/bg/1-star.png');
 }
 
 .bg-2-star{
-  background-image: linear-gradient(to top, rgb(149, 112, 203, 0.5), rgb(106, 86, 136, 0.5)),
+  background-image: linear-gradient(to bottom, rgb(75, 154, 113, 0.5), rgb(67, 120, 93, 0.5)),
   url('../../public/imgs/bg/2-star.png');
 }
 
 .bg-3-star{
-  background-image: linear-gradient(to top, rgb(149, 112, 203, 0.5), rgb(106, 86, 136, 0.5)),
+  background-image: linear-gradient(to bottom, rgb(64, 157, 213, 0.5), rgb(58, 110, 140, 0.5)),
   url('../../public/imgs/bg/3-star.png');
 }
 

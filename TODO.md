@@ -1,44 +1,38 @@
 # to ship
-- get seelie gpt running (with deepseek)
-- set up stripe and rate limitting (ip based)
-- touch ups (term article, landing page)    
-
-
-
+- seelie in prod
+    - show tokens
+    - make endpoint check cookies
+    - make rag better
+    - hook up to deekseek
+- landing page bento    
+- stripe intergration
 
 ## milestones
 1. get adge
-    - seelie gpt
 2. public beta
 3. release
 
-
-# data
-- weapon costs scraping
-- add release version for characters and weapons
+#refactor
+- use sqlite db for vectors
 
 # ui
 - improve mobile (top nav spacing, search pallette clear and back buttons)
 - add footer
 - add breadcrums
-- redesign/condense siderail (https://m3.material.io/styles)
-- improve landing page (adge for seelie or bento menu)
+- siderail
+
 - light/dark mode toggle (use css variables for color pallette)
-- convert client components to server (state in cookies or url) 
+ 
 - add explore page sort by dropdown
+- ~~convert client components to server (state in cookies or url)~~
 
 # featuers
-- articles, teams
-- heyseelie
-- tools (damage calc, er calc)
 - user dashboard/settings
-- akadymia (user generated guides, articles, calcs, posts)
+- teams page
+- tools (damage calc, er calc)
+- akadymia (user generated content)
 
-# refactoring
-- move ingame assets to blob storage
-- character,artifact and weapon item list into 1 component 
-- monorepo
-
-//"next": "^15.1.1-canary.25",
-
-[text](https://sdk.vercel.ai/docs/guides/rag-chatbot#rag-chatbot-guide)
+# data
+- weapon costs scraping
+- add release version for characters and weapons
+- inventory items, enemies. banners, abyss

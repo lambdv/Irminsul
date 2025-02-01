@@ -23,6 +23,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     DiscordProvider
   ],
+  pages: {
+    signIn: '/login',
+    // signOut: '/auth/signout',
+    // error: '/auth/error',
+    // verifyRequest: '/auth/verify-request',
+    // newUser: '/auth/new-user'
+  }
 })
 
 export async function getUser(userName: string){

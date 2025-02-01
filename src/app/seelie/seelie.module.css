@@ -1,5 +1,14 @@
-.chatTextField {
+.chatTextFieldContainer {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 35%;
+    left: 50%;
+    display: block;
+}
+
+.chatTextField {
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 20px;
@@ -8,10 +17,7 @@
     outline: none;
     color: #9b9b9b;
     background-color: #232323;
-    position: fixed;
     bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
     
 }
 
