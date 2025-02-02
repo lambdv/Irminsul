@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation'
 import Link from "next/link"
 import { toKey } from '@/utils/standardizers'
 import { getAssetURL } from '@/utils/getAssetURL'
+import RoundBtn from '../ui/RoundBtn'
 
 export default function SearchPallete() {
     const router = useRouter()
@@ -44,9 +45,8 @@ export default function SearchPallete() {
         setTimeout(() => {
             searchBarRef.current?.focus()
             //highlight the text in the search bar
-            if(!firstKeyPress && SearchQuery.length > 1){
+            if(SearchQuery.length > 1){
                 searchBarRef.current?.setSelectionRange(0, SearchQuery.length)
-                
             }
         }, 10)
     }, [])
@@ -112,19 +112,42 @@ export default function SearchPallete() {
 
     return (
         <div className={SearchPaletteCSS.searchPalette}>
-            <input 
-                ref={searchBarRef}  // Attach ref to the input element
-                className={SearchPaletteCSS.searchBar}
-                type="text" 
-                placeholder="Search..." 
-                value={SearchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-            />
+            <div className={SearchPaletteCSS.searchBar + " flex justify-between items-center"}>
+                <RoundBtn
+                    icon="arrow_back"
+                    onClick={closePalette}
+                    style={{width: "40px", height: "35px", fontSize: "20px"}}
+                    iconStyle={{fontSize: "20px", color: "#a5a5a5"}}
+                />
+
+                <input 
+                    ref={searchBarRef}  // Attach ref to the input element
+                    className={SearchPaletteCSS.searchBar}
+                    type="text" 
+                    placeholder="Search..." 
+                    value={SearchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                {
+                    SearchQuery.length > 0 &&
+                    <RoundBtn
+                        icon="close"
+                        onClick={() => setSearchQuery("")}
+                        style={{width: "40px", height: "35px", fontSize: "20px"}}
+                        iconStyle={{fontSize: "20px", color: "#a5a5a5"}}
+                    />
+                }
+
+            </div>
             <ul className={SearchPaletteCSS.searchPaletteResults}>
-                {SearchQuery.length > 0 ?
-                    results.map((item, index) => 
-                        ResultItemComponent(item, index === 0)
-                    )
+                
+                {SearchQuery.length > 0 ? 
+                    <>
+                        <p style={{color: "#787878", fontSize: "12px", marginLeft: "10px", marginBottom: "10px", paddingLeft: "0px"}}>{results.length} results</p>
+                        {results.map((item, index) => 
+                            ResultItemComponent(item, index === 0)
+                        )}
+                    </>
                 : 
                     <>
                         <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/"><p>Home</p></Link>

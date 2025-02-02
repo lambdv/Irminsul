@@ -2,6 +2,8 @@ import { getCharacters, getWeapons, getArtifacts } from '@/utils/genshinData';
 import Item from '@/components/explore/Item';
 import { getAssetURL } from '@/utils/getAssetURL'
 import Image from 'next/image'
+import styles from './index.module.css'
+import Loading from './loading'
 
 //meta data
 export const metadata = {
@@ -31,75 +33,39 @@ export const metadata = {
 }
 
 export default async function Home() {
-    const characters = await getCharacters()
-    const weapons = await getWeapons()
-    const artifacts = await getArtifacts()
-
-    const latestCharacters = characters.sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime()).slice(0, 5);
-    const latestWeapons = weapons.sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime()).slice(0, 5);
-    const latestArtifacts = artifacts.sort((a, b) => Number(b.release_version) - Number(a.release_version)).slice(0, 5);
+    const characters = await getCharacters().then(characters => characters.sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime()).slice(0, 5))
+    const weapons = await getWeapons().then(weapons => weapons.sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime()).slice(0, 5))
+    const artifacts = await getArtifacts().then(artifacts => artifacts.sort((a, b) => Number(b.release_version) - Number(a.release_version)).slice(0, 5))
 
     return (
-        <div className="">
-            {/* <div className="flex flex-col items-left justify-center p-10 pb-0">
-                <p className="text-left pt-2">Disclaimer: Irminsul is currently in open beta. Expect somethings to not work or break. </p>
-            </div> */}
+        <div id="home-page-container" className={styles.homePageContainer}>
+            <p>home</p>
 
-            <div className="flex flex-col items-left justify-center p-10 pb-0" style={{ backgroundImage: "url('')" }}>
-                <h1 className="text-6xl font-bold text-white text-left">
-                    &quot;Repository for all of the information and memories of Teyvat&quot;
-                </h1>
-                <p className=" mb-8 text-white text-left pt-2" >- It is unclear exactly how the repository works, However, the Traveler seems to correctly understand how the repository works.</p>
-            </div>
-            
-            <div className="flex flex-col items-center justify-center p-10 pt-0">
-
-            <section className="w-full">
-                <h2 className="text-2xl font-semibold mb-2">Latest Characters</h2>
-                <div className="flex" style={{ overflowX: "auto"}}>
-                    {latestCharacters.map((character) => (
-                        <Item 
-                            category="character"
-                            src={getAssetURL("character", character.name, "avatar.png")}
-                            name={character.name}
-                            rarity={character.rarity}
-                            element={character.element}
-                            key={character.id}
-                        />
-                    ))}
-                </div>
-            </section>
-
-            <section className="w-full">
-                <h2 className="text-2xl font-semibold mb-2">Latest Weapons</h2>
-                <div className="flex" style={{ overflowX: "auto"}}>
-                    {latestWeapons.map((weapon) => (
-                        <Item 
-                            category="weapon"
-                            src={getAssetURL("weapon", weapon.name, "baseicon.png")}
-                            name={weapon.name}
-                            rarity={weapon.rarity}
-                            key={weapon.id}
-                        />
-                    ))}
-                </div>
-            </section>
-
-            <section className="w-full">
-                <h2 className="text-2xl font-semibold mb-2">Latest Artifacts</h2>
-                <div className="flex" style={{ overflowX: "auto"}}>
-                    {latestArtifacts.map((artifact) => (
-                        <Item 
-                            category="artifact"
-                            src={getAssetURL("artifact", artifact.name, "flower.png")}
-                            name={artifact.name}
-                            rarity={artifact.rarity_max}
-                            key={artifact.id}
-                        />  
-                    ))}
-                    </div>
-                </section>
+            <div id="bentobox" className={styles.bentoBoxContainer}>
+                {/* promotion banner */}
+                <WishBento/> {/* latest in game wish banners*/}
+                <ChangeLogBento/> {/* latest character, wepaon, artifacts ect*/}
+                {/* comments */}
+                {/* latest articles */}
+                {/* short cuts */}
+                {/* server timer */}
             </div>
         </div>
     );
-} 
+}
+
+function WishBento(){
+    return (
+        <div className={styles.wishBento}>
+            <p>banner</p>
+        </div>
+    )
+}
+
+function ChangeLogBento(){
+    return (
+        <div className={styles.changeLogBento}>
+            <p>changelogs</p>
+        </div>
+    )
+}

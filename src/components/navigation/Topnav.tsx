@@ -137,42 +137,26 @@ function LeftContainer(){
         </button>
       </div>
 
-
-      {/* <button className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '}
-        onClick={toggleTheme}
-      >
-        <i className="material-symbols-outlined">dark_mode</i>
-      </button> */}
-      {/* <button className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '}>
-        <i className="material-symbols-outlined">account_circle</i>
-      </button> */}
-
-      {/* <Link href="/signup">
-        <Btn>Sign Up</Btn>
-      </Link>
-      <Link href="/login">
-        <Btn>Log In</Btn>
-      </Link> */}
-
-      {session?.user ?
-        <>
-          <a href="/api/logout">
-            <Image 
-              src={session?.user?.image} 
-              alt="User Avatar" 
-              className="w-10 h-10 rounded-full p-0"
-              width={40}
-              height={40}
-              unoptimized
-            />
-          </a>
-        </>
-        :
-        <Link href="/login">
-          <Btn>Log In</Btn>
-        </Link>
-      }
+      <div style={{marginTop: "8px", marginLeft: "8px"}}>
+        {session?.user ?
+          <>
+            <a href="/api/logout">
+              <Image 
+                src={session?.user?.image} 
+                alt="User Avatar" 
+                className="w-10 h-10 rounded-full p-0"
+                width={40}
+                height={40}
+                unoptimized
+              />
+            </a>
+          </>
+          :
+          <Link href="/login">
+            <Btn>Log In</Btn>
+          </Link>
+        }
+      </div>
     </div>
-
   )
 }

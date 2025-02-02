@@ -31,7 +31,7 @@ export const getInformationTool = tool({
     }),
     execute: async ({ question }) => {
         const res = await findRelevantContent(question)
-        console.log(res)
+        console.log(    )
         return res
     },
 });

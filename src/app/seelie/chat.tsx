@@ -5,8 +5,12 @@ import Image from 'next/image'
 import styles from './seelie.module.css'
 import SeelieIcon from '@public/imgs/icons/seelie.png'
 import { getAiTokensLeft } from './ai'
+import Overlay from '@/components/ui/Overlay'
 
-export default function Chat(props: {user: any}) {
+export default function Chat(props: {
+    user: any
+
+}) {
     
     const { messages, input, handleInputChange, handleSubmit, setInput, isLoading } = useChat({
         body: {
@@ -41,7 +45,7 @@ export default function Chat(props: {user: any}) {
 
     return (
         <div id="chat">
-            <div className={styles.chatHistory} style={{marginBottom: "60px"}}>
+                <div className={styles.chatHistory} style={{marginBottom: "60px"}}>
                 {messages.map((message, index) => (
                     <Message 
                         key={index}
@@ -71,9 +75,7 @@ export default function Chat(props: {user: any}) {
                         style={{resize: "none"}}
                     />
                 </form>
-
             </div>
-
         </div>
     )
 }
