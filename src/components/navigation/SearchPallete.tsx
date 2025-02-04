@@ -17,6 +17,7 @@ export default function SearchPallete() {
     const searchBarRef = useRef<HTMLInputElement | null>(null)
     const { setShowPallette } = SearchStore()
     const [results, setResults] = useState<Page[]>([])
+    const [highlightedIndex, setHighlightedIndex] = useState<number>(0)
 
     useEffect(() => {
         const res = pages
@@ -65,6 +66,7 @@ export default function SearchPallete() {
                     if (firstResult){
                         router.push('/archive/'+firstResult.category.toLowerCase()+'s/'+toKey(firstResult.name))
                         setShowPallette(false)
+                        setSearchQuery("")
                     }
                     break
             }
@@ -99,12 +101,30 @@ export default function SearchPallete() {
         return (
             <Link 
                 key={item.id} 
-                className={`${SearchPaletteCSS.palletteResult} ${highlighted ? SearchPaletteCSS.highlighted : ""}`} 
+                className={`${SearchPaletteCSS.palletteResult} ${highlighted && SearchPaletteCSS.highlighted}`} 
                 href={`/archive/${item.category.toLowerCase()}s/${item.id}`}
-                onClick={closePalette}
+                onClick={(e) => {
+                    closePalette()
+                    setSearchQuery("")
+                }}
+
             >
                 <Image src={imgURL} alt="" width={100} height={100} unoptimized/>
-                <p>{item.name}</p>
+                <p>
+                    {(() => {
+                        const parts = item.name.split(new RegExp(`(${SearchQuery})`, 'i'));
+                        const firstMatchIndex = parts.findIndex((part, i) => 
+                            part.toLowerCase() === SearchQuery.toLowerCase()
+                        );
+                        return parts.map((part, i) => {
+                            if (i === firstMatchIndex) {
+                                return <span key={i} style={{backgroundColor: 'var(--primary-color)', borderRadius: '2px', padding: '0px'}}>{part}</span>;
+                            }
+                            return part;
+                        });
+                    })()}
+                </p>
+                {highlighted && <i className="material-symbols-outlined " style={{marginLeft: "auto", color: "#b1b1b1", fontSize: "18px", marginRight: "5px"}}>keyboard_return</i>}
             </Link>
         )
     }
@@ -151,9 +171,10 @@ export default function SearchPallete() {
                 : 
                     <>
                         <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/"><p>Home</p></Link>
-                        <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/characters"><p>Characters</p></Link>
-                        <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/weapons"><p>Weapons</p></Link>
-                        <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/artifacts"><p>Artifacts</p></Link>
+                        <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/archive/characters"><p>Characters</p></Link>
+                        <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/archive/weapons"><p>Weapons</p></Link>
+                        <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/archive/artifacts"><p>Artifacts</p></Link>
+                        <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/articles"><p>Articles</p></Link>
                     </>
                 }
             </ul>

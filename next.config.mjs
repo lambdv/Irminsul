@@ -28,9 +28,14 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'upload.wikimedia.org'
+            },
+            {
+                protocol: 'https',
+                hostname: 'static.wikia.nocookie.net'
             }
         ]
     }
 };
+
 
 export default nextConfig;

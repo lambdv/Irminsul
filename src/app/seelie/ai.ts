@@ -31,8 +31,8 @@ export async function generateResponse(prompt: string, userId: string){
     if(!(prompt.length > 0))
         return ""
 
-    const consumeToken = await consumeAiToken(userId)
-    if(!consumeToken){
+    const tokensLeft = await getAiTokensLeft(userId)
+    if(tokensLeft <= 0){
         return "You've run out of tokens. Please come back later!"
     }
 
@@ -48,6 +48,11 @@ export async function generateResponse(prompt: string, userId: string){
         },
         maxSteps: 110,
     });
+
+    const consumeToken = await consumeAiToken(userId)
+    if(!consumeToken){
+        return "You've run out of tokens. Please come back later!"
+    }
 
     return textStream;
 }

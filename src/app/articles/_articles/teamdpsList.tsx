@@ -11,7 +11,7 @@ export default function TeamdpsList() {
     const { SearchQuery, setSearchQuery } = SearchStore()
   return (
     <>
-        {/* <input 
+        <input 
 
 
             style={{
@@ -28,7 +28,7 @@ export default function TeamdpsList() {
             onChange={(e) => setSearchQuery(e.target.value)} 
             placeholder="Search..."
         />
-     */}
+    
 
     <div className="flex flex-row flex-wrap justify-center gap-4"   >
         {teams.data
