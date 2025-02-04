@@ -45,7 +45,7 @@ export default async function RecentComments() {
                             <span className={styles.commentTime}>{format(comment.createdAt)}</span>
                         </div>
                         <p className={styles.commentText}>{comment.comment}</p>
-                        <a href={comment.page} className={styles.commentLink}>View discussion →</a>
+                        <a href={ comment.page} className={styles.commentLink}>View discussion →</a>
                     </div>
                 ))}
             </div>

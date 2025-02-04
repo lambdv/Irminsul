@@ -9,6 +9,7 @@ import Link from "next/link"
 import { toKey } from '@/utils/standardizers'
 import { getAssetURL } from '@/utils/getAssetURL'
 import RoundBtn from '../ui/RoundBtn'
+import { Page } from '@/types/page'
 
 export default function SearchPallete() {
     const router = useRouter()
