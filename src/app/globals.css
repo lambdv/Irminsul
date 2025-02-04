@@ -128,15 +128,20 @@ body{
 .pageContentContainer{
   position: relative;
   width: 100%;
-  padding-left: 25rem;
-  padding-right: 25rem;
-
+  /* padding-left: 25rem;
+  padding-right: 25rem; */
+  padding-left: 20%;
+  padding-right: 20%;
   overflow-y: hidden;
   overflow-x:hidden;
   top: -60px;
   padding-top: 60px;
   min-height: 90vh;
+
+
+
   background-color: transparent;
+
 
 }
 
