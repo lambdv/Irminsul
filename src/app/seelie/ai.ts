@@ -3,6 +3,9 @@ import { generateText, streamText, tool } from "ai";
 import { z } from 'zod';
 import { getCharacterDataTool, getInformationTool } from "./tools";
 import { findRelevantContent } from '@/lib/ai/embedding';
+import { eq, sql } from "drizzle-orm";
+import db from "@/db/db";
+import { aitokenTable } from "@/db/schema/aitoken";
 
 
 
@@ -12,28 +15,28 @@ const lmstudio = createOpenAICompatible({
     baseURL: 'http://localhost:1234/v1',
 });
 
-// const modelName = 'deepseek-coder-33b-instruct-pythagora-v3'
-const modelName = 'llama-3.2-1b'
-// const modelName = 'deepseek-r1-distill-qwen-7b'
+let modelName = ''
+// modelName = 'deepseek-coder-33b-instruct-pythagora-v3'
+modelName = 'llama-3.2-1b'
+//modelName = 'deepseek-r1-distill-qwen-7b'
 
 const model = lmstudio(modelName)
-
 
 const systemPrompt =  
     "you are an ai assistant that helps genshin impact players with their questions about the game. including build guides, character guides, etc. you will answer questions related to genshin impact meta"
     + "make sure to check your knowledge base before answering any questions by using the getInformation tool and passing in the users question. the result of this tool is the most important information you need to answer the question"
-    // `you are a ai chatbot agent that helps users/players of genshin impact with their questions. Check your knowledge base before answering any questions. this can include meta info such as build guides, character guides, etc. you WILL answer questions related to genshin impact meta` +
-    // `do not hallucinate.`
-    // `if the user askes about information about a character, use the get_character_data(characterName) tool and pass in the characters name. this tool will return json data that you will use the answer the question`
-
-    // + "when you mention a character, weapon or artifact: provide a link to the resource in our website: <a href='/archive/insertCategoryHere/insertNameHere'>insertNameHere</a>"
     + "don't show the result of getInformation and getCharacterData tools to the user. nor should you tell the user that you're using the tools. just use the result to answer the question."
 
-export async function generateResponse(prompt: string){
+export async function generateResponse(prompt: string, userId: string){
     if(!(prompt.length > 0))
         return ""
 
-    const { textStream, steps } = streamText({
+    const tokensLeft = await getAiTokensLeft(userId)
+    if(tokensLeft <= 0){
+        return "You've run out of tokens. Please come back later!"
+    }
+
+    const { textStream } = streamText({
         model: model,
         system: systemPrompt,
         prompt: "you have to use the \"getInformation(question: string)\" tool (passing in the user's question to get info from your knowledge base) to awnser the following question: " + prompt,
@@ -46,6 +49,45 @@ export async function generateResponse(prompt: string){
         maxSteps: 110,
     });
 
+    const consumeToken = await consumeAiToken(userId)
+    if(!consumeToken){
+        return "You've run out of tokens. Please come back later!"
+    }
 
     return textStream;
 }
+
+
+
+export async function getAiTokensLeft(userId: string){
+    const tokenRecord = await db.select().from(aitokenTable).where(eq(aitokenTable.userId, userId))
+    //if there is a record, return the numTokens
+    if(tokenRecord.length > 0)
+        return tokenRecord[0].numTokens
+
+    //if there is no record, create one
+    await db.insert(aitokenTable).values({
+        "userId": userId,
+        "numTokens": 50
+    })
+    return 50
+}
+
+export async function consumeAiToken(userId: string, numTokens?: number){
+    if(!numTokens)
+        numTokens = 1
+
+    const tokensLeft = await getAiTokensLeft(userId)
+    if(tokensLeft < numTokens)
+        return false
+
+    const newTokensLeft: number = tokensLeft - numTokens
+    await db
+        .update(aitokenTable)
+        .set({ numTokens: newTokensLeft })
+        .where(eq(aitokenTable.userId, userId))
+
+
+    return true
+}
+

@@ -1,7 +1,13 @@
 "use client"
 import ButtonCSS from './button.module.css'
 
-export default function RoundBtn(props: {icon: string, onClick: any, style?: any, className?: any, iconStyle?: any}) {
+export default function RoundBtn(props: {
+  icon: string, 
+  onClick: any, 
+  style?: any, 
+  className?: any, 
+  iconStyle?: any
+}) {
   return (
       <button 
         className={

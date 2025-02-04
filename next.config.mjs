@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    env: {
+        DATABASE_URL: process.env.DATABASE_URL,
+      },
     experimental: {
         // dynamicIO: true,
     },
@@ -25,9 +28,14 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'upload.wikimedia.org'
+            },
+            {
+                protocol: 'https',
+                hostname: 'static.wikia.nocookie.net'
             }
         ]
     }
 };
+
 
 export default nextConfig;

@@ -5,12 +5,13 @@ import teams from './teams.json'
 import Item from '@/components/explore/Item'
 import { toKey } from '@/utils/standardizers'
 import { SearchStore } from '@/store/Search';
+import { getAssetURL } from '@/utils/getAssetURL';
 
 export default function TeamdpsList() {
     const { SearchQuery, setSearchQuery } = SearchStore()
   return (
     <>
-        {/* <input 
+        <input 
 
 
             style={{
@@ -27,7 +28,7 @@ export default function TeamdpsList() {
             onChange={(e) => setSearchQuery(e.target.value)} 
             placeholder="Search..."
         />
-     */}
+    
 
     <div className="flex flex-row flex-wrap justify-center gap-4"   >
         {teams.data
@@ -62,7 +63,7 @@ export default function TeamdpsList() {
                                     return (<div key={charIndex}>
                                         <Item
                                             category="character"
-                                            src={`/assets/characters/${toKey(char.name)}/avatar.png`}
+                                            src={getAssetURL("character", char.name, "avatar.png")}
                                             name={char.name}
                                             rarity={char.rarity}
                                             element={null}

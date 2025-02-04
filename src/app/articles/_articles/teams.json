@@ -79,7 +79,7 @@
                 {"name": "Xiangling", "dpr": 577065, "specs": "c6 r5 catch eosf", "rarity": 4},
                 {"name": "Tartaglia", "dpr": 471286, "specs": "c0 r1 tp hod", "rarity": 5},
                 {"name": "Bennett", "dpr": 68416, "specs": "c6 r5 sw no", "rarity": 4},
-                {"name": "Kaedehara Kazuha", "dpr": 215116, "specs": "c0 r5 iron sting vv", "rarity": 5}
+                {"name": "Kaedehara Kazuha", "dpr": 215116, "specs": "c0 r5 fav vv", "rarity": 5}
             ]
         },
         {
@@ -216,7 +216,7 @@
             "name": "Vape Diluc",
             "rotation": 21,
             "characters": [
-                {"name": "Diluc", "dpr": 518375, "specs": "c0 r1 serpent 4cw", "rarity": 5},
+                {"name": "Diluc", "dpr": 518375, "specs": "c0 r5 rainslasher 4cw", "rarity": 5},
                 {"name": "Xingqiu", "dpr": 208744, "specs": "c6 r5 fav 4eosf", "rarity": 4},
                 {"name": "Bennett", "dpr": 42859, "specs": "c6 r1 sap 4no", "rarity": 4},
                 {"name": "Sucrose", "dpr": 35503, "specs": "c6 r5 ttds 4vv", "rarity": 4}
@@ -226,7 +226,7 @@
             "name": "8LP 50%cp CloudStrike",
             "rotation": 22,
             "characters": [
-                {"name": "Diluc", "dpr": 1073313, "specs": "c0 r1 serpent 4cw 111%", "rarity": 5},
+                {"name": "Diluc", "dpr": 1073313, "specs": "c0 r5 rainslasher 4cw 111%", "rarity": 5},
                 {"name": "Furina", "dpr": 277124, "specs": "c0 r5 fav 4gt 220%", "rarity": 5},
                 {"name": "Bennett", "dpr": 58951, "specs": "c6 r1 sap 4no 200%", "rarity": 4},
                 {"name": "Xianyun", "dpr": 43391, "specs": "c0 r5 fav 4vv 250%", "rarity": 5}
@@ -236,7 +236,7 @@
             "name": "6HP 100%cp CloudStrike",
             "rotation": 22,
             "characters": [
-                {"name": "Diluc", "dpr": 903839, "specs": "c0 r1 serpent 4cw 111%", "rarity": 5},
+                {"name": "Diluc", "dpr": 903839, "specs": "c0 r5 rainslasher 4cw 111%", "rarity": 5},
                 {"name": "Furina", "dpr": 277124, "specs": "c0 r5 fav 4gt 200%", "rarity": 5},
                 {"name": "Bennett", "dpr": 58951, "specs": "c6 r1 sap 4no 200%", "rarity": 4},
                 {"name": "Xianyun", "dpr": 43860, "specs": "c0 r5 fav 4vv 200%", "rarity": 5}
@@ -246,7 +246,7 @@
             "name": "8LP 100%cp CloudStrike",
             "rotation": 22,
             "characters": [
-                {"name": "Diluc", "dpr": 1083610, "specs": "c0 r1 serpent 4cw 111%", "rarity": 5},
+                {"name": "Diluc", "dpr": 1083610, "specs": "c0 r5 rainslasher 4cw 111%", "rarity": 5},
                 {"name": "Furina", "dpr": 277124, "specs": "c0 r5 fav 4gt 200%", "rarity": 5},
                 {"name": "Bennett", "dpr": 58951, "specs": "c6 r1 sap 4no 200%", "rarity": 4},
                 {"name": "Xianyun", "dpr": 43860, "specs": "c0 r5 fav 4vv 200%", "rarity": 5}
@@ -403,13 +403,13 @@
             ]
         },        
         {
-            "name": "Aggravate Keqing Quicken",
+            "name": "EC Keqing",
             "rotation": 25,
             "characters": [
                 {"name": "Keqing", "dpr": 142491.2631, "specs": "c0 r5 lion's roar tf", "rarity": 5},
                 {"name": "Fischl", "dpr": 362333.6243, "specs": "c6 r5 stringless gd", "rarity": 4}, 
                 {"name": "Xingqiu", "dpr": 206779.509, "specs": "c6 r5 sac eosf", "rarity": 4},
-                {"name": "Kaedehara Kazuha", "dpr": 225517.5975, "specs": "c0 r5 iron sting vv", "rarity": 5}
+                {"name": "Kaedehara Kazuha", "dpr": 187398.6845, "specs": "c0 r5 iron sting vv", "rarity": 5}
             ]
         },
         {

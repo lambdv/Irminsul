@@ -8,16 +8,31 @@ import { cookies } from 'next/headers';
 import { generateResponse } from './ai';
 import Chat from './chat';
 import { auth, isAuthenticated } from '@/app/(auth)/auth';
+import { eq } from 'drizzle-orm';
+import db from '@/db/db';
+import { aitokenTable } from '@/db/schema/aitoken';
+import Overlay from '@/components/ui/Overlay';
+
+export async function generateMetadata() {
+  return {
+    title: "Seelie | Irminsul",
+    description: "Seelie is your AI guide for Genshin Impact.",
+    image: "/imgs/icons/seelie.png",
+    url: "/seelie",
+  }
+}
 
 export default async function Page() {
-  if(!await isAuthenticated()) 
+  const authenticated = await isAuthenticated()
+  if(!authenticated)
     return <Gatekeeper />
-
-  const user = await auth().then(res => res?.user)
+  
+  const user = await auth()
+    .then(res => res?.user)
 
   return (
-    <div>
-      <Chat user={user}/>
-    </div>
+      <Chat
+        user={user}
+      />
   )
 }

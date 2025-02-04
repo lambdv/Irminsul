@@ -1,29 +1,40 @@
 .searchPalette {
-    background-color:rgb(32, 32, 32);
+    background-color: rgb(18, 18, 18);
     position: absolute;
-    top: 35%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, 0%);
-    height: auto;
     width: 30%;
     max-height: 50%;
-    overflow-y: auto;
-    border-radius: 5px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    animation: dropDown 0.2s ease-out;
+    overflow: hidden;
+
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
+@keyframes dropDown {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
-
-.searchPalette .searchBar{
+.searchBar{
     width: 100%;
     display: flex;
     top: 0;
     position: sticky;
-    background-color: rgb(66, 66, 66);
+    background-color: rgb(22, 22, 22);
     user-select: none;
     outline: none;
-    padding: 8px;
-    padding-left: 12px;
-    padding-right: 12px;
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 .searchPaletteResults {
@@ -31,11 +42,17 @@
     padding: 10px;
     overflow-y: auto;
     text-align: left;
+    flex: 1;
+    max-height: calc(50vh - 60px);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media (max-width: 1600px) {
     .searchPalette {
-        width: 90%;
+        width: 65%;
+        max-height: 100%;
+        box-shadow: none;
     }
 }
 
@@ -71,12 +88,18 @@
 }
 
 .palletteResult:hover {
-    background-color: rgb(48, 48, 48);
+    background-color: rgb(21, 21, 21);
 }
 
 .palletteResult.highlighted {
-    background-color: rgb(48, 48, 48);
+    background-color: rgb(21, 21, 21);
 }
+
+.palletteResult.highlighted::after{
+    content: "";
+}
+
+
 
 .palletteResult img {
     width: 25px;

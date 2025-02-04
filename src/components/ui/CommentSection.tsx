@@ -70,6 +70,7 @@ export default async function CommentSection(props: {
                         key={comment.id}
                         comment={comment}
                         owner={props.owner}
+                        options={true}
                     />
             ))}
         </ul>
@@ -115,7 +116,11 @@ async function postComment(pageID: string, comment: string) {
     revalidatePath("/")
 }
 
-async function Comment(props: {comment: any, owner?: string}) {
+export async function Comment(props: {
+    comment: any, 
+    owner?: string,
+    options: boolean
+}) {
     const commentUser = await db.select().from(usersTable).where(eq(usersTable.id, props.comment.userId))
     const session = await auth()
     const currentUser = session?.user
@@ -147,7 +152,7 @@ async function Comment(props: {comment: any, owner?: string}) {
                 <p>{props.comment.comment}</p>
                 <div className="flex flex-row gap-2">
                     <Btn type="button">Reply</Btn>
-                    {currentUser && props.comment.userId === currentUser.id && (
+                    {currentUser && props.comment.userId === currentUser.id && props.options && (
                         <form action={handleDeleteComment}>
                             <Btn type="submit">Delete</Btn>
                         </form>
