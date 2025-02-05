@@ -139,7 +139,6 @@ body{
   min-height: 90vh;
 
 
-
   background-color: transparent;
 
 
@@ -159,6 +158,9 @@ body{
     padding-right: 1rem;
   }
 }
+
+
+
 
 /* .active button{
   background-color: #00DC82;

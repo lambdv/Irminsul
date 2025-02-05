@@ -26,17 +26,7 @@ export default async function LandingPage() {
         }}>
             {isLoggedIn ? 
             <>
-                <div  style={{
-                    borderRadius: '14px',
-                    padding: '0rem 2rem',
-                    textAlign: 'left',
-                    margin: '0rem 1.2rem',
-                    marginBottom: '-2rem',
-                    
-                }}>
-                    <h1 style={{fontSize: '1.2rem', fontFamily: 'ingame', fontWeight: '500', color: '#d5d5d5'}}>Welcome back {user?.user?.name}</h1>
 
-                </div>
             </>
             :  
              
@@ -73,7 +63,7 @@ export default async function LandingPage() {
                 <div className={`${styles.bentoItem} ${styles.quickLinks}`}>
                     <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
                     <div className={styles.linkGrid}>
-                        <Link href="/characters" style={{
+                        <Link href="/archive/characters" style={{
                             display: 'flex',
                             alignItems: 'center',
                             gap: '0.75rem',
@@ -96,7 +86,7 @@ export default async function LandingPage() {
                             }}>Characters</span>
                         </Link>
 
-                        <Link href="/weapons" style={{
+                        <Link href="/archive/weapons" style={{
                             display: 'flex',
                             alignItems: 'center',
                             gap: '0.75rem',
@@ -113,7 +103,7 @@ export default async function LandingPage() {
                             }}>Weapons</span>
                         </Link>
 
-                        <Link href="/artifacts" style={{
+                        <Link href="/archive/artifacts" style={{
                             display: 'flex',
                             alignItems: 'center',
                             gap: '0.75rem',
