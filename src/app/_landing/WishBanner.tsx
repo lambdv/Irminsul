@@ -124,6 +124,7 @@ export default function WishBanner() {
                         }}
                         priority
                         draggable={false}
+                        unoptimized
                     />
                 </div>
 

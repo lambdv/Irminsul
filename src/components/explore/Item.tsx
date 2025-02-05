@@ -40,8 +40,11 @@ export default function Item(props: {
                         alt=" " 
                         width={props.scale ? props.scale * 25 : 25} 
                         height={props.scale ? props.scale * 25 : 25}
+                        loading="lazy"
+                        unoptimized
                     />
                 }
+
 
                 {hasStarsDisplayed && 
                     <div className={ItemCSS.itemRarity} style={{

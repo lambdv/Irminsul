@@ -9,6 +9,9 @@ import artifactData from '@public/data/artifacts.json'
 import characterData from '@public/data/characters.json'
 import weaponData from '@public/data/weapons.json'
 
+import { Page } from '@/types/page'
+
+
 export async function getCharacters(): Promise<Character[]>{
     //"use cache"
     const characters = characterData.data 
