@@ -38,7 +38,14 @@ export default function Sidenav() {
    * @param props 
    * @returns 
    */
-  function SideNavLink(props: {href?: string, text: string, img?: any, icon?: any, onClick?: () => void}) {
+  function SideNavLink(props: {
+    href?: string, 
+    text: string, 
+    img?: any, 
+    icon?: any, 
+    onClick?: () => void,
+    bottom?: boolean
+  }) {
     const handleSideNavLinkClick = (href: string) => { 
       if(props.onClick !== undefined){
         props.onClick()
@@ -53,13 +60,16 @@ export default function Sidenav() {
       <Link 
         href={props.href} 
         className={SidenavCSS.sidenavLink +' '+ (onLinkedPage && SidenavCSS.active) + (!sideNavCollapsed ? ' waves-effect waves-light ripple ' : ' ')}
-        onClick={() => handleSideNavLinkClick(props.href)}  
+        onClick={() => handleSideNavLinkClick(props.href)}
+        style={{position: sideNavCollapsed ? (props.bottom ? 'absolute' : 'relative') : 'relative', bottom: sideNavCollapsed && props.bottom ? '60px' : 'auto'}}
       >
         <i className={SidenavCSS.sidenavLinkSymbol + ' material-symbols-rounded'}>
+
           {props.img ? <Image src={props.img} alt = {props.text} width={24} height={24} unoptimized/> : props.icon}
         </i>
-        <p>{props.text}</p>
+        {props.text !== "" && <p>{props.text}</p> }
       </Link>
+
     )
   }
 
@@ -76,6 +86,12 @@ export default function Sidenav() {
         {/* <SideNavLink href="/enemies" img={enemyIcon} text="Enemies"/>
         <SideNavLink href="/wishes" img={wishIcon} text="Banners"/> */}
         {/* <SideNavLink href="/teams" img={partyIcon} text="Teams"/> */}
+
+        <SideNavLink href="/erc" icon="bolt" text="ER Calc"/>
+        <SideNavLink href="https://github.com/lambdv/ParametricTransformer" icon="calculate" text="DMG Calc"/>
+
+        <SideNavLink href="https://donate.stripe.com/aEUbK9fJe7bi88wbII" icon="favorite" text="Donate" bottom={true} />
+        {/* <SideNavLink href="settings" icon="settings" text="Settings"/> */}
       </nav>
 
       {!sideNavCollapsed && windowWidth < 1500 && 

@@ -2,7 +2,7 @@ import LandingPage from './_landing/LandingPage';
 
 //meta data
 export const metadata = {
-    title: "Irminsul.moe | Repository for all of metagaming information of Teyvat",
+    title: "Irminsul | Repository for all of metagaming information of Teyvat",
     metadataBase: new URL("https://irminsul.moe"),
     description: "Repository for all of metagaming information of Teyvat",
     keywords: [

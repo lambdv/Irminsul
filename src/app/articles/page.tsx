@@ -15,7 +15,10 @@ export default function Articles() {
   return (
     <div>
       <BrowseHeader materialIcon="article" title="Articles" store={ArticleFitlerStore} useFilter={false}/>
+      <p style={{padding:"10px 20px", marginTop:"-10px", fontSize:"12px", color:"#3f3f3f"}}>currently written and published by our admin team.</p>
       <ArticleList store={ArticleFitlerStore}/>
     </div>
+
+
   )
 }

@@ -62,6 +62,35 @@
     padding: 1rem;
 }
 
+
+@media (max-width: 640px) {
+    .bentoGrid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 1.25rem;
+        padding: 1.5rem;
+    }
+
+    .featured {
+        grid-column: span 6;
+    }
+
+    .serverTime {
+        grid-column: span 3;
+    }
+
+    .quickLinks {
+        grid-column: span 3;
+    }
+
+    .recentComments {
+        grid-column: span 6;
+    }
+
+    .latestContent {
+        grid-column: span 6;
+    }
+}
+
 @media (min-width: 640px) {
     .bentoGrid {
         grid-template-columns: repeat(6, 1fr);
