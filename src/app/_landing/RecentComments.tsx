@@ -28,7 +28,7 @@ export default async function RecentComments() {
 
     return (
         <div className={`${styles.bentoItem} ${styles.recentComments}`}>
-            <h3>Latest Comments</h3>
+            <h3 className="text-xl font-semibold mb-4">Latest Comments</h3>
             <div className={styles.commentsList}>
                 {comments.map((comment, index) => (
                     <div key={index} className={styles.commentItem}>
