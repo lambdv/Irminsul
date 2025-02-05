@@ -10,18 +10,18 @@ const bannerImages = [
         src: "https://static.wikia.nocookie.net/gensin-impact/images/c/cd/The_Hearth%27s_Ashen_Shadow_2025-01-21.png",
         alt: "Featured Banner 1"
     },
-    {
-        src: "https://static.wikia.nocookie.net/gensin-impact/images/4/4a/Illuminating_Lightning_2025-01-21.png",
-        alt: "Featured Banner 2"
-    },
-    {
-        src: "https://static.wikia.nocookie.net/gensin-impact/images/b/bc/Epitome_Invocation_2025-01-21.png",
-        alt: "Featured Banner 3"
-    },
-    {
-        src: "https://static.wikia.nocookie.net/gensin-impact/images/1/14/Remembrance_of_Jade_and_Stone_2025-01-21.png",
-        alt: "Featured Banner 4"
-    }
+    // {
+    //     src: "https://static.wikia.nocookie.net/gensin-impact/images/4/4a/Illuminating_Lightning_2025-01-21.png",
+    //     alt: "Featured Banner 2"
+    // },
+    // {
+    //     src: "https://static.wikia.nocookie.net/gensin-impact/images/b/bc/Epitome_Invocation_2025-01-21.png",
+    //     alt: "Featured Banner 3"
+    // },
+    // {
+    //     src: "https://static.wikia.nocookie.net/gensin-impact/images/1/14/Remembrance_of_Jade_and_Stone_2025-01-21.png",
+    //     alt: "Featured Banner 4"
+    // }
 ];
 
 export default function WishBanner() {
@@ -124,7 +124,7 @@ export default function WishBanner() {
                         }}
                         priority
                         draggable={false}
-                        unoptimized
+                        // unoptimized
                     />
                 </div>
 
