@@ -8,16 +8,20 @@ export default async function Header(props: {
     bgImage?: string
     color?: string
     children?: React.ReactNode
-    imageStyle?: React.CSSProperties
+    imageStyle?: React.CSSProperties,
+    bgStyle?: React.CSSProperties,
+    gradientStyle?: React.CSSProperties,
+    colorStrength?: number
 }){
     let color = await getMainColor(props.splashImage) || "rgb(0,0,0)"
     const headerGlow = {boxShadow: `0px 0px 1000px 0px rgba(${color.slice(4, -1)}, 0.5)`}
     const headerBackground = { backgroundImage: props.bgImage ? `url(${props.bgImage})` : 'none', backgroundColor: props.color || color}
-    const headerGradient = {backgroundImage: `linear-gradient(to left, rgba(${color.slice(4, -1)}, 0.2), var(--background-color) 80%)`, backdropFilter: `blur(5px)`}
+    const headerGradient = {backgroundImage: `linear-gradient(to left, rgba(${color.slice(4, -1)}, ${props.colorStrength || 0.2}), var(--background-color) 80%)`, backdropFilter: `blur(5px)`}
+
     return (
         <div className={HeaderCSS.archiveRecordHeader} style={headerGlow}>
-            <div className={HeaderCSS.archiveRecordHeaderWrapper} style={headerBackground}>
-                <div className={HeaderCSS.archiveRecordHeaderDetailsContainer} style={headerGradient}>
+            <div className={HeaderCSS.archiveRecordHeaderWrapper} style={{...headerBackground, ...props.bgStyle}}>
+                <div className={HeaderCSS.archiveRecordHeaderDetailsContainer} style={{...headerGradient, ...props.gradientStyle}}>
                     <div className={HeaderCSS.archiveRecordHeaderSplash}>
                         <Image
                             width={1000}

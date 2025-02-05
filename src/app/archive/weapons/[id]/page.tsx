@@ -54,8 +54,21 @@ function WeaponHeader({data}){
     <Header 
         title={data.name}
         splashImage={getAssetURL("weapon", data.name, "splash.png")}
+        // bgImage={`/imgs/icons/wishbg.jpg`}
+        // bgStyle={{
+        //   backgroundSize: "cover",
+        //   backgroundRepeat: "no-repeat",
+        //   backgroundPosition: "50% 0%",
+        // }}
+        // gradientStyle={{
+        //   backdropFilter: "blur(20px)",
+        // }}
+        // colorStrength={0.7}
       >
         <>
+
+
+
           <section className={ArchivePageCSS.archiveRecordSection}>
             {Array.from({length: data.rarity}).map((_, index) => (
               <i key={index} className="material-symbols-rounded"
