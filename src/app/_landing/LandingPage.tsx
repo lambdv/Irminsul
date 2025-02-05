@@ -13,32 +13,40 @@ import { isAuthenticated, auth } from '@/app/(auth)/auth';
 
 
 export default async function LandingPage() {
-    const characters = await getCharacters().then(characters => characters.sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime()).slice(0, 4));
-    const weapons = await getWeapons().then(weapons => weapons.sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime()).slice(0, 4));
-    const artifacts = await getArtifacts().then(artifacts => artifacts.sort((a, b) => Number(b.release_version) - Number(a.release_version)).slice(0, 4));
+    const characters = await getCharacters().then(characters => characters.sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime()).slice(0, 5));
+    const weapons = await getWeapons().then(weapons => weapons.sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime()).slice(0, 5));
+    const artifacts = await getArtifacts().then(artifacts => artifacts.sort((a, b) => Number(b.release_version) - Number(a.release_version)).slice(0, 5));
     const latestArticles = articles.sort((a, b) => b.date.getTime() - a.date.getTime()).slice(0, 3);
 
     const isLoggedIn = await isAuthenticated();
     const user = await auth();
 
     return (
-        <div className={styles.homePageContainer}>
+        <div className={styles.homePageContainer} style={{
+        }}>
             {isLoggedIn ? 
-            
-            <></>
-            
-            
+            <>
+                <div  style={{
+                    borderRadius: '14px',
+                    padding: '0rem 2rem',
+                    textAlign: 'left',
+                    margin: '0rem 1.2rem',
+                    marginBottom: '-2rem',
+                    
+                }}>
+                    <h1 style={{fontSize: '1.2rem', fontFamily: 'ingame', fontWeight: '500', color: '#d5d5d5'}}>Welcome back {user?.user?.name}</h1>
+
+                </div>
+            </>
             :  
-            
-            <div className={styles.heroSection} style={{
-                background: 'rgba(11, 11, 11, 0.8)',
+             
+
+            <div  style={{
                 borderRadius: '14px',
-                padding: '2rem',
+                padding: '0rem 2rem',
                 textAlign: 'left',
-                margin: '2rem',
-                border: '1px solid rgba(40, 40, 40, 1)',
-                backdropFilter: 'blur(10px)',
-                marginBottom: '0rem'
+                margin: '0rem 1.2rem',
+                marginBottom: '-1.5rem',
             }}>
                 <h1 style={{fontSize: '2.5rem', fontFamily: 'ingame', fontWeight: '500',}}>Irminsul.moe</h1>
                 <p className={styles.subtitle} style={{
@@ -47,7 +55,8 @@ export default async function LandingPage() {
                     padding: 0,
                     fontSize: '0.9rem'
                 }}>Repository for all metagaming information in Teyvat</p>
-            </div>}
+            </div>
+            }
 
 
 
@@ -62,14 +71,123 @@ export default async function LandingPage() {
 
 
                 <div className={`${styles.bentoItem} ${styles.quickLinks}`}>
-                    <h3>Quick Links</h3>
+                    <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
                     <div className={styles.linkGrid}>
-                        <Link href="/characters">Characters Database</Link>
-                        <Link href="/weapons">Weapons Database</Link>
-                        <Link href="/artifacts">Artifacts Database</Link>
-                        <Link href="/articles">Articles</Link>
-                        <Link href="/seelie">Seelie AI</Link>
-                        <Link href="/login">Login</Link>
+                        <Link href="/characters" style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.75rem',
+                            padding: '0.75rem',
+                            transition: 'all 0.2s ease',
+                            borderRadius: '8px',
+                            background: 'rgba(255, 255, 255, 0.05)',
+                            backdropFilter: 'blur(4px)'
+                        }}>
+                            <Image 
+                                src="/imgs/icons/character.png" 
+                                alt="Characters" 
+                                width={24} 
+                                height={24} 
+                                style={{objectFit: 'contain'}}
+                            />
+                            <span style={{
+                                fontSize: '0.9rem',
+                                fontWeight: 500
+                            }}>Characters</span>
+                        </Link>
+
+                        <Link href="/weapons" style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.75rem',
+                            padding: '0.75rem',
+                            transition: 'all 0.2s ease',
+                            borderRadius: '8px',
+                            background: 'rgba(255, 255, 255, 0.05)',
+                            backdropFilter: 'blur(4px)'
+                        }}>
+                            <Image src="/imgs/icons/weaponIcon.png" alt="Weapons" width={24} height={24} style={{objectFit: 'contain'}} />
+                            <span style={{
+                                fontSize: '0.9rem',
+                                fontWeight: 500
+                            }}>Weapons</span>
+                        </Link>
+
+                        <Link href="/artifacts" style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.75rem',
+                            padding: '0.75rem',
+                            transition: 'all 0.2s ease',
+                            borderRadius: '8px',
+                            background: 'rgba(255, 255, 255, 0.05)',
+                            backdropFilter: 'blur(4px)'
+                        }}>
+                            <Image src="/imgs/icons/artifactIcon.png" alt="Artifacts" width={24} height={24} style={{objectFit: 'contain'}} />
+                            <span style={{
+                                fontSize: '0.9rem',
+                                fontWeight: 500
+                            }}>Artifacts</span>
+                        </Link>
+
+                        <Link href="/articles" style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.75rem',
+                            padding: '0.75rem',
+                            transition: 'all 0.2s ease',
+                            borderRadius: '8px',
+                            background: 'rgba(255, 255, 255, 0.05)',
+                            backdropFilter: 'blur(4px)'
+                        }}>
+                            <span className={styles.icon + " material-symbols-rounded"}>article</span>
+                            <span style={{
+                                fontSize: '0.9rem',
+                                fontWeight: 500
+                            }}>Articles</span>
+                        </Link>
+
+                        <Link href="/seelie" style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.75rem',
+                            padding: '0.75rem',
+                            transition: 'all 0.2s ease',
+                            borderRadius: '8px',
+                            background: 'rgba(255, 255, 255, 0.05)',
+                            backdropFilter: 'blur(4px)'
+                        }}>
+                            <Image src="/imgs/icons/seelie.png" alt="Seelie" width={24} height={24} style={{objectFit: 'contain'}} />
+                            <span style={{
+                                fontSize: '0.9rem',
+                                fontWeight: 500
+                            }}>Seelie AI</span>
+                        </Link>
+
+                        <Link href="/login" style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.75rem',
+                            padding: '0.75rem',
+                            transition: 'all 0.2s ease',
+                            borderRadius: '8px',
+                            background: 'rgba(255, 255, 255, 0.05)',
+                            backdropFilter: 'blur(4px)'
+                        }}>
+                            <span className={styles.icon + " material-symbols-rounded"}>login</span>
+                            <span style={{
+                                fontSize: '0.9rem',
+                                fontWeight: 500
+                            }}>Login</span>
+                        </Link>
+
+                        
+                        
+
+
+
+
+
                     </div>
                 </div>
 
@@ -124,8 +242,9 @@ export default async function LandingPage() {
 
                 <div className={`${styles.bentoItem} ${styles.latestContent} overflow-hidden`}>
                     <div className={styles.latestSection}>
-                        <h3>Latest Characters</h3>
+                        <h3 className="text-xl font-semibold mb-4">Latest Characters</h3>
                         <div className="flex flex-row gap-4" role="list" aria-label="Latest characters horizontal scroll">
+
                             {characters.map((char) => (
                                 <div key={char.id} role="listitem">
                                     <Item
@@ -142,8 +261,9 @@ export default async function LandingPage() {
                     </div>
 
                     <div className={styles.latestSection}>
-                        <h3>Latest Weapons</h3>
+                        <h3 className="text-xl font-semibold mb-4">Latest Weapons</h3>
                         <div className="flex flex-row gap-4" role="list" aria-label="Latest weapons horizontal scroll">
+
                             {weapons.map((weapon) => (
                                 <div key={weapon.id} role="listitem">
                                     <Item
@@ -159,12 +279,12 @@ export default async function LandingPage() {
                     </div>
 
                     <div className={styles.latestSection}>
-                        <h3>Latest Artifacts</h3>
+                        <h3 className="text-xl font-semibold mb-4">Latest Artifacts</h3>
                         <div className="flex flex-row gap-4" role="list" aria-label="Latest artifacts horizontal scroll">
+
                             {artifacts.map((artifact) => (
                                 <div key={artifact.id} role="listitem">
                                     <Item
-
                                         category="artifact"
                                         src={getAssetURL("artifact", artifact.id, "flower.png")}
                                         name={artifact.name}
