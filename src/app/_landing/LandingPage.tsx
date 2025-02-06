@@ -24,13 +24,20 @@ export default async function LandingPage() {
     return (
         <div className={styles.homePageContainer} style={{
         }}>
+            {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1739492299738628" crossOrigin="anonymous"></script>
+            <ins className="adsbygoogle"
+                style={{display: 'block'}}
+                data-ad-client="ca-pub-1739492299738628"
+                data-ad-slot="9046274057"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> */}
             {isLoggedIn ? 
             <>
 
             </>
             :  
              
-
             <div  style={{
                 borderRadius: '14px',
                 padding: '0rem 2rem',
