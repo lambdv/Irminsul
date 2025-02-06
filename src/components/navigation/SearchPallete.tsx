@@ -24,6 +24,8 @@ export default function SearchPallete() {
     const { setShowPallette } = SearchStore()
     const [results, setResults] = useState<Page[]>([])
     const [highlightedIndex, setHighlightedIndex] = useState<number>(0)
+
+
     function foundMatch(query: string, page: Page){
         const pageName = page.name.toLowerCase()
         const queryLower = query.toLowerCase()
@@ -91,12 +93,16 @@ export default function SearchPallete() {
     }
 
     useEffect(() => {
+        //optmistic update for search bar value
+        setSearchQuery(SearchQuery)
+
+
         const res = pages
 
             .filter(r => foundMatch(SearchQuery, r))
         setResults(res);
 
-    }, [SearchQuery, pages])    
+    }, [SearchQuery, pages, setSearchQuery])    
     
     const closePalette = () => {
         setShowPallette(false)

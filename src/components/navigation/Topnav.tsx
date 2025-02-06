@@ -123,7 +123,7 @@ function LeftContainer(){
       fetchSession()
     }, [])
 
-  const toggleTheme = () => {}
+    const [showDropdown, setShowDropdown] = useState(false)
 
   return (
     <div id="topnavRight" className={TopnavCSS.fries + " " + TopnavCSS.hamburger}>
@@ -137,19 +137,51 @@ function LeftContainer(){
         </button>
       </div>
 
-      <div style={{marginTop: "8px", marginLeft: "8px"}}>
+      <div style={{marginTop: "5px", marginLeft: "8px"}}>
         {session?.user ?
           <>
-            <a href="/api/logout">
-              <Image 
-                src={session?.user?.image} 
-                alt="User Avatar" 
-                className="w-10 h-10 rounded-full p-0"
-                width={40}
-                height={40}
-                unoptimized
-              />
-            </a>
+              <div className="relative">
+                <button onClick={() => setShowDropdown(!showDropdown)}>
+                  <Image 
+                    src={session?.user?.image} 
+                    alt="User Avatar" 
+                    className="w-10 h-10 rounded-full p-0 cursor-pointer"
+                    width={40}
+                    height={40}
+                    unoptimized
+                  />
+                </button>
+                <div 
+                  className={`absolute right-0 mt-2 w-48 bg-[#0e0e0e] rounded-md shadow-lg py-1 transition-all duration-200 ease-in-out transform origin-top z-10 ${
+                    showDropdown ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'
+                  }`}
+                >
+                  <Link href="/settings" onClick={() => setShowDropdown(false)} className="block w-full text-left px-4 py-2 text-sm hover:bg-[#4747477c]">
+                      <div className="flex items-center gap-2">
+                        <span className="material-symbols-rounded" style={{fontSize: "16px"}}>settings</span>
+                        Settings
+                      </div>
+                  </Link>
+
+                  <button onClick={() => signOut()} className="block w-full text-left px-4 py-2 text-sm hover:bg-[#4747477c]">
+                    <div className="flex items-center gap-2">
+                      <span className="material-symbols-rounded" style={{fontSize: "16px"}}>logout</span>
+                      Sign out
+                    </div>
+                  </button>
+                </div>
+                {showDropdown && (
+                  <div 
+                    className="fixed inset-0 z-[-1]"
+                    style={{zIndex: "2", 
+                      //backgroundColor: "rgba(0, 0, 0, 0.5)"
+                    }}
+                    onClick={() => setShowDropdown(false)}
+                  />
+
+
+                )}
+              </div>
           </>
           :
           <Link href="/login">

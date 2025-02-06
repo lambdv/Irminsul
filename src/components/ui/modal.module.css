@@ -38,10 +38,17 @@
     }
 }
 
+@media all and (max-width: 1200px) {
+    .modal{
+        width: 90%;
+    }
+}
+
 .modal .header{
     width: 100%;
     display: flex;
 }
+
 
 .closeBTN{
     position: absolute;
