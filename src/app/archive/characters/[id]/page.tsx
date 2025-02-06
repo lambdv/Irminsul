@@ -77,14 +77,25 @@ function CharacterHeader({data}){
       bgImage={getAssetURL("character", data.name, "namecard.png")}
     >
       <div>
-        {Array.from({length: data.rarity}).map((_, index) => (
-          <i key={index} className="material-symbols-rounded" style={{color: '#FFD700'}}>star</i>
-        ))}
+        <div style={{display: "flex", alignItems: "center", gap: "5px"}}>
+          {Array.from({length: data.rarity}).map((_, index) => (
+            <i key={index} className="material-symbols-rounded" style={{color: '#FFD700', marginRight: "-5px"}}>star</i>
+          ))}
+          <p> </p>
+          <Image src={`/imgs/icons/${data.vision}.png`} alt={data.name} width={100} height={100} style={{width: "20px", height: "20px"}}/>
+          <Image src={`/imgs/icons/${data.weapon}.png`} alt={data.name} width={100} height={100} style={{width: "25px", height: "25px"}}/>
+          <Image src={`/imgs/icons/${data.region}.png`} alt={data.name} width={100} height={100} style={{width: "25px", height: "25px"}}/>
+          {/* <span style={{fontSize: "12px", backgroundColor: "#181818", color: "var(--primary-color)", padding: "3px 12px", borderRadius: "50px"}}>
+            {data.release_date}
+
+          </span> */}
+        </div>
       </div>
       <p>{data.description}</p>
     </Header>
   )
 }
+
 
 function TableOfContents(){
   return (

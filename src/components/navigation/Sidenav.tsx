@@ -90,7 +90,7 @@ export default function Sidenav() {
         <SideNavLink href="/erc" icon="bolt" text="ER Calc"/>
         <SideNavLink href="https://github.com/lambdv/ParametricTransformer" icon="calculate" text="DMG Calc"/>
 
-        <SideNavLink href="https://donate.stripe.com/aEUbK9fJe7bi88wbII" icon="favorite" text="Donate" bottom={true} />
+        <SideNavLink href="https://donate.stripe.com/aEUbK9fJe7bi88wbII" icon="favorite" text="Donate" />
         {/* <SideNavLink href="settings" icon="settings" text="Settings"/> */}
       </nav>
 
