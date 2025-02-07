@@ -6,17 +6,37 @@
     padding-right: 25%;
     margin: 0 auto;
     text-align: left;
+    font-family: var(--ingame);
+}
 
-
+@media (max-width: 768px) {
+    .settingsWrapper {
+        padding-left: 1%;
+        padding-right: 1%;
+    }
 }
 
 .settingsTitle {
     color: #fff;
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 200;
+    position: relative;
+    top: 2px;
+    font-family: ingame;
 }
 
-.acountSettingsContainer section{
-    background-color: #131313;
-    padding:2rem;
-    border-radius: 15px;}
+
+
+.settingsContent {
+    background-color: #141414;
+    padding:1.2rem 1.5rem;
+    border-radius: 5px;
+
+}
+
+.settingsContent h1 {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
