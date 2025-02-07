@@ -13,6 +13,7 @@ import artifactIcon from '@public/imgs/icons/artifactIcon.png'
 import enemyIcon from '@public/imgs/icons/enemyIcon.png'
 import wishIcon from '@public/imgs/icons/wish.png'
 import partyIcon from '@public/imgs/icons/party.png'
+import { getSession, signIn, signOut, useSession } from "next-auth/react"
 
 /**
  * Side navigation component
@@ -22,6 +23,18 @@ export default function Sidenav() {
   const { sideNavCollapsed, setSideNavCollapsed } = NavigationStore() //get sidenav state
   const [activePage, setActivePage] = useState('') //keep track of active page
   const [windowWidth, setWindowWidth] = useState(1980) //keep track of window width
+
+
+  const [session, setSession] = useState(null)
+
+  useEffect(() => {
+    const fetchSession = async () => {
+      const session = await getSession()
+      setSession(session)
+    }
+    fetchSession()
+  }, [])
+
 
   useEffect(() => setActivePage(pathname), [pathname]) //update active page on path change
   useEffect(() => setWindowWidth(window.innerWidth), []) //update window width on load
@@ -76,8 +89,8 @@ export default function Sidenav() {
   return (
     <>
       <nav className={SidenavCSS.sidenav + " " + (sideNavCollapsed && SidenavCSS.sidenavCollapsed)} style={{zIndex: 10}}>
-        <SideNavLink href="/" icon="home" text="Home"/>
-        <SideNavLink href="/seelie" icon="hotel_class" text="Ask AI"/>
+        <SideNavLink href="/" icon="home" text="Home" />
+        {/* <SideNavLink href="/seelie" icon="hotel_class" text="Ask AI"/> */}
         <SideNavLink href="/articles" icon="article" text="Articles"/>
         {/* <SideNavLink href="/Archive" icon="database" text="Archive"/> */}
         <SideNavLink href="/archive/characters" img={characterIcon} text="Characters"/>
@@ -88,11 +101,12 @@ export default function Sidenav() {
         {/* <SideNavLink href="/teams" img={partyIcon} text="Teams"/> */}
 
         <SideNavLink href="/erc" icon="bolt" text="ER Calc"/>
-        <SideNavLink href="https://github.com/lambdv/ParametricTransformer" icon="calculate" text="DMG Calc"/>
+        {/* <SideNavLink href="https://github.com/lambdv/ParametricTransformer" icon="calculate" text="DMG Calc"/> */}
 
-        <SideNavLink href="https://donate.stripe.com/aEUbK9fJe7bi88wbII" icon="favorite" text="Donate" />
+        <SideNavLink href={session ? "https://donate.stripe.com/aEUbK9fJe7bi88wbII?prefilled_email=" + session.user.email : "/login"} icon="favorite" text="Donate" />
         {/* <SideNavLink href="settings" icon="settings" text="Settings"/> */}
       </nav>
+
 
       {!sideNavCollapsed && windowWidth < 1500 && 
         <Overlay zIndex={2} onClick={() => setSideNavCollapsed(true)}></Overlay>

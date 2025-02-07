@@ -130,9 +130,14 @@ export async function Comment(props: {
     
     const handleDeleteComment = async () => {
         "use server"
-        await db.delete(commentsTable).where(eq(commentsTable.id, props.comment.id))
+        // await db.delete(commentsTable).where(eq(commentsTable.id, props.comment.id))
+        //instead of delete, mutate the comment to be be remove traces tied to the user
+        await db.update(commentsTable).set({
+            userId: "-1"
+        }).where(eq(commentsTable.id, props.comment.id))
         revalidatePath("/")
     }
+
 
     return (
         <div className="flex flex-row gap-2 rounded-md mb-5">

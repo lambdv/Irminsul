@@ -14,8 +14,8 @@ export default function AccountSettings(props: {session: any, account: any}) {
 
 
   return (
-    <div className={styles.acountSettingsContainer}>
-        <h1 className="mb-4">Account Settings</h1>
+    <div className={styles.accountSettingsContainer}>
+        <h1 className="mb-2">Account Settings</h1>
 
         <div className="flex items-center gap-2">
           <p>Username: {props.session.user.name}</p>
@@ -27,21 +27,15 @@ export default function AccountSettings(props: {session: any, account: any}) {
                   const newUsername = formData.get('newUsername')
                   await changeUsername(newUsername as string)
                 }}>
-                  <input type="text" placeholder="New Username" />
-                  
-
+                  <input type="text" placeholder="New Username" title="New Username" />
                   <button className="p-1 bg-[#474747] rounded-md" type="submit">change username</button>
                 </form>
               </Modal>
-
             )
           }
         </div>
 
         <p>Linked with: {props.account[0].provider}</p>
-
-
-
 
         <div>
         <p>Email: {props.session.user.email}</p>
@@ -56,12 +50,6 @@ export default function AccountSettings(props: {session: any, account: any}) {
             </div>
         </div>
 
-        <div className="flex items-center gap-2">
-          <h1>Danger Zone</h1>
-          {/* <button className="bg-[#eb4545] rounded-md p-1">Purge Comments</button> */}
-          <button className="bg-[#eb4545] rounded-md p-1">Delete Account</button>
-
-        </div>
     </div>
   )
 }

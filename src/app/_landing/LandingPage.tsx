@@ -10,6 +10,8 @@ import { articles } from '../articles/router';
 import WishBanner from './WishBanner';
 
 import { isAuthenticated, auth } from '@/app/(auth)/auth';
+import RightSidenav from '@/components/navigation/RightSidenav';
+import Advertisment from '@/components/ui/Advertisment';
 
 
 export default async function LandingPage() {
@@ -22,18 +24,17 @@ export default async function LandingPage() {
     const user = await auth();
 
     return (
-        <div className={styles.homePageContainer} style={{
-        }}>
-            {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1739492299738628" crossOrigin="anonymous"></script>
-            <ins className="adsbygoogle"
-                style={{display: 'block'}}
-                data-ad-client="ca-pub-1739492299738628"
-                data-ad-slot="9046274057"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> */}
+        <div className={styles.homePageContainer} style={{}}>
+
+            <RightSidenav>
+                <br />
+                <Advertisment type="card"/>
+            </RightSidenav>
+
             {isLoggedIn ? 
             <>
+
+
 
             </>
             :  
@@ -299,6 +300,7 @@ export default async function LandingPage() {
 
                 
             </div>
+            <Advertisment type="card"/>
         </div>
     );
 } 

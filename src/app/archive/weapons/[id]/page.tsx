@@ -7,6 +7,8 @@ import ArchivePageCSS from "@/components/archive/archivePage.module.css"
 import CommentSection from "@/components/ui/CommentSection"
 import { getAssetURL } from '@/utils/getAssetURL'
 import WeaponPassives from './WeaponPassive'
+import Advertisment from '@/components/ui/Advertisment'
+import RightSidenav from '@/components/navigation/RightSidenav'
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -35,6 +37,10 @@ export default async function WeaponPage({params}) {
   return (
       <Suspense fallback={<div>Loading...</div>}>
         <WeaponHeader data={data}/>
+        <RightSidenav>
+          <br />
+          <Advertisment type="card"/>
+        </RightSidenav>
         <div className={ArchivePageCSS.archiveRecordContentContainer}>
             <div className="flex flex-col md:flex-row">
                 <WeaponBaseStats data={data}/>
@@ -45,6 +51,7 @@ export default async function WeaponPage({params}) {
             <CommentSection pageID={data.key}/>
           </Suspense>
       </div>
+      <Advertisment type="card"/>
     </Suspense>
   )
 }

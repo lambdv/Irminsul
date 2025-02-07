@@ -1,10 +1,11 @@
 import LandingPage from './_landing/LandingPage';
 
 //meta data
+const slogan = "Everything Genshin Impact Metagaming"
 export const metadata = {
-    title: "Irminsul | Repository for all of metagaming information of Teyvat",
+    title: "Irminsul | " + slogan,
     metadataBase: new URL("https://irminsul.moe"),
-    description: "Repository for all of metagaming information of Teyvat",
+    description: slogan,
     keywords: [
         "Genshin Impact", 
         "Teyvat", 
@@ -16,8 +17,6 @@ export const metadata = {
         "Meta", 
         "Theorycrafting", 
         "Knowledge Base", 
-        "Genshin Impact", 
-        "Teyvat",
         "Guides",
         "Articles",
         "Genshin Data",

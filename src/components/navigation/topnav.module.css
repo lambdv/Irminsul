@@ -20,6 +20,14 @@
     transition: 0.1s ease-in-out;
 }
 
+@media (max-width: 768px) {
+    .solidnav{
+        background-color:rgb(7, 7, 7);
+        backdrop-filter: none;
+        transition: 0.1s ease-in-out;
+    }
+}
+
 .topnav .hamburger{
     display: flex;
     /* width: 160px; */
