@@ -15,6 +15,7 @@ import TalentCSS from '@/components/archive/talent.module.css'
 import { getAssetURL } from '@/utils/getAssetURL'
 import Link from "next/link"
 import Table from "@/components/archive/Table"
+import Advertisment from "@/components/ui/Advertisment"
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -64,6 +65,7 @@ export default async function CharacterPage({params}) {
           <Suspense fallback={<div>Loading...</div>}> 
             <CommentSection pageID={data.key} color={color} />
           </Suspense>
+          <Advertisment type="card"/>
         </div>
       </Suspense>
   )
@@ -100,6 +102,7 @@ function CharacterHeader({data}){
 function TableOfContents(){
   return (
     <RightSidenav>
+      <br />
       <ul>
         {/* <li><Link href="#details">Details</Link></li> */}
         <li><Link href="#basestats">Base Stats</Link></li>
@@ -107,6 +110,7 @@ function TableOfContents(){
         <li><Link href="#passives">Passives</Link></li>
         <li><Link href="#constellations">Constellations</Link></li>
       </ul>
+      <Advertisment type="card"/>
     </RightSidenav>
   )
 }

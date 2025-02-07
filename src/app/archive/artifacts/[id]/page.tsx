@@ -5,6 +5,8 @@ import { Suspense } from 'react'
 import ArchivePageCSS from "@/components/archive/archivePage.module.css"
 import CommentSection from "@/components/ui/CommentSection"
 import { getAssetURL } from '@/utils/getAssetURL'
+import RightSidenav from '@/components/navigation/RightSidenav'
+import Advertisment from '@/components/ui/Advertisment'
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -34,11 +36,17 @@ export default async function ArtifactPage({params}) {
   return (
       <Suspense fallback={<div>Loading...</div>}>
         <ArtifactHeader data={data} />
+        <RightSidenav>
+          <br />
+          <Advertisment type="card"/>
+        </RightSidenav>
+
         <div id="pagecontent" className={ArchivePageCSS.archiveRecordContentContainer}>
           <ArtifactSetBonus data={data} />
           <br/>
           <CommentSection pageID={data.key}/>
         </div>     
+        <Advertisment type="card"/>
       </Suspense>
   )
 }
