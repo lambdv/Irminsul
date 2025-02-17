@@ -9,7 +9,7 @@ import { getAssetURL } from '@/utils/getAssetURL'
 import WeaponPassives from './WeaponPassive'
 import Advertisment from '@/components/ui/Advertisment'
 import RightSidenav from '@/components/navigation/RightSidenav'
-
+import Loading from '@/app/loading'
 //page metadata
 export async function generateMetadata({params}) {
   const {id} = await params
@@ -23,19 +23,19 @@ export async function generateMetadata({params}) {
 }
 
 //statically generate all character pages from api at build time
-export async function generateStaticParams() {
-  const weapons = await getWeapons()
-  return weapons.map((weapon) => ({
-    id: weapon.id,
-    data: weapon
-  }))
-}
+// export async function generateStaticParams() {
+//   const weapons = await getWeapons()
+//   return weapons.map((weapon) => ({
+//     id: weapon.id,
+//     data: weapon
+//   }))
+// }
 
 export default async function WeaponPage({params}) {
   const {id} = await params
   const data = params.data ? params.data : await getWeapon(id)
   return (
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading />}>
         <WeaponHeader data={data}/>
         <RightSidenav>
           <br />

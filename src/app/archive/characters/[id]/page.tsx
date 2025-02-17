@@ -16,7 +16,8 @@ import { getAssetURL } from '@/utils/getAssetURL'
 import Link from "next/link"
 import Table from "@/components/archive/Table"
 import Advertisment from "@/components/ui/Advertisment"
-
+import Loading from "@/app/loading"
+import { cookies } from "next/headers"
 //page metadata
 export async function generateMetadata({params}) {
   const {id} = await params
@@ -31,13 +32,13 @@ export async function generateMetadata({params}) {
 }
 
 // statically generate all character pages from api at build
-export async function generateStaticParams() {
-  const characters = await getCharacters()
-  return characters.map((character) => ({
-    id: character.key,
-    data: character
-  }))
-}
+// export async function generateStaticParams() {
+//   const characters = await getCharacters()
+//   return characters.map((character) => ({
+//     id: character.key,
+//     data: character
+//   }))
+// }
 
 export default async function CharacterPage({params}) {
   // "use cache"
@@ -51,27 +52,29 @@ export default async function CharacterPage({params}) {
   const color = await getMainColor(getAssetURL("character", data.name, "splash.png"))
 
   return (
-      <Suspense fallback={<div>Loading...</div>}>
-        <CharacterHeader data={data}/>
-        <TableOfContents/>
-        <div id="pagecontent" className={ArchivePageCSS.archiveRecordContentContainer}>
-          <br/>
-          {/* <CharacterDetails data={data}/> */}
-          <CharacterBaseStats data={data}/>
-          <CharacterTalents data={data}/>
-          <CharacterPassives data={data}/>
-          <CharacterConstellations data={data}/>
-          <br/>
-          <Suspense fallback={<div>Loading...</div>}> 
-            <CommentSection pageID={data.key} color={color} />
-          </Suspense>
+      <Suspense fallback={<Loading />}>
+          <CharacterHeader data={data}/>
+          <TableOfContents/>
+          <div id="pagecontent" className={ArchivePageCSS.archiveRecordContentContainer}>
+            <br/>
+            {/* <CharacterDetails data={data}/> */}
+            <CharacterBaseStats data={data}/>
+            <CharacterTalents data={data}/>
+            <CharacterPassives data={data}/>
+            <CharacterConstellations data={data}/>
+            <br/>
+            <Suspense fallback={<div>Loading...</div>}> 
+              <CommentSection pageID={data.key} color={color} />
+            </Suspense>
+          </div>
           <Advertisment type="card"/>
-        </div>
       </Suspense>
   )
 }
 
-function CharacterHeader({data}){
+async function CharacterHeader({data}){
+  const cookieStore = await cookies()
+  const theme = cookieStore.get("theme")?.value || "dark"
   return (
     <Header 
       title={data.name}
@@ -84,12 +87,12 @@ function CharacterHeader({data}){
             <i key={index} className="material-symbols-rounded" style={{color: '#FFD700', marginRight: "-5px"}}>star</i>
           ))}
           <p> </p>
-          <Image src={`/imgs/icons/${data.vision}.png`} alt={data.name} width={100} height={100} style={{width: "20px", height: "20px"}}/>
-          <Image src={`/imgs/icons/${data.weapon}.png`} alt={data.name} width={100} height={100} style={{width: "25px", height: "25px"}}/>
-          <Image src={`/imgs/icons/${data.region}.png`} alt={data.name} width={100} height={100} style={{width: "25px", height: "25px"}}/>
+          <Image src={`/imgs/icons/${data.vision}.png`} alt={data.vision} width={100} height={100} style={{width: "20px", height: "20px"}}/>
+          <Image src={`/imgs/icons/${data.weapon}.png`} alt={data.weapon} width={100} height={100} style={{width: "25px", height: "25px", filter: theme === "dark" ? "none" : "invert(1)"}}/>
+          <Image src={`/imgs/icons/${data.region}.png`} alt={data.region} width={100} height={100} style={{width: "25px", height: "25px", filter: theme === "dark" ? "none" : "invert(1)"}}/>
+
           {/* <span style={{fontSize: "12px", backgroundColor: "#181818", color: "var(--primary-color)", padding: "3px 12px", borderRadius: "50px"}}>
             {data.release_date}
-
           </span> */}
         </div>
       </div>

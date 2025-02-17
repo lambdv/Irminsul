@@ -5,6 +5,7 @@ export type Character = {
     title: string
     rarity: number
     element: string
+    vision: string
     weapon: string
     release_date: string
     release_date_epoch: number
@@ -15,13 +16,13 @@ export type Character = {
     special_dish: string
     alternate_title?: string
     description: string
+    ascension_stat: string
     
     base_stats: CharacterBaseStat[]
     ascension_costs: CharacterAscensionCost[]
     talents: CharacterTalent[]
     passives: CharacterPassive[]
     constellations: CharacterConstellation[]
-    ascension_stat: string
 }
 
 type CharacterBaseStat = {
@@ -42,25 +43,21 @@ type CharacterConstellation = {
 }
 
 type CharacterTalent = {
-    name: string;
-    type: string;
-    description: string;
-    attributes?: CharacterTalentAttribute[];
-    properties?: CharacterTalentProperty[];
+    name: string
+    type: string
+    description: string
+    attributes?: {
+        hit: string
+        values: (number | string)[]
+    }[]
+    properties: any[]
 }
-
-type CharacterTalentAttribute = {
-    hit: string;
-    values: number[];
-}
-
-type CharacterTalentProperty = any;
-
 
 type CharacterPassive = {
     name: string
     type: string
     description: string
+    properties?: any[]
 }
 
 type CharacterAscensionCost = {

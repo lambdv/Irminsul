@@ -6,7 +6,7 @@ import explorePageCSS from '@/components/explore/explorePage.module.css'
 import modalCSS from '@/components/ui/modal.module.css'
 import Modal from '@/components/ui/Modal'
 import Btn from '@/components/ui/Btn'
-import Tag from '@/components/ui/Tag'
+import FilterBtn from '@/components/ui/FilterBtn'
 import { CharacterFilterStore } from '@/store/CharacterFilters'
 import { WeaponFilterStore } from '@/store/WeaponFilters'
 import { ArtifactFilterStore } from '@/store/ArtifactFilters'
@@ -40,7 +40,9 @@ export default function BrowseHeader(props: {
 
     //toggle adding/removing a tag from the tempFilters list
     const toggleTempTag = (e) => {
-        let tag = e.target.textContent //get tag label
+        let tag = e.target.querySelector('p')?.textContent || e.target.textContent.replace('check', '').trim() //get tag label from p tag or button text, removing check icon text
+
+        
         if(!tempFilters.includes(tag))
             setTempFilters([...tempFilters, tag]) //add tag to tempFilters
         else
@@ -49,7 +51,7 @@ export default function BrowseHeader(props: {
 
     //remove a tag from the selectedFilters list
     const removeSelectedTag = (e) => {
-        let tag = e.target.textContent //get tag label
+        let tag = e.target.textContent.replace('check', '').trim() //get tag label, removing check icon text
         setSelectedFilters(selectedFilters.filter((filter) => filter !== tag)) //remove tag from tempFilters
     }
 
@@ -79,10 +81,10 @@ export default function BrowseHeader(props: {
                 </div>
             </div>
             {selectedFilters.length !== 0 && <div className={explorePageCSS.activeTagsRail}>
-                <Tag onClick={() => setSelectedFilters([])} style={{border: "none", paddingLeft: "5px"}}>Clear All</Tag>
+                <FilterBtn onClick={() => setSelectedFilters([])} style={{border: "none", paddingLeft: "5px"}}>Clear All</FilterBtn>
                 
                 {selectedFilters.map((filter, index) => {
-                    return <Tag key={index} selected={true} onClick={removeSelectedTag}>{filter}</Tag> 
+                    return <FilterBtn key={index} selected={true} onClick={removeSelectedTag}>{filter}</FilterBtn> 
                 })}
                 </div>
             }
@@ -97,13 +99,13 @@ export default function BrowseHeader(props: {
                                 <label>{filterTitle}</label>
 
                                 {filterArray.map((tag, index) => ( 
-                                    <Tag 
+                                    <FilterBtn 
                                         key={`${filterTitle}-${tag}-${index}`} 
                                         onClick={toggleTempTag} 
                                         selected={tempFilters.includes(tag)}
                                     >
                                         {tag}
-                                    </Tag> 
+                                    </FilterBtn> 
                                 ))}
                             </div>
                         )

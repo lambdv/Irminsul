@@ -8,7 +8,7 @@ export default function Advertisment(props: { type: "card" | "banner" | "in-arti
       (window as any).adsbygoogle = (window as any).adsbygoogle || [];
       (window as any).adsbygoogle.push({});
     } catch (error: any) {
-      console.log(error.message);
+      //console.log(error.message);
     }
   }, []);
 
@@ -24,11 +24,26 @@ export default function Advertisment(props: { type: "card" | "banner" | "in-arti
       {/* AdSense ad */}
       <ins
         className="adsbygoogle"
-        style={{ display: "block" }}
+        style={{ 
+            display: "block",
+            width: "100%",
+            height: "auto",
+            borderRadius: "5px",
+            // padding: "10px",
+            margin: "10px",
+            overflow: "hidden",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+            fontSize: "10px",
+            fontFamily: "Arial, sans-serif",
+            fontWeight: "bold",
+        }}
         data-ad-client="ca-pub-1739492299738628"
         data-ad-slot="9046274057"
         data-ad-format="auto"
         data-full-width-responsive="true"
+
       ></ins>
     </>
   );

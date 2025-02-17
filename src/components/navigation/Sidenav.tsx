@@ -74,7 +74,6 @@ export default function Sidenav() {
         href={props.href} 
         className={SidenavCSS.sidenavLink +' '+ (onLinkedPage && SidenavCSS.active) + (!sideNavCollapsed ? ' waves-effect waves-light ripple ' : ' ')}
         onClick={() => handleSideNavLinkClick(props.href)}
-        style={{position: sideNavCollapsed ? (props.bottom ? 'absolute' : 'relative') : 'relative', bottom: sideNavCollapsed && props.bottom ? '60px' : 'auto'}}
       >
         <i className={SidenavCSS.sidenavLinkSymbol + ' material-symbols-rounded'}>
 
@@ -100,15 +99,15 @@ export default function Sidenav() {
         <SideNavLink href="/wishes" img={wishIcon} text="Banners"/> */}
         {/* <SideNavLink href="/teams" img={partyIcon} text="Teams"/> */}
 
-        <SideNavLink href="/erc" icon="bolt" text="ER Calc"/>
+        {/* <SideNavLink href="/erc" icon="bolt" text="ER Calc"/> */}
         {/* <SideNavLink href="https://github.com/lambdv/ParametricTransformer" icon="calculate" text="DMG Calc"/> */}
-
-        <SideNavLink href={session ? "https://donate.stripe.com/aEUbK9fJe7bi88wbII?prefilled_email=" + session.user.email : "/login"} icon="favorite" text="Donate" />
-        {/* <SideNavLink href="settings" icon="settings" text="Settings"/> */}
+          {/* session ? "https://donate.stripe.com/aEUbK9fJe7bi88wbII?prefilled_email=" + session.user.email : "/login" */}
+        <SideNavLink href="/donate" icon="favorite" text="Donate" bottom/>
+        <SideNavLink href="/settings" icon="settings" text="Settings" bottom/>
       </nav>
 
 
-      {!sideNavCollapsed && windowWidth < 1500 && 
+      {!sideNavCollapsed && 
         <Overlay zIndex={2} onClick={() => setSideNavCollapsed(true)}></Overlay>
       }
     </>

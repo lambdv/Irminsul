@@ -1,16 +1,18 @@
 .rightsidenav{
-    width: 20rem;
+    width: 10%;
     position: fixed;
-    height: 60%;
+    height: auto;
+    max-height: 90%;
     overflow: hidden;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     padding-top:5px;
-    right: 60px;
+    right: calc(10% - 12px);
     top:60px;
     z-index:0;
     transition: 0s;
+    background-color: transparent;
 }
 
 .rightsidenav ul{

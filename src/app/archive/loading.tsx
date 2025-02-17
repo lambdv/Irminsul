@@ -2,7 +2,7 @@ import { Skeleton } from '@mui/material'
 import React from 'react'
 import explorePageCSS from '@/components/explore/explorePage.module.css'
 import ItemCSS from '@/components/explore/item.module.css'
-
+import Loading from '../loading'
 function ItemSkelleton() {
   return (<>
       <div className={ItemCSS.item + ` item `}>
@@ -14,6 +14,8 @@ function ItemSkelleton() {
 }
 
 export default function loading() {
+  if(true)
+    return <Loading />
   return (
     <div style={{"overflow":"hidden"}} className="">
       <div className='width-500 height-500'></div>

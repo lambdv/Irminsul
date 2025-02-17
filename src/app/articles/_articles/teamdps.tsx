@@ -58,30 +58,6 @@ function Body(){
         <TeamdpsList />
 
         <br />
-        <h1 className="text-2xl font-bold mb-2" id="">Analysis</h1>
-        <section>
-            <li>neuvillette is pretty good</li>
-            <li>diluc with xianyun is gives a team competitive with other good teams in terms of damage. this is less diluc doing things and more furina and xianyun. hu tao and gaming have similar-ish preforamnce with this team</li>
-            <li>100% collison plunge rate with 8 plunges is a optimisitc senario. more realistic team output would be using 50% collision rate and with 6 plunges. where you wait a bit inbetween each plunge to allow for furina hydro app to have time to apply</li>
-            <li>morganya is a team theorized before ayaka release and the primary target results gotten against 5 targets are very unrealistic. preformance is a lot closer to the single target result</li>
-            <li>the charlotte furina ayaka team is a very good option. it beats her old team premium team in terms of single target damage output on a sheet but may not be a strict upgrade due to ayaka damage being lower which doesn&apos;t play up to her strenths of nuking with all the damage coming from her burst window.</li>
-            <li>faruzan c6 gives xiao a hyper carry team on par in-terms of damage against his vv fav teams. this is with our assumptions and will scale better with more investment into xiao, such as a 5* weapon and senarios where focusing your damage output on xiao will preform better than teams with off field damage.</li>
-            <li>xiao and wanderer output is similar. preforamnce would come down to the gameplay difference in aoe and rotation lengths. xiao having longer rotations to produce his output but doing more damage in single target/bossing scenarios where collsion plunges are more reliable</li>
-            <li>aggrevate gives keqing a viable team. note that c6 fischl is doing a lot of heavy lifting here still</li>
-            <li>lisa with ttods is better than sara before c6</li>
-            <li>bennett furina teams gives a high damage option for hu tao on par with vv vape while being comfy like double hydro. due to the weird single target healing rotation here reducing bennett uptime and increasing rotation length the dps is lower than vv vape but dpr is simliar.
-                you could say it does&apos;t &quot;beat&quot; her vv vape team but it does beat her old double hydro teams
-            </li>
-            <li>kokomi/mona&apos;s ttds and totm buffs outscale xingqiu damage in ayaka teams</li>
-
-            <li>although international&apos;s teamdps doesn&apos;t sheet well, its damage output is still pretty good and not that far behind the other best options. again the gameplay of international is what makes the team strong</li>
-            <li>double hydro hyperbloom team is good. its damage competes with the other best options. remember that it still requires investment. yelan, nahida and c6 xingqiu are not free, em artifacts with a set bonus are not nessecarly significantly cheapter than other carries.
-                the damage output being higher than raidens other teams being used to say that the team is better than raidens other teams is also a nessecarly true statement and does ignore a lot of nuance.
-            </li>
-            <li>2e rotations in vv vape hutao leads to a dps loss on sheet compared to 1e rotations and just running higher er on yelan due to buff uptime on hutao being worse</li>
-        </section>
-
-        <br />
     </>
 }
 

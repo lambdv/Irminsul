@@ -12,16 +12,20 @@ import DangerZoneSettings from './dangerZoneSettings'
 import RoundBtn from '@/components/ui/RoundBtn'
 import GoBack from './goBack'
 import APISettings from './APISettings'
+import { createTheme } from '@mui/material/styles'
 
 export const metadata = {
     title: 'Settings | Irminsul',
     description: '',
 }
 
+
+
 export default async function Settings() {
     const session = await auth()
     const account = await db.select().from(accountsTable).where(eq(accountsTable.userId, session?.user?.id))
     const isLoggedIn = session?.user?.email ? true : false
+    
     return (
     <div className={settingsStyle.settingsWrapper}>
         <div className='flex items-center gap-2'>
@@ -37,29 +41,24 @@ export default async function Settings() {
         )}
 
 
-        <br />
-
         <section className={settingsStyle.settingsContent}>
-            <h1 className="mb-2">Prefernces</h1>
+            <h1 className="mb-0 flex items-center gap-2">Prefernces</h1>
             <PreferencesSettings />
         </section>
 
-        <br />
 
         <section className={settingsStyle.settingsContent}>
-            <h1 className="mb-2">API</h1>
+            <h1 className="mb-0 flex items-center gap-2">API <p className="text-sm text-gray-500">(Experimental)</p></h1>
             <APISettings />
         </section>
 
 
-        <br />
-
-        {isLoggedIn && (
+        {/* {isLoggedIn && (
             <section className={settingsStyle.settingsContent}>
                 <h1 className="mb-2">Danger Zone</h1>
                 <DangerZoneSettings />
             </section>
-        )}
+        )} */}
 
     </div>
 

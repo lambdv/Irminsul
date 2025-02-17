@@ -10,17 +10,11 @@ import { createResource } from '@/lib/ai/resources'
 import { generateEmbeddings } from '@/lib/ai/embedding'
 import { eq } from 'drizzle-orm'
 import { revalidatePath } from 'next/cache'
+import { isAdmin } from '@/app/(auth)/auth'
 
-async function isAdmin(){
-    if (!isAuthenticated())
-        redirect('/login')
-    const user = await getUserFromSession()
-    if(user.userId !== "d4882fcc-8326-4fbb-8b32-d09c0fb86875")
-        redirect('/')
-}
 
 export default async function Page() {
-    await isAdmin()
+    // await isAdmin()
 
     const resources = await db.select().from(resourcesTable)
     const embeddings = await db.select().from(embeddingsTable)

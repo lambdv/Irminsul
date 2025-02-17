@@ -10,6 +10,7 @@ import { verificationTokensTable } from "@/db/schema/token"
 import { eq } from "drizzle-orm"
 import { cookies } from "next/headers"
 import React from "react"
+import { redirect } from "next/navigation"
  
 const adapter = DrizzleAdapter(db, {
   usersTable: usersTable,
@@ -71,4 +72,15 @@ export const getUserFromSession = async () => {
   const dbSession = await db.select().from(sessionsTable).where(eq(sessionsTable.sessionToken, sessionToken))
   if(dbSession.length === 0) return null
   return dbSession[0]
+}
+export async function isAdmin(){
+  if (!await isAuthenticated()){
+    return false
+  }
+  const user = await getUserFromSession()
+  if(!user) return false
+  if(user.userId === "d4882fcc-8326-4fbb-8b32-d09c0fb86875") {
+    return true
+  }
+  return false
 }

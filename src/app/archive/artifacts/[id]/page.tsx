@@ -7,6 +7,7 @@ import CommentSection from "@/components/ui/CommentSection"
 import { getAssetURL } from '@/utils/getAssetURL'
 import RightSidenav from '@/components/navigation/RightSidenav'
 import Advertisment from '@/components/ui/Advertisment'
+import Loading from '@/app/loading'
 
 //page metadata
 export async function generateMetadata({params}) {
@@ -21,20 +22,20 @@ export async function generateMetadata({params}) {
 }
 
 //statically generate all character pages from api at build time
-export async function generateStaticParams() {
-  const artifacts = await getArtifacts();
-  return artifacts.map((artifact) => ({
-    id: artifact.id,
-    data: artifact
-  }));
-}
+// export async function generateStaticParams() {
+//   const artifacts = await getArtifacts();
+//   return artifacts.map((artifact) => ({
+//     id: artifact.id,
+//     data: artifact
+//   }));
+// }
 
 
 export default async function ArtifactPage({params}) {
   const {id} = await params
   const data = params.data ? params.data : await getArtifact(id)
   return (
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading />}>
         <ArtifactHeader data={data} />
         <RightSidenav>
           <br />

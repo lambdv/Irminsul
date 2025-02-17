@@ -1,10 +1,26 @@
 import { NextResponse, NextRequest } from 'next/server'
 import { getToken } from "next-auth/jwt";
 import { cookies } from 'next/headers'
+import { isAdmin } from '@/app/(auth)/auth'
+
+export const config = {
+    runtime: 'experimental-edge',
+    matcher: [
+        '/admin/:path*',
+        '/characters/:path*',
+        '/weapons/:path*',
+        '/artifacts/:path*'
+    ]
+}
 
 export async function middleware(req: NextRequest) {
     const pathname = req.nextUrl.pathname
-    const cookieStore = await cookies()
+
+    if(pathname.startsWith('/admin')){
+        const allowed = await isAdmin()
+        if(!allowed)
+            return NextResponse.redirect(new URL('/', req.url))
+    }
 
     if(pathname.startsWith('/characters/'))
         return NextResponse.redirect(new URL('/archive/characters/' + pathname.split('/')[2], req.url))
@@ -21,10 +37,3 @@ export async function middleware(req: NextRequest) {
 
     return NextResponse.next()
 }
-
-// export const config = {
-//     matcher: [ 
-//         '/seelie/:path*', 
-//         '/archive/:path*',
-//     ]
-// }

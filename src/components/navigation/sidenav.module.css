@@ -10,15 +10,13 @@
     padding-top: 5px;
     z-index: 10;
     display: block;
-    /* background-color: #1f1f1f; */
     transition: transform 0.3s ease-in-out;
 }
 
 .sidenavCollapsed {
     /* width: 90px; */
-    width: 6.5rem;
-    padding:10px;
-    /* background-color:rgb(205, 91, 91); */
+    width: 5.5rem;
+    padding:10px 5px;
     transition: ease-in-out 0.3s;
 }
 
@@ -47,10 +45,11 @@
     /* padding: 10px; */
     padding: 0px;
     margin:0px;
-    color: white;
+    color: var(--text-color);
     display: block;
     margin-bottom: 5px;
     border-radius: 20px;
+
 
     margin-left: auto;
     margin-right: auto;
@@ -65,12 +64,12 @@
         position: fixed;
         display: block;
         height: 100%;
-        background-color: #1f1f1f;
         z-index: 2;
         animation: slideIn 0.2s forwards;
+
     }
     .sidenavCollapsed {
-        background-color: transparent;
+        /* background-color: transparent; */
         animation: none;
         transition: 0s ease;
     }
@@ -80,6 +79,10 @@
 /** css window width condtional css */
 /* @media (max-width: 768px) { */
 @media (max-width: 1200px) {
+    .sidenav{
+        background-color: var(--elevated-color);
+
+    }
     .sidenavCollapsing{
         animation: slideOut 0.2s forwards;
     }
@@ -87,8 +90,6 @@
         display: none;
     }
 }
-
-
 
 @keyframes slideIn {
     0% {
@@ -110,9 +111,10 @@
 }
 
 .sidenav .sidenavLink:hover{
-    background-color: #1E1E1E;
+    background-color: var(--elevation-color);
     cursor: pointer;
 }
+
 
 .sidenavCollapsed .sidenavLink:hover{
     background-color: transparent;
@@ -148,15 +150,15 @@
 }
   
 .sidenav .active{
-    background-color: rgb(53, 53, 53);
+    background-color: var(--elevated-color);
 }
 
 .sidenav .active:hover{
-    background-color: rgb(53, 53, 53);
+    background-color: var(--elevated-color);
 }
 
 .sidenav .active p{
-    color : #f5f5f5;
+    color: var(--text-color);
 }
 
 .sidenavCollapsed .active{
@@ -179,7 +181,6 @@
     -moz-user-select: none;
     -ms-user-select: none;    
     transition: 0.2s ease-in;
-
 }
 
 
@@ -213,7 +214,7 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    width: 30px;
+
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -224,22 +225,32 @@
     margin-left: -10px;
 }
 
+[data-theme="light"] .sidenavLinkSymbol img{ 
+    filter: invert(1);
+}
+
 .sidenavCollapsed .active .sidenavLinkSymbol{
-    color: #f5f5f5;
-    background-color: rgb(53, 53, 53);
+    color: var(--text-color);
+    /* background-color: rgb(53, 53, 53); */
+    background-color: var(--elevated-color);
+
     width: 100%;
     padding: 5px;
     border-radius: 100px;
+
 }
 
 .sidenavCollapsed .sidenavLink:hover 
     .sidenavLinkSymbol{
-    background-color: #1E1E1E;
+    /* background-color: var(--surface-container-highest); */
+    /* background-color: rgb(53, 53, 53, 0.8); */
+    background-color: var(--elevated-color);
+
     cursor: pointer;
 }
 
-.sidenavCollapsed .active:hover 
-    .sidenavLinkSymbol{
-    background-color: rgb(53, 53, 53);
+.sidenavCollapsed .active:hover .sidenavLinkSymbol{
+    /* background-color: rgb(53, 53, 53); */
+    background-color: var(--elevated-color);
     cursor: pointer;
 }

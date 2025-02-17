@@ -11,6 +11,7 @@ import Btn from "@/components/ui/Btn"
 import { getSession, signIn, signOut, useSession } from "next-auth/react"
 import { auth } from "@/app/(auth)/auth"
 import Image from "next/image"
+import RoundBtn from "../ui/RoundBtn"
 /**
  * Top navigation bar component
  * @note displayed at the top of every page
@@ -27,7 +28,6 @@ export default function Topnav() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [])
-
 
   return (
     <>
@@ -99,11 +99,18 @@ function CenterContainer(props: any){
 function LeftContainer(){
   const { toggleSideNavCollapsed } = NavigationStore()
   const websiteName = "Irminsul"
+  
   return (
     <div id="topnavLeft" className={TopnavCSS.hamburger}>
-      <button className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '} onClick={ toggleSideNavCollapsed }>
+      {/* <button className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '} onClick={ toggleSideNavCollapsed }>
         <i className="material-symbols-outlined" >menu</i>
-      </button>
+      </button> */}
+      <RoundBtn 
+        icon="menu"
+        onClick={toggleSideNavCollapsed}
+        className={TopnavCSS.hamburgerBtn}
+      />
+        
       <Link href="/">
         <p id={TopnavCSS.logo}>{websiteName} <span>Beta</span></p>
       </Link>
@@ -129,15 +136,20 @@ function LeftContainer(){
     <div id="topnavRight" className={TopnavCSS.fries + " " + TopnavCSS.hamburger}>
 
       <div className={TopnavCSS.mobileOnly}>
-        <button 
+        {/* <button 
               className={TopnavCSS.mobileOnly + " " + TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '}
               onClick={() => SearchStore.getState().setShowPallette(true)}
             >
           <i className="material-symbols-outlined">search</i>
-        </button>
+        </button> */}
+        <RoundBtn 
+          icon="search"
+          onClick={() => SearchStore.getState().setShowPallette(true)}
+          className={TopnavCSS.hamburgerBtn}
+        />
       </div>
 
-      <div style={{marginTop: "5px", marginLeft: "8px"}}>
+      <div className={TopnavCSS.userDropdownContainer}>
         {session?.user ?
           <>
               <div className="relative">
@@ -145,41 +157,34 @@ function LeftContainer(){
                   <Image 
                     src={session?.user?.image} 
                     alt="User Avatar" 
-                    className="w-10 h-10 rounded-full p-0 cursor-pointer"
+                    className={TopnavCSS.userAvatar}
                     width={40}
                     height={40}
                     unoptimized
                   />
                 </button>
                 <div 
-                  className={`absolute right-0 mt-2 w-48 bg-[#0e0e0e] rounded-md shadow-lg py-1 transition-all duration-200 ease-in-out transform origin-top z-10 ${
-                    showDropdown ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'
-                  }`}
+                  className={showDropdown ? TopnavCSS.dropdownMenu : TopnavCSS.dropdownMenuHidden}
                 >
-                  <Link href="/settings" onClick={() => setShowDropdown(false)} className="block w-full text-left px-4 py-2 text-sm hover:bg-[#4747477c]">
-                      <div className="flex items-center gap-2">
-                        <span className="material-symbols-rounded" style={{fontSize: "16px"}}>settings</span>
+                  <Link href="/settings" onClick={() => setShowDropdown(false)} className={TopnavCSS.dropdownMenuItem}>
+                      <div className={TopnavCSS.dropdownMenuItemContent}>
+                        <span className={`material-symbols-rounded ${TopnavCSS.dropdownMenuIcon}`}>settings</span>
                         Settings
                       </div>
                   </Link>
 
-                  <button onClick={() => signOut()} className="block w-full text-left px-4 py-2 text-sm hover:bg-[#4747477c]">
-                    <div className="flex items-center gap-2">
-                      <span className="material-symbols-rounded" style={{fontSize: "16px"}}>logout</span>
+                  <button onClick={() => signOut()} className={TopnavCSS.dropdownMenuItem}>
+                    <div className={TopnavCSS.dropdownMenuItemContent}>
+                      <span className={`material-symbols-rounded ${TopnavCSS.dropdownMenuIcon}`}>logout</span>
                       Sign out
                     </div>
                   </button>
                 </div>
                 {showDropdown && (
                   <div 
-                    className="fixed inset-0 z-[-1]"
-                    style={{zIndex: "2", 
-                      //backgroundColor: "rgba(0, 0, 0, 0.5)"
-                    }}
+                    className={TopnavCSS.dropdownOverlay}
                     onClick={() => setShowDropdown(false)}
                   />
-
-
                 )}
               </div>
           </>

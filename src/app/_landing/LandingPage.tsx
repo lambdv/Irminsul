@@ -26,50 +26,47 @@ export default async function LandingPage() {
     return (
         <div className={styles.homePageContainer} style={{}}>
 
-            <RightSidenav>
-                <br />
-                <Advertisment type="card"/>
-            </RightSidenav>
-
             {isLoggedIn ? 
-            <>
-
-
-
-            </>
-            :  
-             
-            <div  style={{
-                borderRadius: '14px',
-                padding: '0rem 2rem',
-                textAlign: 'left',
-                margin: '0rem 1.2rem',
-                marginBottom: '-1.5rem',
-            }}>
-                <h1 style={{fontSize: '2.5rem', fontFamily: 'ingame', fontWeight: '500',}}>Irminsul.moe</h1>
-                <p className={styles.subtitle} style={{
+                <></> :  
+                <div style={{
+                    borderRadius: '14px',
+                    padding: '0rem 2rem',
                     textAlign: 'left',
-                    margin: '0.5rem 0 0 0',
-                    padding: 0,
-                    fontSize: '0.9rem'
-                }}>Repository for all metagaming information in Teyvat</p>
-            </div>
+                    margin: '0rem 1.2rem',
+                    marginBottom: '-1.5rem',
+                }}>
+                    <h1 style={{fontSize: '2.5rem', fontFamily: 'ingame', fontWeight: '500',}}>Irminsul.moe</h1>
+                    <p className={styles.subtitle} style={{
+                        textAlign: 'left',
+                        margin: '0.5rem 0 0 0',
+                        padding: 0,
+                        fontSize: '0.9rem'
+                    }}>Repository for all metagaming information in Teyvat</p>
+                </div>
             }
-
 
 
             <div className={styles.bentoGrid}>
                 <div className={`${styles.bentoItem} ${styles.featured}`}>
                     <WishBanner />
                 </div>
-                
+
+                <RightSidenav>
+                    <div className={`${styles.bentoItem} ${styles.ad}`}>
+                        <br />
+                        <Advertisment type="card"/>
+                    </div>
+                </RightSidenav>
+
+  
+
                 <div className={`${styles.bentoItem} ${styles.serverTime}`}>
                     <ServerTimer />
                 </div>
 
 
                 <div className={`${styles.bentoItem} ${styles.quickLinks}`}>
-                    <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
+                    <h3 className="text-xl font-semibold mb-4" style={{color: 'var(--text-color)'}}>Quick Links</h3>
                     <div className={styles.linkGrid}>
                         <Link href="/archive/characters" style={{
                             display: 'flex',
@@ -88,11 +85,9 @@ export default async function LandingPage() {
                                 height={24} 
                                 style={{objectFit: 'contain'}}
                             />
-                            <span style={{
-                                fontSize: '0.9rem',
-                                fontWeight: 500
-                            }}>Characters</span>
+                            <span className="text-sm font-semibold">Characters</span>
                         </Link>
+
 
                         <Link href="/archive/weapons" style={{
                             display: 'flex',
@@ -105,10 +100,7 @@ export default async function LandingPage() {
                             backdropFilter: 'blur(4px)'
                         }}>
                             <Image src="/imgs/icons/weaponIcon.png" alt="Weapons" width={24} height={24} style={{objectFit: 'contain'}} />
-                            <span style={{
-                                fontSize: '0.9rem',
-                                fontWeight: 500
-                            }}>Weapons</span>
+                            <span className="text-sm font-semibold">Weapons</span>
                         </Link>
 
                         <Link href="/archive/artifacts" style={{
@@ -122,11 +114,9 @@ export default async function LandingPage() {
                             backdropFilter: 'blur(4px)'
                         }}>
                             <Image src="/imgs/icons/artifactIcon.png" alt="Artifacts" width={24} height={24} style={{objectFit: 'contain'}} />
-                            <span style={{
-                                fontSize: '0.9rem',
-                                fontWeight: 500
-                            }}>Artifacts</span>
+                            <span className="text-sm font-semibold">Artifacts</span>
                         </Link>
+
 
                         <Link href="/articles" style={{
                             display: 'flex',
@@ -191,7 +181,7 @@ export default async function LandingPage() {
 
                 
                 <div className={`${styles.bentoItem} ${styles.latestArticles}`}>
-                    <h3 className="text-xl font-semibold mb-4">Latest Articles</h3>
+                    <h3 className="text-xl font-semibold mb-4" style={{color: 'var(--text-color)'}}>Latest Articles</h3>
                     <div className={styles.articlesList} style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
@@ -240,8 +230,8 @@ export default async function LandingPage() {
 
                 <div className={`${styles.bentoItem} ${styles.latestContent} overflow-hidden`}>
                     <div className={styles.latestSection}>
-                        <h3 className="text-xl font-semibold mb-4">Latest Characters</h3>
-                        <div className="flex flex-row gap-4" role="list" aria-label="Latest characters horizontal scroll">
+                        <h3 className="text-xl font-semibold mb-4" style={{color: 'var(--text-color)'}}>Latest Characters</h3>
+                        <div className="flex flex-row" role="list" aria-label="Latest characters horizontal scroll">
 
                             {characters.map((char) => (
                                 <div key={char.id} role="listitem">
@@ -259,8 +249,8 @@ export default async function LandingPage() {
                     </div>
 
                     <div className={styles.latestSection}>
-                        <h3 className="text-xl font-semibold mb-4">Latest Weapons</h3>
-                        <div className="flex flex-row gap-4" role="list" aria-label="Latest weapons horizontal scroll">
+                        <h3 className="text-xl font-semibold mb-4" style={{color: 'var(--text-color)'}}>Latest Weapons</h3>
+                        <div className="flex flex-row" role="list" aria-label="Latest weapons horizontal scroll">
 
                             {weapons.map((weapon) => (
                                 <div key={weapon.id} role="listitem">
@@ -277,12 +267,13 @@ export default async function LandingPage() {
                     </div>
 
                     <div className={styles.latestSection}>
-                        <h3 className="text-xl font-semibold mb-4">Latest Artifacts</h3>
-                        <div className="flex flex-row gap-4" role="list" aria-label="Latest artifacts horizontal scroll">
+                        <h3 className="text-xl font-semibold mb-4" style={{color: 'var(--text-color)'}}>Latest Artifacts</h3>
+                        <div className="flex flex-row" role="list" aria-label="Latest artifacts horizontal scroll">
 
                             {artifacts.map((artifact) => (
                                 <div key={artifact.id} role="listitem">
                                     <Item
+
                                         category="artifact"
                                         src={getAssetURL("artifact", artifact.id, "flower.png")}
                                         name={artifact.name}

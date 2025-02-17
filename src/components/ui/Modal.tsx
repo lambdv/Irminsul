@@ -1,6 +1,8 @@
+"use client"
 import modalCSS from './modal.module.css'
 import RoundBtn from '@/components/ui/RoundBtn'
 import Overlay from './Overlay'
+import { useEffect } from 'react'
 
 export default function Modal(props) {
 
@@ -8,6 +10,17 @@ export default function Modal(props) {
         if (e.target === e.currentTarget) 
             props.toggle()
     }
+
+    useEffect(() => {
+        const handleEscape = (e) => {
+            if (e.key === 'Escape' && props.toggle) {
+                props.toggle()
+            }
+        }
+
+        document.addEventListener('keydown', handleEscape)
+        return () => document.removeEventListener('keydown', handleEscape)
+    }   )
 
     return (
         <Overlay zIndex={50} onClick={handleClose}>

@@ -1,5 +1,3 @@
-
-
 .modal{
     background-color: rgb(31, 31, 31);
     display: block;
@@ -16,14 +14,22 @@
     text-align: left;
     padding: 15px;
     border-radius: 5px;
-    border: solid 1px rgb(49, 49, 49);
+    /* border: solid 1px rgb(49, 49, 49); */
 
     animation: slideDown 0.5s forwards;
     opacity: 0;
 
     width: 800px;
     height: auto;
+    color: var(--text-color);
 }
+
+[data-theme="light"] .modal{
+    background-color: rgb(240, 240, 240);
+    /* border: solid 1px rgb(190, 190, 190); */
+}
+
+
 
 @keyframes slideDown {
     from {

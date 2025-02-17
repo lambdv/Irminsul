@@ -17,7 +17,6 @@
 }
 
 .settingsTitle {
-    color: #fff;
     font-size: 1.5rem;
     font-weight: 200;
     position: relative;
@@ -31,11 +30,15 @@
     background-color: #141414;
     padding:1.2rem 1.5rem;
     border-radius: 5px;
+    margin-bottom: 1rem;
 
 }
 
+[data-theme="light"] .settingsContent {
+    background-color: #eaeaea;
+}
+
 .settingsContent h1 {
-    color: #fff;
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 1rem;

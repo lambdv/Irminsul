@@ -16,7 +16,39 @@ export async function changeUsername(newUsername: string) {
     if (!session)
         return { error: 'Unauthorized' }
     //drizzle
-    console.log(newUsername)
+    await db
+        .update(usersTable)
+        .set({
+            [usersTable.name.name]: newUsername
+        })
+        .where(eq(usersTable.id, session.user.id));
+
+    revalidatePath('/')
+}
+
+export async function clearAccountPfp() {
+    const session = await auth()
+    if (!session)
+        return { error: 'Unauthorized' }
+    
+    await db.update(usersTable).set({
+        [usersTable.image.name]: "/imgs/icons/defaultavatar.png"
+    }).where(eq(usersTable.id, session.user.id))
+
+    revalidatePath('/')
+
+}
+
+export async function changeAccountPfp(pfpUrl: string) {
+    const session = await auth()
+    if (!session)
+        return { error: 'Unauthorized' }
+
+    await db.update(usersTable).set({
+        [usersTable.image.name]: pfpUrl
+    }).where(eq(usersTable.id, session.user.id))
+
+    revalidatePath('/')
 }
 
 export async function purgeSessions() {
@@ -37,9 +69,6 @@ export async function purgeComments() {
     }).where(eq(commentsTable.userId, session.user.id))
 }
 
-
-
-
 export async function deleteAccount() {
     const session = await auth()
     if (!session)
@@ -57,7 +86,23 @@ export async function deleteAccount() {
     redirect('/')
 }
 
+export async function setApiAdaptorCookie(){
+    const cookieStore = await cookies()
+    const apiAdaptorCookie = cookieStore.get('apiAdaptor')
+}
 
+export async function setTheme(theme: 'light' | 'dark') {
+    const cookieStore = await cookies()
+    cookieStore.set('theme', theme, { path: '/' })
+    revalidatePath('/')
+}
+
+
+export async function setLanguage(language: string) {
+    const cookieStore = await cookies()
+    cookieStore.set('language', language, { path: '/' })
+    revalidatePath('/')
+}
 
 
 // export async function purgeComment(commentId: string) {

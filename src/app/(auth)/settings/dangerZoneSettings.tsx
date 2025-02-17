@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { deleteAccount, purgeComments } from './actions'
 import Modal from '@/components/ui/Modal'
-
+import { Button } from '@mui/material'
 export default function DangerZoneSettings() {
     const [deleteAccountModal, setDeleteAccountModal] = useState(false)
     const toggleDeleteAccountModal = () => {
@@ -16,9 +16,32 @@ export default function DangerZoneSettings() {
   return (
     <div>
         <div className="flex items-center gap-2">
+        
 
-          <button className="bg-[#eb4545] rounded-md p-1" onClick={togglePurgeCommentsModal}>Purge All Comments</button>
-          <button className="bg-[#eb4545] rounded-md p-1" onClick={toggleDeleteAccountModal}>Delete Account</button>
+          <Button
+            variant="contained"
+            onClick={togglePurgeCommentsModal}
+            sx={{
+              backgroundColor: '#eb4545',
+              '&:hover': {
+                backgroundColor: '#d13030',
+              }
+            }}
+          >
+            Purge All Comments
+          </Button>
+          <Button
+            variant="contained" 
+            onClick={toggleDeleteAccountModal}
+            sx={{
+              backgroundColor: '#eb4545',
+              '&:hover': {
+                backgroundColor: '#d13030',
+              }
+            }}
+          >
+            Delete Account
+          </Button>
 
           {
             deleteAccountModal && (

@@ -18,6 +18,8 @@ export default async function Header(props: {
     const headerBackground = { backgroundImage: props.bgImage ? `url(${props.bgImage})` : 'none', backgroundColor: props.color || color}
     const headerGradient = {backgroundImage: `linear-gradient(to left, rgba(${color.slice(4, -1)}, ${props.colorStrength || 0.2}), var(--background-color) 80%)`, backdropFilter: `blur(5px)`}
 
+    console.log(color)
+
     return (
         <div className={HeaderCSS.archiveRecordHeader} style={headerGlow}>
             <div className={HeaderCSS.archiveRecordHeaderWrapper} style={{...headerBackground, ...props.bgStyle}}>

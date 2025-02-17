@@ -1,4 +1,4 @@
-import { createCanvas, loadImage } from 'canvas'
+import sharp from 'sharp';
 
 export async function getMainColor(imageURL: string): Promise<string> {
     const fs = require('fs');
@@ -13,68 +13,67 @@ export async function getMainColor(imageURL: string): Promise<string> {
             }
         }
     } catch(e){console.log('Cache read error:', e)}
-    
 
     // If not in cache, process the image
-    let img;
-    try { 
-        // img = await loadImage(process.cwd() + '/public' + imageURL)
-        img = await loadImage(imageURL)      
-    } 
-    catch(e) { 
-        console.log('Image load error:', e);
-        return "rgb(165, 165, 165)" 
-    }
-
-    // Maintain aspect ratio while scaling down
-    const maxDimension = 250;
-    const scale = Math.min(maxDimension / img.width, maxDimension / img.height);
-    const width = Math.round(img.width * scale);
-    const height = Math.round(img.height * scale);
-
-    const canvas = createCanvas(width, height);
-    const ctx = canvas.getContext('2d');
-    
-    // Scale image down to canvas size
-    ctx.drawImage(img, 0, 0, width, height);
-    const {data} = ctx.getImageData(0, 0, width, height);
-
-    let maxCount = 0;
-    let dominantColor = 'rgb(0,0,0)';
-    
-    // Use object instead of Map for better performance
-    const colorCounts: {[key: string]: number} = {};
-
-    // Process pixels in chunks of 4 (r,g,b,a)
-    for (let i = 0; i < data.length; i += 4) {
-        // Skip transparent pixels
-        if (data[i + 3] < 128) continue;
-        
-        const color = `rgb(${data[i]},${data[i + 1]},${data[i + 2]})`;
-        const count = (colorCounts[color] || 0) + 1;
-        colorCounts[color] = count;
-
-        if (count > maxCount) {
-            maxCount = count;
-            dominantColor = color;
-        }
-    }
-
-    // Adjust brightness before caching
-    const adjustedColor = adjustBrightness(dominantColor);
-
-    // Save to cache
     try {
-        const cache = fs.existsSync(cachePath) 
-            ? JSON.parse(fs.readFileSync(cachePath, 'utf8'))
-            : {};
-        cache[imageURL] = adjustedColor;
-        fs.writeFileSync(cachePath, JSON.stringify(cache));
-    } catch (e) {
-        console.log('Cache write error:', e);
-    }
+        // Fetch the image
+        const response = await fetch(imageURL);
+        const buffer = await response.arrayBuffer();
 
-    return adjustedColor;
+        // Process with sharp
+        const image = sharp(Buffer.from(buffer));
+        
+        // Resize image maintaining aspect ratio
+        const maxDimension = 250;
+        const metadata = await image.metadata();
+        const scale = Math.min(maxDimension / (metadata.width || 1), maxDimension / (metadata.height || 1));
+        const width = Math.round((metadata.width || 1) * scale);
+        const height = Math.round((metadata.height || 1) * scale);
+        
+        image.resize(width, height);
+
+        const { data, info } = await image
+            .raw()
+            .toBuffer({ resolveWithObject: true });
+
+        let maxCount = 0;
+        let dominantColor = 'rgb(0,0,0)';
+        const colorCounts: {[key: string]: number} = {};
+
+        for (let i = 0; i < data.length; i += info.channels) {
+            // Skip transparent pixels
+            if (info.channels === 4 && data[i + 3] < 128) continue;
+            
+            const color = `rgb(${data[i]},${data[i + 1]},${data[i + 2]})`;
+            const count = (colorCounts[color] || 0) + 1;
+            colorCounts[color] = count;
+
+            if (count > maxCount) {
+                maxCount = count;
+                dominantColor = color;
+            }
+        }
+
+        // Adjust brightness before caching
+        const adjustedColor = adjustBrightness(dominantColor);
+
+        // Save to cache
+        try {
+            const cache = fs.existsSync(cachePath) 
+                ? JSON.parse(fs.readFileSync(cachePath, 'utf8'))
+                : {};
+            cache[imageURL] = adjustedColor;
+            fs.writeFileSync(cachePath, JSON.stringify(cache));
+        } catch (e) {
+            console.log('Cache write error:', e);
+        }
+
+        return adjustedColor;
+
+    } catch (error) {
+        console.error('Error getting main color:', error);
+        return 'rgb(165, 165, 165)'; // Fallback color
+    }
 }
 
 function adjustBrightness(color: string, targetBrightness: number = 0.6): string {
@@ -97,10 +96,3 @@ function adjustBrightness(color: string, targetBrightness: number = 0.6): string
     
     return `rgb(${newR},${newG},${newB})`;
 }
-
-// const elementColorBias: { [key: string]: { r: number, g: number, b: number } } = {
-//     geo: { r: 255, g: 165, b: 0 },    // Orange
-//     pyro: { r: 255, g: 0, b: 0 },     // Red
-//     hydro: { r: 0, g: 191, b: 255 },  // Blue
-//     electro: { r: 147, g: 0, b: 255 }, // Purple
-//     dendro: { r: 50, g: 205, b: 50 },  // Green

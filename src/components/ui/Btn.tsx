@@ -11,7 +11,15 @@ export default function Btn(props: {
 }) {
 
   return (
-    <button className={`${ButtonCSS.btn} waves-effect waves-light ripple ${props.className} flex`} onClick={props.onClick} type={props.type} style={props.style}>
+    <button className={
+      `${ButtonCSS.btn} 
+      waves-effect waves-light ripple 
+      ${props.className} 
+      flex`
+      } 
+      onClick={props.onClick} 
+      type={props.type} 
+      style={props.style}>
       <div>
         {props.children}
       </div>
