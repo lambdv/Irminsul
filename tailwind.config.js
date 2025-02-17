@@ -2,9 +2,7 @@
 module.exports = {
     darkMode: ["class"],
     content: [
-        "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-        "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-        './src/**/*.{html,js,ts,tsx,jsx,mdx}',
+        "./src/**/*.{js,ts,jsx,tsx}",
     ],
 
   theme: {
@@ -62,5 +60,5 @@ module.exports = {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
 };

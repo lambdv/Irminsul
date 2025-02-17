@@ -1,7 +1,7 @@
 "use client"
 import Table from "@/components/archive/Table"
 import TalentCSS from "@/components/archive/talent.module.css"
-import { CharacterTalentAttribute } from "@/types/character"
+// import { CharacterTalentAttribute } from "@/types/character"
 import Image from "next/image"
 import {useState} from "react"
 

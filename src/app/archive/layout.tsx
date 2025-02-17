@@ -1,5 +1,5 @@
 import React from 'react'
-import LeftSidenav from '@/components/navigation/LeftSidenav'
+// import LeftSidenav from '@/components/navigation/LeftSidenav'
 import Link from 'next/link'
 
 export default function Layout({children}: {children: React.ReactNode}) {

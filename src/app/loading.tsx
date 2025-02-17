@@ -4,7 +4,7 @@ export default function Loading() {
   //wait for 1 second server side
 
   return (
-    <div className="fixed inset-0 flex flex-col items-center bg-black bg-opacity-90">
+    <div className="fixed inset-0 flex flex-col items-center">
       <div className="flex-1 flex items-center" style={{marginTop: '-10rem'}}>
         <Icon />
       </div>

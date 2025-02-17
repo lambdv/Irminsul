@@ -5,7 +5,7 @@ import Topnav from "@/components/navigation/Topnav"
 import ClientWrapper from "@/components/navigation/ClientWrapper"
 import Footer from "@/components/navigation/Footer"
 import { SessionProvider } from "next-auth/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+// import { SpeedInsights } from "@vercel/speed-insights/next"
 import { cookies } from 'next/headers'
 import Head from "next/head"
 

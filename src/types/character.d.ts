@@ -46,11 +46,13 @@ type CharacterTalent = {
     name: string
     type: string
     description: string
-    attributes?: {
-        hit: string
-        values: (number | string)[]
-    }[]
+    attributes?: CharacterTalentAttribute[]
     properties: any[]
+}
+
+type CharacterTalentAttribute = {
+    hit: string
+    values: (number | string)[]
 }
 
 type CharacterPassive = {
