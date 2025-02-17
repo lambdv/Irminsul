@@ -64,8 +64,9 @@ type CharacterPassive = {
 
 type CharacterAscensionCost = {
     AscensionPhase: number
-    materials: {
-        name: string
-        amount: string
-    }[]
+    materials: CharacterAscensionMaterial[]
+}
+type CharacterAscensionMaterial = {
+    name: string
+    amount: string
 }
