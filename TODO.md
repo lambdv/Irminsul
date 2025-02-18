@@ -1,3 +1,12 @@
+1. 
+
+
+
+
+
+
+
+
 - seelie in prod https://platform.deepseek.com/api_keys
     - make rag better
     - hook up to deekseek
@@ -15,33 +24,6 @@
 
 #refactor
 - use sqlite db for vectors
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # featuers
 - tools (damage calc, er calc)
