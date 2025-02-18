@@ -26,11 +26,8 @@ export default function Advertisment(props: { type: "card" | "banner" | "in-arti
         className="adsbygoogle"
         style={{ 
             display: "block",
-            width: "100%",
             height: "auto",
-            borderRadius: "5px",
-            // padding: "10px",
-            margin: "10px",
+            borderRadius: "2px",
             overflow: "hidden",
             alignItems: "center",
             justifyContent: "center",
@@ -38,12 +35,13 @@ export default function Advertisment(props: { type: "card" | "banner" | "in-arti
             fontSize: "10px",
             fontFamily: "Arial, sans-serif",
             fontWeight: "bold",
+            backgroundColor: "#141414",
+            margin: "auto",
         }}
         data-ad-client="ca-pub-1739492299738628"
         data-ad-slot="9046274057"
         data-ad-format="auto"
         data-full-width-responsive="true"
-
       ></ins>
     </>
   );

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import styles from './index.module.css';
 
@@ -22,25 +22,6 @@ const bannerImages = [
 export default function WishBanner() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
-    const autoplayRef = useRef<NodeJS.Timeout>();
-    const userInteractedRef = useRef(false);
-
-    const startAutoplay = () => {
-        autoplayRef.current = setInterval(() => {
-            if (!userInteractedRef.current) {
-                handleNext();
-            }
-        }, 10000);
-    };
-
-    useEffect(() => {
-        startAutoplay();
-        return () => {
-            if (autoplayRef.current) {
-                clearInterval(autoplayRef.current);
-            }
-        };
-    }, []);
 
     const handleNext = () => {
         setIsTransitioning(true);
@@ -58,20 +39,11 @@ export default function WishBanner() {
         }, 300);
     };
 
-    const handleUserInteraction = (action: () => void) => {
-        userInteractedRef.current = true;
-        if (autoplayRef.current) {
-            clearInterval(autoplayRef.current);
-        }
-        action();
-        startAutoplay();
-    };
-
     return (
         <div className={styles.wishBanner}>
             <div className={styles.bannerContent}>
                 <button 
-                    onClick={() => handleUserInteraction(handlePrev)}
+                    onClick={handlePrev}
                     className={styles.carouselButton}
                     style={{ left: 20 }}
                     aria-label="Previous banner"
@@ -101,7 +73,7 @@ export default function WishBanner() {
                 </div>
 
                 <button 
-                    onClick={() => handleUserInteraction(handleNext)}
+                    onClick={handleNext}
                     className={styles.carouselButton}
                     style={{ right: 20 }}
                     aria-label="Next banner"
@@ -114,13 +86,13 @@ export default function WishBanner() {
                         <button
                             key={index}
                             className={`${styles.dot} ${index === currentIndex ? styles.activeDot : ''}`}
-                            onClick={() => handleUserInteraction(() => {
+                            onClick={() => {
                                 setIsTransitioning(true);
                                 setTimeout(() => {
                                     setCurrentIndex(index);
                                     setIsTransitioning(false);
                                 }, 300);
-                            })}
+                            }}
                             aria-label={`Go to banner ${index + 1}`}
                         />
                     ))}
