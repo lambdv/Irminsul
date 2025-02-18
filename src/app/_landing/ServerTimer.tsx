@@ -4,8 +4,8 @@ import styles from '@/app/_landing/index.module.css'
 
 const SERVERS = [
     { name: 'NA', offset: 6, color: '#4cbaff' },  // GMT-5 + 12 = GMT+7 (America)
-    { name: 'EU', offset: 12, color: '#59cd4e' },   // GMT+1 + 12 = GMT+13 (Europe)
-    { name: 'ASIA', offset: 19, color: '#773dff' }, // GMT+8 + 12 = GMT+20 (Asia)
+    { name: 'EU', offset: -36, color: '#59cd4e' },   // GMT+1 + 12 - 48 = GMT-35 (Europe)
+    { name: 'ASIA', offset: -29, color: '#773dff' }, // GMT+8 + 12 - 48 = GMT-28 (Asia)
 ];
 
 export default function ServerTimer() {
@@ -99,50 +99,45 @@ export default function ServerTimer() {
             <div className={styles.clockLegend}>
                 {SERVERS.map(server => {
                     const serverTime = getServerTime(server);
+                    
+                    // Calculate daily reset time
+                    const dailyReset = new Date(serverTime);
+                    dailyReset.setHours(4, 0, 0, 0);
+                    if (serverTime.getHours() >= 4) {
+                        dailyReset.setDate(dailyReset.getDate() + 1);
+                    }
+                    const dailyDiff = dailyReset.getTime() - serverTime.getTime();
+                    const dailyHours = Math.floor(dailyDiff / (1000 * 60 * 60));
+                    const dailyMinutes = Math.floor((dailyDiff % (1000 * 60 * 60)) / (1000 * 60));
+                    const dailyResetText = `${dailyHours}h ${dailyMinutes}m till daily reset`;
+
+                    // Calculate weekly reset time
+                    const weeklyReset = new Date(serverTime);
+                    weeklyReset.setHours(4, 0, 0, 0);
+                    // Set to next Sunday 4:00 AM server time
+                    while (weeklyReset.getDay() !== 0) {
+                        weeklyReset.setDate(weeklyReset.getDate() + 1);
+                    }
+                    // If we're past 4 AM Sunday, move to next week
+                    if (serverTime.getDay() === 0 && serverTime.getHours() >= 4) {
+                        weeklyReset.setDate(weeklyReset.getDate() + 7);
+                    }
+                    const weeklyDiff = weeklyReset.getTime() - serverTime.getTime();
+                    const weeklyDays = Math.floor(weeklyDiff / (1000 * 60 * 60 * 24));
+                    const weeklyHours = Math.floor((weeklyDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const weeklyMinutes = Math.floor((weeklyDiff % (1000 * 60 * 60)) / (1000 * 60));
+                    const weeklyResetText = `${weeklyDays}d ${weeklyHours}h ${weeklyMinutes}m till weekly reset`;
+
                     return (
                         <div key={server.name} className={styles.legendItem}>
                             {/* <div className={styles.legendColor} style={{ backgroundColor: server.color }} /> */}
                             <div className="flex flex-col items-center justify-center">
                                 <span style={{ color: server.color, fontWeight: 'bold' }} >{server.name}</span>
                                 <span className={styles.legendTime}>{formatTime(serverTime)}</span>
-                                <span className={styles.legendTime}>
-                                    {(() => {
-                                        const now = serverTime;
-                                        const reset = new Date(now);
-                                        reset.setHours(4, 0, 0, 0);
-                                        if (now.getHours() >= 4) {
-                                            reset.setDate(reset.getDate() + 1);
-                                        }
-                                        const diff = reset.getTime() - now.getTime();
-                                        const hours = Math.floor(diff / (1000 * 60 * 60));
-                                        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                                        return `${hours}h ${minutes}m till daily reset`;
-                                    })()}
-                                </span>
-
-                                <span className={styles.legendTime}>
-                                    {(() => {
-                                        const now = serverTime;
-                                        const reset = new Date(now);
-                                        reset.setHours(4, 0, 0, 0);
-                                        // Get to next Monday
-                                        while (reset.getDay() !== 1) {
-                                            reset.setDate(reset.getDate() + 1);
-                                        }
-                                        reset.setDate(reset.getDate() - 1); // Subtract one day to fix the off-by-one
-                                        const diff = reset.getTime() - now.getTime();
-                                        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                                        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                                        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                                        return `${days}d ${hours}h ${minutes}m till weekly reset`;
-                                    })()}
-                                </span>
-
-
+                                <span className={styles.legendTime}>{dailyResetText}</span>
+                                <span className={styles.legendTime}>{weeklyResetText}</span>
                             </div>
                         </div>
-
-
                     );
                 })}
             </div>
