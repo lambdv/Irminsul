@@ -73,7 +73,10 @@ export async function getUserFromCookies(){
   const sessionToken = session.value
   const dbSession = await db.select().from(sessionsTable).where(eq(sessionsTable.sessionToken, sessionToken))
   if(dbSession.length === 0) return null
-  return dbSession[0]
+
+  const user = await db.select().from(usersTable).where(eq(usersTable.id, dbSession[0].userId))
+  if(user.length === 0) return null
+  return user[0]
 }
 
 

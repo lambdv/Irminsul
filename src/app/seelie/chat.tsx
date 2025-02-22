@@ -20,7 +20,7 @@ export default function Chat(props: {
             userId: props.user?.id
         },
         api: '/api/chat',
-        initialMessages: [{id: "1", role: 'assistant', content: 'Ad astra abyssosque traveler! \nI\'m seelie, your ai assistant for genshin impact. \nHow can I assist you today?'}],
+        initialMessages: [{id: "1", role: 'assistant', content: 'Ad astra abyssosque traveler! \nI&apos;m seelie, your ai assistant for genshin impact. \nHow can I assist you today?'}],
         streamProtocol: 'text'
     })
 
@@ -57,7 +57,7 @@ export default function Chat(props: {
                 }}>
                     <div className={styles.tokenModal}>
                         <div className={styles.modalHeader}>
-                            <h1 className={styles.tokenModalHeader}>Out of Tokens :(</h1>
+                            <h1 className={styles.tokenModalHeader}>Out of Tokens</h1>
                             <RoundBtn 
                                 icon="close"
                                 onClick={() => {
@@ -67,7 +67,7 @@ export default function Chat(props: {
                             />
                         </div>
                         <Image src={SeelieIcon} alt="Seelie" width={40} height={40} className="rounded-full"/>
-                        <p className={styles.tokenModalText}>It seems you've run out of tokens.</p>
+                        <p className={styles.tokenModalText}>It seems you&apos;ve run out of tokens.</p>
                         <p className={styles.tokenModalText}>Unfortunately, Large language models cost quite a bit of money to run.</p>
                         <p className={styles.tokenModalText}>Wait until the next reset or consider supporting Irminsul for more tokens!</p>
                         <br />

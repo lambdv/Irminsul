@@ -36,7 +36,8 @@ export default function ClientWrapper(props: any) {
     }, [togglePalette]); // Added togglePalette to the dependency array
 
     useEffect(() => {
-        setIsSupporter(props.isSupporter)
+        if(props.isSupporter)
+            setIsSupporter(true)
     }, [props.isSupporter]); // Added props.isSupporter to the dependency array
     
 
