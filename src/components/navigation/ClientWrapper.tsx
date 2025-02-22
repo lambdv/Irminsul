@@ -35,9 +35,10 @@ export default function ClientWrapper(props: any) {
         return () => {window.removeEventListener('keydown', handleKeyDown)}
     }, [togglePalette]); // Added togglePalette to the dependency array
 
-    // useEffect(() => {
-    //     setIsSupporter(props.isSupporter)
-    // }, [props.isSupporter]); // Added props.isSupporter to the dependency array
+    useEffect(() => {
+        if(props.isSupporter)
+            setIsSupporter(true)
+    }, [props.isSupporter]); // Added props.isSupporter to the dependency array
     
 
     return (
