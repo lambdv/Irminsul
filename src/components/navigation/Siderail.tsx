@@ -120,7 +120,7 @@ export default function Siderail() {
 
 export let links = [
   {href: "/", icon: "home", text: "Home"},
-  {href: "/seelie", icon: "forum", text: "Ask AI"},
+  // {href: "/seelie", icon: "forum", text: "Ask AI"},
   {href: "/archive/characters", img: characterIcon, text: "Characters"},
   {href: "/archive/weapons", img: weaponIcon, text: "Weapons"},
   {href: "/archive/artifacts", img: artifactIcon, text: "Artifacts"},
