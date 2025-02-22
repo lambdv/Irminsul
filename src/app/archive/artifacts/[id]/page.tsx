@@ -79,13 +79,13 @@ async function ArtifactHeader({data}){
 }
 
 async function ArtifactSetBonus({data}){
-  if(data.two_pc_bonus === null || data.four_pc_bonus === null || data.two_pc_bonus === "" || data.four_pc_bonus === "") 
+  if(!data.two_pc_bonus && !data.four_pc_bonus) 
     return <></>
   return (
-    <div className="bg-zinc-900 p-4 rounded-md shadow-md">
-      <h2 className="text-lg font-semibold text-gray-100">Set Bonus</h2>
-      {data.two_pc_bonus !== "" && <div className="text-gray-400 flex"><b className="mr-2" style={{whiteSpace: 'nowrap'}}>2-Piece Set:</b> <span className="font-medium text-gray-200 font-mono">{data.two_pc_bonus}</span></div>}
-      {data.four_pc_bonus !== "" && <div className="text-gray-400 flex"><b className="mr-2" style={{whiteSpace: 'nowrap'}}>4-Piece Set:</b> <span className="font-medium text-gray-200 font-mono">{data.four_pc_bonus}</span></div>}
+    <div className="p-4 rounded-md" style={{backgroundColor: 'var(--light-elevated-color)'}}>
+      <h2 className="text-lg font-semibold" style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>Set Bonus</h2>
+      {data.two_pc_bonus !== "" && <div className="text-gray-400 flex" style={{paddingBottom: '0.5rem'}}><b className="mr-2" style={{whiteSpace: 'nowrap'}}>2-Piece Set:</b> <span className="font-medium">{data.two_pc_bonus}</span></div>}
+      {data.four_pc_bonus !== "" && <div className="text-gray-400 flex" style={{paddingBottom: '0.5rem'}}><b className="mr-2" style={{whiteSpace: 'nowrap'}}>4-Piece Set:</b> <span className="font-medium">{data.four_pc_bonus}</span></div>}
   </div>
   )
 }

@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { Suspense, useState } from 'react'
 import Image from 'next/image'
 import styles from './settings.module.css'
 import Modal from '@/components/ui/Modal'
@@ -7,7 +7,7 @@ import { changeAccountPfp, changeUsername, clearAccountPfp } from './actions'
 import RoundBtn from '@/components/ui/RoundBtn'
 import Btn from '@/components/ui/Btn'
 
-export default function AccountSettings(props: {session: any, account: any}) {
+export default function AccountSettings(props: {session: any, account: any, isSupporter: boolean}) {
 
   const [usernameModal, setUsernameModal] = useState(false)
   const toggleUsernameModal = () => {
@@ -44,15 +44,19 @@ export default function AccountSettings(props: {session: any, account: any}) {
           </div>
         </div>
 
+
+
         <div className="flex items-center gap-2">
             <b style={{fontSize: '0.9rem'}}>Username:</b> 
             <p style={{fontSize: '0.9rem'}}>{props.session.user.name}</p>
 
             <Btn onClick={toggleUsernameModal}>
-                  <p style={{fontSize: '0.9rem'}}>Change</p>
-                  <span className="material-symbols-outlined" style={{fontSize: '1.2rem', marginLeft: '2px', marginTop: '2px', color: 'var(--text-color)'}}>edit</span>
-                </Btn>
+              <p style={{fontSize: '0.7rem'}}>Change</p>
+              <span className="material-symbols-outlined" style={{fontSize: '0.8rem', marginLeft: '2px', marginTop: '2px', color: 'var(--text-color)'}}>edit</span>
+            </Btn>
         </div>
+
+
 
         <div>
           <div className="flex items-center gap-1 flex-wrap">
@@ -65,16 +69,30 @@ export default function AccountSettings(props: {session: any, account: any}) {
                   <span className="material-symbols-outlined" style={{fontSize: '1.2rem', marginLeft: '2px', marginTop: '2px', color: 'var(--text-color)'}}>sync</span>
                 </Btn> */}
                 <Btn onClick={togglePfpModal}>
-                  <p style={{fontSize: '0.9rem'}}>Change</p>
-                  <span className="material-symbols-outlined" style={{fontSize: '1.2rem', marginLeft: '2px', marginTop: '2px', color: 'var(--text-color)'}}>edit</span>
+                  <p style={{fontSize: '0.7rem'}}>Change</p>
+                  <span className="material-symbols-outlined" style={{fontSize: '0.8rem', marginLeft: '2px', marginTop: '2px', color: 'var(--text-color)'}}>edit</span>
                 </Btn>
                 <Btn onClick={toggleDeletePfpModal}>
-                  <p style={{fontSize: '0.9rem'}}>Delete</p>
-                  <span className="material-symbols-outlined" style={{fontSize: '1.2rem', marginLeft: '2px', marginTop: '2px', color: 'var(--text-color)'}}>close</span>
+                  <p style={{fontSize: '0.7rem'}}>Delete</p>
+                  <span className="material-symbols-outlined" style={{fontSize: '0.8rem', marginLeft: '2px', marginTop: '2px', color: 'var(--text-color)'}}>close</span>
                 </Btn>
           </div>
         </div>
-      
+
+        
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2">
+            <b style={{fontSize: '0.9rem'}}>Tier:</b>
+            <p style={{fontSize: '0.9rem'}}>{props.isSupporter ? 'Supporter' : 'Free'}</p>
+            <Suspense fallback={<p>Loading...</p>}>
+              {!props.isSupporter && (
+                <Btn href="/support">
+                  <p style={{fontSize: '0.7rem'}}>Learn More</p>
+                </Btn>
+              )}
+            </Suspense>
+          </div>
+        </div>
 
         {usernameModal && (
               <Modal toggle={toggleUsernameModal} title="Change Username">

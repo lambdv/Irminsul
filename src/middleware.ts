@@ -14,26 +14,36 @@ export const config = {
 }
 
 export async function middleware(req: NextRequest) {
-    const pathname = req.nextUrl.pathname
+    await processSupporterAccounts(req)
+    await AdminOnly(req)
+    await RedirectArchive(req)
+    
+    return NextResponse.next()
+}
 
-    if(pathname.startsWith('/admin')){
+async function AdminOnly(req: NextRequest){
+    if(req.nextUrl.pathname.startsWith('/admin')){
         const allowed = await isAdmin()
         if(!allowed)
             return NextResponse.redirect(new URL('/', req.url))
     }
+}
 
+async function RedirectArchive(req: NextRequest){
+    const pathname = req.nextUrl.pathname
     if(pathname.startsWith('/characters/'))
         return NextResponse.redirect(new URL('/archive/characters/' + pathname.split('/')[2], req.url))
     if(pathname.startsWith('/weapons/'))
         return NextResponse.redirect(new URL('/archive/weapons/' + pathname.split('/')[2], req.url))
     if(pathname.startsWith('/artifacts/'))
         return NextResponse.redirect(new URL('/archive/artifacts/' + pathname.split('/')[2], req.url))
-    
-    // if (req.nextUrl.pathname.startsWith("/seelie")) {
-    //     const sessionCookie = cookieStore.get('authjs.session-token')
-    //     if(!sessionCookie)
-    //         return NextResponse.rewrite(Gatekeeper())
-    // }
-
-    return NextResponse.next()
 }
+
+
+async function processSupporterAccounts(req: NextRequest){
+    // const session = await getToken({ req })
+    // if(session){
+    //     const user = await getUser(session.email)
+    // }
+}
+

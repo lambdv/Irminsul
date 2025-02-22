@@ -10,6 +10,20 @@ export default function Btn(props: {
   style?: React.CSSProperties
 }) {
 
+
+  if(props.href){
+    return (
+      <Link href={props.href} className={
+        `${ButtonCSS.btn} 
+        waves-effect waves-light ripple 
+        ${props.className} 
+        flex`
+      }>
+        {props.children}
+      </Link>
+    )
+  }
+
   return (
     <button className={
       `${ButtonCSS.btn} 

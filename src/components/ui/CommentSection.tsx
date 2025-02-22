@@ -12,6 +12,7 @@ import { redirect } from "next/navigation"
 import { format } from "timeago.js"
 import Link from "next/link"
 import { Suspense } from "react"
+import { isUserSupporterByEmail } from "@/app/support/actions"
 
 export default async function CommentSection(props: {
     pageID: string,
@@ -138,6 +139,8 @@ export async function Comment(props: {
         revalidatePath("/")
     }
 
+    const isSupporter = await isUserSupporterByEmail(commentUser[0].email)
+
 
     return (
         <div className="flex flex-row gap-2 rounded-md mb-5">
@@ -146,17 +149,17 @@ export async function Comment(props: {
                 <div className="flex flex-row gap-2">
                     <h1 style={{fontWeight: "600"}}>
                         {commentUser[0].name}
-                        {commentUser[0].id === "d4882fcc-8326-4fbb-8b32-d09c0fb86875" && (
+                        {(isSupporter) && (
                             <span style={{fontSize: "16px", top: "2px", userSelect: "none"}} className="material-symbols-rounded ml-1 relative" title="Verified">verified</span>
                         )}
-                        {commentUserIsOwnerOfCommentSection && (<span style={{color: "#FFD700", fontSize: "13px"}}>  (OP)</span>)}
+                        {/* {commentUserIsOwnerOfCommentSection && (<span style={{color: "#FFD700", fontSize: "13px"}}>  (OP)</span>)} */}
 
                     </h1>
                     <p>{relativeDate}</p>
                 </div>
                 <p>{props.comment.comment}</p>
                 <div className="flex flex-row gap-2">
-                    <Btn type="button">Reply</Btn>
+                    {/* <Btn type="button">Reply</Btn> */}
                     {currentUser && props.comment.userId === currentUser.id && props.options && (
                         <form action={handleDeleteComment}>
                             <Btn type="submit">Delete</Btn>

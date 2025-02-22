@@ -1,16 +1,21 @@
 .stattable {
-    background-color: #121212;
-    color: #d0d0d0;
-    border-radius: 5px;
+    background-color: #1c1c1c;
+    color: var(--dim-text-color);
     transition: all 0.2s ease-in-out;
     font-family: 'Inter', sans-serif;
     box-sizing: border-box;
     white-space: nowrap; /* Prevent text wrapping for header */
     overflow-x: auto; /* Allow horizontal overflow */
-    border-radius: 5px;
+    border-radius: 2px;
     width: auto;
 
 }
+
+[data-theme="light"] .stattable {
+    background-color: #e0e0e0;
+}
+
+
 
 .stattable table {
     width: 100%;
@@ -21,8 +26,9 @@
 */
 
 .stattable::-webkit-scrollbar {
-    max-height: 10px;
-
+    height: auto;
+    max-height: 5px;
+    background-color: var(--elevated-color);
 }
 
 .stattable thead th {
@@ -30,7 +36,7 @@
     font-weight: 600;
     text-transform: uppercase;
     padding: 14px 16px;
-    border-bottom: 2px solid #1a1a1a;
+    border-bottom: 2px solid var(--outline-color);
     text-align: left;   
 }
 
@@ -42,20 +48,27 @@
     background-color: #161616;
 }
 
+[data-theme="light"] .stattable tbody tr:nth-child(odd) {
+    background-color: #f1f1f1;
+}
+
 .stattable tbody tr:nth-child(even) {
     background-color: #1c1c1c;
 }
 
-.stattable tbody tr:hover {
-    background-color: #191919;
+[data-theme="light"] .stattable tbody tr:nth-child(even) {
+    background-color: #e0e0e0;
 }
+
+/* .stattable tbody tr:hover {
+    background-color: #191919;
+} */
 
 .stattable tbody td {
     padding: 14px 16px;
-    border-bottom: 1px solid #1a1a1a;
+    /* border-bottom: 1px solid var(--outline-color); */
     font-size: 14px;
     text-align: left;
-     /* Allow text wrapping for body cells */
 }
 
 .stattable tbody tr:last-child tr {

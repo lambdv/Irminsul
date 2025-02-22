@@ -3,10 +3,11 @@ import { generateText, streamText, tool } from "ai";
 import { z } from 'zod';
 import { getCharacterDataTool, getInformationTool } from "./tools";
 import { findRelevantContent } from '@/lib/ai/embedding';
-import { eq, sql } from "drizzle-orm";
+import { eq, sql, and } from "drizzle-orm";
 import db from "@/db/db";
 import { aitokenTable } from "@/db/schema/aitoken";
-
+import { purchasesTable } from "@/db/schema/purchase";
+import { usersTable } from "@/db/schema/user";
 
 
 // console.log(test)
@@ -60,11 +61,28 @@ export async function generateResponse(prompt: string, userId: string){
 
 
 export async function getAiTokensLeft(userId: string){
+    
+
+    const user = await db.select().from(usersTable).where(eq(usersTable.id, userId))
+    if(user.length <= 0)
+        return 0
+
     const tokenRecord = await db.select().from(aitokenTable).where(eq(aitokenTable.userId, userId))
     //if there is a record, return the numTokens
-    if(tokenRecord.length > 0)
-        return tokenRecord[0].numTokens
+    if(tokenRecord.length > 0){
+        let numTokens = tokenRecord[0].numTokens
 
+        const numPurchases = await db.select()
+            .from(purchasesTable)
+            .where(eq(purchasesTable.email, user[0].email))
+        
+
+        if(numPurchases.length > 0){
+            numTokens += numPurchases.length * 500
+        }
+        
+        return Math.max(numTokens, 0)
+    }
     //if there is no record, create one
     await db.insert(aitokenTable).values({
         "userId": userId,

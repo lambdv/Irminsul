@@ -1,8 +1,12 @@
 "use client";
 import React, { useEffect } from "react";
 import Script from "next/script";
+import { GlobalStore } from "@/store/global";
 
 export default function Advertisment(props: { type: "card" | "banner" | "in-article" }) {
+  const { isSupporter } = GlobalStore()
+
+
   useEffect(() => {
     try {
       (window as any).adsbygoogle = (window as any).adsbygoogle || [];
@@ -11,6 +15,9 @@ export default function Advertisment(props: { type: "card" | "banner" | "in-arti
       //console.log(error.message);
     }
   }, []);
+
+  if(isSupporter) 
+    return null
 
   return (
     <>
@@ -35,7 +42,6 @@ export default function Advertisment(props: { type: "card" | "banner" | "in-arti
             fontSize: "10px",
             fontFamily: "Arial, sans-serif",
             fontWeight: "bold",
-            backgroundColor: "#141414",
             margin: "auto",
         }}
         data-ad-client="ca-pub-1739492299738628"

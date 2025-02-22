@@ -8,35 +8,47 @@
   --ingame-primary-color: #E7C073;
 }
 
-[data-theme="dark"] {
-  --background-color: #070707;
-  --text-color: #ececec;
-  --invert-text-color: #191919;
+/* [data-theme="dark"] { */ :root {
+/* /#FFD52A */
+  --ingame-primary-color: #E7C073;
   --primary-color: var(--ingame-primary-color);
 
+  --background-color: #070707;
+  --elevated-color: #2d2d2d;
+  --light-elevated-color: #1b1b1b;
   --outline-color: #262626;
 
-  --elevated-color: #2d2d2d;
+  --text-color: #ececec;
+  --dim-text-color: #d1d1d1;
+  --gray-text-color: #878787;
+  --invert-text-color: #191919;
+
+
+
 }
 
 [data-theme="light"] {
-  --background-color: #f1f1f1;
-  --text-color: #191919;
-  --invert-text-color: #ececec;
+  --ingame-primary-color: #E7C073;
   --primary-color: var(--ingame-primary-color); 
 
+  --background-color: #f1f1f1;
+  --elevated-color: #e7e6e6;
+  --light-elevated-color: #ecebeb;
   --outline-color: #e3e3e3;
 
-  --elevated-color: #e3e3e3;
+  --text-color: #191919;
+  --dim-text-color: #2c2c2c;
+  --gray-text-color: #494949;
+  --invert-text-color: #ececec;
+
+
+
 }
 
 ::selection { 
   background-color: var(--primary-color); 
   color: var(--primary-text-color);
 }
-
-
-
 
 @font-face {
   font-family: 'ingame';
@@ -109,6 +121,8 @@
 
 * {
   color: var(--text-color);
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px;
 }
 
 body {
@@ -131,6 +145,7 @@ body{
   color: var(--text-color);
   overflow-y: scroll;
   overflow-x:hidden;
+
 }
 
 

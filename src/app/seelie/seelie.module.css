@@ -15,10 +15,10 @@
     padding-bottom: 20px;
     border-radius: 4px;
     outline: none;
-    color: #9b9b9b;
-    background-color: #232323;
+    color: var(--text-color);
+    background-color: var(--light-elevated-color);
     bottom: 10px;
-    
+    resize: none;
 }
 
 .chatHistory {
@@ -29,4 +29,121 @@
     overflow-y: auto;
     margin: 0 auto;
     padding: 0;
+    margin-bottom: 60px;
+}
+
+@media (max-width: 1200px) {
+    .chatHistory {
+        width: 80%;
+    }
+    .chatTextFieldContainer {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .chatHistory {
+        width: 100%;
+    }
+    .chatTextFieldContainer {
+        width: 100%;
+    }
+}
+.tokenModal {
+    background-color: var(--light-elevated-color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.tokenModalHeader {
+    color: var(--text-color);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.tokenModalText {
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+.tokenModalButton {
+    background-color: var(--primary-color);
+    color: black;
+    padding: 10px 20px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.tokenModalButtonImage {
+    width: auto;
+    height: 100%;
+}
+
+.message {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    align-items: flex-start;
+}
+
+.messageUser {
+    flex-direction: row-reverse;
+}
+
+.messageAssistant {
+    flex-direction: row;
+}
+
+.messageAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--light-elevated-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.messageContent {
+    padding: 7px 10px;
+    border-radius: 5px;
+    max-width: 80%;
+    white-space: pre-wrap;
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+.messageContentUser {
+    /* background-color: var(--light-elevated-color); */
+}
+
+.messageContentAssistant {
+    background-color: var(--elevated-color);
+}
+
+.tokenCount {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.chatForm {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.modalHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }

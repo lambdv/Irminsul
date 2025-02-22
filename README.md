@@ -1,7 +1,6 @@
 # Irminsul
----
-A monolithic Genshin Impact database, encyclopedia and tooling plateform.
-Irminsul aims to provide the best user experience for Genshin Metagaming and Theorycrafting use cases.
+
+Just another Genshin Impact database
 
 <div align="center">
   

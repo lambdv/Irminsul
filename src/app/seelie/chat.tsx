@@ -6,6 +6,9 @@ import styles from './seelie.module.css'
 import SeelieIcon from '@public/imgs/icons/seelie.png'
 import { getAiTokensLeft } from './ai'
 import Overlay from '@/components/ui/Overlay'
+import Link from 'next/link'
+import ResinIcon from '@public/imgs/icons/resinIcon.png'
+import RoundBtn from '@/components/ui/RoundBtn'
 
 export default function Chat(props: {
     user: any
@@ -17,11 +20,12 @@ export default function Chat(props: {
             userId: props.user?.id
         },
         api: '/api/chat',
-        initialMessages: [{id: "1", role: 'assistant', content: 'Ad astra abyssosque traveler! I\'m seelie, your ai guide for genshin impact helping you with your journey. How can I assist you today?'}],
+        initialMessages: [{id: "1", role: 'assistant', content: 'Ad astra abyssosque traveler! \nI\'m seelie, your ai assistant for genshin impact. \nHow can I assist you today?'}],
         streamProtocol: 'text'
     })
 
     const [tokensLeft, setTokensLeft] = useState(-1)
+    const [showTokenModal, setShowTokenModal] = useState(false)
 
     useEffect(() => {
         const getTokensLeft = async () => {
@@ -35,7 +39,7 @@ export default function Chat(props: {
     const handleFormSubmit = (e) => {
         e.preventDefault()
         if(tokensLeft <= 0){
-            alert("You've run out of tokens. Please come back later!")
+            setShowTokenModal(true)
             setInput("")
             return
         }
@@ -45,7 +49,37 @@ export default function Chat(props: {
 
     return (
         <div id="chat">
-                <div className={styles.chatHistory} style={{marginBottom: "60px"}}>
+            {showTokenModal && (
+                <Overlay onClick={() => setShowTokenModal(false)} zIndex={100} style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                }}>
+                    <div className={styles.tokenModal}>
+                        <div className={styles.modalHeader}>
+                            <h1 className={styles.tokenModalHeader}>Out of Tokens :(</h1>
+                            <RoundBtn 
+                                icon="close"
+                                onClick={() => {
+                                    setShowTokenModal(false)
+                                }}
+                                style={{top: "-5px"}}
+                            />
+                        </div>
+                        <Image src={SeelieIcon} alt="Seelie" width={40} height={40} className="rounded-full"/>
+                        <p className={styles.tokenModalText}>It seems you've run out of tokens.</p>
+                        <p className={styles.tokenModalText}>Unfortunately, Large language models cost quite a bit of money to run.</p>
+                        <p className={styles.tokenModalText}>Wait until the next reset or consider supporting Irminsul for more tokens!</p>
+                        <br />
+                        <Link href={"https://buy.stripe.com/5kAaG57cIdzGgF2cMO?prefilled_email=" + props.user?.email} className={styles.tokenModalButton}>
+                            <Image src={ResinIcon} alt="Seelie" width={20} height={20} className={`rounded-full ${styles.tokenModalButtonImage}`}/>
+                            Replenish SeelieAI Tokens
+                        </Link>
+                    </div>
+                </Overlay>
+            )}
+            
+            <div className={styles.chatHistory}>
                 {messages.map((message, index) => (
                     <Message 
                         key={index}
@@ -57,8 +91,8 @@ export default function Chat(props: {
             </div>
 
             <div className={styles.chatTextFieldContainer}>
-                <p className="text-sm text-gray-500">Tokens Left: {tokensLeft}</p>
-                <form className="flex flex-col gap-2 w-full" onSubmit={handleFormSubmit}>
+                <p className={styles.tokenCount}>Tokens Left: {tokensLeft}</p>
+                <form className={styles.chatForm} onSubmit={handleFormSubmit}>
                     <textarea 
                         placeholder="Ask Seelie" 
                         value={input} 
@@ -72,7 +106,6 @@ export default function Chat(props: {
                         rows={2}
                         required
                         autoComplete="off"
-                        style={{resize: "none"}}
                     />
                 </form>
             </div>
@@ -99,39 +132,15 @@ function Message({messageUser, message, userImage}: {messageUser: string, messag
     displayMessage = displayMessage.replace(/\[TOOL_REQUEST/g, '')
 
     return (
-        <div
-            style={{
-                display: "flex",
-                flexDirection: isUser ? "row-reverse" : "row",
-                gap: "10px",
-                padding: "10px",
-                alignItems: "flex-start",
-            }}
-        >
-            <div style={{
-                width: "40px",
-                height: "40px",
-                borderRadius: "50%",
-                backgroundColor:  "#000000",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                flexShrink: 0,
-            }}>
+        <div className={`${styles.message} ${isUser ? styles.messageUser : styles.messageAssistant}`}>
+            <div className={styles.messageAvatar}>
                 {messageUser === "Seelie" ? (
                     <Image src={SeelieIcon} alt="Seelie" width={40} height={40} className="rounded-full"/>
                 ) : (
                     <Image src={userImage || SeelieIcon} alt="User" width={40} height={40} className="rounded-full" unoptimized/>
                 )}
             </div>
-            <div style={{
-                backgroundColor: isUser ? "#4d4d4d" : "#303030",
-                padding: "7px 10px",
-                borderRadius: "5px",
-                maxWidth: "80%",
-                whiteSpace: "pre-wrap",
-                color: "#e7e7e7",
-            }}>
+            <div className={`${styles.messageContent} ${isUser ? styles.messageContentUser : styles.messageContentAssistant}`}>
                 {displayMessage}
             </div>
         </div>

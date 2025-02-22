@@ -18,6 +18,7 @@ import Table from "@/components/archive/Table"
 import Advertisment from "@/components/ui/Advertisment"
 import Loading from "@/app/loading"
 import { cookies } from "next/headers"
+
 //page metadata
 export async function generateMetadata({params}) {
   const {id} = await params
@@ -49,10 +50,15 @@ export default async function CharacterPage({params}) {
   if(data === undefined || data === null) 
     return <div>Character data not found</div>
 
-  const color = await getMainColor(getAssetURL("character", data.name, "splash.png"))
+  const color = await getMainColor(getAssetURL("character", data.name, "splash.png")) || "rgb(73, 73, 73)"
+
+
 
   return (
       <Suspense fallback={<Loading />}>
+          <style>
+            
+          </style>
           <CharacterHeader data={data}/>
           <TableOfContents/>
           <div id="pagecontent" className={ArchivePageCSS.archiveRecordContentContainer}>
@@ -76,6 +82,7 @@ async function CharacterHeader({data}){
   const cookieStore = await cookies()
   const theme = cookieStore.get("theme")?.value || "dark"
   return (
+    
     <Header 
       title={data.name}
       splashImage={getAssetURL("character", data.name, "splash.png")}
@@ -101,7 +108,6 @@ async function CharacterHeader({data}){
   )
 }
 
-
 function TableOfContents(){
   return (
     <RightSidenav>
@@ -118,27 +124,10 @@ function TableOfContents(){
   )
 }
 
-function CharacterDetails({data}){
-  const keys = Object.keys(data)
-  const values = Object.values(data)
-
-  return (
-    <section id="details" className={ArchivePageCSS.archiveRecordSection}>
-      <h2 className="mb-2 text-2xl font-bold">Details</h2>
-      <div className="mb-4 overflow-x-auto">
-        {/* {JSON.stringify(data)} */}
-          <Table 
-            header={keys.map((key, index) => <th key={index}>{key}</th>)}
-            body={values.map((v, index) => <td key={index}>{String(v)}</td>)}
-          />         
-        </div>
-    </section>
-  )
-}
-
 function CharacterBaseStats({data}){
   return (
     <section id="basestats" className={ArchivePageCSS.archiveRecordSection}>
+      
       <h2 className="mb-2 text-2xl font-bold">Base Stats</h2>
         <div className="mb-4 overflow-x-auto">
           <BaseStatTable 

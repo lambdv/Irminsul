@@ -4,13 +4,15 @@
     top: 0; 
     left: 0;
     height: 100vh;
-    margin-top: 60px; 
     overflow: hidden;
     text-align: center;
     padding-top: 5px;
     z-index: 10;
     display: block;
     transition: transform 0.3s ease-in-out;
+    background-color: var(--light-elevated-color);
+    animation: slideIn 0.2s forwards;
+
 }
 
 .sidenavCollapsed {
@@ -18,7 +20,13 @@
     width: 5.5rem;
     padding:10px 5px;
     transition: ease-in-out 0.3s;
+    background-color: transparent;
+    animation: none;
+    margin-top: 60px; 
+
 }
+
+
 
 .sidenav .sidenavLink {
     position: relative;
@@ -60,14 +68,14 @@
 
 
 @media (max-width: 1500px) {
-    .sidenav {
+    /* .sidenav {
         position: fixed;
         display: block;
         height: 100%;
         z-index: 2;
         animation: slideIn 0.2s forwards;
 
-    }
+    } */
     .sidenavCollapsed {
         /* background-color: transparent; */
         animation: none;
@@ -76,16 +84,14 @@
 }
 
 
-/** css window width condtional css */
-/* @media (max-width: 768px) { */
 @media (max-width: 1200px) {
-    .sidenav{
+    /* .sidenav{
         background-color: var(--elevated-color);
 
     }
     .sidenavCollapsing{
         animation: slideOut 0.2s forwards;
-    }
+    } */
     .sidenavCollapsed {
         display: none;
     }
@@ -107,6 +113,7 @@
     100% {
         
         transform: translateX(-100%);
+        
     }
 }
 
@@ -253,4 +260,8 @@
     /* background-color: rgb(53, 53, 53); */
     background-color: var(--elevated-color);
     cursor: pointer;
+}
+
+.sidenavCollapsing{
+    animation: slideOut 0.2s forwards;
 }

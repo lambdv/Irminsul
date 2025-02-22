@@ -255,7 +255,6 @@ export default function SearchPallete() {
                         <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/archive/characters"><p>Characters</p></Link>
                         <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/archive/weapons"><p>Weapons</p></Link>
                         <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/archive/artifacts"><p>Artifacts</p></Link>
-                        <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/articles"><p>Articles</p></Link>
                     </>
                 }
             </ul>
