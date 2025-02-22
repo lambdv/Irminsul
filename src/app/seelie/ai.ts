@@ -69,7 +69,7 @@ export async function getAiTokensLeft(userId: string){
 
     const tokenRecord = await db.select().from(aitokenTable).where(eq(aitokenTable.userId, userId))
     //if there is a record, return the numTokens
-    if(tokenRecord.length > 0){
+    if(tokenRecord.length > 0 && user[0].email){
         let numTokens = tokenRecord[0].numTokens
 
         const numPurchases = await db.select()

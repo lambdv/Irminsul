@@ -35,6 +35,9 @@ export async function syncStripePayments(){
 
 
 export async function isUserSupporterByEmail(email: string){
+    if(!email)
+        return false
+
     const latestPurchaseFromUser = await db.select()
         .from(purchasesTable)
         .where(eq(purchasesTable.email, email))
