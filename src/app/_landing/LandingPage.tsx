@@ -86,7 +86,6 @@ export default async function LandingPage() {
                             transition: 'all 0.2s ease',
                             borderRadius: '8px',
                             background: 'rgba(255, 255, 255, 0.05)',
-                            backdropFilter: 'blur(4px)'
                         }}>
                             <Image 
                                 src="/imgs/icons/character.png" 
@@ -107,7 +106,6 @@ export default async function LandingPage() {
                             transition: 'all 0.2s ease',
                             borderRadius: '8px',
                             background: 'rgba(255, 255, 255, 0.05)',
-                            backdropFilter: 'blur(4px)'
                         }}>
                             <Image src="/imgs/icons/weaponIcon.png" alt="Weapons" width={24} height={24} style={{objectFit: 'contain'}} />
                             <span className="text-sm font-semibold">Weapons</span>
@@ -121,7 +119,6 @@ export default async function LandingPage() {
                             transition: 'all 0.2s ease',
                             borderRadius: '8px',
                             background: 'rgba(255, 255, 255, 0.05)',
-                            backdropFilter: 'blur(4px)'
                         }}>
                             <Image src="/imgs/icons/artifactIcon.png" alt="Artifacts" width={24} height={24} style={{objectFit: 'contain'}} />
                             <span className="text-sm font-semibold">Artifacts</span>
@@ -136,7 +133,6 @@ export default async function LandingPage() {
                             transition: 'all 0.2s ease',
                             borderRadius: '8px',
                             background: 'rgba(255, 255, 255, 0.05)',
-                            backdropFilter: 'blur(4px)'
                         }}>
                             <span className={styles.icon + " material-symbols-rounded"}>article</span>
                             <span style={{
@@ -145,22 +141,7 @@ export default async function LandingPage() {
                             }}>Articles</span>
                         </Link>
 
-                        <Link href="/seelie" style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.75rem',
-                            padding: '0.75rem',
-                            transition: 'all 0.2s ease',
-                            borderRadius: '8px',
-                            background: 'rgba(255, 255, 255, 0.05)',
-                            backdropFilter: 'blur(4px)'
-                        }}>
-                            <Image src="/imgs/icons/seelie.png" alt="Seelie" width={24} height={24} style={{objectFit: 'contain'}} />
-                            <span style={{
-                                fontSize: '0.9rem',
-                                fontWeight: 500
-                            }}>Seelie AI</span>
-                        </Link>
+
 
                         <Link href="/login" style={{
                             display: 'flex',
@@ -170,7 +151,6 @@ export default async function LandingPage() {
                             transition: 'all 0.2s ease',
                             borderRadius: '8px',
                             background: 'rgba(255, 255, 255, 0.05)',
-                            backdropFilter: 'blur(4px)'
                         }}>
                             <span className={styles.icon + " material-symbols-rounded"}>login</span>
                             <span style={{
@@ -213,7 +193,6 @@ export default async function LandingPage() {
                                     flexDirection: 'column',
                                     justifyContent: 'space-between',
                                     gap: '1rem',
-                                    backdropFilter: 'blur(10px)',
                                     overflow: 'hidden'
                                 }}
                             >

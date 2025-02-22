@@ -8,6 +8,7 @@ import Image from 'next/image'
 import Divider from '@/components/ui/Divider'
 import CommentSection from '@/components/ui/CommentSection'
 import Link from 'next/link'
+import Advertisment from '@/components/ui/Advertisment'
 
 export async function generateMetadata({params}) {
   const {slug} = await params
@@ -41,6 +42,7 @@ export default async function ArticlePage({params}) {
   return (
     <div>
       <ArticleHeader article={article} />
+
       <main className={articleCSS.articleContent}>
         <Divider/>
         <RightSidenav>
@@ -50,6 +52,7 @@ export default async function ArticlePage({params}) {
             })}
           </ul>
           <br/>
+          <Advertisment type="card"/>
         </RightSidenav>
         {article.content}
         <br />

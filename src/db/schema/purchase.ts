@@ -4,12 +4,13 @@ import { usersTable } from './user';
 
 export const purchasesTable = pgTable('purchases', {
   id: varchar('id').primaryKey(),
-  userId: varchar('user_id').notNull().references(() => usersTable.id),
   stripePaymentId: varchar('stripe_payment_id').notNull(),
+  email: varchar('email').notNull(),
+
   amount: integer('amount').notNull(), // amount in cents
   currency: varchar('currency').notNull().default('usd'),
   status: varchar('status').notNull().default('pending'),
-  createdAt: timestamp('created_at').default(sql`CURRENT_TIMESTAMP`),
+  createdAt: timestamp('created_at').notNull(),
   productId: varchar('product_id').notNull(),
   productName: varchar('product_name').notNull(),
 });

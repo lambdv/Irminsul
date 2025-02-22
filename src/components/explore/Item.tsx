@@ -72,8 +72,8 @@ export default function Item(props: {
                         width={props.scale ? props.scale * 500 : 500} 
                         height={props.scale ? props.scale * 500 : 500}
                         loading="lazy"
-                        placeholder="blur"
-                        blurDataURL={placeholder.src}
+                        // placeholder="blur"
+                        // blurDataURL={placeholder.src}
                         unoptimized
                     />
                 </div>

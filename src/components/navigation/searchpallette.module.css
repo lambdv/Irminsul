@@ -15,6 +15,10 @@
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
+[data-theme="light"] .searchPalette {
+    background-color: rgb(238, 238, 238);
+}
+
 @keyframes dropDown {
     from {
         opacity: 0;
@@ -35,6 +39,10 @@
     padding: 5px;
     padding-left: 8px;
     padding-right: 8px;
+}
+
+[data-theme="light"] .searchBar {
+    background-color: rgb(238, 238, 238);
 }
 
 .searchPaletteResults {
@@ -87,12 +95,12 @@
     border-radius: 2px;
 }
 
-.palletteResult:hover {
-    background-color: rgb(21, 21, 21);
+.palletteResult.highlighted, .palletteResult:hover{
+    background-color: rgb(28, 28, 28);
 }
 
-.palletteResult.highlighted {
-    background-color: rgb(21, 21, 21);
+[data-theme="light"] .palletteResult:hover, [data-theme="light"] .palletteResult.highlighted {
+    background-color: rgb(219, 218, 218);
 }
 
 .palletteResult.highlighted::after{
@@ -112,7 +120,7 @@
     margin: 0;
     padding: 0;
     font-size:15px;
-    color: white;
+    color: var(--text-color);
     margin-left: 10px;
     text-align: left;
 }

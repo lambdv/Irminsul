@@ -40,7 +40,7 @@
     text-align: center;
     border-radius: 10px;
 
-    flexwrap: reverse-wrap;
+    flex-wrap: wrap;
 
 }
 

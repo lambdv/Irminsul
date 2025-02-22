@@ -33,6 +33,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   }
 })
 
+
+
 export async function getUser(userName: string){
   const user = await db.select().from(usersTable).where(eq(usersTable.name, userName))
   if(user.length === 0) return null
@@ -64,6 +66,17 @@ export async function isAuthenticated(){
 }
 
 
+export async function getUserFromCookies(){
+  const cookieStore = await cookies()
+  let session = cookieStore.get('authjs.session-token') || cookieStore.get('__Secure-authjs.session-token')
+  if(!session) return null
+  const sessionToken = session.value
+  const dbSession = await db.select().from(sessionsTable).where(eq(sessionsTable.sessionToken, sessionToken))
+  if(dbSession.length === 0) return null
+  return dbSession[0]
+}
+
+
 export const getUserFromSession = async () => {
   const cookieStore = await cookies()
   let session = cookieStore.get('authjs.session-token') || cookieStore.get('__Secure-authjs.session-token')
@@ -73,6 +86,7 @@ export const getUserFromSession = async () => {
   if(dbSession.length === 0) return null
   return dbSession[0]
 }
+
 export async function isAdmin(){
   if (!await isAuthenticated()){
     return false
@@ -83,4 +97,12 @@ export async function isAdmin(){
     return true
   }
   return false
+}
+
+export async function isSupporter(userId: string){
+  const user = await getUserById(userId)
+  if(!user) 
+    return false
+
+  
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { HTMLAttributes, Suspense } from 'react'
 import settingsStyle from './settings.module.css'
 import { auth } from '@/app/(auth)/auth'
 import AccountSettings from './accountSettings'
@@ -13,7 +13,7 @@ import RoundBtn from '@/components/ui/RoundBtn'
 import GoBack from './goBack'
 import APISettings from './APISettings'
 import { createTheme } from '@mui/material/styles'
-
+import { isUserSupporterByEmail } from '@/app/support/actions'
 export const metadata = {
     title: 'Settings | Irminsul',
     description: '',
@@ -25,7 +25,8 @@ export default async function Settings() {
     const session = await auth()
     const account = await db.select().from(accountsTable).where(eq(accountsTable.userId, session?.user?.id))
     const isLoggedIn = session?.user?.email ? true : false
-    
+    const isSupporter = await isUserSupporterByEmail(session?.user?.email)
+
     return (
     <div className={settingsStyle.settingsWrapper}>
         <div className='flex items-center gap-2'>
@@ -34,31 +35,38 @@ export default async function Settings() {
         </div>
         <Divider />
 
-        {isLoggedIn && (
-            <section className={settingsStyle.settingsContent}>
-                <AccountSettings session={session} account={account} />
-            </section>
-        )}
+        <Suspense fallback={<p>Loading...</p>}>
+            {isLoggedIn && (
+                <section className={settingsStyle.settingsContent}>
+                    <AccountSettings session={session} account={account} isSupporter={isSupporter} />
+                </section>
+            )}
+        </Suspense>
 
-
+       <Suspense fallback={<p>Loading...</p>}>
         <section className={settingsStyle.settingsContent}>
-            <h1 className="mb-0 flex items-center gap-2">Prefernces</h1>
-            <PreferencesSettings />
-        </section>
+                <h1 className="mb-0 flex items-center gap-2">Prefernces</h1>
+                <PreferencesSettings />
+            </section>
+       </Suspense>
 
+       <Suspense fallback={<p>Loading...</p>}>
 
         <section className={settingsStyle.settingsContent}>
             <h1 className="mb-0 flex items-center gap-2">API <p className="text-sm text-gray-500">(Experimental)</p></h1>
             <APISettings />
         </section>
 
+        </Suspense>
 
-        {/* {isLoggedIn && (
+        <Suspense fallback={<p>Loading...</p>}>
+        {isLoggedIn && (
             <section className={settingsStyle.settingsContent}>
                 <h1 className="mb-2">Danger Zone</h1>
                 <DangerZoneSettings />
-            </section>
-        )} */}
+                </section>
+            )} 
+        </Suspense>
 
     </div>
 

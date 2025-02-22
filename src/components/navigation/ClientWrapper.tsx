@@ -6,6 +6,8 @@ import Waves from '@/lib/waves/waves.js'
 import { usePathname } from 'next/navigation'
 import { NavigationStore } from "@/store/Navigation"
 import { SearchStore } from "@/store/Search"
+import { GlobalStore } from "@/store/global"
+import { isUserSupporterById } from '@/app/support/actions'
 
 
 /**
@@ -15,6 +17,7 @@ import { SearchStore } from "@/store/Search"
  */
 export default function ClientWrapper(props: any) {
     const {togglePalette} = SearchStore()
+    const {setIsSupporter} = GlobalStore()
 
     //initialize waves effect
     useEffect(() => { 
@@ -30,7 +33,12 @@ export default function ClientWrapper(props: any) {
         }
         window.addEventListener('keydown', handleKeyDown);
         return () => {window.removeEventListener('keydown', handleKeyDown)}
-    })
+    }, [togglePalette]); // Added togglePalette to the dependency array
+
+    useEffect(() => {
+        setIsSupporter(props.isSupporter)
+    }, [props.isSupporter]); // Added props.isSupporter to the dependency array
+    
 
     return (
         <>

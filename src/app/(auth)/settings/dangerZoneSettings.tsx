@@ -17,15 +17,15 @@ export default function DangerZoneSettings() {
     <div>
         <div className="flex items-center gap-2">
         
-
           <Button
             variant="contained"
             onClick={togglePurgeCommentsModal}
             sx={{
-              backgroundColor: '#eb4545',
+              backgroundColor: '#B3261E',
               '&:hover': {
-                backgroundColor: '#d13030',
-              }
+                backgroundColor: '#9e211b',
+              },
+              fontSize: "12px",
             }}
           >
             Purge All Comments
@@ -34,10 +34,11 @@ export default function DangerZoneSettings() {
             variant="contained" 
             onClick={toggleDeleteAccountModal}
             sx={{
-              backgroundColor: '#eb4545',
+              backgroundColor: '#B3261E',
               '&:hover': {
-                backgroundColor: '#d13030',
-              }
+                backgroundColor: '#9e211b',
+              },
+              fontSize: "12px",
             }}
           >
             Delete Account

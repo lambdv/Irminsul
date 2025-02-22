@@ -46,7 +46,10 @@ export default function WeaponPassives({data}: {data: any}){
             {data.refinements[activeRefinement] && <div id="talent-description" className={TalentCSS.talentDescription}>
             <p dangerouslySetInnerHTML={{ __html: data.refinements[activeRefinement]
                 .replaceAll(/\*\*(.*?)\*\*\n\%/g, '<b>$1%</b>')
-                .replaceAll(/\n/g, '<br />')
+
+
+                //.replaceAll(/\n/g, '. <br />')
+                // .replaceAll(/\n/g, '<br />')
                 .replaceAll(/\*\*(.*?)\*\*/g, '<b>$1</b>')
                 
                 .replaceAll(/- (.*?)(?:<br\/>|$)/g, "<li>$1</li>")

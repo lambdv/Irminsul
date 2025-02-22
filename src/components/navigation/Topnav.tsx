@@ -50,6 +50,30 @@ export default function Topnav() {
   )
 }
 
+
+function LeftContainer(){
+  const { toggleSideNavCollapsed } = NavigationStore()
+  const websiteName = "Irminsul"
+  
+  return (
+    <div id="topnavLeft" className={TopnavCSS.hamburger}>
+      {/* <button className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '} onClick={ toggleSideNavCollapsed }>
+        <i className="material-symbols-outlined" >menu</i>
+      </button> */}
+      <RoundBtn 
+        icon="menu"
+        onClick={toggleSideNavCollapsed}
+        className={TopnavCSS.hamburgerBtn}
+      />
+        
+      <Link href="/">
+        <p id={TopnavCSS.logo}>{websiteName} <span>Beta</span></p>
+      </Link>
+    </div>
+  )
+}
+
+
 /**
  * Center container of the topnav
  * @note contains the search bar and search pallette
@@ -96,28 +120,6 @@ function CenterContainer(props: any){
   )
 }
 
-function LeftContainer(){
-  const { toggleSideNavCollapsed } = NavigationStore()
-  const websiteName = "Irminsul"
-  
-  return (
-    <div id="topnavLeft" className={TopnavCSS.hamburger}>
-      {/* <button className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '} onClick={ toggleSideNavCollapsed }>
-        <i className="material-symbols-outlined" >menu</i>
-      </button> */}
-      <RoundBtn 
-        icon="menu"
-        onClick={toggleSideNavCollapsed}
-        className={TopnavCSS.hamburgerBtn}
-      />
-        
-      <Link href="/">
-        <p id={TopnavCSS.logo}>{websiteName} <span>Beta</span></p>
-      </Link>
-    </div>
-  )
-}
-
  function RightContainer(){
 
     const [session, setSession] = useState(null)
@@ -150,7 +152,7 @@ function LeftContainer(){
       </div>
 
       <div className={TopnavCSS.userDropdownContainer}>
-        {session?.user ?
+        {session?.user && (
           <>
               <div className="relative">
                 <button onClick={() => setShowDropdown(!showDropdown)}>
@@ -188,12 +190,16 @@ function LeftContainer(){
                 )}
               </div>
           </>
-          :
+          
+        )}
+
+        {!session?.user && (
           <Link href="/login">
             <Btn>Log In</Btn>
           </Link>
-        }
+        )}
       </div>
     </div>
   )
 }
+

@@ -24,7 +24,7 @@ export default function BaseStatTable(props: {table: CharacterBaseStat[], cost?:
                         return <td key={j}>{row[key]}</td>
                     })}
                     {props.cost && 
-                        <td className="flex flex-wrap gap-2" style={{padding: "2px"}}>
+                        <td className="flex gap-2" style={{padding: "2px"}}>
                             {props.cost.find(c => c.AscensionPhase === row.AscensionPhase)?.materials?.map((material, idx) => {    
                                 return index % 2 === 1 ? 
                                     <Item
