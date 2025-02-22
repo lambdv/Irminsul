@@ -11,7 +11,7 @@ export const embeddings = pgTable('embeddings',{
       { onDelete: 'cascade' },
     ),
     content: text('content').notNull(),
-    embedding: vector('embedding', { dimensions: 768 }).notNull(),
+    embedding: vector('embedding', { dimensions: 1536 }).notNull(),
   },
   table => ({
     embeddingIndex: index('embeddingIndex').using(

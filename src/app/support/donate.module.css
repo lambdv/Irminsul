@@ -41,6 +41,10 @@
     transition: all 0.2s ease;
 }
 
+.highlight {
+    border: 1px solid var(--primary-color);
+}
+
 .donateCard:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
@@ -82,7 +86,6 @@
 }
 
 .featureList li::before {
-    content: "✓";
     color: var(--accent-color);
 }
 

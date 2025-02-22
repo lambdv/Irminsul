@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import { useChat } from 'ai/react'
+import { useChat } from '@ai-sdk/react';
 import Image from 'next/image'
 import styles from './seelie.module.css'
 import SeelieIcon from '@public/imgs/icons/seelie.png'

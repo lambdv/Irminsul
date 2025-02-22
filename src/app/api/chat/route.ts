@@ -1,5 +1,7 @@
 import { generateResponse } from '@/app/seelie/ai'
 import { auth } from '@/app/(auth)/auth'
+import { openai } from '@ai-sdk/openai'
+import { streamText } from 'ai'
 
 // export const runtime = 'edge'
 
@@ -15,13 +17,14 @@ export async function POST(req: Request) {
 
     const lastMessage = messages[messages.length - 1]
     
-    const stream = await generateResponse(lastMessage.content, session.user.id)
+    const res = await generateResponse(lastMessage.content, session.user.id, messages)  as any
     
-    return new Response(stream, {
+    return new Response(res.text, {
         headers: {
             'Content-Type': 'text/event-stream',
             'Cache-Control': 'no-cache',
             'Connection': 'keep-alive',
         },
     })
+
 } 

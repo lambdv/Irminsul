@@ -12,6 +12,9 @@ import { getSession, signIn, signOut, useSession } from "next-auth/react"
 import { auth } from "@/app/(auth)/auth"
 import Image from "next/image"
 import RoundBtn from "../ui/RoundBtn"
+
+
+
 /**
  * Top navigation bar component
  * @note displayed at the top of every page
@@ -54,30 +57,43 @@ export default function Topnav() {
 function LeftContainer(){
   const { toggleSideNavCollapsed } = NavigationStore()
   const websiteName = "Irminsul"
+  const pathname = usePathname()
   
   return (
-    <div id="topnavLeft" className={TopnavCSS.hamburger}>
-      {/* <button className={TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '} onClick={ toggleSideNavCollapsed }>
-        <i className="material-symbols-outlined" >menu</i>
-      </button> */}
-      <RoundBtn 
-        icon="menu"
-        onClick={toggleSideNavCollapsed}
-        className={TopnavCSS.hamburgerBtn}
-      />
-        
-      <Link href="/">
-        <p id={TopnavCSS.logo}>{websiteName} <span>Beta</span></p>
-      </Link>
+    <div id="topnavLeft" className={TopnavCSS.topnavLeft + " " + TopnavCSS.hamburger}>
+      <div className={TopnavCSS.hamburgerContainer}>
+        <RoundBtn 
+          icon="menu"
+          onClick={toggleSideNavCollapsed}
+          className={TopnavCSS.hamburgerBtn}
+        />
+          
+        <Link href="/">
+          <p id={TopnavCSS.logo}>
+            {websiteName} <span>Beta</span>
+          </p>
+        </Link>
+      </div>
+      
+      <div className={TopnavCSS.breadcrumbContainer}>
+        {pathname !== "/" && pathname.split("/")
+          .map((path, index) => {
+            if(index === 0) return null
+            return (
+              <>
+                <Breadcrumb key={index} href={pathname.split("/").slice(0, index + 1).join("/")} isHighlighted={index === pathname.split("/").length - 1} text={path} />
+                {index < pathname.split("/").length - 1 && <i className="material-symbols-outlined" style={{fontSize: "13px", color: "var(--gray-text-color)"}}>chevron_right</i>}
+              </>
+            )
+        })}
+      </div>
+
+
     </div>
   )
 }
 
 
-/**
- * Center container of the topnav
- * @note contains the search bar and search pallette
- */
 function CenterContainer(props: any){
   const { showPallette, setShowPallette } = props
   const { SearchQuery, updateQuery, setFirstKeyPress, firstKeyPress } = SearchStore()
@@ -203,3 +219,22 @@ function CenterContainer(props: any){
   )
 }
 
+function Breadcrumb(props: {
+  href: string,
+  text: string,
+  isHighlighted?: boolean,
+  key?: any
+}){
+  const maxLength = 15
+  return (
+    <Link href={props.href} key={props.key} style={{
+      padding: "0px",
+      margin: "0px",
+    }}>
+        <p className={TopnavCSS.breadcrumb + " " + (props.isHighlighted && TopnavCSS.highlightedBreadcrumb)} >
+          {props.text.length > maxLength ? props.text.slice(0, maxLength) + "..." : props.text}
+      </p>
+    </Link>
+
+  )
+}

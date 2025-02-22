@@ -7,8 +7,6 @@ export default async function ClientProvider(props: any) {
 
     const user = await getUserFromCookies()
 
-    console.log("user: ", user)
-
     let isSupporter = false
 
     if(user?.email){

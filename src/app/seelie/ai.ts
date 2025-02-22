@@ -1,4 +1,3 @@
-import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
 import { generateText, streamText, tool } from "ai";
 import { z } from 'zod';
 import { getCharacterDataTool, getInformationTool } from "./tools";
@@ -8,57 +7,68 @@ import db from "@/db/db";
 import { aitokenTable } from "@/db/schema/aitoken";
 import { purchasesTable } from "@/db/schema/purchase";
 import { usersTable } from "@/db/schema/user";
+import { createOpenAI } from '@ai-sdk/openai';
+import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
 
+const token = process.env.GITHUB_TOKEN
+const endpoint = "https://models.inference.ai.azure.com"
+const modelName = "gpt-4o"
 
-// console.log(test)
-const lmstudio = createOpenAICompatible({
-    name: 'lmstudio',
-    baseURL: 'http://localhost:1234/v1',
-});
+const client = createOpenAI({
+    baseURL: endpoint,
+    apiKey: token
+})
 
-let modelName = ''
-// modelName = 'deepseek-coder-33b-instruct-pythagora-v3'
-modelName = 'llama-3.2-1b'
-//modelName = 'deepseek-r1-distill-qwen-7b'
-
-const model = lmstudio(modelName)
+// Cast the model to resolve type conflicts
+const model = client(modelName) as any;
 
 const systemPrompt =  
-    "you are an ai assistant that helps genshin impact players with their questions about the game. including build guides, character guides, etc. you will answer questions related to genshin impact meta"
-    + "make sure to check your knowledge base before answering any questions by using the getInformation tool and passing in the users question. the result of this tool is the most important information you need to answer the question"
-    + "don't show the result of getInformation and getCharacterData tools to the user. nor should you tell the user that you're using the tools. just use the result to answer the question."
+    "You are an AI Assistant/agent chatbot that answers questions about the game Genshin Impact. Including both in game and metagaming questions"
+    + "You will answer questions based on the information provided in the knowledge base. To gain information about the game, use the getInformation tool. If you don't have the information, just say so."
+    + "You will also use the getCharacterData tool to get information about characters. This is important because the character data is the most important information you need to answer the question."
 
-export async function generateResponse(prompt: string, userId: string){
-    if(!(prompt.length > 0))
-        return ""
+export async function generateResponse(prompt: string, userId: string, messages?: any[]){
+    // if((prompt.length <= 0))
+    //     return ""
 
-    const tokensLeft = await getAiTokensLeft(userId)
-    if(tokensLeft <= 0){
-        return "You've run out of tokens. Please come back later!"
-    }
+    //const tokensLeft = await getAiTokensLeft(userId)
+    // if(tokensLeft <= 0){
+    //     return "You've run out of tokens. Please come back later!"
+    // }
 
-    const { textStream } = streamText({
-        model: model,
+    // const { textStream } = streamText({
+    //     model,
+    //     system: systemPrompt,
+    //     //prompt: "you have to use the \"getInformation(question: string)\" tool (passing in the user's question to get info from your knowledge base) to awnser the following question: " + prompt,
+    //     tools:{
+    //         getCharacterData: getCharacterDataTool,
+    //         getInformation: getInformationTool,
+    //     },
+    //     maxSteps: 20,
+    //     messages: messages
+    // });
+
+    const response = await generateText({
+        model,
         system: systemPrompt,
-        prompt: "you have to use the \"getInformation(question: string)\" tool (passing in the user's question to get info from your knowledge base) to awnser the following question: " + prompt,
         tools:{
-            get_character_data: getCharacterDataTool,
             getCharacterData: getCharacterDataTool,
-            get_information: getInformationTool,
             getInformation: getInformationTool,
         },
-        maxSteps: 110,
-    });
+        maxSteps: 10,
+        messages: messages
+    })
 
-    const consumeToken = await consumeAiToken(userId)
-    if(!consumeToken){
-        return "You've run out of tokens. Please come back later!"
-    }
+    console.log(response)
 
-    return textStream;
+    ///const consumeToken = await consumeAiToken(userId)
+    // if(!consumeToken){
+    //     throw new Error("You've run out of tokens. Please come back later!")
+    //     //return "You've run out of tokens. Please come back later!"
+    // }
+
+    return response
 }
-
-
 
 export async function getAiTokensLeft(userId: string){
     
@@ -109,3 +119,9 @@ export async function consumeAiToken(userId: string, numTokens?: number){
     return true
 }
 
+//for devlopment build
+const lmstudio = createOpenAICompatible({
+    name: 'lmstudio',
+    baseURL: 'http://localhost:1234/v1',
+});
+const devModel = lmstudio('deepseek-coder-33b-instruct-pythagora-v3')
