@@ -10,6 +10,7 @@ import { toKey } from '@/utils/standardizers'
 import { getAssetURL } from '@/utils/getAssetURL'
 import RoundBtn from '../ui/RoundBtn'
 import { Page } from '@/types/page'
+// import { foundMatch } from '@/utils/searchEngine'
 
 const alterntiveNamesMapping = [
     { "Tartaglia": ["childe", "ajax"]},
@@ -186,7 +187,8 @@ export default function SearchPallete() {
             >
                 <Image src={imgURL} alt="" width={100} height={100} unoptimized/>
                 <p>
-                    {(() => {
+                    {item.name}
+                    {/* {(() => {
                         const foundMatch = item.name.toLowerCase().indexOf(SearchQuery.toLowerCase());
                         if (foundMatch === -1) return item.name;
                         
@@ -203,7 +205,7 @@ export default function SearchPallete() {
                                 {after}
                             </>
                         );
-                    })()}
+                    })()} */}
                 </p>
                 {highlighted && <i className="material-symbols-outlined " style={{marginLeft: "auto", color: "#b1b1b1", fontSize: "18px", marginRight: "5px"}}>keyboard_return</i>}
             </Link>

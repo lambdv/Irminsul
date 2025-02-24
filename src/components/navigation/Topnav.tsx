@@ -76,14 +76,22 @@ function LeftContainer(){
       </div>
       
       <div className={TopnavCSS.breadcrumbContainer}>
+        {pathname === "/" && 
+          <>
+            <i className="material-symbols-outlined" style={{fontSize: "13px", color: "var(--gray-text-color)"}}>chevron_right</i>
+            <Breadcrumb href={pathname} isHighlighted={true} text="Home" />
+          </>
+        }
         {pathname !== "/" && pathname.split("/")
           .map((path, index) => {
             if(index === 0) return null
+            if(path === "archive") return null
             return (
-              <>
-                <Breadcrumb key={index} href={pathname.split("/").slice(0, index + 1).join("/")} isHighlighted={index === pathname.split("/").length - 1} text={path} />
-                {index < pathname.split("/").length - 1 && <i className="material-symbols-outlined" style={{fontSize: "13px", color: "var(--gray-text-color)"}}>chevron_right</i>}
-              </>
+              <React.Fragment key={index}>
+                <i className="material-symbols-outlined" style={{fontSize: "13px", color: "var(--gray-text-color)"}}>chevron_right</i>
+                <Breadcrumb href={pathname.split("/").slice(0, index + 1).join("/")} isHighlighted={index === pathname.split("/").length - 1} text={path} />
+                {/* {index < pathname.split("/").length - 1 && <i className="material-symbols-outlined" style={{fontSize: "13px", color: "var(--gray-text-color)"}}>chevron_right</i>} */}
+              </React.Fragment>
             )
         })}
       </div>
@@ -164,6 +172,7 @@ function CenterContainer(props: any){
           icon="search"
           onClick={() => SearchStore.getState().setShowPallette(true)}
           className={TopnavCSS.hamburgerBtn}
+          style={{ top: "5px" }}
         />
       </div>
 
@@ -231,7 +240,7 @@ function Breadcrumb(props: {
       padding: "0px",
       margin: "0px",
     }}>
-        <p className={TopnavCSS.breadcrumb + " " + (props.isHighlighted && TopnavCSS.highlightedBreadcrumb)} >
+        <p className={TopnavCSS.breadcrumb + " " + (props.isHighlighted && TopnavCSS.highlightedBreadcrumb)}>
           {props.text.length > maxLength ? props.text.slice(0, maxLength) + "..." : props.text}
       </p>
     </Link>

@@ -8,6 +8,7 @@ export default function Btn(props: {
   href?: string
   type?: "button" | "submit" | "reset"
   style?: React.CSSProperties
+  disabled?: boolean
 }) {
 
 
@@ -33,7 +34,8 @@ export default function Btn(props: {
       } 
       onClick={props.onClick} 
       type={props.type} 
-      style={props.style}>
+      style={props.style}
+      disabled={props.disabled}>
       <div>
         {props.children}
       </div>

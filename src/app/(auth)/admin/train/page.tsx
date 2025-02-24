@@ -14,8 +14,9 @@ import { isAdmin } from '@/app/(auth)/auth'
 
 
 export default async function Page() {
-    // await isAdmin()
-
+    if(!await isAdmin())
+        redirect("/")
+    
     const resources = await db.select().from(resourcesTable)
     const embeddings = await db.select().from(embeddingsTable)
 

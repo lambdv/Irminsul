@@ -24,9 +24,21 @@ import {
 import Image from 'next/image'
 import { toKey } from "@/utils/standardizers"
 import Head from "next/head"
+import { redirect } from "next/navigation"
+import { isAdmin } from "../../auth"
 
 
 export default function Page() {
+
+    // useEffect(() => {
+    //     async function checkAdmin() {
+    //         const allowed = await isAdmin()
+    //         if(!allowed)
+    //             redirect("/")
+    //     }
+    //     checkAdmin()
+    // }, [])
+
     const darkTheme = createTheme({
         palette: {
             mode: 'dark',

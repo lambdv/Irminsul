@@ -13,72 +13,56 @@ import { format } from "timeago.js"
 import Link from "next/link"
 import { Suspense } from "react"
 import { isUserSupporterByEmail } from "@/app/support/actions"
+import CommentSectionClient from "./CommentSectionClient"
 
 export default async function CommentSection(props: {
     pageID: string,
     color?: string,
     owner?: string
 }, searchParams: {page: string}) {
-    
     let comments = await getComments(props.pageID)
     comments.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
     const numberOfComments = comments.length
     const session = await auth()
     const user = session?.user || null
-    const page = Number(await searchParams?.page ?? "1")
 
-    const handleCommentSubmit = async (formData: FormData) => {
+    // Enhance comments with user data and supporter status
+    const enhancedComments = await Promise.all(comments.map(async (comment) => {
+        const commentUser = await db.select().from(usersTable).where(eq(usersTable.id, comment.userId))
+        const isSupporter = await isUserSupporterByEmail(commentUser[0].email)
+        return {
+            ...comment,
+            user: commentUser[0],
+            isSupporter
+        }
+    }))
+
+    const handleCommentSubmit = async (comment: string) => {
         "use server"
         if(!user || user === null)
             redirect("/login")
-        const comment: string = formData.get("comment") as string
         await postComment(props.pageID, comment)
     }
 
-    return (
-        <div className={CommentSectionCSS.commentSectionContainer} id="comments">
-            <h1>{numberOfComments} Comments</h1>
-            <div className={`${CommentSectionCSS.commentTextAreaContainer} flex flex-row mb-5`}>
-            <Image 
-                src={user ? user.image : "/imgs/icons/defaultavatar.png"} 
-                alt="User Avatar" 
-                width={100} 
-                height={100} 
-                className={CommentSectionCSS.commentUserAvatar}
-                unoptimized
-            />
-            <form className="flex flex-col gap-2 w-full" action={handleCommentSubmit}>
-                <input
-                    name="comment"
-                    placeholder="Add a comment..." 
-                    className={CommentSectionCSS.commentTextArea}
-                    style={{resize: "none"}}
-                    required
-                    autoComplete="off"
-                    // Event handlers need to be in a client component
-                />
-                {/* <div className="flex flex-row justify-end gap-2">
-                    <Btn type="button">Cancel</Btn>
-                    <Btn type="submit" style={{backgroundColor: props.color || "blue"}}>Comment</Btn>
-                </div> */}
-            </form>
-        </div>
+    const handleDeleteComment = async (commentId: string) => {
+        "use server"
+        await db.delete(commentsTable).where(eq(commentsTable.id, parseInt(commentId)))
+        revalidatePath("/")
+    }
 
-        <ul>
-            {comments
-                .map((comment) => (
-                    <Comment 
-                        key={comment.id}
-                        comment={comment}
-                        owner={props.owner}
-                        options={true}
-                    />
-            ))}
-        </ul>
-    </div>
+    return (
+        <CommentSectionClient
+            user={user}
+            numberOfComments={numberOfComments}
+            comments={enhancedComments}
+            pageID={props.pageID}
+            color={props.color}
+            owner={props.owner}
+            onCommentSubmit={handleCommentSubmit}
+            onDeleteComment={handleDeleteComment}
+        />
     )
 }
-
 
 async function getComments(pageID: string): Promise<any[]> {
     "use server"
@@ -117,56 +101,56 @@ async function postComment(pageID: string, comment: string) {
     revalidatePath("/")
 }
 
-export async function Comment(props: {
-    comment: any, 
-    owner?: string,
-    options: boolean
-}) {
-    const commentUser = await db.select().from(usersTable).where(eq(usersTable.id, props.comment.userId))
-    const session = await auth()
-    const currentUser = session?.user
-    const relativeDate = format(props.comment.createdAt)
+// export async function Comment(props: {
+//     comment: any, 
+//     owner?: string,
+//     options: boolean
+// }) {
+//     const commentUser = await db.select().from(usersTable).where(eq(usersTable.id, props.comment.userId))
+//     const session = await auth()
+//     const currentUser = session?.user
+//     const relativeDate = format(props.comment.createdAt)
 
-    const commentUserIsOwnerOfCommentSection = props.comment.userId === props.owner || props.owner !== undefined
+//     const commentUserIsOwnerOfCommentSection = props.comment.userId === props.owner || props.owner !== undefined
     
-    const handleDeleteComment = async () => {
-        "use server"
-        // await db.delete(commentsTable).where(eq(commentsTable.id, props.comment.id))
-        //instead of delete, mutate the comment to be be remove traces tied to the user
-        await db.update(commentsTable).set({
-            userId: "-1"
-        }).where(eq(commentsTable.id, props.comment.id))
-        revalidatePath("/")
-    }
+//     const handleDeleteComment = async () => {
+//         "use server"
+//         await db.delete(commentsTable).where(eq(commentsTable.id, props.comment.id))
+//         //instead of delete, mutate the comment to be be remove traces tied to the user
+//         // await db.update(commentsTable).set({
+//         //     userId: "-1"
+//         // }).where(eq(commentsTable.id, props.comment.id))
+//         // revalidatePath("/")
+//     }
 
-    const isSupporter = await isUserSupporterByEmail(commentUser[0].email)
+//     const isSupporter = await isUserSupporterByEmail(commentUser[0].email)
 
 
-    return (
-        <div className="flex flex-row gap-2 rounded-md mb-5">
-            <Image src={commentUser[0].image} alt="User Avatar" width={100} height={100} className={CommentSectionCSS.commentUserAvatar} unoptimized/>
-            <div className="flex flex-col">
-                <div className="flex flex-row gap-2">
-                    <h1 style={{fontWeight: "600"}}>
-                        {commentUser[0].name}
-                        {(isSupporter) && (
-                            <span style={{fontSize: "16px", top: "2px", userSelect: "none"}} className="material-symbols-rounded ml-1 relative" title="Verified">verified</span>
-                        )}
-                        {/* {commentUserIsOwnerOfCommentSection && (<span style={{color: "#FFD700", fontSize: "13px"}}>  (OP)</span>)} */}
+//     return (
+//         <div className="flex flex-row gap-2 rounded-md mb-5">
+//             <Image src={commentUser[0].image} alt="User Avatar" width={100} height={100} className={CommentSectionCSS.commentUserAvatar} unoptimized/>
+//             <div className="flex flex-col">
+//                 <div className="flex flex-row gap-2">
+//                     <h1 style={{fontWeight: "600"}}>
+//                         {commentUser[0].name}
+//                         {(isSupporter) && (
+//                             <span style={{fontSize: "16px", top: "2px", userSelect: "none"}} className="material-symbols-rounded ml-1 relative" title="Verified">verified</span>
+//                         )}
+//                         {/* {commentUserIsOwnerOfCommentSection && (<span style={{color: "#FFD700", fontSize: "13px"}}>  (OP)</span>)} */}
 
-                    </h1>
-                    <p>{relativeDate}</p>
-                </div>
-                <p>{props.comment.comment}</p>
-                <div className="flex flex-row gap-2">
-                    {/* <Btn type="button">Reply</Btn> */}
-                    {currentUser && props.comment.userId === currentUser.id && props.options && (
-                        <form action={handleDeleteComment}>
-                            <Btn type="submit">Delete</Btn>
-                        </form>
-                    )}
-                </div>
-            </div>
-        </div>
-    )
-}
+//                     </h1>
+//                     <p>{relativeDate}</p>
+//                 </div>
+//                 <p>{props.comment.comment}</p>
+//                 <div className="flex flex-row gap-2">
+//                     {/* <Btn type="button">Reply</Btn> */}
+//                     {currentUser && props.comment.userId === currentUser.id && props.options && (
+//                         <form action={handleDeleteComment}>
+//                             <Btn type="submit">Delete</Btn>
+//                         </form>
+//                     )}
+//                 </div>
+//             </div>
+//         </div>
+//     )
+// }

@@ -28,8 +28,8 @@ const systemPrompt =
     + "You will also use the getCharacterData tool to get information about characters. This is important because the character data is the most important information you need to answer the question."
 
 export async function generateResponse(prompt: string, userId: string, messages?: any[]){
-    // if((prompt.length <= 0))
-    //     return ""
+    if((prompt.length <= 0))
+        return ""
 
     //const tokensLeft = await getAiTokensLeft(userId)
     // if(tokensLeft <= 0){
@@ -59,7 +59,7 @@ export async function generateResponse(prompt: string, userId: string, messages?
         messages: messages
     })
 
-    console.log(response)
+    //console.log(response)
 
     ///const consumeToken = await consumeAiToken(userId)
     // if(!consumeToken){
@@ -72,33 +72,35 @@ export async function generateResponse(prompt: string, userId: string, messages?
 
 export async function getAiTokensLeft(userId: string){
     
-
-    const user = await db.select().from(usersTable).where(eq(usersTable.id, userId))
+    //get user from db
+    const user = await db.select() 
+        .from(usersTable)
+        .where(eq(usersTable.id, userId))
+    
     if(user.length <= 0)
         return 0
 
-    const tokenRecord = await db.select().from(aitokenTable).where(eq(aitokenTable.userId, userId))
+    const tokenRecord = await db.select()
+        .from(aitokenTable)
+        .where(eq(aitokenTable.userId, userId))
+    
     //if there is a record, return the numTokens
     if(tokenRecord.length > 0 && user[0].email){
         let numTokens = tokenRecord[0].numTokens
-
-        const numPurchases = await db.select()
-            .from(purchasesTable)
-            .where(eq(purchasesTable.email, user[0].email))
-        
-
-        if(numPurchases.length > 0){
-            numTokens += numPurchases.length * 500
-        }
-        
         return Math.max(numTokens, 0)
     }
-    //if there is no record, create one
+    else {
+        //if there is no record, create one
+        return await insertAiToken(userId, 20)
+    }
+}
+
+async function insertAiToken(userId: string, numTokens: number){
     await db.insert(aitokenTable).values({
         "userId": userId,
-        "numTokens": 50
+        "numTokens": numTokens
     })
-    return 50
+    return numTokens
 }
 
 export async function consumeAiToken(userId: string, numTokens?: number){

@@ -1,7 +1,7 @@
+- refactor purchoses adding tokens to accounts when syncing stripe and neon db
+- seelie work in prod
+- improve seelie responsive (knowllege base and tools)
 
-- seelie in prod https://platform.deepseek.com/api_keys
-    - make rag better
-    - hook up to deekseek
 
 # ui
 - add footer

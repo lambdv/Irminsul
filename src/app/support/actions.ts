@@ -3,6 +3,8 @@ import db from "@/db/db"
 import { purchasesTable } from "@/db/schema/purchase"
 import { eq, desc } from "drizzle-orm"
 import { getUserById } from "../(auth)/auth"
+import { usersTable } from "@/db/schema/user"
+import { aitokenTable } from "@/db/schema/aitoken"
 
 export async function syncStripePayments(){
     const payments = await stripe.paymentIntents.list()
@@ -25,6 +27,24 @@ export async function syncStripePayments(){
                 productName: 'Supporter Tier',
                 createdAt: new Date(payment.created * 1000),
             })
+
+            //if user has ai tokens, then do a update query to add the ai tokens
+            const user = await db.select().from(usersTable).where(eq(usersTable.email, payment.receipt_email))
+            if(user.length > 0){
+                const aitoken = await db.select().from(aitokenTable).where(eq(aitokenTable.userId, user[0].id))
+                if(aitoken.length > 0){
+                    await db.update(aitokenTable).set({
+                        numTokens: aitoken[0].numTokens + 500
+                    }).where(eq(aitokenTable.userId, user[0].id))
+                }
+            }
+            else{
+                //if user does not have ai tokens, then do a insert query to create a new ai token
+                await db.insert(aitokenTable).values({
+                    userId: user[0].id,
+                    numTokens: 500 + 20
+                })
+            }
         }
 
         //check if payment 
