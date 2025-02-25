@@ -12,7 +12,8 @@ import { eq } from 'drizzle-orm';
 import db from '@/db/db';
 import { aitokenTable } from '@/db/schema/aitoken';
 import Overlay from '@/components/ui/Overlay';
-
+import RightSidenav from '@/components/navigation/RightSidenav';
+import Advertisment from '@/components/ui//Advertisment';
 export async function generateMetadata() {
   return {
     title: "Seelie | Irminsul",
@@ -31,8 +32,14 @@ export default async function Page() {
     .then(res => res?.user)
 
   return (
+    <>
+      <RightSidenav>
+        <Advertisment type="card" />
+      </RightSidenav>
+
       <Chat
         user={user}
       />
+    </>
   )
 }
