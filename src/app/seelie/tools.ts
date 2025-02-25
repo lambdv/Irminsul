@@ -4,6 +4,18 @@ import { getCharacter, getWeapon, getArtifact } from "@/utils/genshinData";
 import { toKey } from "@/utils/standardizers";
 import { findRelevantContent } from "@/lib/ai/embedding";
 
+export const getInformationTool = tool({
+    description: `get information from your knowledge base to answer questions.`,
+    parameters: z.object({
+      question: z.string().describe('the users question'),
+    }),
+    execute: async ({ question }) => {
+        const similarResources = await findRelevantContent(question)
+        console.log(similarResources)
+        return similarResources
+    },
+});
+
 export const getCharacterDataTool = tool({
     description: 'get character data from the database',
     parameters: z.object({
@@ -24,14 +36,3 @@ export const getCharacterDataTool = tool({
     },
 });
 
-export const getInformationTool = tool({
-    description: `get information from your knowledge base to answer questions.`,
-    parameters: z.object({
-      question: z.string().describe('the users question'),
-    }),
-    execute: async ({ question }) => {
-        const res = await findRelevantContent(question)
-        console.log(    )
-        return res
-    },
-});

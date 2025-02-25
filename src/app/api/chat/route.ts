@@ -17,9 +17,9 @@ export async function POST(req: Request) {
 
     const lastMessage = messages[messages.length - 1]
     
-    const res = await generateResponse(lastMessage.content, session.user.id, messages)  as any
+    const stream = await generateResponse(lastMessage.content, session.user.id, messages)  as any
     
-    return new Response(res.text, {
+    return new Response(stream, {
         headers: {
             'Content-Type': 'text/event-stream',
             'Cache-Control': 'no-cache',

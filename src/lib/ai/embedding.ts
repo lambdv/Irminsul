@@ -67,8 +67,9 @@ export const generateEmbedding = async (value: string): Promise<number[]> => {
     const similarGuides = await db
       .select({ name: embeddings.content, similarity })
       .from(embeddings)
-      .where(gt(similarity, 0.8))
+      .where(gt(similarity, 0.5))
       .orderBy(t => desc(t.similarity))
       .limit(20)
+      
     return similarGuides;
   };

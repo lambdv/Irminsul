@@ -28,46 +28,38 @@ const systemPrompt =
     + "You will also use the getCharacterData tool to get information about characters. This is important because the character data is the most important information you need to answer the question."
 
 export async function generateResponse(prompt: string, userId: string, messages?: any[]){
-    if((prompt.length <= 0))
-        return ""
 
-    //const tokensLeft = await getAiTokensLeft(userId)
-    // if(tokensLeft <= 0){
-    //     return "You've run out of tokens. Please come back later!"
-    // }
+    //consume token
+    const consumed = await consumeAiToken(userId)
+    if(!consumed)
+        return "You've run out of tokens. Please come back later!"
 
-    // const { textStream } = streamText({
+
+    const { textStream } = streamText({
+        model,
+        system: systemPrompt,
+        prompt: "you have to use the \"getInformation(question: string)\" tool (passing in the user's question to get info from your knowledge base) to awnser the following question: " + prompt,
+        tools:{
+            get_information: getInformationTool,
+            get_character_data: getCharacterDataTool
+        },
+        maxSteps: 5,
+    });
+
+    // const response = await generateText({
     //     model,
     //     system: systemPrompt,
-    //     //prompt: "you have to use the \"getInformation(question: string)\" tool (passing in the user's question to get info from your knowledge base) to awnser the following question: " + prompt,
     //     tools:{
     //         getCharacterData: getCharacterDataTool,
     //         getInformation: getInformationTool,
     //     },
-    //     maxSteps: 20,
+    //     maxSteps: 2,
     //     messages: messages
-    // });
+    // })
 
-    const response = await generateText({
-        model,
-        system: systemPrompt,
-        tools:{
-            getCharacterData: getCharacterDataTool,
-            getInformation: getInformationTool,
-        },
-        maxSteps: 10,
-        messages: messages
-    })
+    console.log(textStream)
 
-    //console.log(response)
-
-    ///const consumeToken = await consumeAiToken(userId)
-    // if(!consumeToken){
-    //     throw new Error("You've run out of tokens. Please come back later!")
-    //     //return "You've run out of tokens. Please come back later!"
-    // }
-
-    return response
+    return textStream
 }
 
 export async function getAiTokensLeft(userId: string){

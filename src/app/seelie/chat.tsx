@@ -15,17 +15,23 @@ export default function Chat(props: {
 
 }) {
     
-    const { messages, input, handleInputChange, handleSubmit, setInput, isLoading } = useChat({
+    const { messages, input, handleInputChange, handleSubmit, setInput, isLoading, setMessages } = useChat({
         body: {
             userId: props.user?.id
         },
         api: '/api/chat',
-        initialMessages: [{id: "1", role: 'assistant', content: 'Ad astra abyssosque traveler! \nI&apos;m seelie, your ai assistant for genshin impact. \nHow can I assist you today?'}],
-        streamProtocol: 'text'
+        initialMessages: [{id: "1", role: 'assistant', content: 'Ad astra abyssosque traveler! \nIm Seelie, your AI assistant for Genshin Impact. \nHow can I assist you today?'}],
+        streamProtocol: 'text',
+        onError: (error: any) => {
+            console.log(error)
+            alert("An error occurred. Please try again later.")
+        }
     })
 
     const [tokensLeft, setTokensLeft] = useState(-1)
     const [showTokenModal, setShowTokenModal] = useState(false)
+
+
 
     useEffect(() => {
         const getTokensLeft = async () => {
@@ -35,48 +41,41 @@ export default function Chat(props: {
         getTokensLeft()
     }, [props.user?.id])
     
-
+    // useEffect(() => {
+    //     if(messages.length > 0){
+    //         const lastMessage = messages[messages.length - 1]
+    //         if(lastMessage.role === 'assistant' && lastMessage.content.includes('Thinking...') && !isLoading){
+    //             setInput("")
+    //         }
+    //     }
+    // }, [messages])
     const handleFormSubmit = (e) => {
         e.preventDefault()
+        //if user has no tokens left, show pop up
         if(tokensLeft <= 0){
             setShowTokenModal(true)
             setInput("")
             return
         }
+
+        //if input is empty, return and dno nothing
+        if(input.trim().length <= 0){
+            return
+        }
+
         setTokensLeft(tokensLeft - 1)
+
+        //optimistically add a message from seelie to the messages array
+        //setMessages([...messages, {id: "2", role: 'assistant', content: 'Thinking...'}] as any)
+
         handleSubmit()
+
     }
 
     return (
         <div id="chat">
             {showTokenModal && (
-                <Overlay onClick={() => setShowTokenModal(false)} zIndex={100} style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                }}>
-                    <div className={styles.tokenModal}>
-                        <div className={styles.modalHeader}>
-                            <h1 className={styles.tokenModalHeader}>Out of Tokens</h1>
-                            <RoundBtn 
-                                icon="close"
-                                onClick={() => {
-                                    setShowTokenModal(false)
-                                }}
-                                style={{top: "-5px"}}
-                            />
-                        </div>
-                        <Image src={SeelieIcon} alt="Seelie" width={40} height={40} className="rounded-full"/>
-                        <p className={styles.tokenModalText}>It seems you&apos;ve run out of tokens.</p>
-                        <p className={styles.tokenModalText}>Unfortunately, Large language models cost quite a bit of money to run.</p>
-                        <p className={styles.tokenModalText}>Wait until the next reset or consider supporting Irminsul for more tokens!</p>
-                        <br />
-                        <Link href={"https://buy.stripe.com/5kAaG57cIdzGgF2cMO?prefilled_email=" + props.user?.email} className={styles.tokenModalButton}>
-                            <Image src={ResinIcon} alt="Seelie" width={20} height={20} className={`rounded-full ${styles.tokenModalButtonImage}`}/>
-                            Replenish SeelieAI Tokens
-                        </Link>
-                    </div>
-                </Overlay>
+                <TokenModal user={props.user}/>
             )}
             
             <div className={styles.chatHistory}>
@@ -88,7 +87,19 @@ export default function Chat(props: {
                         userImage={props.user?.image} 
                     />
                 ))}
+                {isLoading && (
+                    <div className={`${styles.message} ${styles.messageAssistant}`}>
+                        <div className={styles.messageAvatar}>
+                            <Image src={SeelieIcon} alt="Seelie" width={40} height={40} className="rounded-full"/>
+                        </div>
+                        <div className={`${styles.messageContent} ${styles.messageContentAssistant}`}>
+                            
+                        </div>
+                    </div>
+                )}
             </div>
+
+
 
             <div className={styles.chatTextFieldContainer}>
                 <p className={styles.tokenCount}>Tokens Left: {tokensLeft}</p>
@@ -111,6 +122,41 @@ export default function Chat(props: {
             </div>
         </div>
     )
+
+    function TokenModal(props: {
+        user: any
+    }){
+        return (
+            <Overlay onClick={() => setShowTokenModal(false)} zIndex={100} style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+            }}>
+                <div className={styles.tokenModal}>
+                    <div className={styles.modalHeader}>
+                        <h1 className={styles.tokenModalHeader}>Out of Tokens</h1>
+                        <RoundBtn 
+                            icon="close"
+                            onClick={() => {
+                                setShowTokenModal(false)
+                            }}
+                            style={{top: "-5px"}}
+                        />
+                    </div>
+                    <Image src={SeelieIcon} alt="Seelie" width={40} height={40} className="rounded-full"/>
+                    <p className={styles.tokenModalText}>It seems you&apos;ve run out of tokens.</p>
+                    <p className={styles.tokenModalText}>Unfortunately, Large language models cost quite a bit of money to run.</p>
+                    <p className={styles.tokenModalText}>Wait until the next reset or consider supporting Irminsul for more tokens!</p>
+                    <br />
+                    <Link href={"https://buy.stripe.com/5kAaG57cIdzGgF2cMO?prefilled_email=" + props.user?.email} className={styles.tokenModalButton}>
+                        <Image src={ResinIcon} alt="Seelie" width={20} height={20} className={`rounded-full ${styles.tokenModalButtonImage}`}/>
+                        Replenish SeelieAI Tokens
+                    </Link>
+                </div>
+            </Overlay>
+        )
+    }
+    
 }
 
 function Message({messageUser, message, userImage}: {messageUser: string, message: string, userImage?: string}) {
@@ -146,3 +192,4 @@ function Message({messageUser, message, userImage}: {messageUser: string, messag
         </div>
     )
 }
+
