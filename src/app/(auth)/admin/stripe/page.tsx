@@ -4,6 +4,8 @@ import { purchasesTable } from '@/db/schema/purchase';
 import { eq } from 'drizzle-orm';
 import { isAdmin } from '../../auth';
 import { redirect } from 'next/navigation';
+import { syncStripePayments } from '@/app/support/actions';
+import { aitokenTable } from '@/db/schema/aitoken';
 
 export default async function AdminDashboard() {
 
@@ -20,10 +22,7 @@ export default async function AdminDashboard() {
             <div>
                 {payments.data.length > 0 ? (
                     payments.data.map((payment) => (
-                        <div key={payment.id}>
-                            <h2>{payment.id}</h2>
-                            <p>{payment.amount}</p>
-                        </div>
+                        <PaymentItem key={payment.id} payment={payment} />
                     ))
                 ) : (
                     <p>No payments found</p>
@@ -34,6 +33,26 @@ export default async function AdminDashboard() {
             <br />
 
             <h1>Internal DB purchases</h1>
+
+            <div className="flex flex-row gap-2">
+                <form action={async () => {
+                    "use server"
+                    await syncStripePayments()
+                    redirect("/admin/stripe")
+                }}>
+                    <button type="submit" className="p-2 bg-blue-500 text-white rounded-md m-1">Sync Stripe Payments</button>
+                </form>
+
+
+                <form action={async () => {
+                    "use server"
+                    await db.delete(aitokenTable).execute()
+                    await db.delete(purchasesTable).execute()
+                    redirect("/admin/stripe")
+                }}>
+                    <button type="submit" className="p-2 bg-red-500 text-white rounded-md m-1">Clear AI Tokens and Purchases</button>
+                </form>
+            </div>
 
             <div>
                 {internalPayments.length > 0 ? (
@@ -52,8 +71,10 @@ function PaymentItem(props: {payment: any}){
     return (
         <div className="p-4 border rounded-lg shadow-md">
             <p className="text-lg font-semibold">{props.payment.amount}</p>
-            <p className="text-gray-500">{props.payment.createdAt.toString()}</p>
-            <p className="text-gray-700">{props.payment.email}</p>
+            {/* <p className="text-gray-500">{props.payment.createdAt.toString()}</p> */}
+            <p className="text-gray-700">{props.payment.email || ""}</p>
+            <p className="text-gray-700">{props.payment.receipt_email || ""}</p>
+
             <p className="text-gray-700">{props.payment.productId}</p>
             <p className="text-gray-700">{props.payment.productName}</p>
             <p className="text-gray-700">{props.payment.stripePaymentId}</p>

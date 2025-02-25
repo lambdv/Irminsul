@@ -88,17 +88,23 @@ export default function CommentSectionClient({
                         disabled={isSubmitting} // Disable the textbox when submitting
                     />
                     <div className="flex flex-row justify-end gap-2">
-                        <Btn type="button" onClick={() => setComment("")}>
-                            Cancel
-                        </Btn>
+                        {
+                            comment.length > 0 && (
+                                <Btn type="button" onClick={() => setComment("")}>
+                                    Cancel
+                                </Btn>
+                            )
+                        }
+
                         <Btn type="submit" 
                             style={{
                                 backgroundColor: color || "var(--primary-color)",
-                                opacity: isSubmitting ? 0.5 : 1,
-                                cursor: isSubmitting ? "not-allowed" : "pointer",
-                                pointerEvents: isSubmitting ? "none" : "auto"
+                                transition: "opacity 0.3s ease",
+                                opacity: isSubmitting || comment.length === 0 ? 0.5 : 1,
+                                cursor: isSubmitting || comment.length === 0 ? "not-allowed" : "pointer",
+                                pointerEvents: isSubmitting || comment.length === 0 ? "none" : "auto"
                             }} 
-                            disabled={isSubmitting}
+                            disabled={isSubmitting || comment.length === 0}
                         >
                             {isSubmitting ? "Submitting..." : "Comment"}
                         </Btn>
