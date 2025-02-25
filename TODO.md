@@ -1,6 +1,5 @@
-- refactor purchoses adding tokens to accounts when syncing stripe and neon db
-- seelie work in prod
-- improve seelie responsive (knowllege base and tools)
+- improve seelie knowlege base
+- move seelie resources and embedings into a sqlite database
 
 
 # ui

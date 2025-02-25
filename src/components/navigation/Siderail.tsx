@@ -65,7 +65,7 @@ export default function Siderail() {
     const onLinkedPage: boolean =  props.href === "/" ? activePage === "/" : activePage.includes(props.href)
     return (
       <Link 
-        href={props.href} 
+        href={props.href || "#"} 
         className={
           SidenavCSS.sidenavLink + ' '  
           + (onLinkedPage && SidenavCSS.active)  
@@ -110,6 +110,7 @@ export default function Siderail() {
             marginTop: "2.5px",
           }}>search</i>
         </button> */}
+        
 
         {links.map((link, index) => (
           <SideNavLink key={index} {...link} />
@@ -118,9 +119,11 @@ export default function Siderail() {
   )
 }
 
+
+
 export let links = [
   {href: "/", icon: "home", text: "Home"},
-  // {href: "/seelie", icon: "forum", text: "Ask AI"},
+  {href: "/seelie", icon: "forum", text: "Ask AI"},
   {href: "/archive/characters", img: characterIcon, text: "Characters"},
   {href: "/archive/weapons", img: weaponIcon, text: "Weapons"},
   {href: "/archive/artifacts", img: artifactIcon, text: "Artifacts"},

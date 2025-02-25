@@ -7,41 +7,45 @@ export default function RoundBtn(props: {
   style?: any, 
   className?: any, 
   iconStyle?: any,
-  href?: string
+  href?: string,
+  disabled?: boolean
 }) {
-  if (!props.href) {
-    return (
-      <button 
-        className={
-          ButtonCSS.roundBtn + 
-          ` waves-effect waves-light ripple ` +
-          (props.className ? props.className : '')
+
+  const inner = (
+    <button 
+    className={
+      ButtonCSS.roundBtn + 
+      ` waves-effect waves-light ripple ` +
+      (props.className ? props.className : '')
+    }
+    style={
+      {
+        ...props.style,
+        opacity: props.disabled ? 0.5 : 1,
+        cursor: props.disabled ? 'not-allowed' : 'pointer',
+        "&:hover": {
+          opacity: props.disabled ? 0.5 : 1,
+          cursor: props.disabled ? 'not-allowed' : 'pointer',
         }
-        style={props.style} 
-        onClick={props.onClick}
-      >
-        <div>
-          <i className='material-symbols-outlined' style={{...props.iconStyle}}>{props.icon}</i>
-        </div>
-      </button>
-    )
+        
+      }
+    } 
+    onClick={props.onClick}
+    disabled={props.disabled}
+  >
+    <div>
+      <i className='material-symbols-rounded' style={{...props.iconStyle}}>{props.icon}</i>
+    </div>
+  </button>
+  )
+
+  if(!props.href){
+    return inner
   }
 
   return (
     <Link href={props.href}>
-      <button 
-        className={
-          ButtonCSS.roundBtn + 
-          ` waves-effect waves-light ripple ` +
-          (props.className ? props.className : '')
-        }
-        style={props.style} 
-        onClick={props.onClick}
-      >
-        <div>
-          <i className='material-symbols-outlined' style={{...props.iconStyle}}>{props.icon}</i>
-        </div>
-      </button>
+      {inner}
     </Link>
   )
 }

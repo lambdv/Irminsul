@@ -9,6 +9,7 @@ import Overlay from '@/components/ui/Overlay'
 import Link from 'next/link'
 import ResinIcon from '@public/imgs/icons/resinIcon.png'
 import RoundBtn from '@/components/ui/RoundBtn'
+import markdownToHTML from '@/utils/markdownToHTML';
 
 export default function Chat(props: {
     user: any
@@ -93,7 +94,7 @@ export default function Chat(props: {
                             <Image src={SeelieIcon} alt="Seelie" width={40} height={40} className="rounded-full"/>
                         </div>
                         <div className={`${styles.messageContent} ${styles.messageContentAssistant}`}>
-                            
+                            <p>Thinking...</p>
                         </div>
                     </div>
                 )}
@@ -119,6 +120,16 @@ export default function Chat(props: {
                         autoComplete="off"
                     />
                 </form>
+                <RoundBtn 
+                    icon="send"
+                    onClick={handleFormSubmit}
+                    style={{
+                        position: "absolute",
+                        right: "10px",
+                        bottom: "10px",
+                    }}
+                    disabled={input.trim().length <= 0}
+                />
             </div>
         </div>
     )
@@ -187,7 +198,7 @@ function Message({messageUser, message, userImage}: {messageUser: string, messag
                 )}
             </div>
             <div className={`${styles.messageContent} ${isUser ? styles.messageContentUser : styles.messageContentAssistant}`}>
-                {displayMessage}
+                {markdownToHTML(displayMessage)}
             </div>
         </div>
     )

@@ -100,9 +100,9 @@ export default function CommentSectionClient({
                             style={{
                                 backgroundColor: color || "var(--primary-color)",
                                 transition: "opacity 0.3s ease",
-                                opacity: isSubmitting || comment.length === 0 ? 0.5 : 1,
+                                opacity: isSubmitting || comment.length === 0 ? 0.2 : 1,
                                 cursor: isSubmitting || comment.length === 0 ? "not-allowed" : "pointer",
-                                pointerEvents: isSubmitting || comment.length === 0 ? "none" : "auto"
+                                pointerEvents: isSubmitting || comment.length === 0 ? "none" : "auto",
                             }} 
                             disabled={isSubmitting || comment.length === 0}
                         >

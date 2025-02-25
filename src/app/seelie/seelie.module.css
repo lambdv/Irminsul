@@ -23,8 +23,6 @@
 
 .chatHistory {
     width: 60%;
-    height: 100%;
-    color: white;
     top: 0;
     overflow-y: auto;
     margin: 0 auto;

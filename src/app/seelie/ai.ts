@@ -9,23 +9,32 @@ import { purchasesTable } from "@/db/schema/purchase";
 import { usersTable } from "@/db/schema/user";
 import { createOpenAI } from '@ai-sdk/openai';
 import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
+import { createGoogleGenerativeAI } from '@ai-sdk/google';
 
-const token = process.env.GITHUB_TOKEN
-const endpoint = "https://models.inference.ai.azure.com"
-const modelName = "gpt-4o"
+// const token = process.env.GITHUB_TOKEN
+// const endpoint = "https://models.inference.ai.azure.com"
+// const modelName = "gpt-4o"
 
-const client = createOpenAI({
-    baseURL: endpoint,
+// const client = createOpenAI({
+//     baseURL: endpoint,
+//     apiKey: token
+// })
+
+// // Cast the model to resolve type conflicts
+// const model = client(modelName) as any;
+
+
+const token = process.env.AISTUDIO_GOOGLE_API_KEY
+const google = createGoogleGenerativeAI({
     apiKey: token
-})
+  })
 
-// Cast the model to resolve type conflicts
-const model = client(modelName) as any;
+const model = google('gemini-2.0-flash') as any
+
 
 const systemPrompt =  
-    "You are an AI Assistant/agent chatbot that answers questions about the game Genshin Impact. Including both in game and metagaming questions"
+    "You are an AI Assistant/agent chatbot that answers in-game and metagaming questions about the game Genshin Impact."
     + "You will answer questions based on the information provided in the knowledge base. To gain information about the game, use the getInformation tool. If you don't have the information, just say so."
-    + "You will also use the getCharacterData tool to get information about characters. This is important because the character data is the most important information you need to answer the question."
 
 export async function generateResponse(prompt: string, userId: string, messages?: any[]){
 
@@ -38,12 +47,12 @@ export async function generateResponse(prompt: string, userId: string, messages?
     const { textStream } = streamText({
         model,
         system: systemPrompt,
-        prompt: "you have to use the \"getInformation(question: string)\" tool (passing in the user's question to get info from your knowledge base) to awnser the following question: " + prompt,
         tools:{
             get_information: getInformationTool,
             get_character_data: getCharacterDataTool
         },
         maxSteps: 5,
+        messages: messages
     });
 
     // const response = await generateText({

@@ -2,10 +2,9 @@ import { embed, embedMany } from 'ai';
 import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
 import { embeddings } from '@/db/schema/embeddings';
 import db from '@/db/db';
-import { cosineDistance, desc, gt, sql } from 'drizzle-orm';
-
-
-import { createOpenAI } from '@ai-sdk/openai';
+import { cosineDistance, desc, gt, eq, sql } from 'drizzle-orm';
+import { resources } from '@/db/schema/resources';
+import { createGoogleGenerativeAI } from '@ai-sdk/google';
 
 //for devlopment build
 // const lmstudio = createOpenAICompatible({
@@ -17,17 +16,26 @@ import { createOpenAI } from '@ai-sdk/openai';
 
 
 
-const endpoint = process.env.AZURE_ENDPOINT || "https://models.inference.ai.azure.com";
-const modelName = "text-embedding-3-small";
+// const endpoint = process.env.AZURE_ENDPOINT || "https://models.inference.ai.azure.com";
+// const modelName = "text-embedding-3-small";
 
 
 
-const openai = createOpenAI({
-    apiKey: process.env.GITHUB_TOKEN,
-    baseURL: endpoint,
-})
+// const openai = createOpenAI({
+//     apiKey: process.env.GITHUB_TOKEN,
+//     baseURL: endpoint,
+// })
 
-const embeddingModel = openai.textEmbeddingModel(modelName)
+// const embeddingModel = openai.textEmbeddingModel(modelName)
+
+const token = process.env.AISTUDIO_GOOGLE_API_KEY
+const google = createGoogleGenerativeAI({
+    apiKey: token
+  })
+
+const embeddingModel = google.textEmbeddingModel('text-embedding-004', {
+    outputDimensionality: 512, 
+  });
 
 
 const generateChunks = (input: string): string[] => {
@@ -63,13 +71,49 @@ export const generateEmbedding = async (value: string): Promise<number[]> => {
       embeddings.embedding,
       userQueryEmbedded,
     )})`;
-    
-    const similarGuides = await db
-      .select({ name: embeddings.content, similarity })
+
+    const similarEmbeddings = await db
+      .select({
+        name: embeddings.content,
+        similarity,
+        resourceId: embeddings.resourceId
+      })
       .from(embeddings)
       .where(gt(similarity, 0.5))
-      .orderBy(t => desc(t.similarity))
+      .orderBy(desc(similarity))
       .limit(20)
+      .execute();
+
+
+    const uniqueEmbeddingsMap = new Map<string, { resourceId: string; similarity: number }>();
+
+
+    for (const embedding of similarEmbeddings) {
+        const existing = uniqueEmbeddingsMap.get(embedding.resourceId);
+        if (!existing || existing.similarity < embedding.similarity) {
+            uniqueEmbeddingsMap.set(embedding.resourceId, { resourceId: embedding.resourceId, similarity: embedding.similarity });
+        }
+    }
+
+    const uniqueEmbeddings = Array.from(uniqueEmbeddingsMap.values());
       
-    return similarGuides;
+
+    const similarResources = await Promise.all(uniqueEmbeddings.map(async (e) => {
+      const resource = await db
+        .select()
+        .from(resources)
+        .where(eq(resources.id, e.resourceId));
+      return resource[0] || null;
+    }))
+    .then(results => results.filter(resource => resource !== null));
+
+
+    return similarResources; // Return similarResources instead of similarEmbeddings
   };
+
+  // type ReleventContent = {
+  //   name: string
+  //   similarity: number
+  //   resourceId: string
+  //   content: string
+  // }

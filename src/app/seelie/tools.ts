@@ -24,11 +24,10 @@ export const getCharacterDataTool = tool({
     execute: async ({ characterName }) => {
         try {
             const flatId = toKey(characterName)
-            let d = await getCharacter(flatId)
-            // if (d === null)
-            //     return {error: "character not found"};
-            console.log(d)
-            return d;
+            let data = await getCharacter(flatId)
+            if (!data)
+                return {error: "character not found"};
+            return data;
         } catch (error) {
             console.error('Error in get_character_data_tool:', error);
             return {error: "error occurred in get_character_data_tool"};
@@ -36,3 +35,15 @@ export const getCharacterDataTool = tool({
     },
 });
 
+// export const getNounCategoryTool = tool({
+//     description: 'tool that takes a noun (something in the genshin impact universe, stored as a table in the database) and returns the category of the noun',
+//     parameters: z.object({
+//         noun: z.string().describe('noun'),
+//     }),
+//     execute: async ({ noun }) => {
+       
+//         const nounId = toKey(noun)
+//         await 
+//     }
+    
+// })

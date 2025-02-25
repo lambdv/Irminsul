@@ -335,7 +335,7 @@
 
 @media (max-width: 768px) { 
     .breadcrumbContainer{
-        /* display: none; */
+        display: none;
         position: relative;
         top: -25px;
         left: 50px;
