@@ -1,19 +1,10 @@
 import React from 'react'
-// import { deepseek } from '@ai-sdk/deepseek';
-import { generateText } from 'ai';
-import { createOpenAICompatible } from '@ai-sdk/openai-compatible';
 import Gatekeeper from './gatekeeper';
-import { NextResponse } from 'next/server';
-import { cookies } from 'next/headers';
-import { generateResponse } from './ai';
 import Chat from './chat';
 import { auth, isAuthenticated } from '@/app/(auth)/auth';
-import { eq } from 'drizzle-orm';
-import db from '@/db/db';
-import { aitokenTable } from '@/db/schema/aitoken';
-import Overlay from '@/components/ui/Overlay';
 import RightSidenav from '@/components/navigation/RightSidenav';
-import Advertisment from '@/components/ui//Advertisment';
+import Advertisment from '@/components/ui/Advertisment';
+
 export async function generateMetadata() {
   return {
     title: "Seelie | Irminsul",

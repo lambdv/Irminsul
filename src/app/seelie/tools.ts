@@ -10,11 +10,14 @@ export const getInformationTool = tool({
       question: z.string().describe('the users question'),
     }),
     execute: async ({ question }) => {
+        console.log("getInformationTool called")
         const similarResources = await findRelevantContent(question)
         console.log(similarResources)
-        return similarResources
+        return similarResources        
     },
 });
+
+
 
 export const getCharacterDataTool = tool({
     description: 'get character data from the database',

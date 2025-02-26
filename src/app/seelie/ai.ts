@@ -1,15 +1,12 @@
 import { generateText, streamText, tool } from "ai";
-import { z } from 'zod';
 import { getCharacterDataTool, getInformationTool } from "./tools";
-import { findRelevantContent } from '@/lib/ai/embedding';
 import { eq, sql, and } from "drizzle-orm";
 import db from "@/db/db";
 import { aitokenTable } from "@/db/schema/aitoken";
-import { purchasesTable } from "@/db/schema/purchase";
 import { usersTable } from "@/db/schema/user";
-import { createOpenAI } from '@ai-sdk/openai';
 import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
+import { getAiTokensLeft } from "./numAiTokensLeft";
 
 // const token = process.env.GITHUB_TOKEN
 // const endpoint = "https://models.inference.ai.azure.com"
@@ -55,54 +52,13 @@ export async function generateResponse(prompt: string, userId: string, messages?
         messages: messages
     });
 
-    // const response = await generateText({
-    //     model,
-    //     system: systemPrompt,
-    //     tools:{
-    //         getCharacterData: getCharacterDataTool,
-    //         getInformation: getInformationTool,
-    //     },
-    //     maxSteps: 2,
-    //     messages: messages
-    // })
-
     console.log(textStream)
 
     return textStream
 }
 
-export async function getAiTokensLeft(userId: string){
-    
-    //get user from db
-    const user = await db.select() 
-        .from(usersTable)
-        .where(eq(usersTable.id, userId))
-    
-    if(user.length <= 0)
-        return 0
 
-    const tokenRecord = await db.select()
-        .from(aitokenTable)
-        .where(eq(aitokenTable.userId, userId))
-    
-    //if there is a record, return the numTokens
-    if(tokenRecord.length > 0 && user[0].email){
-        let numTokens = tokenRecord[0].numTokens
-        return Math.max(numTokens, 0)
-    }
-    else {
-        //if there is no record, create one
-        return await insertAiToken(userId, 20)
-    }
-}
 
-async function insertAiToken(userId: string, numTokens: number){
-    await db.insert(aitokenTable).values({
-        "userId": userId,
-        "numTokens": numTokens
-    })
-    return numTokens
-}
 
 export async function consumeAiToken(userId: string, numTokens?: number){
     if(!numTokens)

@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 import { index, pgTable, text, varchar, vector } from 'drizzle-orm/pg-core';
-import { resources } from './resources';
+import { resources } from './_resources';
 
 export const embeddings = pgTable('embeddings',{
     id: varchar('id', { length: 191 })

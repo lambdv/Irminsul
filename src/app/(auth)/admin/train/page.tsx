@@ -1,8 +1,9 @@
 import { auth, isAuthenticated, getUserFromSession } from '@/app/(auth)/auth'
 import { generateResponse } from '@/app//seelie/ai'
 import db from '@/db/db'
-import { resources as resourcesTable } from '@/db/schema/resources'
-import { embeddings as embeddingsTable } from '@/db/schema/embeddings'
+import vector from '@root/src/db/vector'
+import { resources as resourcesTable } from '@/db/schema'
+import { embeddings as embeddingsTable } from '@/db/schema'
 
 import { redirect } from 'next/navigation'
 import React from 'react'
@@ -17,22 +18,20 @@ export default async function Page() {
     if(!await isAdmin())
         redirect("/")
     
-    const resources = await db.select().from(resourcesTable)
-    const embeddings = await db.select().from(embeddingsTable)
+    let resources = await vector.select().from(resourcesTable)
+    let embeddings = await vector.select().from(embeddingsTable)
+
+    const handleSubmit = async (formData: FormData) => {
+        "use server"
+        const prompt = formData.get('prompt') as string
+        const res = await createResource({content: prompt})
+        const embeddings = await generateEmbeddings(prompt)
+    }
+
 
     return (
         <div>
-            <form action={async (formData) => {
-                "use server"
-                
-                //prevent reload
-                const prompt = formData.get('prompt') as string
-                // await createResource({content: prompt})
-                // const embeddings = await generateEmbeddings(prompt)
-                // console.log(embeddings)
-                const res = await createResource({content: prompt})
-                //console.log(res)
-            }}>
+            <form action={handleSubmit}>
                 <textarea name="prompt" 
                     style={{
                         width: "100%",
@@ -130,24 +129,26 @@ export default async function Page() {
                                     overflow: "hidden",
                                     textOverflow: "ellipsis",
                                 }}
-                            >{embeddings.find((embedding) => embedding.resourceId === resource.id)?.embedding.slice(0, 5)}...</td>
-                            <td
-                                style={{
-                                    backgroundColor: "#1d1d1d",
-                                    color: "#dcdcdc",
-                                    border: "1px solid #303030",
-                                    borderRadius: "10px",
-                                    padding: "10px",
-                                    fontFamily: "monospace",
-                                    outline: "none",
-                                    width: "1%",
-                                }}
                             >
+{/*                                 
+                            {embeddings.find((embedding) => embedding.resourceId === resource.id)?.embedding.slice(0, 5)}...</td>
+                                <td
+                                    style={{
+                                        backgroundColor: "#1d1d1d",
+                                        color: "#dcdcdc",
+                                        border: "1px solid #303030",
+                                        borderRadius: "10px",
+                                        padding: "10px",
+                                        fontFamily: "monospace",
+                                        outline: "none",
+                                        width: "1%",
+                                    }}
+                            > */}
                                 <form action={async (formData) => {
                                     "use server"
                                     const resourceId = formData.get('resourceId') as string
-                                    await db.delete(resourcesTable).where(eq(resourcesTable.id, resourceId))
-                                    await db.delete(embeddingsTable).where(eq(embeddingsTable.resourceId, resourceId))
+                                    await vector.delete(resourcesTable).where(eq(resourcesTable.id, resourceId))
+                                    await vector.delete(embeddingsTable).where(eq(embeddingsTable.resourceId, resourceId))
                                     console.log("Deleted resource and embedding")
                                     revalidatePath('/train')
                                 }}>

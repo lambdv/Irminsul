@@ -47,6 +47,8 @@ export async function syncStripePayments(){
     }
 }
 
+export const BASE_TIER_TOKEN_AMOUNT = 20
+export const SUPPORT_TIER_TOKEN_AMOUNT = 200
 
 async function claimAiTokensFromPurchase(payment: any) {
     console.log("payment", payment)
@@ -76,15 +78,16 @@ async function claimAiTokensFromPurchase(payment: any) {
         // Update existing tokens
         await db.update(aitokenTable)
             .set({
-                numTokens: aiToken.numTokens + 500
+                numTokens: aiToken.numTokens + SUPPORT_TIER_TOKEN_AMOUNT
             })
             .where(eq(aitokenTable.userId, userId));
     } 
     else {
+        
         // Create new tokens entry only if userId is valid
         await db.insert(aitokenTable).values({
             userId: userId,
-            numTokens: 520 // 500 + 20
+            numTokens: BASE_TIER_TOKEN_AMOUNT + SUPPORT_TIER_TOKEN_AMOUNT
         });
     }
 }

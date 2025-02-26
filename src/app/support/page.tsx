@@ -9,6 +9,7 @@ import DonationGoal from './goal'
 import { eq } from 'drizzle-orm'
 import db from '@/db/db'
 import { purchasesTable } from '@/db/schema/purchase'
+import { BASE_TIER_TOKEN_AMOUNT, SUPPORT_TIER_TOKEN_AMOUNT } from './actions'
 
 export async function generateMetadata({params}) {
     return {
@@ -57,23 +58,30 @@ export default async function page() {
             <div className={styles.donateCardDeck}>
                 <DonateCard 
                     title="F2P"
-                    price="$0"
+                    price={<div style={{display: "grid", alignItems: "center"}}>
+                        <span style={{marginTop: "12px"}}>Free</span>
+                    </div>}                    
                     description="Full access to Irminsul"
                     features={[
-                        "Access to data, APIs, articles and tools",
-                        "20 SeelieAI tokens",
+                        "Access to data, articles and tools",
+                        `${BASE_TIER_TOKEN_AMOUNT} SeelieAI tokens`,
                     ]}
                     isCurrent={true}
                     href=""
                 />
                 <DonateCard 
                     title="Supporter Tier"
-                    price="$4.99"
-                    description="Enhanced experience "
+                    price={<div style={{display: "grid", alignItems: "center"}}>
+                        <span style={{textDecoration: "line-through", marginRight: "8px", fontSize: "12px", color: "#838383"}}>$9.99</span>
+                        <span>$4.99 
+                            <span style={{fontSize: "12px", color: "#838383"}}> (50% off)</span>
+                        </span>
+                    </div>}
+                    description="Enhanced experience"
                     features={[
                         "Everything in Free tier",
                         "Ad-Free experience",
-                        "500 SeelieAI tokens",
+                        `+${SUPPORT_TIER_TOKEN_AMOUNT} SeelieAI tokens`,
                         "Verified badge on your profile",
                         "Early access to new features in production",
                     ]}
@@ -92,7 +100,7 @@ export default async function page() {
 
 function DonateCard(props: {
     title: string,
-    price: string,
+    price: React.ReactNode,
     description: string,
     features: string[],
     buttonText?: string,
@@ -107,7 +115,7 @@ function DonateCard(props: {
             <p className={styles.cardDescription}>{props.description}</p>
             <ul className={styles.featureList}>
                 {props.features.map((feature, index) => {
-                    if(feature==="500 SeelieAI tokens"){
+                    if(feature==="+" + SUPPORT_TIER_TOKEN_AMOUNT + " SeelieAI tokens"){
                         return (
                             <li key={index}>
                                 <i className="material-symbols-outlined">check</i>

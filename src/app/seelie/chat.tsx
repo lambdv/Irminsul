@@ -4,7 +4,7 @@ import { useChat } from '@ai-sdk/react';
 import Image from 'next/image'
 import styles from './seelie.module.css'
 import SeelieIcon from '@public/imgs/icons/seelie.png'
-import { getAiTokensLeft } from './ai'
+import { getAiTokensLeft } from './numAiTokensLeft'
 import Overlay from '@/components/ui/Overlay'
 import Link from 'next/link'
 import ResinIcon from '@public/imgs/icons/resinIcon.png'
@@ -13,9 +13,7 @@ import markdownToHTML from '@/utils/markdownToHTML';
 
 export default function Chat(props: {
     user: any
-
 }) {
-    
     const { messages, input, handleInputChange, handleSubmit, setInput, isLoading, setMessages } = useChat({
         body: {
             userId: props.user?.id
@@ -42,14 +40,6 @@ export default function Chat(props: {
         getTokensLeft()
     }, [props.user?.id])
     
-    // useEffect(() => {
-    //     if(messages.length > 0){
-    //         const lastMessage = messages[messages.length - 1]
-    //         if(lastMessage.role === 'assistant' && lastMessage.content.includes('Thinking...') && !isLoading){
-    //             setInput("")
-    //         }
-    //     }
-    // }, [messages])
     const handleFormSubmit = (e) => {
         e.preventDefault()
         //if user has no tokens left, show pop up
@@ -69,8 +59,7 @@ export default function Chat(props: {
         //optimistically add a message from seelie to the messages array
         //setMessages([...messages, {id: "2", role: 'assistant', content: 'Thinking...'}] as any)
 
-        handleSubmit()
-
+        handleSubmit(e)
     }
 
     return (
