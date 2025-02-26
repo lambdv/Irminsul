@@ -28,7 +28,7 @@ export const embeddings = sqliteTable('embeddings', {
         { onDelete: 'cascade' },
     ),
     content: text('content').notNull(),
-    embedding: blob('embedding').notNull(),
+    embedding: text('embedding').notNull(),
 });
 
 // Schema for resources - used to validate API requests

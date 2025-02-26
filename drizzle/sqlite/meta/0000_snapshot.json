@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "08506545-c848-4b1b-9d20-645e8fda1567",
+  "id": "0af2e264-3d38-41c2-86a9-0cc3209c534e",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "embeddings": {
@@ -30,7 +30,7 @@
         },
         "embedding": {
           "name": "embedding",
-          "type": "blob",
+          "type": "text",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false

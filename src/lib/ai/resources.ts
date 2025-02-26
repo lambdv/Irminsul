@@ -11,7 +11,8 @@ import vector from '@/db/vector';
 import { resources, insertResourceSchema, NewResourceParams } from '@/db/schema';
 
 import { generateEmbeddings } from './embedding';
-import { embeddings as embeddingsTable } from '@/db/schema/_embeddings';
+// import { embeddings as embeddingsTable } from '@/db/schema/_embeddings';
+import { embeddings as embeddingsTable } from '@/db/schema';
 
 export const createResource = async (input: NewResourceParams) => {
   try {
@@ -23,14 +24,28 @@ export const createResource = async (input: NewResourceParams) => {
     const embeddings = await generateEmbeddings(content);
     // console.log(embeddings)
       
-    const res = await vector.insert(embeddingsTable).values(
-      embeddings.map(embedding => ({
-        resourceId: resource.id,
-        ...embedding,
-      })),
-    );
+    // const res = await vector.insert(embeddingsTable).values(
+    //   embeddings.map(embedding => ({
+    //     resourceId: resource.id,
+    //     ...embedding,
+    //   })),
+    // );
+    // console.log(res)
+
+
+
+    const res = await vector
+      .insert(embeddingsTable)
+      .values(
+        embeddings.map(embedding => ({
+          resourceId: resource?.id,
+          content: embedding?.content,
+          embedding: JSON.stringify(embedding?.embedding)
+        }))
+      );
+
+
     console.log(res)
-    
     console.log("Resource successfully created.")
     return 'Resource successfully created.';
   } catch (e) {

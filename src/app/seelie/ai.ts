@@ -35,10 +35,7 @@ const systemPrompt =
 
 export async function generateResponse(prompt: string, userId: string, messages?: any[]){
 
-    //consume token
-    const consumed = await consumeAiToken(userId)
-    if(!consumed)
-        return "You've run out of tokens. Please come back later!"
+
 
 
     const { textStream } = streamText({
@@ -51,6 +48,11 @@ export async function generateResponse(prompt: string, userId: string, messages?
         maxSteps: 5,
         messages: messages
     });
+
+    //consume token
+    const consumed = await consumeAiToken(userId)
+    if(!consumed)
+        return "You've run out of tokens. Please come back later!"
 
     console.log(textStream)
 

@@ -21,12 +21,12 @@ export async function syncStripePayments(){
             continue
 
         //if payment is already in the database and status is not succeeded, then update the status to succeeded
-        // if(existingPayment && payment.status === 'succeeded' && existingPayment.status !== 'succeeded'){
-        //     await db.update(purchasesTable)
-        //         .set({ status: "succeeded" })
-        //         .where(eq(purchasesTable.stripePaymentId, payment.id))
-        //     await claimAiTokensFromPurchase(existingPayment)
-        // }
+        if(existingPayment && payment.status === 'succeeded' && existingPayment.status !== 'succeeded'){
+            await db.update(purchasesTable)
+                .set({ status: "succeeded" })
+                .where(eq(purchasesTable.stripePaymentId, payment.id))
+            await claimAiTokensFromPurchase(existingPayment)
+        }
             
         //check if payment is already in the database via id using drizzle orm
         if(!existingPayment && payment.status === 'succeeded' && payment.receipt_email){
@@ -65,7 +65,8 @@ async function claimAiTokensFromPurchase(payment: any) {
     const userId = user[0].id;
     console.log("userId", userId)
 
-    if(!userId) return;
+    if(!userId) 
+        return;
 
     const aitoken = await db
         .select()
@@ -83,7 +84,6 @@ async function claimAiTokensFromPurchase(payment: any) {
             .where(eq(aitokenTable.userId, userId));
     } 
     else {
-        
         // Create new tokens entry only if userId is valid
         await db.insert(aitokenTable).values({
             userId: userId,
