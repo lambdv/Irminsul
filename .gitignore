@@ -49,7 +49,3 @@ scrapper/assets/
 ./venv/
 
 TODO.md
-
-*.db
-*.db-journal
-src/db/*.db
