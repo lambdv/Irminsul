@@ -1,6 +1,6 @@
 import { tool } from "ai";
 import { z } from 'zod';
-import { getCharacter, getWeapon, getArtifact } from "@/utils/genshinData";
+import { getCharacter, getWeapon, getArtifact, getCharacters } from "@/utils/genshinData";
 import { toKey } from "@/utils/standardizers";
 import { findRelevantContent } from "@/lib/ai/embedding";
 
@@ -38,15 +38,29 @@ export const getCharacterDataTool = tool({
     },
 });
 
-// export const getNounCategoryTool = tool({
-//     description: 'tool that takes a noun (something in the genshin impact universe, stored as a table in the database) and returns the category of the noun',
-//     parameters: z.object({
-//         noun: z.string().describe('noun'),
-//     }),
-//     execute: async ({ noun }) => {
-       
-//         const nounId = toKey(noun)
-//         await 
-//     }
-    
-// })
+
+export const getAllCharacterDataTool = tool({
+    description: 'get all character data from the database',
+    parameters: z.object({
+    }),
+    execute: async () => {
+        try {
+            let data = await getCharacters()
+            if (!data)
+                return {error: "character not found"};
+            return data;
+        } catch (error) {
+            console.error('Error in get_character_data_tool:', error);
+            return {error: "error occurred in get_character_data_tool"};
+        }
+    },
+});
+
+
+
+
+export const tools = {
+    getInformationTool,
+    getCharacterDataTool,
+    getAllCharacterDataTool
+}

@@ -11,7 +11,7 @@
     display: block;
     transition: transform 0.3s ease-in-out;
     background-color: var(--light-elevated-color);
-    animation: slideIn 0.2s forwards;
+    animation: slideIn 0.1s forwards;
 
 }
 
@@ -19,7 +19,7 @@
     /* width: 90px; */
     width: 5.5rem;
     padding:10px 5px;
-    transition: ease-in-out 0.3s;
+    transition: ease-in-out 0.15s;
     background-color: transparent;
     animation: none;
     margin-top: 60px; 
@@ -263,5 +263,5 @@
 }
 
 .sidenavCollapsing{
-    animation: slideOut 0.2s forwards;
+    animation: slideOut 0.15s forwards;
 }

@@ -1,7 +1,9 @@
 import React from 'react'
 import Gatekeeper from './gatekeeper';
 import Chat from './chat';
-import { auth, isAuthenticated } from '@/app/(auth)/auth';
+
+import { auth } from '@/app/(auth)/auth'
+import { isAuthenticated } from '@/app/(auth)/actions'
 import RightSidenav from '@/components/navigation/RightSidenav';
 import Advertisment from '@/components/ui/Advertisment';
 

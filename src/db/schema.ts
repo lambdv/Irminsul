@@ -10,7 +10,7 @@ export const resources = sqliteTable("resources", {
   
     content: text("content").notNull(),
 
-    source: text("source").notNull().default(""),
+    source: text("source").notNull(),
     
     // createdAt: text("created_at")
     //   .notNull()

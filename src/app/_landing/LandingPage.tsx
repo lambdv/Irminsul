@@ -9,9 +9,11 @@ import Link from 'next/link';
 import { articles } from '../articles/router';
 import WishBanner from './WishBanner';
 
-import { isAuthenticated, auth } from '@/app/(auth)/auth';
+
+import { isAuthenticated } from '@/app/(auth)/actions'
 import RightSidenav from '@/components/navigation/RightSidenav';
 import Advertisment from '@/components/ui/Advertisment';
+import { auth } from '@/app/(auth)/auth'
 
 
 export default async function LandingPage() {

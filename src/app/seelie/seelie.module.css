@@ -36,6 +36,7 @@
     }
     .chatTextFieldContainer {
         width: 80%;
+        bottom: 70px;
     }
 }
 

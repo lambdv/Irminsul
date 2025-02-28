@@ -4,6 +4,7 @@ import { auth } from '@/app/(auth)/auth';
 import db from '@/db/db';
 import { purchasesTable } from '@/db/schema/purchase';
 import { eq } from 'drizzle-orm';
+import { Suspense } from 'react';
 
 export default async function ProcessPayment() {
     const session = await auth();
@@ -21,10 +22,12 @@ export default async function ProcessPayment() {
     }
 
     return (
-        <div>
-            <h1>Thank you for your donation!</h1>
-            <p>Your support helps us continue our work.</p>
-        </div>
+        <Suspense fallback={<div>Processing payment, Please wait...</div>}>
+            <div>
+                <h1>Thank you for your donation!</h1>
+                <p>Your support helps us continue our work.</p>
+            </div>
+        </Suspense>
     );
 }
 

@@ -12,8 +12,12 @@ import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { links } from './Siderail';
 import TopnavCSS from './topnav.module.css'
+import {auth, signIn, signOut} from "@/app/(auth)/auth";
 
 export default function Sidedrawer() {
+
+
+
     const { sideNavCollapsed, setSideNavCollapsed } = NavigationStore() //get sidenav state
 
     const pathname = usePathname() 
@@ -33,7 +37,7 @@ export default function Sidedrawer() {
         // //wait for the animation to finish before setting the state 
         setTimeout(() => {
             setSideNavCollapsed(true)
-        }, 200);
+        }, 150);
     }
 
 
@@ -84,6 +88,9 @@ export default function Sidedrawer() {
                         <SideNavLink key={index} {...link} />
                     ))}
                 </div>
+
+
+
             </Overlay>
     )
 }

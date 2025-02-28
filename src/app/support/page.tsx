@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation'
 import React from 'react'
-import { auth, getUser, getUserById, isAdmin } from '@/app/(auth)/auth'
+import { auth } from '@/app/(auth)/auth'
+import { getUser, getUserById, isAdmin } from '@/app/(auth)/actions'
 import styles from './donate.module.css'
 import { stripe } from '@/lib/stripe'
 import { syncStripePayments } from './actions'

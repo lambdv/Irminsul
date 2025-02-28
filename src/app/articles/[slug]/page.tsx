@@ -3,7 +3,9 @@ import { articles } from '../router'
 import articleCSS from './article.module.css'
 import RightSidenav from '@/components/navigation/RightSidenav'
 import { Metadata } from 'next'
-import { getUser, getUserById } from '@/app/(auth)/auth'
+import { getUser, getUserById } from '@/app/(auth)/actions'
+
+
 import Image from 'next/image'
 import Divider from '@/components/ui/Divider'
 import CommentSection from '@/components/ui/CommentSection'

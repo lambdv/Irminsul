@@ -9,6 +9,7 @@ import { cookies } from 'next/headers'
 import Head from "next/head"
 import Sidedrawer from "@/components/navigation/Sidedrawer"
 import ClientProvider from "@/components/navigation/ClientProvider"
+import BottomNav from "@/components/navigation/bottomnav"
 const inter = Inter({ subsets: ["latin"] })
 
 
@@ -38,6 +39,7 @@ export default async function RootLayout({children}) {
               {children}
               {/* <Footer/> */}
             </main>
+            <BottomNav/>
           </ClientProvider>
         </SessionProvider>
       </body>

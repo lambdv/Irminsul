@@ -2,7 +2,7 @@ import { stripe } from "@/lib/stripe"
 import db from "@/db/db"
 import { purchasesTable } from "@/db/schema/purchase"
 import { eq, desc } from "drizzle-orm"
-import { getUserById } from "../(auth)/auth"
+import { getUserById } from "@/app/(auth)/actions"
 import { usersTable } from "@/db/schema/user"
 import { aitokenTable } from "@/db/schema/aitoken"
 

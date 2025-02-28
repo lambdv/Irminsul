@@ -7,47 +7,47 @@
 // } from '@/db/schema/_resources';
 // import db from '@/db/db';
 import vector from '@/db/vector';
-
 import { resources, insertResourceSchema, NewResourceParams } from '@/db/schema';
-
 import { generateEmbeddings } from './embedding';
 // import { embeddings as embeddingsTable } from '@/db/schema/_embeddings';
 import { embeddings as embeddingsTable } from '@/db/schema';
+import { encryptContent } from '@/lib/utils/encryption';
 
-export const createResource = async (input: NewResourceParams) => {
+/**
+ * Takes a resource, generates embeddings, and inserts both into the database.
+ * @param input 
+ * @returns 
+ */
+export const createResource = async (input: any) => {
   try {
-    const { content } = insertResourceSchema.parse(input);
 
-    const [resource] = await vector.insert(resources).values({ content }).returning();
+    const { content, source } = input;
+    // Encrypt the content before storing
+    const encryptedContent = encryptContent(content);
+
+    const [resource] = await vector
+      .insert(resources)
+      .values({ content: encryptedContent, source: source })
+      .returning();
+    
     console.log(resource)
 
+    // Generate embeddings from original unencrypted content
     const embeddings = await generateEmbeddings(content);
-    // console.log(embeddings)
-      
-    // const res = await vector.insert(embeddingsTable).values(
-    //   embeddings.map(embedding => ({
-    //     resourceId: resource.id,
-    //     ...embedding,
-    //   })),
-    // );
-    // console.log(res)
-
-
 
     const res = await vector
       .insert(embeddingsTable)
       .values(
         embeddings.map(embedding => ({
           resourceId: resource?.id,
-          content: embedding?.content,
+          content: encryptContent(embedding?.content), // Store encrypted chunk
           embedding: JSON.stringify(embedding?.embedding)
         }))
       );
 
-
     console.log(res)
-    console.log("Resource successfully created.")
     return 'Resource successfully created.';
+
   } catch (e) {
     console.log(e)
     if (e instanceof Error)

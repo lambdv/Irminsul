@@ -17,11 +17,12 @@ export default function Item(props: {
     scale?: number,
     showStars?: boolean,
 }) {
-    const id = toKey(props.name)
 
+    const id = toKey(props.name)
     const isLargeItem: boolean = props.category == "weapon" || props.category == "artifact"
     const hasElement: boolean = props.element !== null && props.category == "character"
     const hasStarsDisplayed: boolean = props.showStars !== false && (props.category == "artifact" || props.category == "weapon")
+
     return (
         <div className={ItemCSS.item + ` waves-effect waves-light ripple ` + ` item `} 
             style={{ 

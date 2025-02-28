@@ -22,8 +22,11 @@ import RoundBtn from "../ui/RoundBtn"
  */
 export default function Topnav() {
   const { showPallette, setShowPallette } = SearchStore()
+  const { sideNavCollapsed, setSideNavCollapsed } = NavigationStore()
 
   const [isAtTop, setIsAtTop] = useState(false)
+
+  const [prevIsAtTop, setPrevIsAtTop] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => setIsAtTop(window.scrollY === 0);
@@ -31,6 +34,19 @@ export default function Topnav() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [])
+
+  useEffect(() => {
+    if(!sideNavCollapsed){
+      setPrevIsAtTop(isAtTop)
+      setIsAtTop(false)
+    }
+
+    else{
+        setIsAtTop(prevIsAtTop)
+        setPrevIsAtTop(isAtTop)
+    }
+
+  }, [sideNavCollapsed])
 
   return (
     <>
@@ -168,12 +184,12 @@ function CenterContainer(props: any){
             >
           <i className="material-symbols-outlined">search</i>
         </button> */}
-        <RoundBtn 
+        {/* <RoundBtn 
           icon="search"
           onClick={() => SearchStore.getState().setShowPallette(true)}
           className={TopnavCSS.hamburgerBtn}
           style={{ top: "5px" }}
-        />
+        /> */}
       </div>
 
       <div className={TopnavCSS.userDropdownContainer}>

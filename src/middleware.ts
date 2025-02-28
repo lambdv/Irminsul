@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from 'next/server'
 import { getToken } from "next-auth/jwt";
 import { cookies } from 'next/headers'
-import { isAdmin } from '@/app/(auth)/auth'
+import { isAdmin } from '@/app/(auth)/actions'
 
 export const config = {
     runtime: 'experimental-edge',
