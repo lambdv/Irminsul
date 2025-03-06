@@ -25,7 +25,7 @@ import Image from 'next/image'
 import { toKey } from "@/utils/standardizers"
 import Head from "next/head"
 import { redirect } from "next/navigation"
-import { isAdmin } from "../../auth"
+import { isAdmin } from "@/app/(auth)/actions"
 
 
 export default function Page() {

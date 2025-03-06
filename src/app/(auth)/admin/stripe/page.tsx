@@ -2,7 +2,7 @@ import { stripe } from '@/lib/stripe'; // Adjust the import based on your projec
 import db from '@/db/db';
 import { purchasesTable } from '@/db/schema/purchase';
 import { eq } from 'drizzle-orm';
-import { isAdmin } from '../../auth';
+import { isAdmin } from "@/app/(auth)/actions"
 import { redirect } from 'next/navigation';
 import { syncStripePayments } from '@/app/support/actions';
 import { aitokenTable } from '@/db/schema/aitoken';
