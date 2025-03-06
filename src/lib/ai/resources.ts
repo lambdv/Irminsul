@@ -21,13 +21,23 @@ import { encryptContent } from '@/lib/utils/encryption';
 export const createResource = async (input: any) => {
   try {
 
-    const { content, source } = input;
+    const { 
+      content, 
+      source,
+      type,
+      date,
+      weight,
+    } = input;
     // Encrypt the content before storing
     const encryptedContent = encryptContent(content);
 
     const [resource] = await vector
       .insert(resources)
-      .values({ content: encryptedContent, source: source })
+      .values({ 
+        content: encryptedContent, 
+        source: source,
+
+      })
       .returning();
     
     console.log(resource)

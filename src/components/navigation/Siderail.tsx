@@ -11,6 +11,7 @@ import characterIcon from '@public/imgs/icons/characterIcon.png'
 import weaponIcon from '@public/imgs/icons/weaponIcon.png'
 import artifactIcon from '@public/imgs/icons/artifactIcon.png'
 import seelieIcon from '@public/imgs/icons/seelie.png'
+import yellowSeelieIcon from '@public/imgs/icons/yellowSeelie.png'
 import enemyIcon from '@public/imgs/icons/enemyIcon.png'
 import wishIcon from '@public/imgs/icons/wish.png'
 import partyIcon from '@public/imgs/icons/party.png'
@@ -123,7 +124,7 @@ export default function Siderail() {
 
 export let links = [
   {href: "/", icon: "home", text: "Home"},
-  {href: "/seelie", icon: "forum", text: "Ask AI"},
+  {href: "/seelie", img: yellowSeelieIcon, text: "Ask AI"},
   {href: "/archive/characters", img: characterIcon, text: "Characters"},
   {href: "/archive/weapons", img: weaponIcon, text: "Weapons"},
   {href: "/archive/artifacts", img: artifactIcon, text: "Artifacts"},

@@ -5,7 +5,9 @@ import { toKey } from "@/utils/standardizers";
 import { findRelevantContent } from "@/lib/ai/embedding";
 
 export const getInformationTool = tool({
-    description: `get information from your knowledge base to answer questions.`,
+    description: `get information from your knowledge base to answer questions.
+        MAKE SURE TO CITE YOUR SOURCES TO AVOID PLAGERISM. Use ieee formate if you can. Sources are provided with each resource object from the knowledge base.
+    `,
     parameters: z.object({
       question: z.string().describe('the users question'),
     }),

@@ -1,11 +1,7 @@
-
-
 - make search bar run query server side to save resources and add loading bar to pallette
-- add bottom nav for mobile
 
+- add generative react UI to seelie https://sdk.vercel.ai/docs/ai-sdk-ui/generative-user-interfaces#basic-chat-implementation
 
-
-- add generative react UI to seelie https://sdk.vercel.ai/docs/ai-sdk-ui/generative-user-interfaces#basic-chat-implementation 
 - vector db should store
     - content release date: priortize newer information
     - similarity weighting:

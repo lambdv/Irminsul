@@ -14,34 +14,37 @@ import markdownToHTML from '@/utils/markdownToHTML';
 export default function Chat(props: {
     user: any
 }) {
-    const { messages, input, handleInputChange, handleSubmit, setInput, isLoading, setMessages } = useChat({
+    const { messages, input, handleInputChange, handleSubmit, setInput, isLoading, setMessages, status } = useChat({
         body: {
             userId: props.user?.id
         },
         api: '/api/chat',
-        initialMessages: [{id: "1", role: 'assistant', content: 'Ad astra abyssosque traveler! \nIm Seelie, your AI assistant for Genshin Impact. \nHow can I assist you today?'}],
+        ///initialMessages: [{id: "1", role: 'assistant', content: 'Ad astra abyssosque traveler! \nIm Seelie, your AI assistant for Genshin Impact. \nHow can I assist you today?'}],
         streamProtocol: 'text',
         onError: (error: any) => {
-            console.log(error)
-            alert("An error occurred. Please try again later.")
+            // console.log(error)
+            setDisabledChat(true)
+            // seelie sends an error message
+            setMessages([...messages, {id: "2", role: 'assistant', content: 'An error occurred. Please try again later.'}] as any)
         }
     })
 
-    const [tokensLeft, setTokensLeft] = useState(-1)
+    const [tokensLeft, setTokensLeft] = useState(null)
     const [showTokenModal, setShowTokenModal] = useState(false)
-
-
+    const [disabledChat, setDisabledChat] = useState(true)
 
     useEffect(() => {
         const getTokensLeft = async () => {
             const tokens = await getAiTokensLeft(props.user.id)
             setTokensLeft(tokens)
+            setDisabledChat(false)
         }
         getTokensLeft()
     }, [props.user?.id])
     
     const handleFormSubmit = (e) => {
         e.preventDefault()
+        setDisabledChat(true)
         //if user has no tokens left, show pop up
         if(tokensLeft <= 0){
             setShowTokenModal(true)
@@ -60,6 +63,74 @@ export default function Chat(props: {
         //setMessages([...messages, {id: "2", role: 'assistant', content: 'Thinking...'}] as any)
 
         handleSubmit(e)
+    }
+
+    useEffect(() => {
+        if (!isLoading) {
+            setDisabledChat(false)
+        }
+    }, [isLoading])
+
+    if(messages.length === 0){
+        return (
+            <div className={styles.landingWrapper}>
+                {showTokenModal && (
+                    <TokenModal user={props.user}/>
+                )}
+                <h1 style={{
+                    fontSize: "1.5rem",
+                    fontFamily: "ingame",
+                    textAlign: "center",
+                    color: "var(--primary-color)",
+                }}>
+                    What can I help you with?
+                </h1>
+
+                <p style={{
+                    fontSize: "1rem",
+                    textAlign: "center",
+                    color: "var(--gray-text-color)",
+                }}>
+                    your AI assistant for Genshin Impact.
+                </p>
+
+                <div className={styles.landingChatWrapper}>
+                <p className={styles.tokenCount}>Tokens Left: {
+                    tokensLeft === null ? "loading..." : tokensLeft
+                }</p>
+                <form className={styles.chatForm} onSubmit={handleFormSubmit}>
+                    <textarea 
+                        placeholder="Ask Seelie" 
+                        value={input} 
+                        onChange={handleInputChange} 
+                        className={styles.chatTextField}
+                        autoFocus={true}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter' && !e.shiftKey)
+                                handleFormSubmit(e)
+                        }}
+                        style={{
+                            opacity: disabledChat ? 0.5 : 1,
+                            transition: "opacity 0.3s ease-in-out"
+                        }}
+                        rows={2}
+                        required
+                        autoComplete="off"
+                        disabled={disabledChat}
+                    />
+                </form>
+                <RoundBtn 
+                    icon="send"
+                    onClick={handleFormSubmit}
+                    style={{
+                        position: "absolute",
+                        right: "10px",
+                        bottom: "10px",
+                    }}
+                    disabled={disabledChat || input.trim().length <= 0}
+                />                </div>
+            </div>
+        )
     }
 
     return (
@@ -83,7 +154,7 @@ export default function Chat(props: {
                             <Image src={SeelieIcon} alt="Seelie" width={40} height={40} className="rounded-full"/>
                         </div>
                         <div className={`${styles.messageContent} ${styles.messageContentAssistant}`}>
-                            <p>Thinking...</p>
+                            <LoadingMessage />
                         </div>
                     </div>
                 )}
@@ -92,7 +163,9 @@ export default function Chat(props: {
 
 
             <div className={styles.chatTextFieldContainer}>
-                <p className={styles.tokenCount}>Tokens Left: {tokensLeft}</p>
+                <p className={styles.tokenCount}>Tokens Left: {
+                    tokensLeft === null ? "loading..." : tokensLeft
+                }</p>
                 <form className={styles.chatForm} onSubmit={handleFormSubmit}>
                     <textarea 
                         placeholder="Ask Seelie" 
@@ -104,9 +177,14 @@ export default function Chat(props: {
                             if (e.key === 'Enter' && !e.shiftKey)
                                 handleFormSubmit(e)
                         }}
+                        style={{
+                            opacity: disabledChat ? 0.5 : 1,
+                            transition: "opacity 0.3s ease-in-out"
+                        }}
                         rows={2}
                         required
                         autoComplete="off"
+                        disabled={disabledChat}
                     />
                 </form>
                 <RoundBtn 
@@ -117,11 +195,21 @@ export default function Chat(props: {
                         right: "10px",
                         bottom: "10px",
                     }}
-                    disabled={input.trim().length <= 0}
-                />
+                    disabled={disabledChat || input.trim().length <= 0}
+                />           
             </div>
         </div>
     )
+
+    function LoadingMessage(){
+        return (
+            <div className={styles.loadingMessage}>
+                <p>Thinking...</p>
+            </div>
+        )
+    }
+
+
 
     function TokenModal(props: {
         user: any
@@ -145,7 +233,6 @@ export default function Chat(props: {
                     </div>
                     <Image src={SeelieIcon} alt="Seelie" width={40} height={40} className="rounded-full"/>
                     <p className={styles.tokenModalText}>It seems you&apos;ve run out of tokens.</p>
-                    <p className={styles.tokenModalText}>Unfortunately, Large language models cost quite a bit of money to run.</p>
                     <p className={styles.tokenModalText}>Wait until the next reset or consider supporting Irminsul for more tokens!</p>
                     <br />
                     <Link href={"https://buy.stripe.com/5kAaG57cIdzGgF2cMO?prefilled_email=" + props.user?.email} className={styles.tokenModalButton}>

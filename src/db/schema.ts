@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 import { sql } from "drizzle-orm";
-import { sqliteTable, text, blob } from "drizzle-orm/sqlite-core";
+import { sqliteTable, text, blob, integer } from "drizzle-orm/sqlite-core";
 import { z } from 'zod';
 
 export const resources = sqliteTable("resources", {
@@ -12,14 +12,15 @@ export const resources = sqliteTable("resources", {
 
     source: text("source").notNull(),
     
-    // createdAt: text("created_at")
-    //   .notNull()
-    //   .default(sql`CURRENT_TIMESTAMP`),
-      
-    // updatedAt: text("updated_at")
-    //   .notNull()
-    //   .default(sql`CURRENT_TIMESTAMP`),
-  });
+    date: text("date")
+      .notNull()
+      .default(sql`CURRENT_TIMESTAMP`),
+
+    weight: integer("weight")
+      .$defaultFn(() => 1),
+
+    type: text("type")
+});
 
 export const embeddings = sqliteTable('embeddings', {
     id: text('id').primaryKey().$defaultFn(() => nanoid()),

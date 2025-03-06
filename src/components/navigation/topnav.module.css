@@ -78,7 +78,7 @@
 .topnav .topnavLeft .hamburgerBtn{
     border: none;
     padding-left: 0px;
-    margin-top: 5px;
+    margin-top: 6px;
     margin-left: 0.8rem;
 }
 
@@ -193,7 +193,7 @@
     }
 
     .topnav .topnavLeft{
-        display: block;
+        /* display: block; */
         width: 100%;
     }
 
@@ -304,11 +304,12 @@
     top: -2px;
     text-align: left;
     left: -10px;
+    color: var(--dim-text-color);
 }
 
 .breadcrumb{
     font-size: 10px;
-    color: var(--text-color);
+    color: var(--dim-text-color);
     border-radius: 100px;
     text-decoration: none;
     cursor: pointer;
@@ -323,26 +324,19 @@
 
 .highlightedBreadcrumb{
     background-color: var(--light-elevated-color);
+    color: var(--dim-text-color);
     color: var(--primary-color);
 }
-
-.highlightedBreadcrumb :hover {
-    background-color: var(--light-elevated-color);
-    color: var(--text-color); /* Use the variable for text color instead of hardcoding black */
-}
-
 
 
 @media (max-width: 768px) { 
     .breadcrumbContainer{
-        display: none;
-        position: relative;
-        top: -25px;
+        position: absolute;
+        top: 25px;
         left: 50px;
-
         pointer-events: none;
         z-index: -1;
+        transform: scale(0.8);
 
-    }
-    
+    } 
 }

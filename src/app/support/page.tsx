@@ -30,26 +30,6 @@ export default async function page() {
     return (
         <div className={styles.donateContainer}>
 
-            {/* {admin && (
-                <div className={styles.adminContainer}>
-                    <h2>Stripe Payments</h2>
-                    <div>
-                        {payments.data.map((payment) => (
-                            <div key={payment.id}>
-                                <p>Id: {payment.id}</p>
-                                <p>Amount: ${(payment.amount / 100).toFixed(2)}</p>
-                                <p>Status: {payment.status}</p>
-                                <p>Created: {new Date(payment.created * 1000).toLocaleString()}</p>
-                                <p>Email: {payment.receipt_email}</p>
-                                <hr/>
-                            </div>
-                        ))}
-                    </div>
-                    <br />
-                </div>
-            )} */}
-
-
             <div className={styles.donateHeader}>
                 <h1>Support Irminsul</h1>
                 <p>Irminsul is Free and Open Source software. If you enjoy using it, consider donating to help support the development of the project.</p>
@@ -60,7 +40,7 @@ export default async function page() {
                 <DonateCard 
                     title="F2P"
                     price={<div style={{display: "grid", alignItems: "center"}}>
-                        <span style={{marginTop: "12px"}}>Free</span>
+                        <span>Free</span>
                     </div>}                    
                     description="Full access to Irminsul"
                     features={[
@@ -73,9 +53,10 @@ export default async function page() {
                 <DonateCard 
                     title="Supporter Tier"
                     price={<div style={{display: "grid", alignItems: "center"}}>
-                        <span style={{textDecoration: "line-through", marginRight: "8px", fontSize: "12px", color: "#838383"}}>$9.99</span>
-                        <span>$4.99 
-                            <span style={{fontSize: "12px", color: "#838383"}}> (50% off)</span>
+                        {/* <span style={{textDecoration: "line-through", marginRight: "8px", fontSize: "12px", color: "#838383"}}>$9.99</span> */}
+                        <span>
+                            $4.99 
+                            {/* <span style={{fontSize: "12px", color: "#838383"}}> (50% off)</span> */}
                         </span>
                     </div>}
                     description="Enhanced experience"
@@ -84,7 +65,7 @@ export default async function page() {
                         "Ad-Free experience",
                         `+${SUPPORT_TIER_TOKEN_AMOUNT} SeelieAI tokens`,
                         "Verified badge on your profile",
-                        "Early access to new features in production",
+                        "Early access to new preview features",
                     ]}
                     buttonText="Donate"
                     isCurrent={false}
@@ -93,7 +74,7 @@ export default async function page() {
                 />
             </div>
 
-            <DonationGoal goalAmount={40} payments={payments}/>
+            {/* <DonationGoal goalAmount={40} payments={payments}/> */}
 
         </div>
     )

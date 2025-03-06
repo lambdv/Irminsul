@@ -15,6 +15,12 @@
     import { revalidatePath } from 'next/cache'
     import { isAdmin } from '@/app/(auth)/actions'
     import { decryptContent } from '@root/src/lib/utils/encryption'
+import { Metadata } from 'next'
+
+    export const metadata: Metadata = {
+        title: 'Train | Irminsul',
+        description: 'Train your model',
+    }
 
     export default async function Page() {
         if(!await isAdmin())
@@ -27,11 +33,38 @@
             "use server"
             const prompt = formData.get('prompt') as string
             let source = formData.get('source') as string
-            if (!source) source = "Unknown"
+            let type = formData.get('type') as string
+            let date = formData.get('date') as string
+            let weight = formData.get('weight') as string
+
+            if (!source) 
+                source = "UnknownExternal"
+
+            if (!type)
+                type = "Article"
+
+            if (!date)
+                date = new Date().toISOString()
+
             await createResource({
                 content: prompt,
-                source: source
+                source: source,
+                type: type,
+                date: date,
+                weight: parseInt(weight),
             })
+        }
+
+        const inputStyle = {
+            width: "100%",
+            height: "100px",
+            backgroundColor: "#1d1d1d",
+            color: "#dcdcdc",
+            border: "1px solid #303030",
+            borderRadius: "10px",
+            padding: "10px",
+            fontFamily: "monospace",
+            outline: "none",
         }
 
         return (
@@ -43,17 +76,7 @@
                         rows={10}
                         placeholder="Information"
                         
-                        style={{
-                            width: "100%",
-                            height: "100px",
-                            backgroundColor: "#1d1d1d",
-                            color: "#dcdcdc",
-                            border: "1px solid #303030",
-                            borderRadius: "10px",
-                            padding: "10px",
-                            fontFamily: "monospace",
-                            outline: "none",
-                        }}
+                        style={inputStyle}
                     />
 
                     <br />
@@ -70,11 +93,67 @@
                             fontFamily: "monospace",
                             outline: "none",
                         }}
+                        defaultValue="External"
+                    />
+
+                    <br />
+                    <select name="type" 
+                        style={{
+                            width: "auto",
+                            height: "auto",
+                            backgroundColor: "#1d1d1d",
+                            color: "#dcdcdc",
+                            border: "1px solid #303030",
+                            borderRadius: "10px",
+                            padding: "10px",
+                            fontFamily: "monospace",
+                            outline: "none",
+                        }}
+                        defaultValue="article"
+                    >
+                        <option value="article">Article</option>
+                        <option value="thread">Thread</option>
+                        <option value="prompt">Prompt</option>
+                        <option value="transcript">Transcript</option>
+
+                    </select>
+
+                    <br />
+
+                    <input type="text" name="date" placeholder="Date" 
+                        style={{
+                            width: "auto",
+                            height: "auto",
+                            backgroundColor: "#1d1d1d",
+                            color: "#dcdcdc",
+                            border: "1px solid #303030",
+                            borderRadius: "10px",
+                            padding: "10px",
+                            fontFamily: "monospace",
+                            outline: "none",
+                        }}
+                        defaultValue={new Date().toISOString()}
+                    />
+
+                    <br />
+
+                    <input name="weight" placeholder="Weight" 
+                        style={{
+                            width: "auto",
+                            height: "auto",
+                            backgroundColor: "#1d1d1d",
+                            color: "#dcdcdc",
+                            border: "1px solid #303030",
+                            borderRadius: "10px",
+                            padding: "10px",
+                            fontFamily: "monospace",
+                            outline: "none",
+                        }}
+                        defaultValue={1}
                     />
 
                     <br />
                     <button type="submit"
-
                         style={{
                             backgroundColor: "#1d1d1d",
                             color: "#dcdcdc",
@@ -91,11 +170,13 @@
 
                 <br />
 
+                <h1 className="text-2xl font-bold" >Resources</h1>
+
+
                 <table>
                     <thead>
                         <tr>
-                            <th
-                                style={{
+                            <th style={{
                                     backgroundColor: "#1d1d1d",
                                     color: "#dcdcdc",
                                     border: "1px solid #303030",
@@ -105,6 +186,52 @@
                                     outline: "none",
                                 }}
                             >Resources</th>
+
+                            <th style={{
+                                    backgroundColor: "#1d1d1d",
+                                    color: "#dcdcdc",
+                                    border: "1px solid #303030",
+                                    borderRadius: "10px",
+                                    padding: "10px",
+                                    fontFamily: "monospace",
+                                    outline: "none",
+                                }}
+                            >source</th>
+                            
+
+                            <th style={{
+                                    backgroundColor: "#1d1d1d",
+                                    color: "#dcdcdc",
+                                    border: "1px solid #303030",
+                                    borderRadius: "10px",
+                                    padding: "10px",
+                                    fontFamily: "monospace",
+                                    outline: "none",
+                                }}
+                            >type</th>
+
+                            <th style={{
+                                    backgroundColor: "#1d1d1d",
+                                    color: "#dcdcdc",
+                                    border: "1px solid #303030",
+                                    borderRadius: "10px",
+                                    padding: "10px",
+                                    fontFamily: "monospace",
+                                    outline: "none",
+                                }}
+                            >date</th>
+
+                        <th style={{
+                                    backgroundColor: "#1d1d1d",
+                                    color: "#dcdcdc",
+                                    border: "1px solid #303030",
+                                    borderRadius: "10px",
+                                    padding: "10px",
+                                    fontFamily: "monospace",
+                                    outline: "none",
+                                }}
+                            >weight</th>
+
                             <th
                                 style={{
                                     backgroundColor: "#1d1d1d",
@@ -145,8 +272,49 @@
                                     outline: "none",
                                     maxWidth: "80%",
                                 }}>
-                                    {decryptContent(resource.content)}
+                                    {decryptContent(resource.content).slice(0, 100)}...
                                 </td>
+
+                                <td style={{
+                                            backgroundColor: "#1d1d1d",
+                                            color: "#dcdcdc",
+                                            border: "1px solid #303030",
+                                            borderRadius: "10px",
+                                            padding: "10px",
+                                            fontFamily: "monospace",
+                                            outline: "none",
+                                            width: "1%",
+                                        }}>{resource.source}</td>
+                                <td style={{
+                                            backgroundColor: "#1d1d1d",
+                                            color: "#dcdcdc",
+                                            border: "1px solid #303030",
+                                            borderRadius: "10px",
+                                            padding: "10px",
+                                            fontFamily: "monospace",
+                                            outline: "none",
+                                            width: "1%",
+                                        }}>{resource.type}</td>
+                                <td style={{
+                                            backgroundColor: "#1d1d1d",
+                                            color: "#dcdcdc",
+                                            border: "1px solid #303030",
+                                            borderRadius: "10px",
+                                            padding: "10px",
+                                            fontFamily: "monospace",
+                                            outline: "none",
+                                            width: "1%",
+                                        }}>{resource.date}</td>
+                                <td style={{
+                                            backgroundColor: "#1d1d1d",
+                                            color: "#dcdcdc",
+                                            border: "1px solid #303030",
+                                            borderRadius: "10px",
+                                            padding: "10px",
+                                            fontFamily: "monospace",
+                                            outline: "none",
+                                            width: "1%",
+                                        }}>{resource.weight}</td>
                                 <td
                                     style={{
                                         backgroundColor: "#1d1d1d",
@@ -162,7 +330,6 @@
                                         textOverflow: "ellipsis",
                                     }}
                                 >
-                                    
                                 {embeddings.find((embedding) => embedding.resourceId === resource.id)?.embedding.slice(0, 10)}...</td>
                                     <td
                                         style={{

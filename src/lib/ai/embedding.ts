@@ -51,9 +51,6 @@ export const generateEmbedding = async (value: string): Promise<number[]> => {
   };
   
 
-
-  
-
 export const findRelevantContent = async (userQuery: string) => {
   const userQueryEmbedded = await generateEmbedding(userQuery);
 
@@ -70,22 +67,31 @@ export const findRelevantContent = async (userQuery: string) => {
       content: resources.content,
       source: resources.source,
       embedding: embeddings.embedding,
+      weight: resources.weight,
+      type: resources.type,
+      date: resources.date,
     })
     .from(embeddings)
     .innerJoin(resources, eq(embeddings.resourceId, resources.id))
     .execute();
 
+
   // Calculate similarities in JS and sort/filter results
   const processedResults = relevantResources
     .map(resource => ({
       ...resource,
-      similarity: 1 - cosineSimilarity(
-        userQueryEmbedded,
-        JSON.parse(resource.embedding)
-      )
+      similarity: 1 - cosineSimilarity(userQueryEmbedded,JSON.parse(resource.embedding))
     }))
     .filter(resource => resource.similarity > 0.5)
-    .sort((a, b) => b.similarity - a.similarity)
+    .sort((a, b) => {
+      const similarityDiff = b.similarity - a.similarity
+      // if(Math.abs(similarityDiff) < 0.1) {
+      //   const dateDiff = new Date(b.date).getTime() - new Date(a.date).getTime();
+      //   const weightDiff = b.weight - a.weight;
+      //   return dateDiff || weightDiff;
+      // }
+      return similarityDiff;
+    })
     .slice(0, 20);
 
   // Decrypt contents after fetching

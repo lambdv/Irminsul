@@ -6,15 +6,15 @@ import styles from './index.module.css';
 
 const bannerImages = [
     {
-        src: "https://static.wikia.nocookie.net/gensin-impact/images/f/f8/Dawn%27s_Drifting_Reverie_2025-02-12.png",
+        src: "https://static.wikia.nocookie.net/gensin-impact/images/7/78/Chanson_of_Many_Waters_2025-03-04.png",
         alt: "Featured Banner 1"
     },
     {
-        src: "https://static.wikia.nocookie.net/gensin-impact/images/3/38/Romaritime_Meluserenity_2025-02-12.png", 
+        src: "https://static.wikia.nocookie.net/gensin-impact/images/f/fa/Tempestuous_Destiny_2025-03-04.png", 
         alt: "Featured Banner 2"
     },
     {
-        src: "https://static.wikia.nocookie.net/gensin-impact/images/4/42/Epitome_Invocation_2025-02-12.png",
+        src: "https://static.wikia.nocookie.net/gensin-impact/images/0/0a/Epitome_Invocation_2025-03-04.png",
         alt: "Featured Banner 3"
     }
 ];

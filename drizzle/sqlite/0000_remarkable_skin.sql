@@ -9,5 +9,8 @@ CREATE TABLE `embeddings` (
 CREATE TABLE `resources` (
 	`id` text PRIMARY KEY NOT NULL,
 	`content` text NOT NULL,
-	`source` text DEFAULT '' NOT NULL
+	`source` text NOT NULL,
+	`date` text DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	`weight` integer,
+	`type` text
 );

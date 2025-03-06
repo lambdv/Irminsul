@@ -26,7 +26,7 @@ export default function Topnav() {
 
   const [isAtTop, setIsAtTop] = useState(false)
 
-  const [prevIsAtTop, setPrevIsAtTop] = useState(false)
+  const [prevIsAtTop, setPrevIsAtTop] = useState(true)
 
   useEffect(() => {
     const handleScroll = () => setIsAtTop(window.scrollY === 0);
@@ -105,7 +105,10 @@ function LeftContainer(){
             return (
               <React.Fragment key={index}>
                 <i className="material-symbols-outlined" style={{fontSize: "13px", color: "var(--gray-text-color)"}}>chevron_right</i>
-                <Breadcrumb href={pathname.split("/").slice(0, index + 1).join("/")} isHighlighted={index === pathname.split("/").length - 1} text={path} />
+                <Breadcrumb 
+                  href={pathname.split("/").slice(0, index + 1).join("/")} 
+                  isHighlighted={index === pathname.split("/").length - 1} 
+                  text={path} />
                 {/* {index < pathname.split("/").length - 1 && <i className="material-symbols-outlined" style={{fontSize: "13px", color: "var(--gray-text-color)"}}>chevron_right</i>} */}
               </React.Fragment>
             )
@@ -178,18 +181,13 @@ function CenterContainer(props: any){
     <div id="topnavRight" className={TopnavCSS.fries + " " + TopnavCSS.hamburger}>
 
       <div className={TopnavCSS.mobileOnly}>
-        {/* <button 
-              className={TopnavCSS.mobileOnly + " " + TopnavCSS.hamburgerBtn + ' waves-effect waves-light ripple '}
-              onClick={() => SearchStore.getState().setShowPallette(true)}
-            >
-          <i className="material-symbols-outlined">search</i>
-        </button> */}
-        {/* <RoundBtn 
+
+        <RoundBtn 
           icon="search"
           onClick={() => SearchStore.getState().setShowPallette(true)}
           className={TopnavCSS.hamburgerBtn}
           style={{ top: "5px" }}
-        /> */}
+        />
       </div>
 
       <div className={TopnavCSS.userDropdownContainer}>

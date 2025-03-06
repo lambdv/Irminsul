@@ -10,8 +10,10 @@ import Head from "next/head"
 import Sidedrawer from "@/components/navigation/Sidedrawer"
 import ClientProvider from "@/components/navigation/ClientProvider"
 import BottomNav from "@/components/navigation/bottomnav"
-const inter = Inter({ subsets: ["latin"] })
+import MiniAIChat from "@/components/ui/MiniAIChat"
+import RightSidenav from "../components/navigation/RightSidenav"
 
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
   description: "Genshin Impact Database",
@@ -36,10 +38,13 @@ export default async function RootLayout({children}) {
             <Sidedrawer/>
             <Sidebar/>
             <main className="pageContentContainer">
+              {/* <RightSidenav>
+                <MiniAIChat/>
+              </RightSidenav> */}
               {children}
               {/* <Footer/> */}
             </main>
-            <BottomNav/>
+            {/* <BottomNav/> */}
           </ClientProvider>
         </SessionProvider>
       </body>
