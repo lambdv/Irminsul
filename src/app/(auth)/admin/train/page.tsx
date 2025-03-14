@@ -3,10 +3,11 @@
 
     import { generateResponse } from '@/app/seelie/ai'
     import db from '@/db/db'
-    import vector from '@root/src/db/vector'
-    import { resources as resourcesTable } from '@/db/schema'
-    import { embeddings as embeddingsTable } from '@/db/schema'
-
+    // import vector from '@root/src/db/vector'
+    // import { resources as resourcesTable } from '@/db/schema'
+    // import { embeddings as embeddingsTable } from '@/db/schema'
+    import { resources as resourcesTable } from '@/db/schema/resources'
+    import { embeddings as embeddingsTable } from '@/db/schema/embeddings'
     import { redirect } from 'next/navigation'
     import React from 'react'
     import { createResource } from '@/lib/ai/resources'
@@ -14,7 +15,7 @@
     import { eq } from 'drizzle-orm'
     import { revalidatePath } from 'next/cache'
     import { isAdmin } from '@/app/(auth)/actions'
-    import { decryptContent } from '@root/src/lib/utils/encryption'
+    // import { decryptContent } from '@root/src/lib/utils/encryption'
 import { Metadata } from 'next'
 
     export const metadata: Metadata = {
@@ -26,8 +27,8 @@ import { Metadata } from 'next'
         if(!await isAdmin())
             redirect("/")
         
-        let resources = await vector.select().from(resourcesTable)
-        let embeddings = await vector.select().from(embeddingsTable)
+        let resources = await db.select().from(resourcesTable)
+        let embeddings = await db.select().from(embeddingsTable)
 
         const handleSubmit = async (formData: FormData) => {
             "use server"
@@ -272,7 +273,7 @@ import { Metadata } from 'next'
                                     outline: "none",
                                     maxWidth: "80%",
                                 }}>
-                                    {decryptContent(resource.content).slice(0, 100)}...
+                                    {resource.content.slice(0, 100)}...
                                 </td>
 
                                 <td style={{
@@ -285,7 +286,7 @@ import { Metadata } from 'next'
                                             outline: "none",
                                             width: "1%",
                                         }}>{resource.source}</td>
-                                <td style={{
+                                {/* <td style={{
                                             backgroundColor: "#1d1d1d",
                                             color: "#dcdcdc",
                                             border: "1px solid #303030",
@@ -314,7 +315,7 @@ import { Metadata } from 'next'
                                             fontFamily: "monospace",
                                             outline: "none",
                                             width: "1%",
-                                        }}>{resource.weight}</td>
+                                        }}>{resource.weight}</td> */}
                                 <td
                                     style={{
                                         backgroundColor: "#1d1d1d",
@@ -346,8 +347,8 @@ import { Metadata } from 'next'
                                     <form action={async (formData) => {
                                         "use server"
                                         const resourceId = formData.get('resourceId') as string
-                                        await vector.delete(resourcesTable).where(eq(resourcesTable.id, resourceId))
-                                        await vector.delete(embeddingsTable).where(eq(embeddingsTable.resourceId, resourceId))
+                                        await db.delete(resourcesTable).where(eq(resourcesTable.id, resourceId))
+                                        await db.delete(embeddingsTable).where(eq(embeddingsTable.resourceId, resourceId))
                                         console.log("Deleted resource and embedding")
                                         revalidatePath('/train')
                                     }}>

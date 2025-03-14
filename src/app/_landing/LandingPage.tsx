@@ -29,15 +29,16 @@ export default async function LandingPage() {
         <div className={styles.homePageContainer} style={{}}>
 
             {isLoggedIn ? 
-                <div style={{
-                    borderRadius: '14px',
-                    padding: '0rem 2rem',
-                    textAlign: 'left',
-                    margin: '0rem 1.2rem',
-                    marginBottom: '-1.5rem',
-                }}>
-                    <h1 style={{fontSize: '1rem', fontFamily: 'ingame', fontWeight: '500',}}>Welcome back, {user?.user?.name}</h1>
-                </div>
+                // <div style={{
+                //     borderRadius: '14px',
+                //     padding: '0rem 2rem',
+                //     textAlign: 'left',
+                //     margin: '0rem 1.2rem',
+                //     marginBottom: '-1.5rem',
+                // }}>
+                //     <h1 style={{fontSize: '1rem', fontFamily: 'ingame', fontWeight: '500',}}>Welcome back, {user?.user?.name}</h1>
+                // </div>
+                <></>
                             :  
                 <div style={{
                     borderRadius: '14px',

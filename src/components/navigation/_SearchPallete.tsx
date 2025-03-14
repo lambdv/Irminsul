@@ -24,6 +24,7 @@ export default function SearchPallete() {
     const searchBarRef = useRef<HTMLInputElement | null>(null)
     const { setShowPallette } = SearchStore()
     const [results, setResults] = useState<Page[]>([])
+    const [highlightedIndex, setHighlightedIndex] = useState<number>(0)
 
 
     function foundMatch(query: string, page: Page){

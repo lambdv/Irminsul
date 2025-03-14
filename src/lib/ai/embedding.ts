@@ -1,16 +1,12 @@
 import { embed, embedMany } from 'ai';
 import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
 import db from '@/db/db';
-import vector from '@/db/vector';
+// import vector from '@/db/vector';
 import { cosineDistance, desc, gt, eq, sql } from 'drizzle-orm';
-// import { embeddings } from '@/db/schema/_embeddings';
-// import { resources } from '@/db/schema/_resources';
-
-import { embeddings } from '@/db/schema';
-import { embeddings as embeddings2 } from '@/db/schema/_embeddings';
-import { resources as resources2 } from '@/db/schema/_resources';
-
-import { resources } from '@/db/schema';
+import { embeddings } from '@/db/schema/embeddings';
+import { resources } from '@/db/schema/resources';
+// import { embeddings } from '@/db/schema';
+// import { resources } from '@/db/schema';
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { decryptContent } from '@/lib/utils/encryption';
 
@@ -19,16 +15,17 @@ const google = createGoogleGenerativeAI({
     apiKey: token
   })
 
-const embeddingModel = google.textEmbeddingModel('text-embedding-004', {
-    outputDimensionality: 512, 
-  });
 
+
+  const embeddingModel = google.textEmbeddingModel('gemini-embedding-exp-03-07', {
+    outputDimensionality: 1536
+  });
 
 const generateChunks = (input: string): string[] => {
     return input
       .trim()
       .split('.')
-      .filter(i => i !== '');
+      .filter(i => i !== '')
 };
 
 export const generateEmbeddings = async (value: string): Promise<Array<{ embedding: number[]; content: string }>> => {
@@ -51,70 +48,124 @@ export const generateEmbedding = async (value: string): Promise<number[]> => {
   };
   
 
-export const findRelevantContent = async (userQuery: string) => {
-  const userQueryEmbedded = await generateEmbedding(userQuery);
+  export const findRelevantContent = async (userQuery: string) => {
+    const userQueryEmbedded = await generateEmbedding(userQuery);
+    const similarity = sql<number>`1 - (${cosineDistance(
+      embeddings.embedding,
+      userQueryEmbedded,
+    )})`;
 
-  // Calculate similarity directly in SQLite using cosine distance
-  const similarity = sql<number>`1 - (${cosineDistance(
-    embeddings.embedding,
-    userQueryEmbedded
-  )})`.as('similarity');
+    const similarEmbeddings = await db
+      .select({ 
+        resourceId: embeddings.resourceId,
+        content: embeddings.content,
+        similarity 
+      })
+      .from(embeddings)
+      .where(gt(similarity, 0.5))
+      .orderBy(t => desc(t.similarity))
+      .limit(4);
 
-  // For SQLite, we need to parse the embedding JSON string and calculate similarity in JS
-  const relevantResources = await vector
-    .select({
-      id: resources.id,
-      content: resources.content,
-      source: resources.source,
-      embedding: embeddings.embedding,
-      weight: resources.weight,
-      type: resources.type,
-      date: resources.date,
-    })
-    .from(embeddings)
-    .innerJoin(resources, eq(embeddings.resourceId, resources.id))
-    .execute();
+    
+    // Get the full resource content for each matching embedding
+    const relevantResources = await Promise.all(
+      similarEmbeddings.map(async (item) => {
+        const resource = await db
+          .select({
+            content: resources.content,
+            source: resources.source
+          })
+          .from(resources)
+          .where(eq(resources.id, item.resourceId))
+          .limit(1);
+        
+        return {
+          content: resource[0]?.content || "",
+          similarity: item.similarity,
+          source: resource[0]?.source || "",
+        };
+      })
+    );
+    
+    return relevantResources;
+  };
+
+// export const findRelevantContent = async (userQuery: string) => {
+//   const userQueryEmbedded = await generateEmbedding(userQuery);
+
+//   // Calculate similarity directly in SQLite using cosine distance
+//   const similarity = sql<number>`1 - (${cosineDistance(
+//     embeddings.embedding,
+//     userQueryEmbedded
+//   )})`.as('similarity');
+
+//   // For SQLite, we need to parse the embedding JSON string and calculate similarity in JS
+//   const relevantResources = await vector
+//     .select({
+//       id: resources.id,
+//       content: resources.content,
+//       source: resources.source,
+//       embedding: embeddings.embedding,
+//       weight: resources.weight,
+//       type: resources.type,
+//       date: resources.date,
+//     })
+//     .from(embeddings)
+//     .innerJoin(resources, eq(embeddings.resourceId, resources.id))
+//     .execute();
 
 
-  // Calculate similarities in JS and sort/filter results
-  const processedResults = relevantResources
-    .map(resource => ({
-      ...resource,
-      similarity: 1 - cosineSimilarity(userQueryEmbedded,JSON.parse(resource.embedding))
-    }))
-    .filter(resource => resource.similarity > 0.5)
-    .sort((a, b) => {
-      const similarityDiff = b.similarity - a.similarity
-      // if(Math.abs(similarityDiff) < 0.1) {
-      //   const dateDiff = new Date(b.date).getTime() - new Date(a.date).getTime();
-      //   const weightDiff = b.weight - a.weight;
-      //   return dateDiff || weightDiff;
-      // }
-      return similarityDiff;
-    })
-    .slice(0, 20);
+//     function cosineSimilarity(A: number[], B: number[]): number {
+//       let dotProduct = 0;
+//       let normA = 0;
+//       let normB = 0;
+//       for (let i = 0; i < A.length; i++) {
+//         dotProduct += A[i] * B[i];
+//         normA += A[i] * A[i];
+//         normB += B[i] * B[i];
+//       }
+//       return 1 - (dotProduct / (Math.sqrt(normA) * Math.sqrt(normB)));
+//     }
 
-  // Decrypt contents after fetching
-  return processedResults.map(resource => ({
-    id: resource.id,
-    source: resource.source,
-    similarity: resource.similarity,
-    content: decryptContent(resource.content),
-  }));
-};
+//   // Calculate similarities in JS and sort/filter results
+//   const processedResults = relevantResources
+//     .map(resource => ({
+//       ...resource,
+//       similarity: 1 - cosineSimilarity(userQueryEmbedded,JSON.parse(resource.embedding))
+//     }))
+//     .filter(resource => resource.similarity > 0.5)
+//     .map(resource => ({
+//       ...resource,
+//       similarity: resource.similarity * resource.weight
+//     }))
+//     .sort((a, b) => {
+//       const similarityDiff = ((b.similarity) - (a.similarity))
+//       if(Math.abs(similarityDiff) < 0.1) 
+//         return new Date(b.date).getTime() - new Date(a.date).getTime();
+//       return similarityDiff;
+//     })
+//     .slice(0, 20)
+
+//     //reduce duplicates
+//     .reduce((acc, curr) => {
+//       const existing = acc.find(r => r.id === curr.id);
+//       if(existing) {
+//         return acc;
+//       }
+//       return [...acc, curr];
+//     }, []);
+//   // Decrypt contents after fetching
+//   return processedResults.map(resource => ({
+//     id: resource.id,
+//     source: resource.source,
+//     similarity: resource.similarity,
+//     date: resource.date,
+//     content: decryptContent(resource.content),
+//   }));
+// };
 
 
-function cosineSimilarity(A: number[], B: number[]): number {
-  let dotProduct = 0;
-  let normA = 0;
-  let normB = 0;
-  for (let i = 0; i < A.length; i++) {
-    dotProduct += A[i] * B[i];
-    normA += A[i] * A[i];
-    normB += B[i] * B[i];
-  }
-  return 1 - (dotProduct / (Math.sqrt(normA) * Math.sqrt(normB)));
-}
+
 
 
 function developmentModel() {

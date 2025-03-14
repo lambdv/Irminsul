@@ -9,17 +9,10 @@ export const resources = sqliteTable("resources", {
       .$defaultFn(() => nanoid()),
   
     content: text("content").notNull(),
-
     source: text("source").notNull(),
-    
-    date: text("date")
-      .notNull()
-      .default(sql`CURRENT_TIMESTAMP`),
-
-    weight: integer("weight")
-      .$defaultFn(() => 1),
-
-    type: text("type")
+    date: text("date").notNull(),
+    weight: integer("weight").notNull(),
+    type: text("type").notNull()
 });
 
 export const embeddings = sqliteTable('embeddings', {
