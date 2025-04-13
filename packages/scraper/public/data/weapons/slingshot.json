@@ -1,0 +1,122 @@
+{
+    "name": "Slingshot",
+    "key": "slingshot",
+    "description": "A bow, despite the name. After countless experiments and improvements to the design, the creator of the ultimate slingshot found himself to have made what was actually a bow.",
+    "rarity": 3,
+    "category": "bow",
+    "series": "wishes",
+    "release_date": "september 28, 2020",
+    "base_atk_min": 38,
+    "base_atk_max": 354,
+    "sub_stat_type": "crit rate",
+    "sub_stat_value_min": "6.8% ",
+    "sub_stat_value_max": " 31.2%",
+    "refinement_name": "\n\nslingshot\n\n",
+    "refinements": [
+        "If a Normal or Charged Attack hits a target within 0.3s of being fired, increases DMG by **36**\n%. Otherwise, decreases DMG by 10%.",
+        "If a Normal or Charged Attack hits a target within 0.3s of being fired, increases DMG by **42**\n%. Otherwise, decreases DMG by 10%.",
+        "If a Normal or Charged Attack hits a target within 0.3s of being fired, increases DMG by **48**\n%. Otherwise, decreases DMG by 10%.",
+        "If a Normal or Charged Attack hits a target within 0.3s of being fired, increases DMG by **54**\n%. Otherwise, decreases DMG by 10%.",
+        "If a Normal or Charged Attack hits a target within 0.3s of being fired, increases DMG by **60**\n%. Otherwise, decreases DMG by 10%."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "38",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "6.8%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "86",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "12.0%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "105",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "12.0%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "151",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "17.5%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "171",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "17.5%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "193",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "20.3%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "212",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "20.3%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "234",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "23.0%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "253",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "23.0%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "274",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "25.7%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "294",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "25.7%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "314",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "28.5%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "334",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "28.5%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "354",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "31.2%",
+            "ascension_phase": 6
+        }
+    ]
+}

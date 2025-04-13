@@ -1,0 +1,1 @@
+web scraper for genshin data and assets

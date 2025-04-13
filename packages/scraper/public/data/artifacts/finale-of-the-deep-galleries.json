@@ -1,0 +1,19 @@
+{
+    "name": "Finale of the Deep Galleries",
+    "key": "finale-of-the-deep-galleries",
+    "flower_description": "An icy flower fashioned from northland jade. Over the course of its long life, its petals have crumbled to dust.",
+    "feather_description": "A feathered accessory fashioned from northland jade that shimmers with an otherworldly glow.",
+    "sand_description": "A pocket watch fashioned from northland jade. Its hands are forever frozen in the moment of its destruction.",
+    "goblet_description": "A cup fashioned from northland jade. They say that the people of an ancient civilization once used it as a ceremonial vessel to make offerings to the heavens.",
+    "circlet_description": "A helmet steeped in obsession, just like the mind of its previous owner. Its jade ornamentation seems to come from an age more ancient still.",
+    "flower_name": "Deep Gallery's Echoing Song",
+    "feather_name": "Deep Gallery's Distant Pact",
+    "sand_name": "Deep Gallery's Moment of Oblivion",
+    "goblet_name": "Deep Gallery's Bestowed Banquet",
+    "circlet_name": "Deep Gallery's Lost Crown",
+    "two_pc_bonus": "Cryo DMG Bonus +15%",
+    "four_pc_bonus": "When the equipping Character has 0 Elemental Energy, Normal Attack DMG is increased by 60% and Elemental Burst DMG is increased by 60%. After the equipping character deals Normal Attack DMG, the aforementioned Elemental Burst effect will stop applying for 6s. After the equipping character deals Elemental Burst DMG, the aforementioned Normal Attack effect will stop applying for 6s. This effect can trigger even if the equipping character is off the field.",
+    "rarity_min": 4,
+    "rarity_max": 5,
+    "release_version": 5.5
+}

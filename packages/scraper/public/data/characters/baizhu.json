@@ -1,0 +1,594 @@
+{
+    "name": "Baizhu",
+    "key": "baizhu",
+    "title": "Beyond Mortality",
+    "rarity": 5,
+    "element": "dendro",
+    "vision": "dendro",
+    "weapon": "catalyst",
+    "release_date": "may 02, 2023",
+    "release_date_epoch": 1682985600,
+    "constellation": "lagenaria",
+    "birthday": "april 25th",
+    "affiliation": "bubu pharmacy",
+    "region": "liyue",
+    "special_dish": "heat-quelling soup",
+    "alternate_title": "Owner of Bubu Pharmacy",
+    "description": "The owner of Bubu Pharmacy, who is rarely seen without the white snake named Changsheng. His medicinal knowledge is encyclopedic, and his personal intrigues subtle.",
+    "ascension_stat": "HP",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "1039.12",
+            "BaseATK": "14.99",
+            "BaseDEF": "38.89",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2695.47",
+            "BaseATK": "38.88",
+            "BaseDEF": "100.88",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3586.42",
+            "BaseATK": "51.73",
+            "BaseDEF": "134.22",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "5366.44",
+            "BaseATK": "77.41",
+            "BaseDEF": "200.84",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "5999.48",
+            "BaseATK": "86.54",
+            "BaseDEF": "224.53",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "7.2%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6902.47",
+            "BaseATK": "99.57",
+            "BaseDEF": "258.33",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "7.2%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "7746.53",
+            "BaseATK": "111.74",
+            "BaseDEF": "289.92",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "8658.88",
+            "BaseATK": "124.90",
+            "BaseDEF": "324.06",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "9291.92",
+            "BaseATK": "134.03",
+            "BaseDEF": "347.76",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "10212.58",
+            "BaseATK": "147.31",
+            "BaseDEF": "382.21",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "10845.62",
+            "BaseATK": "156.44",
+            "BaseDEF": "405.91",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "21.6%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "11776.67",
+            "BaseATK": "169.87",
+            "BaseDEF": "440.75",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "21.6%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "12409.72",
+            "BaseATK": "179.00",
+            "BaseDEF": "464.44",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "13348.04",
+            "BaseATK": "192.54",
+            "BaseDEF": "499.56",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Nagadus Emerald Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Violetgrass",
+                    "amount": "3"
+                },
+                {
+                    "name": "Fungal Spores",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Evergloom Ring",
+                    "amount": "2"
+                },
+                {
+                    "name": "Nagadus Emerald Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Violetgrass",
+                    "amount": "10"
+                },
+                {
+                    "name": "Fungal Spores",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Evergloom Ring",
+                    "amount": "4"
+                },
+                {
+                    "name": "Nagadus Emerald Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Violetgrass",
+                    "amount": "20"
+                },
+                {
+                    "name": "Luminescent Pollen",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Evergloom Ring",
+                    "amount": "8"
+                },
+                {
+                    "name": "Nagadus Emerald Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Violetgrass",
+                    "amount": "30"
+                },
+                {
+                    "name": "Luminescent Pollen",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Evergloom Ring",
+                    "amount": "12"
+                },
+                {
+                    "name": "Nagadus Emerald Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Violetgrass",
+                    "amount": "45"
+                },
+                {
+                    "name": "Crystalline Cyst Dust",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Evergloom Ring",
+                    "amount": "20"
+                },
+                {
+                    "name": "Nagadus Emerald Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Violetgrass",
+                    "amount": "60"
+                },
+                {
+                    "name": "Crystalline Cyst Dust",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "The Classics of Acupuncture",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 4 attacks that deal Dendro DMG to opponents in front of him.\nCharged Attack\nConsumes a certain amount of Stamina to deal AoE Dendro DMG to opponents in front of him after a short casting time.\nPlunging Attack\nCalling upon the might of Dendro, Baizhu plunges towards the ground from mid-air, damaging all opponents in his path. Deals AoE Dendro DMG upon impact with the ground.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        37.37,
+                        40.17,
+                        42.98,
+                        46.71,
+                        49.52,
+                        52.32,
+                        56.06,
+                        59.79,
+                        63.53,
+                        67.27,
+                        71.0
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        36.42,
+                        39.16,
+                        41.89,
+                        45.53,
+                        48.26,
+                        50.99,
+                        54.64,
+                        58.28,
+                        61.92,
+                        65.56,
+                        69.21
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        "22.54\u00d72",
+                        "24.23\u00d72",
+                        "25.92\u00d72",
+                        "28.18\u00d72",
+                        "29.87\u00d72",
+                        "31.56\u00d72",
+                        "33.81\u00d72",
+                        "36.07\u00d72",
+                        "38.32\u00d72",
+                        "40.57\u00d72",
+                        "42.83\u00d72"
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        54.14,
+                        58.2,
+                        62.26,
+                        67.67,
+                        71.73,
+                        75.79,
+                        81.21,
+                        86.62,
+                        92.03,
+                        97.45,
+                        102.86
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        121.04,
+                        130.12,
+                        139.2,
+                        151.3,
+                        160.38,
+                        169.46,
+                        181.56,
+                        193.66,
+                        205.77,
+                        217.87,
+                        229.98
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.17,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Universal Diagnosis",
+            "type": "Elemental Skill",
+            "description": "Controls a Gossamer Sprite that cruises and attacks nearby opponents, dealing Dendro DMG.\nAfter it performs 3 attacks or if there are no opponents nearby, the Sprite will return, healing all nearby party members based on Baizhu's Max HP.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        79.2,
+                        85.14,
+                        91.08,
+                        99.0,
+                        104.94,
+                        110.88,
+                        118.8,
+                        126.72,
+                        134.64,
+                        142.56,
+                        150.48,
+                        158.4,
+                        168.3
+                    ]
+                },
+                {
+                    "hit": "Healing",
+                    "values": [
+                        "8% Max HP+770.3755",
+                        "8.6% Max HP+847.42377",
+                        "9.2% Max HP+930.8927",
+                        "10% Max HP+1020.78235",
+                        "10.6% Max HP+1117.0927",
+                        "11.2% Max HP+1219.8236",
+                        "12% Max HP+1328.9753",
+                        "12.8% Max HP+1444.5477",
+                        "13.6% Max HP+1566.5408",
+                        "14.4% Max HP+1694.9546",
+                        "15.2% Max HP+1829.7891",
+                        "16% Max HP+1971.0442",
+                        "17% Max HP+2118.72"
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Holistic Revivification",
+            "type": "Elemental Burst",
+            "description": "Enters the Pulsing Clarity state, creating a Seamless Shield that absorbs  with 250% effectiveness.\nWhile in this state, Baizhu will generate a new Seamless Shield every 2.5s.\nThe Seamless Shield will heal your own active character based on Baizhu's Max HP and attack opponents by unleashing Spiritveins, dealing  under the following circumstances:- When a character is under the protection of a Seamless Shield and a new Seamless Shield is generated.\n- When the Seamless Shield's effects expire, or when it is shattered.",
+            "attributes": [
+                {
+                    "hit": "Seamless Shield DMG Absorption",
+                    "values": [
+                        "0.8% Max HP+77.03752",
+                        "0.86% Max HP+84.74235",
+                        "0.92% Max HP+93.08924",
+                        "1% Max HP+102.0782",
+                        "1.06% Max HP+111.70923",
+                        "1.12% Max HP+121.98233",
+                        "1.2% Max HP+132.89749",
+                        "1.28% Max HP+144.45473",
+                        "1.36% Max HP+156.65404",
+                        "1.44% Max HP+169.4954",
+                        "1.52% Max HP+182.97885",
+                        "1.6% Max HP+197.10435",
+                        "1.7% Max HP+211.87193"
+                    ]
+                },
+                {
+                    "hit": "Seamless Shield Healing",
+                    "values": [
+                        "5.2% Max HP+500.74408",
+                        "5.59% Max HP+550.82544",
+                        "5.98% Max HP+605.08026",
+                        "6.5% Max HP+663.50854",
+                        "6.89% Max HP+726.1102",
+                        "7.28% Max HP+792.8854",
+                        "7.8% Max HP+863.834",
+                        "8.32% Max HP+938.95605",
+                        "8.84% Max HP+1018.2515",
+                        "9.36% Max HP+1101.7205",
+                        "9.88% Max HP+1189.3629",
+                        "10.4% Max HP+1281.1787",
+                        "11.05% Max HP+1377.168"
+                    ]
+                },
+                {
+                    "hit": "Spiritvein DMG (%)",
+                    "values": [
+                        97.06,
+                        104.34,
+                        111.62,
+                        121.33,
+                        128.61,
+                        135.89,
+                        145.6,
+                        155.3,
+                        165.01,
+                        174.72,
+                        184.42,
+                        194.13,
+                        206.26
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Five Fortunes Forever",
+            "type": "1st Ascension Passive",
+            "description": "Baizhu gains different effects according to the current HP of your current active character:When their HP is less than 50%, Baizhu gains 20% Healing Bonus.When their HP is equal to or more than 50%, Baizhu gains 25% Dendro DMG Bonus."
+        },
+        {
+            "name": "All Things Are of the Earth",
+            "type": "4th Ascension Passive",
+            "description": "Characters who are healed by Seamless Shields will gain the Year of Verdant Favor effect: Each 1,000 Max HP that Baizhu possesses that does not exceed 50,000 will increase the Burning, Bloom, Hyperbloom, and Burgeon reaction DMG dealt by these characters by 2%, while the Aggravate and Spread reaction DMG dealt by these characters will be increased by 0.8%. This effect lasts 6s."
+        },
+        {
+            "name": "Herbal Nourishment",
+            "type": "Utility Passive",
+            "description": "When Baizhu is in the party, interacting with certain harvestable items will heal your current active character for 2.5% of Baizhu's Max HP."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Attentive Observation",
+            "description": "Universal Diagnosis gains 1 additional charge.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Incisive Discernment",
+            "description": "When your own active character hits a nearby opponent with their attacks, Baizhu will unleash a Gossamer Sprite: Splice.\nGossamer Sprite: Splice will initiate 1 attack before returning, dealing 250% of Baizhu's ATK as Dendro DMG and healing for 20% of Universal Diagnosis's Gossamer Sprite's normal healing.\nDMG dealt this way is considered Elemental Skill DMG.\nThis effect can be triggered once every 5s.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "All Aspects Stabilized",
+            "description": "Increases the Level of Holistic Revivification by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Ancient Art of Perception",
+            "description": "For 15s after Holistic Revivification is used, Baizhu will increase all nearby party members' Elemental Mastery by 80.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "The Hidden Ebb and Flow",
+            "description": "Increases the Level of Universal Diagnosis by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Elimination of Malicious Qi",
+            "description": "Increases the DMG dealt by Holistic Revivification's Spiritveins by 8% of Baizhu's Max HP.\nAdditionally, when a Gossamer Sprite or Gossamer Sprite: Splice hits opponents, there is a 100% chance of generating one of Holistic Revivification's Seamless Shields. This effect can only be triggered once by each Gossamer Sprite or Gossamer Sprite: Splice.",
+            "properties": []
+        }
+    ]
+}

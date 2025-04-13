@@ -1,0 +1,122 @@
+{
+    "name": "Twin Nephrite",
+    "key": "twin-nephrite",
+    "description": "A jade pendant formed by piecing together two jade stones.",
+    "rarity": 3,
+    "category": "catalyst",
+    "series": "chests",
+    "release_date": "september 28, 2020",
+    "base_atk_min": 40,
+    "base_atk_max": 448,
+    "sub_stat_type": "crit rate",
+    "sub_stat_value_min": "3.4% ",
+    "sub_stat_value_max": " 15.6%",
+    "refinement_name": "\n\nguerilla tactics\n\n",
+    "refinements": [
+        "Defeating an opponent increases Movement SPD and ATK by **12**\n% for 15s.",
+        "Defeating an opponent increases Movement SPD and ATK by **14**\n% for 15s.",
+        "Defeating an opponent increases Movement SPD and ATK by **16**\n% for 15s.",
+        "Defeating an opponent increases Movement SPD and ATK by **18**\n% for 15s.",
+        "Defeating an opponent increases Movement SPD and ATK by **20**\n% for 15s."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "40",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "3.4%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "102",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "6.0%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "121",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "6.0%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "187",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "8.8%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "207",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "8.8%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "239",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "10.1%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "259",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "10.1%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "292",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "11.5%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "311",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "11.5%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "344",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "12.9%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "363",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "12.9%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "396",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "14.2%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "415",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "14.2%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "448",
+            "sub_stat_type": "crit rate",
+            "sub_stat_value": "15.6%",
+            "ascension_phase": 6
+        }
+    ]
+}

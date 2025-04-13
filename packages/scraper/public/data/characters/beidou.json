@@ -1,0 +1,647 @@
+{
+    "name": "Beidou",
+    "key": "beidou",
+    "title": "Uncrowned Lord of the Ocean",
+    "rarity": 4,
+    "element": "electro",
+    "vision": "electro",
+    "weapon": "claymore",
+    "release_date": "september 28, 2020",
+    "release_date_epoch": 1601251200,
+    "constellation": "victor mare",
+    "birthday": "february 14th",
+    "affiliation": "the crux",
+    "region": "liyue",
+    "special_dish": "flash-fried filet",
+    "alternate_title": "Queen of the Crux Fleet",
+    "description": "Captain of her crew, The Crux. She's quite an unbound and forthright woman.",
+    "ascension_stat": "Electro DMG Bonus",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "1094.15",
+            "BaseATK": "18.88",
+            "BaseDEF": "54.36",
+            "AscensionStatType": "Electro DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2810.87",
+            "BaseATK": "48.49",
+            "BaseDEF": "139.66",
+            "AscensionStatType": "Electro DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3628.25",
+            "BaseATK": "62.60",
+            "BaseDEF": "180.27",
+            "AscensionStatType": "Electro DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "5434.70",
+            "BaseATK": "93.76",
+            "BaseDEF": "270.03",
+            "AscensionStatType": "Electro DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "6015.47",
+            "BaseATK": "103.78",
+            "BaseDEF": "298.88",
+            "AscensionStatType": "Electro DMG Bonus",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6919.24",
+            "BaseATK": "119.37",
+            "BaseDEF": "343.79",
+            "AscensionStatType": "Electro DMG Bonus",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "7693.60",
+            "BaseATK": "132.73",
+            "BaseDEF": "382.26",
+            "AscensionStatType": "Electro DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "8597.37",
+            "BaseATK": "148.32",
+            "BaseDEF": "427.17",
+            "AscensionStatType": "Electro DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "9178.14",
+            "BaseATK": "158.34",
+            "BaseDEF": "456.02",
+            "AscensionStatType": "Electro DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "10080.82",
+            "BaseATK": "173.92",
+            "BaseDEF": "500.87",
+            "AscensionStatType": "Electro DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "10661.59",
+            "BaseATK": "183.94",
+            "BaseDEF": "529.73",
+            "AscensionStatType": "Electro DMG Bonus",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "11565.36",
+            "BaseATK": "199.53",
+            "BaseDEF": "574.63",
+            "AscensionStatType": "Electro DMG Bonus",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "12146.13",
+            "BaseATK": "209.55",
+            "BaseDEF": "603.49",
+            "AscensionStatType": "Electro DMG Bonus",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "13049.90",
+            "BaseATK": "225.14",
+            "BaseDEF": "648.40",
+            "AscensionStatType": "Electro DMG Bonus",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Vajrada Amethyst Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Noctilucous Jade",
+                    "amount": "3"
+                },
+                {
+                    "name": "Treasure Hoarder Insignia",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Lightning Prism",
+                    "amount": "2"
+                },
+                {
+                    "name": "Vajrada Amethyst Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Noctilucous Jade",
+                    "amount": "10"
+                },
+                {
+                    "name": "Treasure Hoarder Insignia",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Lightning Prism",
+                    "amount": "4"
+                },
+                {
+                    "name": "Vajrada Amethyst Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Noctilucous Jade",
+                    "amount": "20"
+                },
+                {
+                    "name": "Silver Raven Insignia",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Lightning Prism",
+                    "amount": "8"
+                },
+                {
+                    "name": "Vajrada Amethyst Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Noctilucous Jade",
+                    "amount": "30"
+                },
+                {
+                    "name": "Silver Raven Insignia",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Lightning Prism",
+                    "amount": "12"
+                },
+                {
+                    "name": "Vajrada Amethyst Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Noctilucous Jade",
+                    "amount": "45"
+                },
+                {
+                    "name": "Golden Raven Insignia",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Lightning Prism",
+                    "amount": "20"
+                },
+                {
+                    "name": "Vajrada Amethyst Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Noctilucous Jade",
+                    "amount": "60"
+                },
+                {
+                    "name": "Golden Raven Insignia",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Oceanborne",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 5 consecutive strikes.\nCharged Attack\nDrains Stamina over time to perform continuous slashes.\nAt the end of the sequence, perform a more powerful slash.\nPlunging Attack\nPlunges from mid-air to strike the ground, damaging opponents along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        71.12,
+                        76.91,
+                        82.7,
+                        90.97,
+                        96.76,
+                        103.38,
+                        112.47,
+                        121.57,
+                        130.67,
+                        140.59,
+                        151.96
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        70.86,
+                        76.63,
+                        82.4,
+                        90.64,
+                        96.41,
+                        103.0,
+                        112.06,
+                        121.13,
+                        130.19,
+                        140.08,
+                        151.41
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        88.32,
+                        95.51,
+                        102.7,
+                        112.97,
+                        120.16,
+                        128.38,
+                        139.67,
+                        150.97,
+                        162.27,
+                        174.59,
+                        188.71
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        86.52,
+                        93.56,
+                        100.6,
+                        110.66,
+                        117.7,
+                        125.75,
+                        136.82,
+                        147.88,
+                        158.95,
+                        171.02,
+                        184.85
+                    ]
+                },
+                {
+                    "hit": "5-Hit DMG (%)",
+                    "values": [
+                        112.14,
+                        121.27,
+                        130.4,
+                        143.44,
+                        152.57,
+                        163.0,
+                        177.34,
+                        191.69,
+                        206.03,
+                        221.68,
+                        239.61
+                    ]
+                },
+                {
+                    "hit": "Charged Attack Cyclic DMG (%)",
+                    "values": [
+                        56.24,
+                        60.82,
+                        65.4,
+                        71.94,
+                        76.52,
+                        81.75,
+                        88.94,
+                        96.14,
+                        103.0,
+                        111.0,
+                        120.0
+                    ]
+                },
+                {
+                    "hit": "Charged Attack Final DMG (%)",
+                    "values": [
+                        101.82,
+                        110.11,
+                        118.4,
+                        130.24,
+                        138.53,
+                        148.0,
+                        161.02,
+                        174.05,
+                        187.07,
+                        201.28,
+                        217.56
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        74.59,
+                        80.66,
+                        86.73,
+                        95.4,
+                        101.47,
+                        108.41,
+                        117.95,
+                        127.49,
+                        137.03,
+                        147.44,
+                        157.85
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        149.14,
+                        161.28,
+                        173.42,
+                        190.77,
+                        202.91,
+                        216.78,
+                        235.86,
+                        254.93,
+                        274.01,
+                        294.82,
+                        315.63
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        186.29,
+                        201.45,
+                        216.62,
+                        238.28,
+                        253.44,
+                        270.77,
+                        294.6,
+                        318.42,
+                        342.25,
+                        368.25,
+                        394.24
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Tidecaller",
+            "type": "Elemental Skill",
+            "description": "Nothing to worry about. Should anyone raise a hand against her or her men, she will avenge it ten-fold with sword and thunder.\n**(PressPressText for mouse and keyboard and controller/TapTapText for touch screen)**\nAccumulating the power of lightning, Beidou swings her blade forward fiercely, dealing .\n**Hold**\nLifts her weapon up as a shield. Max DMG absorbed scales off Beidou's Max HP.\nAttacks using the energy stored within the greatsword upon release or once this ability's duration expires, dealing . DMG dealt scales with the number of times Beidou is attacked in the skill's duration. The greatest DMG Bonus will be attained once this effect is triggered twice.\nThe shield possesses the following properties:- Has 250% Electro DMG Absorption Efficiency.\n- Applies the Electro element to Beidou upon activation.",
+            "attributes": [
+                {
+                    "hit": "Shield DMG Absorption",
+                    "values": [
+                        "14.4% Max HP+1,386",
+                        "15.48% Max HP+1,525",
+                        "16.56% Max HP+1,675",
+                        "18% Max HP+1,837",
+                        "19.08% Max HP+2,010",
+                        "20.16% Max HP+2,195",
+                        "21.6% Max HP+2,391",
+                        "23.04% Max HP+2,599",
+                        "24.48% Max HP+2,819",
+                        "25.92% Max HP+3,050",
+                        "27.36% Max HP+3,292",
+                        "28.8% Max HP+3,547",
+                        "30.6% Max HP+3,812"
+                    ]
+                },
+                {
+                    "hit": "Base DMG (%)",
+                    "values": [
+                        121.6,
+                        130.72,
+                        139.84,
+                        152.0,
+                        161.12,
+                        170.24,
+                        182.4,
+                        194.56,
+                        206.72,
+                        218.88,
+                        231.04,
+                        243.2,
+                        258.4
+                    ]
+                },
+                {
+                    "hit": "DMG Bonus on Hit Taken (%)",
+                    "values": [
+                        160.0,
+                        172.0,
+                        184.0,
+                        200.0,
+                        212.0,
+                        224.0,
+                        240.0,
+                        256.0,
+                        272.0,
+                        288.0,
+                        304.0,
+                        320.0,
+                        340.0
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Stormbreaker",
+            "type": "Elemental Burst",
+            "description": "Recalling her slaying of the great beast Haishan, Beidou calls upon that monstrous strength and the lightning to create a Thunderbeast's Targe around herself, dealing  to nearby opponents.\n**Thunderbeast's Targe**\n- When Normal and Charged Attacks hit, they create a lightning discharge that can jump between opponents, dealing Electro DMG.\n- Increases the character's resistance to interruption, and decreases DMG taken.\nA maximum of 1 lightning discharge can be triggered per second.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        121.6,
+                        130.72,
+                        139.84,
+                        152.0,
+                        161.12,
+                        170.24,
+                        182.4,
+                        194.56,
+                        206.72,
+                        218.88,
+                        231.04,
+                        243.2,
+                        258.4,
+                        274.0
+                    ]
+                },
+                {
+                    "hit": "Lightning DMG (%)",
+                    "values": [
+                        96.0,
+                        103.2,
+                        110.4,
+                        120.0,
+                        127.2,
+                        134.4,
+                        144.0,
+                        153.6,
+                        163.2,
+                        172.8,
+                        182.4,
+                        192.0,
+                        204.0,
+                        216.0
+                    ]
+                },
+                {
+                    "hit": "DMG Reduction (%)",
+                    "values": [
+                        20.0,
+                        21.0,
+                        22.0,
+                        24.0,
+                        25.0,
+                        26.0,
+                        28.0,
+                        30.0,
+                        32.0,
+                        34.0,
+                        35.0,
+                        36.0,
+                        37.0,
+                        38.0
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Retribution",
+            "type": "1st Ascension Passive",
+            "description": "Counterattacking with Tidecaller at the precise moment when the character is hit grants the maximum DMG Bonus."
+        },
+        {
+            "name": "Lightning Storm",
+            "type": "4th Ascension Passive",
+            "description": "Gain the following effects for 10s after unleashing Tidecaller with its maximum DMG Bonus:\n- DMG dealt by Normal and Charged Attacks is increased by 15%. ATK SPD of Normal and Charged Attacks is increased by 15%.\n- Greatly reduced delay before unleashing Charged Attacks."
+        },
+        {
+            "name": "Conqueror of Tides",
+            "type": "Utility Passive",
+            "description": "Decreases swimming Stamina consumption for your own party members by 20%.\nNot stackable with Passive Talents that provide the exact same effects."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Sea Beast's Scourge",
+            "description": "When Stormbreaker is used:\nCreates a shield that absorbs up to 16% of Beidou's Max HP for 15s.\nThis shield absorbs Electro DMG 250% more effectively.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Upon the Turbulent Sea, the Thunder Arises",
+            "description": "Stormbreaker's arc lightning can jump to 2 additional targets.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Summoner of Storm",
+            "description": "Increases the Level of Tidecaller by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Stunning Revenge",
+            "description": "Upon being attacked, Beidou's Normal Attacks gain an additional instance of 20% Electro DMG for 10s.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Crimson Tidewalker",
+            "description": "Increases the Level of Stormbreaker by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Bane of Evil",
+            "description": "During the duration of Stormbreaker, the  of surrounding opponents is decreased by 15%.",
+            "properties": []
+        }
+    ]
+}

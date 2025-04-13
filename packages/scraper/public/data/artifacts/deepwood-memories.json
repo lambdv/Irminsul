@@ -1,0 +1,19 @@
+{
+    "name": "Deepwood Memories",
+    "key": "deepwood-memories",
+    "flower_description": "This lovely gold-plated flower was plucked from the crown of the ruler of the forest.",
+    "feather_description": "An emerald leaf as fluffy as a feather. Plucked from the raiment of a forest scholar.",
+    "sand_description": "Such timepieces are used by those who dedicate themselves to the way of the wise. These timepieces do not contain lifeless sand, but instead play host to tiny mustard seeds.",
+    "goblet_description": "This was originally an oil lamp in the style of the desert realm, but has since sprouted fluorescent green leaves.",
+    "circlet_description": "This crown was bestowed by the deity with dominion over plants and trees. It was an heirloom of the royal house of the labyrinth. It was, at last, made the inheritance of the king's attendant.",
+    "flower_name": "Labyrinth Wayfarer",
+    "feather_name": "Scholar of Vines",
+    "sand_name": "A Time of Insight",
+    "goblet_name": "Lamp of the Lost",
+    "circlet_name": "Laurel Coronet",
+    "two_pc_bonus": "Dendro DMG Bonus +15%",
+    "four_pc_bonus": "After Elemental Skills or Bursts hit opponents, the targets' Dendro RES will be decreased by 30% for 8s. This effect can be triggered even if the equipping character is not on the field.",
+    "rarity_min": 4,
+    "rarity_max": 5,
+    "release_version": 3.0
+}

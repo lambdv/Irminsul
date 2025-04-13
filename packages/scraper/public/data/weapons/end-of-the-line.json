@@ -1,0 +1,122 @@
+{
+    "name": "End of the Line",
+    "key": "end-of-the-line",
+    "description": "This seems to be a now-extinct fish. Its body is sufficiently elastic that a string may be attached to it to let it serve as a bow.",
+    "rarity": 4,
+    "category": "bow",
+    "series": "fishing association series",
+    "release_date": "august 24, 2022",
+    "base_atk_min": 42,
+    "base_atk_max": 510,
+    "sub_stat_type": "energy recharge",
+    "sub_stat_value_min": "10.0% ",
+    "sub_stat_value_max": " 45.9%",
+    "refinement_name": "\n\nnet snapper\n\n",
+    "refinements": [
+        "Triggers the Flowrider effect after using an Elemental Skill, dealing **80**\n% ATK as AoE DMG upon hitting an opponent with an attack. Flowrider will be removed after 15s or after causing 3 instances of AoE DMG. Only 1 instance of AoE DMG can be caused every 2s in this way. Flowrider can be triggered once every 12s.",
+        "Triggers the Flowrider effect after using an Elemental Skill, dealing **100**\n% ATK as AoE DMG upon hitting an opponent with an attack. Flowrider will be removed after 15s or after causing 3 instances of AoE DMG. Only 1 instance of AoE DMG can be caused every 2s in this way. Flowrider can be triggered once every 12s.",
+        "Triggers the Flowrider effect after using an Elemental Skill, dealing **120**\n% ATK as AoE DMG upon hitting an opponent with an attack. Flowrider will be removed after 15s or after causing 3 instances of AoE DMG. Only 1 instance of AoE DMG can be caused every 2s in this way. Flowrider can be triggered once every 12s.",
+        "Triggers the Flowrider effect after using an Elemental Skill, dealing **140**\n% ATK as AoE DMG upon hitting an opponent with an attack. Flowrider will be removed after 15s or after causing 3 instances of AoE DMG. Only 1 instance of AoE DMG can be caused every 2s in this way. Flowrider can be triggered once every 12s.",
+        "Triggers the Flowrider effect after using an Elemental Skill, dealing **160**\n% ATK as AoE DMG upon hitting an opponent with an attack. Flowrider will be removed after 15s or after causing 3 instances of AoE DMG. Only 1 instance of AoE DMG can be caused every 2s in this way. Flowrider can be triggered once every 12s."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "42",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "10.0%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "109",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "17.7%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "135",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "17.7%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "205",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "25.8%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "231",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "25.8%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "266",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "29.8%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "292",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "29.8%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "327",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "33.8%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "353",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "33.8%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "388",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "37.9%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "414",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "37.9%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "449",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "41.9%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "475",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "41.9%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "510",
+            "sub_stat_type": "energy recharge",
+            "sub_stat_value": "45.9%",
+            "ascension_phase": 6
+        }
+    ]
+}

@@ -1,0 +1,2 @@
+- scrape character weapon cost
+- scrape inventory items, enemies, abyss, banners

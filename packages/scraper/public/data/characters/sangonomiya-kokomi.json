@@ -1,0 +1,619 @@
+{
+    "name": "Sangonomiya Kokomi",
+    "key": "sangonomiya-kokomi",
+    "title": "Pearl of Wisdom",
+    "rarity": 5,
+    "element": "hydro",
+    "vision": "hydro",
+    "weapon": "catalyst",
+    "release_date": "september 21, 2021",
+    "release_date_epoch": 1632182400,
+    "constellation": "dracaena somnolenta",
+    "birthday": "february 22nd",
+    "affiliation": "watatsumi island (on profile)sangonomiya clanwatatsumi army ",
+    "region": "inazuma",
+    "special_dish": "a stunning stratagem",
+    "alternate_title": "Hibernating Homebody Strategist",
+    "description": "The Divine Priestess of Watatsumi Island. All of the island's affairs are at this young lady's fingertips.",
+    "ascension_stat": "Hydro DMG Bonus",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "1048.65",
+            "BaseATK": "18.25",
+            "BaseDEF": "51.15",
+            "AscensionStatType": "Hydro DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2720.20",
+            "BaseATK": "47.33",
+            "BaseDEF": "132.70",
+            "AscensionStatType": "Hydro DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3619.33",
+            "BaseATK": "62.98",
+            "BaseDEF": "176.56",
+            "AscensionStatType": "Hydro DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "5415.67",
+            "BaseATK": "94.24",
+            "BaseDEF": "264.18",
+            "AscensionStatType": "Hydro DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "6054.52",
+            "BaseATK": "105.35",
+            "BaseDEF": "295.35",
+            "AscensionStatType": "Hydro DMG Bonus",
+            "AscensionStatValue": "7.2%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6965.80",
+            "BaseATK": "121.21",
+            "BaseDEF": "339.80",
+            "AscensionStatType": "Hydro DMG Bonus",
+            "AscensionStatValue": "7.2%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "7817.60",
+            "BaseATK": "136.03",
+            "BaseDEF": "381.36",
+            "AscensionStatType": "Hydro DMG Bonus",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "8738.32",
+            "BaseATK": "152.05",
+            "BaseDEF": "426.27",
+            "AscensionStatType": "Hydro DMG Bonus",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "9377.17",
+            "BaseATK": "163.17",
+            "BaseDEF": "457.43",
+            "AscensionStatType": "Hydro DMG Bonus",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "10306.27",
+            "BaseATK": "179.34",
+            "BaseDEF": "502.76",
+            "AscensionStatType": "Hydro DMG Bonus",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "10945.13",
+            "BaseATK": "190.45",
+            "BaseDEF": "533.92",
+            "AscensionStatType": "Hydro DMG Bonus",
+            "AscensionStatValue": "21.6%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "11884.72",
+            "BaseATK": "206.80",
+            "BaseDEF": "579.76",
+            "AscensionStatType": "Hydro DMG Bonus",
+            "AscensionStatValue": "21.6%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "12523.57",
+            "BaseATK": "217.92",
+            "BaseDEF": "610.92",
+            "AscensionStatType": "Hydro DMG Bonus",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "13470.50",
+            "BaseATK": "234.39",
+            "BaseDEF": "657.11",
+            "AscensionStatType": "Hydro DMG Bonus",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Varunada Lazurite Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Sango Pearl",
+                    "amount": "3"
+                },
+                {
+                    "name": "Spectral Husk",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Dew of Repudiation",
+                    "amount": "2"
+                },
+                {
+                    "name": "Varunada Lazurite Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Sango Pearl",
+                    "amount": "10"
+                },
+                {
+                    "name": "Spectral Husk",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Dew of Repudiation",
+                    "amount": "4"
+                },
+                {
+                    "name": "Varunada Lazurite Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Sango Pearl",
+                    "amount": "20"
+                },
+                {
+                    "name": "Spectral Heart",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Dew of Repudiation",
+                    "amount": "8"
+                },
+                {
+                    "name": "Varunada Lazurite Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Sango Pearl",
+                    "amount": "30"
+                },
+                {
+                    "name": "Spectral Heart",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Dew of Repudiation",
+                    "amount": "12"
+                },
+                {
+                    "name": "Varunada Lazurite Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Sango Pearl",
+                    "amount": "45"
+                },
+                {
+                    "name": "Spectral Nucleus",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Dew of Repudiation",
+                    "amount": "20"
+                },
+                {
+                    "name": "Varunada Lazurite Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Sango Pearl",
+                    "amount": "60"
+                },
+                {
+                    "name": "Spectral Nucleus",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "The Shape of Water",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 3 consecutive attacks that take the form of swimming fish, dealing Hydro DMG.\nCharged Attack\nConsumes a certain amount of Stamina to deal  after a short casting time.\nPlunging Attack\nGathering the might of Hydro, Kokomi plunges towards the ground from mid-air, damaging all opponents in her path. Deals AoE Hydro DMG upon impact with the ground.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        68.38,
+                        73.5,
+                        78.63,
+                        85.47,
+                        90.6,
+                        95.73,
+                        102.56,
+                        109.4,
+                        116.24,
+                        123.08,
+                        129.91
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        61.54,
+                        66.15,
+                        70.77,
+                        76.92,
+                        81.54,
+                        86.15,
+                        92.31,
+                        98.46,
+                        104.62,
+                        110.77,
+                        116.92
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        94.31,
+                        101.38,
+                        108.45,
+                        117.88,
+                        124.95,
+                        132.03,
+                        141.46,
+                        150.89,
+                        160.32,
+                        169.75,
+                        179.18
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        148.32,
+                        159.44,
+                        170.57,
+                        185.4,
+                        196.52,
+                        207.65,
+                        222.48,
+                        237.31,
+                        252.14,
+                        266.98,
+                        281.81
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.17,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Kurage's Oath",
+            "type": "Elemental Skill",
+            "description": "Summons a \"Bake-Kurage\" created from water that can heal her allies.\nUsing this skill will apply the Wet status to Sangonomiya Kokomi.\nBake-Kurage\nDeals Hydro DMG to surrounding opponents and heal nearby active characters at fixed intervals. This healing is based on Kokomi's Max HP.",
+            "attributes": [
+                {
+                    "hit": "Regeneration",
+                    "values": [
+                        "4.4% Max HP+423.70",
+                        "4.73% Max HP+466.08",
+                        "5.06% Max HP+511.99",
+                        "5.5% Max HP+561.43",
+                        "5.83% Max HP+614.40",
+                        "6.16% Max HP+670.90",
+                        "6.6% Max HP+730.93",
+                        "7.04% Max HP+794.50",
+                        "7.48% Max HP+861.59",
+                        "7.92% Max HP+932.22",
+                        "8.36% Max HP+1,006.38",
+                        "8.8% Max HP+1,084.07",
+                        "9.35% Max HP+1,165.29"
+                    ]
+                },
+                {
+                    "hit": "Ripple DMG (%)",
+                    "values": [
+                        109.19,
+                        117.38,
+                        125.57,
+                        136.49,
+                        144.68,
+                        152.87,
+                        163.79,
+                        174.7,
+                        185.62,
+                        196.54,
+                        207.46,
+                        218.38,
+                        232.03
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Nereid's Ascension",
+            "type": "Elemental Burst",
+            "description": "Summons the might of Watatsumi, dealing  to surrounding opponents, before robing Kokomi in a Ceremonial Garment made from the flowing waters of Sangonomiya.\n**Ceremonial Garment**\n- Sangonomiya Kokomi's Normal Attack, Charged Attack and Bake-Kurage DMG are increased based on her Max HP.\n- When her Normal and Charged Attacks hit opponents, Kokomi will restore HP for all nearby party members, and the amount restored is based on her Max HP.\n- Increases Sangonomiya Kokomi's resistance to interruption and allows her to walk on the water's surface.\nThese effects will be cleared once Sangonomiya Kokomi leaves the field.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (% Max HP)",
+                    "values": [
+                        10.42,
+                        11.2,
+                        11.98,
+                        13.02,
+                        13.8,
+                        14.58,
+                        15.62,
+                        16.67,
+                        17.71,
+                        18.75,
+                        19.79,
+                        20.83,
+                        22.13
+                    ]
+                },
+                {
+                    "hit": "Normal Attack DMG Bonus (% Max HP)",
+                    "values": [
+                        4.84,
+                        5.2,
+                        5.57,
+                        6.05,
+                        6.41,
+                        6.78,
+                        7.26,
+                        7.74,
+                        8.23,
+                        8.71,
+                        9.2,
+                        9.68,
+                        10.29
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG Bonus (% Max HP)",
+                    "values": [
+                        6.78,
+                        7.28,
+                        7.79,
+                        8.47,
+                        8.98,
+                        9.49,
+                        10.16,
+                        10.84,
+                        11.52,
+                        12.2,
+                        12.87,
+                        13.55,
+                        14.4
+                    ]
+                },
+                {
+                    "hit": "Bake-Kurage DMG Bonus (% Max HP)",
+                    "values": [
+                        7.1,
+                        7.63,
+                        8.16,
+                        8.87,
+                        9.4,
+                        9.93,
+                        10.64,
+                        11.35,
+                        12.06,
+                        12.77,
+                        13.48,
+                        14.19,
+                        15.08
+                    ]
+                },
+                {
+                    "hit": "HP Regeneration Per Hit",
+                    "values": [
+                        "0.81% Max HP+77.03",
+                        "0.87% Max HP+84.74",
+                        "0.93% Max HP+93.08",
+                        "1.01% Max HP+102.07",
+                        "1.07% Max HP+111.70",
+                        "1.13% Max HP+121.98",
+                        "1.21% Max HP+132.89",
+                        "1.29% Max HP+144.45",
+                        "1.37% Max HP+156.65",
+                        "1.45% Max HP+169.49",
+                        "1.54% Max HP+182.97",
+                        "1.62% Max HP+197.10",
+                        "1.72% Max HP+211.87"
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Flawless Strategy",
+            "type": "Passive",
+            "description": "Sangonomiya Kokomi has a 25% Healing Bonus, but a 100% decrease in CRIT Rate."
+        }
+    ],
+    "passives": [
+        {
+            "name": "Tamakushi Casket",
+            "type": "1st Ascension Passive",
+            "description": "If Sangonomiya Kokomi's own Bake-Kurage are on the field when she uses Nereid's Ascension, the Bake-Kurage's duration will be refreshed."
+        },
+        {
+            "name": "Song of Pearls",
+            "type": "4th Ascension Passive",
+            "description": "While donning the Ceremonial Garment created by Nereid's Ascension, the Normal and Charged Attack DMG Bonus Sangonomiya Kokomi gains based on her Max HP will receive a further increase based on 15% of her Healing Bonus."
+        },
+        {
+            "name": "Princess of Watatsumi",
+            "type": "Utility Passive",
+            "description": "Decreases swimming Stamina consumption for your own party members by 20%.\nNot stackable with Passive Talents that provide the exact same effects."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "At Water's Edge",
+            "description": "While donning the Ceremonial Garment created by Nereid's Ascension, the final Normal Attack in Sangonomiya Kokomi's combo will unleash a swimming fish to deal 30% of her Max HP as Hydro DMG.\nThis DMG is not considered Normal Attack DMG.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "The Clouds Like Waves Rippling",
+            "description": "Sangonomiya Kokomi gains the following Healing Bonuses with regard to characters with 50% or less HP via the following methods:\n- Kurage's Oath Bake-Kurage: 4.5% of Kokomi's Max HP.\n- Nereid's Ascension Normal and Charged Attacks: 0.6% of Kokomi's Max HP.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "The Moon, A Ship O'er the Seas",
+            "description": "Increases the Level of Nereid's Ascension by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "The Moon Overlooks the Waters",
+            "description": "While donning the Ceremonial Garment created by Nereid's Ascension, Sangonomiya Kokomi's Normal Attack SPD is increased by 10%, and Normal Attacks that hit opponents will restore 0.8 Energy for her.\nThis effect can occur once every 0.2s.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "All Streams Flow to the Sea",
+            "description": "Increases the Level of Kurage's Oath by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Sango Isshin",
+            "description": "While donning the Ceremonial Garment created by Nereid's Ascension, Sangonomiya Kokomi gains a 40%  for 4s when her Normal and Charged Attacks heal, or would heal, any party member with 80% or more HP.",
+            "properties": []
+        }
+    ]
+}

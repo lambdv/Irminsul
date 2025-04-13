@@ -1,0 +1,559 @@
+{
+    "name": "Lan Yan",
+    "key": "lan-yan",
+    "title": "Spring Woven From Jade",
+    "rarity": 4,
+    "element": "anemo",
+    "vision": "anemo",
+    "weapon": "catalyst",
+    "release_date": "january 21, 2025",
+    "release_date_epoch": 1737417600,
+    "constellation": "hirundo lazuli",
+    "birthday": "january 6th",
+    "affiliation": "chenyu vale artisans association",
+    "region": "liyue",
+    "special_dish": "jade-cut flowers",
+    "alternate_title": "Master Rattan Weaver of the Chenyu Vale Artisans Association",
+    "description": "A rattan weaver from Chenyu Vale. Clear-minded and well-tempered, she is as lively as a mountain spring.",
+    "ascension_stat": "ATK",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "775.02",
+            "BaseATK": "21.01",
+            "BaseDEF": "48.64",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "1991.03",
+            "BaseATK": "53.98",
+            "BaseDEF": "124.96",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "2570.01",
+            "BaseATK": "69.68",
+            "BaseDEF": "161.30",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "3849.58",
+            "BaseATK": "104.38",
+            "BaseDEF": "241.60",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "4260.96",
+            "BaseATK": "115.53",
+            "BaseDEF": "267.42",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "4901.13",
+            "BaseATK": "132.89",
+            "BaseDEF": "307.60",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "5449.63",
+            "BaseATK": "147.76",
+            "BaseDEF": "342.02",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "6089.80",
+            "BaseATK": "165.12",
+            "BaseDEF": "382.20",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "6501.18",
+            "BaseATK": "176.27",
+            "BaseDEF": "408.02",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "7140.58",
+            "BaseATK": "193.61",
+            "BaseDEF": "448.15",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "7551.96",
+            "BaseATK": "204.76",
+            "BaseDEF": "473.97",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "8192.13",
+            "BaseATK": "222.12",
+            "BaseDEF": "514.15",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "8603.51",
+            "BaseATK": "233.27",
+            "BaseDEF": "539.97",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "9243.68",
+            "BaseATK": "250.63",
+            "BaseDEF": "580.14",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Vayuda Turquoise Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Clearwater Jade",
+                    "amount": "3"
+                },
+                {
+                    "name": "Whopperflower Nectar",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Gold-Inscribed Secret Source Core",
+                    "amount": "2"
+                },
+                {
+                    "name": "Vayuda Turquoise Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Clearwater Jade",
+                    "amount": "10"
+                },
+                {
+                    "name": "Whopperflower Nectar",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Gold-Inscribed Secret Source Core",
+                    "amount": "4"
+                },
+                {
+                    "name": "Vayuda Turquoise Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Clearwater Jade",
+                    "amount": "20"
+                },
+                {
+                    "name": "Shimmering Nectar",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Gold-Inscribed Secret Source Core",
+                    "amount": "8"
+                },
+                {
+                    "name": "Vayuda Turquoise Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Clearwater Jade",
+                    "amount": "30"
+                },
+                {
+                    "name": "Shimmering Nectar",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Gold-Inscribed Secret Source Core",
+                    "amount": "12"
+                },
+                {
+                    "name": "Vayuda Turquoise Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Clearwater Jade",
+                    "amount": "45"
+                },
+                {
+                    "name": "Energy Nectar",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Gold-Inscribed Secret Source Core",
+                    "amount": "20"
+                },
+                {
+                    "name": "Vayuda Turquoise Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Clearwater Jade",
+                    "amount": "60"
+                },
+                {
+                    "name": "Energy Nectar",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Black Pheasant Strides on Water",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nWields her Feathermoon Rings to perform up to 4 attacks, dealing Anemo DMG.\nCharged Attack\nConsumes a certain amount of Stamina to throw out a Feathermoon Ring, dealing Anemo DMG.\nPlunging Attack\nGathers the power of Anemo and plunges towards the ground from mid-air, damaging all opponents in her path. Deals AoE Anemo DMG upon impact with the ground.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        41.44,
+                        44.55,
+                        47.66,
+                        51.8,
+                        54.91,
+                        58.02,
+                        62.16,
+                        66.3,
+                        70.45,
+                        74.59,
+                        78.74
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        "20.41 + 24.95",
+                        "21.94 + 26.82",
+                        "23.47 + 28.69",
+                        "25.52 + 31.19",
+                        "27.05 + 33.06",
+                        "28.58 + 34.93",
+                        "30.62 + 37.42",
+                        "32.66 + 39.92",
+                        "34.7 + 42.41",
+                        "36.74 + 44.91",
+                        "38.78 + 47.4"
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        "26.92 + 26.92",
+                        "28.94 + 28.94",
+                        "30.96 + 30.96",
+                        "33.65 + 33.65",
+                        "35.67 + 35.67",
+                        "37.69 + 37.69",
+                        "40.38 + 40.38",
+                        "43.07 + 43.07",
+                        "45.76 + 45.76",
+                        "48.46 + 48.46",
+                        "51.15 + 51.15"
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        64.56,
+                        69.4,
+                        74.24,
+                        80.7,
+                        85.54,
+                        90.38,
+                        96.84,
+                        103.3,
+                        109.75,
+                        116.21,
+                        122.66
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        "37.84 \u00d7 3",
+                        "40.68 \u00d7 3",
+                        "43.52 \u00d7 3",
+                        "47.3 \u00d7 3",
+                        "50.14 \u00d7 3",
+                        "52.98 \u00d7 3",
+                        "56.76 \u00d7 3",
+                        "60.54 \u00d7 3",
+                        "64.33 \u00d7 3",
+                        "68.11 \u00d7 3",
+                        "71.9 \u00d7 3"
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.17,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Swallow-Wisp Pinion Dance",
+            "type": "Elemental Skill",
+            "description": "Summoning forth the Swallow-Wisp Shield, a secret art passed down across generations, Lan Yan dashes forward and, upon making contact with her target, will leap back into the air.\nThe Swallow-Wisp Shield's DMG absorption scales based on her ATK, and has a 250% absorption efficiency against Anemo DMG.\nWhile in mid-air due to the effects of her Elemental Skill: Swallow-Wisp Pinion Dance, pressing her Elemental Skill again or pressing Normal Attack will cause Lan Yan to hurl her Feathermoon Rings at an opponent, and they will spin between nearby opponents twice upon hit, dealing Anemo DMG.\nHolding the Skill will cause it to behave differently.\nHold\nEnter Aiming Mode to adjust the dash direction.",
+            "attributes": [
+                {
+                    "hit": "Feathermoon Ring DMG (%)",
+                    "values": [
+                        96.26,
+                        103.48,
+                        110.69,
+                        120.32,
+                        127.54,
+                        134.76,
+                        144.38,
+                        154.01,
+                        163.64,
+                        173.26,
+                        182.89,
+                        192.51,
+                        204.54
+                    ]
+                },
+                {
+                    "hit": "Shield DMG Absorption",
+                    "values": [
+                        "276.48% ATK + 1156",
+                        "297.22% ATK + 1271",
+                        "317.95% ATK + 1396",
+                        "345.6% ATK + 1531",
+                        "366.34% ATK + 1676",
+                        "387.07% ATK + 1830",
+                        "414.72% ATK + 1993",
+                        "442.37% ATK + 2167",
+                        "470.02% ATK + 2350",
+                        "497.66% ATK + 2542",
+                        "525.31% ATK + 2745",
+                        "552.96% ATK + 2957",
+                        "587.52% ATK + 3178"
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Lustrous Moonrise",
+            "type": "Elemental Burst",
+            "description": "Lan Yan creates a Feathermoon Swallow Array, pulling in nearby opponents and objects and dealing multiple instances of AoE Anemo DMG.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        "241.06 \u00d7 3",
+                        "259.14 \u00d7 3",
+                        "277.22 \u00d7 3",
+                        "301.33 \u00d7 3",
+                        "319.41 \u00d7 3",
+                        "337.49 \u00d7 3",
+                        "361.6 \u00d7 3",
+                        "385.7 \u00d7 3",
+                        "409.81 \u00d7 3",
+                        "433.92 \u00d7 3",
+                        "458.02 \u00d7 3",
+                        "482.13 \u00d7 3",
+                        "512.26 \u00d7 3"
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Four Sealing Divination Charms",
+            "type": "1st Ascension Passive",
+            "description": "When the dash from the Elemental Skill Swallow-Wisp Pinion Dance hits a target, if it interacts with Hydro/Pyro/Cryo/Electro, the Swallow-Wisp Shield will undergo Elemental Absorption, with the converted shield absorbing DMG from the corresponding element with 250% efficiency.\nAdditionally, if this use of Swallow-Wisp Pinion Dance causes the Swallow-Wisp Shield to undergo Elemental Absorption, the Feathermoon Rings that Lan Yan throws at her foes additionally deal Elemental DMG equal to 50% of the original in the corresponding Elemental Type. This DMG is considered Elemental Skill DMG.",
+            "properties": []
+        },
+        {
+            "name": "Skyfeather Evil-Subduing Charm",
+            "type": "4th Ascension Passive",
+            "description": "The Elemental Skill Swallow-Wisp Pinion Dance and the Elemental Burst Lustrous Moonrise deal increased DMG equal to 309% and 774% of Lan Yan's Elemental Mastery respectively."
+        },
+        {
+            "name": "Thought and Intent, Like Silken Scent",
+            "type": "Utility Passive",
+            "description": "When Lan Yan is in the party, your characters will not startle Crystalflies and certain other animals when getting near them.\nCheck the \"Other\" sub-category of the \"Living Beings / Wildlife\" section in the Archive for creatures this skill works on."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "\"As One Might Stride Betwixt the Clouds\"",
+            "description": "After triggering the Elemental Absorption from the Passive Talent \"Four Sealing Divination Charms,\" this instance of Lan Yan's Elemental Skill Swallow-Wisp Pinion Dance will produce another Feathermoon Ring when they are thrown at opponents.\nYou must first unlock the Passive Talent \"Four Sealing Divination Charms.\"",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "\"Dance Vestments Billow Like Rainbow Jade\"",
+            "description": "While the Swallow-Wisp Shield is active, when your active party member's Normal Attacks deal DMG, 40% of the Shield's DMG absorption will be restored, up to its original maximum absorption. This effect can occur once every 2s.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "\"On White Wings Pierce Through Cloud and Fog\"",
+            "description": "Increases the Level of Swallow-Wisp Pinion Dance by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "\"With Drakefalcon's Blood-Pearls Adorned\"",
+            "description": "After Lan Yan uses her Elemental Burst Lustrous Moonrise, the Elemental Mastery of all nearby party members increases by 60 for 12s.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "\"Having Met You, My Heart is Gladdened\"",
+            "description": "Increases the Level of Lustrous Moonrise by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "\"Let Us Away on Sylphic Wing, the Silvered Ornaments to Ring\"",
+            "description": "**Swallow-Wisp Pinion Dance**\n gains 1 additional charge.",
+            "properties": []
+        }
+    ]
+}

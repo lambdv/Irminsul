@@ -1,0 +1,626 @@
+{
+    "name": "Venti",
+    "key": "venti",
+    "title": "Windborne Bard",
+    "rarity": 5,
+    "element": "anemo",
+    "vision": "anemo",
+    "weapon": "bow",
+    "release_date": "september 28, 2020",
+    "release_date_epoch": 1601251200,
+    "constellation": "carmen dei",
+    "birthday": "june 16th",
+    "affiliation": "mondstadt (on profile)the seventhousand winds ",
+    "region": "mondstadt",
+    "special_dish": "a buoyant breeze",
+    "alternate_title": "Singer of Skyward Sonnets",
+    "description": "One of the many bards of Mondstadt, who freely wanders the city's streets and alleys.",
+    "ascension_stat": "Energy Recharge",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "819.86",
+            "BaseATK": "20.48",
+            "BaseDEF": "52.05",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2126.70",
+            "BaseATK": "53.13",
+            "BaseDEF": "135.02",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "2829.66",
+            "BaseATK": "70.69",
+            "BaseDEF": "179.65",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "4234.07",
+            "BaseATK": "105.78",
+            "BaseDEF": "268.82",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "4733.53",
+            "BaseATK": "118.25",
+            "BaseDEF": "300.53",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "8.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "5445.99",
+            "BaseATK": "136.05",
+            "BaseDEF": "345.76",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "8.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "6111.94",
+            "BaseATK": "152.69",
+            "BaseDEF": "388.05",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "16.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "6831.78",
+            "BaseATK": "170.67",
+            "BaseDEF": "433.75",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "16.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "7331.24",
+            "BaseATK": "183.15",
+            "BaseDEF": "465.46",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "16.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "8057.63",
+            "BaseATK": "201.30",
+            "BaseDEF": "511.58",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "16.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "8557.10",
+            "BaseATK": "213.77",
+            "BaseDEF": "543.29",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "9291.69",
+            "BaseATK": "232.12",
+            "BaseDEF": "589.93",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "9791.15",
+            "BaseATK": "244.60",
+            "BaseDEF": "621.64",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "32.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "10531.48",
+            "BaseATK": "263.10",
+            "BaseDEF": "668.64",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "32.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Vayuda Turquoise Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Cecilia",
+                    "amount": "3"
+                },
+                {
+                    "name": "Slime Condensate",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Hurricane Seed",
+                    "amount": "2"
+                },
+                {
+                    "name": "Vayuda Turquoise Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Cecilia",
+                    "amount": "10"
+                },
+                {
+                    "name": "Slime Condensate",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Hurricane Seed",
+                    "amount": "4"
+                },
+                {
+                    "name": "Vayuda Turquoise Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Cecilia",
+                    "amount": "20"
+                },
+                {
+                    "name": "Slime Secretions",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Hurricane Seed",
+                    "amount": "8"
+                },
+                {
+                    "name": "Vayuda Turquoise Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Cecilia",
+                    "amount": "30"
+                },
+                {
+                    "name": "Slime Secretions",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Hurricane Seed",
+                    "amount": "12"
+                },
+                {
+                    "name": "Vayuda Turquoise Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Cecilia",
+                    "amount": "45"
+                },
+                {
+                    "name": "Slime Concentrate",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Hurricane Seed",
+                    "amount": "20"
+                },
+                {
+                    "name": "Vayuda Turquoise Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Cecilia",
+                    "amount": "60"
+                },
+                {
+                    "name": "Slime Concentrate",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Divine Marksmanship",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 6 consecutive shots with a bow.\nCharged Attack\nPerform a more precise Aimed Shot with increased DMG.\nWhile aiming, favorable winds will accumulate on the arrowhead. A fully charged wind arrow will deal Anemo DMG.\nPlunging Attack\nFires off a shower of arrows in mid-air before falling and striking the ground, dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        "20.38+20.38",
+                        "22.04+22.04",
+                        "23.7+23.7",
+                        "26.07+26.07",
+                        "27.73+27.73",
+                        "29.63+29.63",
+                        "32.23+32.23",
+                        "34.84+34.84",
+                        "37.45+37.45",
+                        "40.29+40.29",
+                        "43.55+43.55"
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        44.38,
+                        47.99,
+                        51.6,
+                        56.76,
+                        60.37,
+                        64.5,
+                        70.18,
+                        75.85,
+                        81.53,
+                        87.72,
+                        94.81
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        52.37,
+                        56.64,
+                        60.9,
+                        66.99,
+                        71.25,
+                        76.13,
+                        82.82,
+                        89.52,
+                        96.22,
+                        103.53,
+                        111.9
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        "26.06+26.06",
+                        "28.18+28.18",
+                        "30.3+30.3",
+                        "33.33+33.33",
+                        "35.45+35.45",
+                        "37.88+37.88",
+                        "41.21+41.21",
+                        "44.54+44.54",
+                        "47.87+47.87",
+                        "51.51+51.51",
+                        "55.68+55.68"
+                    ]
+                },
+                {
+                    "hit": "5-Hit DMG (%)",
+                    "values": [
+                        50.65,
+                        54.78,
+                        58.9,
+                        64.79,
+                        68.91,
+                        73.63,
+                        80.1,
+                        86.58,
+                        93.06,
+                        100.13,
+                        108.23
+                    ]
+                },
+                {
+                    "hit": "6-Hit DMG (%)",
+                    "values": [
+                        70.95,
+                        76.72,
+                        82.5,
+                        90.75,
+                        96.53,
+                        103.13,
+                        112.2,
+                        121.28,
+                        130.35,
+                        140.25,
+                        151.59
+                    ]
+                },
+                {
+                    "hit": "Aimed Shot (%)",
+                    "values": [
+                        43.86,
+                        47.43,
+                        51.0,
+                        56.1,
+                        59.67,
+                        63.75,
+                        69.36,
+                        74.97,
+                        80.58,
+                        86.7,
+                        93.71
+                    ]
+                },
+                {
+                    "hit": "Fully-Charged Aimed Shot (%)",
+                    "values": [
+                        124.0,
+                        133.3,
+                        142.6,
+                        155.0,
+                        164.3,
+                        173.6,
+                        186.0,
+                        198.4,
+                        210.8,
+                        223.2,
+                        236.1
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.17,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Skyward Sonnet",
+            "type": "Elemental Skill",
+            "description": "O wind upon which all hymns and songs fly, bear these earth-walkers up into the sky!\n(PressPressText for mouse and keyboard and controller/TapTapText for touch screen)\nSummons a Wind Domain at the opponent's location, dealing  and launching opponents into the air.\nHold\nSummons an even larger Wind Domain with Venti as the epicenter, dealing AoE Anemo DMG and launching affected opponents into the air.\nAfter unleashing the Hold version of this ability, Venti rides the wind into the air.\nOpponents hit by Skyward Sonnet will fall to the ground slowly.",
+            "attributes": [
+                {
+                    "hit": "Press DMG (%)",
+                    "values": [
+                        276.0,
+                        296.7,
+                        317.4,
+                        345.0,
+                        365.7,
+                        386.4,
+                        414.0,
+                        441.6,
+                        469.2,
+                        496.8,
+                        524.4,
+                        552.0,
+                        586.5
+                    ]
+                },
+                {
+                    "hit": "Hold DMG (%)",
+                    "values": [
+                        380.0,
+                        408.5,
+                        437.0,
+                        475.0,
+                        503.5,
+                        532.0,
+                        570.0,
+                        608.0,
+                        646.0,
+                        684.0,
+                        722.0,
+                        760.0,
+                        807.5
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Wind's Grand Ode",
+            "type": "Elemental Burst",
+            "description": "Fires off an arrow made of countless coalesced winds, creating a huge Stormeye that sucks in opponents and deals continuous Anemo DMG.\nElemental Absorption\nIf the Stormeye comes into contact with Hydro/Pyro/Cryo/Electro, it will deal additional elemental DMG of that type.\nElemental Absorption may only occur once per use.",
+            "attributes": [
+                {
+                    "hit": "DoT (%)",
+                    "values": [
+                        37.6,
+                        40.42,
+                        43.24,
+                        47.0,
+                        49.82,
+                        52.64,
+                        56.4,
+                        60.16,
+                        63.92,
+                        67.68,
+                        71.44,
+                        75.2,
+                        79.9,
+                        84.6
+                    ]
+                },
+                {
+                    "hit": "Additional Elemental DMG (%)",
+                    "values": [
+                        18.8,
+                        20.21,
+                        21.62,
+                        23.5,
+                        24.91,
+                        26.32,
+                        28.2,
+                        30.08,
+                        31.96,
+                        33.84,
+                        35.72,
+                        37.6,
+                        39.95,
+                        42.3
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Embrace of Winds",
+            "type": "1st Ascension Passive",
+            "description": "Holding Skyward Sonnet creates an upcurrent that lasts for 20s."
+        },
+        {
+            "name": "Stormeye",
+            "type": "4th Ascension Passive",
+            "description": "Regenerates 15 Energy for Venti after the effects of Wind's Grand Ode end. If an Elemental Absorption occurred, this also restores 15 Energy to all characters of that corresponding element in the party."
+        },
+        {
+            "name": "Windrider",
+            "type": "Utility Passive",
+            "description": "Decreases gliding Stamina consumption for your own party members by 20%.\nNot stackable with Passive Talents that provide the exact same effects."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Splitting Gales",
+            "description": "Fires 2 additional arrows per Aimed Shot, each dealing 33% of the original arrow's DMG.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Breeze of Reminiscence",
+            "description": "Skyward Sonnet decreases opponents'  and Physical RES by 12% for 10s.\nOpponents launched by Skyward Sonnet suffer an additional 12%  and Physical RES decrease while airborne.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Ode to Thousand Winds",
+            "description": "Increases the Level of Wind's Grand Ode by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Hurricane of Freedom",
+            "description": "When Venti picks up an Elemental Orb or Particle, he receives a 25%  for 10s.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Concerto dal Cielo",
+            "description": "Increases the Level of Skyward Sonnet by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Storm of Defiance",
+            "description": "Targets who take DMG from Wind's Grand Ode have their Anemo RES decreased by 20%.\nIf an Elemental Absorption occurred, then their RES towards the corresponding Element is also decreased by 20%.",
+            "properties": []
+        }
+    ]
+}

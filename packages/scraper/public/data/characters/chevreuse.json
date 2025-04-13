@@ -1,0 +1,630 @@
+{
+    "name": "Chevreuse",
+    "key": "chevreuse",
+    "title": "Executor of Justice",
+    "rarity": 4,
+    "element": "pyro",
+    "vision": "pyro",
+    "weapon": "polearm",
+    "release_date": "january 09, 2024",
+    "release_date_epoch": 1704758400,
+    "constellation": "sclopetum ensiferum",
+    "birthday": "january 10th",
+    "affiliation": "special security and surveillance patrol",
+    "region": "fontaine",
+    "special_dish": "sin: the kind that doesn't need to be dealt with",
+    "alternate_title": "Special Security and Surveillance Patrol Captain",
+    "description": "The captain of the Special Security and Surveillance Patrol, who wears justice as an ever-present seal upon her heart. Her musket shall only ever point at the guilty.",
+    "ascension_stat": "HP",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "1002.97",
+            "BaseATK": "16.21",
+            "BaseDEF": "50.70",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2576.63",
+            "BaseATK": "41.63",
+            "BaseDEF": "130.25",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3325.90",
+            "BaseATK": "53.74",
+            "BaseDEF": "168.13",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "4981.80",
+            "BaseATK": "80.49",
+            "BaseDEF": "251.84",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "5514.18",
+            "BaseATK": "89.09",
+            "BaseDEF": "278.75",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6342.63",
+            "BaseATK": "102.48",
+            "BaseDEF": "320.63",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "7052.47",
+            "BaseATK": "113.95",
+            "BaseDEF": "356.51",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "7880.92",
+            "BaseATK": "127.34",
+            "BaseDEF": "398.39",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "8413.30",
+            "BaseATK": "135.94",
+            "BaseDEF": "425.30",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "9240.75",
+            "BaseATK": "149.31",
+            "BaseDEF": "467.13",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "9773.12",
+            "BaseATK": "157.91",
+            "BaseDEF": "494.04",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "10601.58",
+            "BaseATK": "171.29",
+            "BaseDEF": "535.92",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "11133.95",
+            "BaseATK": "179.90",
+            "BaseDEF": "562.83",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "11962.41",
+            "BaseATK": "193.28",
+            "BaseDEF": "604.71",
+            "AscensionStatType": "HP",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Agnidus Agate Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Lumidouce Bell",
+                    "amount": "3"
+                },
+                {
+                    "name": "Meshing Gear",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Fontemer Unihorn",
+                    "amount": "2"
+                },
+                {
+                    "name": "Agnidus Agate Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Lumidouce Bell",
+                    "amount": "10"
+                },
+                {
+                    "name": "Meshing Gear",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Fontemer Unihorn",
+                    "amount": "4"
+                },
+                {
+                    "name": "Agnidus Agate Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Lumidouce Bell",
+                    "amount": "20"
+                },
+                {
+                    "name": "Mechanical Spur Gear",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Fontemer Unihorn",
+                    "amount": "8"
+                },
+                {
+                    "name": "Agnidus Agate Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Lumidouce Bell",
+                    "amount": "30"
+                },
+                {
+                    "name": "Mechanical Spur Gear",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Fontemer Unihorn",
+                    "amount": "12"
+                },
+                {
+                    "name": "Agnidus Agate Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Lumidouce Bell",
+                    "amount": "45"
+                },
+                {
+                    "name": "Artificed Dynamic Gear",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Fontemer Unihorn",
+                    "amount": "20"
+                },
+                {
+                    "name": "Agnidus Agate Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Lumidouce Bell",
+                    "amount": "60"
+                },
+                {
+                    "name": "Artificed Dynamic Gear",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Line Bayonet Thrust EX",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 4 consecutive spear strikes.\nCharged Attack\nConsumes a certain amount of Stamina to lunge forward, dealing damage to opponents along the way.\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        53.13,
+                        57.45,
+                        61.78,
+                        67.96,
+                        72.28,
+                        77.22,
+                        84.02,
+                        90.82,
+                        97.61,
+                        105.02,
+                        112.44
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        49.31,
+                        53.32,
+                        57.34,
+                        63.07,
+                        67.09,
+                        71.67,
+                        77.98,
+                        84.29,
+                        90.59,
+                        97.47,
+                        104.36
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        "27.64 + 32.45",
+                        "29.9 + 35.09",
+                        "32.15 + 37.74",
+                        "35.36 + 41.51",
+                        "37.61 + 44.15",
+                        "40.18 + 47.17",
+                        "43.72 + 51.32",
+                        "47.25 + 55.47",
+                        "50.79 + 59.62",
+                        "54.65 + 64.15",
+                        "58.5 + 68.68"
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        77.26,
+                        83.55,
+                        89.84,
+                        98.82,
+                        105.11,
+                        112.3,
+                        122.18,
+                        132.06,
+                        141.95,
+                        152.73,
+                        163.51
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        121.69,
+                        131.59,
+                        141.5,
+                        155.65,
+                        165.56,
+                        176.88,
+                        192.44,
+                        208.0,
+                        223.57,
+                        240.55,
+                        257.53
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        63.93,
+                        69.14,
+                        74.34,
+                        81.77,
+                        86.98,
+                        92.92,
+                        101.1,
+                        109.28,
+                        117.46,
+                        126.38,
+                        135.3
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        127.84,
+                        138.24,
+                        148.65,
+                        163.51,
+                        173.92,
+                        185.81,
+                        202.16,
+                        218.51,
+                        234.86,
+                        252.7,
+                        270.54
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        159.68,
+                        172.67,
+                        185.67,
+                        204.24,
+                        217.23,
+                        232.09,
+                        252.51,
+                        272.93,
+                        293.36,
+                        315.64,
+                        337.92
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Short-Range Rapid Interdiction Fire",
+            "type": "Elemental Skill",
+            "description": "Chevreuse quickly shoulders her musket and fires at her opponent(s), dealing AoE Pyro DMG.\nFor a short duration after Chevreuse fires a shot, she will continuously restore HP to the active character on the field. The amount healed is based on her Max HP.\nHold to fire in a different fashion.\nHold\nEnter Aiming Mode, locking a target in her sights to fire a precise interdiction shot. If Chevreuse has an Overcharged Ball, then she will fire the Overcharged Ball instead, dealing greater Pyro DMG in a larger area.\nChevreuse gains 1 Overcharged Ball every time a nearby character in the party triggers an Overloaded reaction, and can have up to 1 Overcharged Ball at a time.\nArkhe: Ousia\nPeriodically, after Chevreuse's Short-Range Rapid Interdiction Fire hits, a Surging Blade will be called forth that deals Ousia-aligned Pyro DMG.",
+            "attributes": [
+                {
+                    "hit": "Press DMG (%)",
+                    "values": [
+                        115.2,
+                        123.84,
+                        132.48,
+                        144.0,
+                        152.64,
+                        161.28,
+                        172.8,
+                        184.32,
+                        195.84,
+                        207.36,
+                        218.88,
+                        230.4,
+                        244.8
+                    ]
+                },
+                {
+                    "hit": "Hold DMG (%)",
+                    "values": [
+                        172.8,
+                        185.76,
+                        198.72,
+                        216.0,
+                        228.96,
+                        241.92,
+                        259.2,
+                        276.48,
+                        293.76,
+                        311.04,
+                        328.32,
+                        345.6,
+                        367.2
+                    ]
+                },
+                {
+                    "hit": "Overcharged Ball DMG (%)",
+                    "values": [
+                        282.4,
+                        303.58,
+                        324.76,
+                        353.0,
+                        374.18,
+                        395.36,
+                        423.6,
+                        451.84,
+                        480.08,
+                        508.32,
+                        536.56,
+                        564.8,
+                        600.1
+                    ]
+                },
+                {
+                    "hit": "HP Regeneration Over Time",
+                    "values": [
+                        "2.67% Max HP+257",
+                        "2.87% Max HP+282",
+                        "3.07% Max HP+310",
+                        "3.33% Max HP+340",
+                        "3.53% Max HP+372",
+                        "3.73% Max HP+407",
+                        "4% Max HP+443",
+                        "4.27% Max HP+482",
+                        "4.53% Max HP+522",
+                        "4.8% Max HP+565",
+                        "5.07% Max HP+610",
+                        "5.33% Max HP+657",
+                        "5.67% Max HP+706"
+                    ]
+                },
+                {
+                    "hit": "Surging Blade DMG (%)",
+                    "values": [
+                        28.8,
+                        30.96,
+                        33.12,
+                        36.0,
+                        38.16,
+                        40.32,
+                        43.2,
+                        46.08,
+                        48.96,
+                        51.84,
+                        54.72,
+                        57.6,
+                        61.2
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Ring of Bursting Grenades",
+            "type": "Elemental Burst",
+            "description": "Chevreuse fires an explosive grenade at opponents with her musket, dealing AoE Pyro DMG. After the projectile hits, it will split into many secondary explosive shells.\nThe secondary explosive shells will burst after a short interval, dealing Pyro DMG to nearby opponents.",
+            "attributes": [
+                {
+                    "hit": "Explosive Grenade DMG (%)",
+                    "values": [
+                        368.16,
+                        395.77,
+                        423.38,
+                        460.2,
+                        487.81,
+                        515.42,
+                        552.24,
+                        589.06,
+                        625.87,
+                        662.69,
+                        699.5,
+                        736.32,
+                        782.34
+                    ]
+                },
+                {
+                    "hit": "Secondary Explosive Shell DMG (%)",
+                    "values": [
+                        49.09,
+                        52.77,
+                        56.45,
+                        61.36,
+                        65.04,
+                        68.72,
+                        73.63,
+                        78.54,
+                        83.45,
+                        88.36,
+                        93.27,
+                        98.18,
+                        104.31
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Vanguard's Coordinated Tactics",
+            "type": "1st Ascension Passive",
+            "description": "When all party members are Pyro and Electro characters and there is at least one Pyro and one Electro character each in the party:\nChevreuse grants \"Coordinated Tactics\" to nearby party members: After a character triggers the Overloaded reaction, the Pyro and Electro RES of the opponent(s) affected by this Overloaded reaction will be decreased by 40% for 6s.\nThe \"Coordinated Tactics\" effect will be removed when the Elemental Types of the characters in the party do not meet the basic requirements for the Passive Talent."
+        },
+        {
+            "name": "Vertical Force Coordination",
+            "type": "4th Ascension Passive",
+            "description": "After Chevreuse fires an Overcharged Ball using Short-Range Rapid Interdiction Fire, nearby Pyro and Electro characters in the party gain 1% increased ATK for every 1,000 Max HP Chevreuse has for 30s. ATK can be increased by up to 40% in this way."
+        },
+        {
+            "name": "Double Time March",
+            "type": "Utility Passive",
+            "description": "Decreases sprinting Stamina consumption for your own party members by 20%.\nNot stackable with Passive Talents that provide the exact same effects."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Stable Front Line's Resolve",
+            "description": "When the active character with the \"Coordinated Tactics\" status (not including Chevreuse herself) triggers the Overloaded reaction, they will recover 6 Energy. This effect can be triggered once every 10s.\nYou must first unlock the Passive Talent \"Vanguard's Coordinated Tactics.\"",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Sniper Induced Explosion",
+            "description": "After Holding Short-Range Rapid Interdiction Fire and hitting a target, 2 chain explosions will be triggered near the location where said target is hit. Each explosion deals Pyro DMG equal to 120% of Chevreuse's ATK. This effect can be triggered up to once every 10s, and DMG dealt this way is considered Elemental Skill DMG.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Practiced Field Stripping Technique",
+            "description": "Increases the Level of Short-Range Rapid Interdiction Fire by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "The Secret to Rapid-Fire Multishots",
+            "description": "After using Ring of Bursting Grenades, the Hold mode of Short-Range Rapid Interdiction Fire will not go on cooldown when Chevreuse uses it. This effect is removed after Short-Range Rapid Interdiction Fire has been fired twice using Hold or after 6s.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Enhanced Incendiary Firepower",
+            "description": "Increases the Level of Ring of Bursting Grenades by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "In Pursuit of Ending Evil",
+            "description": "After 12s of the healing effect from Short-Range Rapid Interdiction Fire, all nearby party members recover HP equivalent to 10% of Chevreuse's Max HP once.\nAfter a party member is healed by Short-Range Rapid Interdiction Fire, they gain a 20%  and  for 8s. Max 3 stacks. Each stack's duration is counted independently.",
+            "properties": []
+        }
+    ]
+}

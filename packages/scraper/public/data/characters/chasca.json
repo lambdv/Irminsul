@@ -1,0 +1,651 @@
+{
+    "name": "Chasca",
+    "key": "chasca",
+    "title": "Skyborne Arbiter",
+    "rarity": 5,
+    "element": "anemo",
+    "vision": "anemo",
+    "weapon": "bow",
+    "release_date": "november 20, 2024",
+    "release_date_epoch": 1732060800,
+    "constellation": "vultur gryphus",
+    "birthday": "december 10th",
+    "affiliation": "tlalocan",
+    "region": "natlan",
+    "special_dish": "moment of respite",
+    "alternate_title": "Peacemaker of the Tlalocan",
+    "description": "The Peacemaker of the Tlalocan, the ender of all disputes.",
+    "ascension_stat": "CRIT Rate",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "762.66",
+            "BaseATK": "27.00",
+            "BaseDEF": "47.86",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "1978.33",
+            "BaseATK": "70.04",
+            "BaseDEF": "124.16",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "2632.24",
+            "BaseATK": "93.18",
+            "BaseDEF": "165.20",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "3938.67",
+            "BaseATK": "139.43",
+            "BaseDEF": "247.19",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "4403.29",
+            "BaseATK": "155.88",
+            "BaseDEF": "276.35",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "5066.04",
+            "BaseATK": "179.34",
+            "BaseDEF": "317.94",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "5685.53",
+            "BaseATK": "201.27",
+            "BaseDEF": "356.82",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "6355.14",
+            "BaseATK": "224.98",
+            "BaseDEF": "398.85",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "6819.76",
+            "BaseATK": "241.42",
+            "BaseDEF": "428.01",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "7495.47",
+            "BaseATK": "265.34",
+            "BaseDEF": "470.42",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "7960.09",
+            "BaseATK": "281.79",
+            "BaseDEF": "499.58",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "8643.43",
+            "BaseATK": "305.98",
+            "BaseDEF": "542.46",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "9108.05",
+            "BaseATK": "322.43",
+            "BaseDEF": "571.62",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "9796.73",
+            "BaseATK": "346.81",
+            "BaseDEF": "614.84",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Vayuda Turquoise Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Withering Purpurbloom",
+                    "amount": "3"
+                },
+                {
+                    "name": "Juvenile Fang",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Ensnaring Gaze",
+                    "amount": "2"
+                },
+                {
+                    "name": "Vayuda Turquoise Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Withering Purpurbloom",
+                    "amount": "10"
+                },
+                {
+                    "name": "Juvenile Fang",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Ensnaring Gaze",
+                    "amount": "4"
+                },
+                {
+                    "name": "Vayuda Turquoise Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Withering Purpurbloom",
+                    "amount": "20"
+                },
+                {
+                    "name": "Seasoned Fang",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Ensnaring Gaze",
+                    "amount": "8"
+                },
+                {
+                    "name": "Vayuda Turquoise Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Withering Purpurbloom",
+                    "amount": "30"
+                },
+                {
+                    "name": "Seasoned Fang",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Ensnaring Gaze",
+                    "amount": "12"
+                },
+                {
+                    "name": "Vayuda Turquoise Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Withering Purpurbloom",
+                    "amount": "45"
+                },
+                {
+                    "name": "Tyrant's Fang",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Ensnaring Gaze",
+                    "amount": "20"
+                },
+                {
+                    "name": "Vayuda Turquoise Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Withering Purpurbloom",
+                    "amount": "60"
+                },
+                {
+                    "name": "Tyrant's Fang",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Phantom Feather Flurry",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 4 consecutive shots with a bow.\nCharged Attack\nPerforms a more precise Aimed Shot with increased DMG.\nWhile aiming, mighty winds will accumulate on the arrowhead. A fully charged wind arrow will deal Anemo DMG.\nPlunging Attack\nFires off a shower of arrows in mid-air before falling and striking the ground, hitting opponents along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        48.01,
+                        51.92,
+                        55.82,
+                        61.41,
+                        65.31,
+                        69.78,
+                        75.92,
+                        82.06,
+                        88.2,
+                        94.9,
+                        101.6
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        44.59,
+                        48.22,
+                        51.85,
+                        57.03,
+                        60.66,
+                        64.81,
+                        70.51,
+                        76.22,
+                        81.92,
+                        88.14,
+                        94.36
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        "29.7\u00d72",
+                        "32.11\u00d72",
+                        "34.53\u00d72",
+                        "37.99\u00d72",
+                        "40.4\u00d72",
+                        "43.16\u00d72",
+                        "46.96\u00d72",
+                        "50.76\u00d72",
+                        "54.56\u00d72",
+                        "58.7\u00d72",
+                        "62.85\u00d72"
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        "25.47\u00d73",
+                        "27.54\u00d73",
+                        "29.61\u00d73",
+                        "32.57\u00d73",
+                        "34.65\u00d73",
+                        "37.02\u00d73",
+                        "40.27\u00d73",
+                        "43.53\u00d73",
+                        "46.79\u00d73",
+                        "50.34\u00d73",
+                        "53.9\u00d73"
+                    ]
+                },
+                {
+                    "hit": "Aimed Shot (%)",
+                    "values": [
+                        43.86,
+                        47.43,
+                        51.0,
+                        56.1,
+                        59.67,
+                        63.75,
+                        69.36,
+                        74.97,
+                        80.58,
+                        86.7,
+                        92.82
+                    ]
+                },
+                {
+                    "hit": "Fully-Charged Aimed Shot (%)",
+                    "values": [
+                        124.0,
+                        133.3,
+                        142.6,
+                        155.0,
+                        164.3,
+                        173.6,
+                        186.0,
+                        198.4,
+                        210.8,
+                        223.2,
+                        235.6
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.17,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Spirit Reins, Shadow Hunt",
+            "type": "Elemental Skill",
+            "description": "Chasca and the will residing in her weapon resonate, dealing Nightsoul-aligned .\nAfter using this Skill, Chasca gains 80 Nightsoul points and enters the Nightsoul's Blessing state.\n**Nightsoul's Blessing: Chasca**\nContinually consume Nightsoul points. When Nightsoul points are fully depleted or the skill is used again, Chasca's Nightsoul's Blessing state will end. Her Nightsoul's Blessing has the following traits:\n- Mounts \"Soulsniper: Ritual Staff,\" increasing Chasca's Movement SPD and interruption resistance. In this state, Chasca will continually consume Nightsoul points to remain airborne. When Sprinting or increasing height, extra Nightsoul points will be consumed.\n- When using Normal or Charged Attacks, Tap or Hold to switch between using \"Multitarget Fire\" in different ways.\n**Multitarget Fire**\n**Tap**\nDeal Nightsoul-aligned  to opponents in front. This DMG is considered Normal Attack DMG.\n**Hold**\nEnter Aiming Mode and choose a certain number of opponents within a certain range, before loading up to 6 Shadowhunt Shells based on the duration for which the skill was charged. When 6 Shells have been loaded or charging is stopped, these Shells will be fired at the chosen opponents in sequence.\n**Shadowhunt Shells**\n- Deal Nightsoul-aligned Anemo DMG, which is considered Charged Attack DMG.\n- The 4th, 5th, and 6th Shells loaded into the cylinder will undergo Elemental Conversion based on the Elemental Types of the other characters in the party: For each Pyro, Hydro, Cryo, or Electro character in the party, one Shadowhunt Shell will randomly be Converted into a \"Shining Shadowhunt Shell\" of one of these corresponding Elemental Types, dealing Nightsoul-aligned DMG corresponding to that Elemental Type. This DMG is considered Charged Attack DMG.\n- The Shells loaded into the cylinder are fired starting from the last Shadowhunt Shell to be loaded, in a \"last in, first out\" order.\nAdditionally, when Chasca is in the Nightsoul's Blessing state, Holding her Elemental Skill Spirit Reins, Shadow Hunt will cause her to execute a Nightsoul-aligned Plunging Attack. Release the Elemental Skill to interrupt this Plunging Attack and maintain her airborne state. Should Chasca hit the ground with her Plunging Attack, her Nightsoul's Blessing state will end.",
+            "attributes": [
+                {
+                    "hit": "Resonance DMG (%)",
+                    "values": [
+                        60.0,
+                        64.5,
+                        69.0,
+                        75.0,
+                        79.5,
+                        84.0,
+                        90.0,
+                        96.0,
+                        102.0,
+                        108.0,
+                        114.0,
+                        120.0,
+                        127.5
+                    ]
+                },
+                {
+                    "hit": "Multitarget Fire Tap DMG (%)",
+                    "values": [
+                        36.0,
+                        38.7,
+                        41.4,
+                        45.0,
+                        47.7,
+                        50.4,
+                        54.0,
+                        57.6,
+                        61.2,
+                        64.8,
+                        68.4,
+                        72.0,
+                        76.5
+                    ]
+                },
+                {
+                    "hit": "Shadowhunt Shell DMG (%)",
+                    "values": [
+                        48.8,
+                        52.46,
+                        56.12,
+                        61.0,
+                        64.66,
+                        68.32,
+                        73.2,
+                        78.08,
+                        82.96,
+                        87.84,
+                        92.72,
+                        97.6,
+                        103.7
+                    ]
+                },
+                {
+                    "hit": "Shining Shadowhunt Shell DMG (%)",
+                    "values": [
+                        166.57,
+                        179.06,
+                        191.56,
+                        208.22,
+                        220.71,
+                        233.2,
+                        249.86,
+                        266.52,
+                        283.17,
+                        299.83,
+                        316.49,
+                        333.14,
+                        353.97
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Soul Reaper's Fatal Round",
+            "type": "Elemental Burst",
+            "description": "Chasca concentrates her will, firing a single \"Galesplitting Soulseeker Shell\" that deals Nightsoul-aligned . Afterward, the Galesplitting Soulseeker Shell will split into 6 Soulseeker Shells, which attack nearby opponents.\n**Soulseeker Shells**\n- Deal Nightsoul-aligned Anemo DMG.\n- For each Pyro, Hydro, Cryo, or Electro character in the party, two Soulseeker Shells will undergo corresponding Elemental Conversions to become \"Radiant Soulseeker Shells,\" which deal Nightsoul-aligned Elemental DMG from a randomly selected one of the corresponding Elemental Types.",
+            "attributes": [
+                {
+                    "hit": "Galesplitting Soulseeker Shell DMG (%)",
+                    "values": [
+                        88.0,
+                        94.6,
+                        101.2,
+                        110.0,
+                        116.6,
+                        123.2,
+                        132.0,
+                        140.8,
+                        149.6,
+                        158.4,
+                        167.2,
+                        176.0,
+                        187.0
+                    ]
+                },
+                {
+                    "hit": "Soulseeker Shell DMG (%)",
+                    "values": [
+                        103.4,
+                        111.16,
+                        118.91,
+                        129.25,
+                        137.0,
+                        144.76,
+                        155.1,
+                        165.44,
+                        175.78,
+                        186.12,
+                        196.46,
+                        206.8,
+                        219.72
+                    ]
+                },
+                {
+                    "hit": "Radiant Soulseeker Shell DMG (%)",
+                    "values": [
+                        206.8,
+                        222.31,
+                        237.82,
+                        258.5,
+                        274.01,
+                        289.52,
+                        310.2,
+                        330.88,
+                        351.56,
+                        372.24,
+                        392.92,
+                        413.6,
+                        439.45
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Everburning Heart",
+            "type": "Night Realm's Gift Passive",
+            "description": "After her Nightsoul points are exhausted, Chasca will switch to consuming Phlogiston to maintain her Nightsoul's Blessing.\nWhile in an area with Phlogiston Mechanics within Natlan, she can use Nightsoul Transmission: Chasca. When the active character is in the air, the following will occur when switching to Chasca: Chasca will enter the Nightsoul's Blessing state and gain 32 Nightsoul points. Nightsoul Transmission can be triggered once every 10s by your own team."
+        }
+    ],
+    "passives": [
+        {
+            "name": "Bullet Trick",
+            "type": "1st Ascension Passive",
+            "description": "When the Elemental Skill Spirit Reins, Shadow Hunt's Multitarget Fire is being charged, if there are party members who meet the Elemental Conversion Type requirements, gain the following effects based on the number of different eligible Elemental Types present:There is a 33.3%/66.7%/100% chance for each Type to trigger \"Spiritbinding Conversion\" and cause the 3rd Shadowhunt Shell loaded into the cylinder to be randomly converted into a Shining Shadowhunt Shell from one of the corresponding Elemental Types.Each Elemental Type will grant Chasca 1 stack of Spirit of the Radiant Shadow, increasing the DMG of Shining Shadowhunt Shell by 15%/35%/65%. This effect lasts until the current Multitarget Fire ends. Max 3 stacks."
+        },
+        {
+            "name": "Intent to Cover",
+            "type": "4th Ascension Passive",
+            "description": "When a nearby party member triggers a Nightsoul Burst, Chasca will fire a \"Burning Shadowhunt Shot\" at a nearby opponent, dealing Nightsoul-aligned Anemo DMG equal to 150% of the Shadowhunt Shell DMG from her Elemental Skill Spirit Reins, Shadow Hunt. If the party has Pyro, Hydro, Cryo, or Electro characters, the Burning Shadowhunt Shot will be converted to deal Nightsoul-aligned Elemental DMG of the corresponding Elemental Type equal to 150% of the DMG dealt by Spirit Reins, Shadow Hunt's Shining Shadowhunt Shells.The DMG done in this way is considered Charged Attack DMG."
+        },
+        {
+            "name": "Mediation's True Meaning",
+            "type": "Utility Passive",
+            "description": "25 Phlogiston will be restored when your own party members defeat an opponent. This effect can trigger once every 12s.This has no effect in Domains, Trounce Domains, or the Spiral Abyss."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Cylinder, the Restless Roulette",
+            "description": "When triggering the Passive Talent \"Bullet Trick\"'s \"Spiritbinding Conversion,\" the 2nd Shadowhunt Shell loaded into the cylinder will be additionally converted into a Shining Shadowhunt Shell.\nThe chance to trigger \"Spiritbinding Conversion\" is increased: If there are party members who meet the Elemental Conversion Type requirements, the chance to trigger \"Spiritbinding Conversion\" is increased by 33.3%, up to a maximum of 100%.\nYou must first unlock the Passive Talent \"Bullet Trick.\"\nIn addition, Chasca's Nightsoul point and Phlogiston consumption in her Nightsoul's Blessing state is decreased by 30% while out of combat.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Muzzle, the Searing Smoke",
+            "description": "When Chasca takes the field, she will obtain 1 stack of \"Spirit of the Radiant Shadow\" from the Passive Talent \"Bullet Trick.\" You must first unlock the Passive Talent \"Bullet Trick\" for this effect.\nIn addition, when the Shining Shadowhunt Shells from Spirit Reins, Shadow Hunt's Multitarget Fire hit opponents, they will deal AoE Elemental DMG of the corresponding Elemental Type of the Shining Shadowhunt Shells equal to 400% of Chasca's ATK. This DMG is considered Charged Attack DMG. This effect can be triggered once each time Chasca uses Multitarget Fire.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Reins, Her Careful Control",
+            "description": "Increases the Level of Spirit Reins, Shadow Hunt by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Sparks, the Sudden Shot",
+            "description": "When the Radiant Soulseeker Shells from Soul Reaper's Fatal Round hit opponents, they will restore 1.5 Elemental Energy to Chasca, and deal AoE Elemental DMG of the corresponding Elemental Type of the Radiant Soulseeker Shells equal to 400% of Chasca's ATK. This DMG is considered Charged Attack DMG.\nThe aforementioned corresponding elemental AoE DMG effect can be triggered once each time Chasca uses Soul Reaper's Fatal Round.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Brim, the Sandshadow's Silhouette",
+            "description": "Increases the Level of Soul Reaper's Fatal Round by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Showdown, the Glory of Battle",
+            "description": "Chasca's Multitarget Fire charge time is decreased, and after the Passive Talent \"Bullet Trick\"'s \"Spiritbinding Conversion\" is triggered, Chasca will gain the \"Fatal Rounds\" state: For the next 3s, the next time Chasca uses Spirit Reins, Shadow Hunt's Multitarget Fire, the shots will finish charging instantly, and the CRIT DMG of that instance of Multitarget Fire's Shadowhunt Shells and Shining Shadowhunt Shells increases by 120%. 1 \"Fatal Rounds\" effect can be gained once every 3s.\nYou must first unlock the Passive Talent \"Bullet Trick\" to gain access to the above effect.",
+            "properties": []
+        }
+    ]
+}

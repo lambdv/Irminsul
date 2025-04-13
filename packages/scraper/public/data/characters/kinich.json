@@ -1,0 +1,581 @@
+{
+    "name": "Kinich",
+    "key": "kinich",
+    "title": "Turnfire Hunt",
+    "rarity": 5,
+    "element": "dendro",
+    "vision": "dendro",
+    "weapon": "claymore",
+    "release_date": "september 17, 2024",
+    "release_date_epoch": 1726531200,
+    "constellation": "chimaera alebriius",
+    "birthday": "november 11th",
+    "affiliation": "huitztlan",
+    "region": "natlan",
+    "special_dish": "saurian hunter's reward",
+    "alternate_title": "Huitztlan Saurian Hunter",
+    "description": "A Huitztlan Saurian Hunter skilled at counting costs.",
+    "ascension_stat": "CRIT DMG",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "1000.99",
+            "BaseATK": "25.88",
+            "BaseDEF": "62.40",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2596.56",
+            "BaseATK": "67.14",
+            "BaseDEF": "161.87",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3454.81",
+            "BaseATK": "89.33",
+            "BaseDEF": "215.38",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "5169.50",
+            "BaseATK": "133.66",
+            "BaseDEF": "322.27",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "5779.31",
+            "BaseATK": "149.43",
+            "BaseDEF": "360.29",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6649.17",
+            "BaseATK": "171.92",
+            "BaseDEF": "414.52",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "7462.26",
+            "BaseATK": "192.94",
+            "BaseDEF": "465.21",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "8341.12",
+            "BaseATK": "215.67",
+            "BaseDEF": "520.00",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "8950.93",
+            "BaseATK": "231.43",
+            "BaseDEF": "558.02",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "9837.81",
+            "BaseATK": "254.36",
+            "BaseDEF": "613.31",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "10447.62",
+            "BaseATK": "270.13",
+            "BaseDEF": "651.32",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "11344.50",
+            "BaseATK": "293.32",
+            "BaseDEF": "707.24",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "11954.32",
+            "BaseATK": "309.09",
+            "BaseDEF": "745.25",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "38.4%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "12858.21",
+            "BaseATK": "332.46",
+            "BaseDEF": "801.60",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "38.4%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Nagadus Emerald Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Saurian Claw Succulent",
+                    "amount": "3"
+                },
+                {
+                    "name": "Juvenile Fang",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Overripe Flamegranate",
+                    "amount": "2"
+                },
+                {
+                    "name": "Nagadus Emerald Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Saurian Claw Succulent",
+                    "amount": "10"
+                },
+                {
+                    "name": "Juvenile Fang",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Overripe Flamegranate",
+                    "amount": "4"
+                },
+                {
+                    "name": "Nagadus Emerald Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Saurian Claw Succulent",
+                    "amount": "20"
+                },
+                {
+                    "name": "Seasoned Fang",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Overripe Flamegranate",
+                    "amount": "8"
+                },
+                {
+                    "name": "Nagadus Emerald Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Saurian Claw Succulent",
+                    "amount": "30"
+                },
+                {
+                    "name": "Seasoned Fang",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Overripe Flamegranate",
+                    "amount": "12"
+                },
+                {
+                    "name": "Nagadus Emerald Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Saurian Claw Succulent",
+                    "amount": "45"
+                },
+                {
+                    "name": "Tyrant's Fang",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Overripe Flamegranate",
+                    "amount": "20"
+                },
+                {
+                    "name": "Nagadus Emerald Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Saurian Claw Succulent",
+                    "amount": "60"
+                },
+                {
+                    "name": "Tyrant's Fang",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Nightsun Style",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 3 rapid strikes.\nAfter using his Elemental Skill \"Canopy Hunter: Riding High\"'s mid-air swing, he can perform a Normal Attack in mid-air before landing.\nCharged Attack\nConsumes a certain amount to spin and throw his Claymore forward to attack opponents.\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        98.99,
+                        107.04,
+                        115.1,
+                        126.61,
+                        134.67,
+                        143.88,
+                        156.54,
+                        169.2,
+                        181.86,
+                        195.67,
+                        209.48
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        82.9,
+                        89.65,
+                        96.4,
+                        106.04,
+                        112.79,
+                        120.5,
+                        131.1,
+                        141.71,
+                        152.31,
+                        163.88,
+                        175.45
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        123.5,
+                        133.55,
+                        143.6,
+                        157.96,
+                        168.01,
+                        179.5,
+                        195.3,
+                        211.09,
+                        226.89,
+                        244.12,
+                        261.35
+                    ]
+                },
+                {
+                    "hit": "Mid-Air Normal Attack DMG (%)",
+                    "values": [
+                        167.7,
+                        181.35,
+                        195.0,
+                        214.5,
+                        228.15,
+                        243.75,
+                        265.2,
+                        286.65,
+                        308.1,
+                        331.5,
+                        354.9
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        "48.42\u00d73",
+                        "52.36\u00d73",
+                        "56.3\u00d73",
+                        "61.93\u00d73",
+                        "65.87\u00d73",
+                        "70.38\u00d73",
+                        "76.57\u00d73",
+                        "82.76\u00d73",
+                        "88.95\u00d73",
+                        "95.71\u00d73",
+                        "102.47\u00d73"
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        74.59,
+                        80.66,
+                        86.73,
+                        95.4,
+                        101.47,
+                        108.41,
+                        117.95,
+                        127.49,
+                        137.03,
+                        147.44,
+                        157.85
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        149.14,
+                        161.28,
+                        173.42,
+                        190.77,
+                        202.91,
+                        216.78,
+                        235.86,
+                        254.93,
+                        274.01,
+                        294.82,
+                        315.63
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        186.29,
+                        201.45,
+                        216.62,
+                        238.28,
+                        253.44,
+                        270.77,
+                        294.6,
+                        318.42,
+                        342.25,
+                        368.25,
+                        394.24
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Canopy Hunter: Riding High",
+            "type": "Elemental Skill",
+            "description": "Kinich uses his big-game hunting skills to either move swiftly or attack his opponent.\nWhen there is an opponent or object that can be attacked nearby, he will attach a grappling hook to the target and enter Nightsoul's Blessing with 0 Nightsoul points. If neither is nearby, he fires a grappling hook forward and swings in mid-air, and this Skill's CD is decreased by 60%.\nThis skill can be Held to release. When it is Held, Kinich can aim the grappling hook.\n**Nightsoul's Blessing: Kinich**\nKinich's Nightsoul's Blessing lasts 10s and generates 2 Nightsoul points every second.\nIn this state, Kinich will hook onto a nearby opponent and perform a variable attack:\n- When using a Normal Attack, Kinich will fire Loop Shots as he loops around the grappled target based on his current movement direction, dealing Nightsoul-aligned Dendro DMG and generating 3 Nightsoul points. Loop Shot DMG is considered Elemental Skill DMG.\n- When Nightsoul points are at max, he can use the Elemental Skill \"Scalespiker Cannon\": Consume all Nightsoul points to deal Nightsoul-aligned Dendro DMG. When \"Scalespiker Cannon\" is Held, Kinich can aim this shot. After firing the Cannon, Kinich will try to grapple to its target.\nWhile in Nightsoul's Blessing, after grappling an opponent or firing \"Scalespiker Cannon,\" a Blind Spot will be generated next to the opponent. When Kinich enters this Blind Spot, it will disappear and he will generate 4 Nightsoul points.\nIf the grapple connection should snap due to exceeding the maximum distance or some other reason, using a Normal Attack will establish a new connection with a nearby opponent before performing Loop Shots.",
+            "attributes": [
+                {
+                    "hit": "Loop Shot DMG (%)",
+                    "values": [
+                        "57.28\u00d72",
+                        "61.58\u00d72",
+                        "65.87\u00d72",
+                        "71.6\u00d72",
+                        "75.9\u00d72",
+                        "80.19\u00d72",
+                        "85.92\u00d72",
+                        "91.65\u00d72",
+                        "97.38\u00d72",
+                        "103.1\u00d72",
+                        "108.83\u00d72",
+                        "114.56\u00d72",
+                        "121.72\u00d72"
+                    ]
+                },
+                {
+                    "hit": "Scalespiker Cannon DMG (%)",
+                    "values": [
+                        687.44,
+                        739.0,
+                        790.56,
+                        859.3,
+                        910.86,
+                        962.42,
+                        1031.16,
+                        1099.9,
+                        1168.65,
+                        1237.39,
+                        1306.14,
+                        1374.88,
+                        1460.81
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Hail to the Almighty Dragonlord",
+            "type": "Elemental Burst",
+            "description": "Unleashes the power of the Almighty Dragonlord, K'uhul Ajaw (on a limited, conditional, restricted, contractual, partial, temporary basis), dealing Nightsoul-aligned AoE Dendro DMG. Ajaw will unleash his Dragon Breath at intervals, dealing Nightsoul-aligned AoE Dendro DMG.\nIf Kinich is in Nightsoul's Blessing when this is used, this Blessing's duration is extended by 1.7s.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        134.0,
+                        144.05,
+                        154.1,
+                        167.5,
+                        177.55,
+                        187.6,
+                        201.0,
+                        214.4,
+                        227.8,
+                        241.2,
+                        254.6,
+                        268.0,
+                        284.75
+                    ]
+                },
+                {
+                    "hit": "Dragon Breath DMG (%)",
+                    "values": [
+                        120.74,
+                        129.79,
+                        138.85,
+                        150.92,
+                        159.98,
+                        169.03,
+                        181.1,
+                        193.18,
+                        205.25,
+                        217.32,
+                        229.4,
+                        241.47,
+                        256.56
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Repaid in Full",
+            "type": "Night Realm's Gift Passive",
+            "description": "When Kinich is in the air following Canopy Hunter: Riding High's mid-air swing, he can consume 10 Phlogiston points to perform another mid-air swing.\nWhile in an area with Phlogiston Mechanics within Natlan, he can use Nightsoul Transmission: Kinich. When the current active character is sprinting, in movement states that result from specific Talents, or in the air, when you switch to Kinich: Kinich will perform one of the following actions depending on the conditions met:\n- When facing a Coilgrass Sigil that can be interacted with: He will fire a grappling hook towards it to move;\n- When there are nearby opponents and you are in combat: Kinich will use Canopy Hunter: Riding High in the direction of the opponents;\nOtherwise, Kinich will fire a grappling hook and swing, prioritizing valid Coilgrass Sigils as grapple targets.\nNightsoul Transmission can be triggered once every 10s by your own party.\nWhen interacting with Coilgrass Sigils and other items that Yumkasaurs can interact with, \"Canopy Hunter: Riding High\" will be converted to \"Yumkasaur Mimesis,\" which causes interactions with such items to follow rules applicable to Yumkasaurs, and which will not put Canopy Hunter: Riding High on CD."
+        }
+    ],
+    "passives": [
+        {
+            "name": "The Price of Desolation",
+            "type": "1st Ascension Passive",
+            "description": "When Kinich is in Nightsoul's Blessing state, opponents hit by his Elemental Skill will enter the Desolation state, and when affected by Burning or Burgeon reaction DMG, they will restore 7 Nightsoul points to him. Nightsoul points can be gained this way once every 0.8s. The Desolation state will persist until this instance of Kinich's Nightsoul's Blessing state ends."
+        },
+        {
+            "name": "Flame Spirit Pact",
+            "type": "4th Ascension Passive",
+            "description": "After a nearby party member triggers a Nightsoul Burst, Kinich will gain 1 stack of Hunter's Experience that lasts 15s. Max 2 stacks. When Kinich uses Canopy Hunter: Riding High's Scalespiker Cannon, all stacks of Hunter's Experience will be consumed, with each stack consumed increasing the DMG dealt by this Cannon shot by 320% of Kinich's ATK."
+        },
+        {
+            "name": "Swift Envoy",
+            "type": "Utility Passive",
+            "description": "While in an area with Phlogiston Mechanics within Natlan, interacting with some harvestable items will increase your own party members' Movement SPD by 15% for 10s. Additionally, the location of nearby resources unique to Natlan will appear on your mini-map."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Parrot's Beak",
+            "description": "After Kinich lands from Canopy Hunter: Riding High's mid-air swing, his Movement SPD will increase by 30% for 6s.\nAdditionally, Scalespiker Cannon's CRIT DMG is increased by 100%.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Tiger Beetle's Palm",
+            "description": "When Kinich's Elemental Skill hits an opponent, it will decrease their  by 30% for 6s.\nAdditionally, the first Scalespiker Cannon Kinich fires after entering Nightsoul's Blessing has increased AoE, and its DMG increases by 100%.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Protosuchian's Claw",
+            "description": "Increases the Level of Canopy Hunter: Riding High by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Hummingbird's Feather",
+            "description": "When in Nightsoul's Blessing, Kinich will restore 5 Energy after using his Loop Shots or after unleashing the Scalespiker Cannon. Energy can be regenerated this way once every 2.8s.\nAdditionally, Hail to the Almighty Dragonlord deals 70% more DMG.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Howler Monkey's Tail",
+            "description": "Increases the Level of Hail to the Almighty Dragonlord by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Auspicious Beast's Shape",
+            "description": "After Scalespiker Cannon hits an opponent, it will bounce between opponents once, dealing 700% of Kinich's ATK as Dendro DMG.\nIf this Scalespiker Cannon triggers the buffs that Passive Talent \"Flame Spirit Pact\" or the Constellation \"Tiger Beetle's Palm\" grant to the Cannon, the bouncing attack will also obtain the relevant buffs.",
+            "properties": []
+        }
+    ]
+}

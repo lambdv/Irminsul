@@ -1,0 +1,779 @@
+{
+    "name": "Mavuika",
+    "key": "mavuika",
+    "title": "Night-Igniting Flame",
+    "rarity": 5,
+    "element": "pyro",
+    "vision": "pyro",
+    "weapon": "claymore",
+    "release_date": "january 01, 2025",
+    "release_date_epoch": 1735689600,
+    "constellation": "sol invictus",
+    "birthday": "august 28th",
+    "affiliation": "huitztlan (on profile)speaker's chamberthe seven ",
+    "region": "natlan",
+    "special_dish": "hymn of gathered flame",
+    "alternate_title": "Natlan's Radiant Sun",
+    "description": "The leader of Natlan who inherited the Ancient Name of \"Kiongozi.\" She made a vow to illuminate the future of the nation of war with the Sacred Flame.",
+    "ascension_stat": "CRIT DMG",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "977.15",
+            "BaseATK": "27.93",
+            "BaseDEF": "61.62",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2534.73",
+            "BaseATK": "72.45",
+            "BaseDEF": "159.85",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3372.56",
+            "BaseATK": "96.40",
+            "BaseDEF": "212.69",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "5046.42",
+            "BaseATK": "144.24",
+            "BaseDEF": "318.26",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "5641.71",
+            "BaseATK": "161.25",
+            "BaseDEF": "355.80",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6490.86",
+            "BaseATK": "185.53",
+            "BaseDEF": "409.35",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "7284.58",
+            "BaseATK": "208.21",
+            "BaseDEF": "459.41",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "8142.52",
+            "BaseATK": "232.73",
+            "BaseDEF": "513.52",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "8737.82",
+            "BaseATK": "249.75",
+            "BaseDEF": "551.06",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "9603.57",
+            "BaseATK": "274.49",
+            "BaseDEF": "605.66",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "10198.87",
+            "BaseATK": "291.51",
+            "BaseDEF": "643.20",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "11074.40",
+            "BaseATK": "316.53",
+            "BaseDEF": "698.42",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "11669.69",
+            "BaseATK": "333.55",
+            "BaseDEF": "735.96",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "38.4%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "12552.06",
+            "BaseATK": "358.77",
+            "BaseDEF": "791.61",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "38.4%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Agnidus Agate Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Withering Purpurbloom",
+                    "amount": "3"
+                },
+                {
+                    "name": "Sentry's Wooden Whistle",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Gold-Inscribed Secret Source Core",
+                    "amount": "2"
+                },
+                {
+                    "name": "Agnidus Agate Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Withering Purpurbloom",
+                    "amount": "10"
+                },
+                {
+                    "name": "Sentry's Wooden Whistle",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Gold-Inscribed Secret Source Core",
+                    "amount": "4"
+                },
+                {
+                    "name": "Agnidus Agate Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Withering Purpurbloom",
+                    "amount": "20"
+                },
+                {
+                    "name": "Warrior's Metal Whistle",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Gold-Inscribed Secret Source Core",
+                    "amount": "8"
+                },
+                {
+                    "name": "Agnidus Agate Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Withering Purpurbloom",
+                    "amount": "30"
+                },
+                {
+                    "name": "Warrior's Metal Whistle",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Gold-Inscribed Secret Source Core",
+                    "amount": "12"
+                },
+                {
+                    "name": "Agnidus Agate Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Withering Purpurbloom",
+                    "amount": "45"
+                },
+                {
+                    "name": "Saurian-Crowned Warrior's Golden Whistle",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Gold-Inscribed Secret Source Core",
+                    "amount": "20"
+                },
+                {
+                    "name": "Agnidus Agate Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Withering Purpurbloom",
+                    "amount": "60"
+                },
+                {
+                    "name": "Saurian-Crowned Warrior's Golden Whistle",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Flames Weave Life",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 4 consecutive claymore strikes.\nCharged Attack\nConsumes a certain amount of Stamina to perform an especially powerful Severing Splendor strike toward the front.\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        80.03,
+                        86.55,
+                        93.06,
+                        102.37,
+                        108.88,
+                        116.33,
+                        126.57,
+                        136.8,
+                        147.04,
+                        158.21,
+                        169.38
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        "36.48\u00d72",
+                        "39.45\u00d72",
+                        "42.42\u00d72",
+                        "46.66\u00d72",
+                        "49.63\u00d72",
+                        "53.02\u00d72",
+                        "57.69\u00d72",
+                        "62.36\u00d72",
+                        "67.02\u00d72",
+                        "72.11\u00d72",
+                        "77.2\u00d72"
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        "33.22\u00d73",
+                        "35.93\u00d73",
+                        "38.63\u00d73",
+                        "42.49\u00d73",
+                        "45.2\u00d73",
+                        "48.29\u00d73",
+                        "52.54\u00d73",
+                        "56.79\u00d73",
+                        "61.04\u00d73",
+                        "65.67\u00d73",
+                        "70.31\u00d73"
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        116.19,
+                        125.65,
+                        135.11,
+                        148.62,
+                        158.08,
+                        168.88,
+                        183.75,
+                        198.61,
+                        213.47,
+                        229.68,
+                        245.9
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        193.84,
+                        209.62,
+                        225.4,
+                        247.94,
+                        263.72,
+                        281.75,
+                        306.54,
+                        331.34,
+                        356.13,
+                        383.18,
+                        410.23
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        74.59,
+                        80.66,
+                        86.73,
+                        95.4,
+                        101.47,
+                        108.41,
+                        117.95,
+                        127.49,
+                        137.03,
+                        147.44,
+                        157.85
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        149.14,
+                        161.28,
+                        173.42,
+                        190.77,
+                        202.91,
+                        216.78,
+                        235.86,
+                        254.93,
+                        274.01,
+                        294.82,
+                        315.63
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        186.29,
+                        201.45,
+                        216.62,
+                        238.28,
+                        253.44,
+                        270.77,
+                        294.6,
+                        318.42,
+                        342.25,
+                        368.25,
+                        394.24
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "The Named Moment",
+            "type": "Elemental Skill",
+            "description": "Calling upon her authority over \"conflict,\" Mavuika summons the All-Fire Armaments passed down through the line of human Archons, dealing Nightsoul-aligned Pyro DMG\nAfter using this, Mavuika's Nightsoul points are restored to max value, and she enters the Nightsoul's Blessing state.\nAll-Fire Armaments\nHas different forms when Tapped or Held.\n(PressPressText for mouse and keyboard and controller/TapTapText for touch screen)\n\"Divine Name Unleashed\": The All-Fire Armaments manifest as a Ring of Searing Radiance. The Ring follows the current active character and attacks nearby opponents at intervals, dealing Nightsoul-aligned Pyro DMG.\nHold\n\"Ancient Name Unbound\": The All-Fire Armaments manifest as a Flamestrider. In this state, Mavuika can ride the Flamestrider at high speed, or activate its hidden backup propulsion module to temporarily cross various terrain types and glide in mid-air. Mavuika's Normal, Charged, and Plunging Attacks will also be converted to deal Nightsoul-aligned Pyro DMG which cannot be overridden. When sprinting, she also deals Nightsoul-aligned Pyro DMG to opponents along her path.\nWhile in the Nightsoul's Blessing state, Tapping the Elemental Skill can switch the All-Fire Armaments' form. The Armaments will disappear once Mavuika's Nightsoul's Blessing state ends.\nNightsoul's Blessing: Mavuika\nContinuously consumes Nightsoul points according to the All-Fire Armaments' form. Mavuika's Nightsoul's Blessing state ends once her Nightsoul points are exhausted.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        74.4,
+                        79.98,
+                        85.56,
+                        93.0,
+                        98.58,
+                        104.16,
+                        111.6,
+                        119.04,
+                        126.48,
+                        133.92,
+                        141.36,
+                        148.8,
+                        158.1
+                    ]
+                },
+                {
+                    "hit": "Ring of Searing Radiance DMG (%)",
+                    "values": [
+                        128.0,
+                        137.6,
+                        147.2,
+                        160.0,
+                        169.6,
+                        179.2,
+                        192.0,
+                        204.8,
+                        217.6,
+                        230.4,
+                        243.2,
+                        256.0,
+                        272.0
+                    ]
+                },
+                {
+                    "hit": "Flamestrider Normal Attack 1-Hit DMG (%)",
+                    "values": [
+                        57.26,
+                        61.93,
+                        66.59,
+                        73.25,
+                        77.91,
+                        83.23,
+                        90.56,
+                        97.88,
+                        105.21,
+                        113.2,
+                        121.19,
+                        129.18,
+                        137.17
+                    ]
+                },
+                {
+                    "hit": "Flamestrider Normal Attack 2-Hit DMG (%)",
+                    "values": [
+                        59.13,
+                        63.95,
+                        68.76,
+                        75.63,
+                        80.45,
+                        85.95,
+                        93.51,
+                        101.08,
+                        108.64,
+                        116.89,
+                        125.14,
+                        133.39,
+                        141.64
+                    ]
+                },
+                {
+                    "hit": "Flamestrider Normal Attack 3-Hit DMG (%)",
+                    "values": [
+                        69.99,
+                        75.68,
+                        81.38,
+                        89.52,
+                        95.21,
+                        101.72,
+                        110.68,
+                        119.63,
+                        128.58,
+                        138.35,
+                        148.11,
+                        157.88,
+                        167.64
+                    ]
+                },
+                {
+                    "hit": "Flamestrider Normal Attack 4-Hit DMG (%)",
+                    "values": [
+                        69.7,
+                        75.38,
+                        81.05,
+                        89.16,
+                        94.83,
+                        101.31,
+                        110.23,
+                        119.15,
+                        128.06,
+                        137.79,
+                        147.51,
+                        157.24,
+                        166.97
+                    ]
+                },
+                {
+                    "hit": "Flamestrider Normal Attack 5-Hit DMG (%)",
+                    "values": [
+                        91.0,
+                        98.41,
+                        105.82,
+                        116.4,
+                        123.81,
+                        132.27,
+                        143.91,
+                        155.55,
+                        167.19,
+                        179.89,
+                        192.59,
+                        205.29,
+                        217.99
+                    ]
+                },
+                {
+                    "hit": "Flamestrider Sprint DMG (%)",
+                    "values": [
+                        80.84,
+                        87.42,
+                        94.0,
+                        103.4,
+                        109.98,
+                        117.5,
+                        127.84,
+                        138.18,
+                        148.52,
+                        159.8,
+                        171.08,
+                        182.36,
+                        193.64
+                    ]
+                },
+                {
+                    "hit": "Flamestrider Charged Attack Cyclic DMG (%)",
+                    "values": [
+                        98.9,
+                        106.95,
+                        115.0,
+                        126.5,
+                        134.55,
+                        143.75,
+                        156.4,
+                        169.05,
+                        181.7,
+                        195.5,
+                        209.3,
+                        223.1,
+                        236.9
+                    ]
+                },
+                {
+                    "hit": "Flamestrider Charged Attack Final DMG (%)",
+                    "values": [
+                        137.6,
+                        148.8,
+                        160.0,
+                        176.0,
+                        187.2,
+                        200.0,
+                        217.6,
+                        235.2,
+                        252.8,
+                        272.0,
+                        291.2,
+                        310.4,
+                        329.6
+                    ]
+                },
+                {
+                    "hit": "Flamestrider Plunge DMG (%)",
+                    "values": [
+                        159.96,
+                        172.98,
+                        186.0,
+                        204.6,
+                        217.62,
+                        232.5,
+                        252.96,
+                        273.42,
+                        293.88,
+                        316.2,
+                        338.52,
+                        360.84,
+                        383.16
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Hour of Burning Skies",
+            "type": "Elemental Burst",
+            "description": "Let the people's inner voices reach the divine throne in the heavens.\n**Mavuika's Elemental Burst is not reliant on Energy, but instead, on \"Fighting Spirit.\"**\n**Fighting Spirit**\nWhen Mavuika has at least 50% Fighting Spirit, she can consume it all to unleash her Elemental Burst.\nMavuika can obtain Fighting Spirit via the following methods:\n-  When in combat, Nightsoul points consumed by nearby party members are converted to Fighting Spirit.\n-  When nearby party members' Normal Attacks hit opponents, Mavuika gains 1.5 Fighting Spirit. This can trigger once every 0.1s.\nAfter using this, Mavuika gains 10 Nightsoul points and enters the Nightsoul's Blessing state. Riding her Flamestrider high in the air, she uses a powerful Sunfell Slice against opponents on the ground, dealing Nightsoul-aligned  and entering the \"Crucible of Death and Life\" state.\n**Crucible of Death and Life**\nDuring this time, Mavuika's various actions will no longer consume Nightsoul points, and her interruption resistance is increased. Also, the DMG dealt by Sunfell Slice and \"Ancient Name Unbound\"'s Normal and Charged Attacks is increased based on the amount of Fighting Spirit she has when using the Elemental Burst.\nCrucible of Death and Life will be canceled when Mavuika leaves the field.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        444.8,
+                        478.16,
+                        511.52,
+                        556.0,
+                        589.36,
+                        622.72,
+                        667.2,
+                        711.68,
+                        756.16,
+                        800.64,
+                        845.12,
+                        889.6,
+                        945.2
+                    ]
+                },
+                {
+                    "hit": "Sunfell Slice DMG Bonus",
+                    "values": [
+                        "1.6% ATK per Fighting Spirit",
+                        "1.72% ATK per Fighting Spirit",
+                        "1.84% ATK per Fighting Spirit",
+                        "2% ATK per Fighting Spirit",
+                        "2.12% ATK per Fighting Spirit",
+                        "2.24% ATK per Fighting Spirit",
+                        "2.4% ATK per Fighting Spirit",
+                        "2.56% ATK per Fighting Spirit",
+                        "2.72% ATK per Fighting Spirit",
+                        "2.88% ATK per Fighting Spirit",
+                        "3.04% ATK per Fighting Spirit",
+                        "3.2% ATK per Fighting Spirit",
+                        "3.4% ATK per Fighting Spirit"
+                    ]
+                },
+                {
+                    "hit": "Flamestrider Normal Attack DMG Bonus",
+                    "values": [
+                        "0.26% ATK per Fighting Spirit",
+                        "0.28% ATK per Fighting Spirit",
+                        "0.3% ATK per Fighting Spirit",
+                        "0.33% ATK per Fighting Spirit",
+                        "0.35% ATK per Fighting Spirit",
+                        "0.38% ATK per Fighting Spirit",
+                        "0.41% ATK per Fighting Spirit",
+                        "0.44% ATK per Fighting Spirit",
+                        "0.47% ATK per Fighting Spirit",
+                        "0.51% ATK per Fighting Spirit",
+                        "0.55% ATK per Fighting Spirit",
+                        "0.58% ATK per Fighting Spirit",
+                        "0.62% ATK per Fighting Spirit"
+                    ]
+                },
+                {
+                    "hit": "Flamestrider Charged Attack DMG Bonus",
+                    "values": [
+                        "0.52% ATK per Fighting Spirit",
+                        "0.56% ATK per Fighting Spirit",
+                        "0.6% ATK per Fighting Spirit",
+                        "0.66% ATK per Fighting Spirit",
+                        "0.7% ATK per Fighting Spirit",
+                        "0.75% ATK per Fighting Spirit",
+                        "0.82% ATK per Fighting Spirit",
+                        "0.88% ATK per Fighting Spirit",
+                        "0.95% ATK per Fighting Spirit",
+                        "1.02% ATK per Fighting Spirit",
+                        "1.09% ATK per Fighting Spirit",
+                        "1.16% ATK per Fighting Spirit",
+                        "1.24% ATK per Fighting Spirit"
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Exhaust Mode",
+            "type": "Night Realm's Gift Passive",
+            "description": "After Nightsoul points have been fully depleted, Mavuika will switch to using Phlogiston to maintain the All-Fire Armaments' Flamestrider form.\nWhile in an area with Phlogiston Mechanics within Natlan, Nightsoul Transmission: Mavuika can be used. When the current active character is sprinting, climbing, swimming, in movement modes caused by certain Talents, or at a certain height in the air, switching to Mavuika will trigger the following: Mavuika enters the Nightsoul's Blessing state and obtains 50% of her maximum Nightsoul points. Nightsoul Transmission can be triggered once every 10s by your own party."
+        }
+    ],
+    "passives": [
+        {
+            "name": "Gift of Flaming Flowers",
+            "type": "1st Ascension Passive",
+            "description": "When a nearby party member triggers a Nightsoul Burst, Mavuika's ATK increases by 30% for 10s."
+        },
+        {
+            "name": "\"Kiongozi\"",
+            "type": "4th Ascension Passive",
+            "description": "After using her Elemental Burst, Hour of Burning Skies, every point of Fighting Spirit present when it is used increases the DMG that the current active party member deals by 0.2%. The maximum increase obtainable this way is 40%, and this effect lasts 20s, decaying over this duration until it reaches 0."
+        },
+        {
+            "name": "Night-Shattering Radiance",
+            "type": "Utility Passive",
+            "description": "The party's Nightsoul Transmission CD is decreased by 20%."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "The Night-Lord's Explication",
+            "description": "Mavuika's maximum Nightsoul points are increased to 120, and she gains Fighting Spirit 25% more efficiently.\nAdditionally, she gains 40% ATK for 8s after gaining Fighting Spirit.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "The Ashen Price",
+            "description": "When in the Nightsoul's Blessing State, Mavuika's Base ATK is increased by 200, and she obtains the following effects based on All-Fire Armaments' form:\n- Ring of Searing Radiance: Nearby opponents' DEF decreased by 20%.\n- Flamestrider: Mavuika's Normal Attacks, Charged Attacks, and her Sunfell Slice from the Elemental Burst Hour of Burning Skies deal 60%, 90%, and 120% of her ATK as increased DMG respectively.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "The Burning Sun",
+            "description": "Increases the Level of Hour of Burning Skies by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "The Leader's Resolve",
+            "description": "Enhances the effects of the Passive Talent \"Kiongozi\":\nThe DMG increase gained after using the Elemental Burst Hour of Burning Skies will not decay over time, and an additional 10% DMG Bonus will be gained.\nYou must first unlock the Passive Talent \"Kiongozi.\"",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "The Meaning of Truth",
+            "description": "Increases the Level of The Named Moment by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "\"Humanity's Name\" Unfettered",
+            "description": "The All-Fire Armaments from the Elemental Skill The Named Moment receive all-round improvements:\n-  Ring of Searing Radiance: When the Ring's attacks hit opponents, a Flamestrider will crash into the struck opponent, dealing 200% of ATK as Nightsoul-aligned AoE Pyro DMG.\n-  Flamestrider: When Mavuika is riding the Flamestrider, she will also summon a Scorching Ring of Searing Radiance to follow her, which will decrease nearby opponents' DEF by 20% and deal 500% of ATK as Nightsoul-aligned AoE Pyro DMG to nearby opponents once every 3s. Mavuika's terrain-crossing abilities will also be further improved.\nAdditionally, when Mavuika is riding her Flamestrider and is not in combat, when her Nightsoul points drop to 5, she will gain 80 Nightsoul points. This effect can trigger once every 15s.",
+            "properties": []
+        }
+    ]
+}

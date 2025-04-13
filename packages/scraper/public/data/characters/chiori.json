@@ -1,0 +1,559 @@
+{
+    "name": "Chiori",
+    "key": "chiori",
+    "title": "The Thundering Seamstress",
+    "rarity": 5,
+    "element": "geo",
+    "vision": "geo",
+    "weapon": "sword",
+    "release_date": "march 13, 2024",
+    "release_date_epoch": 1710288000,
+    "constellation": "cisoria",
+    "birthday": "august 17th",
+    "affiliation": "court of fontaine (on profile)chioriya boutique ",
+    "region": "inazuma",
+    "special_dish": "\"fashion show\"",
+    "alternate_title": "Boss of the Chioriya Boutique",
+    "description": "The owner of Chioriya Boutique. A tailor renowned throughout Fontaine.",
+    "ascension_stat": "CRIT Rate",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "890.40",
+            "BaseATK": "25.14",
+            "BaseDEF": "74.19",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2309.70",
+            "BaseATK": "65.21",
+            "BaseDEF": "192.45",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3073.14",
+            "BaseATK": "86.76",
+            "BaseDEF": "256.06",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "4598.39",
+            "BaseATK": "129.82",
+            "BaseDEF": "383.14",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "5140.84",
+            "BaseATK": "145.13",
+            "BaseDEF": "428.34",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "5914.60",
+            "BaseATK": "166.97",
+            "BaseDEF": "492.81",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "6637.85",
+            "BaseATK": "187.39",
+            "BaseDEF": "553.08",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "7419.63",
+            "BaseATK": "209.46",
+            "BaseDEF": "618.22",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "7962.07",
+            "BaseATK": "224.77",
+            "BaseDEF": "663.41",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "8750.96",
+            "BaseATK": "247.04",
+            "BaseDEF": "729.15",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "9293.41",
+            "BaseATK": "262.36",
+            "BaseDEF": "774.34",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "10091.21",
+            "BaseATK": "284.88",
+            "BaseDEF": "840.82",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "10633.65",
+            "BaseATK": "300.19",
+            "BaseDEF": "886.01",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "11437.68",
+            "BaseATK": "322.89",
+            "BaseDEF": "953.01",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Prithiva Topaz Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Dendrobium",
+                    "amount": "3"
+                },
+                {
+                    "name": "Spectral Husk",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Artificed Spare Clockwork Component \u2014 Coppelia",
+                    "amount": "2"
+                },
+                {
+                    "name": "Prithiva Topaz Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Dendrobium",
+                    "amount": "10"
+                },
+                {
+                    "name": "Spectral Husk",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Artificed Spare Clockwork Component \u2014 Coppelia",
+                    "amount": "4"
+                },
+                {
+                    "name": "Prithiva Topaz Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Dendrobium",
+                    "amount": "20"
+                },
+                {
+                    "name": "Spectral Heart",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Artificed Spare Clockwork Component \u2014 Coppelia",
+                    "amount": "8"
+                },
+                {
+                    "name": "Prithiva Topaz Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Dendrobium",
+                    "amount": "30"
+                },
+                {
+                    "name": "Spectral Heart",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Artificed Spare Clockwork Component \u2014 Coppelia",
+                    "amount": "12"
+                },
+                {
+                    "name": "Prithiva Topaz Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Dendrobium",
+                    "amount": "45"
+                },
+                {
+                    "name": "Spectral Nucleus",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Artificed Spare Clockwork Component \u2014 Coppelia",
+                    "amount": "20"
+                },
+                {
+                    "name": "Prithiva Topaz Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Dendrobium",
+                    "amount": "60"
+                },
+                {
+                    "name": "Spectral Nucleus",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Weaving Blade",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 4 rapid strikes.\nCharged Attack\nConsumes a certain amount of Stamina to unleash 2 rapid sword strikes.\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        49.41,
+                        53.43,
+                        57.45,
+                        63.2,
+                        67.22,
+                        71.82,
+                        78.14,
+                        84.46,
+                        90.78,
+                        97.67,
+                        104.57
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        46.83,
+                        50.65,
+                        54.46,
+                        59.9,
+                        63.72,
+                        68.07,
+                        74.06,
+                        80.05,
+                        86.04,
+                        92.58,
+                        99.11
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        "30.42+30.42",
+                        "32.89+32.89",
+                        "35.37+35.37",
+                        "38.9+38.9",
+                        "41.38+41.38",
+                        "44.21+44.21",
+                        "48.1+48.1",
+                        "51.99+51.99",
+                        "55.88+55.88",
+                        "60.13+60.13",
+                        "64.37+64.37"
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        75.12,
+                        81.24,
+                        87.35,
+                        96.09,
+                        102.2,
+                        109.19,
+                        118.8,
+                        128.41,
+                        138.02,
+                        148.5,
+                        158.98
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        "54.31+54.31",
+                        "58.73+58.73",
+                        "63.15+63.15",
+                        "69.46+69.46",
+                        "73.89+73.89",
+                        "78.94+78.94",
+                        "85.88+85.88",
+                        "92.83+92.83",
+                        "99.78+99.78",
+                        "107.35+107.35",
+                        "114.93+114.93"
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        63.93,
+                        69.14,
+                        74.34,
+                        81.77,
+                        86.98,
+                        92.93,
+                        101.1,
+                        109.28,
+                        117.46,
+                        126.38,
+                        135.3
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        127.84,
+                        138.24,
+                        148.65,
+                        163.51,
+                        173.92,
+                        185.81,
+                        202.16,
+                        218.51,
+                        234.86,
+                        252.7,
+                        270.54
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        159.68,
+                        172.67,
+                        185.67,
+                        204.24,
+                        217.23,
+                        232.09,
+                        252.51,
+                        272.93,
+                        293.36,
+                        315.64,
+                        337.92
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Fluttering Hasode",
+            "type": "Elemental Skill",
+            "description": "Dashes nimbly forward with silken steps. Once this dash ends, Chiori will summon the automaton doll \"Tamoto\" beside her and sweep her blade upward, dealing  to nearby opponents based on her ATK and DEF.\nHolding the Skill will cause it to behave differently.\n**Hold**\nEnter Aiming Mode to adjust the dash direction.\n**Tamoto**\n-  Will slash at nearby opponents at intervals, dealing AoE Geo DMG based on Chiori's ATK and DEF.\n-  While active, if there are nearby Geo Construct(s) or Geo Construct(s) are created nearby, an additional Tamoto will be summoned next to your active character. Only 1 additional Tamoto can be summoned in this manner, and its duration is independently counted.",
+            "attributes": [
+                {
+                    "hit": "Tamoto DMG",
+                    "values": [
+                        "82.08% ATK +102.6% DEF",
+                        "88.24% ATK +110.29% DEF",
+                        "94.39% ATK +117.99% DEF",
+                        "102.6% ATK +128.25% DEF",
+                        "108.76% ATK +135.94% DEF",
+                        "114.91% ATK +143.64% DEF",
+                        "123.12% ATK +153.9% DEF",
+                        "131.33% ATK +164.16% DEF",
+                        "139.54% ATK +174.42% DEF",
+                        "147.74% ATK +184.68% DEF",
+                        "155.95% ATK +194.94% DEF",
+                        "164.16% ATK +205.2% DEF",
+                        "174.42% ATK +218.02% DEF"
+                    ]
+                },
+                {
+                    "hit": "Upward Sweep Attack DMG",
+                    "values": [
+                        "149.28% ATK +186.6% DEF",
+                        "160.48% ATK +200.59% DEF",
+                        "171.67% ATK +214.59% DEF",
+                        "186.6% ATK +233.25% DEF",
+                        "197.8% ATK +247.25% DEF",
+                        "208.99% ATK +261.24% DEF",
+                        "223.92% ATK +279.9% DEF",
+                        "238.85% ATK +298.56% DEF",
+                        "253.78% ATK +317.22% DEF",
+                        "268.7% ATK +335.88% DEF",
+                        "283.63% ATK +354.54% DEF",
+                        "298.56% ATK +373.2% DEF",
+                        "317.22% ATK +396.53% DEF"
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Hiyoku: Twin Blades",
+            "type": "Elemental Burst",
+            "description": "Twin blades leave their sheaths as Chiori slices with the clean cuts of a master tailor, dealing AoE Geo DMG based on her ATK and DEF.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG",
+                    "values": [
+                        "256.32% ATK+320.4% DEF",
+                        "275.54% ATK+344.43% DEF",
+                        "294.77% ATK+368.46% DEF",
+                        "320.4% ATK+400.5% DEF",
+                        "339.62% ATK+424.53% DEF",
+                        "358.85% ATK+448.56% DEF",
+                        "384.48% ATK+480.6% DEF",
+                        "410.11% ATK+512.64% DEF",
+                        "435.74% ATK+544.68% DEF",
+                        "461.38% ATK+576.72% DEF",
+                        "487.01% ATK+608.76% DEF",
+                        "512.64% ATK+640.8% DEF",
+                        "544.68% ATK+680.85% DEF"
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Tailor-Made",
+            "type": "1st Ascension Passive",
+            "description": "Gain different effects depending on the next action you take within a short duration after using Fluttering Hasode's upward sweep. If you (/) the Elemental Skill, you will trigger the Tapestry effect. If you (/) your Normal Attack, the Tailoring effect will be triggered instead.\n**Tapestry**\n- Switches to the next character in your roster.\n- Grants all your party members \"Seize the Moment\": When your active party member's Normal Attacks, Charged Attacks, and Plunging Attacks hit a nearby opponent, \"Tamoto\" will execute a coordinated attack, dealing 100% of Fluttering Hasode's upward sweep DMG as AoE Geo DMG at the opponent's location. DMG dealt this way is considered Elemental Skill DMG.\n- \"Seize the Moment\" lasts 8s, and 1 of \"Tamoto\"'s coordinated attack can be unleashed every 2s. 2 such coordinated attacks can occur per \"Seize the Moment\" effect duration.\n**Tailoring**\n- Chiori gains Geo infusion for 5s.\nWhen on the field, if Chiori does not either (/) her Elemental Skill or use a Normal Attack within a short time after using Fluttering Hasode's upward sweep, the Tailoring effect will be triggered by default.",
+            "properties": []
+        },
+        {
+            "name": "The Finishing Touch",
+            "type": "4th Ascension Passive",
+            "description": "When a nearby party member creates a Geo Construct, Chiori will gain 20% Geo DMG Bonus for 20s."
+        },
+        {
+            "name": "Brocaded Collar's Beauteous Silhouette",
+            "type": "Utility Passive",
+            "description": "When any party member is wearing an outfit apart from their default outfit, or is wearing a wind glider other than the Wings of First Flight, your party members will obtain the Swift Stride effect: Movement SPD is increased by 10%.\nThis effect does not take effect in Domains, Trounce Domains and the Spiral Abyss. Swift Stride does not stack."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Six Paths of Sage Silkcraft",
+            "description": "The AoE of the automaton doll \"Tamoto\" summoned by Fluttering Hasode is increased by 50%.\nAdditionally, if there is a  party member other than Chiori, Fluttering Hasode will trigger the following after the dash is completed:\n- Summon an additional Tamoto. Only one additional Tamoto can exist at the same time, whether summoned by Chiori this way or through the presence of a Geo Construct.\n- Triggers the Passive Talent \"The Finishing Touch.\" This effect requires you to first unlock the Passive Talent \"The Finishing Touch.\"",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "In Five Colors Dyed",
+            "description": "For 10s after using Hiyoku: Twin Blades, a simplified automaton doll, \"Kinu,\" will be summoned next to your active character every 3s. Kinu will attack nearby opponents, dealing  equivalent to 170% of Tamoto's DMG. DMG dealt this way is considered Elemental Skill DMG.\nKinu will leave the field after 1 attack or after lasting 3s.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Four Brocade Embellishments",
+            "description": "Increases the Level of Fluttering Hasode by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "A Tailor's Three Courtesies",
+            "description": "For 8s after triggering either follow-up effect of the Passive Talent \"Tailor-Made,\" when your current active character's Normal, Charged, or Plunging Attacks hit a nearby opponent, a simplified automaton doll, \"Kinu,\" will be summoned near this opponent. You can summon 1 Kinu every 1s in this way, and up to 3 Kinu may be summoned this way during each instance of \"Tailor-Made\"'s Seize the Moment or Tailoring effect. The above effect can be triggered up to once every 15s.\nMust unlock the Passive Talent \"Tailor-Made\" first.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Two Silken Plumules",
+            "description": "Increases the Level of Hiyoku: Twin Blades by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Sole Principle Pursuit",
+            "description": "After triggering a follow-up effect of the Passive Talent \"Tailor-Made,\" Chiori's own Fluttering Hasode's CD is decreased by 12s. Must unlock the Passive \"Tailor-Made\" first.\nIn addition, the DMG dealt by Chiori's own Normal Attacks is increased by an amount equal to 235% of her own DEF.",
+            "properties": []
+        }
+    ]
+}

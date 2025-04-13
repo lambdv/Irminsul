@@ -1,0 +1,680 @@
+{
+    "name": "Eula",
+    "key": "eula",
+    "title": "Dance of the Shimmering Wave",
+    "rarity": 5,
+    "element": "cryo",
+    "vision": "cryo",
+    "weapon": "claymore",
+    "release_date": "may 18, 2021",
+    "release_date_epoch": 1621296000,
+    "constellation": "aphros delos",
+    "birthday": "october 25th",
+    "affiliation": "knights of favonius (on profile)lawrence clan ",
+    "region": "mondstadt",
+    "special_dish": "stormcrest pie",
+    "alternate_title": "Spindrift Knight",
+    "description": "The Spindrift Knight, a scion of the old aristocracy, and the Captain of the Knights of Favonius Reconnaissance Company. The reason for which a descendant of the ancient nobles might join the Knights remains a great mystery in Mondstadt to this very day.",
+    "ascension_stat": "CRIT DMG",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "1029.59",
+            "BaseATK": "26.63",
+            "BaseDEF": "58.45",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2670.75",
+            "BaseATK": "69.07",
+            "BaseDEF": "151.63",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3553.52",
+            "BaseATK": "91.90",
+            "BaseDEF": "201.75",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "5317.20",
+            "BaseATK": "137.51",
+            "BaseDEF": "301.88",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "5944.44",
+            "BaseATK": "153.73",
+            "BaseDEF": "337.49",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6839.15",
+            "BaseATK": "176.87",
+            "BaseDEF": "388.29",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "7675.46",
+            "BaseATK": "198.49",
+            "BaseDEF": "435.77",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "8579.44",
+            "BaseATK": "221.87",
+            "BaseDEF": "487.09",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "9206.67",
+            "BaseATK": "238.09",
+            "BaseDEF": "522.71",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "10118.89",
+            "BaseATK": "261.68",
+            "BaseDEF": "574.50",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "10746.12",
+            "BaseATK": "277.90",
+            "BaseDEF": "610.11",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "11668.63",
+            "BaseATK": "301.76",
+            "BaseDEF": "662.48",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "12295.87",
+            "BaseATK": "317.98",
+            "BaseDEF": "698.09",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "38.4%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "13225.58",
+            "BaseATK": "342.03",
+            "BaseDEF": "750.88",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "38.4%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Shivada Jade Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Dandelion Seed",
+                    "amount": "3"
+                },
+                {
+                    "name": "Damaged Mask",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Crystalline Bloom",
+                    "amount": "2"
+                },
+                {
+                    "name": "Shivada Jade Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Dandelion Seed",
+                    "amount": "10"
+                },
+                {
+                    "name": "Damaged Mask",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Crystalline Bloom",
+                    "amount": "4"
+                },
+                {
+                    "name": "Shivada Jade Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Dandelion Seed",
+                    "amount": "20"
+                },
+                {
+                    "name": "Stained Mask",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Crystalline Bloom",
+                    "amount": "8"
+                },
+                {
+                    "name": "Shivada Jade Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Dandelion Seed",
+                    "amount": "30"
+                },
+                {
+                    "name": "Stained Mask",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Crystalline Bloom",
+                    "amount": "12"
+                },
+                {
+                    "name": "Shivada Jade Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Dandelion Seed",
+                    "amount": "45"
+                },
+                {
+                    "name": "Ominous Mask",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Crystalline Bloom",
+                    "amount": "20"
+                },
+                {
+                    "name": "Shivada Jade Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Dandelion Seed",
+                    "amount": "60"
+                },
+                {
+                    "name": "Ominous Mask",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Favonius Bladework - Edel",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 5 consecutive strikes.\nCharged Attack\nDrains Stamina over time to perform continuous slashes.\nAt the end of the sequence, performs a more powerful slash.\nPlunging Attack\nPlunges from mid-air to strike the ground, damaging opponents along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        89.73,
+                        97.04,
+                        104.34,
+                        114.77,
+                        122.08,
+                        130.42,
+                        141.9,
+                        153.38,
+                        164.86,
+                        177.38,
+                        191.72
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        93.55,
+                        101.17,
+                        108.78,
+                        119.66,
+                        127.27,
+                        135.97,
+                        147.94,
+                        159.91,
+                        171.87,
+                        184.93,
+                        199.88
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        "56.8+56.8",
+                        "61.42+61.42",
+                        "66.05+66.05",
+                        "72.65+72.65",
+                        "77.27+77.27",
+                        "82.56+82.56",
+                        "89.82+89.82",
+                        "97.09+97.09",
+                        "104.35+104.35",
+                        "112.28+112.28",
+                        "121.36+121.36"
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        112.64,
+                        121.81,
+                        130.98,
+                        144.08,
+                        153.25,
+                        163.73,
+                        178.13,
+                        192.54,
+                        206.95,
+                        222.67,
+                        240.68
+                    ]
+                },
+                {
+                    "hit": "5-Hit DMG (%)",
+                    "values": [
+                        "71.83+71.83",
+                        "77.68+77.68",
+                        "83.53+83.53",
+                        "91.88+91.88",
+                        "97.73+97.73",
+                        "104.41+104.41",
+                        "113.6+113.6",
+                        "122.79+122.79",
+                        "131.97+131.97",
+                        "142+142",
+                        "153.48+153.48"
+                    ]
+                },
+                {
+                    "hit": "Charged Attack Cyclic DMG (%)",
+                    "values": [
+                        68.8,
+                        74.4,
+                        80.0,
+                        88.0,
+                        93.6,
+                        100.0,
+                        108.8,
+                        117.6,
+                        126.4,
+                        136.0,
+                        147.0
+                    ]
+                },
+                {
+                    "hit": "Charged Attack Final DMG (%)",
+                    "values": [
+                        124.4,
+                        134.52,
+                        144.65,
+                        159.12,
+                        169.24,
+                        180.81,
+                        196.72,
+                        212.64,
+                        228.55,
+                        245.91,
+                        265.79
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        74.59,
+                        80.66,
+                        86.73,
+                        95.4,
+                        101.47,
+                        108.41,
+                        117.95,
+                        127.49,
+                        137.03,
+                        147.44,
+                        159.37
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        149.14,
+                        161.28,
+                        173.42,
+                        190.77,
+                        202.91,
+                        216.78,
+                        235.86,
+                        254.93,
+                        274.01,
+                        294.82,
+                        318.67
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        186.29,
+                        201.45,
+                        216.62,
+                        238.28,
+                        253.44,
+                        270.77,
+                        294.6,
+                        318.42,
+                        342.25,
+                        368.25,
+                        398.03
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Icetide Vortex",
+            "type": "Elemental Skill",
+            "description": "Sharp frost, swift blade.\n(PressPressText for mouse and keyboard and controller/TapTapText for touch screen)\nSlashes swiftly, dealing Cryo DMG.\nWhen it hits an opponent, Eula gains a stack of Grimheart that stacks up to 2 times. These stacks can only be gained once every 0.3s.\nGrimheart\nIncreases Eula's resistance to interruption and DEF.\nHold\nWielding her sword, Eula consumes all the stacks of Grimheart and lashes forward, dealing  to opponents in front of her.\nIf Grimheart stacks are consumed, surrounding opponents will have their Physical RES and Cryo RES decreased.\nEach consumed stack of Grimheart will be converted into an Icewhirl Brand that deals Cryo DMG to nearby opponents.",
+            "attributes": [
+                {
+                    "hit": "Press DMG (%)",
+                    "values": [
+                        146.4,
+                        157.38,
+                        168.36,
+                        183.0,
+                        193.98,
+                        204.96,
+                        219.6,
+                        234.24,
+                        248.88,
+                        263.52,
+                        278.16,
+                        292.8,
+                        311.1,
+                        329.4
+                    ]
+                },
+                {
+                    "hit": "Hold DMG (%)",
+                    "values": [
+                        245.6,
+                        264.02,
+                        282.44,
+                        307.0,
+                        325.42,
+                        343.84,
+                        368.4,
+                        392.96,
+                        417.52,
+                        442.08,
+                        466.64,
+                        491.2,
+                        521.9,
+                        552.6
+                    ]
+                },
+                {
+                    "hit": "Icewhirl Brand DMG (%)",
+                    "values": [
+                        96.0,
+                        103.2,
+                        110.4,
+                        120.0,
+                        127.2,
+                        134.4,
+                        144.0,
+                        153.6,
+                        163.2,
+                        172.8,
+                        182.4,
+                        192.0,
+                        204.0,
+                        216.0
+                    ]
+                },
+                {
+                    "hit": "Physical RES Decrease (%)",
+                    "values": [
+                        16.0,
+                        17.0,
+                        18.0,
+                        19.0,
+                        20.0,
+                        21.0,
+                        22.0,
+                        23.0,
+                        24.0,
+                        25.0
+                    ]
+                },
+                {
+                    "hit": "Cryo RES Decrease (%)",
+                    "values": [
+                        16.0,
+                        17.0,
+                        18.0,
+                        19.0,
+                        20.0,
+                        21.0,
+                        22.0,
+                        23.0,
+                        24.0,
+                        25.0
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Glacial Illumination",
+            "type": "Elemental Burst",
+            "description": "Brandishes her greatsword, dealing Cryo DMG to nearby opponents and creating a Lightfall Sword that follows her around for a duration of up to 7s.\nWhile present, the Lightfall Sword increases Eula's resistance to interruption. When Eula's own Normal Attack, Elemental Skill, and Elemental Burst deal DMG to opponents, they will charge the Lightfall Sword, which can gain an energy stack once every 0.1s.\nOnce its duration ends, the Lightfall Sword will descend and explode violently, dealing Physical DMG to nearby opponents.\nThis DMG scales on the number of energy stacks the Lightfall Sword has accumulated.\nIf Eula leaves the field, the Lightfall Sword will explode immediately.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        245.6,
+                        264.02,
+                        282.44,
+                        307.0,
+                        325.42,
+                        343.84,
+                        368.4,
+                        392.96,
+                        417.52,
+                        442.08,
+                        466.64,
+                        491.2,
+                        521.9,
+                        553.0
+                    ]
+                },
+                {
+                    "hit": "Lightfall Sword Base DMG (%)",
+                    "values": [
+                        367.05,
+                        396.92,
+                        426.8,
+                        469.48,
+                        499.36,
+                        533.5,
+                        580.45,
+                        627.4,
+                        674.34,
+                        725.56,
+                        784.25,
+                        853.26,
+                        922.27,
+                        991.3
+                    ]
+                },
+                {
+                    "hit": "DMG Per Stack (%)",
+                    "values": [
+                        74.99,
+                        81.1,
+                        87.2,
+                        95.92,
+                        102.02,
+                        109.0,
+                        118.59,
+                        128.18,
+                        137.78,
+                        148.24,
+                        160.23,
+                        174.33,
+                        188.43,
+                        202.5
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Roiling Rime",
+            "type": "1st Ascension Passive",
+            "description": "If 2 stacks of Grimheart are consumed upon unleashing the Holding Mode of Icetide Vortex, a Shattered Lightfall Sword will be created that will explode immediately, dealing 50% of the basic Physical DMG dealt by a Lightfall Sword created by Glacial Illumination."
+        },
+        {
+            "name": "Wellspring of War-Lust",
+            "type": "4th Ascension Passive",
+            "description": "When Glacial Illumination is cast, the CD of Icetide Vortex is reset and Eula gains 1 stack of Grimheart."
+        },
+        {
+            "name": "Aristocratic Introspection",
+            "type": "Utility Passive",
+            "description": "When Eula crafts Character Talent Materials, she has a 10% chance to receive double the product."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Tidal Illusion",
+            "description": "Every time Icetide Vortex's Grimheart stacks are consumed, Eula's Physical DMG is increased by 30% for 6s.\nEach stack consumed will increase the duration of this effect by 6s up to a maximum of 18s.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Lady of Seafoam",
+            "description": "Decreases the CD of Icetide Vortex's Holding Mode, rendering it identical to (/) CD.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Lawrence Pedigree",
+            "description": "Increases the Level of Glacial Illumination by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "The Obstinacy of One's Inferiors",
+            "description": "Lightfall Swords deal 25% increased DMG against opponents with less than 50% HP.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Chivalric Quality",
+            "description": "Increases the Level of Icetide Vortex by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Noble Obligation",
+            "description": "Lightfall Swords created by Glacial Illumination start with 5 stacks of energy. Normal Attacks, Elemental Skills, and Elemental Bursts have a 50% chance to grant the Lightfall Sword an additional stack of energy.",
+            "properties": []
+        }
+    ]
+}
