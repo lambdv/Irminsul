@@ -1,0 +1,583 @@
+{
+    "name": "Kamisato Ayaka",
+    "key": "kamisato-ayaka",
+    "title": "Frostflake Heron",
+    "rarity": 5,
+    "element": "cryo",
+    "vision": "cryo",
+    "weapon": "sword",
+    "release_date": "july 21, 2021",
+    "release_date_epoch": 1626825600,
+    "constellation": "grus nivis",
+    "birthday": "september 28th",
+    "affiliation": "yashiro commission (on profile)kamisato clan ",
+    "region": "inazuma",
+    "special_dish": "\"snow on the hearth\"",
+    "alternate_title": "Daughter of the Yashiro Commission's Kamisato Clan",
+    "description": "Daughter of the Yashiro Commission's Kamisato Clan. Dignified and elegant, as well as wise and strong.",
+    "ascension_stat": "CRIT DMG",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "1000.99",
+            "BaseATK": "26.63",
+            "BaseDEF": "61.03",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2596.56",
+            "BaseATK": "69.07",
+            "BaseDEF": "158.30",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3454.81",
+            "BaseATK": "91.90",
+            "BaseDEF": "210.63",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "5169.50",
+            "BaseATK": "137.51",
+            "BaseDEF": "315.17",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "5779.31",
+            "BaseATK": "153.73",
+            "BaseDEF": "352.35",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6649.17",
+            "BaseATK": "176.87",
+            "BaseDEF": "405.38",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "7462.26",
+            "BaseATK": "198.49",
+            "BaseDEF": "454.95",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "8341.12",
+            "BaseATK": "221.87",
+            "BaseDEF": "508.53",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "8950.93",
+            "BaseATK": "238.09",
+            "BaseDEF": "545.71",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "9837.81",
+            "BaseATK": "261.68",
+            "BaseDEF": "599.78",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "10447.62",
+            "BaseATK": "277.90",
+            "BaseDEF": "636.96",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "11344.50",
+            "BaseATK": "301.76",
+            "BaseDEF": "691.64",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "11954.32",
+            "BaseATK": "317.98",
+            "BaseDEF": "728.82",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "38.4%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "12858.21",
+            "BaseATK": "342.03",
+            "BaseDEF": "783.93",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "38.4%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Shivada Jade Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Sakura Bloom",
+                    "amount": "3"
+                },
+                {
+                    "name": "Old Handguard",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Perpetual Heart",
+                    "amount": "2"
+                },
+                {
+                    "name": "Shivada Jade Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Sakura Bloom",
+                    "amount": "10"
+                },
+                {
+                    "name": "Old Handguard",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Perpetual Heart",
+                    "amount": "4"
+                },
+                {
+                    "name": "Shivada Jade Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Sakura Bloom",
+                    "amount": "20"
+                },
+                {
+                    "name": "Kageuchi Handguard",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Perpetual Heart",
+                    "amount": "8"
+                },
+                {
+                    "name": "Shivada Jade Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Sakura Bloom",
+                    "amount": "30"
+                },
+                {
+                    "name": "Kageuchi Handguard",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Perpetual Heart",
+                    "amount": "12"
+                },
+                {
+                    "name": "Shivada Jade Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Sakura Bloom",
+                    "amount": "45"
+                },
+                {
+                    "name": "Famed Handguard",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Perpetual Heart",
+                    "amount": "20"
+                },
+                {
+                    "name": "Shivada Jade Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Sakura Bloom",
+                    "amount": "60"
+                },
+                {
+                    "name": "Famed Handguard",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Kamisato Art: Kabuki",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 5 rapid strikes.\nCharged Attack\nConsumes a certain amount of Stamina to unleash a flurry of sword ki.\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging enemies along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        45.73,
+                        49.45,
+                        53.17,
+                        58.49,
+                        62.21,
+                        66.46,
+                        72.31,
+                        78.16,
+                        84.01,
+                        90.39,
+                        96.77
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        48.68,
+                        52.65,
+                        56.61,
+                        62.27,
+                        66.23,
+                        70.76,
+                        76.99,
+                        83.22,
+                        89.44,
+                        96.24,
+                        103.03
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        62.62,
+                        67.72,
+                        72.82,
+                        80.1,
+                        85.19,
+                        91.02,
+                        99.03,
+                        107.04,
+                        115.05,
+                        123.79,
+                        132.53
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        "22.65\u00d73",
+                        "24.49\u00d73",
+                        "26.33\u00d73",
+                        "28.97\u00d73",
+                        "30.81\u00d73",
+                        "32.92\u00d73",
+                        "35.81\u00d73",
+                        "38.71\u00d73",
+                        "41.61\u00d73",
+                        "44.77\u00d73",
+                        "47.93\u00d73"
+                    ]
+                },
+                {
+                    "hit": "5-Hit DMG (%)",
+                    "values": [
+                        78.18,
+                        84.55,
+                        90.91,
+                        100.0,
+                        106.36,
+                        113.64,
+                        123.64,
+                        133.64,
+                        143.64,
+                        154.55,
+                        165.45
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        "55.13\u00d73",
+                        "59.61\u00d73",
+                        "64.1\u00d73",
+                        "70.51\u00d73",
+                        "75\u00d73",
+                        "80.13\u00d73",
+                        "87.18\u00d73",
+                        "94.23\u00d73",
+                        "101.28\u00d73",
+                        "108.97\u00d73",
+                        "116.66\u00d73"
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        63.93,
+                        69.14,
+                        74.34,
+                        81.77,
+                        86.98,
+                        92.92,
+                        101.1,
+                        109.28,
+                        117.46,
+                        126.38,
+                        135.3
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        127.84,
+                        138.24,
+                        148.65,
+                        163.51,
+                        173.92,
+                        185.81,
+                        202.16,
+                        218.51,
+                        234.86,
+                        252.7,
+                        270.54
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        159.68,
+                        172.67,
+                        185.67,
+                        204.24,
+                        217.23,
+                        232.09,
+                        252.51,
+                        272.93,
+                        293.36,
+                        315.64,
+                        337.92
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Kamisato Art: Hyouka",
+            "type": "Elemental Skill",
+            "description": "Summons blooming ice to launch nearby opponents, dealing .",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        239.2,
+                        257.14,
+                        275.08,
+                        299.0,
+                        316.94,
+                        334.88,
+                        358.8,
+                        382.72,
+                        406.64,
+                        430.56,
+                        454.48,
+                        478.4,
+                        508.3,
+                        538.0
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Kamisato Art: Soumetsu",
+            "type": "Elemental Burst",
+            "description": "Summons forth a snowstorm with flawless poise, unleashing a Frostflake Seki no To that moves forward continuously.\n**Frostflake Seki no To**\n- A storm of whirling icy winds that slashes repeatedly at every enemy it touches, dealing Cryo DMG.\n- The snowstorm explodes after its duration ends, dealing AoE Cryo DMG.",
+            "attributes": [
+                {
+                    "hit": "Cutting DMG (%)",
+                    "values": [
+                        112.3,
+                        120.72,
+                        129.15,
+                        140.38,
+                        148.8,
+                        157.22,
+                        168.45,
+                        179.68,
+                        190.91,
+                        202.14,
+                        213.37,
+                        224.6,
+                        238.64,
+                        253.0
+                    ]
+                },
+                {
+                    "hit": "Bloom DMG (%)",
+                    "values": [
+                        168.45,
+                        181.08,
+                        193.72,
+                        210.56,
+                        223.2,
+                        235.83,
+                        252.67,
+                        269.52,
+                        286.37,
+                        303.21,
+                        320.05,
+                        336.9,
+                        357.96,
+                        379.0
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Kamisato Art: Senho",
+            "type": "Alternate Sprint",
+            "description": "**Alternate Sprint**\nAyaka consumes Stamina and cloaks herself in a frozen fog that moves with her.\nIn Senho form, she moves swiftly upon water.\nWhen she reappears, the following effects occur:- Ayaka unleashes frigid energy to apply Cryo on nearby opponents.\n- Coldness condenses around Ayaka's blade, infusing her attacks with Cryo for a brief period.",
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Amatsumi Kunitsumi Sanctification",
+            "type": "1st Ascension Passive",
+            "description": "After using Kamisato Art: Hyouka, Kamisato Ayaka's Normal and Charged attacks deal 30% increased DMG for 6s."
+        },
+        {
+            "name": "Kanten Senmyou Blessing",
+            "type": "4th Ascension Passive",
+            "description": "When the Cryo application at the end of Kamisato Art: Senho hits an opponent, Kamisato Ayaka gains the following effects:\n- Restores 10 Stamina\n- Gains 18% Cryo DMG Bonus for 10s."
+        },
+        {
+            "name": "Fruits of Shinsa",
+            "type": "Utility Passive",
+            "description": "When Ayaka crafts Weapon Ascension Materials, she has a 10% chance to receive double the product."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Snowswept Sakura",
+            "description": "When Kamisato Ayaka's Normal or Charged Attacks deal  to opponents, it has a 50% chance of decreasing the CD of Kamisato Art: Hyouka by 0.3s. This effect can occur once every 0.1s.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Blizzard Blade Seki no To",
+            "description": "When casting Kamisato Art: Soumetsu, unleashes 2 smaller additional Frostflake Seki no To, each dealing 20% of the original storm's DMG.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Frostbloom Kamifubuki",
+            "description": "Increases the Level of Kamisato Art: Soumetsu by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Ebb and Flow",
+            "description": "Opponents damaged by Kamisato Art: Soumetsu's Frostflake Seki no To will have their DEF decreased by 30% for 6s.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Blossom Cloud Irutsuki",
+            "description": "Increases the Level of Kamisato Art: Hyouka by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Dance of Suigetsu",
+            "description": "Kamisato Ayaka gains Usurahi Butou every 10s, increasing her Charged Attack DMG by 298%. This buff will be cleared 0.5s after Ayaka's Charged ATK hits an opponent, after which the timer for this ability will restart.",
+            "properties": []
+        }
+    ]
+}

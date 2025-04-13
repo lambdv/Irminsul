@@ -1,0 +1,123 @@
+{
+    "name": "Sunny Morning Sleep-In",
+    "key": "sunny-morning-sleep-in",
+    "description": "A bell lantern forged from purple jade. They say it brings sweet dreams when placed beside one's pillow.",
+    "rarity": 5,
+    "category": "catalyst",
+    "series": "weapon event wishes",
+    "release_date": "february 12, 2025",
+    "release_date_epoch": 1739271600.0,
+    "base_atk_min": 44,
+    "base_atk_max": 542,
+    "sub_stat_type": "elemental mastery",
+    "sub_stat_value_min": "58",
+    "sub_stat_value_max": "265",
+    "refinement_name": "bathhouseshawksandnarukami",
+    "refinements": [
+        "Elemental Mastery increases by **120**\n for 6s after triggering Swirl. Elemental Mastery increases by **96**\n for 9s after the wielder's Elemental Skill hits an opponent. Elemental Mastery increases by **32**\n for 30s after the wielder's Elemental Burst hits an opponent.",
+        "Elemental Mastery increases by **150**\n for 6s after triggering Swirl. Elemental Mastery increases by **120**\n for 9s after the wielder's Elemental Skill hits an opponent. Elemental Mastery increases by **40**\n for 30s after the wielder's Elemental Burst hits an opponent.",
+        "Elemental Mastery increases by **180**\n for 6s after triggering Swirl. Elemental Mastery increases by **144**\n for 9s after the wielder's Elemental Skill hits an opponent. Elemental Mastery increases by **48**\n for 30s after the wielder's Elemental Burst hits an opponent.",
+        "Elemental Mastery increases by **210**\n for 6s after triggering Swirl. Elemental Mastery increases by **168**\n for 9s after the wielder's Elemental Skill hits an opponent. Elemental Mastery increases by **56**\n for 30s after the wielder's Elemental Burst hits an opponent.",
+        "Elemental Mastery increases by **240**\n for 6s after triggering Swirl. Elemental Mastery increases by **192**\n for 9s after the wielder's Elemental Skill hits an opponent. Elemental Mastery increases by **64**\n for 30s after the wielder's Elemental Burst hits an opponent."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "44",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "58",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "110",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "102",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "141",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "102",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "210",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "148",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "241",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "148",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "275",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "172",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "307",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "172",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "341",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "195",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "373",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "195",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "408",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "218",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "439",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "218",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "475",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "241",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "506",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "241",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "542",
+            "sub_stat_type": "elemental mastery",
+            "sub_stat_value": "265",
+            "ascension_phase": 6
+        }
+    ]
+}

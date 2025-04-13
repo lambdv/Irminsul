@@ -1,0 +1,561 @@
+{
+    "name": "Wanderer",
+    "key": "wanderer",
+    "title": "Eons Adrift",
+    "rarity": 5,
+    "element": "anemo",
+    "vision": "anemo",
+    "weapon": "catalyst",
+    "release_date": "december 07, 2022",
+    "release_date_epoch": 1670371200,
+    "constellation": "peregrinus",
+    "birthday": "january 3rd",
+    "affiliation": "none (on profile)vahumana (as hat guy)[1] ",
+    "region": "sumeru",
+    "special_dish": "shimi chazuke",
+    "alternate_title": "Tribulations Uncounted, Trials Unknowable",
+    "description": "A wayfaring figure whose identity is a mystery. He dresses like a mountain ascetic, but he certainly does not act the part.",
+    "ascension_stat": "CRIT Rate",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "791.26",
+            "BaseATK": "25.51",
+            "BaseDEF": "47.27",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2052.52",
+            "BaseATK": "66.17",
+            "BaseDEF": "122.61",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "2730.95",
+            "BaseATK": "88.04",
+            "BaseDEF": "163.13",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "4086.37",
+            "BaseATK": "131.74",
+            "BaseDEF": "244.10",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "4568.41",
+            "BaseATK": "147.28",
+            "BaseDEF": "272.90",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "5256.01",
+            "BaseATK": "169.45",
+            "BaseDEF": "313.97",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "5898.73",
+            "BaseATK": "190.17",
+            "BaseDEF": "352.36",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "6593.46",
+            "BaseATK": "212.56",
+            "BaseDEF": "393.86",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "7075.50",
+            "BaseATK": "228.10",
+            "BaseDEF": "422.66",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "7776.55",
+            "BaseATK": "250.70",
+            "BaseDEF": "464.54",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "8258.59",
+            "BaseATK": "266.24",
+            "BaseDEF": "493.33",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "8967.56",
+            "BaseATK": "289.10",
+            "BaseDEF": "535.68",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "9449.60",
+            "BaseATK": "304.64",
+            "BaseDEF": "564.48",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "10164.11",
+            "BaseATK": "327.67",
+            "BaseDEF": "607.16",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Vayuda Turquoise Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Rukkhashava Mushrooms",
+                    "amount": "3"
+                },
+                {
+                    "name": "Old Handguard",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Perpetual Caliber",
+                    "amount": "2"
+                },
+                {
+                    "name": "Vayuda Turquoise Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Rukkhashava Mushrooms",
+                    "amount": "10"
+                },
+                {
+                    "name": "Old Handguard",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Perpetual Caliber",
+                    "amount": "4"
+                },
+                {
+                    "name": "Vayuda Turquoise Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Rukkhashava Mushrooms",
+                    "amount": "20"
+                },
+                {
+                    "name": "Kageuchi Handguard",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Perpetual Caliber",
+                    "amount": "8"
+                },
+                {
+                    "name": "Vayuda Turquoise Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Rukkhashava Mushrooms",
+                    "amount": "30"
+                },
+                {
+                    "name": "Kageuchi Handguard",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Perpetual Caliber",
+                    "amount": "12"
+                },
+                {
+                    "name": "Vayuda Turquoise Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Rukkhashava Mushrooms",
+                    "amount": "45"
+                },
+                {
+                    "name": "Famed Handguard",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Perpetual Caliber",
+                    "amount": "20"
+                },
+                {
+                    "name": "Vayuda Turquoise Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Rukkhashava Mushrooms",
+                    "amount": "60"
+                },
+                {
+                    "name": "Famed Handguard",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Yuuban Meigen",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 3 attacks using wind blades, dealing Anemo DMG.\nCharged Attack\nConsumes a certain amount of Stamina, gathers a build up of high wind pressure, and deals AoE Anemo DMG after a short casting time.\nPlunging Attack\nCalling upon the power of Anemo, the Wanderer plunges towards the ground from mid-air, damaging all opponents in his path. Deals AoE Anemo DMG upon impact with the ground.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        68.71,
+                        74.31,
+                        79.9,
+                        87.89,
+                        93.48,
+                        99.88,
+                        108.66,
+                        117.45,
+                        126.24,
+                        135.83,
+                        145.42
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        65.02,
+                        70.31,
+                        75.6,
+                        83.16,
+                        88.45,
+                        94.5,
+                        102.82,
+                        111.13,
+                        119.45,
+                        128.52,
+                        137.59
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        "47.64+47.64",
+                        "51.52+51.52",
+                        "55.4+55.4",
+                        "60.94+60.94",
+                        "64.82+64.82",
+                        "69.25+69.25",
+                        "75.34+75.34",
+                        "81.44+81.44",
+                        "87.53+87.53",
+                        "94.18+94.18",
+                        "100.83+100.83"
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        132.08,
+                        141.99,
+                        151.89,
+                        165.1,
+                        175.01,
+                        184.91,
+                        198.12,
+                        211.33,
+                        224.54,
+                        237.74,
+                        250.95
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.17,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Hanega: Song of the Wind",
+            "type": "Elemental Skill",
+            "description": "Concentrates the power of the winds to break free from the shackles of the earth, dealing  before leaping into the air and entering the Windfavored state.\n**Windfavored**\nThe Wanderer cannot perform Plunging Attacks in this state. When he uses Normal and Charged Attacks, they will be converted into Kuugo: Fushoudan and Kuugo: Toufukai respectively; the DMG they deal and their AoE will be increased, and their DMG will be considered Normal and Charged Attack DMG respectively. Kuugo: Toufukai will not consume Stamina.\nThe Wanderer will hover persistently during this time. While this state is active, the Wanderer's movements gain the following properties:- Persistently consumes Kuugoryoku Points to maintain this hovering state.\n- When sprinting, additional Kuugoryoku Points will be consumed for the Wanderer to accelerate mid-air. Holding sprint will cause persistent Kuugoryoku Point consumption to maintain speed. This effect will replace his default sprint.\n- Jumping expends extra Kuugoryoku Points to increase hovering height. Holding jump will cause persistent Kuugoryoku Point consumption to keep increasing hovering height.\nRunning out of Kuugoryoku Points will end the Windfavored state.\nA second cast during the duration of Windfavored will also end it.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        95.2,
+                        102.34,
+                        109.48,
+                        119.0,
+                        126.14,
+                        133.28,
+                        142.8,
+                        152.32,
+                        161.84,
+                        171.36,
+                        180.88,
+                        190.4,
+                        202.3
+                    ]
+                },
+                {
+                    "hit": "Kuugo: Fushoudan DMG (% Normal Attack DMG)",
+                    "values": [
+                        132.98,
+                        134.96,
+                        136.93,
+                        139.5,
+                        141.47,
+                        143.45,
+                        146.02,
+                        148.58,
+                        151.15,
+                        153.72,
+                        156.29,
+                        158.85,
+                        161.42
+                    ]
+                },
+                {
+                    "hit": "Kuugo: Toufukai DMG (%  Charged Attack DMG)",
+                    "values": [
+                        126.39,
+                        127.97,
+                        129.55,
+                        131.6,
+                        133.18,
+                        134.76,
+                        136.81,
+                        138.87,
+                        140.92,
+                        142.98,
+                        145.03,
+                        147.08,
+                        149.14
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Kyougen: Five Ceremonial Plays",
+            "type": "Elemental Burst",
+            "description": "Compresses the atmosphere into a singular vacuum that grinds all troubles away, dealing multiple instances of AoE Anemo DMG. If the character is in the Windfavored state due to the skill \"Hanega: Song of the Wind,\" Windfavored state will end after casting.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        "147.2\u00d75",
+                        "158.24\u00d75",
+                        "169.28\u00d75",
+                        "184\u00d75",
+                        "195.04\u00d75",
+                        "206.08\u00d75",
+                        "220.8\u00d75",
+                        "235.52\u00d75",
+                        "250.24\u00d75",
+                        "264.96\u00d75",
+                        "279.68\u00d75",
+                        "294.4\u00d75",
+                        "312.8\u00d75"
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Jade-Claimed Flower",
+            "type": "1st Ascension Passive",
+            "description": "If Hanega: Song of the Wind comes into contact with /// when it is unleashed, this instance of the Windfavored state will obtain buffs according to the contacted element(s):- Hydro: Kuugoryoku Point cap increases by 20.\n- Pyro: ATK increases by 30%.\n- Cryo: CRIT Rate increases by 20%.\n- Electro: When Normal and Charged Attacks hit an opponent, 0.8 Energy will be restored. Energy can be restored this way every 0.2s.\nYou can have up to 2 different kinds of these buffs simultaneously."
+        },
+        {
+            "name": "Gales of Reverie",
+            "type": "4th Ascension Passive",
+            "description": "When the Wanderer hits opponents with Kuugo: Fushoudan or Kuugo: Toufukai in his Windfavored state, he has a 16% chance to obtain the Descent effect: The next time the Wanderer accelerates in mid-air while in this instance of the Windfavored state, this effect will be removed, this acceleration instance will not consume any Kuugoryoku Points, and he will fire off 4 wind arrows that deal 35% of his ATK as Anemo DMG each.\nFor each Kuugo: Fushoudan and Kuugo: Toufukai that does not produce this effect, the next attack of those types will have a 12% increased chance of producing it. The calculation of the effect production is done once every 0.1s.",
+            "properties": []
+        },
+        {
+            "name": "Strum the Swirling Winds",
+            "type": "Utility Passive",
+            "description": "Mora expended when ascending Bows and Catalysts is decreased by 50%."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Shoban: Ostentatious Plumage",
+            "description": "When in the Windfavored state, the Attack SPD of the Wanderer's Kuugo: Fushoudan and Kuugo: Toufukai is increased by 10%.\nAdditionally, the wind arrows fired by the Passive Talent \"Gales of Reverie\" will deal an additional 25% of his ATK as DMG. You must unlock the Passive Talent \"Gales of Reverie\" first.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Niban: Isle Amidst White Waves",
+            "description": "When in the Windfavored state, Kyougen: Five Ceremonial Plays will see its DMG increased by 4% per point of difference between the max amount of Kuugoryoku Points contrasted with Kuugoryoku's present capacity when using this skill.\nThrough this method, you can increase Kyougen: Five Ceremonial Plays's DMG by a maximum of 200%.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Sanban: Moonflower Kusemai",
+            "description": "Increases the Level of Kyougen: Five Ceremonial Plays by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Yonban: Set Adrift into Spring",
+            "description": "When casting Hanega: Song of the Wind, should the Passive Talent \"Jade-Claimed Flower\" be triggered, the character will gain buffs in correspondence to the contacted Elemental Type(s), and also obtain a random untriggered buff. A maximum of 3 such corresponding elemental buffs can exist simultaneously.\nYou must unlock the Passive Talent \"Jade-Claimed Flower\" first.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Matsuban: Ancient Illuminator From Abroad",
+            "description": "Increases the Level of Hanega: Song of the Wind by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Shugen: The Curtains' Melancholic Sway",
+            "description": "When the Wanderer actively hits an opponent with Kuugo: Fushoudan while in the Windfavored state, the following effects will occur:\n- Deals an additional instance of Kuugo: Fushoudan at the position hit, dealing 40% of the attack's original DMG. This DMG will be considered Normal Attack DMG.\n- When the Wanderer falls below 40 Kuugoryoku Points, restores 4 Points to him. Kuugoryoku Points can be restored in this manner once every 0.2s. This restoration can occur up to 5 times within one Windfavored duration.",
+            "properties": []
+        }
+    ]
+}

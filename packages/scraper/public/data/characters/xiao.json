@@ -1,0 +1,581 @@
+{
+    "name": "Xiao",
+    "key": "xiao",
+    "title": "Vigilant Yaksha",
+    "rarity": 5,
+    "element": "anemo",
+    "vision": "anemo",
+    "weapon": "polearm",
+    "release_date": "february 03, 2021",
+    "release_date_epoch": 1612310400,
+    "constellation": "alatus nemeseos",
+    "birthday": "april 17th",
+    "affiliation": "liyue adeptus (on profile)yakshas ",
+    "region": "liyue",
+    "special_dish": "\"sweet dream\"",
+    "alternate_title": "Bane of All Evil",
+    "description": "A yaksha adeptus who defends Liyue. Also heralded as the \"Conqueror of Demons\" and \"Vigilant Yaksha.\"",
+    "ascension_stat": "CRIT Rate",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "991.45",
+            "BaseATK": "27.19",
+            "BaseDEF": "62.22",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2571.83",
+            "BaseATK": "70.52",
+            "BaseDEF": "161.41",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3421.91",
+            "BaseATK": "93.83",
+            "BaseDEF": "214.76",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "5120.27",
+            "BaseATK": "140.39",
+            "BaseDEF": "321.35",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "5724.27",
+            "BaseATK": "156.95",
+            "BaseDEF": "359.26",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6585.85",
+            "BaseATK": "180.58",
+            "BaseDEF": "413.33",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "7391.19",
+            "BaseATK": "202.66",
+            "BaseDEF": "463.87",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "8261.68",
+            "BaseATK": "226.53",
+            "BaseDEF": "518.50",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "8865.69",
+            "BaseATK": "243.09",
+            "BaseDEF": "556.41",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "9744.11",
+            "BaseATK": "267.17",
+            "BaseDEF": "611.54",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "10348.12",
+            "BaseATK": "283.73",
+            "BaseDEF": "649.45",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "11236.46",
+            "BaseATK": "308.09",
+            "BaseDEF": "705.20",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "11840.47",
+            "BaseATK": "324.65",
+            "BaseDEF": "743.11",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "12735.75",
+            "BaseATK": "349.20",
+            "BaseDEF": "799.30",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Vayuda Turquoise Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Qingxin",
+                    "amount": "3"
+                },
+                {
+                    "name": "Slime Condensate",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Juvenile Jade",
+                    "amount": "2"
+                },
+                {
+                    "name": "Vayuda Turquoise Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Qingxin",
+                    "amount": "10"
+                },
+                {
+                    "name": "Slime Condensate",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Juvenile Jade",
+                    "amount": "4"
+                },
+                {
+                    "name": "Vayuda Turquoise Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Qingxin",
+                    "amount": "20"
+                },
+                {
+                    "name": "Slime Secretions",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Juvenile Jade",
+                    "amount": "8"
+                },
+                {
+                    "name": "Vayuda Turquoise Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Qingxin",
+                    "amount": "30"
+                },
+                {
+                    "name": "Slime Secretions",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Juvenile Jade",
+                    "amount": "12"
+                },
+                {
+                    "name": "Vayuda Turquoise Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Qingxin",
+                    "amount": "45"
+                },
+                {
+                    "name": "Slime Concentrate",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Juvenile Jade",
+                    "amount": "20"
+                },
+                {
+                    "name": "Vayuda Turquoise Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Qingxin",
+                    "amount": "60"
+                },
+                {
+                    "name": "Slime Concentrate",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Whirlwind Thrust",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 6 consecutive spear strikes.\nCharged Attack\nConsumes a certain amount of Stamina to perform an upward thrust.\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact.\nXiao does not take DMG from performing Plunging Attacks.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        "27.54+27.54",
+                        "29.42+29.42",
+                        "31.3+31.3",
+                        "33.8+33.8",
+                        "35.68+35.68",
+                        "37.87+37.87",
+                        "40.69+40.69",
+                        "43.51+43.51",
+                        "46.32+46.32",
+                        "49.14+49.14",
+                        "51.96+51.96"
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        56.94,
+                        60.82,
+                        64.7,
+                        69.88,
+                        73.76,
+                        78.29,
+                        84.11,
+                        89.93,
+                        95.76,
+                        101.58,
+                        107.4
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        68.55,
+                        73.23,
+                        77.9,
+                        84.13,
+                        88.81,
+                        94.26,
+                        101.27,
+                        108.28,
+                        115.29,
+                        122.3,
+                        129.31
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        "37.66+37.66",
+                        "40.23+40.23",
+                        "42.8+42.8",
+                        "46.22+46.22",
+                        "48.79+48.79",
+                        "51.79+51.79",
+                        "55.64+55.64",
+                        "59.49+59.49",
+                        "63.34+63.34",
+                        "67.2+67.2",
+                        "71.05+71.05"
+                    ]
+                },
+                {
+                    "hit": "5-Hit DMG (%)",
+                    "values": [
+                        71.54,
+                        76.42,
+                        81.3,
+                        87.8,
+                        92.68,
+                        98.37,
+                        105.69,
+                        113.01,
+                        120.32,
+                        127.64,
+                        134.96
+                    ]
+                },
+                {
+                    "hit": "6-Hit DMG (%)",
+                    "values": [
+                        95.83,
+                        102.37,
+                        108.9,
+                        117.61,
+                        124.15,
+                        131.77,
+                        141.57,
+                        151.37,
+                        161.17,
+                        170.97,
+                        180.77
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        121.09,
+                        129.34,
+                        137.6,
+                        148.61,
+                        156.86,
+                        166.5,
+                        178.88,
+                        191.26,
+                        203.65,
+                        216.03,
+                        228.42
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        81.83,
+                        88.49,
+                        95.16,
+                        104.67,
+                        111.33,
+                        118.94,
+                        129.41,
+                        139.88,
+                        150.35,
+                        161.76,
+                        173.18
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        163.63,
+                        176.95,
+                        190.27,
+                        209.3,
+                        222.62,
+                        237.84,
+                        258.77,
+                        279.7,
+                        300.63,
+                        323.46,
+                        346.29
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        204.39,
+                        221.02,
+                        237.66,
+                        261.42,
+                        278.06,
+                        297.07,
+                        323.21,
+                        349.36,
+                        375.5,
+                        404.02,
+                        432.54
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Lemniscatic Wind Cycling",
+            "type": "Elemental Skill",
+            "description": "Xiao lunges forward, dealing Anemo DMG to opponents in his path.\nCan be used in mid-air.\nStarts with 2 charges.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        252.8,
+                        271.76,
+                        290.72,
+                        316.0,
+                        334.96,
+                        353.92,
+                        379.2,
+                        404.48,
+                        429.76,
+                        455.04,
+                        480.32,
+                        505.6,
+                        537.2
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Bane of All Evil",
+            "type": "Elemental Burst",
+            "description": "Xiao dons the Yaksha Mask that set gods and demons trembling millennia ago.\n**Yaksha's Mask**\n- Greatly increases Xiao's jumping ability.\n- Increases his attack AoE and attack DMG.\n- Converts attack DMG into Anemo DMG, which cannot be overridden by any other elemental infusion.\nIn this state, Xiao will continuously lose HP.\nThe effects of this skill end when Xiao leaves the field.",
+            "attributes": [
+                {
+                    "hit": "Normal/Charged/Plunging Attack DMG Bonus (%)",
+                    "values": [
+                        58.45,
+                        61.95,
+                        65.45,
+                        70.0,
+                        73.5,
+                        77.0,
+                        81.55,
+                        86.1,
+                        90.65,
+                        95.2,
+                        99.75,
+                        104.3,
+                        108.85,
+                        113.0
+                    ]
+                },
+                {
+                    "hit": "Life Drain",
+                    "values": [
+                        "3% Current HP Per Second",
+                        "2.5% Current HP Per Second",
+                        "2% Current HP Per Second"
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Conqueror of Evil: Tamer of Demons",
+            "type": "1st Ascension Passive",
+            "description": "While under the effects of Bane of All Evil, all DMG dealt by Xiao increases by 5%. DMG increases by a further 5% for every 3s the ability persists. The maximum DMG Bonus is 25%."
+        },
+        {
+            "name": "Dissolution Eon: Heaven Fall",
+            "type": "4th Ascension Passive",
+            "description": "Using Lemniscatic Wind Cycling increases the DMG of subsequent uses of Lemniscatic Wind Cycling by 15%. This effect lasts for 7s, and has a maximum of 3 stacks. Gaining a new stack refreshes the effect's duration."
+        },
+        {
+            "name": "Transcension: Gravity Defier",
+            "type": "Utility Passive",
+            "description": "Decreases climbing Stamina consumption for your own party members by 20%.\nNot stackable with Passive Talents that provide the exact same effects."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Dissolution Eon: Destroyer of Worlds",
+            "description": "Increases Lemniscatic Wind Cycling's charges by 1.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Annihilation Eon: Blossom of Kaleidos",
+            "description": "When in the party and not on the field, Xiao's Energy Recharge is increased by 25%.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Conqueror of Evil: Wrath Deity",
+            "description": "Increases the Level of Lemniscatic Wind Cycling by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Transcension: Extinction of Suffering",
+            "description": "When Xiao's HP falls below 50%, he gains a 100% DEF Bonus.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Evolution Eon: Origin of Ignorance",
+            "description": "Increases the Level of Bane of All Evil by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Conqueror of Evil: Guardian Yaksha",
+            "description": "While under the effects of Bane of All Evil, hitting at least 2 opponents with Xiao's Plunging Attack will immediately grant him 1 charge of Lemniscatic Wind Cycling, and for the next 1s, he may use Lemniscatic Wind Cycling while ignoring its CD.",
+            "properties": []
+        }
+    ]
+}

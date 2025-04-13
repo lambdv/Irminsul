@@ -1,0 +1,634 @@
+{
+    "name": "Diluc",
+    "key": "diluc",
+    "title": "The Dark Side of Dawn",
+    "rarity": 5,
+    "element": "pyro",
+    "vision": "pyro",
+    "weapon": "claymore",
+    "release_date": "september 28, 2020",
+    "release_date_epoch": 1601251200,
+    "constellation": "noctua",
+    "birthday": "april 30th",
+    "affiliation": "dawn winery (on profile)unnamed intelligence organizationknights of favonius (formerly) ",
+    "region": "mondstadt",
+    "special_dish": "\"once upon a time in mondstadt\"",
+    "alternate_title": "Master of the Dawn Winery",
+    "description": "The tycoon of a winery empire in Mondstadt, unmatched in every possible way.",
+    "ascension_stat": "CRIT Rate",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "1010.52",
+            "BaseATK": "26.07",
+            "BaseDEF": "61.03",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2621.29",
+            "BaseATK": "67.62",
+            "BaseDEF": "158.30",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3487.72",
+            "BaseATK": "89.97",
+            "BaseDEF": "210.63",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "5218.74",
+            "BaseATK": "134.62",
+            "BaseDEF": "315.17",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "5834.36",
+            "BaseATK": "150.50",
+            "BaseDEF": "352.35",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6712.50",
+            "BaseATK": "173.16",
+            "BaseDEF": "405.38",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "7533.32",
+            "BaseATK": "194.33",
+            "BaseDEF": "454.95",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "8420.56",
+            "BaseATK": "217.22",
+            "BaseDEF": "508.53",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "9036.18",
+            "BaseATK": "233.10",
+            "BaseDEF": "545.71",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "9931.50",
+            "BaseATK": "256.19",
+            "BaseDEF": "599.78",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "10547.12",
+            "BaseATK": "272.07",
+            "BaseDEF": "636.96",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "11452.55",
+            "BaseATK": "295.43",
+            "BaseDEF": "691.64",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "12068.17",
+            "BaseATK": "311.31",
+            "BaseDEF": "728.82",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "12980.67",
+            "BaseATK": "334.85",
+            "BaseDEF": "783.93",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Agnidus Agate Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Small Lamp Grass",
+                    "amount": "3"
+                },
+                {
+                    "name": "Recruit's Insignia",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Everflame Seed",
+                    "amount": "2"
+                },
+                {
+                    "name": "Agnidus Agate Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Small Lamp Grass",
+                    "amount": "10"
+                },
+                {
+                    "name": "Recruit's Insignia",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Everflame Seed",
+                    "amount": "4"
+                },
+                {
+                    "name": "Agnidus Agate Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Small Lamp Grass",
+                    "amount": "20"
+                },
+                {
+                    "name": "Sergeant's Insignia",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Everflame Seed",
+                    "amount": "8"
+                },
+                {
+                    "name": "Agnidus Agate Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Small Lamp Grass",
+                    "amount": "30"
+                },
+                {
+                    "name": "Sergeant's Insignia",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Everflame Seed",
+                    "amount": "12"
+                },
+                {
+                    "name": "Agnidus Agate Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Small Lamp Grass",
+                    "amount": "45"
+                },
+                {
+                    "name": "Lieutenant's Insignia",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Everflame Seed",
+                    "amount": "20"
+                },
+                {
+                    "name": "Agnidus Agate Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Small Lamp Grass",
+                    "amount": "60"
+                },
+                {
+                    "name": "Lieutenant's Insignia",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Tempered Sword",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 4 consecutive strikes.\nCharged Attack\nDrains Stamina over time to perform continuous slashes.\nAt the end of the sequence, performs a more powerful slash.\nPlunging Attack\nPlunges from mid-air to strike the ground, damaging opponents along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        89.7,
+                        97.0,
+                        104.3,
+                        114.73,
+                        122.03,
+                        130.38,
+                        141.85,
+                        153.32,
+                        164.79,
+                        177.31,
+                        191.65
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        87.63,
+                        94.77,
+                        101.9,
+                        112.09,
+                        119.22,
+                        127.38,
+                        138.58,
+                        149.79,
+                        161.0,
+                        173.23,
+                        187.24
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        98.81,
+                        106.86,
+                        114.9,
+                        126.39,
+                        134.43,
+                        143.63,
+                        156.26,
+                        168.9,
+                        181.54,
+                        195.33,
+                        211.13
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        133.99,
+                        144.89,
+                        155.8,
+                        171.38,
+                        182.29,
+                        194.75,
+                        211.89,
+                        229.03,
+                        246.16,
+                        264.86,
+                        286.28
+                    ]
+                },
+                {
+                    "hit": "Charged Attack Cyclic DMG (%)",
+                    "values": [
+                        68.8,
+                        74.4,
+                        80.0,
+                        88.0,
+                        93.6,
+                        100.0,
+                        108.8,
+                        117.6,
+                        126.4,
+                        136.0,
+                        147.0
+                    ]
+                },
+                {
+                    "hit": "Charged Attack Final DMG (%)",
+                    "values": [
+                        124.7,
+                        134.85,
+                        145.0,
+                        159.5,
+                        169.65,
+                        181.25,
+                        197.2,
+                        213.15,
+                        229.1,
+                        246.5,
+                        266.44
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        89.51,
+                        96.79,
+                        104.08,
+                        114.48,
+                        121.77,
+                        130.09,
+                        141.54,
+                        152.99,
+                        164.44,
+                        176.93,
+                        189.42
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        178.97,
+                        193.54,
+                        208.11,
+                        228.92,
+                        243.49,
+                        260.13,
+                        283.03,
+                        305.92,
+                        328.81,
+                        353.78,
+                        378.76
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        223.55,
+                        241.74,
+                        259.94,
+                        285.93,
+                        304.13,
+                        324.92,
+                        353.52,
+                        382.11,
+                        410.7,
+                        441.89,
+                        473.09
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Searing Onslaught",
+            "type": "Elemental Skill",
+            "description": "Performs a forward slash that deals Pyro DMG.\nThis skill can be consecutively used 3 times.\nEnters CD if not cast again within a short period.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        94.4,
+                        101.48,
+                        108.56,
+                        118.0,
+                        125.08,
+                        132.16,
+                        141.6,
+                        151.04,
+                        160.48,
+                        169.92,
+                        179.36,
+                        188.8,
+                        200.6,
+                        212.4
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        97.6,
+                        104.92,
+                        112.24,
+                        122.0,
+                        129.32,
+                        136.64,
+                        146.4,
+                        156.16,
+                        165.92,
+                        175.68,
+                        185.44,
+                        195.2,
+                        207.4,
+                        219.6
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        128.8,
+                        138.46,
+                        148.12,
+                        161.0,
+                        170.66,
+                        180.32,
+                        193.2,
+                        206.08,
+                        218.96,
+                        231.84,
+                        244.72,
+                        257.6,
+                        273.7,
+                        289.8
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Dawn",
+            "type": "Elemental Burst",
+            "description": "Releases intense flames to knock back nearby opponents, dealing Pyro DMG.\nThe flames then converge into the weapon, summoning a Phoenix that flies forward and deals massive Pyro DMG to all opponents in its path. The Phoenix explodes upon reaching its destination, causing a large amount of .\nThe searing flames that run down his blade cause it to be infused with Pyro.",
+            "attributes": [
+                {
+                    "hit": "Slashing DMG (%)",
+                    "values": [
+                        204.0,
+                        219.3,
+                        234.6,
+                        255.0,
+                        270.3,
+                        285.6,
+                        306.0,
+                        326.4,
+                        346.8,
+                        367.2,
+                        387.6,
+                        408.0,
+                        433.5,
+                        459.0
+                    ]
+                },
+                {
+                    "hit": "DoT (%)",
+                    "values": [
+                        60.0,
+                        64.5,
+                        69.0,
+                        75.0,
+                        79.5,
+                        84.0,
+                        90.0,
+                        96.0,
+                        102.0,
+                        108.0,
+                        114.0,
+                        120.0,
+                        127.5,
+                        135.0
+                    ]
+                },
+                {
+                    "hit": "Explosion DMG (%)",
+                    "values": [
+                        204.0,
+                        219.3,
+                        234.6,
+                        255.0,
+                        270.3,
+                        285.6,
+                        306.0,
+                        326.4,
+                        346.8,
+                        367.2,
+                        387.6,
+                        408.0,
+                        433.5,
+                        459.0
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Relentless",
+            "type": "1st Ascension Passive",
+            "description": "Diluc's Charged Attack Stamina Cost is decreased by 50%, and its duration is increased by 3s."
+        },
+        {
+            "name": "Blessing of Phoenix",
+            "type": "4th Ascension Passive",
+            "description": "The Pyro Infusion provided by Dawn lasts for 4s longer. Additionally, Diluc gains 20% Pyro DMG Bonus during the duration of this effect."
+        },
+        {
+            "name": "Tradition of the Dawn Knight",
+            "type": "Utility Passive",
+            "description": "Refunds 15% of the ore used when crafting Claymore-type weapons."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Conviction",
+            "description": "Diluc deals 15% more DMG to opponents whose HP is above 50%.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Searing Ember",
+            "description": "When Diluc takes DMG, his ATK increases by 10% and his ATK SPD increases by 5%. Lasts for 10s.\nThis effect can stack up to 3 times and can only occur once every 1.5s.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Fire and Steel",
+            "description": "Increases the Level of Searing Onslaught by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Flowing Flame",
+            "description": "Casting Searing Onslaught in rhythm greatly increases damage dealt.\n2s after casting Searing Onslaught, casting the next Searing Onslaught in the combo deals 40% additional DMG. This effect lasts for 2s.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Phoenix, Harbinger of Dawn",
+            "description": "Increases the Level of Dawn by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Flaming Sword, Nemesis of the Dark",
+            "description": "After casting Searing Onslaught, the next 2 Normal Attacks within the next 6s will have their DMG and ATK SPD increased by 30%.\nAdditionally, Searing Onslaught will not interrupt the Normal Attack combo.",
+            "properties": []
+        }
+    ]
+}

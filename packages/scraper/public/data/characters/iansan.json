@@ -1,0 +1,560 @@
+{
+    "name": "Iansan",
+    "key": "iansan",
+    "title": "Tempered in Molten Stone",
+    "rarity": 4,
+    "element": "none",
+    "vision": "none",
+    "weapon": "polearm",
+    "release_date": "march 26, 2025",
+    "release_date_epoch": 1742947200,
+    "constellation": "carnotaurus",
+    "birthday": "august 8th",
+    "affiliation": "teteocan",
+    "region": "natlan",
+    "special_dish": "gold-standard healthy meal",
+    "alternate_title": "Gold-Standard Trainer from Teteocan",
+    "description": "",
+    "ascension_stat": "ATK",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "893.56",
+            "BaseATK": "21.55",
+            "BaseDEF": "53.51",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2295.54",
+            "BaseATK": "55.36",
+            "BaseDEF": "137.46",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "2963.07",
+            "BaseATK": "71.45",
+            "BaseDEF": "177.43",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "4438.33",
+            "BaseATK": "107.03",
+            "BaseDEF": "265.76",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "4912.63",
+            "BaseATK": "118.47",
+            "BaseDEF": "294.16",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "5650.71",
+            "BaseATK": "136.26",
+            "BaseDEF": "338.36",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "6283.11",
+            "BaseATK": "151.52",
+            "BaseDEF": "376.23",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "7021.18",
+            "BaseATK": "169.31",
+            "BaseDEF": "420.42",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "7495.48",
+            "BaseATK": "180.75",
+            "BaseDEF": "448.82",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "8232.67",
+            "BaseATK": "198.53",
+            "BaseDEF": "492.97",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "8706.96",
+            "BaseATK": "209.97",
+            "BaseDEF": "521.37",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "9445.04",
+            "BaseATK": "227.76",
+            "BaseDEF": "565.56",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "9919.34",
+            "BaseATK": "239.20",
+            "BaseDEF": "593.96",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "10657.42",
+            "BaseATK": "257.00",
+            "BaseDEF": "638.16",
+            "AscensionStatType": "ATK",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Vajrada Amethyst Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Dracolite",
+                    "amount": "3"
+                },
+                {
+                    "name": "Sentry's Wooden Whistle",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Ensnaring Gaze",
+                    "amount": "2"
+                },
+                {
+                    "name": "Vajrada Amethyst Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Dracolite",
+                    "amount": "10"
+                },
+                {
+                    "name": "Sentry's Wooden Whistle",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Ensnaring Gaze",
+                    "amount": "4"
+                },
+                {
+                    "name": "Vajrada Amethyst Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Dracolite",
+                    "amount": "20"
+                },
+                {
+                    "name": "Warrior's Metal Whistle",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Ensnaring Gaze",
+                    "amount": "8"
+                },
+                {
+                    "name": "Vajrada Amethyst Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Dracolite",
+                    "amount": "30"
+                },
+                {
+                    "name": "Warrior's Metal Whistle",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Ensnaring Gaze",
+                    "amount": "12"
+                },
+                {
+                    "name": "Vajrada Amethyst Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Dracolite",
+                    "amount": "45"
+                },
+                {
+                    "name": "Saurian-Crowned Warrior's Golden Whistle",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Ensnaring Gaze",
+                    "amount": "20"
+                },
+                {
+                    "name": "Vajrada Amethyst Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Dracolite",
+                    "amount": "60"
+                },
+                {
+                    "name": "Saurian-Crowned Warrior's Golden Whistle",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Weighted Spike",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 3 consecutive spear strikes.\nCharged Attack\nConsumes a certain amount of Stamina to lunge forward, dealing damage to opponents along the way.\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact.\nNightsoul State: Swift Stormflight\nWhile in the Nightsoul's Blessing state: Iansan's Charged Attack will be transformed into the formidable Swift Stormflight, consuming a certain amount of Stamina to stomp fiercely down, dealing Nightsoul-aligned AoE Electro DMG.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        46.98,
+                        50.8,
+                        54.62,
+                        60.09,
+                        63.91,
+                        68.28,
+                        74.29,
+                        80.3,
+                        86.3,
+                        92.86,
+                        99.41
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        42.76,
+                        46.25,
+                        49.73,
+                        54.7,
+                        58.18,
+                        62.16,
+                        67.63,
+                        73.1,
+                        78.57,
+                        84.53,
+                        90.5
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        64.39,
+                        69.63,
+                        74.87,
+                        82.36,
+                        87.6,
+                        93.59,
+                        101.82,
+                        110.06,
+                        118.29,
+                        127.28,
+                        136.26
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        100.28,
+                        108.44,
+                        116.6,
+                        128.26,
+                        136.42,
+                        145.75,
+                        158.58,
+                        171.4,
+                        184.23,
+                        198.22,
+                        212.21
+                    ]
+                },
+                {
+                    "hit": "Swift Stormflight DMG (%)",
+                    "values": [
+                        84.19,
+                        91.05,
+                        97.9,
+                        107.69,
+                        114.54,
+                        122.37,
+                        133.14,
+                        143.91,
+                        154.68,
+                        166.43,
+                        178.18
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        63.93,
+                        69.14,
+                        74.34,
+                        81.77,
+                        86.98,
+                        92.92,
+                        101.1,
+                        109.28,
+                        117.46,
+                        126.38,
+                        135.3
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        127.84,
+                        138.24,
+                        148.65,
+                        163.51,
+                        173.92,
+                        185.81,
+                        202.16,
+                        218.51,
+                        234.86,
+                        252.7,
+                        270.54
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        159.68,
+                        172.67,
+                        185.67,
+                        204.24,
+                        217.23,
+                        232.09,
+                        252.51,
+                        272.93,
+                        293.36,
+                        315.64,
+                        337.92
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Thunderbolt Rush",
+            "type": "Elemental Skill",
+            "description": "Iansan charges forward a certain distance, dealing Nightsoul-aligned  to all opponents in her path.\nAfter this Skill is used, Iansan will regain 54 Nightsoul points and enter the Nightsoul's Blessing state. Within 5s after this is done, using a Normal Attack will trigger 1 quick Swift Stormflight stomp from Iansan that will not consume Stamina.\n**Nightsoul's Blessing: Iansan**\nContinuously consumes Nightsoul points. If she runs out, or uses this Skill again, her Nightsoul's Blessing state will end. It has the following properties:\n- Increases Iansan's Movement SPD.\n- Holding sprint will switch Iansan to Rushing Thunderbolt mode, greatly increasing her Movement SPD temporarily. In this mode, Iansan can make flying leaps using terrain, or consume additional Nightsoul points to move on water or liquid Phlogiston while being immune to DMG from the latter.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        286.4,
+                        307.88,
+                        329.36,
+                        358.0,
+                        379.48,
+                        400.96,
+                        429.6,
+                        458.24,
+                        486.88,
+                        515.52,
+                        544.16,
+                        572.8,
+                        608.6
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "The Three Principles of Power",
+            "type": "Elemental Burst",
+            "description": "Iansan's stomping foot shatters the very earth with \"Power,\" dealing Nightsoul-aligned . She then whips out her \"Limited-Edition Kinetic Energy Scale (For Workouts).\"\nWhen this Skill is used, Iansan will gain 15 Nightsoul points and enter the Nightsoul's Blessing state.\nWhen the Kinetic Energy Scale leaves the field, Iansan's Nightsoul's Blessing state will end.\n**Kinetic Energy Scale**\nThe Kinetic Energy Scale will follow the character around, boosting the ATK of your current active party member in different ways based on Iansan's Nightsoul points.\n-  If Iansan has less than 42 Nightsoul points, the ATK bonus will be based on her Nightsoul points and ATK.\n-  If Iansan has at least 42 Nightsoul points, the Kinetic Energy Scale will switch to the \"Ardent Support!\" state, in which the ATK bonus will be stronger and based on her ATK alone.\nAdditionally, the Scale will log the distance your current active character (excluding Iansan) has moved so long as it is active, restoring Nightsoul points to Iansan every second based on the distance moved in the previous second.\nThe Scale will disappear once her Nightsoul's Blessing state ends. It will also disappear after 1 second when you are not in a state of combat. While it is active, Iansan's Nightsoul's Blessing state will not end even if she is not on the field.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        430.4,
+                        462.68,
+                        494.96,
+                        538.0,
+                        570.28,
+                        602.56,
+                        645.6,
+                        688.64,
+                        731.68,
+                        774.72,
+                        817.76,
+                        860.8,
+                        914.6
+                    ]
+                },
+                {
+                    "hit": "Max ATK Bonus",
+                    "values": [
+                        330.0,
+                        370.0,
+                        410.0,
+                        450.0,
+                        490.0,
+                        530.0,
+                        570.0,
+                        610.0,
+                        650.0,
+                        690.0,
+                        730.0,
+                        770.0,
+                        810.0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Hard Work and Drive",
+            "type": "Night Realm's Gift Passive",
+            "description": "After Nightsoul points have been fully depleted and Iansan is on the field, she will switch to using Phlogiston to maintain her Nightsoul's Blessing.While in an area with Phlogiston Mechanics within Natlan, Nightsoul Transmission: Iansan can be used. When the current active character is sprinting or in movement modes caused by certain Talents, or at a certain height in the air, switching to Iansan will trigger the following: Iansan enters the Nightsoul's Blessing state and obtains 25 Nightsoul points. Nightsoul Transmission can be triggered once every 10s by your own party.While in an area with Phlogiston Mechanics within Natlan, Iansan will not take fall DMG when using terrain differences to make leaps."
+        }
+    ],
+    "passives": [
+        {
+            "name": "Enhanced Resistance Training",
+            "type": "1st Ascension Passive",
+            "description": "After Swift Stormflight hits opponents, Iansan will gain the Precise Movement effect for 15s.During this time, her ATK is increased by 20%, and whenever she regains Nightsoul points through the Kinetic Energy Scale in her Elemental Burst, The Three Principles of Power, she will gain 1 extra Nightsoul point. Additionally, when your current active party member consumes or restores Nightsoul points, the extra Nightsoul points Iansan gains the next time she restores Nightsoul points via the Scale will be increased to 4. This effect can occur once every 2.8s.\"Precise Movement\" will expire when Iansan's Nightsoul's Blessing state ends."
+        },
+        {
+            "name": "Kinetic Energy Gradient Test",
+            "type": "4th Ascension Passive",
+            "description": "When a nearby party member triggers a Nightsoul Burst, Iansan will obtain the Warming Up effect for 10s.During this time, when Iansan restores at least 1 Nightsoul points, she will heal your current active character for 60% of her ATK. This effect can be triggered once every 2.8s."
+        },
+        {
+            "name": "Caloric Balancing Plan",
+            "type": "Utility Passive",
+            "description": "While in an area with Phlogiston Mechanics within Natlan, regain 10 Phlogiston when Phlogiston levels drop below 50%. This can occur once every 10s."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Starting's Never Easy",
+            "description": "When Iansan is in combat and is in the Nightsoul's Blessing state, she will restore 15 Elemental Energy for every 6 Nightsoul points she consumes. This effect can trigger once every 18s.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Laziness is the Enemy!",
+            "description": "When using the Elemental Burst The Three Principles of Power, Iansan will also gain the Precise Movement effect from her Passive Talent \"Enhanced Resistance Training\" for 15s. Additionally, if Iansan is off-field while Precise Movement is active, she will also increase your current active character's ATK by 30%. You must first unlock the Passive Talent \"Enhanced Resistance Training\" to access the above effect.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Scientific Diet Planning",
+            "description": "Increases the Level of Thunderbolt Rush by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Slow and Steady Wins the Race",
+            "description": "When the Kinetic Energy Scale is present, Iansan will gain 2 stacks of Surging Force after your current active character (excluding herself) uses their Elemental Burst. The stacks last until the Scale leaves the field, and Surging Force can be gained once per Scale summoning. Whenever Iansan restores Nightsoul points via the Scale, she will consume 1 Surging Force stack and restore 4 additional Nightsoul points.\nAdditionally, if her Nightsoul restoration from the Scale overflows, Iansan will gain 50% of the overflow the next time she restores Nightsoul points via the Scale.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "We Can Push It Further!",
+            "description": "Increases the Level of The Three Principles of Power by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Teachings of the Collective of Plenty",
+            "description": "The Kinetic Energy Scale's duration is increased by 3s.\nAdditionally, when Iansan triggers Nightsoul points restoration, if there is any overflow, she will gain the Extreme Force effect, which increases the DMG dealt by your current active character by 25% for 3s.",
+            "properties": []
+        }
+    ]
+}

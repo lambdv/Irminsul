@@ -1,0 +1,709 @@
+{
+    "name": "Varesa",
+    "key": "varesa",
+    "title": "strength in serenity",
+    "rarity": 5,
+    "element": "electro",
+    "vision": "electro",
+    "weapon": "catalyst",
+    "release_date": "march 26, 2025",
+    "release_date_epoch": 1742947200,
+    "constellation": "mascara luctatori",
+    "birthday": "november 15",
+    "affiliation": "teteocan",
+    "region": "natlan",
+    "special_dish": "mt. mushroom (for one)",
+    "alternate_title": "strength in serenity",
+    "description": "A laid-back orchard manager and warrior of the Collective of Plenty. An aspiring hero who hungers for justice... and lots and lots of food!",
+    "ascension_stat": "CRIT Rate",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "988.59",
+            "BaseATK": "27.74",
+            "BaseDEF": "60.85",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2564.41",
+            "BaseATK": "71.97",
+            "BaseDEF": "157.84",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3412.04",
+            "BaseATK": "95.75",
+            "BaseDEF": "210.01",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "5105.50",
+            "BaseATK": "143.28",
+            "BaseDEF": "314.24",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "5707.76",
+            "BaseATK": "160.18",
+            "BaseDEF": "351.31",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6566.85",
+            "BaseATK": "184.29",
+            "BaseDEF": "404.19",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "4.8%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "7369.86",
+            "BaseATK": "206.82",
+            "BaseDEF": "453.61",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "8237.85",
+            "BaseATK": "231.18",
+            "BaseDEF": "507.04",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "8840.11",
+            "BaseATK": "248.08",
+            "BaseDEF": "544.11",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "9716.01",
+            "BaseATK": "272.66",
+            "BaseDEF": "598.02",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "10318.27",
+            "BaseATK": "289.56",
+            "BaseDEF": "635.09",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "11204.05",
+            "BaseATK": "314.42",
+            "BaseDEF": "689.61",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "14.4%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "11806.31",
+            "BaseATK": "331.32",
+            "BaseDEF": "726.67",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "12699.01",
+            "BaseATK": "356.38",
+            "BaseDEF": "781.62",
+            "AscensionStatType": "CRIT Rate",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Vajrada Amethyst Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Skysplit Gembloom",
+                    "amount": "3"
+                },
+                {
+                    "name": "Juvenile Fang",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Sparkless Statue Core",
+                    "amount": "2"
+                },
+                {
+                    "name": "Vajrada Amethyst Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Skysplit Gembloom",
+                    "amount": "10"
+                },
+                {
+                    "name": "Juvenile Fang",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Sparkless Statue Core",
+                    "amount": "4"
+                },
+                {
+                    "name": "Vajrada Amethyst Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Skysplit Gembloom",
+                    "amount": "20"
+                },
+                {
+                    "name": "Seasoned Fang",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Sparkless Statue Core",
+                    "amount": "8"
+                },
+                {
+                    "name": "Vajrada Amethyst Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Skysplit Gembloom",
+                    "amount": "30"
+                },
+                {
+                    "name": "Seasoned Fang",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Sparkless Statue Core",
+                    "amount": "12"
+                },
+                {
+                    "name": "Vajrada Amethyst Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Skysplit Gembloom",
+                    "amount": "45"
+                },
+                {
+                    "name": "Tyrant's Fang",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Sparkless Statue Core",
+                    "amount": "20"
+                },
+                {
+                    "name": "Vajrada Amethyst Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Skysplit Gembloom",
+                    "amount": "60"
+                },
+                {
+                    "name": "Tyrant's Fang",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "By the Horns",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nGotta try... to do battle like the greatest champion luchadors do! Varesa launches up to 3 strikes, dealing Electro DMG.\nCharged Attack\nConsumes a certain amount of Stamina to headbutt opponents in front, dealing Nightsoul-aligned Electro DMG and using the momentum to leap into the air.\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing Nightsoul-aligned AoE Electro DMG upon impact. If Varesa is in a combat state upon landing, or if the shockwave from her plunging attack hits an opponent, she will gain 25 Nightsoul points. She enters the Fiery Passion state upon reaching maximum Nightsoul points through this method.\nFiery Passion\nIn this state, Varesa's Normal, Charged, and Plunging Attacks will gain corresponding buffs:\nNormal Attack\nFight like a superstar champion luchador! Launches up to 3 fierce strikes, dealing greater Electro DMG.\nCharged Attack\nConsumes a certain amount of Stamina to slam into her opponents, dealing greater amounts of Nightsoul-aligned Electro DMG and using the momentum to leap into the air.\nPlunging Attack\nConsumes all her Nightsoul points and slams down on the ground from mid-air, dealing DMG to opponents in her path and dealing greater amounts of Nightsoul-aligned AoE Electro DMG upon hitting the ground.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        46.78,
+                        50.29,
+                        53.8,
+                        58.47,
+                        61.98,
+                        65.49,
+                        70.17,
+                        74.85,
+                        79.52,
+                        84.2,
+                        88.88,
+                        93.56,
+                        99.4,
+                        105.25
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        40.03,
+                        43.03,
+                        46.03,
+                        50.03,
+                        53.04,
+                        56.04,
+                        60.04,
+                        64.04,
+                        68.05,
+                        72.05,
+                        76.05,
+                        80.06,
+                        85.06,
+                        90.06
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        56.31,
+                        60.54,
+                        64.76,
+                        70.39,
+                        74.61,
+                        78.84,
+                        84.47,
+                        90.1,
+                        95.73,
+                        101.36,
+                        106.99,
+                        112.63,
+                        119.66,
+                        126.7
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        89.28,
+                        95.98,
+                        102.67,
+                        111.6,
+                        118.3,
+                        124.99,
+                        133.92,
+                        142.85,
+                        151.78,
+                        160.7,
+                        169.63,
+                        178.56,
+                        189.72,
+                        200.88
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        74.59,
+                        80.66,
+                        86.73,
+                        95.4,
+                        101.47,
+                        108.41,
+                        117.95,
+                        127.49,
+                        137.03,
+                        147.44,
+                        157.85,
+                        168.26,
+                        178.66,
+                        189.07
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        149.14,
+                        161.28,
+                        173.42,
+                        190.77,
+                        202.91,
+                        216.78,
+                        235.86,
+                        254.93,
+                        274.01,
+                        294.82,
+                        315.63,
+                        336.44,
+                        357.25,
+                        378.06
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        186.29,
+                        201.45,
+                        216.62,
+                        238.28,
+                        253.44,
+                        270.77,
+                        294.6,
+                        318.42,
+                        342.25,
+                        368.25,
+                        394.24,
+                        420.23,
+                        446.23,
+                        472.22
+                    ]
+                },
+                {
+                    "hit": "Fiery Passion 1-Hit DMG (%)",
+                    "values": [
+                        54.41,
+                        58.49,
+                        62.57,
+                        68.01,
+                        72.09,
+                        76.17,
+                        81.61,
+                        87.05,
+                        92.49,
+                        97.93,
+                        103.37,
+                        108.81,
+                        115.62,
+                        122.42
+                    ]
+                },
+                {
+                    "hit": "Fiery Passion 2-Hit DMG (%)",
+                    "values": [
+                        52.03,
+                        55.93,
+                        59.83,
+                        65.04,
+                        68.94,
+                        72.84,
+                        78.04,
+                        83.25,
+                        88.45,
+                        93.65,
+                        98.85,
+                        104.06,
+                        110.56,
+                        117.06
+                    ]
+                },
+                {
+                    "hit": "Fiery Passion 3-Hit DMG (%)",
+                    "values": [
+                        73.59,
+                        79.11,
+                        84.62,
+                        91.98,
+                        97.5,
+                        103.02,
+                        110.38,
+                        117.74,
+                        125.1,
+                        132.46,
+                        139.81,
+                        147.17,
+                        156.37,
+                        165.57
+                    ]
+                },
+                {
+                    "hit": "Fiery Passion Charged Attack DMG (%)",
+                    "values": [
+                        92.64,
+                        99.59,
+                        106.54,
+                        115.8,
+                        122.75,
+                        129.7,
+                        138.96,
+                        148.22,
+                        157.49,
+                        166.75,
+                        176.02,
+                        185.28,
+                        196.86,
+                        208.44
+                    ]
+                },
+                {
+                    "hit": "Fiery Passion Plunge DMG (%)",
+                    "values": [
+                        74.59,
+                        80.66,
+                        86.73,
+                        95.4,
+                        101.47,
+                        108.41,
+                        117.95,
+                        127.49,
+                        137.03,
+                        147.44,
+                        157.85,
+                        168.26,
+                        178.66,
+                        189.07
+                    ]
+                },
+                {
+                    "hit": "Fiery Passion Low/High Plunge DMG (%)",
+                    "values": [
+                        "223.72/279.43",
+                        "241.93/302.18",
+                        "260.13/324.92",
+                        "286.15/357.41",
+                        "304.36/380.16",
+                        "325.17/406.15",
+                        "353.78/441.89",
+                        "382.4/477.64",
+                        "411.01/513.38",
+                        "442.23/552.37",
+                        "473.45/591.36",
+                        "504.66/630.35",
+                        "535.88/669.34",
+                        "567.09/708.33"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Riding the Night-Rainbow",
+            "type": "Elemental Skill",
+            "description": "With footwork swift as lightning and fierce as thunder, Varesa displays the true spirit of lucha libre, rushing forward a certain distance and dealing Nightsoul-aligned  to opponents in her path.\nAfter using this Skill, Varesa gains 20 Nightsoul points and gains the \"Follow-Up Strike\" effect: Varesa has increased interruption resistance during this time, and upon pressing her Normal Attack, she will quickly unleash a Charged Attack that does not consume Stamina. \"Follow-Up Strike\" will be canceled after Varesa uses a Charged Attack.\nShe will use different techniques based on whether the skill is Tapped or Held.\n**Tap**\nQuickly rush a certain distance forward.\n**Hold**\nVaresa enters the Nightsoul's Blessing state and switches to Sudden Onrush mode.\n**Sudden Onrush**\nContinuously consumes Nightsoul points. In this state, Varesa's Movement SPD and interruption resistance are increased. She can use terrain to execute flying leaps or consume additional Nightsoul points to traverse atop water or liquid Phlogiston while remaining immune to DMG from the latter.\n**Nightsoul's Blessing: Varesa**\nWhen she runs out of Nightsoul points, her Nightsoul's Blessing state will be canceled. When Varesa is in the Sudden Onrush state or Fiery Passion state, she will always be counted as being in the Nightsoul's Blessing state.\nHas 2 charges. When Varesa enters the Fiery Passion state, she will obtain an additional Tap charge of her Elemental Skill and its DMG will be increased.\n**Fiery Passion**\n-  While not in the Fiery Passion state, Varesa can use Plunging Attacks to gain Nightsoul points. She will enter Fiery Passion when she reaches maximum Nightsoul points via this method, or when she uses her Elemental Burst Guardian Vent!\n-  While in the Fiery Passion state, her Normal Attacks, Elemental Skill, and Elemental Burst will gain unique buffs. She can also use a special Elemental Burst shortly after using a Plunging Attack.\n-  The Fiery Passion state lasts for up to 15s and will end when she runs out of Nightsoul points or after she leaves combat for a period of time.",
+            "attributes": [
+                {
+                    "hit": "Rush DMG (%)",
+                    "values": [
+                        74.48,
+                        80.07,
+                        85.65,
+                        93.1,
+                        98.69,
+                        104.27,
+                        111.72,
+                        119.17,
+                        126.62,
+                        134.06
+                    ]
+                },
+                {
+                    "hit": "Fiery Passion Rush DMG (%)",
+                    "values": [
+                        106.4,
+                        114.38,
+                        122.36,
+                        133.0,
+                        140.98,
+                        148.96,
+                        159.6,
+                        170.24,
+                        180.88,
+                        191.52
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Guardian Vent!",
+            "type": "Elemental Burst",
+            "description": "Leaps into the air before using the momentum of the drop to unleash a powerful flying kick, dealing Nightsoul-aligned AoE Electro DMG to opponents \u2014 just like those heroes of justice in woven scrolls for kids!\nAfter using this Skill, Varesa's Nightsoul points will be restored to maximum and she will enter the Fiery Passion state.\nIn the Fiery Passion state, Varesa's Elemental Burst will deal a greater amount of Nightsoul-aligned AoE Electro DMG.\nAdditionally, she will briefly activate Apex Drive after using a Plunging Attack while in her Fiery Passion state.\nApex Drive\nIncreases Varesa's interruption resistance. While affected by Apex Drive, Varesa can ignore her Elemental Burst CD and consume less Energy to use her special Elemental Burst, \"Guardian Vent: Volcano Kablam\": This causes her to use the especially powerful Plunging Attack, the \"Thunderous Tornado Eruption,\" which deals Nightsoul-aligned AoE Electro DMG upon landing before causing her to exit Apex Drive. This DMG is considered Plunging Attack DMG.\nVaresa will exit Apex Drive after using her Elemental Skill.",
+            "attributes": [
+                {
+                    "hit": "Flying Kick DMG (%)",
+                    "values": [
+                        345.12,
+                        371.0,
+                        396.89,
+                        431.4,
+                        457.28,
+                        483.17,
+                        517.68,
+                        552.19,
+                        586.7,
+                        621.22,
+                        655.73,
+                        690.24,
+                        733.38
+                    ]
+                },
+                {
+                    "hit": "Fiery Passion Flying Kick DMG (%)",
+                    "values": [
+                        575.2,
+                        618.34,
+                        661.48,
+                        719.0,
+                        762.14,
+                        805.28,
+                        862.8,
+                        920.32,
+                        977.84,
+                        1035.36,
+                        1092.88,
+                        1150.4,
+                        1222.3
+                    ]
+                },
+                {
+                    "hit": "Volcano Kablam DMG (%)",
+                    "values": [
+                        402.64,
+                        432.84,
+                        463.04,
+                        503.3,
+                        533.5,
+                        563.7,
+                        603.96,
+                        644.22,
+                        684.49,
+                        724.75,
+                        765.02,
+                        805.28,
+                        855.61
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "A Torch That Incinerates Evil",
+            "type": "Night Realm's Gift Passive",
+            "description": "After Nightsoul points have been fully depleted, Varesa will switch to using Phlogiston to maintain the Sudden Onrush mode from her Nightsoul's Blessing.While in an area with Phlogiston Mechanics within Natlan, Nightsoul Transmission: Varesa can be used. When the current active character is sprinting or in movement modes caused by certain Talents, or at a certain height in the air, switching to Varesa will trigger the following: Varesa enters the Nightsoul's Blessing state, switches to Sudden Onrush mode, and obtains 20 Nightsoul points. Nightsoul Transmission can be triggered once every 10s by your own party.While in an area with Phlogiston Mechanics within Natlan, Varesa will not take fall DMG when using terrain differences to make leaps."
+        }
+    ],
+    "passives": [
+        {
+            "name": "Tag-Team Triple Jump!",
+            "type": "1st Ascension Passive",
+            "description": "After using the Elemental Skill Riding the Night-Rainbow, Varesa gains \"Rainbow Crash\" for 5s.\nDuring this time, when Varesa uses a Plunging Attack, the shockwave DMG dealt when she hits the ground is increased by 50% of her ATK. If Varesa is in the Fiery Passion state, this ground impact DMG is increased by 180% of her ATK instead.\nThe Rainbow Crash effect will be canceled once a ground impact hits an opponent, or when its duration expires."
+        },
+        {
+            "name": "The Hero Twice-Returned!",
+            "type": "4th Ascension Passive",
+            "description": "When a nearby party member triggers a Nightsoul Burst, Varesa's ATK increases by 35% for 12s. Max 2 stacks. Each stack's duration is counted independently."
+        },
+        {
+            "name": "Blazing Heart, Singular Advance!",
+            "type": "Utility Passive",
+            "description": "Varesa's Sprint speed is increased. When she is not in combat, her Sprint Stamina consumption will also increase. Additionally, while in an area with Phlogiston Mechanics within Natlan, your party members will restore 20 Phlogiston when consuming food. This effect can occur once every 10s and does not take effect in Domains, Trounce Domains, or the Spiral Abyss."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Undying Passion",
+            "description": "The effects of the Passive Talent \"Tag-Team Triple Jump!\" are enhanced:\nWhen performing the Special Plunging Attack \"Thunderous Tornado Eruption,\" Varesa will also gain \"Rainbow Crash\" for 5s.\nWhen \"Rainbow Crash\" is in effect, Varesa's Plunging Attack ground impact DMG is increased by 180% of her ATK, whether she is in the Fiery Passion state or not. You must first unlock the Passive Talent \"Tag-Team Triple Jump!\" to access the above effect.\nAdditionally, when Varesa is in the Sudden Onrush mode of her Nightsoul's Blessing, she consumes 30% less Nightsoul points or Phlogiston.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Beyond the Edge of Light",
+            "description": "Varesa will enter Apex Drive after using a Plunging Attack, regardless of whether she is in the Fiery Passion state or not.\nWhen Apex Drive is active, Varesa's interruption resistance will also further increase.\nAdditionally, Varesa will restore 11.5 Energy when her Plunging Attack ground impact hits an opponent.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Unbowed Resolve",
+            "description": "Increases the Level of Guardian Vent! by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "The Courage to Press On",
+            "description": "Varesa will receive various buffs based on her state when using her Elemental Burst Guardian Vent! If Varesa:\n-  Has neither Fiery Passion nor Apex Drive active, she will gain Diligent Refinement for 15s, which will increase her Plunging Attack ground impact DMG by 500% of her ATK, with a maximum increase of 20,000 DMG. This effect will be canceled once the ground impact hits an opponent, or if its duration ends.\n-  If she has either Fiery Passion or Apex Drive active, this instance of her Elemental Burst Guardian Vent! deals 100% increased DMG.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Thoughts Floating on the Warm Breeze",
+            "description": "Increases the Level of Normal Attack: By the Horns by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "A Hero of Justice's Triumph",
+            "description": "Varesa restores 30 Energy when she enters Apex Drive.\nHer Plunging Attacks and Elemental Burst Guardian Vent! gain 10% CRIT Rate and 100% CRIT DMG.\nAdditionally, when Varesa uses the Hold version of her Elemental Skill Riding the Night-Rainbow, or Taps her Elemental Skill while in the Sudden Onrush mode, she will restore Nightsoul points up to her maximum.",
+            "properties": []
+        }
+    ]
+}

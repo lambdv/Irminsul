@@ -1,0 +1,529 @@
+{
+    "name": "Ningguang",
+    "key": "ningguang",
+    "title": "Eclipsing Star",
+    "rarity": 4,
+    "element": "geo",
+    "vision": "geo",
+    "weapon": "catalyst",
+    "release_date": "september 28, 2020",
+    "release_date_epoch": 1601251200,
+    "constellation": "opus aequilibrium",
+    "birthday": "august 26th",
+    "affiliation": "liyue qixing",
+    "region": "liyue",
+    "special_dish": "qiankun mora meat",
+    "alternate_title": "Lady of the Jade Chamber",
+    "description": "The Tianquan of the Liyue Qixing. Her wealth is unsurpassed in all of Teyvat.",
+    "ascension_stat": "Geo DMG Bonus",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "820.61",
+            "BaseATK": "17.81",
+            "BaseDEF": "48.07",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2108.15",
+            "BaseATK": "45.75",
+            "BaseDEF": "123.49",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "2721.19",
+            "BaseATK": "59.05",
+            "BaseDEF": "159.40",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "4076.02",
+            "BaseATK": "88.45",
+            "BaseDEF": "238.76",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "4511.60",
+            "BaseATK": "97.91",
+            "BaseDEF": "264.28",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "5189.43",
+            "BaseATK": "112.62",
+            "BaseDEF": "303.98",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "5770.20",
+            "BaseATK": "125.22",
+            "BaseDEF": "338.00",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "6448.03",
+            "BaseATK": "139.93",
+            "BaseDEF": "377.71",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "6883.61",
+            "BaseATK": "149.38",
+            "BaseDEF": "403.22",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "7560.61",
+            "BaseATK": "164.07",
+            "BaseDEF": "442.88",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "7996.19",
+            "BaseATK": "173.53",
+            "BaseDEF": "468.39",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "8674.02",
+            "BaseATK": "188.24",
+            "BaseDEF": "508.10",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "9109.60",
+            "BaseATK": "197.69",
+            "BaseDEF": "533.61",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "9787.42",
+            "BaseATK": "212.40",
+            "BaseDEF": "573.32",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Prithiva Topaz Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Glaze Lily",
+                    "amount": "3"
+                },
+                {
+                    "name": "Recruit's Insignia",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Basalt Pillar",
+                    "amount": "2"
+                },
+                {
+                    "name": "Prithiva Topaz Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Glaze Lily",
+                    "amount": "10"
+                },
+                {
+                    "name": "Recruit's Insignia",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Basalt Pillar",
+                    "amount": "4"
+                },
+                {
+                    "name": "Prithiva Topaz Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Glaze Lily",
+                    "amount": "20"
+                },
+                {
+                    "name": "Sergeant's Insignia",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Basalt Pillar",
+                    "amount": "8"
+                },
+                {
+                    "name": "Prithiva Topaz Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Glaze Lily",
+                    "amount": "30"
+                },
+                {
+                    "name": "Sergeant's Insignia",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Basalt Pillar",
+                    "amount": "12"
+                },
+                {
+                    "name": "Prithiva Topaz Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Glaze Lily",
+                    "amount": "45"
+                },
+                {
+                    "name": "Lieutenant's Insignia",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Basalt Pillar",
+                    "amount": "20"
+                },
+                {
+                    "name": "Prithiva Topaz Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Glaze Lily",
+                    "amount": "60"
+                },
+                {
+                    "name": "Lieutenant's Insignia",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Sparkling Scatter",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nShoots gems that deal Geo DMG.\nUpon hit, this grants Ningguang 1 Star Jade.\nCharged Attack\nConsumes a certain amount of stamina to fire off a giant gem that deals Geo DMG.\nIf Ningguang has any Star Jades, unleashing a Charged Attack will cause the Star Jades to be fired at the enemy as well, dealing additional DMG.\nPlunging Attack\nGathering the might of Geo, Ningguang plunges towards the ground from mid-air, damaging all opponents in her path. Deals AoE Geo DMG upon impact with the ground.",
+            "attributes": [
+                {
+                    "hit": "Normal Attack DMG (%)",
+                    "values": [
+                        "28\u00d72",
+                        "30.1\u00d72",
+                        "32.2\u00d72",
+                        "35\u00d72",
+                        "37.1\u00d72",
+                        "39.2\u00d72",
+                        "42\u00d72",
+                        "44.8\u00d72",
+                        "47.6\u00d72",
+                        "50.4\u00d72",
+                        "53.31\u00d72"
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        174.08,
+                        187.14,
+                        200.19,
+                        217.6,
+                        230.66,
+                        243.71,
+                        261.12,
+                        278.53,
+                        295.94,
+                        313.34,
+                        331.45
+                    ]
+                },
+                {
+                    "hit": "DMG per Star Jade (%)",
+                    "values": [
+                        49.6,
+                        53.32,
+                        57.04,
+                        62.0,
+                        65.72,
+                        69.44,
+                        74.4,
+                        79.36,
+                        84.32,
+                        89.28,
+                        94.44
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.17,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Jade Screen",
+            "type": "Elemental Skill",
+            "description": "Ningguang creates a Jade Screen out of gold, obsidian and her great opulence, dealing .\n**Jade Screen**\n- Blocks opponents' projectiles.\n- Endurance scales based on Ningguang's Max HP.\nJade Screen is considered a  and can be used to block certain attacks, but cannot be climbed. Only one Jade Screen may exist at any one time.",
+            "attributes": [
+                {
+                    "hit": "Inherited HP (% Max HP)",
+                    "values": [
+                        50.1,
+                        53.1,
+                        56.1,
+                        60.0,
+                        63.0,
+                        66.0,
+                        69.9,
+                        73.8,
+                        77.7,
+                        81.6,
+                        85.5,
+                        89.4,
+                        93.3,
+                        97.2
+                    ]
+                },
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        230.4,
+                        247.68,
+                        264.96,
+                        288.0,
+                        305.28,
+                        322.56,
+                        345.6,
+                        368.64,
+                        391.68,
+                        414.72,
+                        437.76,
+                        460.8,
+                        489.6,
+                        518.0
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Starshatter",
+            "type": "Elemental Burst",
+            "description": "Gathering a great number of gems, Ningguang scatters them all at once, sending homing projectiles at her opponents that deal massive Geo DMG.\nIf Starshatter is cast when a Jade Screen is nearby, the Jade Screen will fire additional gem projectiles at the same time.",
+            "attributes": [
+                {
+                    "hit": "DMG Per Gem (%)",
+                    "values": [
+                        86.96,
+                        93.48,
+                        100.0,
+                        108.7,
+                        115.22,
+                        121.74,
+                        130.44,
+                        139.14,
+                        147.83,
+                        156.53,
+                        165.22,
+                        173.92,
+                        184.79,
+                        196.0
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Backup Plan",
+            "type": "1st Ascension Passive",
+            "description": "When Ningguang is in possession of Star Jades, her Charged Attack does not consume Stamina."
+        },
+        {
+            "name": "Strategic Reserve",
+            "type": "4th Ascension Passive",
+            "description": "A character that passes through the Jade Screen will gain a 12% Geo DMG Bonus for 10s."
+        },
+        {
+            "name": "Trove of Marvelous Treasures",
+            "type": "Utility Passive",
+            "description": "Displays the location of nearby ore veins used in forging on the mini-map."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Piercing Fragments",
+            "description": "When a Normal Attack hits, it deals AoE DMG.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Shock Effect",
+            "description": "When Jade Screen is shattered, its CD will reset.\nCan occur once every 6s.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Majesty Be the Array of Stars",
+            "description": "Increases the Level of Starshatter by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Exquisite be the Jade, Outshining All Beneath",
+            "description": "Jade Screen increases nearby characters' Elemental RES by 10%.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Invincible Be the Jade Screen",
+            "description": "Increases the Level of Jade Screen by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Grandeur Be the Seven Stars",
+            "description": "When Starshatter is used, Ningguang gains 7 Star Jades.",
+            "properties": []
+        }
+    ]
+}

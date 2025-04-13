@@ -1,0 +1,19 @@
+{
+    "name": "Heart of Depth",
+    "key": "heart-of-depth",
+    "flower_description": "A mantle brooch that has lost its luster. The gold plating that once adorned it was ground away by the wind and the waves long ago.",
+    "feather_description": "A feather carried over by whimpering sea winds and crimson waves. The passage of time has changed its shape and color.",
+    "sand_description": "An ancient bronze compass. Its needle points towards some ever-distant shore, to a non-existent harbor.",
+    "goblet_description": "A faded wine cup that was unintentionally dredged up from the sea. Its dull exterior tells of the days it has spent beneath the waves.",
+    "circlet_description": "An ancient, wine-stained sea hat that still reeks of alcohol even now.",
+    "flower_name": "Gilded Corsage",
+    "feather_name": "Gust of Nostalgia",
+    "sand_name": "Copper Compass",
+    "goblet_name": "Goblet of Thundering Deep",
+    "circlet_name": "Wine-Stained Tricorne",
+    "two_pc_bonus": "Hydro DMG Bonus +15%",
+    "four_pc_bonus": "After using an Elemental Skill, increases Normal Attack and Charged Attack DMG by 30% for 15s.",
+    "rarity_min": 4,
+    "rarity_max": 5,
+    "release_version": 1.2
+}

@@ -1,0 +1,634 @@
+{
+    "name": "Qiqi",
+    "key": "qiqi",
+    "title": "Icy Resurrection",
+    "rarity": 5,
+    "element": "cryo",
+    "vision": "cryo",
+    "weapon": "sword",
+    "release_date": "september 28, 2020",
+    "release_date_epoch": 1601251200,
+    "constellation": "pristina nola",
+    "birthday": "march 3rd",
+    "affiliation": "bubu pharmacy (on profile)adepti (energy carrier)[note 1] ",
+    "region": "liyue",
+    "special_dish": "no tomorrow",
+    "alternate_title": "Pharmacist, Bubu Pharmacy",
+    "description": "An apprentice and herb gatherer at Bubu Pharmacy. An undead with a bone-white complexion, she seldom has much in the way of words or emotion.",
+    "ascension_stat": "Healing Bonus",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "962.85",
+            "BaseATK": "22.34",
+            "BaseDEF": "71.80",
+            "AscensionStatType": "Healing Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2497.64",
+            "BaseATK": "57.96",
+            "BaseDEF": "186.24",
+            "AscensionStatType": "Healing Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3323.20",
+            "BaseATK": "77.12",
+            "BaseDEF": "247.80",
+            "AscensionStatType": "Healing Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "4972.57",
+            "BaseATK": "115.39",
+            "BaseDEF": "370.79",
+            "AscensionStatType": "Healing Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "5559.15",
+            "BaseATK": "129.00",
+            "BaseDEF": "414.53",
+            "AscensionStatType": "Healing Bonus",
+            "AscensionStatValue": "5.5%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6395.87",
+            "BaseATK": "148.42",
+            "BaseDEF": "476.92",
+            "AscensionStatType": "Healing Bonus",
+            "AscensionStatValue": "5.5%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "7177.98",
+            "BaseATK": "166.57",
+            "BaseDEF": "535.24",
+            "AscensionStatType": "Healing Bonus",
+            "AscensionStatValue": "11.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "8023.36",
+            "BaseATK": "186.19",
+            "BaseDEF": "598.27",
+            "AscensionStatType": "Healing Bonus",
+            "AscensionStatValue": "11.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "8609.95",
+            "BaseATK": "199.80",
+            "BaseDEF": "642.01",
+            "AscensionStatType": "Healing Bonus",
+            "AscensionStatValue": "11.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "9463.03",
+            "BaseATK": "219.59",
+            "BaseDEF": "705.62",
+            "AscensionStatType": "Healing Bonus",
+            "AscensionStatValue": "11.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "10049.62",
+            "BaseATK": "233.21",
+            "BaseDEF": "749.36",
+            "AscensionStatType": "Healing Bonus",
+            "AscensionStatValue": "16.5%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "10912.33",
+            "BaseATK": "253.23",
+            "BaseDEF": "813.69",
+            "AscensionStatType": "Healing Bonus",
+            "AscensionStatValue": "16.5%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "11498.91",
+            "BaseATK": "266.84",
+            "BaseDEF": "857.43",
+            "AscensionStatType": "Healing Bonus",
+            "AscensionStatValue": "22.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "12368.37",
+            "BaseATK": "287.01",
+            "BaseDEF": "922.27",
+            "AscensionStatType": "Healing Bonus",
+            "AscensionStatValue": "22.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Shivada Jade Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Violetgrass",
+                    "amount": "3"
+                },
+                {
+                    "name": "Divining Scroll",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Hoarfrost Core",
+                    "amount": "2"
+                },
+                {
+                    "name": "Shivada Jade Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Violetgrass",
+                    "amount": "10"
+                },
+                {
+                    "name": "Divining Scroll",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Hoarfrost Core",
+                    "amount": "4"
+                },
+                {
+                    "name": "Shivada Jade Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Violetgrass",
+                    "amount": "20"
+                },
+                {
+                    "name": "Sealed Scroll",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Hoarfrost Core",
+                    "amount": "8"
+                },
+                {
+                    "name": "Shivada Jade Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Violetgrass",
+                    "amount": "30"
+                },
+                {
+                    "name": "Sealed Scroll",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Hoarfrost Core",
+                    "amount": "12"
+                },
+                {
+                    "name": "Shivada Jade Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Violetgrass",
+                    "amount": "45"
+                },
+                {
+                    "name": "Forbidden Curse Scroll",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Hoarfrost Core",
+                    "amount": "20"
+                },
+                {
+                    "name": "Shivada Jade Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Violetgrass",
+                    "amount": "60"
+                },
+                {
+                    "name": "Forbidden Curse Scroll",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Ancient Sword Art",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 5 rapid strikes.\nCharged Attack\nConsumes a certain amount Stamina to unleash 2 rapid sword strikes.\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        37.75,
+                        40.83,
+                        43.9,
+                        48.29,
+                        51.36,
+                        54.87,
+                        59.7,
+                        64.53,
+                        69.36,
+                        74.63,
+                        79.9
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        38.87,
+                        42.04,
+                        45.2,
+                        49.72,
+                        52.88,
+                        56.5,
+                        61.47,
+                        66.44,
+                        71.42,
+                        76.84,
+                        82.26
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        "24.17+24.17",
+                        "26.13+26.13",
+                        "28.1+28.1",
+                        "30.91+30.91",
+                        "32.88+32.88",
+                        "35.13+35.13",
+                        "38.22+38.22",
+                        "41.31+41.31",
+                        "44.4+44.4",
+                        "47.77+47.77",
+                        "51.14+51.14"
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        "24.68+24.68",
+                        "26.69+26.69",
+                        "28.7+28.7",
+                        "31.57+31.57",
+                        "33.58+33.58",
+                        "35.88+35.88",
+                        "39.03+39.03",
+                        "42.19+42.19",
+                        "45.35+45.35",
+                        "48.79+48.79",
+                        "52.23+52.23"
+                    ]
+                },
+                {
+                    "hit": "5-Hit DMG (%)",
+                    "values": [
+                        63.04,
+                        68.17,
+                        73.3,
+                        80.63,
+                        85.76,
+                        91.63,
+                        99.69,
+                        107.75,
+                        115.81,
+                        124.61,
+                        133.41
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        "64.33+64.33",
+                        "69.56+69.56",
+                        "74.8+74.8",
+                        "82.28+82.28",
+                        "87.52+87.52",
+                        "93.5+93.5",
+                        "101.73+101.73",
+                        "109.96+109.96",
+                        "118.18+118.18",
+                        "127.16+127.16",
+                        "136.14+136.14"
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        63.93,
+                        69.14,
+                        74.34,
+                        81.77,
+                        86.98,
+                        92.92,
+                        101.1,
+                        109.28,
+                        117.46,
+                        126.38,
+                        135.3
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        127.84,
+                        138.24,
+                        148.65,
+                        163.51,
+                        173.92,
+                        185.81,
+                        202.16,
+                        218.51,
+                        234.86,
+                        252.7,
+                        270.54
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        159.68,
+                        172.67,
+                        185.67,
+                        204.24,
+                        217.23,
+                        232.09,
+                        252.51,
+                        272.93,
+                        293.36,
+                        315.64,
+                        337.92
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Adeptus Art: Herald of Frost",
+            "type": "Elemental Skill",
+            "description": "Using the Icevein Talisman, Qiqi brings forth the Herald of Frost, dealing  to surrounding opponents.\n**Herald of Frost**\n- On hit, Qiqi's Normal and Charged Attacks regenerate HP for your own party members and nearby teammates. Healing scales based on Qiqi's ATK.\n- Periodically regenerates your active character's HP.\n- Follows the character around, dealing Cryo DMG to opponents in their path.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        96.0,
+                        103.2,
+                        110.4,
+                        120.0,
+                        127.2,
+                        134.4,
+                        144.0,
+                        153.6,
+                        163.2,
+                        172.8,
+                        182.4,
+                        192.0,
+                        204.0,
+                        216.0
+                    ]
+                },
+                {
+                    "hit": "Regeneration on Hit",
+                    "values": [
+                        "10.56% ATK+67.40",
+                        "11.35% ATK+74.14",
+                        "12.14% ATK+81.45",
+                        "13.20% ATK+89.31",
+                        "13.99% ATK+97.74",
+                        "14.78% ATK+106.73",
+                        "15.84% ATK+116.28",
+                        "16.90% ATK+126.39",
+                        "17.95% ATK+137.07",
+                        "19.01% ATK+148.31",
+                        "20.06% ATK+160.11",
+                        "21.12% ATK+172.46",
+                        "22.44% ATK+185.38",
+                        "23.76% ATK+198.87"
+                    ]
+                },
+                {
+                    "hit": "Continuous Regeneration",
+                    "values": [
+                        "69.60% ATK+450.55",
+                        "74.82% ATK+495.61",
+                        "80.04% ATK+544.42",
+                        "87.00% ATK+597.00",
+                        "92.22% ATK+653.32",
+                        "97.44% ATK+713.40",
+                        "104.40% ATK+777.24",
+                        "111.36% ATK+844.83",
+                        "118.32% ATK+916.18",
+                        "125.28% ATK+991.28",
+                        "132.24% ATK+1070.14",
+                        "139.20% ATK+1152.76",
+                        "147.90% ATK+1239.12",
+                        "156.60% ATK+1329.25"
+                    ]
+                },
+                {
+                    "hit": "Herald of Frost DMG (%)",
+                    "values": [
+                        36.0,
+                        38.7,
+                        41.4,
+                        45.0,
+                        47.7,
+                        50.4,
+                        54.0,
+                        57.6,
+                        61.2,
+                        64.8,
+                        68.4,
+                        72.0,
+                        76.5,
+                        81.0
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Adeptus Art: Preserver of Fortune",
+            "type": "Elemental Burst",
+            "description": "Qiqi releases the adeptus power sealed within her body, marking nearby opponents with a Fortune-Preserving Talisman that deals Cryo DMG.\nFortune-Preserving Talisman\nWhen opponents affected by this Talisman take DMG, the character that dealt this DMG regenerates HP.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        284.8,
+                        306.16,
+                        327.52,
+                        356.0,
+                        377.36,
+                        398.72,
+                        427.2,
+                        455.68,
+                        484.16,
+                        512.64,
+                        541.12,
+                        569.6,
+                        605.2,
+                        641.0
+                    ]
+                },
+                {
+                    "hit": "Healing",
+                    "values": [
+                        "90% ATK+577.33",
+                        "96.75% ATK+635.08",
+                        "103.5% ATK+697.63",
+                        "112.5% ATK+765",
+                        "119.25% ATK+837.17",
+                        "126% ATK+914.16",
+                        "135% ATK+995.96",
+                        "144% ATK+1082",
+                        "153% ATK+1174",
+                        "162% ATK+1270",
+                        "171% ATK+1371",
+                        "180% ATK+1477",
+                        "191.25% ATK+1587",
+                        "203% ATK+1703"
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Life-Prolonging Methods",
+            "type": "1st Ascension Passive",
+            "description": "When a character under the effects of Adeptus Art: Herald of Frost triggers an Elemental Reaction, their Incoming Healing Bonus is increased by 20% for 8s."
+        },
+        {
+            "name": "A Glimpse Into Arcanum",
+            "type": "4th Ascension Passive",
+            "description": "When Qiqi hits opponents with her Normal and Charged Attacks, she has a 50% chance to apply a Fortune-Preserving Talisman to them for 6s.  This effect can only occur once every 30s."
+        },
+        {
+            "name": "Former Life Memories",
+            "type": "Utility Passive",
+            "description": "Displays the location of nearby resources unique to Liyue on the mini-map."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Ascetics of Frost",
+            "description": "When the Herald of Frost hits an opponent marked by a Fortune-Preserving Talisman, Qiqi regenerates 2 Energy.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Frozen to the Bone",
+            "description": "Qiqi's Normal and Charge Attack DMG against opponents affected by  is increased by 15%.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Ascendant Praise",
+            "description": "Increases the Level of Adeptus Art: Preserver of Fortune by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Divine Suppression",
+            "description": "Targets marked by the Fortune-Preserving Talisman have their ATK decreased by 20%.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Crimson Lotus Bloom",
+            "description": "Increases the Level of Adeptus Art: Herald of Frost by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Rite of Resurrection",
+            "description": "Using Adeptus Art: Preserver of Fortune revives all fallen party members nearby and regenerates 50% of their HP.\nThis effect can only occur once every 15 mins.",
+            "properties": []
+        }
+    ]
+}

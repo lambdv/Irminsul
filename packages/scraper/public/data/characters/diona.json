@@ -1,0 +1,643 @@
+{
+    "name": "Diona",
+    "key": "diona",
+    "title": "K\u00e4tzlein Cocktail",
+    "rarity": 4,
+    "element": "cryo",
+    "vision": "cryo",
+    "weapon": "bow",
+    "release_date": "november 11, 2020",
+    "release_date_epoch": 1605052800,
+    "constellation": "feles",
+    "birthday": "january 18th",
+    "affiliation": "the cat's tail (on profile)k\u00e4tzlein bloodline ",
+    "region": "mondstadt",
+    "special_dish": "definitely not bar food!",
+    "alternate_title": "Popular bartender of the Cat's Tail",
+    "description": "A young lady who has inherited trace amounts of non-human blood. She is the incredibly popular bartender of the Cat's Tail tavern.",
+    "ascension_stat": "Cryo DMG Bonus",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "802.38",
+            "BaseATK": "17.81",
+            "BaseDEF": "50.36",
+            "AscensionStatType": "Cryo DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2061.30",
+            "BaseATK": "45.75",
+            "BaseDEF": "129.37",
+            "AscensionStatType": "Cryo DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "2660.72",
+            "BaseATK": "59.05",
+            "BaseDEF": "166.99",
+            "AscensionStatType": "Cryo DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "3985.44",
+            "BaseATK": "88.45",
+            "BaseDEF": "250.13",
+            "AscensionStatType": "Cryo DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "4411.34",
+            "BaseATK": "97.91",
+            "BaseDEF": "276.86",
+            "AscensionStatType": "Cryo DMG Bonus",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "5074.11",
+            "BaseATK": "112.62",
+            "BaseDEF": "318.46",
+            "AscensionStatType": "Cryo DMG Bonus",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "5641.97",
+            "BaseATK": "125.22",
+            "BaseDEF": "354.10",
+            "AscensionStatType": "Cryo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "6304.74",
+            "BaseATK": "139.93",
+            "BaseDEF": "395.69",
+            "AscensionStatType": "Cryo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "6730.64",
+            "BaseATK": "149.38",
+            "BaseDEF": "422.42",
+            "AscensionStatType": "Cryo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "7392.60",
+            "BaseATK": "164.07",
+            "BaseDEF": "463.97",
+            "AscensionStatType": "Cryo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "7818.50",
+            "BaseATK": "173.53",
+            "BaseDEF": "490.70",
+            "AscensionStatType": "Cryo DMG Bonus",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "8481.26",
+            "BaseATK": "188.24",
+            "BaseDEF": "532.29",
+            "AscensionStatType": "Cryo DMG Bonus",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "8907.16",
+            "BaseATK": "197.69",
+            "BaseDEF": "559.02",
+            "AscensionStatType": "Cryo DMG Bonus",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "9569.93",
+            "BaseATK": "212.40",
+            "BaseDEF": "600.62",
+            "AscensionStatType": "Cryo DMG Bonus",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Shivada Jade Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Calla Lily",
+                    "amount": "3"
+                },
+                {
+                    "name": "Firm Arrowhead",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Hoarfrost Core",
+                    "amount": "2"
+                },
+                {
+                    "name": "Shivada Jade Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Calla Lily",
+                    "amount": "10"
+                },
+                {
+                    "name": "Firm Arrowhead",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Hoarfrost Core",
+                    "amount": "4"
+                },
+                {
+                    "name": "Shivada Jade Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Calla Lily",
+                    "amount": "20"
+                },
+                {
+                    "name": "Sharp Arrowhead",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Hoarfrost Core",
+                    "amount": "8"
+                },
+                {
+                    "name": "Shivada Jade Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Calla Lily",
+                    "amount": "30"
+                },
+                {
+                    "name": "Sharp Arrowhead",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Hoarfrost Core",
+                    "amount": "12"
+                },
+                {
+                    "name": "Shivada Jade Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Calla Lily",
+                    "amount": "45"
+                },
+                {
+                    "name": "Weathered Arrowhead",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Hoarfrost Core",
+                    "amount": "20"
+                },
+                {
+                    "name": "Shivada Jade Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Calla Lily",
+                    "amount": "60"
+                },
+                {
+                    "name": "Weathered Arrowhead",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "K\u00e4tzlein Style",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 5 consecutive shots with a bow.\nCharged Attack\nPerforms a more precise Aimed Shot with increased DMG.\nWhile aiming, biting frost will accumulate on the arrowhead. A fully charged frost arrow will deal Cryo DMG.\nPlunging Attack\nFires off a shower of arrows in mid-air before falling and striking the ground, dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        36.12,
+                        39.06,
+                        42.0,
+                        46.2,
+                        49.14,
+                        52.5,
+                        57.12,
+                        61.74,
+                        66.36,
+                        71.4,
+                        77.18
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        33.54,
+                        36.27,
+                        39.0,
+                        42.9,
+                        45.63,
+                        48.75,
+                        53.04,
+                        57.33,
+                        61.62,
+                        66.3,
+                        71.66
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        45.58,
+                        49.29,
+                        53.0,
+                        58.3,
+                        62.01,
+                        66.25,
+                        72.08,
+                        77.91,
+                        83.74,
+                        90.1,
+                        97.39
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        43.0,
+                        46.5,
+                        50.0,
+                        55.0,
+                        58.5,
+                        62.5,
+                        68.0,
+                        73.5,
+                        79.0,
+                        85.0,
+                        91.88
+                    ]
+                },
+                {
+                    "hit": "5-Hit DMG (%)",
+                    "values": [
+                        53.75,
+                        58.13,
+                        62.5,
+                        68.75,
+                        73.13,
+                        78.13,
+                        85.0,
+                        91.88,
+                        98.75,
+                        106.25,
+                        114.84
+                    ]
+                },
+                {
+                    "hit": "Aimed Shot (%)",
+                    "values": [
+                        43.86,
+                        47.43,
+                        51.0,
+                        56.1,
+                        59.67,
+                        63.75,
+                        69.36,
+                        74.97,
+                        80.58,
+                        86.7,
+                        93.71
+                    ]
+                },
+                {
+                    "hit": "Fully-Charged Aimed Shot (%)",
+                    "values": [
+                        124.0,
+                        133.3,
+                        142.6,
+                        155.0,
+                        164.3,
+                        173.6,
+                        186.0,
+                        198.4,
+                        210.8,
+                        223.2,
+                        236.1
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.17,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Icy Paws",
+            "type": "Elemental Skill",
+            "description": "Fires an Icy Paw that deals Cryo DMG to opponents and forms a shield on hit.\nThe shield's DMG Absorption scales based on Diona's Max HP, and its duration scales off the number of Icy Paws that hit their target.\n(PressPressText for mouse and keyboard and controller/TapTapText for touch screen)\nRapidly fires off 2 Icy Paws.\nHold\nDashes back quickly before firing 5 Icy Paws.\nThe shield created by a Hold attack will gain a 75% DMG Absorption Bonus.\nThe shield has a 250% Cryo DMG Absorption Bonus, and will cause your active character to become affected by Cryo at the point of formation for a short duration.",
+            "attributes": [
+                {
+                    "hit": "Icy Paw DMG (%)",
+                    "values": [
+                        "41.92 per Paw",
+                        "45.06 per Paw",
+                        "48.21 per Paw",
+                        "52.4 per Paw",
+                        "55.54 per Paw",
+                        "58.69 per Paw",
+                        "62.88 per Paw",
+                        "67.07 per Paw",
+                        "71.26 per Paw",
+                        "75.46 per Paw",
+                        "79.65 per Paw",
+                        "83.84 per Paw",
+                        "89.08 per Paw",
+                        "94.3 per Paw"
+                    ]
+                },
+                {
+                    "hit": "Base Shield DMG Absorption",
+                    "values": [
+                        "7.2% Max HP+692.8",
+                        "7.74% Max HP+762",
+                        "8.28% Max HP+837.16",
+                        "9% Max HP+918",
+                        "9.54% Max HP+1,004",
+                        "10.08% Max HP+1,096",
+                        "10.8% Max HP+1,195",
+                        "11.52% Max HP+1,299",
+                        "12.24% Max HP+1,408",
+                        "12.96% Max HP+1,524",
+                        "13.68% Max HP+1,645",
+                        "14.4% Max HP+1,772",
+                        "15.3% Max HP+1,905",
+                        "16.2% Max HP+2,044"
+                    ]
+                },
+                {
+                    "hit": "Duration",
+                    "values": [
+                        "1.8s per Paw",
+                        "1.9s per Paw",
+                        "2s per Paw",
+                        "2.1s per Paw",
+                        "2.2s per Paw",
+                        "2.3s per Paw",
+                        "2.4s per Paw"
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Signature Mix",
+            "type": "Elemental Burst",
+            "description": "Tosses out a special cold brew that deals  and creates a Drunken Mist in an AoE.\n**Drunken Mist**\n- Deals continuous Cryo DMG to opponents within the AoE.\n- Continuously regenerates the HP of characters within the AoE.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        80.0,
+                        86.0,
+                        92.0,
+                        100.0,
+                        106.0,
+                        112.0,
+                        120.0,
+                        128.0,
+                        136.0,
+                        144.0,
+                        152.0,
+                        160.0,
+                        170.0,
+                        180.0
+                    ]
+                },
+                {
+                    "hit": "Continuous Field DMG (%)",
+                    "values": [
+                        52.64,
+                        56.59,
+                        60.54,
+                        65.8,
+                        69.75,
+                        73.7,
+                        78.96,
+                        84.22,
+                        89.49,
+                        94.75,
+                        100.02,
+                        105.28,
+                        111.86,
+                        118.4
+                    ]
+                },
+                {
+                    "hit": "HP Regeneration Over Time",
+                    "values": [
+                        "5.34% Max HP+513.19",
+                        "5.74% Max HP+564.51",
+                        "6.14% Max HP+620.11",
+                        "6.67% Max HP+680",
+                        "7.07% Max HP+744.15",
+                        "7.47% Max HP+812.59",
+                        "8% Max HP+885.3",
+                        "8.54% Max HP+962.29",
+                        "9.07% Max HP+1,043",
+                        "9.6% Max HP+1,129",
+                        "10.14% Max HP+1,218",
+                        "10.67% Max HP+1,313",
+                        "11.34% Max HP+1,411",
+                        "12.01% Max HP+1,514"
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Cat's Tail Secret Menu",
+            "type": "1st Ascension Passive",
+            "description": "Characters shielded by Icy Paws have their Movement SPD increased by 10% and their Stamina Consumption decreased by 10%."
+        },
+        {
+            "name": "Drunkards' Farce",
+            "type": "4th Ascension Passive",
+            "description": "Opponents who enter the AoE of Signature Mix have 10% decreased ATK for 15s."
+        },
+        {
+            "name": "Complimentary Bar Food",
+            "type": "Utility Passive",
+            "description": "When a Perfect Cooking is achieved on a dish with restorative effects, Diona has a 12% chance to obtain double the product."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "A Lingering Flavor",
+            "description": "Regenerates 15 Energy for Diona after the effects of Signature Mix end.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Shaken, Not Purred",
+            "description": "Increases Icy Paws' DMG by 15%, and increases its shield's DMG Absorption by 15%.\nAdditionally, when paws hit their targets, creates a shield for other nearby characters on the field with 50% of the Icy Paws shield's DMG Absorption for 5s.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "A\u2014Another Round?",
+            "description": "Increases the Level of Signature Mix by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Wine Industry Slayer",
+            "description": "Within the radius of Signature Mix, Diona's charge time for aimed shots is reduced by 60%",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Double Shot, on the Rocks",
+            "description": "Increases the Level of Icy Paws by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Cat's Tail Closing Time",
+            "description": "Characters within Signature Mix's radius will gain the following effects based on their HP amounts:\n- Increases Incoming Healing Bonus by 30% when HP falls below or is equal to 50%.\n- Elemental Mastery increased by 200 when HP is above 50%.",
+            "properties": []
+        }
+    ]
+}

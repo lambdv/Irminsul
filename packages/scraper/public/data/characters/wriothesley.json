@@ -1,0 +1,588 @@
+{
+    "name": "Wriothesley",
+    "key": "wriothesley",
+    "title": "Emissary of Solitary Iniquity",
+    "rarity": 5,
+    "element": "cryo",
+    "vision": "cryo",
+    "weapon": "catalyst",
+    "release_date": "october 17, 2023",
+    "release_date_epoch": 1697500800,
+    "constellation": "cerberus",
+    "birthday": "november 23rd",
+    "affiliation": "fortress of meropide",
+    "region": "fontaine",
+    "special_dish": "secret sauce bbq ribs",
+    "alternate_title": "Lord of the Fortress of Meropide",
+    "description": "Duke of the Fortress of Meropide, Lord Incognito of the murky depths.",
+    "ascension_stat": "CRIT DMG",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "1058.19",
+            "BaseATK": "24.21",
+            "BaseDEF": "59.41",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2744.93",
+            "BaseATK": "62.79",
+            "BaseDEF": "154.11",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3652.23",
+            "BaseATK": "83.54",
+            "BaseDEF": "205.05",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "5464.90",
+            "BaseATK": "125.01",
+            "BaseDEF": "306.82",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "6109.56",
+            "BaseATK": "139.75",
+            "BaseDEF": "343.02",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "7029.12",
+            "BaseATK": "160.79",
+            "BaseDEF": "394.65",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "9.6%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "7888.67",
+            "BaseATK": "180.45",
+            "BaseDEF": "442.91",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "8817.76",
+            "BaseATK": "201.70",
+            "BaseDEF": "495.07",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "9462.41",
+            "BaseATK": "216.45",
+            "BaseDEF": "531.27",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "10399.97",
+            "BaseATK": "237.89",
+            "BaseDEF": "583.90",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "19.2%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "11044.63",
+            "BaseATK": "252.64",
+            "BaseDEF": "620.10",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "11992.76",
+            "BaseATK": "274.33",
+            "BaseDEF": "673.33",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "28.8%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "12637.42",
+            "BaseATK": "289.07",
+            "BaseDEF": "709.53",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "38.4%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "13592.96",
+            "BaseATK": "310.93",
+            "BaseDEF": "763.17",
+            "AscensionStatType": "CRIT DMG",
+            "AscensionStatValue": "38.4%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Shivada Jade Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Subdetection Unit",
+                    "amount": "3"
+                },
+                {
+                    "name": "Meshing Gear",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "\"Tourbillon Device\"",
+                    "amount": "2"
+                },
+                {
+                    "name": "Shivada Jade Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Subdetection Unit",
+                    "amount": "10"
+                },
+                {
+                    "name": "Meshing Gear",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "\"Tourbillon Device\"",
+                    "amount": "4"
+                },
+                {
+                    "name": "Shivada Jade Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Subdetection Unit",
+                    "amount": "20"
+                },
+                {
+                    "name": "Mechanical Spur Gear",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "\"Tourbillon Device\"",
+                    "amount": "8"
+                },
+                {
+                    "name": "Shivada Jade Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Subdetection Unit",
+                    "amount": "30"
+                },
+                {
+                    "name": "Mechanical Spur Gear",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "\"Tourbillon Device\"",
+                    "amount": "12"
+                },
+                {
+                    "name": "Shivada Jade Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Subdetection Unit",
+                    "amount": "45"
+                },
+                {
+                    "name": "Artificed Dynamic Gear",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "\"Tourbillon Device\"",
+                    "amount": "20"
+                },
+                {
+                    "name": "Shivada Jade Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Subdetection Unit",
+                    "amount": "60"
+                },
+                {
+                    "name": "Artificed Dynamic Gear",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Forceful Fists of Frost",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nCoalescing frost about his fist, Wriothesley will unleash powerful Repelling Fists, performing up to 5 rapid attacks that deal Cryo DMG.\nApart from this, Normal Attack combo count will not reset for a short time after using Icefang Rush or sprinting.\nCharged Attack\nConsumes a fixed amount of Stamina to leap and unleash a Vaulting Fist, dealing AoE Cryo DMG.\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE Cryo DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        53.36,
+                        57.7,
+                        62.05,
+                        68.25,
+                        72.59,
+                        77.56,
+                        84.38,
+                        91.21,
+                        98.03,
+                        105.48,
+                        112.92,
+                        120.37,
+                        127.81
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        51.8,
+                        56.01,
+                        60.23,
+                        66.25,
+                        70.47,
+                        75.29,
+                        81.91,
+                        88.54,
+                        95.17,
+                        102.39,
+                        109.62,
+                        116.85,
+                        124.08
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        67.22,
+                        72.69,
+                        78.17,
+                        85.98,
+                        91.45,
+                        97.71,
+                        106.31,
+                        114.9,
+                        123.5,
+                        132.88,
+                        142.26,
+                        151.64,
+                        161.02
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        "37.9+37.9",
+                        "40.99+40.99",
+                        "44.07+44.07",
+                        "48.48+48.48",
+                        "51.57+51.57",
+                        "55.09+55.09",
+                        "59.94+59.94",
+                        "64.79+64.79",
+                        "69.64+69.64",
+                        "74.93+74.93",
+                        "80.22+80.22",
+                        "85.5+85.5",
+                        "90.79+90.79"
+                    ]
+                },
+                {
+                    "hit": "5-Hit DMG (%)",
+                    "values": [
+                        90.74,
+                        98.13,
+                        105.51,
+                        116.07,
+                        123.45,
+                        131.89,
+                        143.5,
+                        155.11,
+                        166.71,
+                        179.37,
+                        192.04,
+                        204.7,
+                        217.36
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        152.96,
+                        164.43,
+                        175.9,
+                        191.2,
+                        202.67,
+                        214.14,
+                        229.44,
+                        244.74,
+                        260.03,
+                        275.33,
+                        290.62,
+                        305.92,
+                        325.04
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27,
+                        128.2,
+                        136.12
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.16,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48,
+                        256.34,
+                        272.19
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37,
+                        320.18,
+                        339.98
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Icefang Rush",
+            "type": "Elemental Skill",
+            "description": "Adjusting his breathing, rhythm, and pace, Wriothesley sprints forward a short distance, entering the Chilling Penalty state and unleashing more powerful attacks than before.\n**Chilling Penalty**\n- Increases Wriothesley's interruption resistance\n- When his HP is above 50%, it will enhance the Repelling Fists of Normal Attack: Forceful Fists of Frost and increase its DMG. When such an attack hits, it will consume a fixed amount of Wriothesley's HP. HP can be lost this way once every 0.1s.\nThis effect will be canceled should Wriothesley leave the field.",
+            "attributes": [
+                {
+                    "hit": "Enhanced Repelling Fist DMG (% Normal Attack DMG)",
+                    "values": [
+                        143.17,
+                        145.75,
+                        148.34,
+                        151.7,
+                        154.29,
+                        156.87,
+                        160.23,
+                        163.59,
+                        166.95,
+                        170.31
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Darkgold Wolfbite",
+            "type": "Elemental Burst",
+            "description": "Activating his boxing gloves, Wriothesley strikes out with an icy straight, then uses Icicle Impact to cause multiple instances of AoE Cryo DMG in a frontal area.\nArkhe: Ousia\nAfter Icicle Impact ends, a Surging Blade will descend upon the opponent's position, dealing Ousia-aligned Cryo DMG.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        "127.2\u00d75",
+                        "136.74\u00d75",
+                        "146.28\u00d75",
+                        "159\u00d75",
+                        "168.54\u00d75",
+                        "178.08\u00d75",
+                        "190.8\u00d75",
+                        "203.52\u00d75",
+                        "216.24\u00d75",
+                        "228.96\u00d75",
+                        "241.68\u00d75",
+                        "254.4\u00d75",
+                        "270.3\u00d75"
+                    ]
+                },
+                {
+                    "hit": "Surging Blade DMG (%)",
+                    "values": [
+                        42.4,
+                        45.58,
+                        48.76,
+                        53.0,
+                        56.18,
+                        59.36,
+                        63.6,
+                        67.84,
+                        72.08,
+                        76.32,
+                        80.56,
+                        84.8,
+                        90.1
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "There Shall Be a Plea for Justice",
+            "type": "1st Ascension Passive",
+            "description": "When Wriothesley's HP is less than 60%, he will obtain a Gracious Rebuke. The next Charged Attack of his Normal Attack: Forceful Fists of Frost will be enhanced to become Rebuke: Vaulting Fist. It will not consume Stamina, will deal 50% increased DMG, and after hitting will restore HP for Wriothesley equal to 30% of his Max HP.\nYou can gain a Gracious Rebuke this way once every 5s."
+        },
+        {
+            "name": "There Shall Be a Reckoning for Sin",
+            "type": "4th Ascension Passive",
+            "description": "When Wriothesley's current HP increases or decreases, if he is in the Chilling Penalty state conferred by Icefang Rush, Chilling Penalty will gain one stack of Prosecution Edict. Max 5 stacks. Each stack will increase Wriothesley's ATK by 6%."
+        },
+        {
+            "name": "The Duke's Grace",
+            "type": "Utility Passive",
+            "description": "When Wriothesley crafts Weapon Ascension Materials, he has a 10% chance to receive double the product."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Terror for the Evildoers",
+            "description": "The Gracious Rebuke from the Passive Talent \"There Shall Be a Plea for Justice\" is changed to this:\nWhen Wriothesley's HP is less than 60% or while he is in the Chilling Penalty state caused by Icefang Rush, when the fifth attack of Repelling Fists hits, it will create a Gracious Rebuke. 1 Gracious Rebuke effect can be obtained every 2.5s.\nAdditionally, Rebuke: Vaulting Fist will obtain the following enhancement:\n- The DMG Bonus gained will be further increased to 200%.\n- When it hits while Wriothesley is in the Chilling Penalty state, that state's duration is extended by 4s. 1 such extension can occur per 1 Chilling Penalty duration.\nYou must first unlock the Passive Talent \"There Shall Be a Plea for Justice.\"",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Shackles for the Arrogant",
+            "description": "When using Darkgold Wolfbite, each Prosecution Edict stack from the Passive Talent \"There Shall Be a Reckoning for Sin\" will increase said ability's DMG dealt by 40%.\nYou must first unlock the Passive Talent \"There Shall Be a Reckoning for Sin.\"",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Punishment for the Frauds",
+            "description": "Increases the Level of Normal Attack: Forceful Fists of Frost by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Redemption for the Suffering",
+            "description": "The HP restored to Wriothesley through Rebuke: Vaulting Fist will be increased to 50% of his Max HP. You must first unlock the Passive Talent \"There Shall Be a Plea for Justice.\"\nAdditionally, when Wriothesley is healed, if the amount of healing overflows, the following effects will occur depending on whether he is on the field or not. If he is on the field, his ATK SPD will be increased by 20% for 4s. If he is off-field, all of your own party members' ATK SPD will be increased by 10% for 6s. These two methods of increasing ATK SPD cannot stack.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Mercy for the Wronged",
+            "description": "Increases the Level of Darkgold Wolfbite by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Esteem for the Innocent",
+            "description": "The CRIT Rate of Rebuke: Vaulting Fist will be increased by 10%, and its CRIT DMG by 80%. When unleashed, it will also create an additional icicle that deals 100% of Rebuke: Vaulting Fist's Base DMG as . DMG dealt this way is regarded as Charged Attack DMG.\nYou must first unlock the Passive Talent \"There Shall Be a Plea for Justice.\"",
+            "properties": []
+        }
+    ]
+}

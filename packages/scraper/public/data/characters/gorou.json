@@ -1,0 +1,594 @@
+{
+    "name": "Gorou",
+    "key": "gorou",
+    "title": "Canine Warrior",
+    "rarity": 4,
+    "element": "geo",
+    "vision": "geo",
+    "weapon": "bow",
+    "release_date": "december 14, 2021",
+    "release_date_epoch": 1639440000,
+    "constellation": "canis bellatoris",
+    "birthday": "may 18th",
+    "affiliation": "watatsumi island (on profile)watatsumi armyyae publishing house (as ms. hina) ",
+    "region": "inazuma",
+    "special_dish": "victorious legend",
+    "alternate_title": "General of the Watatsumi Army",
+    "description": "The great general of Watatsumi Island's forces. He is deeply trusted by his subordinates.",
+    "ascension_stat": "Geo DMG Bonus",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "802.38",
+            "BaseATK": "15.31",
+            "BaseDEF": "54.36",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2061.30",
+            "BaseATK": "39.34",
+            "BaseDEF": "139.66",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "2660.72",
+            "BaseATK": "50.79",
+            "BaseDEF": "180.27",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "3985.44",
+            "BaseATK": "76.07",
+            "BaseDEF": "270.03",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "4411.34",
+            "BaseATK": "84.20",
+            "BaseDEF": "298.88",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "5074.11",
+            "BaseATK": "96.85",
+            "BaseDEF": "343.79",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "6.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "5641.97",
+            "BaseATK": "107.69",
+            "BaseDEF": "382.26",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "6304.74",
+            "BaseATK": "120.34",
+            "BaseDEF": "427.17",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "6730.64",
+            "BaseATK": "128.47",
+            "BaseDEF": "456.02",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "7392.60",
+            "BaseATK": "141.10",
+            "BaseDEF": "500.87",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "12.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "7818.50",
+            "BaseATK": "149.23",
+            "BaseDEF": "529.73",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "8481.26",
+            "BaseATK": "161.88",
+            "BaseDEF": "574.63",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "18.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "8907.16",
+            "BaseATK": "170.01",
+            "BaseDEF": "603.49",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "9569.93",
+            "BaseATK": "182.66",
+            "BaseDEF": "648.40",
+            "AscensionStatType": "Geo DMG Bonus",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Prithiva Topaz Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Sango Pearl",
+                    "amount": "3"
+                },
+                {
+                    "name": "Spectral Husk",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Perpetual Heart",
+                    "amount": "2"
+                },
+                {
+                    "name": "Prithiva Topaz Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Sango Pearl",
+                    "amount": "10"
+                },
+                {
+                    "name": "Spectral Husk",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Perpetual Heart",
+                    "amount": "4"
+                },
+                {
+                    "name": "Prithiva Topaz Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Sango Pearl",
+                    "amount": "20"
+                },
+                {
+                    "name": "Spectral Heart",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Perpetual Heart",
+                    "amount": "8"
+                },
+                {
+                    "name": "Prithiva Topaz Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Sango Pearl",
+                    "amount": "30"
+                },
+                {
+                    "name": "Spectral Heart",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Perpetual Heart",
+                    "amount": "12"
+                },
+                {
+                    "name": "Prithiva Topaz Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Sango Pearl",
+                    "amount": "45"
+                },
+                {
+                    "name": "Spectral Nucleus",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Perpetual Heart",
+                    "amount": "20"
+                },
+                {
+                    "name": "Prithiva Topaz Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Sango Pearl",
+                    "amount": "60"
+                },
+                {
+                    "name": "Spectral Nucleus",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Ripping Fang Fletching",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 4 consecutive shots with a bow.\nCharged Attack\nPerform a more precise Aimed Shot with increased DMG.\nWhile aiming, stone crystals will accumulate on the arrowhead. A fully charged crystalline arrow will deal Geo DMG.\nPlunging Attack\nFires off a shower of arrows in mid-air before falling and striking the ground, dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        37.75,
+                        40.83,
+                        43.9,
+                        48.29,
+                        51.36,
+                        54.87,
+                        59.7,
+                        64.53,
+                        69.36,
+                        74.63,
+                        79.9
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        37.15,
+                        40.18,
+                        43.2,
+                        47.52,
+                        50.54,
+                        54.0,
+                        58.75,
+                        63.5,
+                        68.26,
+                        73.44,
+                        78.62
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        49.45,
+                        53.47,
+                        57.5,
+                        63.25,
+                        67.27,
+                        71.88,
+                        78.2,
+                        84.52,
+                        90.85,
+                        97.75,
+                        104.65
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        59.0,
+                        63.8,
+                        68.6,
+                        75.46,
+                        80.26,
+                        85.75,
+                        93.3,
+                        100.84,
+                        108.39,
+                        116.62,
+                        124.85
+                    ]
+                },
+                {
+                    "hit": "Aimed Shot (%)",
+                    "values": [
+                        43.86,
+                        47.43,
+                        51.0,
+                        56.1,
+                        59.67,
+                        63.75,
+                        69.36,
+                        74.97,
+                        80.58,
+                        86.7,
+                        92.82
+                    ]
+                },
+                {
+                    "hit": "Fully-Charged Aimed Shot (%)",
+                    "values": [
+                        124.0,
+                        133.3,
+                        142.6,
+                        155.0,
+                        164.3,
+                        173.6,
+                        186.0,
+                        198.4,
+                        210.8,
+                        223.2,
+                        235.6
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        56.83,
+                        61.45,
+                        66.08,
+                        72.69,
+                        77.31,
+                        82.6,
+                        89.87,
+                        97.14,
+                        104.41,
+                        112.34,
+                        120.27
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        113.63,
+                        122.88,
+                        132.13,
+                        145.35,
+                        154.59,
+                        165.17,
+                        179.7,
+                        194.23,
+                        208.77,
+                        224.62,
+                        240.48
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        141.93,
+                        153.49,
+                        165.04,
+                        181.54,
+                        193.1,
+                        206.3,
+                        224.45,
+                        242.61,
+                        260.76,
+                        280.57,
+                        300.37
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Inuzaka All-Round Defense",
+            "type": "Elemental Skill",
+            "description": "Deals  and sets up a General's War Banner.\n**General's War Banner**\nProvides up to 3 buffs to active characters within the skill's AoE based on the number of  characters in the party at the time of casting:- 1 Geo character: Adds \"Standing Firm\" - DEF Bonus.\n- 2 Geo characters: Adds \"Impregnable\" - Increased resistance to interruption.\n- 3 Geo characters: Adds \"Crunch\" - Geo DMG Bonus.\nGorou can deploy only 1 General's War Banner on the field at any one time.\nCharacters can only benefit from 1 General's War Banner at a time. When a party member leaves the field, the active buff will last for 2s.\n**Hold**\nAdjust the location of the skill.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        107.2,
+                        115.24,
+                        123.28,
+                        134.0,
+                        142.04,
+                        150.08,
+                        160.8,
+                        171.52,
+                        182.24,
+                        192.96,
+                        203.68,
+                        214.4,
+                        227.8,
+                        241.2
+                    ]
+                },
+                {
+                    "hit": "DEF Increase",
+                    "values": [
+                        206.16,
+                        221.62,
+                        237.08,
+                        257.7,
+                        273.16,
+                        288.62,
+                        309.24,
+                        329.85,
+                        350.47,
+                        371.08,
+                        391.7,
+                        412.32,
+                        438.09,
+                        464.0
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Juuga: Forward Unto Victory",
+            "type": "Elemental Burst",
+            "description": "Displaying his valor as a general, Gorou deals  and creates a field known as General's Glory to embolden his comrades.\n**General's Glory**\nThis field has the following properties:- Like the General's War Banner created by Inuzaka All-Round Defense, provides buffs to active characters within the skill's AoE based on the number of Geo characters in the party. Also moves together with your active character.\n- Generates 1 Crystal Collapse every 1.5s that deals AoE Geo DMG to 1 opponent within the skill's AoE.\n- Pulls 1 elemental shard in the skill's AoE to your active character's position every 1.5s (elemental shards are created by Crystallize reactions).\nIf a General's War Banner created by Gorou currently exists on the field when his ability is used, it will be destroyed. In addition, for the duration of General's Glory, Gorou's Elemental Skill \"Inuzaka All-Round Defense\" will not create the General's War Banner.\nIf Gorou falls, the effects of General's Glory will be cleared.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (% DEF)",
+                    "values": [
+                        98.22,
+                        105.58,
+                        112.95,
+                        122.77,
+                        130.14,
+                        137.5,
+                        147.32,
+                        157.15,
+                        166.97,
+                        176.79,
+                        186.61,
+                        196.43,
+                        208.71
+                    ]
+                },
+                {
+                    "hit": "Crystal Collapse DMG (% DEF)",
+                    "values": [
+                        61.3,
+                        65.9,
+                        70.49,
+                        76.63,
+                        81.22,
+                        85.82,
+                        91.95,
+                        98.08,
+                        104.21,
+                        110.34,
+                        116.47,
+                        122.6,
+                        130.26
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Heedless of the Wind and Weather",
+            "type": "1st Ascension Passive",
+            "description": "After using Juuga: Forward Unto Victory, all nearby party members' DEF is increased by 25% for 12s."
+        },
+        {
+            "name": "A Favor Repaid",
+            "type": "4th Ascension Passive",
+            "description": "Gorou receives the following DMG Bonuses to his attacks based on his DEF:\nInuzaka All-Round Defense: Skill DMG increased by 156% of DEF\nJuuga: Forward Unto Victory: Skill DMG and Crystal Collapse DMG increased by 15.6% of DEF"
+        },
+        {
+            "name": "Seeker of Shinies",
+            "type": "Utility Passive",
+            "description": "Displays the location of nearby resources unique to Inazuma on the mini-map."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Rushing Hound: Swift as the Wind",
+            "description": "When characters (other than Gorou) within the AoE of Gorou's **General's War Banner**\n or **General's Glory**\n deal  to opponents, the CD of Gorou's Inuzaka All-Round Defense is decreased by 2s. This effect can occur once every 10s.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Sitting Hound: Steady as a Clock",
+            "description": "While **General's Glory**\n is in effect, its duration is extended by 1s when a nearby active character obtains an Elemental Shard from a Crystallize reaction. This effect can occur once every 0.1s. Max extension is 3s.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Mauling Hound: Fierce as Fire",
+            "description": "Increases the Level of Inuzaka All-Round Defense by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Lapping Hound: Warm as Water",
+            "description": "When General's Glory is in the \"Impregnable\" or \"Crunch\" states, it will also heal active characters within its AoE by 50% of Gorou's own DEF every 1.5s.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Striking Hound: Thunderous Force",
+            "description": "Increases the Level of Juuga: Forward Unto Victory by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Valiant Hound: Mountainous Fealty",
+            "description": "For 12s after using Inuzaka All-Round Defense or Juuga: Forward Unto Victory, increases the CRIT DMG of all nearby party members'  based on the buff level of the skill's field at the time of use:- \"Standing Firm\": +10%\n- \"Impregnable\": +20%\n- \"Crunch\": +40%\nThis effect cannot stack and will take reference from the last instance of the effect that is triggered.",
+            "properties": []
+        }
+    ]
+}

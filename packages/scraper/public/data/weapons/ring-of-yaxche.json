@@ -1,0 +1,122 @@
+{
+    "name": "Ring of Yaxche",
+    "key": "ring-of-yaxche",
+    "description": "This jade vessel was created by a hero of yesteryear. Legend has it that it once shot the giant dragon that dwelt in the volcano down from the skies.",
+    "rarity": 4,
+    "category": "catalyst",
+    "series": "salutary series",
+    "release_date": "august 28, 2024",
+    "base_atk_min": 42,
+    "base_atk_max": 510,
+    "sub_stat_type": "hp",
+    "sub_stat_value_min": "9% ",
+    "sub_stat_value_max": " 41.3%",
+    "refinement_name": "\n\nechoes of the plentiful land\n\n",
+    "refinements": [
+        "Using an Elemental Skill grants the Jade-Forged Crown effect: Every 1,000 Max HP will increase the Normal Attack DMG dealt by the equipping character by **0.6**\n% for 10s. Normal Attack DMG can be increased this way by a maximum of **16**\n%.",
+        "Using an Elemental Skill grants the Jade-Forged Crown effect: Every 1,000 Max HP will increase the Normal Attack DMG dealt by the equipping character by **0.7**\n% for 10s. Normal Attack DMG can be increased this way by a maximum of **20**\n%.",
+        "Using an Elemental Skill grants the Jade-Forged Crown effect: Every 1,000 Max HP will increase the Normal Attack DMG dealt by the equipping character by **0.8**\n% for 10s. Normal Attack DMG can be increased this way by a maximum of **24**\n%.",
+        "Using an Elemental Skill grants the Jade-Forged Crown effect: Every 1,000 Max HP will increase the Normal Attack DMG dealt by the equipping character by **0.9**\n% for 10s. Normal Attack DMG can be increased this way by a maximum of **28**\n%.",
+        "Using an Elemental Skill grants the Jade-Forged Crown effect: Every 1,000 Max HP will increase the Normal Attack DMG dealt by the equipping character by **1**\n% for 10s. Normal Attack DMG can be increased this way by a maximum of **32**\n%."
+    ],
+    "base_stats": [
+        {
+            "level": "1/20",
+            "base_atk": "42",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "9%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/20",
+            "base_atk": "109",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "15.9%",
+            "ascension_phase": 0
+        },
+        {
+            "level": "20/40",
+            "base_atk": "135",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "15.9%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/40",
+            "base_atk": "205",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "23.2%",
+            "ascension_phase": 1
+        },
+        {
+            "level": "40/50",
+            "base_atk": "231",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "23.2%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/50",
+            "base_atk": "266",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "26.8%",
+            "ascension_phase": 2
+        },
+        {
+            "level": "50/60",
+            "base_atk": "292",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "26.8%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/60",
+            "base_atk": "327",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "30.4%",
+            "ascension_phase": 3
+        },
+        {
+            "level": "60/70",
+            "base_atk": "353",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "30.4%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/70",
+            "base_atk": "388",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "34.1%",
+            "ascension_phase": 4
+        },
+        {
+            "level": "70/80",
+            "base_atk": "414",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "34.1%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/80",
+            "base_atk": "449",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "37.7%",
+            "ascension_phase": 5
+        },
+        {
+            "level": "80/90",
+            "base_atk": "475",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "37.7%",
+            "ascension_phase": 6
+        },
+        {
+            "level": "90/90",
+            "base_atk": "510",
+            "sub_stat_type": "hp",
+            "sub_stat_value": "41.3%",
+            "ascension_phase": 6
+        }
+    ]
+}

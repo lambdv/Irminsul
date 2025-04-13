@@ -1,0 +1,807 @@
+{
+    "name": "Raiden Shogun",
+    "key": "raiden-shogun",
+    "title": "Plane of Euthymia",
+    "rarity": 5,
+    "element": "electro",
+    "vision": "electro",
+    "weapon": "polearm",
+    "release_date": "september 01, 2021",
+    "release_date_epoch": 1630454400,
+    "constellation": "imperatrix umbrosa",
+    "birthday": "june 26th",
+    "affiliation": "inazuma city (on profile)inazuma shogunatethe seven ",
+    "region": "inazuma",
+    "special_dish": "none",
+    "alternate_title": "Her Eternal Excellency",
+    "description": "Her Excellency, the Almighty Narukami Ogosho, who promised the people of Inazuma an unchanging Eternity.",
+    "ascension_stat": "Energy Recharge",
+    "base_stats": [
+        {
+            "LVL": "1/20",
+            "BaseHP": "1004.80",
+            "BaseATK": "26.25",
+            "BaseDEF": "61.45",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/20",
+            "BaseHP": "2606.45",
+            "BaseATK": "68.10",
+            "BaseDEF": "159.39",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 0
+        },
+        {
+            "LVL": "20/40",
+            "BaseHP": "3467.97",
+            "BaseATK": "90.61",
+            "BaseDEF": "212.07",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/40",
+            "BaseHP": "5189.19",
+            "BaseATK": "135.59",
+            "BaseDEF": "317.33",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "-",
+            "AscensionPhase": 1
+        },
+        {
+            "LVL": "40/50",
+            "BaseHP": "5801.33",
+            "BaseATK": "151.58",
+            "BaseDEF": "354.76",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "8.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/50",
+            "BaseHP": "6674.50",
+            "BaseATK": "174.39",
+            "BaseDEF": "408.16",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "8.0%",
+            "AscensionPhase": 2
+        },
+        {
+            "LVL": "50/60",
+            "BaseHP": "7490.68",
+            "BaseATK": "195.72",
+            "BaseDEF": "458.07",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "16.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/60",
+            "BaseHP": "8372.90",
+            "BaseATK": "218.77",
+            "BaseDEF": "512.02",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "16.0%",
+            "AscensionPhase": 3
+        },
+        {
+            "LVL": "60/70",
+            "BaseHP": "8985.03",
+            "BaseATK": "234.76",
+            "BaseDEF": "549.46",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "16.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/70",
+            "BaseHP": "9875.28",
+            "BaseATK": "258.02",
+            "BaseDEF": "603.90",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "16.0%",
+            "AscensionPhase": 4
+        },
+        {
+            "LVL": "70/80",
+            "BaseHP": "10487.42",
+            "BaseATK": "274.02",
+            "BaseDEF": "641.33",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/80",
+            "BaseHP": "11387.72",
+            "BaseATK": "297.54",
+            "BaseDEF": "696.39",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "24.0%",
+            "AscensionPhase": 5
+        },
+        {
+            "LVL": "80/90",
+            "BaseHP": "11999.86",
+            "BaseATK": "313.53",
+            "BaseDEF": "733.82",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "32.0%",
+            "AscensionPhase": 6
+        },
+        {
+            "LVL": "90/90",
+            "BaseHP": "12907.19",
+            "BaseATK": "337.24",
+            "BaseDEF": "789.31",
+            "AscensionStatType": "Energy Recharge",
+            "AscensionStatValue": "32.0%",
+            "AscensionPhase": 6
+        }
+    ],
+    "ascension_costs": [
+        {
+            "AscensionPhase": 0,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "20000"
+                },
+                {
+                    "name": "Vajrada Amethyst Sliver",
+                    "amount": "1"
+                },
+                {
+                    "name": "Amakumo Fruit",
+                    "amount": "3"
+                },
+                {
+                    "name": "Old Handguard",
+                    "amount": "3"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 1,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "40000"
+                },
+                {
+                    "name": "Storm Beads",
+                    "amount": "2"
+                },
+                {
+                    "name": "Vajrada Amethyst Fragment",
+                    "amount": "3"
+                },
+                {
+                    "name": "Amakumo Fruit",
+                    "amount": "10"
+                },
+                {
+                    "name": "Old Handguard",
+                    "amount": "15"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 2,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "60000"
+                },
+                {
+                    "name": "Storm Beads",
+                    "amount": "4"
+                },
+                {
+                    "name": "Vajrada Amethyst Fragment",
+                    "amount": "6"
+                },
+                {
+                    "name": "Amakumo Fruit",
+                    "amount": "20"
+                },
+                {
+                    "name": "Kageuchi Handguard",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 3,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "80000"
+                },
+                {
+                    "name": "Storm Beads",
+                    "amount": "8"
+                },
+                {
+                    "name": "Vajrada Amethyst Chunk",
+                    "amount": "3"
+                },
+                {
+                    "name": "Amakumo Fruit",
+                    "amount": "30"
+                },
+                {
+                    "name": "Kageuchi Handguard",
+                    "amount": "18"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 4,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "100000"
+                },
+                {
+                    "name": "Storm Beads",
+                    "amount": "12"
+                },
+                {
+                    "name": "Vajrada Amethyst Chunk",
+                    "amount": "6"
+                },
+                {
+                    "name": "Amakumo Fruit",
+                    "amount": "45"
+                },
+                {
+                    "name": "Famed Handguard",
+                    "amount": "12"
+                }
+            ]
+        },
+        {
+            "AscensionPhase": 5,
+            "materials": [
+                {
+                    "name": "Mora",
+                    "amount": "120000"
+                },
+                {
+                    "name": "Storm Beads",
+                    "amount": "20"
+                },
+                {
+                    "name": "Vajrada Amethyst Gemstone",
+                    "amount": "6"
+                },
+                {
+                    "name": "Amakumo Fruit",
+                    "amount": "60"
+                },
+                {
+                    "name": "Famed Handguard",
+                    "amount": "24"
+                }
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "name": "Origin",
+            "type": "Normal Attack",
+            "description": "Normal Attack\nPerforms up to 5 consecutive spear strikes.\nCharged Attack\nConsumes a certain amount of Stamina to perform an upward slash.\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact.",
+            "attributes": [
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        39.65,
+                        42.87,
+                        46.1,
+                        50.71,
+                        53.94,
+                        57.63,
+                        62.7,
+                        67.77,
+                        72.84,
+                        78.37,
+                        84.71
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        39.73,
+                        42.97,
+                        46.2,
+                        50.82,
+                        54.05,
+                        57.75,
+                        62.83,
+                        67.91,
+                        73.0,
+                        78.54,
+                        84.89
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        49.88,
+                        53.94,
+                        58.0,
+                        63.8,
+                        67.86,
+                        72.5,
+                        78.88,
+                        85.26,
+                        91.64,
+                        98.6,
+                        106.58
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        "28.98+28.98",
+                        "31.34+31.34",
+                        "33.7+33.7",
+                        "37.07+37.07",
+                        "39.43+39.43",
+                        "42.13+42.13",
+                        "45.83+45.83",
+                        "49.54+49.54",
+                        "53.25+53.25",
+                        "57.29+57.29",
+                        "61.92+61.92"
+                    ]
+                },
+                {
+                    "hit": "5-Hit DMG (%)",
+                    "values": [
+                        65.45,
+                        70.77,
+                        76.1,
+                        83.71,
+                        89.04,
+                        95.13,
+                        103.5,
+                        111.87,
+                        120.24,
+                        129.37,
+                        139.83
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        99.59,
+                        107.69,
+                        115.8,
+                        127.38,
+                        135.49,
+                        144.75,
+                        157.49,
+                        170.23,
+                        182.96,
+                        196.86,
+                        212.78
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        63.93,
+                        69.14,
+                        74.34,
+                        81.77,
+                        86.98,
+                        92.92,
+                        101.1,
+                        109.28,
+                        117.46,
+                        126.38,
+                        135.3
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        127.84,
+                        138.24,
+                        148.65,
+                        163.51,
+                        173.92,
+                        185.81,
+                        202.16,
+                        218.51,
+                        234.86,
+                        252.7,
+                        270.54
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        159.68,
+                        172.67,
+                        185.67,
+                        204.24,
+                        217.23,
+                        232.09,
+                        252.51,
+                        272.93,
+                        293.36,
+                        315.64,
+                        337.92
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Transcendence: Baleful Omen",
+            "type": "Elemental Skill",
+            "description": "The Raiden Shogun unveils a shard of her Euthymia, dealing  to nearby opponents, and granting nearby party members the Eye of Stormy Judgment.\n**Eye of Stormy Judgment**\n- When characters with this buff attack and deal DMG to opponents, the Eye will unleash a coordinated attack, dealing AoE Electro DMG at the opponent's position.\n- Characters who gain the Eye of Stormy Judgment will have their Elemental Burst DMG increased based on the Energy Cost of the Elemental Burst during the Eye's duration.\nThe Eye can initiate one coordinated attack every 0.9s per party.\nCoordinated attacks generated by characters not controlled by you deal 20% of the normal DMG.",
+            "attributes": [
+                {
+                    "hit": "Skill DMG (%)",
+                    "values": [
+                        117.2,
+                        125.99,
+                        134.78,
+                        146.5,
+                        155.29,
+                        164.08,
+                        175.8,
+                        187.52,
+                        199.24,
+                        210.96,
+                        222.68,
+                        234.4,
+                        249.05,
+                        263.7
+                    ]
+                },
+                {
+                    "hit": "Coordinated ATK DMG (%)",
+                    "values": [
+                        42.0,
+                        45.15,
+                        48.3,
+                        52.5,
+                        55.65,
+                        58.8,
+                        63.0,
+                        67.2,
+                        71.4,
+                        75.6,
+                        79.8,
+                        84.0,
+                        89.25,
+                        94.5
+                    ]
+                },
+                {
+                    "hit": "Elemental Burst DMG Bonus (%)",
+                    "values": [
+                        "0.22 Per Energy",
+                        "0.23 Per Energy",
+                        "0.24 Per Energy",
+                        "0.25 Per Energy",
+                        "0.26 Per Energy",
+                        "0.27 Per Energy",
+                        "0.28 Per Energy",
+                        "0.29 Per Energy",
+                        "0.3 Per Energy"
+                    ]
+                }
+            ],
+            "properties": []
+        },
+        {
+            "name": "Secret Art: Musou Shinsetsu",
+            "type": "Elemental Burst",
+            "description": "Gathering truths unnumbered and wishes uncounted, the Raiden Shogun unleashes the Musou no Hitotachi and deals , using Musou Isshin in combat for a certain duration afterward. The DMG dealt by Musou no Hitotachi and Musou Isshin's attacks will be increased based on the number of Chakra Desiderata's Resolve stacks consumed when this skill is used.\nMusou Isshin\nWhile in this state, the Raiden Shogun will wield her tachi in battle, while her Normal, Charged, and Plunging Attacks will be infused with Electro DMG, which cannot be overridden. When such attacks hit opponents, she will regenerate Energy for all nearby party members. Energy can be restored this way once every 1s, and this effect can be triggered 5 times throughout this skill's duration.\nWhile in this state, the Raiden Shogun's resistance to interruption is increased, and she is immune to Electro-Charged reaction DMG.\nWhile Musou Isshin is active, the Raiden Shogun's Normal, Charged, and Plunging Attack DMG will be considered Elemental Burst DMG.\nThe effects of Musou Isshin will be cleared when the Raiden Shogun leaves the field.\nChakra Desiderata\nWhen nearby party members (excluding the Raiden Shogun herself) use their Elemental Bursts, the Raiden Shogun will build up Resolve stacks based on the Energy Cost of these Elemental Bursts.\nThe maximum number of Resolve stacks is 60.\nThe Resolve gained by Chakra Desiderata will be cleared 300s after the Raiden Shogun leaves the field.",
+            "attributes": [
+                {
+                    "hit": "Musou no Hitotachi Base DMG (%)",
+                    "values": [
+                        400.8,
+                        430.86,
+                        460.92,
+                        501.0,
+                        531.06,
+                        561.12,
+                        601.2,
+                        641.28,
+                        681.36,
+                        721.44,
+                        761.52,
+                        801.6,
+                        851.7,
+                        902.0
+                    ]
+                },
+                {
+                    "hit": "Resolve Bonus",
+                    "values": [
+                        "3.89% Initial/0.73% ATK DMG Per Stack",
+                        "4.18% Initial/0.78% ATK DMG Per Stack",
+                        "4.47% Initial/0.84% ATK DMG Per Stack",
+                        "4.86% Initial/0.91% ATK DMG Per Stack",
+                        "5.15% Initial/0.96% ATK DMG Per Stack",
+                        "5.44% Initial/1.02% ATK DMG Per Stack",
+                        "5.83% Initial/1.09% ATK DMG Per Stack",
+                        "6.22% Initial/1.16% ATK DMG Per Stack",
+                        "6.61% Initial/1.23% ATK DMG Per Stack",
+                        "7% Initial/1.31% ATK DMG Per Stack",
+                        "7.39% Initial/1.38% ATK DMG Per Stack",
+                        "7.78% Initial/1.45% ATK DMG Per Stack",
+                        "8.26% Initial/1.54% ATK DMG Per Stack",
+                        "8.75% Initial/1.63% ATK DMG Per Stack"
+                    ]
+                },
+                {
+                    "hit": "Resolve Stacks Gained",
+                    "values": [
+                        "0.15 Per Energy Consumed",
+                        "0.16 Per Energy Consumed",
+                        "0.17 Per Energy Consumed",
+                        "0.18 Per Energy Consumed",
+                        "0.19 Per Energy Consumed",
+                        "0.2 Per Energy Consumed"
+                    ]
+                },
+                {
+                    "hit": "1-Hit DMG (%)",
+                    "values": [
+                        44.74,
+                        47.79,
+                        50.84,
+                        54.91,
+                        57.96,
+                        61.51,
+                        66.09,
+                        70.66,
+                        75.24,
+                        79.82,
+                        84.39,
+                        88.97,
+                        93.54,
+                        98.1
+                    ]
+                },
+                {
+                    "hit": "2-Hit DMG (%)",
+                    "values": [
+                        43.96,
+                        46.95,
+                        49.95,
+                        53.95,
+                        56.94,
+                        60.44,
+                        64.94,
+                        69.43,
+                        73.93,
+                        78.42,
+                        82.92,
+                        87.41,
+                        91.91,
+                        96.4
+                    ]
+                },
+                {
+                    "hit": "3-Hit DMG (%)",
+                    "values": [
+                        53.82,
+                        57.49,
+                        61.16,
+                        66.05,
+                        69.72,
+                        74.0,
+                        79.51,
+                        85.01,
+                        90.52,
+                        96.02,
+                        101.53,
+                        107.03,
+                        112.54,
+                        118.0
+                    ]
+                },
+                {
+                    "hit": "4-Hit DMG (%)",
+                    "values": [
+                        "30.89+30.98",
+                        "32.99+33.09",
+                        "35.1+35.2",
+                        "37.91+38.02",
+                        "40.01+40.13",
+                        "42.47+42.59",
+                        "45.63+45.76",
+                        "48.79+48.93",
+                        "51.95+52.1",
+                        "55.11+55.26",
+                        "58.27+58.43",
+                        "61.42+61.6",
+                        "64.58+64.77",
+                        "67.7+67.9"
+                    ]
+                },
+                {
+                    "hit": "5-Hit DMG (%)",
+                    "values": [
+                        73.94,
+                        78.99,
+                        84.03,
+                        90.75,
+                        95.79,
+                        101.67,
+                        109.24,
+                        116.8,
+                        124.36,
+                        131.92,
+                        139.48,
+                        147.05,
+                        154.61,
+                        162.2
+                    ]
+                },
+                {
+                    "hit": "Charged Attack DMG (%)",
+                    "values": [
+                        "61.6+74.36",
+                        "65.8+79.43",
+                        "70+84.5",
+                        "75.6+91.26",
+                        "79.8+96.33",
+                        "84.7+102.25",
+                        "91+109.85",
+                        "97.3+117.45",
+                        "103.6+125.06",
+                        "109.9+132.67",
+                        "116.2+140.27",
+                        "122.5+147.88",
+                        "128.8+155.48",
+                        "135.1+163.1"
+                    ]
+                },
+                {
+                    "hit": "Plunge DMG (%)",
+                    "values": [
+                        63.93,
+                        69.14,
+                        74.34,
+                        81.77,
+                        86.98,
+                        92.92,
+                        101.1,
+                        109.28,
+                        117.46,
+                        126.38,
+                        135.3,
+                        144.22,
+                        153.14,
+                        162.1
+                    ]
+                },
+                {
+                    "hit": "Low Plunge DMG (%)",
+                    "values": [
+                        127.84,
+                        138.24,
+                        148.65,
+                        163.51,
+                        173.92,
+                        185.81,
+                        202.16,
+                        218.51,
+                        234.86,
+                        252.7,
+                        270.54,
+                        288.38,
+                        306.22,
+                        324.0
+                    ]
+                },
+                {
+                    "hit": "High Plunge DMG (%)",
+                    "values": [
+                        159.68,
+                        172.67,
+                        185.67,
+                        204.24,
+                        217.23,
+                        232.09,
+                        252.51,
+                        272.93,
+                        293.36,
+                        315.64,
+                        337.92,
+                        360.2,
+                        382.48,
+                        405.0
+                    ]
+                },
+                {
+                    "hit": "Musou Isshin Energy Restoration",
+                    "values": [
+                        1.6,
+                        1.7,
+                        1.8,
+                        1.9,
+                        2.0,
+                        2.1,
+                        2.2,
+                        2.3,
+                        2.4,
+                        2.5
+                    ]
+                }
+            ],
+            "properties": []
+        }
+    ],
+    "passives": [
+        {
+            "name": "Wishes Unnumbered",
+            "type": "1st Ascension Passive",
+            "description": "When nearby party members gain Elemental Orbs or Particles, Chakra Desiderata gains 2 Resolve stacks.\nThis effect can occur once every 3s."
+        },
+        {
+            "name": "Enlightened One",
+            "type": "4th Ascension Passive",
+            "description": "Each 1% above 100% Energy Recharge that the Raiden Shogun possesses grants her:- 0.6% greater Energy restoration from Musou Isshin\n- 0.4% Electro DMG Bonus."
+        },
+        {
+            "name": "All-Preserver",
+            "type": "Utility Passive",
+            "description": "Mora expended when ascending Swords and Polearms is decreased by 50%."
+        }
+    ],
+    "constellations": [
+        {
+            "level": 1,
+            "name": "Ominous Inscription",
+            "description": "Chakra Desiderata will gather Resolve even faster. When  characters use their Elemental Bursts, the Resolve gained is increased by 80%. When characters of other Elemental Types use their Elemental Bursts, the Resolve gained is increased by 20%.",
+            "properties": []
+        },
+        {
+            "level": 2,
+            "name": "Steelbreaker",
+            "description": "While using Musou no Hitotachi and in the Musou Isshin state applied by Secret Art: Musou Shinsetsu, the Raiden Shogun's attacks ignore 60% of opponents' DEF.",
+            "properties": []
+        },
+        {
+            "level": 3,
+            "name": "Shinkage Bygones",
+            "description": "Increases the Level of Secret Art: Musou Shinsetsu by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 4,
+            "name": "Pledge of Propriety",
+            "description": "When the  state applied by Secret Art: Musou Shinsetsu expires, all nearby party members (excluding the Raiden Shogun) gain 30% bonus ATK for 10s.",
+            "properties": []
+        },
+        {
+            "level": 5,
+            "name": "Shogun's Descent",
+            "description": "Increases the Level of Transcendence: Baleful Omen by 3.\nMaximum upgrade level is 15.",
+            "properties": []
+        },
+        {
+            "level": 6,
+            "name": "Wishbearer",
+            "description": "While in the **Musou Isshin**\n state applied by Secret Art: Musou Shinsetsu, attacks by the Raiden Shogun that are considered part of her Elemental Burst will decrease all nearby party members' (but not including the Raiden Shogun herself) Elemental Burst CD by 1s when they hit opponents.\nThis effect can trigger once every 1s, and can trigger a total of 5 times during the state's duration.",
+            "properties": []
+        }
+    ]
+}
