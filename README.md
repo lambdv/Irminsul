@@ -1,73 +1,110 @@
 # Irminsul
 
-Just another Genshin Impact database
+Metagaming and Theorycrafting suite for Genshin Impact.
 
-<div align="center">
-  
-![Irminsul Screenshot](./example.jpg)
-[www.irminsul.moe](https://www.irminsul.moe/)
+[![Next.js](https://img.shields.io/badge/Next.js-15.1.5-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
+[![React](https://img.shields.io/badge/React-19.0.0-blue?style=for-the-badge&logo=react)](https://reactjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3.3-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.17-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
 
-</div>
+## 📚 Documentation
 
----
+- [Monorepo Overview](#-project-structure) (current file)
+- [Irminsul Documentation](./apps/Irminsul/README.md)
 
-## Installation
+## 🚀 Project Structure
 
-### 1. Clone the repository
+```
+irminsul/
+├── apps/           # Applications
+│   └── Irminsul/   # Next.js application with AI capabilities
+│       ├── README.md  # Application-specific documentation
+│       └── ...        # Application code
+├── packages/       # Shared packages
+├── turbo.json      # Turborepo configuration
+└── package.json    # Root package configuration
+```
+
+## 📦 Prerequisites
+
+- Node.js (version specified in package.json)
+- npm (version 10.2.4 or higher)
+- Docker (for containerized development)
+- SQLite or PostgreSQL (for database)
+
+## 🛠️ Installation
+
+1. Clone the repository:
 ```bash
-git clone https://github.com/lambdv/Irminsul
+git clone https://github.com/lambdv/Irminsul.git
 cd Irminsul
 ```
 
-### 2. Install Dependencies
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-### 3. Setup Environment Bariables
-Create a `.env` file in the root directory with the following variables:
-```txt
-    BLOB_READ_WRITE_TOKEN="" # unused
-    DATABASE_TYPE=neon       # unused in code, this just shows that we're using neon for the database
-    DATABASE_URL=""          # setup neon directly through https://neon.tech/ or through vercel
-                             # if using a different database type, change code in src/db/db.ts
-
-    AUTH_DRIZZLE_URL=""      # https://authjs.dev/getting-started/adapters/drizzle?framework=next-js
-    # auth provider with authjs using discord https://discord.com/developers/docs/intro
-    AUTH_DISCORD_ID=""
-    AUTH_DISCORD_SECRET=""
-
-    AUTH_SECRET=""           # secret key for authjs. made locally using `openssl rand -base64 32` 
-
-    STRIPE_SECRET_KEY=""     # for payments integration using stripe 
-    STRIPE_WEBHOOK_SECRET="" # shouldn't break anything if not set up in most cases
-```
-
-### 4 Run Application
-
-#### Development
+3. Set up environment variables:
 ```bash
-npm run dev
+# Copy example environment files
+cp apps/Irminsul/.env.example apps/Irminsul/.env
 ```
 
-#### Production
-```bash
-npm run build
-npm run start
-```
+4. Configure your environment variables in `.env` file with necessary API keys and database credentials.
 
-#### Docker
-```bash
-docker build -t irminsul .
-docker run -p 3000:3000 irminsul
-```
+## 🚀 Development
 
-## Features
-- [x] Character, Weapon and Artifact Archive Database for information found in the game
-- [x] Articles and Guides for written content
+### Available Scripts
 
-~~- [x] AI agent chatbot for answering questions releated to the game~~
-~~- [x] User generated content with Akadymia~~
-~~- [x] Damage Calculator~~
-~~- [x] Energy Recharge Calculator~~
+- `npm run dev` - Start development servers for all applications
+- `npm run build` - Build all applications and packages
+- `npm run test` - Run tests across all applications and packages
+- `npm run lint` - Run linting across all applications and packages
+- `npm run clean` - Clean build artifacts
+- `npm run install:all` - Install dependencies for all workspaces
 
+### Database Management
+
+- `npm run db:push` - Push database schema changes
+- `npm run db:studio` - Open Drizzle Studio for database management
+- `npm run db:migrate` - Run database migrations
+- `npm run db:generate` - Generate migration files
+
+## 📚 Workspaces
+
+### Applications
+- [`apps/Irminsul`](./apps/Irminsul/README.md) - Main Next.js application with features:
+  - AI integration (OpenAI, Google AI, DeepSeek)
+  - Authentication (NextAuth.js)
+  - Database (Drizzle ORM with SQLite/PostgreSQL)
+  - Payment processing (Stripe)
+  - Real-time features (Socket.IO)
+  - Modern UI (Material-UI, Tailwind CSS)
+  - For detailed setup and configuration, see the [application documentation](./apps/Irminsul/README.md)
+
+### Packages
+- Shared packages are located in the `packages/` directory
+
+## 🛡️ Security
+
+- Environment variables are used for sensitive configuration
+- API keys and secrets are never committed to the repository
+- Authentication is handled through NextAuth.js
+- Database access is secured through ORM
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
+
+## 📫 Support
+
+For support, please open an issue in the [GitHub repository](https://github.com/lambdv/Irminsul/issues).

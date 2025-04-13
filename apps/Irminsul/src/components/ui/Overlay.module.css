@@ -1,0 +1,40 @@
+
+.overlay{
+    /* background-color: rgba(19, 19, 19, 0.925); */
+    position: fixed;
+    top:0px;
+    left: 0px;
+    /* padding-left: 90px; */
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    overflow: hidden;
+    text-align: center;
+    justify-content: center;
+    display: block;
+
+    margin-left: auto;
+    margin-bottom: auto;
+    text-align: center;
+
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    -moz-backdrop-filter: blur(0px);
+    -o-backdrop-filter: blur(0px);
+    -ms-backdrop-filter: blur(0px);
+
+    background-color: red;
+
+    transition: all 0.2s ease-in-out;
+    animation: fadeBackground 0.2s forwards;
+}
+
+@keyframes fadeBackground {
+    from {
+        background-color: rgba(19, 19, 19, 0); 
+    }
+    to {
+        background-color: rgba(19, 19, 19, 0.85);
+
+    }
+}
