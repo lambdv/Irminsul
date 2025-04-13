@@ -125,7 +125,16 @@
 }
 
 .messageContentAssistant {
-    background-color: var(--elevated-color);
+    /* background-color: var(--elevated-color); */
+    background-color: rgb(226, 172, 65);
+    border-radius: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+
+.messageContentAssistant div {
+    color: #f3e7cf;
 }
 
 .tokenCount {

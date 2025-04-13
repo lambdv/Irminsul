@@ -1,0 +1,40 @@
+{
+  "name": "irminsul",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "packageManager": "npm@10.2.4",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "install:all": "npm install",
+    "add": "npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lambdv/Irminsul.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lambdv/Irminsul/issues"
+  },
+  "homepage": "https://github.com/lambdv/Irminsul#readme",
+  "description": "A monorepo project using Turborepo",
+  "devDependencies": {
+    "turbo": "^1.12.3"
+  },
+  "dependencies": {
+    "irminsul-next": "file:"
+  }
+}

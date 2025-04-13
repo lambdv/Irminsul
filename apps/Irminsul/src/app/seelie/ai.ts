@@ -14,7 +14,7 @@ const google = createGoogleGenerativeAI({
     apiKey: token
 })
 
-const model = google('gemini-2.0-flash') as any
+const model = google('models/gemini-2.0-flash-exp') as any
 
 const systemPrompt =  
     "You are an AI Assistant/agent chatbot that answers in-game and metagaming questions about the game Genshin Impact."

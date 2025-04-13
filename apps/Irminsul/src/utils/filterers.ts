@@ -1,5 +1,5 @@
 import {flatten} from "./standardizers"
-import assert from "node:assert"
+import assert from "assert"
 
 export function filterItemList(characters: any, filters: string[][], selectedFilters: string[], query: string, itemTaggingFunction: (item: any) => string[]){
     assert (characters.length > 0, "characters must be an array")

@@ -1,13 +1,4 @@
-# Irminsul
-
 A Genshin Impact Database and Tooling Suite for Metagaming and Theorycrafting.
-
-<div align="center">
-  
-![Irminsul Screenshot](./example.jpg)
-[www.irminsul.moe](https://www.irminsul.moe/)
-
-</div>
 
 ---
 
