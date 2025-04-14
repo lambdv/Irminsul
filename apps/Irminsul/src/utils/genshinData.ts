@@ -6,8 +6,10 @@ import { toKey } from '@/utils/standardizers'
 import { Page } from '@/types/page'
 import { CaseLower } from 'lucide-react';
 import { cookies } from 'next/headers';
+import path from 'path';
 
-const CDN_URL = "https://cdn.irminsul.moe/"
+let CDN_URL = "https://cdn.irminsul.moe/"
+
 
 //homgdg adaptor
 // async function fetchAvatarInfoConfig(): Promise<Character[] | null> {

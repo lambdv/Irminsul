@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
     "paths": {
+      "@packages/*": [
+        "../../packages/*"
+      ],
       "@root/*": [
         "./*"
       ],

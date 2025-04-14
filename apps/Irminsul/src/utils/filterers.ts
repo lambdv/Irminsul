@@ -1,6 +1,13 @@
 import {flatten} from "./standardizers"
 import assert from "assert"
 
+/**
+ * Filter an item list based on filters and a query
+ * @param characters - The list of items to filter
+ * @param filters - The filters to apply
+ * @param selectedFilters - The selected filters
+ * @param query - The query to search for
+ */
 export function filterItemList(characters: any, filters: string[][], selectedFilters: string[], query: string, itemTaggingFunction: (item: any) => string[]){
     assert (characters.length > 0, "characters must be an array")
     if(selectedFilters.length === 0 && query.length === 0)
@@ -21,6 +28,13 @@ export function filterItemList(characters: any, filters: string[][], selectedFil
     })
 }
 
+/**
+ * Sort an item list based on a sortBy parameter
+ * @param a - The first item to compare
+ * @param b - The second item to compare
+ * @param sortBy - The parameter to sort by
+ * @param descending - Whether to sort in descending order
+ */
 export function sortItems(a: any, b: any, sortBy: string, descending: boolean){
     if(descending) 
         [a, b] = [b, a]

@@ -130,7 +130,7 @@ def syncCharacterIcons(name = None, element = None):
                 del iconOBJ[unknownKeys[0]]
 
             print(json.dumps(iconOBJ, indent=4))
-            utils.saveIMGS(name, iconOBJ, "public/assets/characters", override=True)
+            utils.saveIMGS(name, iconOBJ, "../genshindata/public/assets/characters", override=True)
             print(f"Saved icons")
         except Exception as e:
             print(f"Error processing {name}: {str(e)}")

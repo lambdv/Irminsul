@@ -17,7 +17,7 @@ def characterDBSync(overrideData=False, overrideAssets=False):
         key = utils.toKey(name)
         obj = characterOBJs[characterNames.index(name)]
         # data
-        if not os.path.exists(f"public/data/characters/{key}.json") or overrideData:
+        if not os.path.exists(f"../genshindata/public/data/characters/{key}.json") or overrideData:
             characterJSON = scrapeCharacter(name)
 
             tclsoup = tcl.scrapeCharacter(name, characterJSON["element"])
@@ -25,14 +25,14 @@ def characterDBSync(overrideData=False, overrideAssets=False):
             if d and d != "" and d != "None":
                 characterJSON["description"] = d
                 #print(characterJSON["description"])
-            utils.saveJSON(characterJSON, "public/data/characters", override=False)
+            utils.saveJSON(characterJSON, "../genshindata/public/data/characters", override=False)
             print(f"Saved {name}.json")
             #timer.sleep(1)
         # assets
-        if not os.path.exists(f"public/assets/characters/{key}/") or overrideAssets:
+        if not os.path.exists(f"../genshindata/public/assets/characters/{key}/") or overrideAssets:
             imgOBJ = scrapeCharacterAssets(name)
             # iconOBJ = tcl.scrapeCharacterIcons(name, obj.vision) @only works if character is in tcl
-            utils.saveIMGS(name, imgOBJ, "public/assets/characters", override=False)
+            utils.saveIMGS(name, imgOBJ, "../genshindata/public/assets/characters", override=False)
             print(f"Saved {name} assets")
 
 def weaponDBSync(overrideData=False, overrideAssets=False):
@@ -40,17 +40,17 @@ def weaponDBSync(overrideData=False, overrideAssets=False):
     print(weaponNames)
     for name in weaponNames:
         key = utils.toKey(name)
-        if not os.path.exists(f"public/data/weapons/{key}.json"): 
+        if not os.path.exists(f"../genshindata/public/data/weapons/{key}.json"): 
             print(f"ripping {name}")
             weaponJSON = None
             weaponJSON = scrapeWeapon(name)
-            utils.saveJSON(weaponJSON, "public/data/weapons")
+            utils.saveJSON(weaponJSON, "../genshindata/public/data/weapons")
             print(f"Saved {name}.json")
             #timer.sleep(1)
-        if not os.path.exists(f"public/assets/weapons/{key}/"):
+        if not os.path.exists(f"../genshindata/public/assets/weapons/{key}/"):
             print(f"ripping {name} assets")
             imgOBJ = scrapeWeaponAssets(name)
-            utils.saveIMGS(name, imgOBJ, "public/assets/weapons", override=overrideAssets)
+            utils.saveIMGS(name, imgOBJ, "../genshindata/public/assets/weapons", override=overrideAssets)
             print(f"Saved {name} assets")
 
 def artifactDBSync(overrideData=False, overrideAssets=False):
@@ -59,16 +59,16 @@ def artifactDBSync(overrideData=False, overrideAssets=False):
         name = artNames[i]
         obj = artOBJs[i]
         key = utils.toKey(name)
-        if not os.path.exists(f"public/data/artifacts/{key}.json") or overrideData:
+        if not os.path.exists(f"../genshindata/public/data/artifacts/{key}.json") or overrideData:
             print(f"saving {name}...")
             artifactJSON = scrapeArtifact(name, obj)
-            utils.saveJSON(artifactJSON, "public/data/artifacts", override=overrideData)
+            utils.saveJSON(artifactJSON, "../genshindata/public/data/artifacts", override=overrideData)
             print(f"Saved {name}.json")
             #timer.sleep(1)
-        if not os.path.exists(f"public/assets/artifacts/{key}/") or overrideAssets:
+        if not os.path.exists(f"../genshindata/public/assets/artifacts/{key}/") or overrideAssets:
             print(f"saving {name} assets...")
             imgOBJ = scrapeArtifactAssets(name)
-            utils.saveIMGS(name, imgOBJ, "public/assets/artifacts", override=overrideAssets)
+            utils.saveIMGS(name, imgOBJ, "../genshindata/public/assets/artifacts", override=overrideAssets)
             print(f"Saved {name} assets")
 
 """
@@ -1146,7 +1146,7 @@ def scrapeArtifactAssets(name):
 #     notmissing = weapons
 #     for weapon in weapons:
 #         key = utils.toKey(weapon)
-#         if not os.path.exists(f"public/assets/weapons/{key}/splash.png"):
+#         if not os.path.exists(f"../genshindata/public/assets/weapons/{key}/splash.png"):
 #            # missing.append(key)
 #            notmissing.remove(weapon)
 

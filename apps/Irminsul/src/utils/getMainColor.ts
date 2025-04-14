@@ -1,5 +1,10 @@
 import sharp from 'sharp';
 
+/**
+ * Get the main color of an image
+ * @param imageURL - The URL of the image
+ * @returns The main color of the image
+ */
 export async function getMainColor(imageURL: string): Promise<string> {
     const fs = require('fs');
     const path = require('path');
@@ -104,6 +109,12 @@ export async function getMainColor(imageURL: string): Promise<string> {
     }
 }
 
+/**
+ * helper function to adjust the brightness of a color
+ * @param color 
+ * @param targetBrightness 
+ * @returns 
+ */
 function adjustBrightness(color: string, targetBrightness: number = 0.6): string {
     // Extract RGB values
     const match = color.match(/rgb\((\d+),(\d+),(\d+)\)/);
