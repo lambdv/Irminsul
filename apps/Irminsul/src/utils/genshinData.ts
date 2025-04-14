@@ -3,12 +3,11 @@ import { Character } from '@/types/character';
 import { Weapon } from '@/types/weapon';
 import { Artifact } from '@/types/artifact';
 import { toKey } from '@/utils/standardizers'
-// import characterData from 'https://genshindata.vercel.app/data/characters.json'
-// import artifactData from 'https://genshindata.vercel.app/data/artifacts.json'
-// import weaponData from 'https://genshindata.vercel.app/data/weapons.json'
 import { Page } from '@/types/page'
 import { CaseLower } from 'lucide-react';
 import { cookies } from 'next/headers';
+
+const CDN_URL = "https://cdn.irminsul.moe/"
 
 //homgdg adaptor
 // async function fetchAvatarInfoConfig(): Promise<Character[] | null> {
@@ -161,7 +160,7 @@ export async function getCharacters(): Promise<any[]> {
     //     return data.data as Character[]
     // }
 
-    const characterData = await fetch("https://genshindata.vercel.app/data/characters.json")
+    const characterData = await fetch(CDN_URL + "data/characters.json")
         .then(res => res.json())
 
     let characters = characterData.data.map((character, index) => ({
@@ -175,7 +174,7 @@ export async function getCharacters(): Promise<any[]> {
 }
 
 export async function getWeapons(): Promise<Weapon[]>{
-    const weaponData = await fetch("https://genshindata.vercel.app/data/weapons.json")
+    const weaponData = await fetch(CDN_URL + "data/weapons.json")
         .then(res => res.json())
 
     let weapons = weaponData.data 
@@ -188,7 +187,7 @@ export async function getWeapons(): Promise<Weapon[]>{
 }
 
 export async function getArtifacts(): Promise<Artifact[]>{
-    const artifactData = await fetch("https://genshindata.vercel.app/data/artifacts.json")
+    const artifactData = await fetch(CDN_URL + "data/artifacts.json")
         .then(res => res.json())
 
     let artifacts = artifactData.data 
