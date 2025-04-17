@@ -80,7 +80,7 @@ export default function Page() {
         if (!data.length) return null
         
         return (
-            <TableContainer component={Paper} sx={{ maxHeight: '70vh', overflow: 'auto', overflowX: 'hidden' }}>
+            <TableContainer component={Paper} sx={{ maxHeight: '70vh', overflow: 'auto' }}>
                 
                 <Table>
                     <TableHead>

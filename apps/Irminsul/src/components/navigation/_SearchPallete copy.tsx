@@ -12,11 +12,6 @@ import RoundBtn from '../ui/RoundBtn'
 import { Page } from '@/types/page'
 // import { foundMatch } from '@/utils/searchEngine'
 
-const alterntiveNamesMapping = [
-    { "Tartaglia": ["childe", "ajax"]},
-    { "Tenacity of the Millelith": ["tom"]},
-    { "Fleuve Cendre Ferryman": ["pipe"]},
-]
 export default function SearchPallete() {
     const router = useRouter()
     const {SearchQuery, setSearchQuery, setFirstKeyPress, firstKeyPress} = SearchStore()
@@ -24,7 +19,6 @@ export default function SearchPallete() {
     const searchBarRef = useRef<HTMLInputElement | null>(null)
     const { setShowPallette } = SearchStore()
     const [results, setResults] = useState<Page[]>([])
-    const [highlightedIndex, setHighlightedIndex] = useState<number>(0)
 
 
     function foundMatch(query: string, page: Page){
@@ -186,27 +180,7 @@ export default function SearchPallete() {
 
             >
                 <Image src={imgURL} alt="" width={100} height={100} unoptimized/>
-                <p>
-                    {item.name}
-                    {/* {(() => {
-                        const foundMatch = item.name.toLowerCase().indexOf(SearchQuery.toLowerCase());
-                        if (foundMatch === -1) return item.name;
-                        
-                        const before = item.name.slice(0, foundMatch);
-                        const match = item.name.slice(foundMatch, foundMatch + SearchQuery.length);
-                        const after = item.name.slice(foundMatch + SearchQuery.length);
-                        
-                        return (
-                            <>
-                                {before}
-                                <span style={{backgroundColor: 'var(--primary-color)', borderRadius: '2px', padding: '0px'}}>
-                                    {match}
-                                </span>
-                                {after}
-                            </>
-                        );
-                    })()} */}
-                </p>
+                <p>{item.name}</p>
                 {highlighted && <i className="material-symbols-outlined " style={{marginLeft: "auto", color: "#b1b1b1", fontSize: "18px", marginRight: "5px"}}>keyboard_return</i>}
             </Link>
         )
@@ -222,17 +196,15 @@ export default function SearchPallete() {
                     style={{width: "40px", height: "35px", fontSize: "20px"}}
                     iconStyle={{fontSize: "20px", color: "#a5a5a5"}}
                 />
-
                 <input 
-                    ref={searchBarRef}  // Attach ref to the input element
+                    ref={searchBarRef}
                     className={SearchPaletteCSS.searchBar}
                     type="text" 
                     placeholder="Search..." 
                     value={SearchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                 />
-                {
-                    SearchQuery.length > 0 &&
+                {SearchQuery.length > 0 &&
                     <RoundBtn
                         icon="close"
                         onClick={() => setSearchQuery("")}
@@ -240,27 +212,42 @@ export default function SearchPallete() {
                         iconStyle={{fontSize: "20px", color: "#a5a5a5"}}
                     />
                 }
-
             </div>
+            
             <ul className={SearchPaletteCSS.searchPaletteResults}>
-                
                 {SearchQuery.length > 0 ? 
                     <>
                         <p style={{color: "#787878", fontSize: "12px", marginLeft: "10px", marginBottom: "10px", paddingLeft: "0px"}}>{results.length} results</p>
-                        {results.map((item, index) => 
+                        {results
+                        .map((item, index) => 
                             ResultItemComponent(item, index === 0)
                         )}
                     </>
                 : 
                     <>
-                        <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/"><p>Home</p></Link>
-                        <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/archive/characters"><p>Characters</p></Link>
-                        <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/archive/weapons"><p>Weapons</p></Link>
-                        <Link className={SearchPaletteCSS.palletteResult} onClick={closePalette} href="/archive/artifacts"><p>Artifacts</p></Link>
+                        {
+                            [
+                                {name: "Home", href: "/"},
+                                {name: "Ask AI", href: "/seelie"},
+                                {name: "Characters", href: "/archive/characters"},
+                                {name: "Weapons", href: "/archive/weapons"},
+                                {name: "Artifacts", href: "/archive/artifacts"},
+                                {name: "Articles", href: "/articles"},
+                                {name: "Support", href: "/support"},
+                                {name: "Settings", href: "/settings"},
+                            ].map((item, index) => 
+                                <Link key={index} className={SearchPaletteCSS.palletteResult} onClick={closePalette} href={item.href}><p>{item.name}</p></Link>
+                            )
+                        }
                     </>
                 }
             </ul>
         </div>
   )
-}
+}   
 
+const alterntiveNamesMapping = [
+    { "Tartaglia": ["childe", "ajax"]},
+    { "Tenacity of the Millelith": ["tom"]},
+    { "Fleuve Cendre Ferryman": ["pipe"]},
+]

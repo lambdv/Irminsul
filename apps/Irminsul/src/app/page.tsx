@@ -1,10 +1,10 @@
 import LandingPage from './_landing/LandingPage';
-import Loading from './loading';
 
 //meta data
-const slogan = "Genshin Impact Metagaming/Theorycrafting Database, Knowledge Base, Wiki, Guides, and Tools"
+const slogan = "Genshin Impact Metagaming/Theorycrafting Database and Tooling Suite"
+const title = "Irminsul | Genshin Impact Theorycrafting/Metagaming Suite"
 export const metadata = {
-    title: "Irminsul | " + slogan,
+    title: title,
     metadataBase: new URL("https://irminsul.moe"),
     description: slogan,
     keywords: [
@@ -26,15 +26,15 @@ export const metadata = {
     author: "Irminsul",
     robots: "index, follow",
     openGraph: {
-        title: "Irminsul.moe | Genshin Impact Database & Guides",
-        description: "Genshin Impact Metagaming/Theorycrafting Database, Knowledge Base, Wiki, Guides, and Tools",
+        title: title,
+        description: slogan,
         type: "website",
         url: "https://irminsul.moe",
     }
 }
 
-export default function Home() {
+export default async function Home() {
     return <>
-        <p>hi</p>
+        <LandingPage />
     </>;
 }

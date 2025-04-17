@@ -182,6 +182,9 @@ function CharacterPassives({data}){
           case "Utility Passive":
             icon = getAssetURL("character", data.name, "passive.png")
             break
+          case "Night Realm's Gift Passive":
+            icon = getAssetURL("character", data.name, "passive2.png")
+            break
         }
         return <Talent 
           key={index}

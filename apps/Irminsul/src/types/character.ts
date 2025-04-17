@@ -1,5 +1,6 @@
 export type Character = {
     id: string
+    index?: number
     name: string
     key: string
     title: string
@@ -25,7 +26,7 @@ export type Character = {
     constellations: CharacterConstellation[]
 }
 
-type CharacterBaseStat = {
+export type CharacterBaseStat = {
     LVL: string
     BaseHP: string
     BaseATK: string
@@ -35,14 +36,14 @@ type CharacterBaseStat = {
     AscensionPhase: number
 }
 
-type CharacterConstellation = {
+export type CharacterConstellation = {
     level: number
     name: string
     description: string
     properties: any[]
 }
 
-type CharacterTalent = {
+export type CharacterTalent = {
     name: string
     type: string
     description: string
@@ -50,23 +51,23 @@ type CharacterTalent = {
     properties: any[]
 }
 
-type CharacterTalentAttribute = {
+export type CharacterTalentAttribute = {
     hit: string
     values: (number | string)[]
 }
 
-type CharacterPassive = {
+export type CharacterPassive = {
     name: string
     type: string
     description: string
     properties?: any[]
 }
 
-type CharacterAscensionCost = {
+export type CharacterAscensionCost = {
     AscensionPhase: number
     materials: CharacterAscensionMaterial[]
 }
-type CharacterAscensionMaterial = {
+export type CharacterAscensionMaterial = {
     name: string
     amount: string
 }

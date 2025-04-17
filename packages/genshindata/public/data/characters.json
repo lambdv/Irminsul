@@ -21010,8 +21010,8 @@
             "key": "iansan",
             "title": "Tempered in Molten Stone",
             "rarity": 4,
-            "element": "none",
-            "vision": "none",
+            "element": "electro",
+            "vision": "electro",
             "weapon": "polearm",
             "release_date": "march 26, 2025",
             "release_date_epoch": 1742947200,
@@ -21021,7 +21021,7 @@
             "region": "natlan",
             "special_dish": "gold-standard healthy meal",
             "alternate_title": "Gold-Standard Trainer from Teteocan",
-            "description": "",
+            "description": "Head coach of the fitness club at the Collective of Plenty, and a renowned Natlanese nutritionist.",
             "ascension_stat": "ATK",
             "base_stats": [
                 {

@@ -10,9 +10,9 @@ import utils
 # wiki.characterDBSync(overrideData=False, overrideAssets=False)
 # wiki.artifactDBSync()
 
-# m.compile_json_files("public/data/artifacts", "public/data/", "artifacts.json")
-# m.compile_json_files("public/data/characters", "public/data/", "characters.json")
-# m.compile_json_files("public/data/weapons", "public/data/", "weapons.json")
+# m.compile_json_files("../genshindata/public/data/artifacts", "../genshindata/public/data/", "artifacts.json")
+# m.compile_json_files("../genshindata/public/data/characters", "../genshindata/public/data/", "characters.json")
+# m.compile_json_files("../genshindata/public/data/weapons", "../genshindata/public/data/", "weapons.json")
 
 # c = wiki.scrapeCharacter("ororon")
 
@@ -27,7 +27,7 @@ import utils
 
 #     imgOBJ = wiki.scrapeCharacterAssets(name)
 #     # iconOBJ = tcl.scrapeCharacterIcons(name, obj.vision)
-#     utils.saveIMGS(name, imgOBJ, "public/assets/characters", override=True)
+#     utils.saveIMGS(name, imgOBJ, "../genshindata/public/assets/characters", override=True)
 #     print(f"Saved {name} assets")
 
 
@@ -37,9 +37,9 @@ import utils
 # wiki.characterDBSync(overrideData=False, overrideAssets=False)
 # wiki.artifactDBSync()
 
-# m.compile_json_files("public/data/artifacts", "public/data/", "artifacts.json")
-m.compile_json_files("public/data/characters", "public/data/", "characters.json")
-# m.compile_json_files("public/data/weapons", "public/data/", "weapons.json")
+# m.compile_json_files("../genshindata/public/data/artifacts", "../genshindata/public/data/", "artifacts.json")
+# m.compile_json_files("../genshindata/public/data/characters", "../genshindata/public/data/", "characters.json")
+# m.compile_json_files("../genshindata/public/data/weapons", "../genshindata/public/data/", "weapons.json")
 
 
 
@@ -48,9 +48,9 @@ m.compile_json_files("public/data/characters", "public/data/", "characters.json"
 #     wiki.characterDBSync(overrideData=False, overrideAssets=False)
 #     wiki.artifactDBSync(overrideData=False, overrideAssets=False)
 
-#     m.compile_json_files("public/data/artifacts", "public/data/", "artifacts.json")
-#     m.compile_json_files("public/data/characters", "public/data/", "characters.json")
-#     m.compile_json_files("public/data/weapons", "public/data/", "weapons.json")
+#     m.compile_json_files("../genshindata/public/data/artifacts", "../genshindata/public/data/", "artifacts.json")
+#     m.compile_json_files("../genshindata/public/data/characters", "../genshindata/public/data/", "characters.json")
+#     m.compile_json_files("../genshindata/public/data/weapons", "../genshindata/public/data/", "weapons.json")
 
 # updateDatabase()
 
