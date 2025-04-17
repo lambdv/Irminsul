@@ -38,7 +38,7 @@ import utils
 # wiki.artifactDBSync()
 
 # m.compile_json_files("../genshindata/public/data/artifacts", "../genshindata/public/data/", "artifacts.json")
-m.compile_json_files("../genshindata/public/data/characters", "../genshindata/public/data/", "characters.json")
+# m.compile_json_files("../genshindata/public/data/characters", "../genshindata/public/data/", "characters.json")
 # m.compile_json_files("../genshindata/public/data/weapons", "../genshindata/public/data/", "weapons.json")
 
 

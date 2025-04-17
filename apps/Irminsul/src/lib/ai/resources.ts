@@ -6,7 +6,6 @@ import db from '@/db/db';
 import { resources, insertResourceSchema, NewResourceParams } from '@/db/schema/resources';
 import { embeddings as embeddingsTable } from '@/db/schema/embeddings';
 import { generateEmbeddings } from './embedding';
-// import { encryptContent } from '@/lib/utils/encryption';
 
 /**
  * Takes a resource, generates embeddings, and inserts both into the database.

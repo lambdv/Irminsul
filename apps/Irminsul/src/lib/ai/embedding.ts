@@ -5,7 +5,6 @@ import { cosineDistance, desc, gt, eq, sql } from 'drizzle-orm';
 import { embeddings } from '@/db/schema/embeddings';
 import { resources } from '@/db/schema/resources';
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
-import { decryptContent } from '@/lib/utils/encryption';
 // import vector from '@/db/vector';
 // import { embeddings } from '@/db/schema';
 // import { resources } from '@/db/schema';

@@ -124,6 +124,8 @@ export default function APISettings() {
     //     }
     // }
 
+    
+
     return (
         <ThemeProvider theme={muiTheme}>
             <div>
@@ -137,7 +139,9 @@ export default function APISettings() {
                         sx={muiStyle}
                     >
                         <MenuItem value="irminsul" sx={{color: '#404040'}} onClick={()=>{}}>Irminsul</MenuItem>
-                        {/* <MenuItem value="custom" sx={{color: '#404040'}}>Custom</MenuItem> */}
+                        <MenuItem value="genshin-data" sx={{color: '#404040'}} onClick={()=>{}}>Genshin Data</MenuItem>
+
+                        <MenuItem value="custom" sx={{color: '#404040'}}>Custom</MenuItem>
                     </Select>
                 </FormControl>
 

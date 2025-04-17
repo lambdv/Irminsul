@@ -32,9 +32,9 @@
   "homepage": "https://github.com/lambdv/Irminsul#readme",
   "description": "A monorepo project using Turborepo",
   "devDependencies": {
-    "turbo": "^1.12.3"
+    "turbo": "^1.13.4"
   },
   "dependencies": {
-    "irminsul-next": "file:"
+    "irminsul-next": "^0.1.0"
   }
 }

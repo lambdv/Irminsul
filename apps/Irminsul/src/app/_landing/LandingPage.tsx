@@ -20,26 +20,15 @@ export default async function LandingPage() {
     const characters = await getCharacters().then(characters => characters.sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime()).slice(0, 5));
     const weapons = await getWeapons().then(weapons => weapons.sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime()).slice(0, 5));
     const artifacts = await getArtifacts().then(artifacts => artifacts.sort((a, b) => Number(b.release_version) - Number(a.release_version)).slice(0, 5));
-    const latestArticles = articles.sort((a, b) => b.date.getTime() - a.date.getTime()).slice(0, 3);
+    // const latestArticles = articles.sort((a, b) => b.date.getTime() - a.date.getTime()).slice(0, 3);
 
-    const isLoggedIn = await isAuthenticated();
-    const user = await auth();
+    // const isLoggedIn = await isAuthenticated();
+    // const user = await auth();
 
     return (
         <div className={styles.homePageContainer} style={{}}>
 
-            {isLoggedIn ? 
-                // <div style={{
-                //     borderRadius: '14px',
-                //     padding: '0rem 2rem',
-                //     textAlign: 'left',
-                //     margin: '0rem 1.2rem',
-                //     marginBottom: '-1.5rem',
-                // }}>
-                //     <h1 style={{fontSize: '1rem', fontFamily: 'ingame', fontWeight: '500',}}>Welcome back, {user?.user?.name}</h1>
-                // </div>
-                <></>
-                            :  
+      
                 <div style={{
                     borderRadius: '14px',
                     padding: '0rem 2rem',
@@ -53,9 +42,9 @@ export default async function LandingPage() {
                         margin: '0.5rem 0 0 0',
                         padding: 0,
                         fontSize: '0.9rem'
-                    }}>Repository for all metagaming information in Teyvat</p>
+                    }}>Repository for all of the information and memories of Teyvat.</p>
                 </div>
-            }
+            
 
                 <RightSidenav>
                     <div className={`${styles.bentoItem} ${styles.ad}`}>
@@ -65,115 +54,26 @@ export default async function LandingPage() {
                 </RightSidenav>
 
 
-            <div className={styles.bentoGrid}>
-                <div className={`${styles.bentoItem} ${styles.featured}`}>
+            
+            <div className={styles.bentoGrid} style={{
+                margin: '1rem 1.2rem'
+            }}>
+                {/* <div className={`${styles.bentoItem} ${styles.featured}`}>
                     <WishBanner />
-                </div>
+                </div> */}
 
 
   
 
-                <div className={`${styles.bentoItem} ${styles.serverTime}`}>
+                {/* <div className={`${styles.bentoItem} ${styles.serverTime}`}>
                     <ServerTimer />
-                </div>
-
-
-                <div className={`${styles.bentoItem} ${styles.quickLinks}`}>
-                    <h3 className="text-xl font-semibold mb-4" style={{color: 'var(--text-color)'}}>Quick Links</h3>
-                    <div className={styles.linkGrid}>
-                        <Link href="/archive/characters" style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.75rem',
-                            padding: '0.75rem',
-                            transition: 'all 0.2s ease',
-                            borderRadius: '8px',
-                            background: 'rgba(255, 255, 255, 0.05)',
-                        }}>
-                            <Image 
-                                src="/imgs/icons/character.png" 
-                                alt="Characters" 
-                                width={24} 
-                                height={24} 
-                                style={{objectFit: 'contain'}}
-                            />
-                            <span className="text-sm font-semibold">Characters</span>
-                        </Link>
-
-
-                        <Link href="/archive/weapons" style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.75rem',
-                            padding: '0.75rem',
-                            transition: 'all 0.2s ease',
-                            borderRadius: '8px',
-                            background: 'rgba(255, 255, 255, 0.05)',
-                        }}>
-                            <Image src="/imgs/icons/weaponIcon.png" alt="Weapons" width={24} height={24} style={{objectFit: 'contain'}} />
-                            <span className="text-sm font-semibold">Weapons</span>
-                        </Link>
-
-                        <Link href="/archive/artifacts" style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.75rem',
-                            padding: '0.75rem',
-                            transition: 'all 0.2s ease',
-                            borderRadius: '8px',
-                            background: 'rgba(255, 255, 255, 0.05)',
-                        }}>
-                            <Image src="/imgs/icons/artifactIcon.png" alt="Artifacts" width={24} height={24} style={{objectFit: 'contain'}} />
-                            <span className="text-sm font-semibold">Artifacts</span>
-                        </Link>
-
-
-                        <Link href="/articles" style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.75rem',
-                            padding: '0.75rem',
-                            transition: 'all 0.2s ease',
-                            borderRadius: '8px',
-                            background: 'rgba(255, 255, 255, 0.05)',
-                        }}>
-                            <span className={styles.icon + " material-symbols-rounded"}>article</span>
-                            <span style={{
-                                fontSize: '0.9rem',
-                                fontWeight: 500
-                            }}>Articles</span>
-                        </Link>
+                </div> */}
 
 
 
-                        <Link href="/login" style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.75rem',
-                            padding: '0.75rem',
-                            transition: 'all 0.2s ease',
-                            borderRadius: '8px',
-                            background: 'rgba(255, 255, 255, 0.05)',
-                        }}>
-                            <span className={styles.icon + " material-symbols-rounded"}>login</span>
-                            <span style={{
-                                fontSize: '0.9rem',
-                                fontWeight: 500
-                            }}>Login</span>
-                        </Link>
-
-                        
-                        
-
-
-
-
-
-                    </div>
-                </div>
 
                 
-                <div className={`${styles.bentoItem} ${styles.latestArticles}`}>
+                {/* <div className={`${styles.bentoItem} ${styles.latestArticles}`}>
                     <h3 className="text-xl font-semibold mb-4" style={{color: 'var(--text-color)'}}>Latest Articles</h3>
                     <div className={styles.articlesList} style={{
                         display: 'grid',
@@ -218,9 +118,9 @@ export default async function LandingPage() {
                             </Link>
                         ))}
                     </div>
-                </div>
+                </div> */}
 
-                <div className={`${styles.bentoItem} ${styles.latestContent} overflow-hidden`}>
+                <div className={``}>
                     <div className={styles.latestSection}>
                         <h3 className="text-xl font-semibold mb-4" style={{color: 'var(--text-color)'}}>Latest Characters</h3>
                         <div className="flex flex-row" role="list" aria-label="Latest characters horizontal scroll">
@@ -278,7 +178,7 @@ export default async function LandingPage() {
                     </div>
                 </div>
 
-                <RecentComments />
+                {/* <RecentComments /> */}
 
 
                 
