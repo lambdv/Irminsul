@@ -34,7 +34,7 @@ export default function Input() {
             if (!type)
                 type = "article"
             
-            await createResource({
+            const res = await createResource({
                 content: prompt,
                 source: source,
                 type: type,

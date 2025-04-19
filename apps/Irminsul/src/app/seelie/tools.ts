@@ -7,6 +7,9 @@ import { aitokenTable } from "@root/src/db/schema/aitoken";
 import { eq, sql } from "drizzle-orm";
 import db from "@root/src/db/db";
 
+/**
+ * AISDK tool for getting information from the knowledge base
+ */
 export const getInformationTool = tool({
     description: `get information from your knowledge base to answer questions.`,
     parameters: z.object({
@@ -20,8 +23,9 @@ export const getInformationTool = tool({
     },
 });
 
-
-
+/**
+ * AISDK tool for getting character data from the database
+ */
 export const getCharacterDataTool = tool({
     description: 'get character data from the database',
     parameters: z.object({
@@ -41,7 +45,9 @@ export const getCharacterDataTool = tool({
     },
 });
 
-
+/**
+ * AISDK tool for getting all character data from the database
+ */
 export const getAllCharacterDataTool = tool({
     description: 'get all character data from the database',
     parameters: z.object({
@@ -59,6 +65,9 @@ export const getAllCharacterDataTool = tool({
     },
 });
 
+/**
+ * AISDK tool for refunding tokens to the user
+ */
 export const refundTokenTool = tool({
     description: 'refund tokens to the user. this should only be called when there are no relevent resources from the knowledge base to answer the question.',
     parameters: z.object({
@@ -72,7 +81,6 @@ export const refundTokenTool = tool({
         return true
     },
 });
-
 
 export const tools = {
     getInformationTool,

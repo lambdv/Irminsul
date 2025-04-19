@@ -12,53 +12,54 @@ import { generateEmbeddings } from './embedding';
  * @param input 
  * @returns 
  */
-export const createResource = async (input: any) => {
+export const createResource = async (input: { 
+  content: string, 
+  source: string,
+  type: string,
+  date: string,
+  weight: any,
+  tags: string[]
+}) => {
   try {
-    const { 
-      content, 
-      source,
-      type,
-      date,
-      weight,
-      tags,
-    } = input;
-    // Encrypt the content before storing
-    // const encryptedContent = encryptContent(content);
+    console.log("creating resource...")
+  const obj = {
+    content: input.content,
+    source: input.source,
+    type: input.type,
+    date: new Date(input.date),
+    weight: input.weight,
+    tags: input.tags,
+  }
 
-    const obj = {
-      content: content,
-      source: source,
-      type: type,
-      date: new Date(date),
-      weight: weight,
-      tags: tags,
-    }
+  // Generate embeddings from original unencrypted content
+  const embeddings = await generateEmbeddings(input.content);
 
-    const [resource] = await db
-      .insert(resources)
-      .values(obj)
-      .returning();
-    
-    console.log(resource)
+  if (embeddings.length === 0) {
+    throw new Error('No embeddings generated');
+  }
 
-    // Generate embeddings from original unencrypted content
-    const embeddings = await generateEmbeddings(content);
+  const [resource] = await db
+  .insert(resources)
+  .values(obj)
+  .returning();
 
-    const res = await db
-      .insert(embeddingsTable)
-      .values(
-        embeddings.map(embedding => ({
-          resourceId: resource?.id,
-          ...embedding
-        }))
-      );
+  console.log(resource)
 
-    console.log(res)
-    return 'Resource successfully created.';
+  const res = await db
+    .insert(embeddingsTable)
+    .values(
+      embeddings.map(embedding => ({
+        resourceId: resource?.id,
+        ...embedding
+      }))
+    );
+  console.log(res)
+  console.log("resource created!")
+  return 'Resource successfully created.';
 
-  } catch (e) {
+  } 
+  catch (e) {
     console.log(e)
-    if (e instanceof Error)
-      return e.message.length > 0 ? e.message : 'Error, please try again.';
+    if (e instanceof Error) return e.message.length > 0 ? e.message : 'Error, please try again.';
   }
 };

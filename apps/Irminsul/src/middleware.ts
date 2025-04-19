@@ -3,16 +3,11 @@ import { getToken } from "next-auth/jwt";
 import { cookies } from 'next/headers'
 import { isAdmin } from '@/app/(auth)/actions'
 
-export const config = {
-    runtime: 'experimental-edge',
-    matcher: [
-        '/admin/:path*',
-        '/characters/:path*',
-        '/weapons/:path*',
-        '/artifacts/:path*'
-    ]
-}
-
+/**
+ * Middleware for the application
+ * @param req 
+ * @returns 
+ */
 export async function middleware(req: NextRequest) {
     await AdminOnly(req)
     await RedirectArchive(req)
@@ -32,6 +27,16 @@ async function AdminOnly(req: NextRequest): Promise<void> {
             return
         }
     }
+}
+
+export const config = {
+    runtime: 'experimental-edge',
+    matcher: [
+        '/admin/:path*',
+        '/characters/:path*',
+        '/weapons/:path*',
+        '/artifacts/:path*'
+    ]
 }
 
 /**

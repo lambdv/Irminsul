@@ -1,6 +1,5 @@
 import NextAuth from "next-auth"
 import DiscordProvider from "next-auth/providers/discord"
-import { DrizzleAdapter } from "@auth/drizzle-adapter"
 import db from "@/db/db"
 // import { usersTable, accountsTable, sessionsTable, verificationTokensTable } from "@/db/schema"
 import { usersTable } from "@/db/schema/user"

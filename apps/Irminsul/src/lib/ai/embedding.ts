@@ -9,6 +9,8 @@ import { createGoogleGenerativeAI } from '@ai-sdk/google';
 // import { embeddings } from '@/db/schema';
 // import { resources } from '@/db/schema';
 
+const similarityThreshold = 0.0
+
 const token = process.env.AISTUDIO_GOOGLE_API_KEY
 const google = createGoogleGenerativeAI({
   apiKey: token
@@ -18,20 +20,52 @@ const embeddingModel = google.textEmbeddingModel('gemini-embedding-exp-03-07', {
   outputDimensionality: 1536
 });
 
-const generateChunks = (input: string): string[] => {
-    return input
-      .trim()
-      .split('.')
-      .filter(i => i !== '')
-};
+function chunkTextMeaningfully(text, maxWords = 200, minWords = 50) {
+  const paras = text.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
+  const chunks = [];
+  let chunk = [], count = 0;
+
+  for (const p of paras) {
+    const words = p.split(/\s+/).length;
+    if (count + words > maxWords) {
+      if (count >= minWords) {
+        chunks.push(chunk.join("\n\n"));
+        chunk = [p];
+        count = words;
+      } else {
+        chunk.push(p);
+        chunks.push(chunk.join("\n\n"));
+        chunk = [];
+        count = 0;
+      }
+    } else {
+      chunk.push(p);
+      count += words;
+    }
+  }
+  if (chunk.length) chunks.push(chunk.join("\n\n"));
+  return chunks;
+}
 
 export const generateEmbeddings = async (value: string): Promise<Array<{ embedding: number[]; content: string }>> => {
-    const chunks = generateChunks(value);
+  try{
+    console.log("generating embeddings...")
+    const chunks = chunkTextMeaningfully(value);
+    console.log(chunks)
     const { embeddings } = await embedMany({
       model: embeddingModel,
       values: chunks,
+      maxRetries: 3
     });
+    console.log("embeddings generated!")
     return embeddings.map((e, i) => ({ content: chunks[i], embedding: e }));
+  }
+  catch(e){
+    console.log(e)
+    return []
+  }
+
+
 };
 
 
@@ -59,7 +93,7 @@ export const generateEmbedding = async (value: string): Promise<number[]> => {
         similarity 
       })
       .from(embeddings)
-      .where(gt(similarity, 0.55))
+      .where(gt(similarity, similarityThreshold))
       .orderBy(t => desc(t.similarity))
       .limit(4);
 

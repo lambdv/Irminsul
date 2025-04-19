@@ -28,29 +28,33 @@ export default function SearchPallete() {
     
     //loads pages
     useEffect(() => {
-        (async () => { // in use effect because its async and this is a client component
+        (async () => {
             const pages = await getAllPages()
-            //setPages(pages)
             assert(pages, "pages is not initialized")
+
+            // const pagesWithAbbreviations = pages.map(page => ({
+            //     ...page,
+            //     searchTerms: `${page.name} ${page.category} ${generateAbbreviations(page.name)}`
+            // }));
+
             setFuse(new Fuse(pages, {
+                // Search within the combined 'searchTerms' field
                 keys: ['name', 'category'],
-                threshold: 0.3,
+                threshold: 0.3, // Adjust threshold as needed for fuzziness
                 includeScore: true,
-                ignoreLocation: true,
-                useExtendedSearch: true,
-            }))
-        })()
-    }, [])
+                ignoreLocation: true, // Useful for matching terms anywhere in the string
+                // useExtendedSearch: true, // Not needed when combining terms into one field
+            }));
+        })();
+    }, []);
 
     //update the search query
     useEffect(() => {
-        setSearchQuery(SearchQuery)
-        //setResults(pages.filter(page => foundMatch(SearchQuery, page)))
+        // setSearchQuery(SearchQuery)
         if(!fuse) return
         const searchResults = fuse.search(SearchQuery)
-        setResults(searchResults.map(result => result.item))
-    }, [SearchQuery, fuse])    
-    
+        setResults(searchResults.map(result => result.item as Page)) 
+    }, [SearchQuery, fuse])
 
 
     //focus the search bar this component mounts
@@ -302,6 +306,68 @@ function foundMatch(query: string, page: Page){
         }
         
         if (!found) return false;
+    }
+    
+    return true;
+}
+
+const generateAbbreviations = (name: string): string[] => {
+    const words = name.split(" ")
+    const firstLetters = words.map(word => word[0])
+    const capitalLetters = words.filter(word => word[0] === word[0].toUpperCase()).map(word => word[0])
+    return [...firstLetters, ...capitalLetters]   
+};
+export const partialMatch = (query: string, target: string): boolean => {
+    // Convert both strings to lowercase for case-insensitive matching
+    query = query.toLowerCase();
+    target = target.toLowerCase();
+    
+    // Check for acronym match (e.g., "ttds" matching "Thrilling Tales of Dragon Slayers")
+    const words = target.split(' ');
+    const firstLetters = words.map(word => word[0]).join('');
+    
+    // If query matches the acronym, return true
+    if (firstLetters.includes(query.replace(/\s+/g, ''))) {
+        return true;
+    }
+    
+    // Check for partial word matches
+    const queryWords = query.split(/\s+/).filter(word => word.length > 0);
+    
+    // Try to find each query word in the target
+    let targetIndex = 0;
+    for (const queryWord of queryWords) {
+        let found = false;
+        
+        // Look for the query word in the remaining part of the target
+        while (targetIndex <= target.length - queryWord.length) {
+            if (target.slice(targetIndex).startsWith(queryWord)) {
+                targetIndex += queryWord.length;
+                found = true;
+                break;
+            }
+            targetIndex++;
+        }
+        
+        if (!found) {
+            // Try matching by initials/characters in sequence
+            let queryIndex = 0;
+            let tempTargetIndex = 0;
+            
+            while (queryIndex < queryWord.length && tempTargetIndex < target.length) {
+                if (queryWord[queryIndex] === target[tempTargetIndex]) {
+                    queryIndex++;
+                }
+                tempTargetIndex++;
+            }
+            
+            // If we matched all characters in the query word, consider it found
+            if (queryIndex === queryWord.length) {
+                found = true;
+            } else {
+                return false;
+            }
+        }
     }
     
     return true;

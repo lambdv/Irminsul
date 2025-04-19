@@ -44,7 +44,7 @@ export async function generateResponse(prompt: string, userId: string, messages?
         tools: tools,
         maxSteps: 5,
         maxTokens: 250,
-        temperature: 0.1,
+        // temperature: 0.1,
     });
 
     //consume token
@@ -52,19 +52,19 @@ export async function generateResponse(prompt: string, userId: string, messages?
     if(!consumed)
         return "You've run out of tokens. Please come back later!"
 
-    // Start a background task to save the message after streaming completes
-    Promise.resolve(text).then(async (fullResponse) => {
-        try {
-            await db.insert(aimessageTable).values({
-                userId: userId,
-                prompt: prompt,
-                response: fullResponse
-            });
-            console.log("AI message saved to database");
-        } catch (error) {
-            console.error("Failed to save AI message:", error);
-        }
-    });
+    // start a background task to save the message after streaming completes
+    // Promise.resolve(text).then(async (fullResponse) => {
+    //     try {
+    //         await db.insert(aimessageTable).values({
+    //             userId: userId,
+    //             prompt: prompt,
+    //             response: fullResponse
+    //         });
+    //         console.log("AI message saved to database");
+    //     } catch (error) {
+    //         console.error("Failed to save AI message:", error);
+    //     }
+    // });
 
     return textStream
 }

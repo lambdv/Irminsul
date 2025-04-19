@@ -3,7 +3,7 @@ import '@testing-library/jest-dom'
 import { getAssetURL } from '@/utils/getAssetURL'
 
 describe('getAssetURL', () => {
-    const cdn = 'https://genshindata.vercel.app/assets/'
+    const cdn = 'https://cdn.irminsul.moe/assets/'
     
     it('returns the correct image url for a character', async () => {
         const url = getAssetURL('Character', 'Nahida', 'avatar.png')

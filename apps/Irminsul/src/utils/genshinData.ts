@@ -26,7 +26,7 @@ import { Character as GDCharacter,
     Skill,
     Attribute,
     TalentMaterial
- } from 'genshin-data/dist/types/character';
+ } from '@/types/gdtypes';
 
 
 let CDN_URL = "https://cdn.irminsul.moe/"

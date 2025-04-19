@@ -1,0 +1,87 @@
+    export interface Character {
+        _id: number;
+        id: string;
+        name: string;
+        title?: string;
+        description: string;
+        weapon_type: Element;
+        element: Element;
+        gender: Element;
+        release: number;
+        substat: string;
+        affiliation: string;
+        region: Element;
+        rarity: number;
+        birthday: Array<number | null>;
+        constellation: string;
+        domain: string;
+        cv: Cv;
+        skills: Skill[];
+        passives: Constellation[];
+        constellations: Constellation[];
+        ascension: Ascension[];
+        talent_materials: TalentMaterial[];
+    }
+
+    export interface Ascension {
+        level: number[];
+        stats: Stat[];
+        cost?: number;
+        mat1?: Mat1;
+        mat3?: Mat1;
+        mat4?: Mat1;
+        mat2?: Mat1;
+    }
+
+    export interface Mat1 {
+        _id: number;
+        id: string;
+        name: string;
+        amount: number;
+        rarity: number;
+    }
+
+    export interface Stat {
+        label: string;
+        values: Array<number | string>;
+    }
+
+    export interface Constellation {
+        _id?: number;
+        id: string;
+        name: string;
+        description: string;
+        level: number;
+    }
+
+    export interface Cv {
+        english: string;
+        chinese: string;
+        japanese: string;
+        korean: string;
+    }
+
+    export interface Element {
+        id: string;
+        name?: string;
+    }
+
+    export interface Skill {
+        _id: number;
+        id: string;
+        name: string;
+        description: string;
+        info: string;
+        attributes: Attribute[];
+    }
+
+    export interface Attribute {
+        label: string;
+        values: string[];
+    }
+
+    export interface TalentMaterial {
+        level: number;
+        cost: number;
+        items: Mat1[];
+    }
