@@ -66,6 +66,7 @@ docker run -p 3000:3000 irminsul
 ```
 
 ## Repository Structure
+```
 ├── apps/               
 │   ├── Imrinsul/      # main applicaiton            
 │   └── tavern/        # websocket server 
@@ -74,4 +75,7 @@ docker run -p 3000:3000 irminsul
 │   ├── genshindata/   # genshin json data and image assets         
 │   └── scraper/       # scripts to get data and assets
 │            
-└── README.md          # what you're reading now. i think  
+└── README.md          # what you're reading now. i think
+```  
+
+
