@@ -104,7 +104,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: var(--light-elevated-color);
+    /* background-color: var(--light-elevated-color); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,7 +126,9 @@
 
 .messageContentAssistant {
     /* background-color: var(--elevated-color); */
-    background-color: rgb(226, 172, 65);
+    /* background-color: rgb(226, 172, 65); */
+    background-color: rgb(0, 122, 255);
+
     border-radius: 20px;
     padding-left: 15px;
     padding-right: 15px;
@@ -134,7 +136,9 @@
 }
 
 .messageContentAssistant div {
-    color: #44371d;
+    /* color: #44371d; */
+    color: rgb(216, 235, 255);
+
 }
 
 .tokenCount {
@@ -187,6 +191,50 @@
 @keyframes typing {
     from { width: 0; }
     to { width: 100%; }
+}
+
+.toolCalls {
+    margin-top: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 10px;
+}
+
+.toolCall {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+.toolName {
+    font-weight: bold;
+    color: #666;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.toolArgs {
+    font-family: monospace;
+    font-size: 12px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: #444;
+    margin: 0;
+}
+
+.toolResultButton {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.toolResultButton:hover {
+    opacity: 0.9;
 }
 
 

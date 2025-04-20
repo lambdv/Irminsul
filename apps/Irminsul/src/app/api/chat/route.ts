@@ -12,7 +12,8 @@ export async function POST(req: Request) {
 
     //TODO: check that userId exists as a user in the database and that they have a 
     const session = await auth()
-    if(!session) return new Response("Unauthorized", { status: 401 })
+    if(!session) 
+        return new Response("Unauthorized", { status: 401 })
 
     const lastMessage = messages[messages.length - 1]
     

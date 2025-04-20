@@ -20,38 +20,20 @@ const embeddingModel = google.textEmbeddingModel('gemini-embedding-exp-03-07', {
   outputDimensionality: 1536
 });
 
-function chunkTextMeaningfully(text, maxWords = 200, minWords = 50) {
-  const paras = text.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
-  const chunks = [];
-  let chunk = [], count = 0;
-
-  for (const p of paras) {
-    const words = p.split(/\s+/).length;
-    if (count + words > maxWords) {
-      if (count >= minWords) {
-        chunks.push(chunk.join("\n\n"));
-        chunk = [p];
-        count = words;
-      } else {
-        chunk.push(p);
-        chunks.push(chunk.join("\n\n"));
-        chunk = [];
-        count = 0;
-      }
-    } else {
-      chunk.push(p);
-      count += words;
-    }
-  }
-  if (chunk.length) chunks.push(chunk.join("\n\n"));
-  return chunks;
+function simpleChunker(text: string): string[] {
+  return [text]
+    .map(s => s.trim())
+    .map(s => s.replaceAll("\r", " "))
+    .map(s => s.replaceAll("\n", " "))
+    .map(s => s.replaceAll(/\s+/g, " "))
 }
 
 export const generateEmbeddings = async (value: string): Promise<Array<{ embedding: number[]; content: string }>> => {
   try{
-    console.log("generating embeddings...")
-    const chunks = chunkTextMeaningfully(value);
-    console.log(chunks)
+ 
+    const chunks = simpleChunker(value)
+    console.log("chunks", chunks)
+
     const { embeddings } = await embedMany({
       model: embeddingModel,
       values: chunks,
@@ -79,7 +61,7 @@ export const generateEmbedding = async (value: string): Promise<number[]> => {
   };
   
 
-  export const findRelevantContent = async (userQuery: string) => {
+  export const findRelevantContent = async (userQuery: string): Promise<any[]> => {
     const userQueryEmbedded = await generateEmbedding(userQuery);
     const similarity = sql<number>`1 - (${cosineDistance(
       embeddings.embedding,
