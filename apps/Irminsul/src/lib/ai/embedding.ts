@@ -21,7 +21,8 @@ const embeddingModel = google.textEmbeddingModel('gemini-embedding-exp-03-07', {
 });
 
 function simpleChunker(text: string): string[] {
-  return [text]
+  return text
+    .split(".%.")
     .map(s => s.trim())
     .map(s => s.replaceAll("\r", " "))
     .map(s => s.replaceAll("\n", " "))
@@ -61,7 +62,7 @@ export const generateEmbedding = async (value: string): Promise<number[]> => {
   };
   
 
-  export const findRelevantContent = async (userQuery: string): Promise<any[]> => {
+  export const findRelevantContent = async (userQuery: string, returnFullDocument = false): Promise<any[]> => {
     const userQueryEmbedded = await generateEmbedding(userQuery);
     const similarity = sql<number>`1 - (${cosineDistance(
       embeddings.embedding,
@@ -79,8 +80,11 @@ export const generateEmbedding = async (value: string): Promise<number[]> => {
       .orderBy(t => desc(t.similarity))
       .limit(4);
 
+    if (!returnFullDocument)
+       return similarEmbeddings
+
     
-    // Get the full resource content for each matching embedding
+    //Get the full resource content for each matching embedding
     const resourcePromises = similarEmbeddings.map(async (item) => {
       const resource = await db
         .select({
@@ -104,9 +108,7 @@ export const generateEmbedding = async (value: string): Promise<number[]> => {
         type: resource[0]?.type || ""
       };
     });
-
     const fetchedResources = await Promise.all(resourcePromises);
-    
     const relevantResources = fetchedResources
       .map(r => ({
         ...r,
@@ -125,7 +127,6 @@ export const generateEmbedding = async (value: string): Promise<number[]> => {
         return [...acc, curr];
       }, [])
       .slice(0, 20);
-
 
     return relevantResources;
   };
@@ -208,14 +209,14 @@ export const generateEmbedding = async (value: string): Promise<number[]> => {
 
 
 
-function developmentModel() {
-  const lmstudio = createOpenAICompatible({
-      name: 'lmstudio',
-      baseURL: 'http://localhost:1234/v1',
-  });
-  const embeddingModel = lmstudio.textEmbeddingModel("text-embedding-nomic-embed-text-v1.5-embedding")
-  return embeddingModel
-}
+// function developmentModel() {
+//   const lmstudio = createOpenAICompatible({
+//       name: 'lmstudio',
+//       baseURL: 'http://localhost:1234/v1',
+//   });
+//   const embeddingModel = lmstudio.textEmbeddingModel("text-embedding-nomic-embed-text-v1.5-embedding")
+//   return embeddingModel
+// }
 
 //function githubModel() {
   // const endpoint = process.env.AZURE_ENDPOINT || "https://models.inference.ai.azure.com";

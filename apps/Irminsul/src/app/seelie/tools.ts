@@ -26,24 +26,8 @@ export const getInformationTool = tool({
 
 });
 
-// export const ReferenceTool = streamUI({
-//     description: `calculate the expected attack power of a character`,
-//     parameters: z.object({
-//         characterName: z.string().describe('name of character'),
-//         weaponName: z.string().describe('name of weapon'),
-//         artifactName: z.string().describe('name of artifact'),
-//     }),
-//     generate: async (stats: {cr, cd, atk}) => {
-//         const { cr, cd, atk } = stats
-//         const expectedAttack = cr * cd * atk
-//         return expectedAttack
-//     }
-    
-// })
-
 
 const model = google('models/gemini-2.0-flash-exp') as any
-
 
 /**
  * AISDK tool for asking ai to answer the question
@@ -130,29 +114,31 @@ export const refundTokenTool = tool({
 export const searchEngineTool = tool({
     description: `search the web for real-time information about Genshin Impact`,
     parameters: z.object({
-      query: z.string().describe('the search query'),
+      query: z.string().describe('search query'),
       numResults: z.number().optional().describe('number of results to return (default: 3)'),
     }),
     execute: async ({ query, numResults = 3 }) => {
-        // You would need to implement the actual search engine API call here
-        // For example, using Google Custom Search API:
-        const searchResults = await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_SEARCH_API_KEY}&cx=${process.env.GOOGLE_SEARCH_ENGINE_ID}&q=${encodeURIComponent(query)}&num=${numResults}`)
+        const res = await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_SEARCH_API_KEY}&cx=${process.env.GOOGLE_SEARCH_ENGINE_ID}&q=${encodeURIComponent(query)}&num=${numResults}`)
             .then(res => res.json())
             .then(data => data.items || [])
-            .catch(err => {
-                console.error('Search engine error:', err);
+            .then(items => items.map(item =>    {
+                console.log(item)
+                return {
+                title: item.title,
+                link: item.link,
+                snippet: item.snippet,
+
+                source: 'web'
+            }
+        }))
+            .catch(e => {
+                console.error('Search engine error:', e);
                 return [];
             });
 
-        const results = searchResults.map(result => ({
-            title: result.title,
-            link: result.link,
-            snippet: result.snippet,
-            source: 'web'
-        }));
         console.log("searchEngineTool called")
-        console.log(results)
-        return results
+        console.log(res)
+        return res
     },
 });
 
@@ -162,5 +148,5 @@ export const tools = {
     getAllCharacterDataTool: getAllCharacterDataTool,
     refundTokenTool: refundTokenTool,
     searchEngineTool: searchEngineTool,
-    // askLLMTool: askLLMTool
+    //askLLMTool: askLLMTool
 }

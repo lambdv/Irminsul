@@ -29,20 +29,8 @@ export default function Chat(props: {user: any}) {
         onError: (e) => {
             setDisabledChat(true)
             setMessages([...messages, {id: "2", role: 'assistant', content: 'An error occurred. Please try again later.'}] as any)
-        },
-        onToolCall: (toolCall: any) => {
-            console.log(toolCall)
         }
-
     })
-
-    // const { completion, isLoading, handleSubmit: handleCompletionSubmit } = useCompletion({
-    //     api: '/api/completion',
-    //     body: {
-    //         userId: props.user?.id
-    //     },
-    //     streamProtocol: 'text',
-    // })
 
     //state for chatbot UI
     const [tokensLeft, setTokensLeft] = useState(null)
