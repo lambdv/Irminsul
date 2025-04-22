@@ -124,10 +124,43 @@ export const refundTokenTool = tool({
     },
 });
 
+/**
+ * AISDK tool for getting information from a search engine
+ */
+export const searchEngineTool = tool({
+    description: `search the web for real-time information about Genshin Impact`,
+    parameters: z.object({
+      query: z.string().describe('the search query'),
+      numResults: z.number().optional().describe('number of results to return (default: 3)'),
+    }),
+    execute: async ({ query, numResults = 3 }) => {
+        // You would need to implement the actual search engine API call here
+        // For example, using Google Custom Search API:
+        const searchResults = await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_SEARCH_API_KEY}&cx=${process.env.GOOGLE_SEARCH_ENGINE_ID}&q=${encodeURIComponent(query)}&num=${numResults}`)
+            .then(res => res.json())
+            .then(data => data.items || [])
+            .catch(err => {
+                console.error('Search engine error:', err);
+                return [];
+            });
+
+        const results = searchResults.map(result => ({
+            title: result.title,
+            link: result.link,
+            snippet: result.snippet,
+            source: 'web'
+        }));
+        console.log("searchEngineTool called")
+        console.log(results)
+        return results
+    },
+});
+
 export const tools = {
     getInformationTool: getInformationTool,
     getCharacterDataTool: getCharacterDataTool,
     getAllCharacterDataTool: getAllCharacterDataTool,
     refundTokenTool: refundTokenTool,
+    searchEngineTool: searchEngineTool,
     // askLLMTool: askLLMTool
 }
