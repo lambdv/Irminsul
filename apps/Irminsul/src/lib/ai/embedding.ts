@@ -22,7 +22,7 @@ const embeddingModel = google.textEmbeddingModel('gemini-embedding-exp-03-07', {
 
 function simpleChunker(text: string): string[] {
   return text
-    .split(".%.")
+    .split("%%%")
     .map(s => s.trim())
     .map(s => s.replaceAll("\r", " "))
     .map(s => s.replaceAll("\n", " "))
@@ -73,15 +73,15 @@ export const generateEmbedding = async (value: string): Promise<number[]> => {
       .select({ 
         resourceId: embeddings.resourceId,
         content: embeddings.content,
-        similarity 
-      })
+        similarity
+            })
       .from(embeddings)
       .where(gt(similarity, similarityThreshold))
       .orderBy(t => desc(t.similarity))
       .limit(4);
 
-    if (!returnFullDocument)
-       return similarEmbeddings
+    // if (!returnFullDocument)
+    //    return similarEmbeddings
 
     
     //Get the full resource content for each matching embedding

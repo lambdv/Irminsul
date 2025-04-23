@@ -4,6 +4,8 @@ import { useChat } from '@ai-sdk/react';
 import Image from 'next/image'
 import styles from './seelie.module.css'
 import SeelieIcon from '@public/imgs/icons/seelie.png'
+import YellowSeelieIcon from '@public/imgs/icons/yellowSeelie.png'
+
 import { getAiTokensLeft } from './numAiTokensLeft'
 import Overlay from '@/components/ui/Overlay'
 import Link from 'next/link'
@@ -195,8 +197,8 @@ export default function Chat(props: {user: any}) {
             </div>
         </div>
     )   
-}
 
+    
 
 function Message({messageUser, message, userImage, messageOBJ}: {
     messageUser: string, 
@@ -212,7 +214,7 @@ function Message({messageUser, message, userImage, messageOBJ}: {
         <div className={`${styles.message} ${isUser ? styles.messageUser : styles.messageAssistant}`}>
             <div className={styles.messageAvatar}>
                 {messageUser === "Seelie" 
-                    ? <Image src={SeelieIcon} alt="Seelie" width={40} height={40} className="rounded-full"/>
+                    ? <Image src={YellowSeelieIcon} alt="Seelie" width={40} height={40} className="rounded-full"/>
                     : <Image src={userImage || SeelieIcon} alt="User" width={40} height={40} className="rounded-full" unoptimized/>
                 }
             </div>
@@ -290,4 +292,5 @@ function TokenModal(props: {
             </div>
         </Overlay>
     )
+}
 }

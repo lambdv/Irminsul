@@ -53,12 +53,12 @@ export default async function Settings() {
        <Suspense fallback={<p>Loading...</p>}>
 
         <section className={settingsStyle.settingsContent}>
-            <h1 className="mb-0 flex items-center gap-2">API <p className="text-sm text-gray-500">(Experimental)</p></h1>
+            <h1 className="mb-0 flex items-center gap-2">Database <p className="text-sm text-gray-500">(Experimental)</p></h1>
             <APISettings />
         </section>
 
         </Suspense>
-
+{/* 
         <Suspense fallback={<p>Loading...</p>}>
         {isLoggedIn && (
             <section className={settingsStyle.settingsContent}>
@@ -66,7 +66,7 @@ export default async function Settings() {
                 <DangerZoneSettings />
                 </section>
             )} 
-        </Suspense>
+        </Suspense> */}
 
     </div>
 

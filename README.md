@@ -1,9 +1,11 @@
 # Irminsul 
-Metagaming and Theorycrafting suite for Genshin Impact.
+web application providing an intergrated ecosystem/suite of tools and information for Genshin Impact Metagaming and Theorycrafting.
+
 https://www.irminsul.moe/
 
-> This is a monorepo for The Irminsul Project
-> Irmisnul is a web application that aims to provide the best UI/UX for information and tooling.
+
+![gui render](./render.png)
+
 
 ## Features
 Imrinsul provides an intergrated ecosystem and suite of tools
