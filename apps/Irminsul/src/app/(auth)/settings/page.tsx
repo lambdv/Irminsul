@@ -19,8 +19,10 @@ export const metadata = {
     description: '',
 }
 
-
-
+/**
+ * Settings page
+ * @returns 
+ */
 export default async function Settings() {
     const session = await auth()
     const account = await db.select().from(accountsTable).where(eq(accountsTable.userId, session?.user?.id))
@@ -28,47 +30,48 @@ export default async function Settings() {
     const isSupporter = await isUserSupporterByEmail(session?.user?.email)
 
     return (
-    <div className={settingsStyle.settingsWrapper}>
-        <div className='flex items-center gap-2'>
-            <GoBack />
-            <h1 className={settingsStyle.settingsTitle}>Settings</h1>
-        </div>
-        <Divider />
+        <div className={settingsStyle.settingsWrapper}>
+            <div className='flex items-center gap-2'>
+                <GoBack />
+                <h1 className={settingsStyle.settingsTitle}>Settings</h1>
+            </div>
+            <Divider />
+
+            <Suspense fallback={<p>Loading...</p>}>
+                {isLoggedIn && (
+                    <section className={settingsStyle.settingsContent}>
+                        <AccountSettings session={session} account={account} isSupporter={isSupporter} />
+                    </section>
+                )}
+            </Suspense>
 
         <Suspense fallback={<p>Loading...</p>}>
+            <section className={settingsStyle.settingsContent}>
+                    <h1 className="mb-0 flex items-center gap-2">Prefernces</h1>
+                    <PreferencesSettings />
+                </section>
+        </Suspense>
+
+        <Suspense fallback={<p>Loading...</p>}>
+
+            <section className={settingsStyle.settingsContent}>
+                <h1 className="mb-0 flex items-center gap-2">Database <p className="text-sm text-gray-500">(Experimental)</p></h1>
+                <APISettings />
+            </section>
+
+            </Suspense>
+            {/* 
+            <Suspense fallback={<p>Loading...</p>}>
             {isLoggedIn && (
                 <section className={settingsStyle.settingsContent}>
-                    <AccountSettings session={session} account={account} isSupporter={isSupporter} />
-                </section>
-            )}
-        </Suspense>
+                    <h1 className="mb-2">Danger Zone</h1>
+                    <DangerZoneSettings />
+                    </section>
+                )} 
+            </Suspense> 
+            */}
 
-       <Suspense fallback={<p>Loading...</p>}>
-        <section className={settingsStyle.settingsContent}>
-                <h1 className="mb-0 flex items-center gap-2">Prefernces</h1>
-                <PreferencesSettings />
-            </section>
-       </Suspense>
-
-       <Suspense fallback={<p>Loading...</p>}>
-
-        <section className={settingsStyle.settingsContent}>
-            <h1 className="mb-0 flex items-center gap-2">Database <p className="text-sm text-gray-500">(Experimental)</p></h1>
-            <APISettings />
-        </section>
-
-        </Suspense>
-{/* 
-        <Suspense fallback={<p>Loading...</p>}>
-        {isLoggedIn && (
-            <section className={settingsStyle.settingsContent}>
-                <h1 className="mb-2">Danger Zone</h1>
-                <DangerZoneSettings />
-                </section>
-            )} 
-        </Suspense> */}
-
-    </div>
+        </div>
 
     )
 }

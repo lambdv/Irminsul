@@ -19,17 +19,20 @@ export default function APISettings() {
         if(!apiCookie) 
             return
         
-        const api = JSON.parse(decodeURIComponent(apiCookie))
         try {
-           console.log(api)
-            switch(dataProvider){
-
-                case 'genshin-data':
-                    
-                break
+            const api = JSON.parse(decodeURIComponent(apiCookie))
+            console.log(api)
+            if (typeof api === 'string') {
+                setCustomAPIURL(api)
+                setDataProvider(api === 'genshin-data' ? 'genshin-data' : 'custom')
             }
-        } catch (e) {console.error('Failed to parse custom API config')}
-
+        } catch (e) {
+            console.error('Failed to parse custom API config', e)
+            // Handle non-JSON values like 'gd'
+            if (apiCookie === 'gd') {
+                setDataProvider('genshin-data')
+            }
+        }
     }, [])
 
 
@@ -39,23 +42,41 @@ export default function APISettings() {
         switch(value){
             case 'irminsul':
                 //delete the api cookie
-                document.cookie = 'customapi=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT'
+                document.cookie = "customapi=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT"
                 break
             case 'genshin-data':
                 //change cookie to the genshin data api
-                document.cookie = 'customapi=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT'
+                document.cookie = 'cookieName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
                 break
             case 'custom':
                 //change cookie to the custom api
-                document.cookie = 'customapi=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT'
-            
+document.cookie = 'cookieName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
                 break
             default:
                 console.error('Invalid data provider')
                 throw new Error('Invalid data provider')
         }
     }
-        
+    
+    /**
+     * Sets the custom api url in the cookie
+     * @param url 
+     */ 
+    const handleCustomAPIConnect = () => {
+        document.cookie = `customapi=${encodeURIComponent(JSON.stringify(customAPIURL))}; path=/; expires=${new Date(Date.now() + 1000 * 60 * 60 * 24 * 30).toUTCString()}`
+    }
+
+    const stateMatchesCookie = () => {
+        const apiCookie = document.cookie.split('; ').find(row => row.startsWith('customapi='))?.split('=')[1]
+        if(!apiCookie) 
+            return false
+        try {
+            const value = JSON.parse(decodeURIComponent(apiCookie))
+            return value === customAPIURL && customAPIURL.length > 0
+        } catch (e) {
+            return false
+        }
+    }
     
 
     return (
@@ -72,7 +93,7 @@ export default function APISettings() {
                     >
                         <MenuItem value="irminsul" sx={{color: '#404040'}} onClick={()=>{handleDataProviderChange('irminsul')}}>Irminsul</MenuItem>
                         <MenuItem value="genshin-data" sx={{color: '#404040'}} onClick={()=>{handleDataProviderChange('genshin-data')}}>dvaJi's Genshin Data</MenuItem>
-                        <MenuItem value="custom" sx={{color: '#404040'}} onClick={()=>{handleDataProviderChange('custom')}}>Custom</MenuItem>
+                        <MenuItem value="custom" sx={{color: '#404040'}}>Custom</MenuItem>
                     </Select>
                 </FormControl>
 
@@ -103,28 +124,32 @@ export default function APISettings() {
                             }}
                         />
                         
-                        {/* <Btn 
+                        <Btn 
                             onClick={() => {
-                                handleCustomAPIConnect(customAPIURL);
+                                if (!customAPIURL || !customAPIURL.trim() || !customAPIURL.startsWith('http')) {
+                                    alert('Please enter a valid URL');
+                                    return;
+                                }
+                                handleCustomAPIConnect();
                             }}
                             style={{
                                 marginTop: '0.5rem',
                                 width: 'fit-content',
                                 padding: '0.5rem 1rem',
                                 fontSize: '0.9rem',
-                                backgroundColor: isConfigMatchingCookie() 
+                                backgroundColor: stateMatchesCookie() 
                                     ? 'var(--ingame-primary-color)' 
                                     : 'transparent'
                             }}
                         >
-                            {isConfigMatchingCookie() ? (
+                            {stateMatchesCookie() ? (
                                 <div className="flex items-center gap-1">
                                     Connected <span className="material-symbols-outlined" style={{fontSize: '1.3rem'}}>check</span>
                                 </div>
                             ) : (
                                 'Connect'
                             )}
-                        </Btn> */}
+                        </Btn>
 
                         <Btn onClick={()=>{handleDataProviderChange('irminsul')}}>Disconnect</Btn>
                     </>
@@ -169,11 +194,4 @@ const muiStyle ={
     '& .MuiList-root.MuiList-padding.MuiMenu-list': {
         backgroundColor: 'var(--background-color)'
     }
-}
-
-interface APIEndpoints {
-    characters?: string;
-    weapons?: string;
-    artifacts?: string;
-    [key: string]: string | undefined;
 }
