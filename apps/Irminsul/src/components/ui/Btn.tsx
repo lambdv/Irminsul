@@ -19,7 +19,8 @@ export default function Btn(props: {
         waves-effect waves-light ripple 
         ${props.className} 
         flex`
-      }>
+      }
+      >
         {props.children}
       </Link>
     )
@@ -32,7 +33,10 @@ export default function Btn(props: {
       ${props.className} 
       flex`
       } 
-      onClick={props.onClick} 
+      onClick={()=>{
+        if(props.disabled) return
+          props.onClick()
+      }} 
       type={props.type} 
       style={props.style}
       disabled={props.disabled}>

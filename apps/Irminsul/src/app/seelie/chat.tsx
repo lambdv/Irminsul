@@ -13,6 +13,7 @@ import ResinIcon from '@public/imgs/icons/resinIcon.png'
 import RoundBtn from '@/components/ui/RoundBtn'
 import markdownToHTML from '@/utils/markdownToHTML';
 import { useCompletion } from '@ai-sdk/react'
+import { cursorTo } from 'readline';
 
 /**
  * Chat Client component for AI chatbot page.
@@ -75,7 +76,7 @@ export default function Chat(props: {user: any}) {
      * @returns void
      */
     const handleFormSubmit = (e) => {
-        e.preventDefault()
+        //e.preventDefault()
         setDisabledChat(true) //disable chat while processing
         //if user has no tokens left, show pop up
         if(tokensLeft !== null && tokensLeft <= 0){
@@ -91,19 +92,20 @@ export default function Chat(props: {user: any}) {
         handleSubmit(e) //useChat hook handles the rest
     }
 
+    const textFieldMessage = "Ask a Question"
 
     if(messages.length === 0){
         return (
             <div className={styles.landingWrapper}>
                 {showTokenModal && <TokenModal user={props.user} setShowTokenModal={setShowTokenModal}/>}
                 <h1 className="text-2xl font-ingame text-center text-primary" style={{fontFamily: "ingame",color: "var(--primary-color)"}}>What can I help you with?</h1>
-                <p className="text-center text-gray-text-color">your AI assistant for Genshin Impact.</p>
+                {/* <p className="text-center text-gray-text-color">Your AI assistant for Genshin Impact.</p> */}
 
                 <div className={styles.landingChatWrapper}>
-                    <p className={styles.tokenCount}>Tokens Left: {tokensLeft === null ? "loading..." : tokensLeft}</p>
+                    <p className={styles.tokenCount + " select-none"}>Tokens Left: {tokensLeft === null ? "loading..." : tokensLeft}</p>
                     <form className={styles.chatForm} onSubmit={handleFormSubmit}>
                         <textarea 
-                            placeholder="Ask Seelie" 
+                            placeholder={textFieldMessage}
                             value={input} 
                             onChange={(e) => {
                                 handleInputChange(e)
@@ -124,19 +126,45 @@ export default function Chat(props: {user: any}) {
                             autoComplete="off"
                             disabled={disabledChat}
                         />
-                    </form>
-                    <RoundBtn 
+                        <RoundBtn 
                         icon="send"
                         onClick={handleFormSubmit}
                         style={{
                             position: "absolute",
                             right: "10px",
-                            bottom: "10px",
+                            top: "65px",
                         }}
                         disabled={disabledChat || input.trim().length <= 0}
-                    />          
-                    
+                    />   
+                    </form>
+                     
+                    {/* <div id="suggested-questions" className={styles.suggestedQuestionContainer + " mt-2 ml-5"}>
+                        {
+                            [
+                                "What is the best way to farm resin?",
+                                "How do I build Xiangling?",
+                                "What are the best artifacts for Raiden Shogun?"
+                            ]
+                            .map((q, index) => {
+                                return (
+                                    <form key={index}>
+                                        <p 
+                                            className={styles.suggestedQuestion}
+                                            onClick={() => {
+                                                setInput(q);
+                                            }}
+                                        >
+                                            {q}
+                                        </p>
+                                    </form>
+                                )
+                            })
+                        }
+                    </div> */}
                 </div>
+
+                
+                
             </div>
         )
     }
@@ -144,8 +172,6 @@ export default function Chat(props: {user: any}) {
     return (
         <div id="chat">
             {showTokenModal && <TokenModal user={props.user} setShowTokenModal={setShowTokenModal}/>}
-
-            
             <div className={styles.chatHistory}>
                 {messages.map((message, index) => {
                     return <Message 
@@ -158,14 +184,11 @@ export default function Chat(props: {user: any}) {
                 })}
                 {(status === 'submitted') && <LoadingMessage />}
             </div>
-
-
-
             <div className={styles.chatTextFieldContainer}>
                 <p className={styles.tokenCount}>Tokens Left: {tokensLeft === null ? "loading..." : tokensLeft}</p>
                 <form className={styles.chatForm} onSubmit={handleFormSubmit}>
                     <textarea 
-                        placeholder="Ask Seelie" 
+                        placeholder={textFieldMessage}
                         value={input} 
                         onChange={handleInputChange} 
                         className={styles.chatTextField}

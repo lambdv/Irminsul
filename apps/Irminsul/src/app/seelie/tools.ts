@@ -6,8 +6,13 @@ import { findRelevantContent } from "@/lib/ai/embedding";
 import { aitokenTable } from "@root/src/db/schema/aitoken";
 import { eq, sql } from "drizzle-orm";
 import db from "@root/src/db/db";
-import { google } from "@ai-sdk/google";
+import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { streamUI } from "ai/rsc"
+
+const token = process.env.AISTUDIO_GOOGLE_API_KEY
+const google = createGoogleGenerativeAI({apiKey: token})
+const model = google('models/gemini-2.0-flash-exp') as any
+const dumbModel = google('models/gemini-1.5-flash') as any
 
 /**
  * AISDK tool for getting information from the knowledge base
@@ -23,11 +28,7 @@ export const getInformationTool = tool({
         console.log(similarResources)
         return similarResources        
     },
-
 });
-
-
-const model = google('models/gemini-2.0-flash-exp') as any
 
 /**
  * AISDK tool for asking ai to answer the question
@@ -92,23 +93,6 @@ export const getAllCharacterDataTool = tool({
 });
 
 /**
- * AISDK tool for refunding tokens to the user
- */
-export const refundTokenTool = tool({
-    description: 'refund tokens to the user. this should only be called when there are no relevent resources from the knowledge base to answer the question.',
-    parameters: z.object({
-        userId: z.string().describe('user id'),
-        numTokens: z.number().describe('number of tokens to refund'),
-    }),
-    execute: async ({ userId, numTokens }) => {
-        await db.update(aitokenTable)
-            .set({ numTokens: sql`${aitokenTable.numTokens} + ${numTokens}` })
-            .where(eq(aitokenTable.userId, userId))
-        return true
-    },
-});
-
-/**
  * AISDK tool for getting information from a search engine
  */
 export const searchEngineTool = tool({
@@ -121,16 +105,61 @@ export const searchEngineTool = tool({
         const res = await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_SEARCH_API_KEY}&cx=${process.env.GOOGLE_SEARCH_ENGINE_ID}&q=${encodeURIComponent(query)}&num=${numResults}`)
             .then(res => res.json())
             .then(data => data.items || [])
-            .then(items => items.map(item =>    {
-                console.log(item)
+            .then(items => items.map(item => {
                 return {
-                title: item.title,
-                link: item.link,
-                snippet: item.snippet,
+                    title: item.title,
+                    snippet: item.snippet,
+                    source: item.link,
+                }
+            }))
+            .catch(e => {
+                console.error('Search engine error:', e);
+                return [];
+            });
 
-                source: 'web'
+        const processedResults = [];
+        for (const item of res) {
+            try {
+                let content = await fetchWebpageContent(item.source, query);
+                // let summary = await summarizeContent(content)
+                processedResults.push({
+                    ...item,
+                    content,
+                });
+            } catch (error) {
+                console.error(`Error processing content for ${item.source}:`, error);
+                processedResults.push(item); // Keep the item without content
             }
-        }))
+        }
+
+        console.log("searchEngineTool called");
+        console.log(processedResults);
+        return processedResults
+    },
+});
+
+
+
+export const tools = {
+    getInformationTool: getInformationTool,
+    getCharacterDataTool: getCharacterDataTool,
+    getAllCharacterDataTool: getAllCharacterDataTool,
+    searchEngineTool: searchEngineTool,
+}
+
+
+/**
+ *         const res = await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_SEARCH_API_KEY}&cx=${process.env.GOOGLE_SEARCH_ENGINE_ID}&q=${encodeURIComponent(query)}&num=${numResults}`)
+            .then(res => res.json())
+            .then(data => data.items || [])
+            .then(items => items.map(item => {
+                 
+                return {
+                    title: item.title,
+                    snippet: item.snippet,
+                    source: item.link
+                }
+            }))
             .catch(e => {
                 console.error('Search engine error:', e);
                 return [];
@@ -139,14 +168,50 @@ export const searchEngineTool = tool({
         console.log("searchEngineTool called")
         console.log(res)
         return res
-    },
-});
+ */
 
-export const tools = {
-    getInformationTool: getInformationTool,
-    getCharacterDataTool: getCharacterDataTool,
-    getAllCharacterDataTool: getAllCharacterDataTool,
-    refundTokenTool: refundTokenTool,
-    searchEngineTool: searchEngineTool,
-    //askLLMTool: askLLMTool
+async function summarizeContent(content: string) {
+    const { text: summary } = await generateText({
+        model: dumbModel,
+        prompt: content,
+        system: "summarize the content of the following text. only return the summary, no other text.",
+        maxSteps: 1,
+    });
+    return summary;
+}
+
+/**
+ * Helper function to fetch and extract content from a webpage
+ */
+async function fetchWebpageContent(url: string, searchQuery: string): Promise<string> {
+    try {
+        const response = await fetch(url);
+        const html = await response.text();
+        
+        // Basic HTML to text conversion
+        // Remove scripts, styles, and other non-content elements
+        const textContent = html
+            .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+            .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '')
+            .replace(/<[^>]+>/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim();
+
+        // Find the position of the search query in the text (case insensitive)
+        const queryPosition = textContent.toLowerCase().indexOf(searchQuery.toLowerCase());
+        
+        if (queryPosition === -1) {
+            // If query not found, return first 1000 characters
+            return textContent.slice(0, 1000);
+        }
+
+        // Extract a window of text around the query (500 chars before and after)
+        const start = Math.max(0, queryPosition - 500);
+        const end = Math.min(textContent.length, queryPosition + searchQuery.length + 500);
+        
+        return textContent.slice(start, end);
+    } catch (error) {
+        console.error(`Error fetching content from ${url}:`, error);
+        return ''; // Return empty string if fetch fails
+    }
 }

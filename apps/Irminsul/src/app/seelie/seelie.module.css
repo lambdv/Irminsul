@@ -238,3 +238,20 @@
 }
 
 
+.suggestedQuestionContainer{
+    width: 100%;
+    left: 0px;
+    text-align: left;
+    
+}
+
+.suggestedQuestion {
+    cursor: pointer;
+    color: var(--gray-text-color);
+    transition: color 0.3s ease;
+}
+
+.suggestedQuestion:hover {
+    color: var(--text-color);
+    
+}

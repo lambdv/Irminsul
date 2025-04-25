@@ -19,12 +19,16 @@ export const metadata = {
   description: "Genshin Impact Database",
 }
 
+/**
+ * Root layout for the whole app including the navigation components surrounding the pages
+ * @param param0 
+ * @returns 
+ */
 export default async function RootLayout({children}) {
-  // Get theme from cookies on server side
+
   const cookieStore = await cookies()
   const theme = cookieStore.get('theme')?.value || 'dark'
   const language = cookieStore.get('language')?.value || 'en'
-
 
   return (
     <html lang={language} data-theme={theme} data-language={language}>

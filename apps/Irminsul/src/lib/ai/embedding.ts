@@ -9,7 +9,7 @@ import { createGoogleGenerativeAI } from '@ai-sdk/google';
 // import { embeddings } from '@/db/schema';
 // import { resources } from '@/db/schema';
 
-const similarityThreshold = 0.0
+const similarityThreshold = 0.65
 
 const token = process.env.AISTUDIO_GOOGLE_API_KEY
 const google = createGoogleGenerativeAI({
@@ -60,7 +60,6 @@ export const generateEmbedding = async (value: string): Promise<number[]> => {
     });
     return embedding;
   };
-  
 
   export const findRelevantContent = async (userQuery: string, returnFullDocument = false): Promise<any[]> => {
     const userQueryEmbedded = await generateEmbedding(userQuery);
@@ -69,67 +68,122 @@ export const generateEmbedding = async (value: string): Promise<number[]> => {
       userQueryEmbedded,
     )})`;
 
-    const similarEmbeddings = await db
-      .select({ 
+    // Get both embeddings and their related resources in a single query with JOIN
+    const similarResults = await db
+      .select({
         resourceId: embeddings.resourceId,
-        content: embeddings.content,
-        similarity
-            })
+        embeddingContent: embeddings.content,
+        similarity,
+        resourceContent: resources.content,
+        source: resources.source,
+        date: resources.date,
+        id: resources.id,
+        weight: resources.weight,
+        type: resources.type
+      })
       .from(embeddings)
+      .leftJoin(resources, eq(embeddings.resourceId, resources.id))
       .where(gt(similarity, similarityThreshold))
-      .orderBy(t => desc(t.similarity))
-      .limit(4);
+      .orderBy(desc(similarity))
+      .limit(20); // Fetch more initially to allow for filtering duplicates
 
-    // if (!returnFullDocument)
-    //    return similarEmbeddings
-
-    
-    //Get the full resource content for each matching embedding
-    const resourcePromises = similarEmbeddings.map(async (item) => {
-      const resource = await db
-        .select({
-          content: resources.content,
-          source: resources.source,
-          date: resources.date,
-          id: resources.id,
-          weight: resources.weight,
-          type: resources.type
-        })
-        .from(resources)
-        .where(eq(resources.id, item.resourceId));
-      
-      return {
-        id: resource[0]?.id,
-        content: resource[0]?.content || "",
-        similarity: item.similarity,
-        source: resource[0]?.source || "",
-        date: resource[0]?.date,
-        weight: resource[0]?.weight || 1,
-        type: resource[0]?.type || ""
-      };
-    });
-    const fetchedResources = await Promise.all(resourcePromises);
-    const relevantResources = fetchedResources
+    // Process results in memory (faster than multiple DB queries)
+    const relevantResources = similarResults
+      .filter(r => r.id !== undefined) // Filter out any results where join failed
       .map(r => ({
-        ...r,
-        similarity: r.similarity * (typeof r.weight === 'string' ? parseFloat(r.weight) : r.weight)
+        id: r.id,
+        content: r.resourceContent || "",
+        similarity: r.similarity * (typeof r.weight === 'string' ? parseFloat(r.weight) : (r.weight || 1)),
+        source: r.source || "",
+        date: r.date,
+        weight: r.weight || 1,
+        type: r.type || ""
       }))
       .sort((a, b) => {
-        const similarityDiff = ((b.similarity) - (a.similarity));
-        if(Math.abs(similarityDiff) < 0.1) 
-          return new Date(b.date).getTime() - new Date(a.date).getTime();
+        const similarityDiff = b.similarity - a.similarity;
+        if (Math.abs(similarityDiff) < 0.1) 
+          return new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime();
         return similarityDiff;
       })
-      .reduce((acc, curr) => {
-        if(acc.find((r) => r.id === curr.id)) {
-          return acc;
-        }
-        return [...acc, curr];
-      }, [])
+      // Efficiently remove duplicates with a Set
+      .filter((item, index, self) => 
+        index === self.findIndex(t => t.id === item.id)
+      )
       .slice(0, 20);
 
     return relevantResources;
   };
+
+  
+
+  // export const findRelevantContent = async (userQuery: string, returnFullDocument = false): Promise<any[]> => {
+  //   const userQueryEmbedded = await generateEmbedding(userQuery);
+  //   const similarity = sql<number>`1 - (${cosineDistance(
+  //     embeddings.embedding,
+  //     userQueryEmbedded,
+  //   )})`;
+
+  //   const similarEmbeddings = await db
+  //     .select({ 
+  //       resourceId: embeddings.resourceId,
+  //       content: embeddings.content,
+  //       similarity
+  //           })
+  //     .from(embeddings)
+  //     .where(gt(similarity, similarityThreshold))
+  //     .orderBy(t => desc(t.similarity))
+  //     .limit(4);
+
+  //   // if (!returnFullDocument)
+  //   //    return similarEmbeddings
+
+    
+  //   //Get the full resource content for each matching embedding
+  //   const resourcePromises = similarEmbeddings.map(async (item) => {
+  //     const resource = await db
+  //       .select({
+  //         content: resources.content,
+  //         source: resources.source,
+  //         date: resources.date,
+  //         id: resources.id,
+  //         weight: resources.weight,
+  //         type: resources.type
+  //       })
+  //       .from(resources)
+  //       .where(eq(resources.id, item.resourceId));
+      
+  //     return {
+  //       id: resource[0]?.id,
+  //       content: resource[0]?.content || "",
+  //       similarity: item.similarity,
+  //       source: resource[0]?.source || "",
+  //       date: resource[0]?.date,
+  //       weight: resource[0]?.weight || 1,
+  //       type: resource[0]?.type || ""
+  //     };
+  //   });
+  //   const fetchedResources = await Promise.all(resourcePromises);
+  //   const relevantResources = fetchedResources
+  //     .map(r => ({
+  //       ...r,
+  //       similarity: r.similarity * (typeof r.weight === 'string' ? parseFloat(r.weight) : r.weight)
+  //     }))
+  //     .sort((a, b) => {
+  //       const similarityDiff = ((b.similarity) - (a.similarity));
+  //       if(Math.abs(similarityDiff) < 0.1) 
+  //         return new Date(b.date).getTime() - new Date(a.date).getTime();
+  //       return similarityDiff;
+  //     })
+  //     .reduce((acc, curr) => {
+  //       if(acc.find((r) => r.id === curr.id)) {
+  //         return acc;
+  //       }
+  //       return [...acc, curr];
+  //     }, [])
+  //     .slice(0, 20);
+
+  //   return relevantResources;
+  // };
 
 // export const findRelevantContent = async (userQuery: string) => {
 //   const userQueryEmbedded = await generateEmbedding(userQuery);

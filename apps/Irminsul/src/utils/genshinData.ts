@@ -7,7 +7,7 @@ import { Page } from '@/types/page'
 import { CaseLower } from 'lucide-react';
 import { cookies } from 'next/headers';
 import path from 'path';
-import { Character } from '@/types/character';
+import { Character, instanceOfCharacter } from '@/types/character';
 import { gdGetCharacters } from "./APIAdaptor"
 
 let CDN_URL = "https://cdn.irminsul.moe/"
@@ -17,24 +17,24 @@ let CDN_URL = "https://cdn.irminsul.moe/"
 export async function getCharacters(): Promise<any[]> {
 
     const cookieStore = await cookies()
-    const gdCookie = cookieStore.get('gd')?.value || null
+    const customAPI = cookieStore.get('customapi')?.value || null
 
-    if(gdCookie === null)
-        return await gdGetCharacters()
+    if (customAPI) {
+        if (customAPI === "gd") 
+            return await gdGetCharacters();
+        if (customAPI.includes("http")) {
+            try {
+                const response = await fetch(customAPI);
+                const { data } = await response.json();
+                
+                // Validate the response data structure
+                if (Array.isArray(data) && data.length > 0 && instanceOfCharacter(data[0])) {
+                    return data;
+                }
+            } catch (error) {console.error("Error fetching from custom API:", error);}
+        }
+    }
 
-    // const adapt = adaptors.find(adaptor => customAPIObject.characters.includes(adaptor.name)) || null
-
-    // if(adapt){
-    //     const characters = await adapt.getCharacters()
-    //     return characters
-    // }
-
-
-    // if(customAPIObject.characters){
-    //     const data = await fetchCustomAPI(customAPIObject)
-    //     return data.data as Character[]
-    // }
-    
     return await fetch(CDN_URL + "data/characters.json")
         .then(res => res.json())
         .then(data => data.data)

@@ -71,3 +71,8 @@ export type CharacterAscensionMaterial = {
     name: string
     amount: string
 }
+
+
+export function instanceOfCharacter(obj: any): obj is Character {
+    return obj && typeof obj === 'object' && 'id' in obj && 'name' in obj;
+}

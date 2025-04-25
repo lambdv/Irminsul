@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { FormControl, InputLabel, Select, MenuItem, TextField, Button } from '@mui/material'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import Btn from '@/components/ui/Btn'
+import { clearCustomAPI, setCustomAPI, validateCustomAPI } from './actions'
 
 /**
  * Settings component for changing the data provider
@@ -11,46 +12,82 @@ import Btn from '@/components/ui/Btn'
 export default function APISettings() {
     const [dataProvider, setDataProvider] = useState('irminsul')
     const [customAPIURL, setCustomAPIURL] = useState('')
+    const [isCookieActionLoading, setIsCookieActionLoading] = useState(false)
 
 
     //load the custom api config from the cookie
     useEffect(() => {
         const apiCookie = document.cookie.split('; ').find(row => row.startsWith('customapi='))?.split('=')[1]
-        if(!apiCookie) 
+        if(!apiCookie)
             return
         
         try {
-            const api = JSON.parse(decodeURIComponent(apiCookie))
-            console.log(api)
-            if (typeof api === 'string') {
-                setCustomAPIURL(api)
-                setDataProvider(api === 'genshin-data' ? 'genshin-data' : 'custom')
-            }
-        } catch (e) {
-            console.error('Failed to parse custom API config', e)
-            // Handle non-JSON values like 'gd'
+            // Handle non-JSON values first
             if (apiCookie === 'gd') {
                 setDataProvider('genshin-data')
+                return
             }
+            
+            // Try to parse as JSON, but handle direct URL strings
+            try {
+                const api = JSON.parse(decodeURIComponent(apiCookie))
+                console.log(api)
+                if (typeof api === 'string') {
+                    setCustomAPIURL(api)
+                    setDataProvider(api === 'genshin-data' ? 'genshin-data' : 'custom')
+                }
+            } catch (e) {
+                // If JSON parsing fails, treat it as a direct URL string
+                const decodedValue = decodeURIComponent(apiCookie)
+                if (decodedValue.startsWith('http')) {
+                    setCustomAPIURL(decodedValue)
+                    setDataProvider('custom')
+                }
+                console.log('Using direct URL string from cookie:', decodedValue)
+            }
+        } catch (e) {
+            console.error('Failed to process custom API config', e)
         }
     }, [])
 
+    // Check if cookie has been updated to stop loading state
+    // useEffect(() => {
+    //     if (isCookieActionLoading) {
+    //         const checkCookie = () => {
+    //             if (stateMatchesCookie()) {
+    //                 setIsCookieActionLoading(false)
+    //             } else {
+    //                 setTimeout(checkCookie, 100) // Check again after 100ms
+    //             }
+    //         }
+    //         checkCookie()
+    //     }
+    // }, [isCookieActionLoading])
 
-    const handleDataProviderChange = (value: string) => {
+
+    const handleDataProviderChange = async (value: "irminsul" | "genshin-data" | "custom") => {
         setDataProvider(value)
-        
         switch(value){
             case 'irminsul':
-                //delete the api cookie
-                document.cookie = "customapi=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT"
+                clearCustomAPI()
                 break
             case 'genshin-data':
-                //change cookie to the genshin data api
-                document.cookie = 'cookieName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                setCustomAPI('gd')
                 break
             case 'custom':
-                //change cookie to the custom api
-document.cookie = 'cookieName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                console.log(customAPIURL)
+                if (customAPIURL) {
+                    setIsCookieActionLoading(true)
+                    const res = await validateCustomAPI(customAPIURL)
+                    if(res){
+                        await setCustomAPI(customAPIURL)
+                        setIsCookieActionLoading(false)
+                    }
+                    else{
+                        alert('Invalid custom api')
+                        setIsCookieActionLoading(false)
+                    }
+                }
                 break
             default:
                 console.error('Invalid data provider')
@@ -58,23 +95,33 @@ document.cookie = 'cookieName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         }
     }
     
-    /**
-     * Sets the custom api url in the cookie
-     * @param url 
-     */ 
-    const handleCustomAPIConnect = () => {
-        document.cookie = `customapi=${encodeURIComponent(JSON.stringify(customAPIURL))}; path=/; expires=${new Date(Date.now() + 1000 * 60 * 60 * 24 * 30).toUTCString()}`
-    }
+    // /**
+    //  * Sets the custom api url in the cookie
+    //  * @param url 
+    //  */ 
+    // const handleCustomAPIConnect = () => {
+    //     setIsCookieActionLoading(true)
+    //     document.cookie = `customapi=${encodeURIComponent(JSON.stringify(customAPIURL))}; path=/; expires=${new Date(Date.now() + 1000 * 60 * 60 * 24 * 30).toUTCString()}`
+    // }
 
     const stateMatchesCookie = () => {
         const apiCookie = document.cookie.split('; ').find(row => row.startsWith('customapi='))?.split('=')[1]
         if(!apiCookie) 
             return false
+        
+        // Handle special case for 'gd'
+        if (apiCookie === 'gd' && dataProvider === 'genshin-data') {
+            return true
+        }
+        
         try {
+            // Try to parse as JSON
             const value = JSON.parse(decodeURIComponent(apiCookie))
             return value === customAPIURL && customAPIURL.length > 0
         } catch (e) {
-            return false
+            // If not valid JSON, compare directly with decoded value
+            const decodedValue = decodeURIComponent(apiCookie)
+            return decodedValue === customAPIURL && customAPIURL.length > 0
         }
     }
     
@@ -125,12 +172,12 @@ document.cookie = 'cookieName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
                         />
                         
                         <Btn 
-                            onClick={() => {
+                            onClick={async () => {
                                 if (!customAPIURL || !customAPIURL.trim() || !customAPIURL.startsWith('http')) {
                                     alert('Please enter a valid URL');
                                     return;
                                 }
-                                handleCustomAPIConnect();
+                                await handleDataProviderChange("custom");
                             }}
                             style={{
                                 marginTop: '0.5rem',
@@ -146,12 +193,16 @@ document.cookie = 'cookieName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
                                 <div className="flex items-center gap-1">
                                     Connected <span className="material-symbols-outlined" style={{fontSize: '1.3rem'}}>check</span>
                                 </div>
+                            ) : isCookieActionLoading ? (
+                                <div className="flex items-center gap-1">
+                                    Connecting <span className="material-symbols-outlined animate-spin" style={{fontSize: '1.3rem'}}>progress_activity</span>
+                                </div>
                             ) : (
                                 'Connect'
                             )}
                         </Btn>
 
-                        <Btn onClick={()=>{handleDataProviderChange('irminsul')}}>Disconnect</Btn>
+                        <Btn onClick={()=>{handleDataProviderChange('irminsul')}} disabled={stateMatchesCookie()}>Disconnect</Btn>
                     </>
                 } 
             </div>

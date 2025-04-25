@@ -1,5 +1,4 @@
 import React from 'react'
-import Gatekeeper from './gatekeeper';
 import Chat from './chat';
 
 import { auth } from '@/app/(auth)/auth'
@@ -27,10 +26,9 @@ export default async function Page() {
 
   return (
     <>
-      <RightSidenav>
+      {/* <RightSidenav>
         <Advertisment type="card" />
-      </RightSidenav>
-
+      </RightSidenav> */}
       <Chat
         user={user}
       />

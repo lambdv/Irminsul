@@ -10,6 +10,7 @@ import { usersTable } from "@/db/schema/user"
 import { aitokenTable } from "@/db/schema/aitoken"
 import { redirect } from "next/navigation"
 import { cookies } from "next/headers"
+import { instanceOfCharacter } from "@root/src/types/character"
 
 export async function changeUsername(newUsername: string) {
     const session = await auth()
@@ -104,9 +105,43 @@ export async function setLanguage(language: string) {
     revalidatePath('/')
 }
 
-
 // export async function purgeComment(commentId: string) {
 //     await db.update(commentsTable).set({
 //         userId: "-1"
 //     }).where(eq(commentsTable.id, commentId))   
 // }
+
+export async function validateCustomAPI(customAPI: string): Promise<boolean> {
+    if(customAPI.includes("http")){
+        try{
+            const response = await fetch(customAPI)
+            const data = await response.json()
+            if(data.data.length > 0 && instanceOfCharacter(data.data[0]))
+                return true;
+        } 
+        catch(e){
+            return false;
+        }
+    }
+
+    if(customAPI.includes("gd")){
+
+        return true;
+    }
+
+    return false;
+}
+
+export async function setCustomAPI(customAPI: string): Promise<boolean> {
+
+
+    const cookieStore = await cookies()
+    cookieStore.set('customapi', customAPI, { path: '/' })
+
+    return true
+}
+
+export async function clearCustomAPI() {
+    const cookieStore = await cookies()
+    cookieStore.delete('customapi')
+}
