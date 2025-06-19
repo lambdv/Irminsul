@@ -1,0 +1,51 @@
+.talent {
+    padding: 20px; 
+    background-color: var(--light-elevated-color);
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.talentTable{
+    overflow-x: scroll;
+    width: 100%;
+}
+
+.talentHeader{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 50px;
+    padding: 0px;
+}
+
+.talentHeader img{
+    background-color: #0c0c0cff;
+    border-radius: 100px;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+    margin-right:10px;
+    user-select: none;
+    pointer-events: none;
+}
+
+.talentHeader h1{
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ingame-primary-color);
+}
+
+.talentDescription{
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.talentDescription p br{
+    margin-bottom: 5px;
+}
+
+.talentDescription b{
+    color: var(--ingame-primary-color);
+}

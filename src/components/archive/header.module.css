@@ -1,0 +1,177 @@
+/* 
+ *Container 
+*/
+.archiveRecordHeader{
+    display: flex;
+    width: 100%;
+    /* height: 35vh; */
+    /* height: 22rem; */
+    height: 20rem;
+
+    margin-top: 20px;
+    overflow: show;
+    position: relative;
+    background-color: transparent;
+    border-radius: 10px;
+    /* box-shadow: 0 0 150px -20px var(--glow-color, rgba(255, 255, 255, 0.3)); */
+    transition: box-shadow 0.3s ease;
+}
+
+.archiveRecordHeaderWrapper{
+    /* width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: blue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px; */
+
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;  
+    font-family: inter;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left:auto ;
+    margin-right:auto ;
+    text-align: center;
+    border-radius: 10px;
+
+    flex-wrap: wrap;
+
+}
+
+/* 
+ * Details 
+*/
+.archiveRecordHeaderDetailsContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* var(--background-color) */
+    /* background-image: linear-gradient(to left, transparent, var(--background-color) 80%); */
+    border-radius: 9px;
+
+
+}
+
+.archiveRecordHeaderDetailsContent{
+    position: relative;
+    text-align: left;
+    width: 45%;
+    height: auto;
+    background-color: transparent;
+    margin-left: 50px;
+    z-index: 2;
+
+}
+
+.archiveRecordHeaderDetailsContent h1{
+    font-size: 2rem;
+    font-family: ingame;
+}
+
+/* 
+ * Splash Image 
+*/
+.archiveRecordHeaderSplash{
+    height: 120%;
+    position: relative;
+    right: 30px;
+
+    width: auto;
+    text-align: center;
+    margin-top:auto ;   
+    margin-bottom:auto ;
+    display: flex;
+    text-align: center;
+    justify-content: center; 
+    align-items: center; 
+    position: relative;
+    top: 20px;
+
+    position: absolute;
+    right: -30px;
+    width: 50%;
+
+
+    position: absolute;
+    right: 0px;
+    width: 50%;
+    top: 0px;
+    width: auto;
+    position: absolute;
+    z-index: 1;
+
+
+}
+
+.archiveRecordHeaderSplash img{
+    width: auto;
+    height: 100%;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    background-color: transparent;
+
+    height: 120%;
+    width: auto;  
+    z-index: 1;
+    
+    position: relative;
+    left: 00px;
+
+}
+
+
+@media screen and (max-width: 768px) {
+    .archiveRecordHeaderSplash {
+
+    }
+
+    .archiveRecordHeaderSplash img {
+        position: relative;
+        height: auto;
+        max-height: 100%;
+        width: 100%;
+        
+        left: 15%;
+        top:-10%;
+    }
+
+    .archiveRecordHeader {
+        overflow: hidden;
+        height: auto;
+    }
+
+
+
+    .archiveRecordHeaderDetailsContent {
+        width: 70%;
+        left: -10%;
+        margin: 20px auto;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+
+    }
+
+    .archiveRecordHeader {
+        height: auto;
+    }
+
+    .archiveRecordHeaderWrapper {
+        flex-wrap: reverse-wrap;
+
+    }
+}
+

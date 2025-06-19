@@ -1,0 +1,113 @@
+.header{
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    padding-left:15px;
+    padding-top:10px;   
+    padding-bottom:5px;   
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.ingameTitle{
+    font-family: ingame;
+    font-size: 19px;
+    top:5px;
+    position: relative;
+    width: auto;
+}
+
+.header img{
+    position: relative;
+    top:0px;
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.header .titleWrapper{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+}
+
+.controller{
+    position: absolute;
+    right: 0px;
+    width: auto;
+    background-color: transparent;
+    text-align: right;
+    padding-right: 30px;
+
+}
+
+/* @media all and (max-width: 800px) {
+    .header{
+        display: block;
+    }
+} */
+
+.itemContainer{
+    position: relative;
+
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: hidden;
+    flex-wrap: wrap;
+    display: flex;
+    transition: all 0s ease-in-out;
+    list-style: none;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+
+
+
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    text-align: left;
+    margin-left:auto ;
+    margin-right:auto ;
+    overflow-x:hidden ;
+    flex-wrap: wrap;
+    display: flex;
+    transition: all 0s ease-in-out;
+    list-style:none;
+    overflow: hidden;
+}
+
+.tagCatagory{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+}
+
+.tagCatagory label{
+    position: relative;
+    font-size: 12px;
+    top:3px;
+}
+
+.activeTagsRail{
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    padding: 15px;
+    padding-top:0px;   
+    padding-bottom:5px;   
+    text-align: center;
+    margin-bottom: 5px;
+}

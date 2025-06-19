@@ -1,0 +1,23 @@
+.articleHeader{
+    background-color: ;
+    margin:auto;
+    width: 80%;
+}
+
+.articleTitle{
+    font-weight: lighter;
+    font-family: 'ingame';
+    font-size: 2rem;
+    margin-bottom: rem;
+}
+
+.articleDate{
+    font-size: 1rem;
+    color: #878787;
+
+}
+
+.articleContent{
+    margin:auto;
+    width: 80%;
+}

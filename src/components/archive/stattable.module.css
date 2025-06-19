@@ -1,0 +1,82 @@
+.stattable {
+    background-color: #1c1c1c;
+    color: var(--dim-text-color);
+    transition: all 0.2s ease-in-out;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+    white-space: nowrap; /* Prevent text wrapping for header */
+    overflow-x: auto; /* Allow horizontal overflow */
+    border-radius: 2px;
+    width: auto;
+
+}
+
+[data-theme="light"] .stattable {
+    background-color: #e0e0e0;
+}
+
+
+
+.stattable table {
+    width: 100%;
+}
+
+/**
+    scrollwheel for table
+*/
+
+.stattable::-webkit-scrollbar {
+    height: auto;
+    max-height: 5px;
+    background-color: var(--elevated-color);
+}
+
+.stattable thead th {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 14px 16px;
+    border-bottom: 2px solid var(--outline-color);
+    text-align: left;   
+}
+
+.stattable tbody tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+.stattable tbody tr:nth-child(odd) {
+    background-color: #161616;
+}
+
+[data-theme="light"] .stattable tbody tr:nth-child(odd) {
+    background-color: #f1f1f1;
+}
+
+.stattable tbody tr:nth-child(even) {
+    background-color: #1c1c1c;
+}
+
+[data-theme="light"] .stattable tbody tr:nth-child(even) {
+    background-color: #e0e0e0;
+}
+
+/* .stattable tbody tr:hover {
+    background-color: #191919;
+} */
+
+.stattable tbody td {
+    padding: 14px 16px;
+    /* border-bottom: 1px solid var(--outline-color); */
+    font-size: 14px;
+    text-align: left;
+}
+
+.stattable tbody tr:last-child tr {
+    border-bottom: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.font-bold {
+    font-weight: 700;
+}

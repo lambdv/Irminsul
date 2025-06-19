@@ -1,0 +1,104 @@
+.btn{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 2px;
+    margin:0px;
+    transition: ease-in-out;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+}   
+
+.btn:active{
+    outline: none;
+    border: none;
+}
+
+.btn div{
+    display: flex;
+}
+
+.btn div i{
+    position: relative;
+    font-size: 25px;
+    margin-top:0px ;
+    left: -2px;
+
+}
+
+.btn:hover{
+    background-color: rgba(77, 77, 77, 0.3);
+    transition: ease-in-out 0.2s;
+}
+
+
+
+.roundBtn{
+    border-radius: 100px;
+    text-align: center;
+    margin:0px;
+    transition: ease-in-out 0.2s;
+    outline: none;
+    border: none;
+    width:40px;
+    height: 40px;
+
+}   
+
+.roundBtn:active{
+    outline: none;
+    border: none;
+}
+
+.roundBtn div{
+    display: flex;
+}
+
+.roundBtn div i{
+    position: relative;
+    font-size: 25px;
+    margin-top:0px ;
+
+    text-align: center;
+    left:7.5px;
+    top:0px;
+    transition: 0.2s ease-in-out;
+}
+
+.roundBtn:hover{
+    background-color: rgba(77, 77, 77, 0.3);
+    transition: ease-in-out 0.2s;
+}
+
+.filterBtn{
+    border-radius: 100px;
+    padding: 2px 10px;
+    margin: 2px;
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--ingame-primary-color);
+    outline: none;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+
+.selected{
+    background-color: var(--ingame-primary-color);
+    color: var(--invert-text-color);
+    display: flex;
+}
+
+.selectedIcon{
+    color: var(--invert-text-color);
+    font-size: 16px;
+    top: 3px;
+    position: relative;
+    left: 0px;
+    pointer-events: none; /* Prevent icon from capturing click events */
+}

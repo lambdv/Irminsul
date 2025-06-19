@@ -1,0 +1,85 @@
+.modal{
+    background-color: rgb(31, 31, 31);
+    display: block;
+    overflow: hidden;
+
+    position: fixed; 
+    left: 50%;
+    /* top: 50%;
+    transform: translate(-50%, -75%);   */
+
+    top: 50%; 
+    transform: translate(-50%, 0);
+
+    text-align: left;
+    padding: 15px;
+    border-radius: 5px;
+    /* border: solid 1px rgb(49, 49, 49); */
+
+    animation: slideDown 0.5s forwards;
+    opacity: 0;
+
+    width: 800px;
+    height: auto;
+    color: var(--text-color);
+}
+
+[data-theme="light"] .modal{
+    background-color: rgb(240, 240, 240);
+    /* border: solid 1px rgb(190, 190, 190); */
+}
+
+
+
+@keyframes slideDown {
+    from {
+        top: 50%; 
+        transform: translate(-50%, calc(-60% - 60px));
+        opacity: 0;
+    }
+    to {
+        top: 50%; 
+        transform: translate(-50%, calc(-50% - 60px));   
+        opacity: 1;
+    }
+}
+
+@media all and (max-width: 1200px) {
+    .modal{
+        width: 90%;
+    }
+}
+
+.modal .header{
+    width: 100%;
+    display: flex;
+}
+
+
+.closeBTN{
+    position: absolute;
+    top:15px;
+    right:15px;
+
+}
+
+.modal .header h1{
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.modal .body{
+    width: 100%;
+    padding-top: 10px;
+}
+
+.options{
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.options button{
+    margin-right:5px;
+}

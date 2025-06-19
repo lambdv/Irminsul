@@ -1,0 +1,18 @@
+.footer {
+    background-color: transparent;
+    height: 250px;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+}
+
+.footerTable{
+    display: flex;
+    flex-direction: row;
+}
+
+.footerTable div{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
