@@ -154,7 +154,7 @@ function CenterContainer(props: any){
     <div id="topnavCenter" className={TopnavCSS.searchContainer}>
         <input 
           className={TopnavCSS.searchBar} 
-          placeholder="Search" 
+          placeholder="Search (ctrl+k)" 
           value={SearchQuery}
           onChange={handleSearchBarChange}
           onMouseDown={openSearchPallette}

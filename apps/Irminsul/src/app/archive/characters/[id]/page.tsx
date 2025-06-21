@@ -52,13 +52,8 @@ export default async function CharacterPage({params}) {
 
   const color = await getMainColor(getAssetURL("character", data.name, "splash.png")) || "rgb(73, 73, 73)"
 
-
-
   return (
       <Suspense fallback={<Loading />}>
-          <style>
-            
-          </style>
           <CharacterHeader data={data}/>
           <TableOfContents/>
           <div id="pagecontent" className={ArchivePageCSS.archiveRecordContentContainer}>
@@ -103,7 +98,7 @@ async function CharacterHeader({data}){
           </span> */}
         </div>
       </div>
-      <p>{data.description}</p>
+      <p>{JSON.stringify(data.description).trim()}</p>
     </Header>
   )
 }

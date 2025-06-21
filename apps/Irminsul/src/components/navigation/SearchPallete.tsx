@@ -108,7 +108,7 @@ export default function SearchPallete() {
                     ref={searchBarRef} 
                     className={SearchPaletteCSS.searchBar} 
                     type="text" 
-                    placeholder="Search..." 
+                    placeholder="Search (ctrl+k)" 
                     value={SearchQuery} 
                     onChange={(e) => setSearchQuery(e.target.value)}
                 />
@@ -151,18 +151,14 @@ export default function SearchPallete() {
     )
 }   
 
-const alterntiveNamesMapping = [
-    { "Tartaglia": ["childe", "ajax"]},
-    { "Tenacity of the Millelith": ["tom"]},
-    { "Fleuve Cendre Ferryman": ["pipe"]},
-]
 
-   /**
-     * link component for each search result in the palette
-     * @param item 
-     * @returns 
-     */
-   function ResultItemComponent(item: Page, highlighted: boolean, closePalette: () => void, setSearchQuery: (query: string) => void) {
+
+/**
+ * link component for each search result in the palette
+ * @param item 
+ * @returns 
+ */
+function ResultItemComponent(item: Page, highlighted: boolean, closePalette: () => void, setSearchQuery: (query: string) => void) {
     let fileName = (() => {
         switch(item.category.toLowerCase()){
             case "character": return `avatar.png`
@@ -192,131 +188,133 @@ const alterntiveNamesMapping = [
         </Link>
     )
 }
-function foundMatch(query: string, page: Page){
-    // If query is empty, return all results
-    if (!query.trim()) return true;
+// function foundMatch(query: string, page: Page){
+//     // If query is empty, return all results
+//     if (!query.trim()) return true;
     
-    const pageName = page.name.toLowerCase()
-    const queryLower = query.toLowerCase().trim()
+//     const pageName = page.name.toLowerCase()
+//     const queryLower = query.toLowerCase().trim()
     
-    // Check for exact match first, preserving spaces (fastest check)
-    if (pageName.includes(queryLower)) {
-        return true
-    }
+//     // Check for exact match first, preserving spaces (fastest check)
+//     if (pageName.includes(queryLower)) {
+//         return true
+//     }
 
-    // Split query and page name into words once for reuse
-    const pageWords = pageName.split(' ')
-    const queryWords = queryLower.split(' ')
+//     // Split query and page name into words once for reuse
+//     const pageWords = pageName.split(' ')
+//     const queryWords = queryLower.split(' ')
 
-    // Check if query matches start of any word (common and fast check)
-    if (pageWords.some(word => word.startsWith(queryLower))) {
-        return true
-    }
+//     // Check if query matches start of any word (common and fast check)
+//     if (pageWords.some(word => word.startsWith(queryLower))) {
+//         return true
+//     }
 
-    // Check alternative names (only if we haven't found a match yet)
-    const alternativeNames = alterntiveNamesMapping.find(mapping => 
-        Object.keys(mapping)[0] === page.name
-    )
-    if (alternativeNames) {
-        const aliases = Object.values(alternativeNames)[0]
-        if (aliases.some(alias => alias.toLowerCase().includes(queryLower))) {
-            return true
-        }
-    }
+//     // Check alternative names (only if we haven't found a match yet)
+//     const alternativeNames = alterntiveNamesMapping.find(mapping => 
+//         Object.keys(mapping)[0] === page.name
+//     )
+//     if (alternativeNames) {
+//         const aliases = Object.values(alternativeNames)[0]
+//         if (aliases.some(alias => alias.toLowerCase().includes(queryLower))) {
+//             return true
+//         }
+//     }
 
-    // Generate acronyms only once
-    const acronym = pageWords.map(word => word[0]).join('')
-    const acronymNoO = pageWords.map(word => word[0]).filter(c => c !== 'o').join('')
+//     // Generate acronyms only once
+//     const acronym = pageWords.map(word => word[0]).join('')
+//     const acronymNoO = pageWords.map(word => word[0]).filter(c => c !== 'o').join('')
     
-    // Check for acronym match
-    if (acronym.includes(queryLower) || acronymNoO.includes(queryLower)) {
-        return true
-    }
+//     // Check for acronym match
+//     if (acronym.includes(queryLower) || acronymNoO.includes(queryLower)) {
+//         return true
+//     }
 
-    // Generate abbreviation only if needed
-    const abbreviations = pageWords.map(word => {
-        if (!word) return '';
-        const firstLetter = word[0];
-        // Find first consonant after first letter without creating a new array
-        let secondConsonant = '';
-        for (let i = 1; i < word.length; i++) {
-            if (!'aeiou'.includes(word[i])) {
-                secondConsonant = word[i];
-                break;
-            }
-        }
-        return firstLetter + (secondConsonant || '');
-    }).join('');
+//     // Generate abbreviation only if needed
+//     const abbreviations = pageWords.map(word => {
+//         if (!word) return '';
+//         const firstLetter = word[0];
+//         // Find first consonant after first letter without creating a new array
+//         let secondConsonant = '';
+//         for (let i = 1; i < word.length; i++) {
+//             if (!'aeiou'.includes(word[i])) {
+//                 secondConsonant = word[i];
+//                 break;
+//             }
+//         }
+//         return firstLetter + (secondConsonant || '');
+//     }).join('');
 
-    // Check if abbreviation includes query
-    if (abbreviations.toLowerCase().includes(queryLower)) {
-        return true;
-    }
+//     // Check if abbreviation includes query
+//     if (abbreviations.toLowerCase().includes(queryLower)) {
+//         return true;
+//     }
 
-    // Fuzzy matching - optimized to exit early when possible
-    let pageIndex = 0;
-    let matchCount = 0;
-    const minMatchRequired = queryLower.length * 0.7;
+//     // Fuzzy matching - optimized to exit early when possible
+//     let pageIndex = 0;
+//     let matchCount = 0;
+//     const minMatchRequired = queryLower.length * 0.7;
     
-    for (let queryIndex = 0; queryIndex < queryLower.length; queryIndex++) {
-        // Early exit if we can't possibly reach the required match count
-        if (matchCount + (queryLower.length - queryIndex) < minMatchRequired) {
-            break;
-        }
+//     for (let queryIndex = 0; queryIndex < queryLower.length; queryIndex++) {
+//         // Early exit if we can't possibly reach the required match count
+//         if (matchCount + (queryLower.length - queryIndex) < minMatchRequired) {
+//             break;
+//         }
         
-        const char = queryLower[queryIndex];
-        let found = false;
+//         const char = queryLower[queryIndex];
+//         let found = false;
         
-        // Look for this character in the remaining part of the page name
-        while (pageIndex < pageName.length) {
-            if (pageName[pageIndex] === char) {
-                matchCount++;
-                pageIndex++;
-                found = true;
-                break;
-            }
-            pageIndex++;
-        }
+//         // Look for this character in the remaining part of the page name
+//         while (pageIndex < pageName.length) {
+//             if (pageName[pageIndex] === char) {
+//                 matchCount++;
+//                 pageIndex++;
+//                 found = true;
+//                 break;
+//             }
+//             pageIndex++;
+//         }
         
-        // If we couldn't find the character, no need to continue
-        if (!found) break;
-    }
+//         // If we couldn't find the character, no need to continue
+//         if (!found) break;
+//     }
     
-    // If we matched at least 70% of the query characters in order, consider it a match
-    if (matchCount >= minMatchRequired) {
-        return true;
-    }
+//     // If we matched at least 70% of the query characters in order, consider it a match
+//     if (matchCount >= minMatchRequired) {
+//         return true;
+//     }
 
-    // Check if all query words match parts of words in sequence
-    let currentPos = 0;
-    for (const queryWord of queryWords) {
-        if (!queryWord) continue; // Skip empty words
+//     // Check if all query words match parts of words in sequence
+//     let currentPos = 0;
+//     for (const queryWord of queryWords) {
+//         if (!queryWord) continue; // Skip empty words
         
-        // Look for match starting from current position
-        let found = false;
-        const maxPos = pageName.length - queryWord.length;
+//         // Look for match starting from current position
+//         let found = false;
+//         const maxPos = pageName.length - queryWord.length;
         
-        while (currentPos <= maxPos) {
-            if (pageName.slice(currentPos).startsWith(queryWord)) {
-                currentPos += queryWord.length;
-                found = true;
-                break;
-            }
-            currentPos++;
-        }
+//         while (currentPos <= maxPos) {
+//             if (pageName.slice(currentPos).startsWith(queryWord)) {
+//                 currentPos += queryWord.length;
+//                 found = true;
+//                 break;
+//             }
+//             currentPos++;
+//         }
         
-        if (!found) return false;
-    }
+//         if (!found) return false;
+//     }
     
-    return true;
-}
+//     return true;
+// }
 
-const generateAbbreviations = (name: string): string[] => {
-    const words = name.split(" ")
-    const firstLetters = words.map(word => word[0])
-    const capitalLetters = words.filter(word => word[0] === word[0].toUpperCase()).map(word => word[0])
-    return [...firstLetters, ...capitalLetters]   
-};
+// const generateAbbreviations = (name: string): string[] => {
+//     const words = name.split(" ")
+//     const firstLetters = words.map(word => word[0])
+//     const capitalLetters = words.filter(word => word[0] === word[0].toUpperCase()).map(word => word[0])
+//     return [...firstLetters, ...capitalLetters]   
+// };
+
+
 export const partialMatch = (query: string, target: string): boolean => {
     // Convert both strings to lowercase for case-insensitive matching
     query = query.toLowerCase();
@@ -372,3 +370,9 @@ export const partialMatch = (query: string, target: string): boolean => {
     
     return true;
 }
+
+const alterntiveNamesMapping = [
+    { "Tartaglia": ["childe", "ajax"]},
+    { "Tenacity of the Millelith": ["tom"]},
+    { "Fleuve Cendre Ferryman": ["pipe"]},
+]

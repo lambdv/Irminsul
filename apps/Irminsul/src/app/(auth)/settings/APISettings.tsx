@@ -139,7 +139,7 @@ export default function APISettings() {
                         sx={muiStyle}
                     >
                         <MenuItem value="irminsul" sx={{color: '#404040'}} onClick={()=>{handleDataProviderChange('irminsul')}}>Irminsul</MenuItem>
-                        <MenuItem value="genshin-data" sx={{color: '#404040'}} onClick={()=>{handleDataProviderChange('genshin-data')}}>dvaJi's Genshin Data</MenuItem>
+                        <MenuItem value="genshin-data" sx={{color: '#404040'}} onClick={()=>{handleDataProviderChange('genshin-data')}}>dvaJi&apos;s Genshin Data</MenuItem>
                         <MenuItem value="custom" sx={{color: '#404040'}}>Custom</MenuItem>
                     </Select>
                 </FormControl>
@@ -222,6 +222,8 @@ const muiTheme = createTheme({
 
     },
 })
+
+
 
 const muiStyle ={
     backgroundColor: 'transparent',
