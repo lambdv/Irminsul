@@ -11,27 +11,16 @@ import { aimessageTable } from "@/db/schema/aimessage";
 
 const token = process.env.AISTUDIO_GOOGLE_API_KEY
 const google = createGoogleGenerativeAI({apiKey: token})
-// const model = google('models/gemini-2.5-pro-exp-03-25') as any
-const model = google('gemini-2.0-flash-thinking-exp-01-21') as any
-
+const model = google('gemini-2.0-flash') as any
 
 // const identityPrompt = "you are an ai assistant that answers player's questions about the game Genshin Impact as if you were a theorycrafter/veteran player in a gesnhin discord general help channel."
-
-const systemPrompt = "You are an AI Assistant/agent chatbot that answers in-game and metagaming questions about the game Genshin Impact. "
-    + "Answer questions based on the information provided by tools and your knowledge base. " + " information from your knowldeg base can be retreved using the getInformationTool."
-    + "you MUST CALL THE getInformationTool TOOL TO GET INFORMATION FROM YOUR KNOWLEDGE BASE and YOU CAN ALSO CALL THE searchEngineTool TO GET INFORMATION FROM THE WEB. "
-    
-    + "If you don't have information from the knowledge base or search tool, state you don't have the information and answer the question as you would as a base LLM. "
-
-    + "only use information given by tools relevent to the question. don't state irrelevent information that you have just because you have it. "
-
-    //+ "Responses should be written in an engineering tone. should be as consise as possible. first setence or 2 should direcly anser the question. response should be a narrative the answers the question while sentinces should be a micronaritve written in a short and chopy way. "
-    + "Statements, claims, recomendations and recommendations should be hedged. you should NEVER make absolute statements. "
-    
-    + "Always cite your sources. eg when you call the get information tool, objects may have source properties. places where you use the information/content from that object, you should cite the source related to that object."
-    + " Citations should be in the format as [source: <source name or url>]"
-    // + "if a source is a youtube video then do [yt: <videoiURL>] instead" 
-    // + "If you want to include a youtube video in your response, use the [yt: <videoURL>] format. Do not include the video URL in your response, just use the format."
+const systemPrompt = "You're an AI chatbot that answers questions about gesnhin impact related to in-game and metagaming. "
+    + "You have access to tools which you should call! "
+    + "You must use the getInformationTool to get information from your RAG knowledge base to answer the question. "
+    //+ "If you don't have information from the knowledge base or search tool, state you don't have the information and answer the question as you would as a base LLM. "
+    + "don't state irrelevant information to the question just because you have it from the knowledge base or any tool call. "
+    + "Always cite your sources. eg when you call the get information tool, objects may have source properties. places where you use the information/content from that object, you should cite the source related to that object. Citations should be in the format as [source: <source name or url>]. "
+    + "don't hallucinate information and be helpful to the player!!!"
 
 /**
  * Generate a AI response for a given prompt

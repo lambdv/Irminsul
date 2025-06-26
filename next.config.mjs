@@ -36,7 +36,23 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'www.irminsul.moe'
-            }
+            },
+            {
+                protocol: 'https',
+                hostname: 'cdn.irminsul.moe'
+            },
+            {
+                protocol: 'https',
+                hostname: 'fonts.gstatic.com'
+            },
+            {
+                protocol: 'https',
+                hostname: 'cdn.wanderer.moe'
+            },
+            {
+                protocol: 'https',
+                hostname: 'fonts.gstatic.com'
+            },
         ]
     }
 };

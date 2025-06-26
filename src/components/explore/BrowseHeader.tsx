@@ -64,7 +64,7 @@ export default function BrowseHeader(props: {
         <>
             <div className={explorePageCSS.header}>
                 <div className={explorePageCSS.titleWrapper}>
-                    {props.icon ? <Image src={props.icon} alt=''/> : <span className="material-symbols-rounded" style={{fontSize: "30px", marginRight: "5px", position: "relative", top: "5px"}}>{props.materialIcon}</span>}
+                    {props.icon ? <Image src={props.icon} alt='' width={30} height={30}/> : <span className="material-symbols-rounded" style={{fontSize: "30px", marginRight: "5px", position: "relative", top: "5px"}}>{props.materialIcon}</span>}
                     <h1 className={explorePageCSS.ingameTitle}>{props.title}</h1>
                 </div>
 

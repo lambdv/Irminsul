@@ -4,15 +4,17 @@ import React, { useState, useEffect } from 'react';
 import { NavigationStore } from '@/store/Navigation';
 import Overlay from '../ui/Overlay';
 import SidenavCSS from './sidenav.module.css'
-import characterIcon from '@public/imgs/icons/characterIcon.png'
-import weaponIcon from '@public/imgs/icons/weaponIcon.png'
-import artifactIcon from '@public/imgs/icons/artifactIcon.png'
+import { getCDNURL } from '@/utils/getAssetURL'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { links } from './Siderail';
 import TopnavCSS from './topnav.module.css'
 import {auth, signIn, signOut} from "@/app/(auth)/auth";
+
+const CHARACTER_ICON = getCDNURL("imgs/icons/characterIcon.png")
+const WEAPON_ICON = getCDNURL("imgs/icons/weaponIcon.png")
+const ARTIFACT_ICON = getCDNURL("imgs/icons/artifactIcon.png")
 
 export default function Sidedrawer() {
 
@@ -68,7 +70,7 @@ export default function Sidedrawer() {
                 onClick={() => handleSideNavLinkClick(props.href)}
             >
                 <i className={SidenavCSS.sidenavLinkSymbol + ' material-symbols-rounded'}>
-                    {props.img ? <Image src={props.img} alt={props.text} width={24} height={24} unoptimized/> : props.icon}
+                    {props.img ? <Image src={props.img} alt={props.text} width={24} height={24} unoptimized={false}/> : props.icon}
                 </i>
                 {props.text !== "" && <p>{props.text}</p> }
             </Link>

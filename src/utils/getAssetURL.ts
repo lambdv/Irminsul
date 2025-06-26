@@ -1,5 +1,6 @@
 import { toKey } from "@/utils/standardizers"
 import path from "path"
+import 'dotenv/config';
 
 let cdn = "https://cdn.irminsul.moe/assets/"
 
@@ -25,3 +26,13 @@ export function getAssetURL(category: string, name: string, fileName: string): s
     return `${cdn}${category.toLowerCase()}s/${toKey(name)}/${fileName}`
 }
 
+/**
+ * Utility function to get the url for an asset from the cdn
+ * @param path 
+ * @returns 
+ */
+export function getCDNURL(path: string) {
+    // if (process.env.NODE_ENV === "development")
+    //     return process.env.ASSET_PATH + `${path}`
+    return `https://cdn.irminsul.moe/${path}`
+}

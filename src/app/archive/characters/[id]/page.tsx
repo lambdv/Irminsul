@@ -12,7 +12,7 @@ import { unstable_cache, unstable_cacheLife } from "next/cache"
 import CommentSection from "@/components/ui/CommentSection"
 import { getMainColor } from "@/utils/getMainColor"
 import TalentCSS from '@/components/archive/talent.module.css'
-import { getAssetURL } from '@/utils/getAssetURL'
+import { getAssetURL, getCDNURL } from '@/utils/getAssetURL'
 import Link from "next/link"
 import Table from "@/components/archive/Table"
 import Advertisment from "@/components/ui/Advertisment"
@@ -89,9 +89,9 @@ async function CharacterHeader({data}){
             <i key={index} className="material-symbols-rounded" style={{color: '#FFD700', marginRight: "-5px"}}>star</i>
           ))}
           <p> </p>
-          <Image src={`/imgs/icons/${data.vision}.png`} alt={data.vision} width={100} height={100} style={{width: "20px", height: "20px"}}/>
-          <Image src={`/imgs/icons/${data.weapon}.png`} alt={data.weapon} width={100} height={100} style={{width: "25px", height: "25px", filter: theme === "dark" ? "none" : "invert(1)"}}/>
-          <Image src={`/imgs/icons/${data.region}.png`} alt={data.region} width={100} height={100} style={{width: "25px", height: "25px", filter: theme === "dark" ? "none" : "invert(1)"}}/>
+          <Image src={getCDNURL(`/imgs/icons/${data.vision}.png`)} alt={data.vision} width={100} height={100} style={{width: "20px", height: "20px"}}/>
+          <Image src={getCDNURL(`/imgs/icons/${data.weapon}.png`)} alt={data.weapon} width={100} height={100} style={{width: "25px", height: "25px", filter: theme === "dark" ? "none" : "invert(1)"}}/>
+          <Image src={getCDNURL(`/imgs/icons/${data.region}.png`)} alt={data.region} width={100} height={100} style={{width: "25px", height: "25px", filter: theme === "dark" ? "none" : "invert(1)"}}/>
 
           {/* <span style={{fontSize: "12px", backgroundColor: "#181818", color: "var(--primary-color)", padding: "3px 12px", borderRadius: "50px"}}>
             {data.release_date}

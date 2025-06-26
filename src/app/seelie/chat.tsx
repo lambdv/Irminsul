@@ -3,17 +3,18 @@ import React, { useEffect, useState } from 'react'
 import { useChat } from '@ai-sdk/react';
 import Image from 'next/image'
 import styles from './seelie.module.css'
-import SeelieIcon from '@public/imgs/icons/seelie.png'
-import YellowSeelieIcon from '@public/imgs/icons/yellowSeelie.png'
+import { getCDNURL } from '@/utils/getAssetURL'
 
 import { getAiTokensLeft } from './numAiTokensLeft'
 import Overlay from '@/components/ui/Overlay'
 import Link from 'next/link'
-import ResinIcon from '@public/imgs/icons/resinIcon.png'
 import RoundBtn from '@/components/ui/RoundBtn'
 import markdownToHTML from '@/utils/markdownToHTML';
 import { useCompletion } from '@ai-sdk/react'
 import { cursorTo } from 'readline';
+
+const SEELIE_ICON = getCDNURL("imgs/icons/seelie.png")
+const RESIN_ICON = getCDNURL("imgs/icons/resinIcon.png")
 
 /**
  * Chat Client component for AI chatbot page.
@@ -98,8 +99,8 @@ export default function Chat(props: {user: any}) {
         return (
             <div className={styles.landingWrapper}>
                 {showTokenModal && <TokenModal user={props.user} setShowTokenModal={setShowTokenModal}/>}
-                <h1 className="text-2xl font-ingame text-center text-primary" style={{fontFamily: "ingame",color: "var(--primary-color)"}}>What can I help you with?</h1>
-                {/* <p className="text-center text-gray-text-color">Your AI assistant for Genshin Impact.</p> */}
+                <h1 className="text-2xl font-ingame text-center text-primary" style={{fontFamily: "ingame",color: "var(--primary-color)"}}>The Better Teyvat Guide...</h1>
+                <i className="text-center mb-2" style={{color: "var(--gray-text-color)"}}>AI agent for Genshin in-game and meta questions.</i>
 
                 <div className={styles.landingChatWrapper}>
                     <p className={styles.tokenCount + " select-none"}>Tokens Left: {tokensLeft === null ? "loading..." : tokensLeft}</p>
@@ -237,8 +238,8 @@ function Message({messageUser, message, userImage, messageOBJ}: {
         <div className={`${styles.message} ${isUser ? styles.messageUser : styles.messageAssistant}`}>
             <div className={styles.messageAvatar}>
                 {messageUser === "Seelie" 
-                    ? <Image src={YellowSeelieIcon} alt="Seelie" width={40} height={40} className="rounded-full"/>
-                    : <Image src={userImage || SeelieIcon} alt="User" width={40} height={40} className="rounded-full" unoptimized/>
+                    ? <Image src={SEELIE_ICON} alt="Seelie" width={40} height={40} className="rounded-full"/>
+                    : <Image src={userImage || SEELIE_ICON} alt="User" width={40} height={40} className="rounded-full" unoptimized={false}/>
                 }
             </div>
             <div className={`${styles.messageContent} ${isUser ? styles.messageContentUser : styles.messageContentAssistant}`}>
@@ -250,9 +251,8 @@ function Message({messageUser, message, userImage, messageOBJ}: {
 
 function LoadingMessage(){
     const messages = [
-        "Parotting Zajef takes",
-        "Yoinkcrafting kqm guides",
-        "Pulling up zyox video",
+        "Cooking...",
+
     ]
     return (
         <Message messageUser="Seelie" message={
@@ -304,12 +304,12 @@ function TokenModal(props: {
                         style={{top: "-5px"}}
                     />
                 </div>
-                <Image src={SeelieIcon} alt="Seelie" width={40} height={40} className="rounded-full"/>
+                <Image src={SEELIE_ICON} alt="Seelie" width={40} height={40} className="rounded-full"/>
                 <p className={styles.tokenModalText}>It seems you&apos;ve run out of tokens.</p>
                 <p className={styles.tokenModalText}>Wait until the next reset or consider supporting Irminsul for more tokens!</p>
                 <br />
                 <Link href={"https://buy.stripe.com/5kAaG57cIdzGgF2cMO?prefilled_email=" + props.user?.email} className={styles.tokenModalButton}>
-                    <Image src={ResinIcon} alt="Seelie" width={20} height={20} className={`rounded-full ${styles.tokenModalButtonImage}`}/>
+                    <Image src={RESIN_ICON} alt="Seelie" width={20} height={20} className={`rounded-full ${styles.tokenModalButtonImage}`}/>
                     Replenish SeelieAI Tokens
                 </Link>
             </div>

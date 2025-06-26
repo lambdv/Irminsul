@@ -7,8 +7,9 @@ import { SearchStore } from '@/store/Search';
 import { NavigationStore } from '@/store/Navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import SeelieIcon from '@public/imgs/icons/seelie.png'
+import { getCDNURL } from '@/utils/getAssetURL'
 
+const SEELIE_ICON = getCDNURL("imgs/icons/seelie.png")
 
 export default function BottomNav() {
     const router = useRouter();

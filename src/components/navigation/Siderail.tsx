@@ -7,28 +7,38 @@ import SidenavCSS from "./sidenav.module.css"
 import { NavigationStore } from "@/store/Navigation"
 import { SearchStore } from "@/store/Search"
 import Overlay from '../ui/Overlay'
-import characterIcon from '@public/imgs/icons/characterIcon.png'
-import weaponIcon from '@public/imgs/icons/weaponIcon.png'
-import artifactIcon from '@public/imgs/icons/artifactIcon.png'
-import seelieIcon from '@public/imgs/icons/seelie.png'
-import yellowSeelieIcon from '@public/imgs/icons/yellowSeelie.png'
-import enemyIcon from '@public/imgs/icons/enemyIcon.png'
-import wishIcon from '@public/imgs/icons/wish.png'
-import partyIcon from '@public/imgs/icons/party.png'
+import { getCDNURL } from '@/utils/getAssetURL'
 import { getSession, signIn, signOut, useSession } from "next-auth/react"
 
+const CHARACTER_ICON = getCDNURL("imgs/icons/characterIcon.png")
+const WEAPON_ICON = getCDNURL("imgs/icons/weaponIcon.png")
+const ARTIFACT_ICON = getCDNURL("imgs/icons/artifactIcon.png")
+// const SEELIE_ICON = getCDNURL("imgs/icons/seelie.png")
+// const ENEMY_ICON = getCDNURL("imgs/icons/enemyIcon.png")
+// const WISH_ICON = getCDNURL("imgs/icons/wish.png")
+// const PARTY_ICON = getCDNURL("imgs/icons/party.png")
 
+export let links = [
+  {href: "/", icon: "home", text: "Home"},
+  {href: "/seelie", icon: "stars_2", text: "Ask AI"},
+  {href: "/archive/characters", img: CHARACTER_ICON, text: "Characters"},
+  {href: "/archive/weapons", img: WEAPON_ICON, text: "Weapons"},
+  {href: "/archive/artifacts", img: ARTIFACT_ICON, text: "Artifacts"},
+  // {href: "/articles", icon: "article", text: "Articles"},
+  // {href: "/support", icon: "favorite", text: "Support"},
+  {href: "/settings", icon: "settings", text: "Settings"},
+]
 
-
-
+/**
+ * Side navigation component
+ */
 export default function Siderail() {
   const pathname = usePathname() //get path url
   const [activePage, setActivePage] = useState('') //keep track of active page
+  useEffect(() => setActivePage(pathname), [pathname]) //update active page on path change
 
-  const {setShowPallette} = SearchStore()
-
+  // const {setShowPallette} = SearchStore()
   // const [session, setSession] = useState(null)
-
   // useEffect(() => {
   //   const fetchSession = async () => {
   //     const session = await getSession()
@@ -36,10 +46,6 @@ export default function Siderail() {
   //   }
   //   fetchSession()
   // }, [])
-
-
-  useEffect(() => setActivePage(pathname), [pathname]) //update active page on path change
-
 
   /**
    * Side navigation button component
@@ -76,7 +82,7 @@ export default function Siderail() {
       >
         <i className={SidenavCSS.sidenavLinkSymbol + ' material-symbols-rounded'}>
 
-          {props.img ? <Image src={props.img} alt = {props.text} width={24} height={24} unoptimized/> : props.icon}
+          {props.img ? <Image src={props.img} alt = {props.text} width={24} height={24} unoptimized={false}/> : props.icon}
         </i>
         {props.text !== "" && <p>{props.text}</p> }
       </Link>
@@ -122,13 +128,3 @@ export default function Siderail() {
 
 
 
-export let links = [
-  {href: "/", icon: "home", text: "Home"},
-  {href: "/seelie", img: yellowSeelieIcon, text: "Ask AI"},
-  {href: "/archive/characters", img: characterIcon, text: "Characters"},
-  {href: "/archive/weapons", img: weaponIcon, text: "Weapons"},
-  {href: "/archive/artifacts", img: artifactIcon, text: "Artifacts"},
-  {href: "/articles", icon: "article", text: "Articles"},
-  {href: "/support", icon: "favorite", text: "Support"},
-  {href: "/settings", icon: "settings", text: "Settings"},
-]

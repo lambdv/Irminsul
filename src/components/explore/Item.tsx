@@ -2,8 +2,8 @@ import Link from 'next/link'
 import ItemCSS from './item.module.css'
 import Image from "next/image"
 import {flatten, toKey} from '@/utils/standardizers'
-import placeholder from '@public/imgs/icons/fallback.png'
-
+import { getCDNURL } from '@/utils/getAssetURL'
+// const PLACEHOLDER = getCDNURL("imgs/icons/fallback.png")
 
 export default function Item(props: {
     category: string,
@@ -37,12 +37,12 @@ export default function Item(props: {
 
                 {hasElement && 
                     <Image className={ItemCSS.itemCategory} 
-                        src={`/imgs/icons/${flatten(props.element)}.png`} 
+                        src={getCDNURL(`imgs/icons/${flatten(props.element)}.png`)} 
                         alt=" " 
                         width={props.scale ? props.scale * 25 : 25} 
                         height={props.scale ? props.scale * 25 : 25}
                         loading="lazy"
-                        unoptimized
+                        unoptimized={false}
                     />
                 }
 
@@ -75,7 +75,7 @@ export default function Item(props: {
                         loading="lazy"
                         // placeholder="blur"
                         // blurDataURL={placeholder.src}
-                        unoptimized
+                        unoptimized={false}
                     />
                 </div>
 

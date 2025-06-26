@@ -182,7 +182,7 @@ function ResultItemComponent(item: Page, highlighted: boolean, closePalette: () 
                 setSearchQuery("")
             }}
         >
-            {/* <Image src={imgURL} alt="" width={100} height={100} unoptimized/> */}
+            {/* <Image src={imgURL} alt="" width={100} height={100} unoptimized={false}/> */}
             <p>{item.name}</p>
             {highlighted && <i className="material-symbols-outlined " style={{marginLeft: "auto", color: "#b1b1b1", fontSize: "18px", marginRight: "5px"}}>keyboard_return</i>}
         </Link>

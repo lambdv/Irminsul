@@ -82,7 +82,7 @@ async function ArticleHeader(props: {article: any}) {
           alt={user?.name ?? "Unknown"} 
           width={35} 
           height={35} 
-          unoptimized
+          unoptimized={false}
         />
         {user ? user.name : "Unknown"}
         {user.id === "d4882fcc-8326-4fbb-8b32-d09c0fb86875" && (

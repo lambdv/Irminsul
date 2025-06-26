@@ -161,7 +161,7 @@ export default function Page() {
                                                 src={src} 
                                                 alt={item.name}
                                                 style={{ width: '100%', height: 'auto',  }}
-                                                unoptimized
+                                                unoptimized={false}
                                                 width={100}
                                                 height={100} 
                                             />

@@ -1,4 +1,6 @@
-import EnergyDB from '@public/data/energy.json'
+//import EnergyDB from '@public/data/energy.json'
+
+const EnergyDB = await fetch('https://cdn.irminsul.moe/data/energy.json').then(res => res.json())
 import { CharacterEnergyData, CharacterEnergySpec, ParticleRNGType, RotationMode } from './types'
 const CHARACTER_ENERGY_DATA = EnergyDB.data as CharacterEnergyData[]
 

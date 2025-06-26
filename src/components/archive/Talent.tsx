@@ -23,7 +23,7 @@ export default function Talent(props: {
                 height={100} 
                 className={TalentCSS.talentIcon}
                 loading="lazy"
-                unoptimized
+                unoptimized={false}
               />
             }
           <h1>{props.data.type}: {props.data.name}</h1>

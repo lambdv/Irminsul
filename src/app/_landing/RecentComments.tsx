@@ -45,7 +45,7 @@ export default async function RecentComments() {
                                 width={24}
                                 height={24}
                                 className={styles.commentAvatar}
-                                unoptimized
+                                unoptimized={false}
                             />
                             <div className="flex flex-row gap-2">
                                 <span className={styles.commentUserName}>{comment.userName}</span>

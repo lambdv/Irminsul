@@ -91,7 +91,7 @@ function LeftContainer(){
         </Link>
       </div>
       
-      <div className={TopnavCSS.breadcrumbContainer}>
+      {/* <div className={TopnavCSS.breadcrumbContainer}>
         {pathname === "/" && 
           <>
             <i className="material-symbols-outlined" style={{fontSize: "13px", color: "var(--gray-text-color)"}}>chevron_right</i>
@@ -109,11 +109,11 @@ function LeftContainer(){
                   href={pathname.split("/").slice(0, index + 1).join("/")} 
                   isHighlighted={index === pathname.split("/").length - 1} 
                   text={path} />
-                {/* {index < pathname.split("/").length - 1 && <i className="material-symbols-outlined" style={{fontSize: "13px", color: "var(--gray-text-color)"}}>chevron_right</i>} */}
+                {index < pathname.split("/").length - 1 && <i className="material-symbols-outlined" style={{fontSize: "13px", color: "var(--gray-text-color)"}}>chevron_right</i>} 
               </React.Fragment>
             )
         })}
-      </div>
+      </div> */}
 
 
     </div>
@@ -201,7 +201,7 @@ function CenterContainer(props: any){
                     className={TopnavCSS.userAvatar}
                     width={40}
                     height={40}
-                    unoptimized
+                    unoptimized={false}
                   />
                 </button>
                 <div 
