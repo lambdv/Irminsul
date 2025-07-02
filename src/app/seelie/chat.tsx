@@ -250,7 +250,7 @@ function Message({messageUser, message, userImage, messageOBJ}: {
 
 function LoadingMessage(){
     const messages = [
-        "Cooking...",
+        "Cooking",
     ]
     return (
         <Message messageUser="Seelie" message={

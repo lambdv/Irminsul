@@ -11,17 +11,19 @@ import { aimessageTable } from "@/db/schema/aimessage";
 
 const token = process.env.AISTUDIO_GOOGLE_API_KEY
 const google = createGoogleGenerativeAI({apiKey: token})
-const model = google('gemini-2.0-flash') as any
+const model = google('gemini-2.5-flash') as any
 
 // const identityPrompt = "you are an ai assistant that answers player's questions about the game Genshin Impact as if you were a theorycrafter/veteran player in a gesnhin discord general help channel."
 const systemPrompt = "You're an AI chatbot that answers questions about gesnhin impact related to in-game and metagaming. "
     //+ "you should call the tools avaible to you to produce better results.  "
      + "You must use the getInformationTool to get information from your RAG knowledge base to answer the question. "
+     + "Remember that information changes over time. just because you don't understand certain nouns (eg: character name) doesn't teman they don't exist. so stop saying that something doesn't exist just because you don't understand it. " 
      + "if you don't have information from tools, just answer the question as you would as a base LLM. "
     //+ "If you don't have information from the knowledge base or search tool, state you don't have the information and answer the question as you would as a base LLM. "
     + "don't state irrelevant information to the question just because you have it from the knowledge base or any tool call. "
-    + "Always cite your sources. eg when you call the get information tool, objects may have source properties. places where you use the information/content from that object, you should cite the source related to that object. Citations should be in the format as [source: <source name or url>]. "
-    + "don't hallucinate information and be helpful to the player"
+    + "MAKE SURE TO ALWAYS CITE YOUR SOURCES. Tool calls often will have some sort of source property. Citations should be in the format as [source: <source name or url>]. "
+    + "don't hallucinate information and be helpful to the player "
+    + "around numbers using k and m metric"
 
 /**
  * Generate a AI response for a given prompt
