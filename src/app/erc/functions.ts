@@ -53,25 +53,25 @@ const characterGeneratedEnergy = (characterConfig: CharacterEnergySpec, characte
 
 
 
-  /**
-   * energy generated from self
-   */
+  // /**
+  //  * energy generated from self
+  //  */
 
-  //character 1 particles per second * time between burst 
-  //
-  let particlesFromChara1SkillPrimary = chara1ParticlesPerSecond * chara1TimeBetweenBurst
-  if(chara1Data["element"] == "Clear") {
-    particlesFromChara1SkillPrimary * 2
-  }
-  else{
-    particlesFromChara1SkillPrimary * (feedFromChara1SkillPrimary * 1 + (1-feedFromChara1SkillPrimary) * 0.6)
-  }
+  // //character 1 particles per second * time between burst 
+  // //
+  // let particlesFromChara1SkillPrimary = chara1ParticlesPerSecond * chara1TimeBetweenBurst
+  // if(chara1Data["element"] == "Clear") {
+  //   particlesFromChara1SkillPrimary * 2
+  // }
+  // else{
+  //   particlesFromChara1SkillPrimary * (feedFromChara1SkillPrimary * 1 + (1-feedFromChara1SkillPrimary) * 0.6)
+  // }
 
 
   let particlesFromChara1SkillSecondary
   let particlesFromChara1Fav
 
-  let energyFromCharacter1ForCharacter1 = particlesFromChara1SkillPrimary + particlesFromChara1SkillSecondary + particlesFromChara1Fav
+  //let energyFromCharacter1ForCharacter1 = particlesFromChara1SkillPrimary + particlesFromChara1SkillSecondary + particlesFromChara1Fav
 
   //energy generated from allies
   let energyFromCharacter2ForCharacter1 = 0
@@ -87,7 +87,7 @@ const characterGeneratedEnergy = (characterConfig: CharacterEnergySpec, characte
   let energyFromOtherSourcesForCharacter1 = 0
   
 
-  let totalEnergyPerBurst = energyFromCharacter1ForCharacter1 + energyFromCharacter2ForCharacter1 + energyFromCharacter3ForCharacter1 + energyFromCharacter4ForCharacter1 + energyFromHPParticlesForCharacter1 + energyFromOtherSourcesForCharacter1 
+  let totalEnergyPerBurst =  energyFromCharacter2ForCharacter1 + energyFromCharacter3ForCharacter1 + energyFromCharacter4ForCharacter1 + energyFromHPParticlesForCharacter1 + energyFromOtherSourcesForCharacter1 
 
 
   let skillUsedPerBurstPrimary = 0
