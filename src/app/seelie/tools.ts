@@ -31,26 +31,6 @@ export const getInformationTool = tool({
 });
 
 /**
- * AISDK tool for asking ai to answer the question
-*/
-export const askLLMTool = tool({
-    description: `ask an llm to answer the question`,
-    parameters: z.object({
-        question: z.string().describe('the users question'),
-    }),
-    execute: async ({ question }) => {
-        const { text: llmAwnser } = await generateText({
-            model,
-            system: "can you answer this question related to the game Genshin Impact?",
-            prompt: question,
-            maxSteps: 1,
-        });
-        console.log(llmAwnser)
-        return llmAwnser
-    }
-})
-
-/**
  * AISDK tool for getting character data from the database
  */
 export const getCharacterDataTool = tool({

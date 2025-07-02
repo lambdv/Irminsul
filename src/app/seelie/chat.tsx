@@ -233,7 +233,6 @@ function Message({messageUser, message, userImage, messageOBJ}: {
     const isUser = messageUser === "User"
     let displayMessage = message
 
-
     return (
         <div className={`${styles.message} ${isUser ? styles.messageUser : styles.messageAssistant}`}>
             <div className={styles.messageAvatar}>
@@ -252,12 +251,11 @@ function Message({messageUser, message, userImage, messageOBJ}: {
 function LoadingMessage(){
     const messages = [
         "Cooking...",
-
     ]
     return (
         <Message messageUser="Seelie" message={
             <p className={`${styles.gradientText}`} style={{
-                background: 'linear-gradient(90deg, #747474, #6e6e6e, #5b5b5b, #5c5c5c)',
+                background: 'linear-gradient(90deg, #e0e0e0, #bdbdbd, #9b9b9b, #7a7a7a)',
                 backgroundSize: '400% 400%',
                 animation: 'gradientAnimation 4s linear infinite reverse',
                 WebkitBackgroundClip: 'text',

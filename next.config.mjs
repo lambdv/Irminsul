@@ -53,6 +53,15 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'fonts.gstatic.com'
             },
+            {
+                protocol: 'http',
+                hostname: 'localhost',
+                port: '8000'
+            },
+            {
+                protocol: 'https',
+                hostname: 'raw.githubusercontent.com'
+            },
         ]
     }
 };

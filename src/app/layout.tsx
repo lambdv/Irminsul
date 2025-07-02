@@ -12,20 +12,12 @@ import ClientProvider from "@/components/navigation/ClientProvider"
 import BottomNav from "@/components/navigation/bottomnav"
 import MiniAIChat from "@/components/ui/MiniAIChat"
 import RightSidenav from "../components/navigation/RightSidenav"
-
 const inter = Inter({ subsets: ["latin"] })
-
 export const metadata = {
   description: "Genshin Impact Database",
 }
 
-/**
- * Root layout for the whole app including the navigation components surrounding the pages
- * @param param0 
- * @returns 
- */
 export default async function RootLayout({children}) {
-
   const cookieStore = await cookies()
   const theme = cookieStore.get('theme')?.value || 'dark'
   const language = cookieStore.get('language')?.value || 'en'
@@ -42,13 +34,8 @@ export default async function RootLayout({children}) {
             <Sidedrawer/>
             <Sidebar/>
             <main className="pageContentContainer">
-              {/* <RightSidenav>
-                <MiniAIChat/>
-              </RightSidenav> */}
               {children}
-              {/* <Footer/> */}
             </main>
-            {/* <BottomNav/> */}
           </ClientProvider>
         </SessionProvider>
       </body>
