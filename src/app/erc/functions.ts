@@ -53,13 +53,24 @@ const characterGeneratedEnergy = (characterConfig: CharacterEnergySpec, characte
 
 
 
-  // /**
-  //  * energy generated from self
-  //  */
+  /**
+   * energy generated from self
+   */
 
-  // //character 1 particles per second * time between burst 
-  // //
-  // let particlesFromChara1SkillPrimary = chara1ParticlesPerSecond * chara1TimeBetweenBurst
+  let chara1TimeBetweenBurst = 0 //todo
+
+  let chara1ParticlesPerSecond = 0
+
+  if (chara1ParticlesPerSecond == 0 || characterConfig1.skillType == "") {
+    chara1ParticlesPerSecond = 0
+  }
+  else{
+    
+  }
+
+  //character 1 particles per second * time between burst 
+  //
+  let particlesFromChara1SkillPrimary = chara1ParticlesPerSecond * chara1TimeBetweenBurst
   // if(chara1Data["element"] == "Clear") {
   //   particlesFromChara1SkillPrimary * 2
   // }

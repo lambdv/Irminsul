@@ -23,13 +23,13 @@ export async function generateMetadata({params}) {
 }
 
 //statically generate all character pages from api at build time
-// export async function generateStaticParams() {
-//   const weapons = await getWeapons()
-//   return weapons.map((weapon) => ({
-//     id: weapon.id,
-//     data: weapon
-//   }))
-// }
+export async function generateStaticParams() {
+  const weapons = await getWeapons()
+  return weapons.map((weapon) => ({
+    id: weapon.id,
+    data: weapon
+  }))
+}
 
 export default async function WeaponPage({params}) {
   const {id} = await params

@@ -21,13 +21,11 @@ const ARTIFACT_ICON = getCDNURL("imgs/icons/artifactIcon.png")
 export let links = [
   {href: "/", icon: "home", text: "Home"},
   {href: "/seelie", icon: "stars_2", text: "Ask AI"},
-  {href: "/akademiya", icon: "school", text: "Akademiya"},
-  {href: "/calculator", icon: "automation", text: "Calculator"},
+  // {href: "/akademiya", icon: "school", text: "Akademiya"},
+  // {href: "/calculator", icon: "automation", text: "Calculator"},
   // {href: "/dmgcalc", icon: "functions", text: "DMG Calc"},
   // {href: "/energycalc", icon: "bolt", text: "Energy Calc"},
 
-  
-  
   {href: "/archive/characters", img: CHARACTER_ICON, text: "CharacterDB"},
   {href: "/archive/weapons", img: WEAPON_ICON, text: "WeaponDB"},
   {href: "/archive/artifacts", img: ARTIFACT_ICON, text: "ArtifactDB"},

@@ -9,11 +9,6 @@ import db from "@root/src/db/db";
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { streamUI } from "ai/rsc"
 
-const token = process.env.AISTUDIO_GOOGLE_API_KEY
-const google = createGoogleGenerativeAI({apiKey: token})
-const model = google('models/gemini-2.0-flash-exp') as any
-const dumbModel = google('models/gemini-1.5-flash') as any
-
 /**
  * AISDK tool for getting information from the knowledge base
  */
@@ -120,7 +115,9 @@ export const searchEngineTool = tool({
 
 export const QueryGCSIMDatabaseTool = tool({
     description: `query Gcsim Team Calculation Database. this is a powerful tool you can be used to answer questions related to teams and damage and what the "best" x or what is "good". 
-        make sure to cite the source in the object attribute "source" which is a link to the simulator`,
+        make sure to cite the source in the object attribute "source" which is a link to the simulator
+        also make sure to include the full assumptions in the object attribute "team_members" such as level, cons, weapon, talents, artifacts, etc.
+    `,
     parameters: z.object({
         characters: z.array(z.string()).optional().describe('array of character names to include in team. to just find a all teams for a character, just put the character name in the array'),
         excludeCharacters: z.array(z.string()).optional().describe('array of character names to exclude from team'),
@@ -160,6 +157,7 @@ export const AverageDPSOfCharacterTool = tool({
         const allTeams = await queryGCSIMDatabase({
             characters: [character],
             limit: 25,
+            acceptedTags: [8, 9], // Default to guides (8) and APL (9)
             sortBy: "summary.mean_dps_per_target",
             sortOrder: "desc"
         })
@@ -186,7 +184,7 @@ export const queryGCSIMDatabase = async (params: {
         excludeCharacters,
         limit = 10,
         skip = 0,
-        acceptedTags,
+        acceptedTags, // Default to guides (8) and APL (9)
         rejectedTags,
         sortBy = "summary.mean_dps_per_target",
         sortOrder = "desc"
@@ -267,16 +265,21 @@ export const queryGCSIMDatabase = async (params: {
             data.data = data.data.map((item: any) => ({
                 source: `https://gcsim.app/db/${item._id}`,
                 description: item.description,
-                team_members: item.summary.char_names,
+                team_members: item.summary.char_names.map((name: string) => {
+                    const chara_assumption = item.summary.team.find((c: any) => c.name == name)
+                    return name 
+                        + " lv"+chara_assumption.level 
+                        + " c"+chara_assumption.cons
+                        + " wep" + chara_assumption.weapon.name + " lv" + chara_assumption.weapon.level + "r" + chara_assumption.weapon.refinement
+                        + " tl"+chara_assumption.talents.attack + ";" + chara_assumption.talents.skill + ";" + chara_assumption.talents.burst
+                }), 
                 dps: item.summary.mean_dps_per_target,
-                assumptions: item.summary.team,
+                //assumptions: item.summary.team,
             }));
         }
         
-        console.log(data.data)
-
+        console.log(JSON.stringify(data.data, null, 2))
         return data.data
-        
     } catch (error) {
         console.error('Error querying GC SIM database:', error);
         throw error;
