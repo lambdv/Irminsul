@@ -29,15 +29,15 @@ async function AdminOnly(req: NextRequest): Promise<void> {
     }
 }
 
-export const config = {
-    runtime: 'experimental-edge',
-    matcher: [
-        '/admin/:path*',
-        '/characters/:path*',
-        '/weapons/:path*',
-        '/artifacts/:path*'
-    ]
-}
+// export const config = {
+//     runtime: 'experimental-edge',
+//     matcher: [
+//         '/admin/:path*',
+//         '/characters/:path*',
+//         '/weapons/:path*',
+//         '/artifacts/:path*'
+//     ]
+// }
 
 /**
  * Redirects to the archive if the user is not an admin

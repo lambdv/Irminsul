@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation'
 import { handleLogin } from './handlelogin'
 import Image from 'next/image'
-import { useSession } from 'next-auth/react'
+import { useSessionContext } from '@/lib/session-context'
 import { redirect } from 'next/navigation'
 import loginStyle from './login.module.css'
 import { Metadata } from 'next'
@@ -11,13 +11,13 @@ import { useEffect } from 'react'
 // For Next.js 15, client components can't export metadata directly
 // Instead, we'll use document.title to set the page title on the client side
 export default function Page(props: {message?: string}) {
-  const session = useSession()
+  const { status } = useSessionContext()
   
   useEffect(() => {
     document.title = "Login | Irminsul"
   }, [])
 
-  if (session.status === "authenticated")
+  if (status === "authenticated")
     redirect("/")
   
   return (

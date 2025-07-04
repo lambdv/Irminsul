@@ -9,10 +9,11 @@ import { NavigationStore } from "@/store/Navigation"
 import { GlobalStore } from "@/store/global"
 import Overlay from "../ui/Overlay"
 import Btn from "@/components/ui/Btn"
-import { getSession, signIn, signOut, useSession } from "next-auth/react"
+import { signIn } from "next-auth/react"
 import { auth } from "@/app/(auth)/auth"
 import Image from "next/image"
 import RoundBtn from "../ui/RoundBtn"
+import { useSessionContext } from '@/lib/session-context'
 
 
 
@@ -175,16 +176,7 @@ function CenterContainer(props: any){
 
  function RightContainer(){
 
-    const [session, setSession] = useState(null)
-
-    useEffect(() => {
-      const fetchSession = async () => {
-        const session = await getSession()
-        setSession(session)
-      }
-      fetchSession()
-    }, [])
-
+    const { session, status, isAuthenticated, logout } = useSessionContext()
     const [showDropdown, setShowDropdown] = useState(false)
 
   return (
@@ -201,7 +193,7 @@ function CenterContainer(props: any){
       </div>
 
       <div className={TopnavCSS.userDropdownContainer}>
-        {session?.user && (
+        {isAuthenticated && session?.user && (
           <>
               <div className="relative">
                 <button onClick={() => setShowDropdown(!showDropdown)}>
@@ -224,7 +216,7 @@ function CenterContainer(props: any){
                       </div>
                   </Link>
 
-                  <button onClick={() => signOut()} className={TopnavCSS.dropdownMenuItem}>
+                  <button onClick={logout} className={TopnavCSS.dropdownMenuItem}>
                     <div className={TopnavCSS.dropdownMenuItemContent}>
                       <span className={`material-symbols-rounded ${TopnavCSS.dropdownMenuIcon}`}>logout</span>
                       Sign out
@@ -242,7 +234,7 @@ function CenterContainer(props: any){
           
         )}
 
-        {!session?.user && (
+        {!isAuthenticated && status !== 'loading' && (
           <Link href="/login">
             <Btn>Log In</Btn>
           </Link>

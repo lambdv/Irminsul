@@ -1,6 +1,6 @@
 import { auth } from '@/app/(auth)/auth'
 import { isAuthenticated, getUserFromSession} from '@/app/(auth)/actions'
-import { generateResponse } from '@/app/seelie/ai'
+import { generateResponse } from '@root/src/app/(main)/seelie/ai'
 import db from '@/db/db'
 import { resources as resourcesTable } from '@/db/schema/resources'
 import { embeddings as embeddingsTable } from '@/db/schema/embeddings'

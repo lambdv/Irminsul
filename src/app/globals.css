@@ -141,7 +141,33 @@ body{
   overflow-x:hidden;
 }
 
-.pageContentContainer{
+.minimalPageContentWrapper{
+  position: relative;
+  width: 100%;
+  padding-left: 130px;
+  padding-right: 130px;
+  overflow-y: hidden;
+  overflow-x:hidden;
+  background-color: transparent;
+}
+
+
+@media all and (max-width: 1800px) {  
+  .minimalPageContentWrapper{
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+}
+
+@media all and (max-width: 1200px) {  
+  .minimalPageContentWrapper{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+
+.focusedPageContentContainer{
   position: relative;
   width: 100%;
   padding-left: 20%;
@@ -155,14 +181,14 @@ body{
 }
 
 @media all and (max-width: 1800px) {  
-  .pageContentContainer{
+  .focusedPageContentContainer{
     padding-left: 8rem;
     padding-right: 8rem;
   }
 }
 
 @media all and (max-width: 1200px) {  
-  .pageContentContainer{
+  .focusedPageContentContainer{
     padding-left: 1rem;
     padding-right: 1rem;
   }

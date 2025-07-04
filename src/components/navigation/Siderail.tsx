@@ -8,7 +8,7 @@ import { NavigationStore } from "@/store/Navigation"
 import { SearchStore } from "@/store/Search"
 import Overlay from '../ui/Overlay'
 import { getCDNURL } from '@/utils/getAssetURL'
-import { getSession, signIn, signOut, useSession } from "next-auth/react"
+// No longer needed - using session cache instead
 
 const CHARACTER_ICON = getCDNURL("imgs/icons/characterIcon.png")
 const WEAPON_ICON = getCDNURL("imgs/icons/weaponIcon.png")
