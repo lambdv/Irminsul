@@ -47,8 +47,8 @@ export async function syncStripePayments(){
     }
 }
 
-export const BASE_TIER_TOKEN_AMOUNT = 20
-export const SUPPORT_TIER_TOKEN_AMOUNT = 200
+export const BASE_TIER_TOKEN_AMOUNT = 200
+export const SUPPORT_TIER_TOKEN_AMOUNT = 500
 
 async function claimAiTokensFromPurchase(payment: any) {
     console.log("payment", payment)
@@ -110,7 +110,10 @@ export async function isUserSupporterByEmail(email: string){
         return false
 
     //if the user has a purchase that is not expired (created at is less than a month ago)
-    if(latestPurchaseFromUser && latestPurchaseFromUser.createdAt > new Date(Date.now() - 30 * 24 * 60 * 60 * 1000))
+    if(latestPurchaseFromUser 
+        //&& latestPurchaseFromUser.createdAt > new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
+        && latestPurchaseFromUser.status === 'succeeded'
+    )
         return true
     
     return false

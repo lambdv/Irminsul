@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom'
-import { calculateEnergyRechargeRequirements } from '@/app/erc/functions'
+import { calculateEnergyRechargeRequirements } from '@root/src/app/_erc/functions'
 
 describe('characterGeneratedEnergyTest', () => {
     it('works', async () => {

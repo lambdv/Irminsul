@@ -30,8 +30,8 @@ export let links = [
   {href: "/archive/weapons", img: WEAPON_ICON, text: "WeaponDB"},
   {href: "/archive/artifacts", img: ARTIFACT_ICON, text: "ArtifactDB"},
 
-  // {href: "/articles", icon: "article", text: "Articles"},
-  // {href: "/support", icon: "favorite", text: "Support"},
+  {href: "/articles", icon: "article", text: "Articles"},
+  {href: "/support", icon: "favorite", text: "Support"},
   {href: "/settings", icon: "settings", text: "Settings"},
 ]
 

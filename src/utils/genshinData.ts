@@ -11,7 +11,9 @@ import { Character, instanceOfCharacter } from '@/types/character';
 import { gdGetCharacters } from "./APIAdaptor"
 import { unstable_cache } from 'next/cache';
 
-let CDN_URL = "https://cdn.irminsul.moe/"
+//let CDN_URL = "https://cdn.irminsul.moe/"
+
+let CDN_URL = "https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/"
 
 // Cache the characters data to avoid repeated API calls during build
 export const getCharacters = unstable_cache(

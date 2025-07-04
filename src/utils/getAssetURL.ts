@@ -2,7 +2,7 @@ import { toKey } from "@/utils/standardizers"
 import path from "path"
 import 'dotenv/config';
 
-let cdn = "https://raw.githubusercontent.com/lambdv/genshindata/refs/heads/main/public/assets/"
+let cdn = "https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/"
 
 /**
  * Utility function to get the url for an asset
@@ -23,10 +23,10 @@ export function getAssetURL(category: string, name: string, fileName: string): s
         if(fileName === "splash.png")
             fileName = "splash_art.png"
 
-        return `${cdn}${category.toLowerCase()}s/${toKey(name)}/${toKey(name)}_${fileName}`
+        return `${cdn}/assets/${category.toLowerCase()}s/${toKey(name)}/${toKey(name)}_${fileName}`
     }
 
-    return `${cdn}${category.toLowerCase()}s/${toKey(name)}/${fileName}`
+    return `${cdn}/assets/${category.toLowerCase()}s/${toKey(name)}/${fileName}`
 }
 
 /**
@@ -37,5 +37,5 @@ export function getAssetURL(category: string, name: string, fileName: string): s
 export function getCDNURL(path: string) {
     // if (process.env.dev_mode === "true")
     //         return "http://localhost:8000/" +  `${path}`
-    return `https://raw.githubusercontent.com/lambdv/genshindata/refs/heads/main/public/${path}`
+    return `https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/${path}`
 }
