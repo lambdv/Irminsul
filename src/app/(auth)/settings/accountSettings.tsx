@@ -6,9 +6,10 @@ import Modal from '@/components/ui/Modal'
 import { changeAccountPfp, changeUsername, clearAccountPfp } from './actions'
 import RoundBtn from '@/components/ui/RoundBtn'
 import Btn from '@/components/ui/Btn'
-import { signOut } from 'next-auth/react'
+import { useSessionContext } from '@/lib/session-context'
 
 export default function AccountSettings(props: {session: any, account: any, isSupporter: boolean}) {
+  const { logout } = useSessionContext()
 
   const [usernameModal, setUsernameModal] = useState(false)
   const toggleUsernameModal = () => {
@@ -97,7 +98,7 @@ export default function AccountSettings(props: {session: any, account: any, isSu
 
 
         <div className="flex items-center gap-2">
-          <Btn onClick={() => signOut()}>
+          <Btn onClick={logout}>
             <p style={{fontSize: '0.9rem'}}>Logout</p>
           </Btn>
         </div>

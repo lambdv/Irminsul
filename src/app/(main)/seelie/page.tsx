@@ -1,11 +1,11 @@
 import React from 'react'
 import Chat from './chat';
 
-import { auth } from '@/app/(auth)/auth'
 import { isAuthenticated } from '@/app/(auth)/actions'
 import RightSidenav from '@/components/navigation/RightSidenav';
 import Advertisment from '@/components/ui/Advertisment';
 import { redirect } from 'next/navigation';
+import { getServerUser } from '@/lib/server-session'
 
 export async function generateMetadata() {
   return {
@@ -21,8 +21,7 @@ export default async function Page() {
   if(!authenticated)
     redirect("/login")
   
-  const user = await auth()
-    .then(res => res?.user)
+  const user = await getServerUser()
 
   return (
     <>

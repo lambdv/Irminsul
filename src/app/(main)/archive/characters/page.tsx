@@ -5,7 +5,6 @@ import BrowseHeader from '@/components/explore/BrowseHeader'
 import { getCDNURL } from '@/utils/getAssetURL'
 import {CharacterFilterStore} from '@/store/CharacterFilters'
 import {getCharacters} from '@/utils/genshinData'
-import Loading from '../loading'
 import Advertisment from '@/components/ui/Advertisment'
 import RightSidenav from '@/components/navigation/RightSidenav'
 
@@ -18,8 +17,8 @@ export const metadata = {
 export default async function Characters({searchParams}) {
   const characters = await getCharacters()
   return (
-    <Suspense fallback={<Loading/>}>
-      <div id="characters-page">
+    <>
+            <div id="characters-page">
         <BrowseHeader
           icon={CHARACTER_ICON}
           title="Characters"
@@ -35,12 +34,12 @@ export default async function Characters({searchParams}) {
 
         {/* <ItemsContainer
           data={characters}
-          store={CharacterFilterStore}
+          store={CharacterFilterStore}  
           type="character"
         /> */}
       </div>  
       <Advertisment type="card"/>
-    </Suspense>
+    </>
   )
 }
 

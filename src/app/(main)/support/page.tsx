@@ -1,6 +1,5 @@
 import { redirect } from 'next/navigation'
 import React from 'react'
-import { auth } from '@/app/(auth)/auth'
 import { getUser, getUserById, isAdmin } from '@/app/(auth)/actions'
 import styles from './donate.module.css'
 import { stripe } from '@/lib/stripe'
@@ -11,6 +10,7 @@ import { eq } from 'drizzle-orm'
 import db from '@/db/db'
 import { purchasesTable } from '@/db/schema/purchase'
 import { BASE_TIER_TOKEN_AMOUNT, SUPPORT_TIER_TOKEN_AMOUNT } from './actions'
+import { getServerSession, getServerUser } from '@/lib/server-session'
 
 export async function generateMetadata({params}) {
     return {
@@ -19,7 +19,8 @@ export async function generateMetadata({params}) {
 }
 
 export default async function page() {
-    const session = await auth()
+    const session = await getServerSession()
+    const user = await getServerUser()
 
     //const payments = await stripe.paymentIntents.list()
 
@@ -69,7 +70,7 @@ export default async function page() {
                     ]}
                     buttonText="Donate"
                     isCurrent={false}
-                    href={session ? "https://buy.stripe.com/5kAaG57cIdzGgF2cMO?prefilled_email=" + session.user.email : "/login"}
+                    href={user ? "https://buy.stripe.com/5kAaG57cIdzGgF2cMO?prefilled_email=" + user.email : "/login"}
                     highlight={true}
                 />
             </div>

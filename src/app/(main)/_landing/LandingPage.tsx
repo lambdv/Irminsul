@@ -2,7 +2,7 @@ import { getCharacters, getWeapons, getArtifacts } from '@/utils/genshinData';
 import { getAssetURL } from '@/utils/getAssetURL';
 import Image from 'next/image';
 import styles from './index.module.css';
-import ServerTimer from '@/app/_landing/ServerTimer';
+import ServerTimer from '@root/src/app/(main)/_landing/ServerTimer';
 import Item from '@/components/explore/Item';
 import RecentComments from './RecentComments';
 import Link from 'next/link';

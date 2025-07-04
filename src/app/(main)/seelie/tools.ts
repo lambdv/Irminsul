@@ -91,24 +91,30 @@ export const searchEngineTool = tool({
                 console.error('Search engine error:', e);
                 return [];
             });
-
-        const processedResults = [];
-        for (const item of res) {
-            try {
-                let content = await fetchWebpageContent(item.source, query);
-                // let summary = await summarizeContent(content)
-                processedResults.push({
-                    ...item,
-                    content,
-                });
-            } catch (error) {
-                console.error(`Error processing content for ${item.source}:`, error);
-                processedResults.push(item); // Keep the item without content
+        let processedResults = res.map(item => {
+            return {
+                title: item.title,
+                snippet: item.snippet,
+                source: item.link,
             }
-        }
+        })
+
+        // const processedResults = [];
+        // for (const item of res) {
+        //     try {
+        //         let content = await fetchWebpageContent(item.source, query);
+        //         processedResults.push({
+        //             ...item,
+        //             content,
+        //         });
+        //     } catch (error) {
+        //         console.error(`Error processing content for ${item.source}:`, error);
+        //         processedResults.push(item); // Keep the item without content
+        //     }
+        // }
 
         console.log("searchEngineTool called");
-        console.log(processedResults);
+        //console.log(processedResults);
         return processedResults
     },
 });

@@ -7,8 +7,7 @@ import { usePathname } from 'next/navigation'
 import { NavigationStore } from "@/store/Navigation"
 import { SearchStore } from "@/store/Search"
 import { GlobalStore } from "@/store/global"
-import { isUserSupporterById } from '@/app/support/actions'
-
+import { useSessionContext } from '@/lib/session-context'
 
 /**
  * Wrapper around the whole website to allow for global client-side scripts
@@ -18,6 +17,7 @@ import { isUserSupporterById } from '@/app/support/actions'
 export default function ClientWrapper(props: any) {
     const {togglePalette} = SearchStore()
     const {setIsSupporter} = GlobalStore()
+    const { session } = useSessionContext()
 
     //initialize waves effect
     useEffect(() => { 
@@ -36,9 +36,13 @@ export default function ClientWrapper(props: any) {
     }, [togglePalette]); // Added togglePalette to the dependency array
 
     useEffect(() => {
-        if(props.isSupporter)
-            setIsSupporter(true)
-    }, [props.isSupporter]); // Added props.isSupporter to the dependency array
+        // Check if user is supporter based on session data
+        if(session?.user?.email) {
+            // You might want to add a supporter flag to the session or make an API call
+            // For now, we'll set it to false
+            setIsSupporter(false)
+        }
+    }, [session, setIsSupporter]); // Added session and setIsSupporter to the dependency array
     
 
     return (

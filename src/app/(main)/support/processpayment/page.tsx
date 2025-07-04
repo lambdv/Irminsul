@@ -1,20 +1,20 @@
 import { redirect } from 'next/navigation';
-import { syncStripePayments } from '@/app/support/actions';
-import { auth } from '@/app/(auth)/auth';
+import { syncStripePayments } from '@root/src/app/(main)/support/actions';
 import db from '@/db/db';
 import { purchasesTable } from '@/db/schema/purchase';
 import { eq } from 'drizzle-orm';
 import { Suspense } from 'react';
+import { getServerUser } from '@/lib/server-session';
 
 export default async function ProcessPayment() {
-    const session = await auth();
+    const user = await getServerUser();
 
     // Call the sync payments db server action
     await syncStripePayments();
 
     // Fetch payments from the database to check if the payment was successful
     const payments = await db.select().from(purchasesTable)
-        .where(eq(purchasesTable.email, session?.user?.email));
+        .where(eq(purchasesTable.email, user?.email));
 
     if (payments.length > 0) {
         // Payment is successful
