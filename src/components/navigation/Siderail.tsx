@@ -8,7 +8,7 @@ import { NavigationStore } from "@/store/Navigation"
 import { SearchStore } from "@/store/Search"
 import Overlay from '../ui/Overlay'
 import { getCDNURL } from '@/utils/getAssetURL'
-import { getSession, signIn, signOut, useSession } from "next-auth/react"
+// No longer needed - using session cache instead
 
 const CHARACTER_ICON = getCDNURL("imgs/icons/characterIcon.png")
 const WEAPON_ICON = getCDNURL("imgs/icons/weaponIcon.png")
@@ -21,11 +21,17 @@ const ARTIFACT_ICON = getCDNURL("imgs/icons/artifactIcon.png")
 export let links = [
   {href: "/", icon: "home", text: "Home"},
   {href: "/seelie", icon: "stars_2", text: "Ask AI"},
-  {href: "/archive/characters", img: CHARACTER_ICON, text: "Characters"},
-  {href: "/archive/weapons", img: WEAPON_ICON, text: "Weapons"},
-  {href: "/archive/artifacts", img: ARTIFACT_ICON, text: "Artifacts"},
-  // {href: "/articles", icon: "article", text: "Articles"},
-  // {href: "/support", icon: "favorite", text: "Support"},
+  // {href: "/akademiya", icon: "school", text: "Akademiya"},
+  // {href: "/calculator", icon: "automation", text: "Calculator"},
+  // {href: "/dmgcalc", icon: "functions", text: "DMG Calc"},
+  // {href: "/energycalc", icon: "bolt", text: "Energy Calc"},
+
+  {href: "/archive/characters", img: CHARACTER_ICON, text: "CharacterDB"},
+  {href: "/archive/weapons", img: WEAPON_ICON, text: "WeaponDB"},
+  {href: "/archive/artifacts", img: ARTIFACT_ICON, text: "ArtifactDB"},
+
+  {href: "/articles", icon: "article", text: "Articles"},
+  {href: "/support", icon: "favorite", text: "Support"},
   {href: "/settings", icon: "settings", text: "Settings"},
 ]
 

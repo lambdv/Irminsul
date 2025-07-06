@@ -80,7 +80,5 @@ export async function getUser(userName: string){
     const user = await getUserById(userId)
     if(!user) 
       return false
-  
-    
   }
   

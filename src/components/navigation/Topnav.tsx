@@ -6,12 +6,14 @@ import TopnavCSS from "./topnav.module.css"
 import SearchPallette from "@components/navigation/SearchPallete"
 import { SearchStore } from "@/store/Search"
 import { NavigationStore } from "@/store/Navigation"
+import { GlobalStore } from "@/store/global"
 import Overlay from "../ui/Overlay"
 import Btn from "@/components/ui/Btn"
-import { getSession, signIn, signOut, useSession } from "next-auth/react"
+import { signIn } from "next-auth/react"
 import { auth } from "@/app/(auth)/auth"
 import Image from "next/image"
 import RoundBtn from "../ui/RoundBtn"
+import { useSessionContext } from '@/lib/session-context'
 
 
 
@@ -23,6 +25,7 @@ import RoundBtn from "../ui/RoundBtn"
 export default function Topnav() {
   const { showPallette, setShowPallette } = SearchStore()
   const { sideNavCollapsed, setSideNavCollapsed } = NavigationStore()
+  const { isSupporter } = GlobalStore()
 
   const [isAtTop, setIsAtTop] = useState(false)
 
@@ -32,7 +35,9 @@ export default function Topnav() {
     const handleScroll = () => setIsAtTop(window.scrollY === 0);
     handleScroll()
     window.addEventListener('scroll', handleScroll);
+    
     return () => window.removeEventListener('scroll', handleScroll);
+
   }, [])
 
   useEffect(() => {
@@ -51,7 +56,7 @@ export default function Topnav() {
   return (
     <>
       <nav className={TopnavCSS.topnav + " " + (!isAtTop && TopnavCSS.solidnav)}>
-        <LeftContainer/>
+        <LeftContainer isSupporter={isSupporter}/>
         <CenterContainer showPallette={showPallette} setShowPallette={setShowPallette}/>
         <RightContainer/>
       </nav>
@@ -70,7 +75,7 @@ export default function Topnav() {
 }
 
 
-function LeftContainer(){
+function LeftContainer({ isSupporter }: { isSupporter: boolean }){
   const { toggleSideNavCollapsed } = NavigationStore()
   const websiteName = "Irminsul"
   const pathname = usePathname()
@@ -86,7 +91,13 @@ function LeftContainer(){
           
         <Link href="/">
           <p id={TopnavCSS.logo}>
-            {websiteName} <span>Beta</span>
+            {websiteName} <span 
+              style={{
+                backgroundColor: isSupporter && "#000000",
+                color: isSupporter && "var(--ingame-primary-color)",
+                boxShadow: isSupporter && "0 0 5px var(--ingame-primary-color), 0 0 15px rgba(147, 51, 234, 0.5), 0 0 1px rgba(255, 255, 255, 0.264)",
+              }}
+            >{isSupporter ? "Pro Tier" : ".moe"}</span>
           </p>
         </Link>
       </div>
@@ -165,16 +176,7 @@ function CenterContainer(props: any){
 
  function RightContainer(){
 
-    const [session, setSession] = useState(null)
-
-    useEffect(() => {
-      const fetchSession = async () => {
-        const session = await getSession()
-        setSession(session)
-      }
-      fetchSession()
-    }, [])
-
+    const { session, status, isAuthenticated, logout } = useSessionContext()
     const [showDropdown, setShowDropdown] = useState(false)
 
   return (
@@ -191,7 +193,7 @@ function CenterContainer(props: any){
       </div>
 
       <div className={TopnavCSS.userDropdownContainer}>
-        {session?.user && (
+        {isAuthenticated && session?.user && (
           <>
               <div className="relative">
                 <button onClick={() => setShowDropdown(!showDropdown)}>
@@ -214,7 +216,7 @@ function CenterContainer(props: any){
                       </div>
                   </Link>
 
-                  <button onClick={() => signOut()} className={TopnavCSS.dropdownMenuItem}>
+                  <button onClick={logout} className={TopnavCSS.dropdownMenuItem}>
                     <div className={TopnavCSS.dropdownMenuItemContent}>
                       <span className={`material-symbols-rounded ${TopnavCSS.dropdownMenuIcon}`}>logout</span>
                       Sign out
@@ -232,7 +234,7 @@ function CenterContainer(props: any){
           
         )}
 
-        {!session?.user && (
+        {!isAuthenticated && status !== 'loading' && (
           <Link href="/login">
             <Btn>Log In</Btn>
           </Link>

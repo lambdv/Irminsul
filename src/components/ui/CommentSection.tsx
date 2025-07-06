@@ -4,7 +4,6 @@ import db from "@/db/db"
 import { commentsTable } from "@/db/schema/comment"
 import { usersTable } from "@/db/schema/user"
 import { eq, type InferInsertModel } from "drizzle-orm"
-import { auth } from "@/app/(auth)/auth"
 import Image from "next/image"
 import { revalidatePath } from "next/cache"
 import Btn from "./Btn"
@@ -12,8 +11,9 @@ import { redirect } from "next/navigation"
 import { format } from "timeago.js"
 import Link from "next/link"
 import { Suspense } from "react"
-import { isUserSupporterByEmail } from "@/app/support/actions"
+import { isUserSupporterByEmail } from "@root/src/app/(main)/support/actions"
 import CommentSectionClient from "./CommentSectionClient"
+import { getServerSession, getServerUser } from "@/lib/server-session"
 
 export default async function CommentSection(props: {
     pageID: string,
@@ -23,8 +23,8 @@ export default async function CommentSection(props: {
     let comments = await getComments(props.pageID)
     comments.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
     const numberOfComments = comments.length
-    const session = await auth()
-    const user = session?.user || null
+    const session = await getServerSession()
+    const user = await getServerUser()
 
     // Enhance comments with user data and supporter status
     const enhancedComments = await Promise.all(comments.map(async (comment) => {
@@ -74,8 +74,7 @@ async function getComments(pageID: string): Promise<any[]> {
 
 async function postComment(pageID: string, comment: string) {
     "use server"
-    const session = await auth()
-    const user = session?.user || null
+    const user = await getServerUser()
 
     if(!user)
         throw new Error("User not found")

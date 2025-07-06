@@ -9,13 +9,33 @@ import { cookies } from 'next/headers';
 import path from 'path';
 import { Character, instanceOfCharacter } from '@/types/character';
 import { gdGetCharacters } from "./APIAdaptor"
+import { unstable_cache } from 'next/cache';
 
-let CDN_URL = "https://cdn.irminsul.moe/"
+//let CDN_URL = "https://cdn.irminsul.moe/"
 
+let CDN_URL = "https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/"
 
+// Cache the characters data to avoid repeated API calls during build
+export const getCharacters = unstable_cache(
+  async (): Promise<any[]> => {
+    return await fetch(CDN_URL + "data/characters.json")
+        .then(res => res.json())
+        .then(data => data.data)
+        .then(data => data.map((character, index) => ({
+            ...character,
+            id: toKey(character.name),
+            index: index
+        }))) as Character[]
+  },
+  ['characters-data'],
+  {
+    revalidate: 3600, // Cache for 1 hour
+    tags: ['characters']
+  }
+)
 
-export async function getCharacters(): Promise<any[]> {
-
+// Separate function for custom API handling (not cached)
+export async function getCharactersWithCustomAPI(): Promise<any[]> {
     const cookieStore = await cookies()
     const customAPI = cookieStore.get('customapi')?.value || null
 
@@ -35,18 +55,11 @@ export async function getCharacters(): Promise<any[]> {
         }
     }
 
-    return await fetch(CDN_URL + "data/characters.json")
-        .then(res => res.json())
-        .then(data => data.data)
-        .then(data => data.map((character, index) => ({
-            ...character,
-            id: toKey(character.name),
-            index: index
-        }))) as Character[]
+    return await getCharacters();
 }
 
-export async function getWeapons(): Promise<Weapon[]>{
-
+export const getWeapons = unstable_cache(
+  async (): Promise<Weapon[]> => {
     return await fetch(CDN_URL + "data/weapons.json")
         .then(res => res.json())
         .then(data => data.data)
@@ -55,9 +68,16 @@ export async function getWeapons(): Promise<Weapon[]>{
             id: toKey(weapon.name),
             index: index
         }))) as Weapon[]
-}
+  },
+  ['weapons-data'],
+  {
+    revalidate: 3600, // Cache for 1 hour
+    tags: ['weapons']
+  }
+)
 
-export async function getArtifacts(): Promise<Artifact[]>{
+export const getArtifacts = unstable_cache(
+  async (): Promise<Artifact[]> => {
     return await fetch(CDN_URL + "data/artifacts.json")
         .then(res => res.json())
         .then(data => data.data)
@@ -67,7 +87,13 @@ export async function getArtifacts(): Promise<Artifact[]>{
             index: index,
             release_version: artifact.release_version.toString()
         }))) as Artifact[]
-}
+  },
+  ['artifacts-data'],
+  {
+    revalidate: 3600, // Cache for 1 hour
+    tags: ['artifacts']
+  }
+)
 
 export async function getCharacter(id: string): Promise<Character | null>{
     return await getCharacters()
@@ -86,39 +112,6 @@ export async function getArtifact(id: string): Promise<Artifact | null>{
         .then(artifacts => artifacts.find(artifact => artifact.id === id) || null)
         .catch(() => null)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export async function getAllPages(): Promise<Page[]>{
     //"use cache"

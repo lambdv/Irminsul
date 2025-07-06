@@ -10,7 +10,7 @@ import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { links } from './Siderail';
 import TopnavCSS from './topnav.module.css'
-import {auth, signIn, signOut} from "@/app/(auth)/auth";
+// No longer needed - using session cache instead
 
 const CHARACTER_ICON = getCDNURL("imgs/icons/characterIcon.png")
 const WEAPON_ICON = getCDNURL("imgs/icons/weaponIcon.png")

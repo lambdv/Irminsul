@@ -1,6 +1,5 @@
 import React, { HTMLAttributes, Suspense } from 'react'
 import settingsStyle from './settings.module.css'
-import { auth } from '@/app/(auth)/auth'
 import AccountSettings from './accountSettings'
 import Divider from '@/components/ui/Divider'
 import db from '@/db/db'
@@ -13,7 +12,8 @@ import RoundBtn from '@/components/ui/RoundBtn'
 import GoBack from './goBack'
 import APISettings from './APISettings'
 import { createTheme } from '@mui/material/styles'
-import { isUserSupporterByEmail } from '@/app/support/actions'
+import { getServerSession, getServerUser, getServerSupporterStatus } from '@/lib/server-session'
+
 export const metadata = {
     title: 'Settings | Irminsul',
     description: '',
@@ -24,10 +24,11 @@ export const metadata = {
  * @returns 
  */
 export default async function Settings() {
-    const session = await auth()
-    const account = await db.select().from(accountsTable).where(eq(accountsTable.userId, session?.user?.id))
-    const isLoggedIn = session?.user?.email ? true : false
-    const isSupporter = await isUserSupporterByEmail(session?.user?.email)
+    const session = await getServerSession()
+    const user = await getServerUser()
+    const account = await db.select().from(accountsTable).where(eq(accountsTable.userId, user?.id))
+    const isLoggedIn = !!user?.email
+    const isSupporter = await getServerSupporterStatus()
 
     return (
         <div className={settingsStyle.settingsWrapper}>
@@ -64,7 +65,7 @@ export default async function Settings() {
             <Suspense fallback={<p>Loading...</p>}>
             {isLoggedIn && (
                 <section className={settingsStyle.settingsContent}>
-                    <h1 className="mb-2">Danger Zone</h1>
+                    <h1 className="mb-0 flex items-center gap-2">Danger Zone</h1>
                     <DangerZoneSettings />
                     </section>
                 )} 

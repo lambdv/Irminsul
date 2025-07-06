@@ -2,7 +2,7 @@ import { toKey } from "@/utils/standardizers"
 import path from "path"
 import 'dotenv/config';
 
-let cdn = "https://cdn.irminsul.moe/assets/"
+let cdn = "https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/"
 
 /**
  * Utility function to get the url for an asset
@@ -12,7 +12,10 @@ let cdn = "https://cdn.irminsul.moe/assets/"
  * @returns 
  */
 export function getAssetURL(category: string, name: string, fileName: string): string{
-    //old naming convention adaptor
+    let url = cdn
+    // if (process.env.dev_mode === "true")
+    //     url = "http://localhost:8000/assets/"
+
     if(category.toLowerCase() === "weapon"){
         if(fileName === "baseicon.png")
             fileName = "base_avatar.png"
@@ -20,10 +23,10 @@ export function getAssetURL(category: string, name: string, fileName: string): s
         if(fileName === "splash.png")
             fileName = "splash_art.png"
 
-        return `${cdn}${category.toLowerCase()}s/${toKey(name)}/${toKey(name)}_${fileName}`
+        return `${cdn}/assets/${category.toLowerCase()}s/${toKey(name)}/${toKey(name)}_${fileName}`
     }
 
-    return `${cdn}${category.toLowerCase()}s/${toKey(name)}/${fileName}`
+    return `${cdn}/assets/${category.toLowerCase()}s/${toKey(name)}/${fileName}`
 }
 
 /**
@@ -32,7 +35,7 @@ export function getAssetURL(category: string, name: string, fileName: string): s
  * @returns 
  */
 export function getCDNURL(path: string) {
-    // if (process.env.NODE_ENV === "development")
-    //     return process.env.ASSET_PATH + `${path}`
-    return `https://cdn.irminsul.moe/${path}`
+    // if (process.env.dev_mode === "true")
+    //         return "http://localhost:8000/" +  `${path}`
+    return `https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/${path}`
 }

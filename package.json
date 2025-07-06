@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
+    "dev:cdn": "cd ../genshindata && npm run dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -14,12 +15,7 @@
     "db:studio": "drizzle-kit studio",
     "db:migrate": "drizzle-kit migrate",
     "db:generate": "drizzle-kit generate",
-    "db:drop": "drizzle-kit drop",
-    "vector:push": "drizzle-kit push --config drizzle.sqlite.config.ts",
-    "vector:migrate": "drizzle-kit migrate --config drizzle.sqlite.config.ts",
-    "vector:studio": "drizzle-kit studio --config drizzle.sqlite.config.ts",
-    "vector:generate": "drizzle-kit generate --config drizzle.sqlite.config.ts",
-    "vector:drop": "drizzle-kit drop --config drizzle.sqlite.config.ts"
+    "db:drop": "drizzle-kit drop"
   },
   "dependencies": {
     "@ai-sdk/google": "^1.1.17",
@@ -29,6 +25,7 @@
     "@emotion/styled": "^11.14.0",
     "@google/generative-ai": "^0.22.0",
     "@libsql/client": "^0.14.0",
+    "@modelcontextprotocol/sdk": "^1.15.0",
     "@mui/icons-material": "^5.17.1",
     "@mui/material": "^5.17.1",
     "@neondatabase/serverless": "^0.10.4",
@@ -36,6 +33,7 @@
     "@stripe/react-stripe-js": "^3.6.0",
     "@stripe/stripe-js": "^5.10.0",
     "@types/uuid": "^10.0.0",
+    "@xyflow/react": "^12.8.1",
     "ai": "^4.3.9",
     "cheerio": "^1.0.0",
     "clsx": "^2.1.1",

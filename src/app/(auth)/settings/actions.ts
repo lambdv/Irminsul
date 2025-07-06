@@ -1,6 +1,6 @@
 "use server"
 import { accountsTable } from "@/db/schema/account"
-import { auth, signOut } from "../auth"
+import { signOut } from "../auth"
 import db from "@/db/db"
 import { eq } from "drizzle-orm"
 import { revalidatePath } from "next/cache"
@@ -11,10 +11,11 @@ import { aitokenTable } from "@/db/schema/aitoken"
 import { redirect } from "next/navigation"
 import { cookies } from "next/headers"
 import { instanceOfCharacter } from "@root/src/types/character"
+import { getServerUser } from "@/lib/server-session"
 
 export async function changeUsername(newUsername: string) {
-    const session = await auth()
-    if (!session)
+    const user = await getServerUser()
+    if (!user)
         return { error: 'Unauthorized' }
     //drizzle
     await db
@@ -22,67 +23,67 @@ export async function changeUsername(newUsername: string) {
         .set({
             [usersTable.name.name]: newUsername
         })
-        .where(eq(usersTable.id, session.user.id));
+        .where(eq(usersTable.id, user.id));
 
     revalidatePath('/')
 }
 
 export async function clearAccountPfp() {
-    const session = await auth()
-    if (!session)
+    const user = await getServerUser()
+    if (!user)
         return { error: 'Unauthorized' }
     
     await db.update(usersTable).set({
         [usersTable.image.name]: "/imgs/icons/defaultavatar.png"
-    }).where(eq(usersTable.id, session.user.id))
+    }).where(eq(usersTable.id, user.id))
 
     revalidatePath('/')
 
 }
 
 export async function changeAccountPfp(pfpUrl: string) {
-    const session = await auth()
-    if (!session)
+    const user = await getServerUser()
+    if (!user)
         return { error: 'Unauthorized' }
 
     await db.update(usersTable).set({
         [usersTable.image.name]: pfpUrl
-    }).where(eq(usersTable.id, session.user.id))
+    }).where(eq(usersTable.id, user.id))
 
     revalidatePath('/')
 }
 
 export async function purgeSessions() {
-    const session = await auth()
-    if (!session)
+    const user = await getServerUser()
+    if (!user)
         return { error: 'Unauthorized' }
 
-    await db.delete(sessionsTable).where(eq(sessionsTable.userId, session.user.id))
+    await db.delete(sessionsTable).where(eq(sessionsTable.userId, user.id))
 }
 
 export async function purgeComments() {
-    const session = await auth()
-    if (!session)
+    const user = await getServerUser()
+    if (!user)
         return { error: 'Unauthorized' }
 
     await db.update(commentsTable).set({
         userId: "-1"
-    }).where(eq(commentsTable.userId, session.user.id))
+    }).where(eq(commentsTable.userId, user.id))
 }
 
 export async function deleteAccount() {
-    const session = await auth()
-    if (!session)
+    const user = await getServerUser()
+    if (!user)
         return { error: 'Unauthorized' }
 
     await purgeComments()
     await purgeSessions()
 
     //delete ai tokens  
-    await db.delete(aitokenTable).where(eq(aitokenTable.userId, session.user.id))
+    await db.delete(aitokenTable).where(eq(aitokenTable.userId, user.id))
         
-    await db.delete(accountsTable).where(eq(accountsTable.userId, session.user.id))
-    await db.delete(usersTable).where(eq(usersTable.id, session.user.id))
+    await db.delete(accountsTable).where(eq(accountsTable.userId, user.id))
+    await db.delete(usersTable).where(eq(usersTable.id, user.id))
 
     redirect('/')
 }
