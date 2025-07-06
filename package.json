@@ -20,6 +20,7 @@
   "dependencies": {
     "@ai-sdk/google": "^1.1.17",
     "@ai-sdk/openai-compatible": "^0.1.2",
+    "@ai-sdk/react": "^1.1.17",
     "@auth/drizzle-adapter": "^1.8.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
