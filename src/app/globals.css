@@ -151,6 +151,15 @@ body{
   background-color: transparent;
 }
 
+/**css variables*/
+:root{
+  --topnav-height: 60px;
+  --mobile-width: 768px;
+  --tablet-width: 1200px;
+  --desktop-width: 1800px;
+}
+/* css variables end */
+
 
 @media all and (max-width: 1800px) {  
   .minimalPageContentWrapper{
@@ -161,8 +170,8 @@ body{
 
 @media all and (max-width: 1200px) {  
   .minimalPageContentWrapper{
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
   }
 }
 

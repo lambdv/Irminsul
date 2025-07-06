@@ -25,6 +25,7 @@
     "@emotion/styled": "^11.14.0",
     "@google/generative-ai": "^0.22.0",
     "@libsql/client": "^0.14.0",
+    "@modelcontextprotocol/sdk": "^1.15.0",
     "@mui/icons-material": "^5.17.1",
     "@mui/material": "^5.17.1",
     "@neondatabase/serverless": "^0.10.4",

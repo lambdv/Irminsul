@@ -69,22 +69,33 @@ const nextConfig = {
     compiler: {
         removeConsole: process.env.NODE_ENV === 'production',
     },
-    // Reduce bundle size
-    webpack: (config, { dev, isServer }) => {
-        if (!dev && !isServer) {
-            config.optimization.splitChunks = {
-                chunks: 'all',
-                cacheGroups: {
-                    vendor: {
-                        test: /[\\/]node_modules[\\/]/,
-                        name: 'vendors',
-                        chunks: 'all',
-                    },
-                },
-            };
-        }
-        return config;
+    // Turbopack configuration (now stable)
+    turbopack: {
+        rules: {
+            '*.svg': {
+                loaders: ['@svgr/webpack'],
+                as: '*.js',
+            },
+        },
     },
+    // Reduce bundle size - only apply webpack config when not using Turbopack
+    ...(process.env.TURBOPACK ? {} : {
+        webpack: (config, { dev, isServer }) => {
+            if (!dev && !isServer) {
+                config.optimization.splitChunks = {
+                    chunks: 'all',
+                    cacheGroups: {
+                        vendor: {
+                            test: /[\\/]node_modules[\\/]/,
+                            name: 'vendors',
+                            chunks: 'all',
+                        },
+                    },
+                };
+            }
+            return config;
+        },
+    }),
 };
 
 export default nextConfig;

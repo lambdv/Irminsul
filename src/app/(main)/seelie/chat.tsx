@@ -99,8 +99,10 @@ export default function Chat(props: {user: any}) {
         return (
             <div className={styles.landingWrapper}>
                 {showTokenModal && <TokenModal user={props.user} setShowTokenModal={setShowTokenModal}/>}
-                <h1 className="text-2xl font-ingame text-center text-primary" style={{fontFamily: "ingame",color: "var(--primary-color)"}}>The Better Teyvat Guide...</h1>
-                <i className="text-center mb-2" style={{color: "var(--gray-text-color)"}}>AI agent for Genshin in-game and meta questions.</i>
+                <h1 className="text-3xl font-ingame text-center text-primary flex items-center justify-center gap-2" style={{fontFamily: "ingame",color: "var(--primary-color)"}}>
+                    Your Personal Genshin Guide
+                    {/* <Image src={SEELIE_ICON} alt="Seelie" width={40} height={40} className="rounded-full"/> */}
+                </h1>
 
                 <div className={styles.landingChatWrapper}>
                     <p className={styles.tokenCount + " select-none"}>Tokens Left: {tokensLeft === null ? "loading..." : tokensLeft}</p>

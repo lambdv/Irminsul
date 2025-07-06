@@ -1,11 +1,9 @@
-import LandingPage from '@/app/(main)/_landing/LandingPage';
+import LandingPage from '@/app/(full)/_landing/page';
 
 export const metadata = {
     title: "Irminsul | Genshin Impact Theorycrafting/Metagaming Suite",
 }
 
 export default async function Home() {
-    return <>
-        <p>asd</p>
-    </>;
+    return <LandingPage />
 }
