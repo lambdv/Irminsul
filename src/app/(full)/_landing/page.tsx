@@ -5,6 +5,7 @@ import { getAssetURL, getCDNURL } from '@/utils/getAssetURL'
 import Item from '@root/src/components/explore/Item'
 import { getArtifacts, getCharacters, getWeapons } from '@root/src/utils/genshinData'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata = {
     title: "Irminsul | Genshin Impact Theorycrafting/Metagaming Suite",
@@ -45,10 +46,12 @@ export default async function Home() {
                         {/* Seelie AI Feature */}
                         <div className={LandingCSS.featureCard + ' ' + LandingCSS.seelieCard}>
                             <div className={LandingCSS.featureHeader}>
-                                <img 
+                                <Image 
                                     src={getCDNURL("imgs/icons/seelie.png")} 
                                     alt="Seelie AI" 
                                     className={LandingCSS.featureIcon}
+                                    width={48}
+                                    height={48}
                                 />
                                 <h3>Seelie AI</h3>
                             </div>
@@ -58,10 +61,10 @@ export default async function Home() {
                             <div className={LandingCSS.featureDemo}>
                                 <div className={LandingCSS.chatPreview}>
                                     <div className={LandingCSS.chatBubble}>
-                                        "What's the best build for Raiden Shogun?"
+                                        &ldquo;What&apos;s the best build for Raiden Shogun?&rdquo;
                                     </div>
                                     <div className={LandingCSS.chatBubble + ' ' + LandingCSS.aiResponse}>
-                                        "For Raiden Shogun, I recommend..."
+                                        &ldquo;For Raiden Shogun, I recommend...&rdquo;
                                     </div>
                                 </div>
                             </div>

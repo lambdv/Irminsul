@@ -55,10 +55,10 @@ export default async function Home() {
                             <div className={LandingCSS.featureDemo}>
                                 <div className={LandingCSS.chatPreview}>
                                     <div className={LandingCSS.chatBubble + ' ' + LandingCSS.aiResponse}>
-                                        "What's the best build for Ganyu?"
+                                        &ldquo;What&apos;s the best build for Ganyu?&rdquo;
                                     </div>
                                     <div className={LandingCSS.chatBubble }>
-                                        "For Ganyu, I recommend..."
+                                        &ldquo;For Ganyu, I recommend...&rdquo;
                                     </div>
                                 </div>
                             </div>

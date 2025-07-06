@@ -51,7 +51,7 @@ export default function Topnav() {
         setPrevIsAtTop(isAtTop)
     }
 
-  }, [sideNavCollapsed])
+  }, [sideNavCollapsed, isAtTop, prevIsAtTop])
 
   return (
     <>

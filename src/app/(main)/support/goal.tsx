@@ -26,7 +26,7 @@ export default function DonationGoal(props: {
         };
 
         fetchPayments();
-    }, []);
+    }, [props.payments]);
 
     const progressPercentage = (totalDonations / props.goalAmount) * 100;
 

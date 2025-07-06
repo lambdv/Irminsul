@@ -66,7 +66,7 @@ export default function SearchPallete() {
                 searchBarRef.current?.setSelectionRange(0, SearchQuery.length)
             }
         }, 10)
-    }, [])
+    }, [SearchQuery.length])
 
     //handle keyboard events
     useEffect(() => {
