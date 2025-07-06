@@ -84,7 +84,7 @@ async function CharacterHeader({data}){
       bgImage={getAssetURL("character", data.name, "namecard.png")}
     >
       <div>
-        <div style={{display: "flex", alignItems: "center", gap: "5px"}}>
+        <div style={{display: "flex", alignItems: "center", gap: "5px", flexWrap: "wrap"}}>
           {Array.from({length: data.rarity}).map((_, index) => (
             <i key={index} className="material-symbols-rounded" style={{color: '#FFD700', marginRight: "-5px"}}>star</i>
           ))}
@@ -96,10 +96,11 @@ async function CharacterHeader({data}){
           .map((item, index) => (
             <div key={index} className="flex items-center gap-2" style={{
               borderRadius: "50px",
-              border: "1px solid #333",
+              border: theme === "dark" ? "1px solid #333" : "1px solid #a5a4a4",
               padding: "2px 8px",
               fontSize: "12px",
               color: theme === "dark" ? "#cacaca" : "#181818",
+              backgroundColor: theme === "dark" ? "#181818" : "#e3e3e3",
             }}>
               <Image src={getCDNURL(`/imgs/icons/${item}.png`)} alt={item} width={100} height={100} style={{
                 width: "20px", height: "20px", marginRight: "-2px", 

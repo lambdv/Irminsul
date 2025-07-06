@@ -7,7 +7,6 @@ import { usePathname } from 'next/navigation'
 import { NavigationStore } from "@/store/Navigation"
 import { SearchStore } from "@/store/Search"
 import { GlobalStore } from "@/store/global"
-import { shallow } from 'zustand/shallow'
 import { useSessionContext } from '@/lib/session-context'
 
 /**
@@ -16,24 +15,20 @@ import { useSessionContext } from '@/lib/session-context'
  * @param props 
  */
 export default function ClientWrapper(props: any) {
-    const {togglePalette} = SearchStore(
-        (state) => ({ togglePalette: state.togglePalette }),
-        shallow
-    )
-    const {setIsSupporter, isSupporter} = GlobalStore(
-        (state) => ({ setIsSupporter: state.setIsSupporter, isSupporter: state.isSupporter }),
-        shallow
-    )
+    const {togglePalette} = SearchStore((state) => ({ togglePalette: state.togglePalette }))
+    const {setIsSupporter, isSupporter} = GlobalStore((state) => ({ 
+        setIsSupporter: state.setIsSupporter, 
+        isSupporter: state.isSupporter 
+    }))
     const { session } = useSessionContext()
 
     // Memoize the supporter check to prevent unnecessary re-renders
     const supporterStatus = useMemo(() => {
         if (session?.user?.email) {
-            // You might want to add a supporter flag to the session or make an API call
-            // For now, we'll set it to false
-            return false
+            // Return a promise that will be handled in useEffect
+            return session.user.email
         }
-        return false
+        return null
     }, [session?.user?.email])
 
     //initialize waves effect
@@ -54,11 +49,26 @@ export default function ClientWrapper(props: any) {
     }, [togglePalette]); // Added togglePalette to the dependency array
 
     useEffect(() => {
-        // Only update if the supporter status has actually changed
-        if (supporterStatus !== isSupporter) {
-            setIsSupporter(supporterStatus)
+        // Check supporter status when user email changes
+        if (supporterStatus) {
+            const checkSupporterStatus = async () => {
+                try {
+                    const response = await fetch(`/api/auth/supporter?email=${encodeURIComponent(supporterStatus)}`)
+                    if (response.ok) {
+                        const data = await response.json()
+                        setIsSupporter(data.isSupporter)
+                    }
+                } catch (error) {
+                    console.error('Error checking supporter status:', error)
+                    setIsSupporter(false)
+                }
+            }
+            checkSupporterStatus()
+        } else {
+            // No user email, set supporter to false
+            setIsSupporter(false)
         }
-    }, [supporterStatus, isSupporter, setIsSupporter]); // Added proper dependencies
+    }, [supporterStatus]); // Only depend on email changes, remove setIsSupporter and isSupporter
     
 
     return (

@@ -62,9 +62,9 @@ export default function SearchPallete() {
         setTimeout(() => {
             searchBarRef.current?.focus()
             //highlight the text in the search bar
-            if(SearchQuery.length > 1){
-                searchBarRef.current?.setSelectionRange(0, SearchQuery.length)
-            }
+            // if(SearchQuery.length > 1 && searchBarRef.current){
+            //     searchBarRef.current?.setSelectionRange(0, SearchQuery.length)
+            // }
         }, 10)
     }, [SearchQuery.length])
 

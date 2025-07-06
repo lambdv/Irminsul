@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link"
-import React, { useEffect, useState, useCallback } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import { usePathname } from "next/navigation"
 import TopnavCSS from "./topnav.module.css"
 import SearchPallette from "@components/navigation/SearchPallete"
@@ -14,7 +14,6 @@ import { auth } from "@/app/(auth)/auth"
 import Image from "next/image"
 import RoundBtn from "../ui/RoundBtn"
 import { useSessionContext } from '@/lib/session-context'
-import { shallow } from 'zustand/shallow'
 
 
 
@@ -24,44 +23,32 @@ import { shallow } from 'zustand/shallow'
  * @note contains the search bar, logo, and hamburger menu for toggling the side navigation bar collapsed state
  */
 export default function Topnav() {
-  const { showPallette, setShowPallette } = SearchStore(
-    (state) => ({ showPallette: state.showPallette, setShowPallette: state.setShowPallette }),
-    shallow
-  )
-  const { sideNavCollapsed, setSideNavCollapsed } = NavigationStore(
-    (state) => ({ sideNavCollapsed: state.sideNavCollapsed, setSideNavCollapsed: state.setSideNavCollapsed }),
-    shallow
-  )
-  const { isSupporter } = GlobalStore(
-    (state) => ({ isSupporter: state.isSupporter }),
-    shallow
-  )
+  const { showPallette, setShowPallette } = SearchStore()
+  const { sideNavCollapsed, setSideNavCollapsed } = NavigationStore()
+  const { isSupporter } = GlobalStore()
 
-  const [isAtTop, setIsAtTop] = useState(false)
-  const [prevIsAtTop, setPrevIsAtTop] = useState(true)
+  const [isAtTop, setIsAtTop] = useState(true)
+  const prevIsAtTopRef = useRef(true)
 
-  // Memoize the scroll handler to prevent unnecessary re-renders
-  const handleScroll = useCallback(() => {
-    setIsAtTop(window.scrollY === 0)
+  useEffect(() => {
+    const handleScroll = () => setIsAtTop(window.scrollY === 0);
+    handleScroll()
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [])
 
   useEffect(() => {
-    handleScroll() // Initial check
-    window.addEventListener('scroll', handleScroll)
-    
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [handleScroll])
-
-  useEffect(() => {
     if(!sideNavCollapsed){
-      // When side nav is expanded, save current state and set to false
-      setPrevIsAtTop(isAtTop)
-      setIsAtTop(false)
-    } else {
-      // When side nav is collapsed, restore the previous state
-      setIsAtTop(prevIsAtTop)
+      setIsAtTop(currentIsAtTop => {
+        prevIsAtTopRef.current = currentIsAtTop
+        return false
+      })
     }
-  }, [sideNavCollapsed]) // Only depend on sideNavCollapsed changes
+    else{
+      setIsAtTop(prevIsAtTopRef.current)
+    }
+  }, [sideNavCollapsed])
 
   return (
     <>
@@ -86,10 +73,7 @@ export default function Topnav() {
 
 
 function LeftContainer({ isSupporter }: { isSupporter: boolean }){
-  const { toggleSideNavCollapsed } = NavigationStore(
-    (state) => ({ toggleSideNavCollapsed: state.toggleSideNavCollapsed }),
-    shallow
-  )
+  const { toggleSideNavCollapsed } = NavigationStore()
   const websiteName = "Irminsul"
   const pathname = usePathname()
   
@@ -147,15 +131,7 @@ function LeftContainer({ isSupporter }: { isSupporter: boolean }){
 
 function CenterContainer(props: any){
   const { showPallette, setShowPallette } = props
-  const { SearchQuery, updateQuery, setFirstKeyPress, firstKeyPress } = SearchStore(
-    (state) => ({ 
-      SearchQuery: state.SearchQuery, 
-      updateQuery: state.updateQuery, 
-      setFirstKeyPress: state.setFirstKeyPress, 
-      firstKeyPress: state.firstKeyPress 
-    }),
-    shallow
-  )
+  const { SearchQuery, updateQuery, setFirstKeyPress, firstKeyPress } = SearchStore()
   const pathname = usePathname()
 
   const isExplorePage = () => {
@@ -167,14 +143,14 @@ function CenterContainer(props: any){
       if(firstKeyPress && SearchQuery.length > 1){
         setFirstKeyPress(false)
       }
-      setShowPallette(!showPallette)
+      setShowPallette(true)
      
     }
   }
 
   const handleSearchBarChange = (e) => {
     if(e.target.selectionStart !== 0 && !isExplorePage()){
-      setShowPallette(!showPallette)
+      setShowPallette(true)
       updateQuery(e)
     }
 
@@ -196,11 +172,8 @@ function CenterContainer(props: any){
 }
 
  function RightContainer(){
+
     const { session, status, isAuthenticated, logout } = useSessionContext()
-    const { setShowPallette } = SearchStore(
-      (state) => ({ setShowPallette: state.setShowPallette }),
-      shallow
-    )
     const [showDropdown, setShowDropdown] = useState(false)
 
   return (
@@ -210,7 +183,7 @@ function CenterContainer(props: any){
 
         <RoundBtn 
           icon="search"
-          onClick={() => setShowPallette(true)}
+          onClick={() => SearchStore.getState().setShowPallette(true)}
           className={TopnavCSS.hamburgerBtn}
           style={{ top: "5px" }}
         />

@@ -127,10 +127,11 @@ async function latestGenshinData(){
     const latest = [...latestCharacters, ...latestArtifacts, ...latestWeapons]
 
     return <div className="flex flex-wrap gap-0">
-        {latest.map((item) => {
+        {latest.map((item, index) => {
             switch(item.category){
                 case "character":
                     return  <Item
+                    key={item.id + index}
                     category="character"
                     src={getAssetURL("character", item.id, "avatar.png")}
                     name={item.name}
@@ -140,6 +141,7 @@ async function latestGenshinData(){
                 />
                 case "artifact":
                     return <Item
+                    key={item.id + index}
                     category="artifact"
                     src={getAssetURL("artifact", item.id, "flower.png")}
                     name={item.name}
@@ -148,6 +150,7 @@ async function latestGenshinData(){
                 />
                 case "weapon":
                     return <Item
+                    key={item.id + index}
                     category="weapon"
                     src={getAssetURL("weapon", item.id, "base_avatar.png")}
                     name={item.name}
