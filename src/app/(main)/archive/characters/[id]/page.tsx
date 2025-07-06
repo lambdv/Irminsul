@@ -88,10 +88,45 @@ async function CharacterHeader({data}){
           {Array.from({length: data.rarity}).map((_, index) => (
             <i key={index} className="material-symbols-rounded" style={{color: '#FFD700', marginRight: "-5px"}}>star</i>
           ))}
+
           <p> </p>
-          <Image src={getCDNURL(`/imgs/icons/${data.vision}.png`)} alt={data.vision} width={100} height={100} style={{width: "20px", height: "20px"}}/>
+
+          {[data.vision, data.weapon, data.region]
+          .filter((item) => item !== undefined && item !== null && item !== "" && item !== "None")
+          .map((item, index) => (
+            <div key={index} className="flex items-center gap-2" style={{
+              borderRadius: "50px",
+              border: "1px solid #333",
+              padding: "2px 8px",
+              fontSize: "12px",
+              color: theme === "dark" ? "#cacaca" : "#181818",
+            }}>
+              <Image src={getCDNURL(`/imgs/icons/${item}.png`)} alt={item} width={100} height={100} style={{
+                width: "20px", height: "20px", marginRight: "-2px", 
+                filter: theme === "dark" || index==0 ? "none" : "invert(1)"
+              }}/>
+              {toTitleCase(item)}
+            </div>
+          ))} 
+          {/* <div className="flex items-center gap-2" style={{
+            borderRadius: "50px",
+            border: "1px solid #333",
+            padding: "1px 10px",
+            fontSize: "12px",
+            color: "#cacaca",
+            backgroundColor: "#181818",
+            marginLeft: "10px",
+          }}>
+            <Image src={getCDNURL(`/imgs/icons/${data.vision}.png`)} alt={data.vision} width={100} height={100} style={{
+              width: "20px", height: "20px"
+            }}/>
+            {data.vision}
+          </div>
+
+          
           <Image src={getCDNURL(`/imgs/icons/${data.weapon}.png`)} alt={data.weapon} width={100} height={100} style={{width: "25px", height: "25px", filter: theme === "dark" ? "none" : "invert(1)"}}/>
-          <Image src={getCDNURL(`/imgs/icons/${data.region}.png`)} alt={data.region} width={100} height={100} style={{width: "25px", height: "25px", filter: theme === "dark" ? "none" : "invert(1)"}}/>
+          
+          <Image src={getCDNURL(`/imgs/icons/${data.region}.png`)} alt={data.region} width={100} height={100} style={{width: "25px", height: "25px", filter: theme === "dark" ? "none" : "invert(1)"}}/> */}
 
           {/* <span style={{fontSize: "12px", backgroundColor: "#181818", color: "var(--primary-color)", padding: "3px 12px", borderRadius: "50px"}}>
             {data.release_date}

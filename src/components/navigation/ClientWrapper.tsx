@@ -1,5 +1,5 @@
 "use client"
-import React, { use, useEffect, useState } from 'react'
+import React, { use, useEffect, useState, useMemo } from 'react'
 import Script from "next/script"
 import "@/lib/waves/waves.css"
 import Waves from '@/lib/waves/waves.js'
@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 import { NavigationStore } from "@/store/Navigation"
 import { SearchStore } from "@/store/Search"
 import { GlobalStore } from "@/store/global"
+import { shallow } from 'zustand/shallow'
 import { useSessionContext } from '@/lib/session-context'
 
 /**
@@ -15,15 +16,32 @@ import { useSessionContext } from '@/lib/session-context'
  * @param props 
  */
 export default function ClientWrapper(props: any) {
-    const {togglePalette} = SearchStore()
-    const {setIsSupporter} = GlobalStore()
+    const {togglePalette} = SearchStore(
+        (state) => ({ togglePalette: state.togglePalette }),
+        shallow
+    )
+    const {setIsSupporter, isSupporter} = GlobalStore(
+        (state) => ({ setIsSupporter: state.setIsSupporter, isSupporter: state.isSupporter }),
+        shallow
+    )
     const { session } = useSessionContext()
+
+    // Memoize the supporter check to prevent unnecessary re-renders
+    const supporterStatus = useMemo(() => {
+        if (session?.user?.email) {
+            // You might want to add a supporter flag to the session or make an API call
+            // For now, we'll set it to false
+            return false
+        }
+        return false
+    }, [session?.user?.email])
 
     //initialize waves effect
     useEffect(() => { 
         Waves.attach('.ripple', ['waves-effect', 'waves-light'])
         Waves.init()
     }, []);
+    
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.ctrlKey && (event.key === "/" || event.key === "k")) {
@@ -36,13 +54,11 @@ export default function ClientWrapper(props: any) {
     }, [togglePalette]); // Added togglePalette to the dependency array
 
     useEffect(() => {
-        // Check if user is supporter based on session data
-        if(session?.user?.email) {
-            // You might want to add a supporter flag to the session or make an API call
-            // For now, we'll set it to false
-            setIsSupporter(false)
+        // Only update if the supporter status has actually changed
+        if (supporterStatus !== isSupporter) {
+            setIsSupporter(supporterStatus)
         }
-    }, [session, setIsSupporter]); // Added session and setIsSupporter to the dependency array
+    }, [supporterStatus, isSupporter, setIsSupporter]); // Added proper dependencies
     
 
     return (

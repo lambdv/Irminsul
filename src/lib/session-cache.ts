@@ -191,21 +191,23 @@ export const sessionCache = new SessionCache()
 // React hook for using session cache
 export function useSessionCache() {
   const [state, setState] = React.useState(() => sessionCache.getState())
+  const initialLoadRef = React.useRef(false)
 
   React.useEffect(() => {
     const unsubscribe = sessionCache.subscribe(() => {
       setState(sessionCache.getState())
     })
 
-    // Trigger initial load if needed
-    if (state.status === 'loading') {
+    // Trigger initial load only once
+    if (!initialLoadRef.current && state.status === 'loading') {
+      initialLoadRef.current = true
       sessionCache.getSession()
     }
 
     return () => {
       unsubscribe()
     }
-  }, [state.status])
+  }, []) // Remove state.status dependency to prevent infinite re-renders
 
   return {
     session: state.data,
