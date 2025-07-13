@@ -33,7 +33,7 @@ export default async function Header(props: {
                             style={props.imageStyle}
                             priority={false}
                             loading="eager"
-                            unoptimized={false}
+                            unoptimized={true}
                         />
                     </div>
                     <div className={HeaderCSS.archiveRecordHeaderDetailsContent} id={HeaderCSS.archiveRecordHeaderTitle}>

@@ -47,7 +47,7 @@ export default function CommentSectionClient({
                     width={100} 
                     height={100} 
                     className={CommentSectionCSS.commentUserAvatar}
-                    unoptimized={false}
+                    unoptimized={true}
                 />
                 <form className="flex flex-col gap-2 w-full" onSubmit={async (e) => {
                     e.preventDefault();
@@ -162,7 +162,7 @@ export default function CommentSectionClient({
     
         return (
             <div className="flex flex-row gap-2 rounded-md mb-5">
-                <Image src={commentUser.image} alt="User Avatar" width={100} height={100} className={CommentSectionCSS.commentUserAvatar} unoptimized={false}/>
+                <Image src={commentUser.image} alt="User Avatar" width={100} height={100} className={CommentSectionCSS.commentUserAvatar} unoptimized={true}/>
                 <div className="flex flex-col">
                     <div className="flex flex-row gap-2">
                         <h1 style={{fontWeight: "600"}}>

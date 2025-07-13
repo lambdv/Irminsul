@@ -42,7 +42,7 @@ export default function Item(props: {
                         width={props.scale ? props.scale * 25 : 25} 
                         height={props.scale ? props.scale * 25 : 25}
                         loading="lazy"
-                        unoptimized={false}
+                        unoptimized={true}
                     />
                 }
 
@@ -75,7 +75,7 @@ export default function Item(props: {
                         loading="lazy"
                         // placeholder="blur"
                         // blurDataURL={placeholder.src}
-                        unoptimized={false}
+                        unoptimized={true}
                     />
                 </div>
 

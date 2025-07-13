@@ -46,7 +46,7 @@ export default function Page(props: {message?: string}) {
                   width={20}
                   height={20}
                   className="select-none"
-                  unoptimized={false}
+                  unoptimized={true}
                 />
                 <p>Sign in with Discord</p>
               </button>

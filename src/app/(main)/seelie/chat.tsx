@@ -240,7 +240,7 @@ function Message({messageUser, message, userImage, messageOBJ}: {
             <div className={styles.messageAvatar}>
                 {messageUser === "Seelie" 
                     ? <Image src={SEELIE_ICON} alt="Seelie" width={40} height={40} className="rounded-full"/>
-                    : <Image src={userImage || SEELIE_ICON} alt="User" width={40} height={40} className="rounded-full" unoptimized={false}/>
+                    : <Image src={userImage || SEELIE_ICON} alt="User" width={40} height={40} className="rounded-full" unoptimized={true}/>
                 }
             </div>
             <div className={`${styles.messageContent} ${isUser ? styles.messageContentUser : styles.messageContentAssistant}`}>

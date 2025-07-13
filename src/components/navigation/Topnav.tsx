@@ -200,7 +200,7 @@ function CenterContainer(props: any){
                     className={TopnavCSS.userAvatar}
                     width={40}
                     height={40}
-                    unoptimized={false}
+                    unoptimized={true}
                   />
                 </button>
                 <div 

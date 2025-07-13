@@ -127,7 +127,7 @@ async function postComment(pageID: string, comment: string) {
 
 //     return (
 //         <div className="flex flex-row gap-2 rounded-md mb-5">
-//             <Image src={commentUser[0].image} alt="User Avatar" width={100} height={100} className={CommentSectionCSS.commentUserAvatar} unoptimized={false}/>
+//             <Image src={commentUser[0].image} alt="User Avatar" width={100} height={100} className={CommentSectionCSS.commentUserAvatar} unoptimized={true}/>
 //             <div className="flex flex-col">
 //                 <div className="flex flex-row gap-2">
 //                     <h1 style={{fontWeight: "600"}}>

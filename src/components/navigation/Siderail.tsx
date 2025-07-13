@@ -88,7 +88,7 @@ export default function Siderail() {
       >
         <i className={SidenavCSS.sidenavLinkSymbol + ' material-symbols-rounded'}>
 
-          {props.img ? <Image src={props.img} alt = {props.text} width={24} height={24} unoptimized={false}/> : props.icon}
+          {props.img ? <Image src={props.img} alt = {props.text} width={24} height={24} unoptimized={true}/> : props.icon}
         </i>
         {props.text !== "" && <p>{props.text}</p> }
       </Link>
