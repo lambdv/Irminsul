@@ -12,7 +12,6 @@ import { gdGetCharacters } from "./APIAdaptor"
 import { unstable_cache } from 'next/cache';
 
 //let CDN_URL = "https://cdn.irminsul.moe/"
-
 let CDN_URL = "https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/"
 
 // Cache the characters data to avoid repeated API calls during build
@@ -29,7 +28,7 @@ export const getCharacters = unstable_cache(
   },
   ['characters-data'],
   {
-    revalidate: 3600, // Cache for 1 hour
+    revalidate: 3600, 
     tags: ['characters']
   }
 )

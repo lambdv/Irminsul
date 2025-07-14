@@ -13,14 +13,17 @@ import { getCDNURL } from '@/utils/getAssetURL'
 const CHARACTER_ICON = getCDNURL("imgs/icons/characterIcon.png")
 const WEAPON_ICON = getCDNURL("imgs/icons/weaponIcon.png")
 const ARTIFACT_ICON = getCDNURL("imgs/icons/artifactIcon.png")
-// const SEELIE_ICON = getCDNURL("imgs/icons/seelie.png")
+const SEELIE_ICON = getCDNURL("imgs/icons/seelie.png")
 // const ENEMY_ICON = getCDNURL("imgs/icons/enemyIcon.png")
 // const WISH_ICON = getCDNURL("imgs/icons/wish.png")
 // const PARTY_ICON = getCDNURL("imgs/icons/party.png")
 
 export let links = [
   {href: "/", icon: "home", text: "Home"},
-  {href: "/seelie", icon: "stars_2", text: "Ask AI"},
+  {href: "/seelie", 
+    //icon: "stars_2", 
+    img: SEELIE_ICON,
+    text: "Ask AI"},
   // {href: "/akademiya", icon: "school", text: "Akademiya"},
   // {href: "/calculator", icon: "automation", text: "Calculator"},
   // {href: "/dmgcalc", icon: "functions", text: "DMG Calc"},

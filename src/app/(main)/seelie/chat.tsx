@@ -12,6 +12,7 @@ import RoundBtn from '@/components/ui/RoundBtn'
 import markdownToHTML from '@/utils/markdownToHTML';
 import { useCompletion } from '@ai-sdk/react'
 import { cursorTo } from 'readline';
+import { getCharacters } from '@root/src/utils/genshinData';
 
 const SEELIE_ICON = getCDNURL("imgs/icons/seelie.png")
 const RESIN_ICON = getCDNURL("imgs/icons/resinIcon.png")
@@ -93,15 +94,41 @@ export default function Chat(props: {user: any}) {
         handleSubmit(e) //useChat hook handles the rest
     }
 
-    const textFieldMessage = "Ask a Question"
+
+    const slogans = [
+        "Repository for all of the information of Teyvat.",
+        "A sapling of knowledge from Irminsul itself.",
+        "Navigate the torrents of Teyvat's memory.",
+        "Tap into the Ley Lines. Speak to the memory of Teyvat.",
+        "The sapling that speaks. Teyvat's history, one question away",
+    ]
+
+
+    const suggestedQuestions = [
+        "Who is the highest dps character?",
+        "How do I build Skirk?",
+        ""
+    ]
+
+    const [slogan, setSlogan] = useState(slogans[Math.floor(Math.random() * slogans.length)])
+
+    useEffect(() => {
+        setSlogan(slogans[Math.floor(Math.random() * slogans.length)])
+    }, [])
+
+    const textFieldMessage = "Ask a question"
 
     if(messages.length === 0){
         return (
             <div className={styles.landingWrapper}>
                 {showTokenModal && <TokenModal user={props.user} setShowTokenModal={setShowTokenModal}/>}
-                <h1 className="text-3xl font-ingame text-center text-primary flex items-center justify-center gap-2" style={{fontFamily: "ingame",color: "var(--primary-color)"}}>
-                    Your Personal Genshin Guide
-                    {/* <Image src={SEELIE_ICON} alt="Seelie" width={40} height={40} className="rounded-full"/> */}
+                <Image src={SEELIE_ICON} alt="Seelie" width={40} height={40} className="rounded-full"/>
+
+                <h1 className="text-3xl font-ingame text-center text-primary flex items-center justify-center gap-2 mb-3" style={{fontFamily: "ingame", 
+                    color: "#5DC4DD",
+                    width: "50%"
+                }}>
+                    {slogan}
                 </h1>
 
                 <div className={styles.landingChatWrapper}>
@@ -141,29 +168,27 @@ export default function Chat(props: {user: any}) {
                     />   
                     </form>
                      
-                    {/* <div id="suggested-questions" className={styles.suggestedQuestionContainer + " mt-2 ml-5"}>
-                        {
-                            [
-                                "What is the best way to farm resin?",
-                                "How do I build Xiangling?",
-                                "What are the best artifacts for Raiden Shogun?"
-                            ]
-                            .map((q, index) => {
+                    <div id="suggested-questions" className={styles.suggestedQuestionContainer + " mt-2 ml-5"}>
+                        {suggestedQuestions.map((q, index) => {
                                 return (
-                                    <form key={index}>
-                                        <p 
-                                            className={styles.suggestedQuestion}
-                                            onClick={() => {
-                                                setInput(q);
-                                            }}
-                                        >
-                                            {q}
-                                        </p>
-                                    </form>
+                                    <p 
+                                        key={index}
+                                        className={styles.suggestedQuestion}
+                                        onClick={() => {
+                                            setInput(q);
+                                            // Submit the form after setting the input
+                                            setTimeout(() => {
+                                                const chatForm = document.querySelector(`.${styles.chatForm}`);
+                                                if (chatForm) {
+                                                    const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
+                                                    chatForm.dispatchEvent(submitEvent);
+                                                }
+                                            }, 0);
+                                        }}
+                                    >{q}</p>
                                 )
-                            })
-                        }
-                    </div> */}
+                            })}
+                    </div> 
                 </div>
 
                 
@@ -253,6 +278,9 @@ function Message({messageUser, message, userImage, messageOBJ}: {
 function LoadingMessage(){
     const messages = [
         "Cooking",
+        "Pathfinding",
+        "Searching Irminsul",
+        "Hold on let me pull up a tenten video"
     ]
     return (
         <Message messageUser="Seelie" message={

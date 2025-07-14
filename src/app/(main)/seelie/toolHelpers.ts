@@ -1,12 +1,48 @@
+import { createGoogleGenerativeAI } from "@ai-sdk/google";
+import { generateText } from "ai";
+import { getCharacters } from "@/utils/genshinData";
+import { toKey } from "@/utils/standardizers";
+
+
+/**
+ * function that takes the prompt and extracts features/metadata
+ */
+export  const queryFeatureExtractor = async (prompt: string) => {
+
+    let features = {
+        characterMentioned: [],
+    }
+
+    //get all character name/nounes in the prompt
+    const characterNouns = await getCharacters()
+        .then(c=>c.map(c=>toKey(c.name)))
+    
+    prompt.split(" ").forEach(word => {
+        if(characterNouns.includes(toKey(word))) {
+            features.characterMentioned.push(word)
+        }
+    })
+
+    return features
+}
+    
+
+/**
+ * since models outside of claude (eg: gemini) are bad at calling tools, 
+ * this function/tool will be used to decide which tools to call based on the query to provide information to the LLM
+ */
+export const toolCallDecisionTree = async (prompt: string) => {
+
+}
 
 /**
  * get information from Keqingmains.com articles
  */
-export const getKeqingMainsInfo = async (searchQuery: string) => {
-    const url = `https://keqingmains.com/search?q=${searchQuery}`;
-    const response = await fetch(url);
-    const html = await response.text();
-    return html;
+export const getKeqingMainsInfo = async (characterName: string) => {
+    const url = `https://keqingmains.com/${characterName}`;
+    console.log("called getKeqingMainsInfo")
+    const text = await fetchWebpageContent(url, characterName)
+    return text
 }
 
 /**
@@ -30,7 +66,7 @@ export const queryGCSIMDatabase = async (params: {
         acceptedTags, // Default to guides (8) and APL (9)
         rejectedTags,
         sortBy = "summary.mean_dps_per_target",
-        sortOrder = "desc"
+        sortOrder = "desc",
     } = params;
 
     // Build the query object
@@ -102,6 +138,24 @@ export const queryGCSIMDatabase = async (params: {
         }
         
         const data = await response.json();
+
+        //filter out whale teams
+        // if(filterWhale){
+        //     const characterRarities = await getCharacters().then(c=>c.map((c: any) => {
+        //         return {
+        //             name: toKey(c.name),
+        //             rarity: c.rarity
+        //         }
+        //     }))
+        //     data.data = data.data.filter((item: any) => {
+        //         return item.summary.team.every((c: any) => {
+        //             const charaRarity = characterRarities.find((c: any) => c.name == toKey(c.name))
+        //             if(!charaRarity) return true
+        //             return !(charaRarity.rarity === 5 && c.cons > 0)
+        //         })
+        //     });
+        // }
+        
         
         // Add source URL to each result
         if (data.data && Array.isArray(data.data)) {
