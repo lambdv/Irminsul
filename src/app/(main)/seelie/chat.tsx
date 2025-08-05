@@ -14,6 +14,14 @@ import { useCompletion } from '@ai-sdk/react'
 import { cursorTo } from 'readline';
 import { getCharacters } from '@root/src/utils/genshinData';
 
+const slogans = [
+    "Repository for all of the information of Teyvat.",
+    "A sapling of knowledge from Irminsul itself.",
+    "Navigate the torrents of Teyvat's memory.",
+    "Tap into the Ley Lines. Speak to the memory of Teyvat.",
+    "The sapling that speaks. Teyvat's history, one question away",
+]
+
 const SEELIE_ICON = getCDNURL("imgs/icons/seelie.png")
 const RESIN_ICON = getCDNURL("imgs/icons/resinIcon.png")
 
@@ -95,13 +103,7 @@ export default function Chat(props: {user: any}) {
     }
 
 
-    const slogans = [
-        "Repository for all of the information of Teyvat.",
-        "A sapling of knowledge from Irminsul itself.",
-        "Navigate the torrents of Teyvat's memory.",
-        "Tap into the Ley Lines. Speak to the memory of Teyvat.",
-        "The sapling that speaks. Teyvat's history, one question away",
-    ]
+
 
 
     const suggestedQuestions = [

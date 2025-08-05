@@ -68,7 +68,7 @@ export default function ClientWrapper(props: any) {
             // No user email, set supporter to false
             setIsSupporter(false)
         }
-    }, [supporterStatus]); // Only depend on email changes, remove setIsSupporter and isSupporter
+    }, [supporterStatus]); // eslint-disable-line react-hooks/exhaustive-deps
     
 
     return (

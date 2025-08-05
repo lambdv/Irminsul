@@ -11,7 +11,7 @@ import ClientProvider from "@/components/navigation/ClientProvider"
 import BottomNav from "@/components/navigation/bottomnav"
 import MiniAIChat from "@/components/ui/MiniAIChat"
 import RightSidenav from "../components/navigation/RightSidenav"
-import SessionTest from "@/components/test/SessionTest"
+
 
 const inter = Inter({ subsets: ["latin"] })
 

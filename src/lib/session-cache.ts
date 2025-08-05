@@ -207,7 +207,7 @@ export function useSessionCache() {
     return () => {
       unsubscribe()
     }
-  }, []) // Remove state.status dependency to prevent infinite re-renders
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return {
     session: state.data,
