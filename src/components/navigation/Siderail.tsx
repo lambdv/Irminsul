@@ -24,6 +24,9 @@ export let links = [
     //icon: "stars_2", 
     img: SEELIE_ICON,
     text: "Ask AI"},
+
+
+  {href: "https://aminus.irminsul.moe/", icon: "functions", text: "Damage Calculator"},
   // {href: "/akademiya", icon: "school", text: "Akademiya"},
   // {href: "/calculator", icon: "automation", text: "Calculator"},
   // {href: "/dmgcalc", icon: "functions", text: "DMG Calc"},
