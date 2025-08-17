@@ -61,7 +61,7 @@ export default async function RootLayout({children}) {
   const language = cookieStore.get('language')?.value || 'en'
 
   return (
-    <html lang={language} data-theme={theme} data-language={language}>
+    <html lang={language} data-theme={theme} data-language={language} className={theme === 'dark' ? 'dark' : ''} suppressHydrationWarning>
       <Head>
         <meta name="google-adsense-account" content="ca-pub-1739492299738628"/>
       </Head>
