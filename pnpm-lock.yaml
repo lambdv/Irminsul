@@ -65,6 +65,9 @@ importers:
       ai:
         specifier: ^4.3.9
         version: 4.3.16(react@19.1.0)(zod@3.25.74)
+      aminus:
+        specifier: ^1.0.0-beta
+        version: 1.0.0-beta
       cheerio:
         specifier: ^1.0.0
         version: 1.1.0
@@ -2033,6 +2036,10 @@ packages:
 
   ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
+
+  aminus@1.0.0-beta:
+    resolution: {integrity: sha512-kwZu/bv+rbd4HTFfV1ezv1y2zIhmcQdTDZ8IV5YuFKHwYkdnaU6OTRQQIyOPWsdCiOteT3GkxJoEaVOuhQXMYQ==}
+    engines: {node: '>=16.0.0'}
 
   ansi-escapes@4.3.2:
     resolution: {integrity: sha512-gKXj5ALrKWQLsYG9jlTRmR/xKluxHV+Z9QEwNIgCfM1/uwPMCuzVVnh5mwTd+OuBZcwSIMbqssNWRm1lE51QaQ==}
@@ -6725,6 +6732,8 @@ snapshots:
       fast-json-stable-stringify: 2.1.0
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
+
+  aminus@1.0.0-beta: {}
 
   ansi-escapes@4.3.2:
     dependencies:
