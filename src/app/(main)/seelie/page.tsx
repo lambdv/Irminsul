@@ -6,12 +6,13 @@ import RightSidenav from '@/components/navigation/RightSidenav';
 import Advertisment from '@/components/ui/Advertisment';
 import { redirect } from 'next/navigation';
 import { getServerUser } from '@/lib/server-session'
+import { getCDNURL } from '@/utils/getAssetURL';
 
 export async function generateMetadata() {
   return {
     title: "Seelie | Irminsul",
     description: "Seelie is your AI guide for Genshin Impact.",
-    image: "/imgs/icons/seelie.png",
+    image: getCDNURL("/imgs/icons/seelie.png"),
     url: "/seelie",
   }
 }

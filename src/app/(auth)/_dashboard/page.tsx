@@ -8,6 +8,7 @@ import { format } from "timeago.js"
 import { getServerUser } from "@/lib/server-session"
 import { isUserSupporterByEmail } from "@/app/(main)/support/actions"
 import { redirect } from "next/navigation"
+import { getCDNURL } from '@/utils/getAssetURL';
 
 async function getUserStats(userId: string) {
   const stats = await db
@@ -64,7 +65,7 @@ export default async function DashboardPage() {
           <div className="flex items-center space-x-4">
             <div className="relative">
               <Image
-                src={user.image || "/imgs/icons/defaultavatar.png"}
+                src={user.image || getCDNURL("/imgs/icons/defaultavatar.png")}
                 alt={user.name || "User"}
                 width={80}
                 height={80}
