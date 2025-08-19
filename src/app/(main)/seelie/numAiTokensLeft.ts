@@ -1,5 +1,5 @@
 import { generateText, streamText, tool } from "ai";
-import { getCharacterDataTool, getInformationTool } from "./tools";
+import { getCharacterDataTool, getInformationFromKnowledgeBaseTool as getInformationTool } from "./tools";
 import { eq, sql, and } from "drizzle-orm";
 import db from "@/db/db";
 import { aitokenTable } from "@/db/schema/aitoken";

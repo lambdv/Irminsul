@@ -8,12 +8,12 @@ import { eq, sql } from "drizzle-orm";
 import db from "@root/src/db/db";
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { streamUI } from "ai/rsc"
-import { queryGCSIMDatabase, fetchWebpageContent } from "./toolHelpers"
+import { queryGCSIMDatabase, fetchWebpageContent, getKeqingMainsInfo } from "./toolHelpers"
 
 /**
  * AISDK tool for getting information from the knowledge base
  */
-export const getInformationTool = tool({
+export const getInformationFromKnowledgeBaseTool = tool({
     description: `get information from your knowledge base to answer questions.`,
     parameters: z.object({
       question: z.string().describe('the users question'),
@@ -173,11 +173,23 @@ export const AverageDPSOfCharacterTool = tool({
     },
 });
 
+export const getCharacterGuideInformationTool = tool({
+    description: `get guide information, such as builds, artifacts, teams, weapons, talents, playstyle, energy recharge requirements and other meta/tc information for a character`,
+    parameters: z.object({
+        character: z.string().describe('name of character'),
+    }),
+    execute: async ({ character }) => {
+        const guide = await getKeqingMainsInfo(character)
+        return guide
+    },
+})
+
 export const tools = {
-    getInformationTool: getInformationTool,
+    getInformationFromKnowledgeBaseTool: getInformationFromKnowledgeBaseTool,
     getCharacterDataTool: getCharacterDataTool,
     getAllCharacterDataTool: getAllCharacterDataTool,
     searchEngineTool: searchEngineTool,
     QueryGCSIMDatabaseTool: QueryGCSIMDatabaseTool,
     AverageDPSOfCharacterTool: AverageDPSOfCharacterTool,
+    getCharacterGuideInformationTool: getCharacterGuideInformationTool,
 }

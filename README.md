@@ -1,6 +1,14 @@
-A Genshin Impact Database and Tooling Suite for Metagaming and Theorycrafting.
+# Irminsul
+Genshin Impact Database and Tooling Suite for Metagaming and Theorycrafting.
 
----
+## Features
+- Character, Weapon and Artifact archive pages
+- Fuzzy search pallete and browsing menu with filters
+- Discord linked accounts and comment sections
+- AI Chatbot with a up-to-date and nuanced knowledgebase
+- WebUI Damage Calculater (WIP)
+- WebUI Energy Recharage Calcylater (WIP)
+- User generated resource search engine (WIP)
 
 ## Installation
 

@@ -178,7 +178,7 @@ function CharacterTalents({data}){
           let icon = ""
           switch(talent.type) {
             case "Normal Attack":
-              icon = `/imgs/icons/${data.weapon}.png`
+              icon = getCDNURL(`/imgs/icons/${data.weapon}.png`)
               break
             case "Elemental Skill":
               icon = getAssetURL("character", data.name, "skill.png")
