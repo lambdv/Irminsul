@@ -24,7 +24,7 @@ function Icon() {
     <div className="flex justify-center">
       <div className="relative animate-pulse">
         <Image 
-          src={getCDNURL("imgs/icons/b_sumeru.png")} 
+          src={"https://static.wikia.nocookie.net/gensin-impact/images/e/ef/Sumeru_Emblem_Night.png"} 
           alt="natlan" 
           width={100}
           height={100}
