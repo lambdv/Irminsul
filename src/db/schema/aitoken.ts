@@ -8,5 +8,8 @@ export const aitokenTable = pgTable("aitoken", {
       .references(() => usersTable.id)
       .primaryKey(),
     numTokens: integer("numTokens")
+        .notNull(),
+    type: varchar("type")
         .notNull()
+        .default("free"),
   });

@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useChat } from '@ai-sdk/react';
 import Image from 'next/image'
 import styles from './seelie.module.css'
@@ -13,13 +13,18 @@ import markdownToHTML from '@/utils/markdownToHTML';
 import { useCompletion } from '@ai-sdk/react'
 import { cursorTo } from 'readline';
 import { getCharacters } from '@root/src/utils/genshinData';
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import { ChevronDown } from 'lucide-react';
+
+import { availableModels } from './ai'
 
 const slogans = [
-    "Repository for all of the information of Teyvat.",
-    "A sapling of knowledge from Irminsul itself.",
-    "Navigate the torrents of Teyvat's memory.",
-    "Tap into the Ley Lines. Speak to the memory of Teyvat.",
-    "The sapling that speaks. Teyvat's history, one question away",
+    "Navigate the Truth of Teyvat.",
+    // "Repository for all of the information of Teyvat.",
+    // "A sapling of knowledge from Irminsul itself.",
+    // "Navigate the torrents of Teyvat's memory.",
+    // "Tap into the Ley Lines. Speak to the memory of Teyvat.",
+    // "The sapling that speaks. Teyvat's history, one question away",
 ]
 
 const SEELIE_ICON = getCDNURL("imgs/icons/seelie.png")
@@ -32,9 +37,13 @@ const RESIN_ICON = getCDNURL("imgs/icons/resinIcon.png")
  */
 export default function Chat(props: {user: any}) {
     //AISDK useChat hook
+    const [selectedModel, setSelectedModel] = useState<string>('gemini-2.0-flash-lite')
+    const textareaRef = useRef<HTMLTextAreaElement | null>(null)
+
     const { messages, input, handleInputChange, handleSubmit, setInput, setMessages, status } = useChat({
         body: {
-            userId: props.user?.id
+            userId: props.user?.id,
+            model: selectedModel,
         },
         api: '/api/chat',
         ///initialMessages: [{id: "1", role: 'assistant', content: 'Ad astra abyssosque traveler! \nIm Seelie, your AI assistant for Genshin Impact. \nHow can I assist you today?'}],
@@ -86,7 +95,7 @@ export default function Chat(props: {user: any}) {
      * @returns void
      */
     const handleFormSubmit = (e) => {
-        //e.preventDefault()
+        e.preventDefault()
         setDisabledChat(true) //disable chat while processing
         //if user has no tokens left, show pop up
         if(tokensLeft !== null && tokensLeft <= 0){
@@ -98,12 +107,9 @@ export default function Chat(props: {user: any}) {
         if(input.trim().length <= 0){
             return
         }
-        setTokensLeft(tokensLeft - 1) //optimistically decrement tokens left
+        //setTokensLeft(tokensLeft - 1) //optimistically decrement tokens left
         handleSubmit(e) //useChat hook handles the rest
     }
-
-
-
 
 
     const suggestedQuestions = [
@@ -118,86 +124,114 @@ export default function Chat(props: {user: any}) {
         setSlogan(slogans[Math.floor(Math.random() * slogans.length)])
     }, [])
 
-    const textFieldMessage = "Ask a question"
+    const textFieldMessage = "Any Genshin Questions?"
+
+    const ChatTextField = React.memo(() => {
+        return (
+            <div style={{ position: 'relative' }}>
+                {/* <p className={styles.tokenCount}>Tokens Left: {tokensLeft === null ? "loading..." : tokensLeft}</p> */}
+                <form className={styles.chatForm} onSubmit={handleFormSubmit}>
+                    <textarea 
+                        ref={textareaRef}
+                        placeholder={textFieldMessage}
+                        value={input} 
+                        onChange={(e) => {
+                            const current = e.currentTarget
+                            const caretPos = current.selectionStart || 0
+                            handleInputChange(e)
+                            requestAnimationFrame(() => {
+                                const el = textareaRef.current
+                                if (!el) return
+                                try {
+                                    el.setSelectionRange(caretPos, caretPos)
+                                } catch {}
+                            })
+                        }} 
+                        className={styles.chatTextField}
+                        autoFocus={true}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter' && !e.shiftKey)
+                                handleFormSubmit(e)
+                        }}
+                        style={{
+                            opacity: disabledChat ? 0.5 : 1,
+                            transition: "opacity 0.3s ease-in-out",
+                            paddingBottom: "35px",
+                        }}
+                        rows={2}
+                        required
+                        autoComplete="off"
+                        disabled={disabledChat}
+                    />
+                </form>
+                <div
+                    style={{
+                        position: "absolute",
+                        left: "10px",
+                        bottom: "15px",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "6px"
+                    }}
+                >
+                    <DropdownMenu.Root>
+                        <DropdownMenu.Trigger asChild>
+                            <button
+                                className={styles.modelMenuTrigger}
+                                style={{ zIndex: 2, color: "#6b7280" }}
+                                disabled={disabledChat}
+                            >
+                                <span className={styles.modelMenuLabel}>{selectedModel}</span>
+                                <ChevronDown size={14} />
+                            </button>
+                        </DropdownMenu.Trigger>
+                        <DropdownMenu.Content className={styles.modelMenuContent} sideOffset={6} align="start">
+                            {availableModels.map((m) => (
+                                <DropdownMenu.Item
+                                    key={m}
+                                    className={styles.modelMenuItem}
+                                    onSelect={(e) => { e.preventDefault(); setSelectedModel(m); }}
+                                >
+                                    <span>{m}</span>
+                                    {selectedModel === m && <span className={styles.modelMenuCheck}>✓</span>}
+                                </DropdownMenu.Item>
+                            ))}
+                        </DropdownMenu.Content>
+                    </DropdownMenu.Root>
+                </div>
+                <RoundBtn 
+                    icon="send"
+                    onClick={handleFormSubmit}
+                    style={{
+                        position: "absolute",
+                        right: "10px",
+                        bottom: "10px",
+                    }}
+                    disabled={disabledChat || input.trim().length <= 0}
+                />           
+            </div>
+        )
+    })
 
     if(messages.length === 0){
         return (
             <div className={styles.landingWrapper}>
                 {showTokenModal && <TokenModal user={props.user} setShowTokenModal={setShowTokenModal}/>}
-                <Image src={SEELIE_ICON} alt="Seelie" width={40} height={40} className="rounded-full"/>
+                
 
-                <h1 className="text-3xl font-ingame text-center text-primary flex items-center justify-center gap-2 mb-3" style={{fontFamily: "ingame", 
-                    color: "#5DC4DD",
-                    width: "50%"
-                }}>
+                <h1  className={styles.landingSlogan}>
                     {slogan}
+                    <Image src={SEELIE_ICON} alt="Seelie" width={40} height={40} className="rounded-full"/>
                 </h1>
 
-                <div className={styles.landingChatWrapper}>
-                    <p className={styles.tokenCount + " select-none"}>Tokens Left: {tokensLeft === null ? "loading..." : tokensLeft}</p>
-                    <form className={styles.chatForm} onSubmit={handleFormSubmit}>
-                        <textarea 
-                            placeholder={textFieldMessage}
-                            value={input} 
-                            onChange={(e) => {
-                                handleInputChange(e)
-                                setQuery(e.target.value)
-                            }} 
-                            className={styles.chatTextField}
-                            autoFocus={true}
-                            onKeyDown={(e) => {
-                                if (e.key === 'Enter' && !e.shiftKey)
-                                    handleFormSubmit(e)
-                            }}
-                            style={{
-                                opacity: disabledChat ? 0.5 : 1,
-                                transition: "opacity 0.3s ease-in-out"
-                            }}
-                            rows={2}
-                            required
-                            autoComplete="off"
-                            disabled={disabledChat}
-                        />
-                        <RoundBtn 
-                        icon="send"
-                        onClick={handleFormSubmit}
-                        style={{
-                            position: "absolute",
-                            right: "10px",
-                            top: "65px",
-                        }}
-                        disabled={disabledChat || input.trim().length <= 0}
-                    />   
-                    </form>
-                     
-                    <div id="suggested-questions" className={styles.suggestedQuestionContainer + " mt-2 ml-5"}>
-                        {suggestedQuestions.map((q, index) => {
-                                return (
-                                    <p 
-                                        key={index}
-                                        className={styles.suggestedQuestion}
-                                        onClick={() => {
-                                            setInput(q);
-                                            // Submit the form after setting the input
-                                            setTimeout(() => {
-                                                const chatForm = document.querySelector(`.${styles.chatForm}`);
-                                                if (chatForm) {
-                                                    const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
-                                                    chatForm.dispatchEvent(submitEvent);
-                                                }
-                                            }, 0);
-                                        }}
-                                    >{q}</p>
-                                )
-                            })}
-                    </div> 
+            <div className={styles.landingChatWrapper}>
+                <ChatTextField />
+                {/* <SuggestedQuestions /> */}
                 </div>
-
-                
-                
             </div>
         )
     }
+
 
     return (
         <div id="chat">
@@ -214,39 +248,8 @@ export default function Chat(props: {user: any}) {
                 })}
                 {(status === 'submitted') && <LoadingMessage />}
             </div>
-            <div className={styles.chatTextFieldContainer}>
-                <p className={styles.tokenCount}>Tokens Left: {tokensLeft === null ? "loading..." : tokensLeft}</p>
-                <form className={styles.chatForm} onSubmit={handleFormSubmit}>
-                    <textarea 
-                        placeholder={textFieldMessage}
-                        value={input} 
-                        onChange={handleInputChange} 
-                        className={styles.chatTextField}
-                        autoFocus={true}
-                        onKeyDown={(e) => {
-                            if (e.key === 'Enter' && !e.shiftKey)
-                                handleFormSubmit(e)
-                        }}
-                        style={{
-                            opacity: disabledChat ? 0.5 : 1,
-                            transition: "opacity 0.3s ease-in-out"
-                        }}
-                        rows={2}
-                        required
-                        autoComplete="off"
-                        disabled={disabledChat}
-                    />
-                </form>
-                <RoundBtn 
-                    icon="send"
-                    onClick={handleFormSubmit}
-                    style={{
-                        position: "absolute",
-                        right: "10px",
-                        bottom: "10px",
-                    }}
-                    disabled={disabledChat || input.trim().length <= 0}
-                />           
+            <div className={styles.chatTextFieldContainer + " mt-2"}>
+            <ChatTextField />
             </div>
         </div>
     )   
@@ -276,6 +279,43 @@ function Message({messageUser, message, userImage, messageOBJ}: {
         </div>
     )
 }
+
+
+
+
+ 
+
+
+
+
+function SuggestedQuestions(){
+    return (
+         <div id="suggested-questions" className={styles.suggestedQuestionContainer + " mt-2 ml-5"}>
+                        {suggestedQuestions.map((q, index) => {
+                                return (
+                                    <p 
+                                        key={index}
+                                        className={styles.suggestedQuestion}
+                                        onClick={() => {
+                                            setInput(q);
+                                            // Submit the form after setting the input
+                                            setTimeout(() => {
+                                                const chatForm = document.querySelector(`.${styles.chatForm}`);
+                                                if (chatForm) {
+                                                    const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
+                                                    chatForm.dispatchEvent(submitEvent);
+                                                }
+                                            }, 0);
+                                        }}
+                                    >{q}</p>
+                                )
+                            })}
+                    </div>  
+    )
+}
+
+
+
 
 function LoadingMessage(){
     const messages = [

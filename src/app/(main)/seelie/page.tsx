@@ -1,5 +1,6 @@
 import React from 'react'
 import Chat from './chat';
+import styles from './seelie.module.css'
 
 import { isAuthenticated } from '@/app/(auth)/actions'
 import RightSidenav from '@/components/navigation/RightSidenav';
@@ -25,13 +26,13 @@ export default async function Page() {
   const user = await getServerUser()
 
   return (
-    <>
+    <div className={styles.seelieBackground}>
       {/* <RightSidenav>
         <Advertisment type="card" />
       </RightSidenav> */}
       <Chat
         user={user}
       />
-    </>
+    </div>
   )
 }

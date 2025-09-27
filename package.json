@@ -26,7 +26,7 @@
     "@emotion/styled": "^11.14.0",
     "@google/generative-ai": "^0.22.0",
     "@libsql/client": "^0.14.0",
-    "@modelcontextprotocol/sdk": "^1.15.0",
+    "@modelcontextprotocol/sdk": "^1.18.1",
     "@mui/icons-material": "^5.17.1",
     "@mui/material": "^5.17.1",
     "@neondatabase/serverless": "^0.10.4",
@@ -47,6 +47,7 @@
     "fuse.js": "^7.1.0",
     "genshin-data": "^0.51.0",
     "lucide-react": "^0.468.0",
+    "mcp-handler": "^1.0.2",
     "nanoid": "^5.1.5",
     "next": "^15.3.0",
     "next-auth": "^5.0.0-beta.25",
@@ -59,7 +60,7 @@
     "tailwindcss-animate": "^1.0.7",
     "timeago.js": "^4.0.2",
     "uuid": "^11.1.0",
-    "zod": "^3.24.3",
+    "zod": "^3.25.76",
     "zustand": "^4.5.6"
   },
   "devDependencies": {
