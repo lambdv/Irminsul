@@ -11,14 +11,28 @@ import { aimessageTable } from "@/db/schema/aimessage";
 // import { queryFeatureExtractor } from "@root/tests/ai/featureExtraction";
 import { toKey } from "@root/src/utils/standardizers";
 import { getCharacters } from "@root/src/utils/genshinData";
+import { createOpenAI } from "@ai-sdk/openai";
 
 const token = process.env.AISTUDIO_GOOGLE_API_KEY
 const google = createGoogleGenerativeAI({apiKey: token})
 
+const github = createOpenAICompatible({
+    name: "github-models",
+    baseURL: "https://models.github.ai",
+    headers: {
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+      "x-ms-model-id": "deepseek-ai/DeepSeek-R1",
+    },
+  });
+  
+  const deepseekModel = (options?: any) => github("deepseek-ai/DeepSeek-R1", options);
+
 const freeModel: any = google('gemini-2.0-flash-lite')
 const proModel: any = google('gemini-2.5-pro')
 
-export const availableModels = ['gemini-2.0-flash-lite', 'gemini-2.5-pro']
+
+
+export const availableModels = ['free', 'gemini-2.5-pro', 'deepseek-r1']
 
 
 // const systemPrompt = "You're an AI chatbot that answers questions about gesnhin impact related to in-game and metagaming. "
@@ -51,47 +65,28 @@ export async function generateResponse(
     messages?: any[],
     model?: string,
 ){
-    if(!await consumeAiToken(userId))
-        throw new Error("You've run out of tokens. Please come back later!")
+    // if(!await consumeAiToken(userId))
+    //     throw new Error("You've run out of tokens. Please come back later!")
 
-    // const {text} = await generateText({
-    //     ...(messages ? { messages: messages } : {prompt: prompt}),
-    //     model: model,
-    //     system: "answer the question: related to genshin impact",
-    //     maxTokens: 2000,
-    // })
-
-    // console.log(text)
-
-    // const features = await queryFeatureExtractor(prompt)
-    // console.log(features)
-
-    // if(messages){
-    //     const lastMessage = messages[messages.length - 1]
-    //     messages[messages.length - 1] = {
-    //         ...lastMessage,
-    //         content: lastMessage.content + "\n\n" + "features: " + JSON.stringify(features)
-    //     }
-    // }
-    // else{
-    //     prompt = prompt + "\n\n features: " + JSON.stringify(features)
-    // }
 
     let selectedModel: any = model
-
-    if(!availableModels.includes(selectedModel)){
-        selectedModel = freeModel
+    if(!selectedModel || !availableModels.includes(selectedModel)){
+        selectedModel = 'free'
     }
 
-    else{
-        switch(selectedModel){
-            case 'gemini-2.0-flash-lite':
-                selectedModel = freeModel
-                break
-            case 'gemini-2.5-pro':
-                selectedModel = proModel
-                break
-        }
+    switch(selectedModel){
+        case 'free':
+            selectedModel = freeModel
+            break
+        case 'gemini-2.5-pro':
+            selectedModel = proModel
+            break
+        case 'deepseek-r1':
+            selectedModel = deepseekModel()
+            break
+        default:
+            selectedModel = freeModel
+            break
     }
         
     const { textStream } = streamText({

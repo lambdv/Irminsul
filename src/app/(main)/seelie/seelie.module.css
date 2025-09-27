@@ -229,6 +229,12 @@
     animation: seelieGrainFade 900ms ease-out 120ms forwards;
 }
 
+/* When chat has messages, hide the decorative background */
+.hideSeelieBackground::before,
+.hideSeelieBackground::after {
+    display: none !important;
+}
+
 @keyframes seelieBgFade {
     from { opacity: 0; transform: scale(1.015); }
     to { opacity: 1; transform: scale(1); }

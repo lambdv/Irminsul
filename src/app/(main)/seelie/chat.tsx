@@ -37,7 +37,7 @@ const RESIN_ICON = getCDNURL("imgs/icons/resinIcon.png")
  */
 export default function Chat(props: {user: any}) {
     //AISDK useChat hook
-    const [selectedModel, setSelectedModel] = useState<string>('gemini-2.0-flash-lite')
+    const [selectedModel, setSelectedModel] = useState<string>('auto')
     const textareaRef = useRef<HTMLTextAreaElement | null>(null)
 
     const { messages, input, handleInputChange, handleSubmit, setInput, setMessages, status } = useChat({
@@ -57,19 +57,25 @@ export default function Chat(props: {user: any}) {
     //state for chatbot UI
     const [tokensLeft, setTokensLeft] = useState(null)
     const [showTokenModal, setShowTokenModal] = useState(false)
+    const [showLoginModal, setShowLoginModal] = useState(false)
     const [disabledChat, setDisabledChat] = useState(true)
 
     const [query, setQuery] = useState("")
 
-    //on mount functionality
+    // fetch tokens when logged in and on non-auto models; otherwise enable chat without token fetch
     useEffect(() => {
-        const getTokensLeft = async () => {
-            const tokens = await getAiTokensLeft(props.user.id)
-            setTokensLeft(tokens)
-            setDisabledChat(false)
+        const load = async () => {
+            if(props.user?.id && selectedModel !== 'auto'){
+                const tokens = await getAiTokensLeft(props.user.id)
+                setTokensLeft(tokens)
+                setDisabledChat(false)
+            } else {
+                setTokensLeft(null)
+                setDisabledChat(false)
+            }
         }
-        getTokensLeft()
-    }, [props.user?.id])
+        load()
+    }, [props.user?.id, selectedModel])
 
     //enable chat after loading
     useEffect(() => {
@@ -89,6 +95,21 @@ export default function Chat(props: {user: any}) {
         }
     }, [status])
 
+    // Hide the decorative background when chat has messages
+    useEffect(() => {
+        if (typeof document === 'undefined') return
+        const container = document.querySelector(`.${styles.seelieBackground}`)
+        if (!container) return
+        if (messages.length > 0) {
+            container.classList.add(styles.hideSeelieBackground)
+        } else {
+            container.classList.remove(styles.hideSeelieBackground)
+        }
+        return () => {
+            container.classList.remove(styles.hideSeelieBackground)
+        }
+    }, [messages.length])
+
     /**
      * Handler for chatbot query submission.
      * @param e - The event object
@@ -97,8 +118,8 @@ export default function Chat(props: {user: any}) {
     const handleFormSubmit = (e) => {
         e.preventDefault()
         setDisabledChat(true) //disable chat while processing
-        //if user has no tokens left, show pop up
-        if(tokensLeft !== null && tokensLeft <= 0){
+        // if using paid models and user has no tokens left, show pop up
+        if(selectedModel !== 'auto' && tokensLeft !== null && tokensLeft <= 0){
             setShowTokenModal(true)
             setInput("")
             return
@@ -131,6 +152,13 @@ export default function Chat(props: {user: any}) {
             <div style={{ position: 'relative' }}>
                 {/* <p className={styles.tokenCount}>Tokens Left: {tokensLeft === null ? "loading..." : tokensLeft}</p> */}
                 <form className={styles.chatForm} onSubmit={handleFormSubmit}>
+                    <div>
+                        {
+                            (selectedModel !== 'free' && selectedModel !== 'auto') && (
+                                <p className={styles.tokenCount}>Premium Responses Left: {tokensLeft === null ? "loading..." : tokensLeft}</p>
+                            )
+                        }
+                    </div>
                     <textarea 
                         ref={textareaRef}
                         placeholder={textFieldMessage}
@@ -185,18 +213,27 @@ export default function Chat(props: {user: any}) {
                                 <ChevronDown size={14} />
                             </button>
                         </DropdownMenu.Trigger>
-                        <DropdownMenu.Content className={styles.modelMenuContent} sideOffset={6} align="start">
-                            {availableModels.map((m) => (
-                                <DropdownMenu.Item
-                                    key={m}
-                                    className={styles.modelMenuItem}
-                                    onSelect={(e) => { e.preventDefault(); setSelectedModel(m); }}
-                                >
-                                    <span>{m}</span>
-                                    {selectedModel === m && <span className={styles.modelMenuCheck}>✓</span>}
-                                </DropdownMenu.Item>
-                            ))}
-                        </DropdownMenu.Content>
+                        <DropdownMenu.Portal>
+                            <DropdownMenu.Content className={styles.modelMenuContent} sideOffset={6} align="start" style={{ zIndex: 1000 }}>
+                                {availableModels.map((m) => (
+                                    <DropdownMenu.Item
+                                        key={m}
+                                        className={styles.modelMenuItem}
+                                        onSelect={(e) => { 
+                                            e.preventDefault(); 
+                                            if(m !== 'auto' && !props.user){
+                                                setShowLoginModal(true)
+                                                return
+                                            }
+                                            setSelectedModel(m); 
+                                        }}
+                                    >
+                                        <span>{m}</span>
+                                        {selectedModel === m && <span className={styles.modelMenuCheck}>✓</span>}
+                                    </DropdownMenu.Item>
+                                ))}
+                            </DropdownMenu.Content>
+                        </DropdownMenu.Portal>
                     </DropdownMenu.Root>
                 </div>
                 <RoundBtn 
@@ -236,6 +273,9 @@ export default function Chat(props: {user: any}) {
     return (
         <div id="chat">
             {showTokenModal && <TokenModal user={props.user} setShowTokenModal={setShowTokenModal}/>}
+            {showLoginModal && <LoginRequiredModal setShowLoginModal={setShowLoginModal} />}
+            {showTokenModal && <TokenModal user={props.user} setShowTokenModal={setShowTokenModal}/>}
+            {showLoginModal && <LoginRequiredModal setShowLoginModal={setShowLoginModal} />}
             <div className={styles.chatHistory}>
                 {messages.map((message, index) => {
                     return <Message 
@@ -386,4 +426,34 @@ function TokenModal(props: {
         </Overlay>
     )
 }
+}
+
+function LoginRequiredModal(props: {
+    setShowLoginModal: (show: boolean) => void
+}){
+    return (
+        <Overlay onClick={() => props.setShowLoginModal(false)} zIndex={100} style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+        }}>
+            <div className={styles.tokenModal}>
+                <div className={styles.modalHeader}>
+                    <h1 className={styles.tokenModalHeader}>Login required</h1>
+                    <RoundBtn 
+                        icon="close"
+                        onClick={() => {
+                            props.setShowLoginModal(false)
+                        }}
+                        style={{top: "-5px"}}
+                    />
+                </div>
+                <p className={styles.tokenModalText}>You must be logged in to use other models.</p>
+                <br />
+                <Link href={'/login'} className={styles.tokenModalButton}>
+                    Continue to login
+                </Link>
+            </div>
+        </Overlay>
+    )
 }
