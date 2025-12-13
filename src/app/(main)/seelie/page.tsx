@@ -1,10 +1,9 @@
 import React from 'react'
 import Chat from './chat';
+import styles from './seelie.module.css'
 
-import { isAuthenticated } from '@/app/(auth)/actions'
 import RightSidenav from '@/components/navigation/RightSidenav';
 import Advertisment from '@/components/ui/Advertisment';
-import { redirect } from 'next/navigation';
 import { getServerUser } from '@/lib/server-session'
 import { getCDNURL } from '@/utils/getAssetURL';
 
@@ -18,20 +17,16 @@ export async function generateMetadata() {
 }
 
 export default async function Page() {
-  const authenticated = await isAuthenticated()
-  if(!authenticated)
-    redirect("/login")
-  
   const user = await getServerUser()
 
   return (
-    <>
+    <div className={styles.seelieBackground}>
       {/* <RightSidenav>
         <Advertisment type="card" />
       </RightSidenav> */}
       <Chat
         user={user}
       />
-    </>
+    </div>
   )
 }

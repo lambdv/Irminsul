@@ -38,6 +38,11 @@ Create a `.env` file in the root directory with the following variables:
 
     STRIPE_SECRET_KEY=""     # for payments integration using stripe 
     STRIPE_WEBHOOK_SECRET="" # shouldn't break anything if not set up in most cases
+
+    # AI Providers
+    AISTUDIO_GOOGLE_API_KEY=""   # Google AI Studio key for Gemini models
+    # GITHUB_TOKEN=""            # (optional) GitHub Models token if you still want GPT-5
+    DEEPSEEK_API_KEY=""          # DeepSeek API key for DeepSeek-R1
 ```
 
 ### 4 Run Application

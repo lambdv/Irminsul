@@ -4,7 +4,10 @@ export default function CalculatorLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="min-h-screen w-full overflow-hidden" style={{ }}>
+    <div className="h-screen w-full overflow-hidden" style={{ 
+      marginLeft: "90px",
+      marginRight: "90px",
+    }}>
       {children}
     </div>
   )

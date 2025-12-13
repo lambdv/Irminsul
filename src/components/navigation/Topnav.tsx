@@ -89,12 +89,8 @@ function LeftContainer({ isSupporter }: { isSupporter: boolean }){
         <Link href="/">
           <p id={TopnavCSS.logo}>
             {websiteName} <span 
-              style={{
-                backgroundColor: isSupporter && "#000000",
-                color: isSupporter && "var(--ingame-primary-color)",
-                boxShadow: isSupporter && "0 0 5px var(--ingame-primary-color), 0 0 15px rgba(147, 51, 234, 0.5), 0 0 1px rgba(255, 255, 255, 0.264)",
-              }}
-            >{isSupporter ? "Pro Tier" : ".moe"}</span>
+
+            >.moe</span>
           </p>
         </Link>
       </div>
@@ -188,6 +184,12 @@ function CenterContainer(props: any){
           style={{ top: "5px" }}
         />
       </div>
+
+
+      {isAuthenticated && session?.user && (
+        <>
+        </>
+      )}
 
       <div className={TopnavCSS.userDropdownContainer}>
         {isAuthenticated && session?.user && (

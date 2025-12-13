@@ -1,0 +1,77 @@
+/* LiteGraph Dark Theme Overrides */
+.litegraph {
+  background: #684343 !important;
+  color: #ffffff !important;
+}
+
+.litegraph .lgraphcanvas {
+  background: #1a1a1a !important;
+}
+
+.litegraph .lgraphcanvas .lgraphcanvas_bg {
+  background: #1a1a1a !important;
+}
+
+/* Node styling */
+.litegraph .lgraphcanvas .lgraphcanvas_node {
+  background: #2a2a2a !important;
+  border: 1px solid #444 !important;
+  color: #ffffff !important;
+}
+
+.litegraph .lgraphcanvas .lgraphcanvas_node.selected {
+  border: 2px solid #007acc !important;
+  box-shadow: 0 0 10px rgba(0, 122, 204, 0.3) !important;
+}
+
+/* Connection styling */
+.litegraph .lgraphcanvas .lgraphcanvas_connection {
+  stroke: #666 !important;
+  stroke-width: 2px !important;
+}
+
+.litegraph .lgraphcanvas .lgraphcanvas_connection.selected {
+  stroke: #007acc !important;
+  stroke-width: 3px !important;
+}
+
+/* Input/Output slot styling */
+.litegraph .lgraphcanvas .lgraphcanvas_slot {
+  background: #333 !important;
+  border: 1px solid #555 !important;
+}
+
+.litegraph .lgraphcanvas .lgraphcanvas_slot.input {
+  background: #4a4a4a !important;
+}
+
+.litegraph .lgraphcanvas .lgraphcanvas_slot.output {
+  background: #3a3a3a !important;
+}
+
+/* Context menu styling */
+.litegraph .lgraphcanvas .lgraphcanvas_contextmenu {
+  background: #2a2a2a !important;
+  border: 1px solid #444 !important;
+  color: #ffffff !important;
+}
+
+.litegraph .lgraphcanvas .lgraphcanvas_contextmenu .lgraphcanvas_contextmenu_item:hover {
+  background: #3a3a3a !important;
+}
+
+/* Property panel styling */
+.litegraph .lgraphcanvas .lgraphcanvas_properties {
+  background: #2a2a2a !important;
+  border: 1px solid #444 !important;
+  color: #ffffff !important;
+}
+
+.litegraph .lgraphcanvas .lgraphcanvas_properties input,
+.litegraph .lgraphcanvas .lgraphcanvas_properties select,
+.litegraph .lgraphcanvas .lgraphcanvas_properties textarea {
+  background: #3a3a3a !important;
+  border: 1px solid #555 !important;
+  color: #ffffff !important;
+}
+
