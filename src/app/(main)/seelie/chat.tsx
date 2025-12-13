@@ -19,7 +19,7 @@ import { ChevronDown } from 'lucide-react';
 import { availableModels } from './ai'
 
 const slogans = [
-    "Navigate the Truth of Teyvat.",
+    "Navigate all Knowledge of Teyvat.",
     // "Repository for all of the information of Teyvat.",
     // "A sapling of knowledge from Irminsul itself.",
     // "Navigate the torrents of Teyvat's memory.",
@@ -60,6 +60,8 @@ export default function Chat(props: {user: any}) {
     const [showLoginModal, setShowLoginModal] = useState(false)
     const [disabledChat, setDisabledChat] = useState(true)
 
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+
     const [query, setQuery] = useState("")
 
     // fetch tokens when logged in and on non-auto models; otherwise enable chat without token fetch
@@ -69,9 +71,11 @@ export default function Chat(props: {user: any}) {
                 const tokens = await getAiTokensLeft(props.user.id)
                 setTokensLeft(tokens)
                 setDisabledChat(false)
+                setIsLoggedIn(true)
             } else {
                 setTokensLeft(null)
                 setDisabledChat(false)
+                setIsLoggedIn(false)
             }
         }
         load()
@@ -255,15 +259,22 @@ export default function Chat(props: {user: any}) {
             <div className={styles.landingWrapper}>
                 {showTokenModal && <TokenModal user={props.user} setShowTokenModal={setShowTokenModal}/>}
                 
-
-                <h1  className={styles.landingSlogan}>
+                <h1 className={styles.landingSlogan}>
                     {slogan}
                     <Image src={SEELIE_ICON} alt="Seelie" width={40} height={40} className="rounded-full"/>
                 </h1>
-
-            <div className={styles.landingChatWrapper}>
-                <ChatTextField />
-                {/* <SuggestedQuestions /> */}
+                {/* {!isLoggedIn && <i className="" style={{
+                    fontSize: "0.9rem",
+                    color: "#5a5b5e",
+                    fontWeight: "bold",
+                    marginBottom: "1rem",
+                    marginTop: "-0.5rem",
+                    textAlign: "center",
+                    width: "100%",
+                }}>AI Chatbot with access to up-to-date and accurate meta & theorycrafting data.</i>} */}
+                <div className={styles.landingChatWrapper}>
+                    <ChatTextField />
+                    {/* <SuggestedQuestions /> */}
                 </div>
             </div>
         )

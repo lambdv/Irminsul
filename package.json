@@ -47,6 +47,7 @@
     "fs": "^0.0.1-security",
     "fuse.js": "^7.1.0",
     "genshin-data": "^0.51.0",
+    "litegraph.js": "^0.7.18",
     "lucide-react": "^0.468.0",
     "mcp-handler": "^1.0.2",
     "nanoid": "^5.1.5",

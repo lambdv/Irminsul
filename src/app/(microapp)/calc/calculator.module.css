@@ -1,0 +1,103 @@
+.viewportWrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: #1a1a1a;
+}
+
+.calculatorContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.modeSelector {
+    display: flex;
+    background: #2a2a2a;
+    border-bottom: 1px solid #444;
+    padding: 8px 16px;
+    gap: 8px;
+    z-index: 10;
+}
+
+.modeButton {
+    padding: 8px 16px;
+    background: #3a3a3a;
+    border: 1px solid #555;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.modeButton:hover {
+    background: #4a4a4a;
+    border-color: #666;
+}
+
+.modeButton.active {
+    background: #007acc;
+    border-color: #0099ff;
+}
+
+.graphContainer {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.graphCanvas {
+    border: 1px solid #333;
+    border-radius: 8px;
+    background: #1a1a1a;
+    cursor: grab;
+}
+
+.graphCanvas:active {
+    cursor: grabbing;
+}
+
+.zoomControls {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 10;
+}
+
+.zoomButton {
+    width: 32px;
+    height: 32px;
+    background: #3a3a3a;
+    border: 1px solid #555;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.zoomButton:hover {
+    background: #4a4a4a;
+    border-color: #666;
+    transform: scale(1.05);
+}
+
+.zoomButton:active {
+    transform: scale(0.95);
+    background: #2a2a2a;
+}
