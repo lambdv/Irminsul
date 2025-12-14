@@ -1,4 +1,4 @@
-import { generateText, streamText, tool } from "ai";
+import { generateText, streamText, tool, stepCountIs } from "ai";
 import { AverageDPSOfCharacterTool, getAllCharacterDataTool, getCharacterDataTool, getInformationFromKnowledgeBaseTool, QueryGCSIMDatabaseTool, searchEngineTool, tools } from "./tools";
 import { eq, sql, and } from "drizzle-orm";
 import db from "@/db/db";
@@ -25,9 +25,8 @@ const github = createOpenAICompatible({
     },
   });
   
-  const deepseekModel = (options?: any) => github("deepseek-ai/DeepSeek-R1", options);
 
-const freeModel: any = google('gemini-2.0-flash-lite')
+const freeModel: any = google('gemini-2.5-flash')
 const proModel: any = google('gemini-2.5-pro')
 
 
@@ -69,33 +68,33 @@ export async function generateResponse(
     //     throw new Error("You've run out of tokens. Please come back later!")
 
 
-    let selectedModel: any = model
-    if(!selectedModel || !availableModels.includes(selectedModel)){
-        selectedModel = 'free'
-    }
+    // let selectedModel: any = model
+    // if(!selectedModel || !availableModels.includes(selectedModel)){
+    //     selectedModel = 'free'
+    // }
 
-    switch(selectedModel){
-        case 'free':
-            selectedModel = freeModel
-            break
-        case 'gemini-2.5-pro':
-            selectedModel = proModel
-            break
-        case 'deepseek-r1':
-            selectedModel = deepseekModel()
-            break
-        default:
-            selectedModel = freeModel
-            break
-    }
+    // switch(selectedModel){
+    //     case 'free':
+    //         selectedModel = freeModel
+    //         break
+    //     case 'gemini-2.5-pro':
+    //         selectedModel = proModel
+    //         break
+    //     case 'deepseek-r1':
+    //         selectedModel = deepseekModel()
+    //         break
+    //     default:
+    //         selectedModel = freeModel
+    //         break
+    // }
+
+    const selectedModel = freeModel;
         
     const { textStream } = streamText({
         ...(messages ? { messages: messages } : {prompt: prompt}),
         model: selectedModel,
         system: systemPrompt,
         tools: tools,
-        maxSteps: 20,
-        maxTokens: DiscordMessageLimit,
     })
 
     return textStream;

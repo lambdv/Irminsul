@@ -1,14 +1,7 @@
 import { Inter } from "next/font/google"
 import "@/app/globals.css"
-import Sidebar from "@/components/navigation/Siderail"
-import Topnav from "@/components/navigation/Topnav"
 
-import { SessionProvider } from "next-auth/react"
 import { cookies } from 'next/headers'
-import Head from "next/head"
-import Sidedrawer from "@/components/navigation/Sidedrawer"
-import ClientProvider from "@/components/navigation/ClientProvider"
-
 
 const inter = Inter({ subsets: ["latin"] })
 

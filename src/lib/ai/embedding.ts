@@ -5,20 +5,18 @@ import { cosineDistance, desc, gt, eq, sql } from 'drizzle-orm';
 import { embeddings } from '@/db/schema/embeddings';
 import { resources } from '@/db/schema/resources';
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
+import { createOpenAI } from '@ai-sdk/openai';
 // import vector from '@/db/vector';
 // import { embeddings } from '@/db/schema';
 // import { resources } from '@/db/schema';
 
 const similarityThreshold = 0.65
 
-const token = process.env.AISTUDIO_GOOGLE_API_KEY
-const google = createGoogleGenerativeAI({
-  apiKey: token
+const openai = createOpenAI({
+  apiKey: process.env.OPENAI_API_KEY
 })
 
-const embeddingModel = google.textEmbeddingModel('gemini-embedding-exp-03-07', {
-  outputDimensionality: 1536
-});
+const embeddingModel = openai.embedding('text-embedding-3-small');
 
 function simpleChunker(text: string): string[] {
   return text

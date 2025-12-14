@@ -7,7 +7,7 @@ import { aitokenTable } from "@root/src/db/schema/aitoken";
 import { eq, sql } from "drizzle-orm";
 import db from "@root/src/db/db";
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
-import { streamUI } from "ai/rsc"
+import { streamUI } from "@ai-sdk/rsc"
 import { queryGCSIMDatabase, fetchWebpageContent, getKeqingMainsInfo } from "./toolHelpers"
 
 /**
@@ -15,7 +15,7 @@ import { queryGCSIMDatabase, fetchWebpageContent, getKeqingMainsInfo } from "./t
  */
 export const getInformationFromKnowledgeBaseTool = tool({
     description: `get information from your knowledge base to answer questions.`,
-    parameters: z.object({
+    inputSchema: z.object({
       question: z.string().describe('the users question'),
     }),
     execute: async ({ question }) => {
@@ -31,7 +31,7 @@ export const getInformationFromKnowledgeBaseTool = tool({
  */
 export const getCharacterDataTool = tool({
     description: 'get character data from the database',
-    parameters: z.object({
+    inputSchema: z.object({
         characterName: z.string().describe('name of character'),
     }),
     execute: async ({ characterName }) => {
@@ -53,7 +53,7 @@ export const getCharacterDataTool = tool({
  */
 export const getAllCharacterDataTool = tool({
     description: 'get all character data from the database',
-    parameters: z.object({
+    inputSchema: z.object({
     }),
     execute: async () => {
         try {
@@ -73,7 +73,7 @@ export const getAllCharacterDataTool = tool({
  */
 export const searchEngineTool = tool({
     description: `search the web for real-time information about Genshin Impact`,
-    parameters: z.object({
+    inputSchema: z.object({
       query: z.string().describe('search query'),
       numResults: z.number().optional().describe('number of results to return (default: 3)'),
     }),
@@ -121,11 +121,11 @@ export const searchEngineTool = tool({
 });
 
 export const QueryGCSIMDatabaseTool = tool({
-    description: `query Gcsim Team Calculation Database. this is a powerful tool you can be used to answer questions related to teams and damage and what the "best" x or what is "good". 
+    description: `query Gcsim Team Calculation Database. this is a powerful tool you can be used to answer questions related to teams and damage and what the "best" x or what is "good".
         make sure to cite the source in the object attribute "source" which is a link to the simulator
         also make sure to include the full assumptions in the object attribute "team_members" such as level, cons, weapon, talents, artifacts, etc.
     `,
-    parameters: z.object({
+    inputSchema: z.object({
         characters: z.array(z.string()).optional().describe('array of character names to include in team. to just find a all teams for a character, just put the character name in the array'),
         excludeCharacters: z.array(z.string()).optional().describe('array of character names to exclude from team'),
         limit: z.number().optional().describe('number of results to return (default: 25)'),
@@ -157,7 +157,7 @@ export const QueryGCSIMDatabaseTool = tool({
 
 export const AverageDPSOfCharacterTool = tool({
     description: `get the average dps of a character`,
-    parameters: z.object({
+    inputSchema: z.object({
         character: z.string().describe('name of character'),
     }),
     execute: async ({ character }) => {
@@ -175,7 +175,7 @@ export const AverageDPSOfCharacterTool = tool({
 
 export const getCharacterGuideInformationTool = tool({
     description: `get guide information, such as builds, artifacts, teams, weapons, talents, playstyle, energy recharge requirements and other meta/tc information for a character`,
-    parameters: z.object({
+    inputSchema: z.object({
         character: z.string().describe('name of character'),
     }),
     execute: async ({ character }) => {

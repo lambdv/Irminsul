@@ -4,11 +4,11 @@ import { cookies } from 'next/headers'
 import { isAdmin } from '@/app/(auth)/actions'
 
 /**
- * Middleware for the application
- * @param req 
- * @returns 
+ * Proxy for the application
+ * @param req
+ * @returns
  */
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
     await AdminOnly(req)
     await RedirectArchive(req)
     return NextResponse.next()
@@ -16,8 +16,8 @@ export async function middleware(req: NextRequest) {
 
 /**
  * Redirects to the archive if the user is not an admin
- * @param req 
- * @returns 
+ * @param req
+ * @returns
  */
 async function AdminOnly(req: NextRequest): Promise<void> {
     if(req.nextUrl.pathname.startsWith('/admin')){
@@ -41,8 +41,8 @@ async function AdminOnly(req: NextRequest): Promise<void> {
 
 /**
  * Redirects to the archive if the user is not an admin
- * @param req 
- * @returns 
+ * @param req
+ * @returns
  */
 async function RedirectArchive(req: NextRequest): Promise<void> {
     const pathname = req.nextUrl.pathname

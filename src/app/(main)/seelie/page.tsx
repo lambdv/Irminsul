@@ -21,9 +21,6 @@ export default async function Page() {
 
   return (
     <div className={styles.seelieBackground}>
-      {/* <RightSidenav>
-        <Advertisment type="card" />
-      </RightSidenav> */}
       <Chat
         user={user}
       />

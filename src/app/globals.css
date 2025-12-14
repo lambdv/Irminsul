@@ -37,6 +37,16 @@
   --invert-text-color: #ececec;
 }
 
+:root {
+  --radius: 0.375rem; /* small */
+
+  --primary: 38 92% 50%; /* amber */
+  --primary-foreground: 48 96% 89%;
+
+  --accent: 210 40% 96.1%; /* subtle */
+  --accent-foreground: 222.2 47.4% 11.2%;
+}
+
 
 ::selection { 
   background-color: var(--primary-color); 

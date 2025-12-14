@@ -1,4 +1,4 @@
-import { google } from "@ai-sdk/google";
+import { openai } from "@ai-sdk/openai";
 import { generateText } from "ai";
 import { getCharacters } from "@/utils/genshinData";
 import { toKey } from "@/utils/standardizers";
@@ -25,11 +25,11 @@ export const queryFeatureExtractor = async (prompt: string) => {
 
 
     const { text } = await generateText({
-        model: google('gemini-2.5-flash-preview-04-17'),
+        model: openai('gpt-4o-mini'),
         prompt: "this is a user prompt asking a question about genshin impact"
             + "extract the features/metadata from the prompt as a json object"
             + "the prompt is: \"" + prompt + "\"",
-        maxTokens: 1000,
+        maxOutputTokens: 1000,
         temperature: 0.0,
     });
 

@@ -67,13 +67,9 @@ export default async function RootLayout({children}) {
       </Head>
       <body className={inter.className}>
         <ClientProvider>
-          <Topnav/>
-          <Sidedrawer/>
-          <Sidebar/>
           <div className="">
             {children}
           </div>
-          {/* <SessionTest/> */}
         </ClientProvider>
       </body>
     </html>

@@ -18,9 +18,15 @@ import { availableModels } from './ai'
 
 const slogans = [
     "Navigate the Truth of Teyvat.",
+    // "Repository for all of the information of Teyvat.",
+    // "A sapling of knowledge from Irminsul itself.",
+    // "Navigate the torrents of Teyvat's memory.",
+    // "Tap into the Ley Lines. Speak to the memory of Teyvat.",
+    // "The sapling that speaks. Teyvat's history, one question away",
 ]
 
 const SEELIE_ICON = getCDNURL("imgs/icons/seelie.png")
+const RESIN_ICON = getCDNURL("imgs/icons/resinIcon.png")
 
 /**
  * Chat Client component for AI chatbot page.
@@ -35,9 +41,9 @@ export default function Chat(props: {user: any}) {
 
     const { messages, sendMessage, setMessages, status } = useChat({
         transport: new DefaultChatTransport({
-            api: '/api/ai',
+            api: '/api/chat',
             prepareSendMessagesRequest: ({ messages }) => ({
-                body: { messages },
+                body: { messages, model: selectedModel },
             }),
         }),
         ///initialMessages: [{id: "1", role: 'assistant', content: 'Ad astra abyssosque traveler! \nIm Seelie, your AI assistant for Genshin Impact. \nHow can I assist you today?'}],
@@ -242,7 +248,24 @@ export default function Chat(props: {user: any}) {
         )
     })
 
+    if(messages.length === 0){
+        return (
+            <div className={styles.landingWrapper}>
+                {showTokenModal && <TokenModal user={props.user} setShowTokenModal={setShowTokenModal}/>}
+                
 
+                <h1  className={styles.landingSlogan}>
+                    {slogan}
+                    <Image src={SEELIE_ICON} alt="Seelie" width={40} height={40} className="rounded-full"/>
+                </h1>
+
+            <div className={styles.landingChatWrapper}>
+                <ChatTextField />
+                {/* <SuggestedQuestions /> */}
+                </div>
+            </div>
+        )
+    }
 
     const getMessageText = (message: any): string => {
         if (typeof message?.content === 'string') return message.content
@@ -258,6 +281,10 @@ export default function Chat(props: {user: any}) {
 
     return (
         <div id="chat">
+            {showTokenModal && <TokenModal user={props.user} setShowTokenModal={setShowTokenModal}/>}
+            {showLoginModal && <LoginRequiredModal setShowLoginModal={setShowLoginModal} />}
+            {showTokenModal && <TokenModal user={props.user} setShowTokenModal={setShowTokenModal}/>}
+            {showLoginModal && <LoginRequiredModal setShowLoginModal={setShowLoginModal} />}
             <div className={styles.chatHistory}>
                 {messages.map((message, index) => {
                     return <Message 
@@ -268,7 +295,7 @@ export default function Chat(props: {user: any}) {
                         messageOBJ={message}
                     />
                 })}
-                {(status === 'submitted') && <p>Analyzing...</p>}
+                {(status === 'submitted') && <LoadingMessage />}
             </div>
             <div className={styles.chatTextFieldContainer + " mt-2"}>
             <ChatTextField />
@@ -278,27 +305,164 @@ export default function Chat(props: {user: any}) {
 
     
 
-    function Message({messageUser, message, userImage, messageOBJ}: {
-        messageUser: string, 
-        message: string | JSX.Element, 
-        userImage?: string, 
-        messageOBJ: any,
-    }) {
-        const isUser = messageUser === "User"
-        let displayMessage = message
+function Message({messageUser, message, userImage, messageOBJ}: {
+    messageUser: string, 
+    message: string | JSX.Element, 
+    userImage?: string, 
+    messageOBJ: any,
+}) {
+    const isUser = messageUser === "User"
+    let displayMessage = message
 
-        return (
-            <div className={`${styles.message} ${isUser ? styles.messageUser : styles.messageAssistant}`}>
-                <div className={styles.messageAvatar}>
-                    {messageUser === "Seelie" 
-                        ? <Image src={SEELIE_ICON} alt="Seelie" width={40} height={40} className="rounded-full"/>
-                        : <Image src={userImage || SEELIE_ICON} alt="User" width={40} height={40} className="rounded-full" unoptimized={true}/>
-                    }
-                </div>
-                <div className={`${styles.messageContent} ${isUser ? styles.messageContentUser : styles.messageContentAssistant}`}>
-                    {typeof displayMessage === "string" ? markdownToHTML(displayMessage) : displayMessage}
-                </div>
+    return (
+        <div className={`${styles.message} ${isUser ? styles.messageUser : styles.messageAssistant}`}>
+            <div className={styles.messageAvatar}>
+                {messageUser === "Seelie" 
+                    ? <Image src={SEELIE_ICON} alt="Seelie" width={40} height={40} className="rounded-full"/>
+                    : <Image src={userImage || SEELIE_ICON} alt="User" width={40} height={40} className="rounded-full" unoptimized={true}/>
+                }
             </div>
-        )
-    }
+            <div className={`${styles.messageContent} ${isUser ? styles.messageContentUser : styles.messageContentAssistant}`}>
+                {typeof displayMessage === "string" ? markdownToHTML(displayMessage) : displayMessage}
+            </div>
+        </div>
+    )
+}
+
+
+
+
+ 
+
+
+
+
+function SuggestedQuestions(){
+    return (
+         <div id="suggested-questions" className={styles.suggestedQuestionContainer + " mt-2 ml-5"}>
+                        {suggestedQuestions.map((q, index) => {
+                                return (
+                                    <p 
+                                        key={index}
+                                        className={styles.suggestedQuestion}
+                                        onClick={() => {
+                                            setInput(q);
+                                            // Submit the form after setting the input
+                                            setTimeout(() => {
+                                                const chatForm = document.querySelector(`.${styles.chatForm}`);
+                                                if (chatForm) {
+                                                    const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
+                                                    chatForm.dispatchEvent(submitEvent);
+                                                }
+                                            }, 0);
+                                        }}
+                                    >{q}</p>
+                                )
+                            })}
+                    </div>  
+    )
+}
+
+
+
+
+function LoadingMessage(){
+    const messages = [
+        "Cooking",
+        "Pathfinding",
+        "Searching Irminsul",
+        "Hold on let me pull up a tenten video"
+    ]
+    return (
+        <Message messageUser="Seelie" message={
+            <p className={`${styles.gradientText}`} style={{
+                background: 'linear-gradient(90deg, #e0e0e0, #bdbdbd, #9b9b9b, #7a7a7a)',
+                backgroundSize: '400% 400%',
+                animation: 'gradientAnimation 4s linear infinite reverse',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                position: 'relative',
+                fontSize: '0.8rem',
+
+            }}>
+                <style jsx>{`
+                    @keyframes gradientAnimation {
+                        0% { background-position: 0% 50% }
+                        25% { background-position: 100% 50% }
+                        50% { background-position: 200% 50% }
+                        75% { background-position: 300% 50% }
+                        100% { background-position: 400% 50% }
+                    }
+                `}</style>
+                {messages[Math.floor(Math.random() * messages.length)]}
+                ...
+            </p>
+        } messageOBJ={{}}/>
+    )
+}
+
+function TokenModal(props: {
+    user: any,
+    setShowTokenModal: (show: boolean) => void
+}){
+    return (
+        <Overlay onClick={() => props.setShowTokenModal(false)} zIndex={100} style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+        }}>
+            <div className={styles.tokenModal}>
+                <div className={styles.modalHeader}>
+                    <h1 className={styles.tokenModalHeader}>Out of Tokens</h1>
+                    <RoundBtn 
+                        icon="close"
+                        onClick={() => {
+                            props.setShowTokenModal(false)
+                        }}
+                        style={{top: "-5px"}}
+                    />
+                </div>
+                <Image src={SEELIE_ICON} alt="Seelie" width={40} height={40} className="rounded-full"/>
+                <p className={styles.tokenModalText}>It seems you&apos;ve run out of tokens.</p>
+                <p className={styles.tokenModalText}>Wait until the next reset or consider supporting Irminsul for more tokens!</p>
+                <br />
+                <Link href={"https://buy.stripe.com/5kAaG57cIdzGgF2cMO?prefilled_email=" + props.user?.email} className={styles.tokenModalButton}>
+                    <Image src={RESIN_ICON} alt="Seelie" width={20} height={20} className={`rounded-full ${styles.tokenModalButtonImage}`}/>
+                    Replenish SeelieAI Tokens
+                </Link>
+            </div>
+        </Overlay>
+    )
+}
+}
+
+function LoginRequiredModal(props: {
+    setShowLoginModal: (show: boolean) => void
+}){
+    return (
+        <Overlay onClick={() => props.setShowLoginModal(false)} zIndex={100} style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+        }}>
+            <div className={styles.tokenModal}>
+                <div className={styles.modalHeader}>
+                    <h1 className={styles.tokenModalHeader}>Login required</h1>
+                    <RoundBtn 
+                        icon="close"
+                        onClick={() => {
+                            props.setShowLoginModal(false)
+                        }}
+                        style={{top: "-5px"}}
+                    />
+                </div>
+                <p className={styles.tokenModalText}>You must be logged in to use other models.</p>
+                <br />
+                <Link href={'/login'} className={styles.tokenModalButton}>
+                    Continue to login
+                </Link>
+            </div>
+        </Overlay>
+    )
 }
