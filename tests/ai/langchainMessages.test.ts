@@ -1,19 +1,18 @@
-import { toLangChainMessages } from '@root/src/feature/ai/AIAgentFactory'
-import { AIMessage, HumanMessage, SystemMessage } from 'langchain'
+import { AIAgentFactory, GeneralistAgent } from '@root/src/feature/ai/AIAgentFactory'
 
-describe('toLangChainMessages', () => {
-  it('prefixes the agent system prompt and maps roles correctly', () => {
-    const msgs = toLangChainMessages('SYS', [
-      { role: 'user', content: 'hi' },
-      { role: 'assistant', content: 'hello' },
-      { role: 'system', content: 'extra system' },
-    ])
+describe('AIAgentFactory', () => {
+  it('creates a GeneralistAgent when type is "generalist"', () => {
+    const agent = AIAgentFactory.createAgent('generalist')
+    expect(agent).toBeInstanceOf(GeneralistAgent)
+  })
 
-    expect(msgs).toHaveLength(4)
-    expect(msgs[0]).toBeInstanceOf(SystemMessage)
-    expect(msgs[1]).toBeInstanceOf(HumanMessage)
-    expect(msgs[2]).toBeInstanceOf(AIMessage)
-    expect(msgs[3]).toBeInstanceOf(SystemMessage)
+  it('has a streamRaw method on GeneralistAgent', () => {
+    const agent = AIAgentFactory.createAgent('generalist')
+    expect(typeof agent.streamRaw).toBe('function')
+  })
+
+  it('throws error for unknown agent type', () => {
+    expect(() => AIAgentFactory.createAgent('unknown' as any)).toThrow('Agent unknown not found')
   })
 })
 

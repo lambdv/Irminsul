@@ -1,103 +1,74 @@
-import { generateText, streamText, tool, stepCountIs } from "ai";
-import { AverageDPSOfCharacterTool, getAllCharacterDataTool, getCharacterDataTool, getInformationFromKnowledgeBaseTool, QueryGCSIMDatabaseTool, searchEngineTool, tools } from "./tools";
-import { eq, sql, and } from "drizzle-orm";
+import { streamText, stepCountIs, wrapLanguageModel, extractReasoningMiddleware } from "ai";
+import { tools } from "./tools";
+import { eq } from "drizzle-orm";
 import db from "@/db/db";
 import { aitokenTable } from "@/db/schema/aitoken";
-import { usersTable } from "@/db/schema/user";
-import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
+import { createOpenAI } from '@ai-sdk/openai';
 import { getAiTokensLeft } from "./numAiTokensLeft";
-import { aimessageTable } from "@/db/schema/aimessage";
-// import { queryFeatureExtractor } from "@root/tests/ai/featureExtraction";
-import { toKey } from "@root/src/utils/standardizers";
-import { getCharacters } from "@root/src/utils/genshinData";
-import { createOpenAI } from "@ai-sdk/openai";
 
-const token = process.env.AISTUDIO_GOOGLE_API_KEY
-const google = createGoogleGenerativeAI({apiKey: token})
+const google = createGoogleGenerativeAI({ apiKey: process.env.AISTUDIO_GOOGLE_API_KEY })
 
-const github = createOpenAICompatible({
-    name: "github-models",
-    baseURL: "https://models.github.ai",
-    headers: {
-      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-      "x-ms-model-id": "deepseek-ai/DeepSeek-R1",
-    },
-  });
-  
+// OpenAI-compatible provider (for local servers like LM Studio, Ollama, etc.)
+const openaiCompatible = createOpenAI({
+    baseURL: process.env.AISTUDIO_BASE_URL || "http://127.0.0.1:1234/v1",
+    apiKey: process.env.AISTUDIO_API_KEY || "not-needed",
+})
 
-const freeModel: any = google('gemini-2.5-flash')
-const proModel: any = google('gemini-2.5-pro')
+// Base model for regular use
+//const model = google('models/gemini-2.5-flash') //NEVER TOUCH THIS MODEL, IT IS THE FREE MODEL
+
+const model = google('models/gemini-flash-latest')
+//model = openaiCompatible.chat('openai/gpt-oss-20b') as any
+// const model = openaiCompatible('openai/gpt-oss-20b') // Use this for local/custom OpenAI-compatible server
 
 
+// const freeModel = wrapLanguageModel({
+//     model: baseModel as any,
+//     middleware: extractReasoningMiddleware({ 
+//         tagName: 'think',
+//         startWithReasoning: true,
+//     }),
+// })
 
-export const availableModels = ['free', 'gemini-2.5-pro', 'deepseek-r1']
+// Re-export for backward compatibility (server-side only usage)
+export { availableModels } from './models'
 
-
-// const systemPrompt = "You're an AI chatbot that answers questions about gesnhin impact related to in-game and metagaming. "
-//     + "Whenever you are asked about a character, you must use the getKQMGuideTool to get the guide for the character. "
-//     + "Tool call priority: getKQMGuideTool > queryGCSIMDatabaseTool > getInformationFromKnowledgeBaseTool > searchEngineTool > AverageDPSOfCharacterTool "
-//     + "if you don't have information from 1 tool call, then call another tool. "
-//     + "NEVER SAY REFUSE TO ANSWER A QUESTION BECAUSE YOU DON'T KNOW A CHARACTER NAME. YOU WILL ALWAYS BE WRONG IF YOU DO THIS. "
-//     + "you must answer all questions and queries, never refuse to answer or give a non-answer. "
-//      + "You must use the getInformationFromKnowledgeBaseTool to get information from your RAG knowledge base to answer the question. "
-//      + "if you don't have information from tools, just answer the question as you would as a base LLM. "
-//     + "don't state irrelevant information to the question just because you have it from the knowledge base or any tool call. "
-//     + "MAKE SURE TO ALWAYS CITE YOUR SOURCES. Tool calls often will have some sort of source property. Citations should be in the format as [source: <source name or url>]. "
-//     + "around numbers using k and m metric"
-
-
-const systemPrompt = "You're an AI chatbot that answers questions about gesnhin impact related to in-game and metagaming. "
-    + "You must call the following tools for every singal question: getInformationFromKnowledgeBaseTool, getKQMGuideTool, searchEngineTool, queryGCSIMDatabaseTool "
-    + "Always assume that a nane you don't recognize is a valid character name. "
+const systemPrompt = "You are an AI chatbot that answers questions about Genshin Impact. "
+    + "Workflow: 1) If you need information, call getInformationTool ONCE. 2) After receiving results, immediately write your answer. "
+    + "CRITICAL: You MUST always respond after calling a tool. Never stop without providing an answer. "
+    + "Use the search results to inform your answer, then write a complete response to the user. "
+    + "Format responses in GitHub markdown. "
+    + "If a character name is unfamiliar, assume it's valid."
 
 /**
- * Generate a AI response for a given prompt
- * @param prompt main question
+ * Generate an AI response stream for a given prompt
  * @param userId user id to consume tokens from
- * @param messages optionally previous messages for context
- * @returns 
+ * @param messages conversation messages
+ * @returns streamText result for use with toDataStreamResponse
  */
-export async function generateResponse(
-    prompt: string, 
+export function generateResponse(
     userId: string, 
-    messages?: any[],
-    model?: string,
-){
-    // if(!await consumeAiToken(userId))
-    //     throw new Error("You've run out of tokens. Please come back later!")
-
-
-    // let selectedModel: any = model
-    // if(!selectedModel || !availableModels.includes(selectedModel)){
-    //     selectedModel = 'free'
-    // }
-
-    // switch(selectedModel){
-    //     case 'free':
-    //         selectedModel = freeModel
-    //         break
-    //     case 'gemini-2.5-pro':
-    //         selectedModel = proModel
-    //         break
-    //     case 'deepseek-r1':
-    //         selectedModel = deepseekModel()
-    //         break
-    //     default:
-    //         selectedModel = freeModel
-    //         break
-    // }
-
-    const selectedModel = freeModel;
-        
-    const { textStream } = streamText({
-        ...(messages ? { messages: messages } : {prompt: prompt}),
-        model: selectedModel,
+    messages: any[],
+) {
+    return streamText({
+        messages: messages,
+        // Use .chat() to explicitly use Chat Completions API (/v1/chat/completions)
+        // instead of the default Responses API (/v1/responses)
+        model:model as any,
         system: systemPrompt,
         tools: tools,
+        stopWhen: stepCountIs(5), // Allow multiple steps: tool call + response generation
+        onStepFinish: (step) => {
+            // Log to debug tool execution
+            if (step.toolCalls && step.toolCalls.length > 0) {
+                console.log('Tool called:', step.toolCalls.map(t => t.toolName));
+            }
+            if (step.text) {
+                console.log('Model response after tool:', step.text.substring(0, 100));
+            }
+        },
     })
-
-    return textStream;
 }
 
 
@@ -122,33 +93,3 @@ export async function consumeAiToken(userId: string, numTokens: number = 1): Pro
         .where(eq(aitokenTable.userId, userId))
     return true
 }
-
-// const systemPrompt = "You're an AI chatbot that answers questions about gesnhin impact related to in-game and metagaming. "
-
-//     + "you must answer all questions and queries, never refuse to answer or give a non-answer. "
-//      + "You must use the getInformationTool to get information from your RAG knowledge base to answer the question. "
-//      + "if don't understand a character name doesn't mean it doesn't exist. (due to new characters being added) "
-//      + "if you don't have information from tools, just answer the question as you would as a base LLM. "
-//     + "don't state irrelevant information to the question just because you have it from the knowledge base or any tool call. "
-//     + "MAKE SURE TO ALWAYS CITE YOUR SOURCES. Tool calls often will have some sort of source property. Citations should be in the format as [source: <source name or url>]. "
-//     + "around numbers using k and m metric"
-
-// const systemPrompt = "Your are 'Seelie', a Genshin Impact metagaming-player and theorycrafter that chats in Genshin discord help channels to help other players with their queries. "
-//  + "Your goal is to provide correct, nuanced/in-depth and up-to-date information to teach and guide players with their questions. "
-//  //+ "You are are eagar to share deep knowledge to shape and correct the general consensus among casual players which is often misinformed/misinterpated compared to theorycrafting circles "
-//  //+ "Other theorycrafters you admire also read your messages so you don't want to embarrass yourself by giving conflicting or missinformation. " 
-//  + "You are required to call tools to gain information to answer the question, always use multiple tools such as getInformationTool, searchEngineTool and GCSIM tools . "
-//  + "Answering questions without tools will likely lead to a bad answer. "
-//  + "Other theorycrafters you admire also read your messages so you don't want to embarrass yourself by giving conflicting or missinformation. " 
-
-
-// //  + "these tools addtionally may give information irrelevant/unrelated to the player's query which you shouldn't state inorder to not confuse them. "
-// //  + "getInformationTool lets you get fetch information from your RAG knowledge base. "
-// //  + "search tool lets you search the internet for up to date information "
-// //  + "GCSIM tools lets you access team damage calculations "
-
-//  + "Common practice and etiquette in help channels : "
-//  + "Your make sure to always cite sources you get your information from Citations should be in the format as [source: <source name or url>]. "
-//  + "It is common practice to use K and M to shorten numbers and round to at most 2 decimal places"
-
-const DiscordMessageLimit = 2000

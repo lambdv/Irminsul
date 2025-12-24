@@ -446,3 +446,291 @@
 .modelMenuItem[data-disabled] { opacity: 0.6; cursor: not-allowed; }
 
 .modelMenuCheck { color: var(--primary-color); margin-left: 12px; }
+
+/* Thinking/Chain of Thought section */
+.thinkingSection {
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 10px;
+}
+
+.thinkingToggle {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.thinkingToggle:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 1);
+}
+
+.thinkingContent {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    border-left: 3px solid rgba(59, 130, 246, 0.5);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75);
+    max-height: 300px;
+    overflow-y: auto;
+    animation: thinkingFadeIn 0.2s ease-out;
+}
+
+@keyframes thinkingFadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.thinkingContent div {
+    color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.thinkingContent p {
+    margin: 0 0 8px 0;
+}
+
+.thinkingContent p:last-child {
+    margin-bottom: 0;
+}
+
+/* Reasoning/Chain of Thought section */
+.reasoningContainer {
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 8px;
+}
+
+.reasoningToggle {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease;
+}
+
+.reasoningToggle:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.reasoningContent {
+    margin-top: 8px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-style: italic;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.reasoningContent div {
+    color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* Streaming message animation */
+.messageStreaming {
+    position: relative;
+}
+
+.messageStreaming::after {
+    content: '▊';
+    animation: cursorBlink 1s step-end infinite;
+    margin-left: 2px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@keyframes cursorBlink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Smooth fade-in for new tokens */
+.streamingText {
+    animation: tokenFadeIn 0.15s ease-out;
+}
+
+@keyframes tokenFadeIn {
+    from { 
+        opacity: 0.5;
+    }
+    to { 
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .messageStreaming::after { animation: none; opacity: 1; }
+    .streamingText { animation: none; }
+}
+
+/* ========== Landing State Styles ========== */
+.landingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 120px);
+    padding: 20px;
+    overflow: hidden;
+}
+
+.landingContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 700px;
+    width: 100%;
+    animation: landingFadeIn 0.6s ease-out;
+    overflow: hidden;
+}
+
+@keyframes landingFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.landingIcon {
+    margin-bottom: 24px;
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+}
+
+.landingIconImage {
+    border-radius: 50%;
+    filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.4));
+}
+
+.landingSloganText {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 32px;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: -0.02em;
+}
+
+.suggestedQuestionsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.suggestedQuestionBtn {
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    width: 100%;
+}
+
+.suggestedQuestionBtn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(56, 189, 248, 0.3);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.suggestedQuestionBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.landingTextFieldWrapper {
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+    height: 200px;
+    margin-top: 20px;
+}
+
+.laserFlowWrapper {
+    position: absolute;
+    top: -60px;
+    left: -30px;
+    width: calc(100% + 60px);
+    height: calc(100% + 120px);
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.textFieldOverlay {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.textFieldOverlay > div {
+    width: 100%;
+    max-width: 600px;
+}
+
+.landingTextFieldWrapper .chatTextField {
+    border-radius: 16px;
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        0 4px 24px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.landingTextFieldWrapper .chatTextField:focus {
+    box-shadow: 
+        0 0 0 2px rgba(56, 189, 248, 0.4),
+        0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .landingSloganText {
+        font-size: 1.5rem;
+    }
+    
+    .suggestedQuestionsContainer {
+        max-width: 90%;
+    }
+
+    .suggestedQuestionBtn {
+        font-size: 0.8rem;
+        padding: 10px 14px;
+    }
+}

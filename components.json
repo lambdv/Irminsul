@@ -10,6 +10,7 @@
     "cssVariables": true,
     "prefix": ""
   },
+  "iconLibrary": "lucide",
   "aliases": {
     "components": "@/src/components/cn",
     "utils": "@/src/lib/shadcn/utils",
@@ -17,5 +18,7 @@
     "lib": "@/src/lib",
     "hooks": "@/src/hooks"
   },
-  "iconLibrary": "lucide"
+  "registries": {
+    "@react-bits": "https://reactbits.dev/r/{name}.json"
+  }
 }

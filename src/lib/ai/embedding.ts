@@ -6,17 +6,15 @@ import { embeddings } from '@/db/schema/embeddings';
 import { resources } from '@/db/schema/resources';
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { createOpenAI } from '@ai-sdk/openai';
-// import vector from '@/db/vector';
-// import { embeddings } from '@/db/schema';
-// import { resources } from '@/db/schema';
 
 const similarityThreshold = 0.65
 
-const openai = createOpenAI({
-  apiKey: process.env.OPENAI_API_KEY
+// Use Google's embedding model (free tier available)
+const google = createGoogleGenerativeAI({
+  apiKey: process.env.AISTUDIO_GOOGLE_API_KEY
 })
 
-const embeddingModel = openai.embedding('text-embedding-3-small');
+const embeddingModel = google.textEmbeddingModel('text-embedding-004');
 
 function simpleChunker(text: string): string[] {
   return text
