@@ -1,6 +1,5 @@
 "use client"
 import React, { useState, useEffect, useRef }  from 'react'
-import { getAllPages } from '@/utils/genshinData'
 import SearchPaletteCSS from './searchpallette.module.css'
 import Image from 'next/image'
 import { SearchStore } from '@/store/Search'
@@ -12,6 +11,38 @@ import RoundBtn from '../ui/RoundBtn'
 import { Page } from '@/types/page'
 import Fuse from 'fuse.js'
 import assert from 'assert'
+
+async function fetchSearchPages(): Promise<Page[]> {
+    const query = `
+        query {
+            searchPages {
+                id
+                name
+                category
+                rarity
+            }
+        }
+    `;
+
+    const response = await fetch('/api/graphql', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ query }),
+    });
+
+    if (!response.ok) {
+        throw new Error('Failed to fetch search pages');
+    }
+
+    const data = await response.json();
+    if (data.errors) {
+        throw new Error(data.errors[0]?.message || 'GraphQL error');
+    }
+
+    return data.data.searchPages;
+}
 
 /**
  * Modal that overlays the screen, containg a search bar and a list of results
@@ -26,25 +57,22 @@ export default function SearchPallete() {
     const [fuse, setFuse] = useState<Fuse<Page> | null>(null) ///use fuse.js to search the pages
     const closePalette = () => setShowPallette(false)
     
-    //loads pages
+    //loads pages via GraphQL (only fetches minimal fields needed for search)
     useEffect(() => {
         (async () => {
-            const pages = await getAllPages()
-            assert(pages, "pages is not initialized")
+            try {
+                const pages = await fetchSearchPages()
+                assert(pages, "pages is not initialized")
 
-            // const pagesWithAbbreviations = pages.map(page => ({
-            //     ...page,
-            //     searchTerms: `${page.name} ${page.category} ${generateAbbreviations(page.name)}`
-            // }));
-
-            setFuse(new Fuse(pages, {
-                // Search within the combined 'searchTerms' field
-                keys: ['name', 'category'],
-                threshold: 0.3, // Adjust threshold as needed for fuzziness
-                includeScore: true,
-                ignoreLocation: true, // Useful for matching terms anywhere in the string
-                // useExtendedSearch: true, // Not needed when combining terms into one field
-            }));
+                setFuse(new Fuse(pages, {
+                    keys: ['name', 'category'],
+                    threshold: 0.3,
+                    includeScore: true,
+                    ignoreLocation: true,
+                }));
+            } catch (error) {
+                console.error('Failed to load search pages:', error);
+            }
         })();
     }, []);
 

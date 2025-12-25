@@ -1,14 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --ingame-primary-color: #E7C073;
+  --ingame-primary-color: #e7c073;
 }
 
-/* [data-theme="dark"] { */ :root {
-/* /#FFD52A */
-  --ingame-primary-color: #E7C073;
+/* [data-theme="dark"] { */
+:root {
+  /* /#FFD52A */
+  --ingame-primary-color: #F49F1E;
   --primary-color: var(--ingame-primary-color);
 
   --background-color: #070707;
@@ -23,8 +26,8 @@
 }
 
 [data-theme="light"] {
-  --ingame-primary-color: #E7C073;
-  --primary-color: var(--ingame-primary-color); 
+  --ingame-primary-color: #e7c073;
+  --primary-color: var(--ingame-primary-color);
 
   --background-color: #f1f1f1;
   --elevated-color: #e7e6e6;
@@ -38,7 +41,7 @@
 }
 
 :root {
-  --radius: 0.375rem; /* small */
+  --radius: 0.75rem; /* large */
 
   --primary: 38 92% 50%; /* amber */
   --primary-foreground: 48 96% 89%;
@@ -47,27 +50,26 @@
   --accent-foreground: 222.2 47.4% 11.2%;
 }
 
-
-::selection { 
-  background-color: var(--primary-color); 
+::selection {
+  background-color: var(--primary-color);
   color: var(--primary-text-color);
 }
 
 @font-face {
-  font-family: 'ingame';
-  src: url('../../public/fonts/HanyiWenHei/zh-cn.ttf')
+  font-family: "ingame";
+  src: url("../../public/fonts/HanyiWenHei/zh-cn.ttf");
 }
 
 @font-face {
-  font-family: 'Material Symbols Outlined';
+  font-family: "Material Symbols Outlined";
   font-style: normal;
   font-weight: 100 700;
-  src: url('../../public/fonts/MaterialIcons/material_icons_rounded.woff2') format('woff2');
-
+  src: url("../../public/fonts/MaterialIcons/material_icons_rounded.woff2")
+    format("woff2");
 }
 
 .material-symbols-outlined {
-  font-family: 'Material Symbols Outlined';
+  font-family: "Material Symbols Outlined";
   font-weight: normal;
   font-style: normal;
   font-size: 24px;
@@ -78,29 +80,29 @@
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
-  -webkit-font-feature-settings: 'liga';
+  -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
 }
 
 .material-symbols-outlined-filled {
   font-variation-settings:
-  'FILL' 1,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+    "FILL" 1,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
 }
-
 
 /* fallback */
 @font-face {
-  font-family: 'Material Symbols Rounded';
+  font-family: "Material Symbols Rounded";
   font-style: normal;
   font-weight: 100 700;
-  src: url('../../public/fonts/MaterialIcons/material_icons_rounded.woff2') format('woff2');
+  src: url("../../public/fonts/MaterialIcons/material_icons_rounded.woff2")
+    format("woff2");
 }
 
 .material-symbols-rounded {
-  font-family: 'Material Symbols Rounded';
+  font-family: "Material Symbols Rounded";
   font-weight: normal;
   font-style: normal;
   font-size: 24px;
@@ -111,16 +113,16 @@
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
-  -webkit-font-feature-settings: 'liga';
+  -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
 }
 
 .material-symbols-rounded {
   font-variation-settings:
-  'FILL' 1,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+    "FILL" 1,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
 }
 
 * {
@@ -129,37 +131,22 @@
 }
 
 body {
-  font-family: 'CustomFont', sans-serif;
-}
-
-button .ripple {
-  animation: ripple 0.5s linear;
-}
-
-@keyframes ripple {
-  to {
-      transform: scale(2.5);
-      opacity: 0;
-  }
-}
-
-body{
   overflow-y: scroll;
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 
-.minimalPageContentWrapper{
+.minimalPageContentWrapper {
   position: relative;
   width: 100%;
   padding-left: 130px;
   padding-right: 130px;
   overflow-y: hidden;
-  overflow-x:hidden;
+  overflow-x: hidden;
   background-color: transparent;
 }
 
 /**css variables*/
-:root{
+:root {
   --topnav-height: 60px;
   --mobile-width: 768px;
   --tablet-width: 1200px;
@@ -167,122 +154,127 @@ body{
 }
 /* css variables end */
 
-
-@media all and (max-width: 1800px) {  
-  .minimalPageContentWrapper{
+@media all and (max-width: 1800px) {
+  .minimalPageContentWrapper {
     padding-left: 8rem;
     padding-right: 8rem;
   }
 }
 
-@media all and (max-width: 1200px) {  
-  .minimalPageContentWrapper{
+@media all and (max-width: 1200px) {
+  .minimalPageContentWrapper {
     padding-left: 0rem;
     padding-right: 0rem;
   }
 }
 
-
-.focusedPageContentContainer{
+.focusedPageContentContainer {
   position: relative;
   width: 100%;
   padding-left: 20%;
   padding-right: 20%;
   overflow-y: hidden;
-  overflow-x:hidden;
+  overflow-x: hidden;
   top: -60px;
   padding-top: 60px;
   min-height: 90vh;
   background-color: transparent;
 }
 
-@media all and (max-width: 1800px) {  
-  .focusedPageContentContainer{
+@media all and (max-width: 1800px) {
+  .focusedPageContentContainer {
     padding-left: 8rem;
     padding-right: 8rem;
   }
 }
 
-@media all and (max-width: 1200px) {  
-  .focusedPageContentContainer{
+@media all and (max-width: 1200px) {
+  .focusedPageContentContainer {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 }
 
-.bg-1-star{
-  background-image: linear-gradient(to bottom, rgb(140, 140, 140, 0.5), rgb(102, 102, 102, 0.5)),
-  url('https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/imgs/bg/1-star.png');
+.bg-1-star {
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgb(140, 140, 140, 0.5),
+      rgb(102, 102, 102, 0.5)
+    ),
+    url("https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/imgs/bg/1-star.png");
 }
 
-.bg-2-star{
-  background-image: linear-gradient(to bottom, rgb(75, 154, 113, 0.5), rgb(67, 120, 93, 0.5)),
-  url('https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/imgs/bg/2-star.png');
+.bg-2-star {
+  background-image:
+    linear-gradient(to bottom, rgb(75, 154, 113, 0.5), rgb(67, 120, 93, 0.5)),
+    url("https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/imgs/bg/2-star.png");
 }
 
-.bg-3-star{
-  background-image: linear-gradient(to bottom, rgb(64, 157, 213, 0.5), rgb(58, 110, 140, 0.5)),
-  url('https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/imgs/bg/3-star.png');
+.bg-3-star {
+  background-image:
+    linear-gradient(to bottom, rgb(64, 157, 213, 0.5), rgb(58, 110, 140, 0.5)),
+    url("https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/imgs/bg/3-star.png");
 }
 
-.bg-4-star{
-  background-image: linear-gradient(to top, rgb(149, 112, 203, 0.5), rgb(106, 86, 136, 0.5)),
-  url('https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/imgs/bg/4-star.png');
+.bg-4-star {
+  background-image:
+    linear-gradient(to top, rgb(149, 112, 203, 0.5), rgb(106, 86, 136, 0.5)),
+    url("https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/imgs/bg/4-star.png");
 }
 
-.bg-5-star{
-  background-image: linear-gradient(to top, rgba(220, 142, 73, 0.5), rgba(144, 101, 65, 0.5)),
-  url('https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/imgs/bg/5-star.png');
+.bg-5-star {
+  background-image:
+    linear-gradient(to top, rgba(220, 142, 73, 0.5), rgba(144, 101, 65, 0.5)),
+    url("https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/imgs/bg/5-star.png");
 }
 
-.bg-5-5-star{
-  background-image: linear-gradient(to top, rgb(149, 112, 203, 0.5), rgb(106, 86, 136, 0.5)),
-  url('https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/imgs/bg/55-star.png');
+.bg-5-5-star {
+  background-image:
+    linear-gradient(to top, rgb(149, 112, 203, 0.5), rgb(106, 86, 136, 0.5)),
+    url("https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/imgs/bg/55-star.png");
 }
-
 
 ::-webkit-scrollbar {
   width: 10px;
   transition: ease-in-out 0.2s;
-
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.377); 
+  background: rgba(0, 0, 0, 0.377);
   transition: ease-in-out 0.2s;
-
 }
-
 
 [data-theme="light"] {
   ::-webkit-scrollbar-track {
-    background: rgb(245, 245, 245); 
+    background: rgb(245, 245, 245);
   }
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(46, 46, 46); 
+  background: rgb(46, 46, 46);
   border-radius: 200px;
   transition: ease-in-out 0.2s;
-
 }
 
 [data-theme="light"] {
   ::-webkit-scrollbar-thumb {
-    background: rgb(199, 199, 199); 
+    background: rgb(199, 199, 199);
     border-radius: 200px;
     transition: ease-in-out 0.2s;
   }
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(68, 68, 68); 
+  background: rgb(68, 68, 68);
   transition: ease-in-out 0.2s;
 }
 
-::-webkit-scrollbar-corner { display: none; }
+::-webkit-scrollbar-corner {
+  display: none;
+}
 
 [data-theme="light"] {
   ::-webkit-scrollbar-thumb:hover {
@@ -316,7 +308,7 @@ body{
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.75rem;
   }
   .dark {
     --background: 240 10% 3.9%;
@@ -342,7 +334,7 @@ body{
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
 

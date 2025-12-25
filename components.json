@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "nova",
+  "style": "new-york",
   "rsc": true,
   "tsx": true,
   "tailwind": {
@@ -12,13 +12,14 @@
   },
   "iconLibrary": "lucide",
   "aliases": {
-    "components": "@/src/components/cn",
-    "utils": "@/src/lib/shadcn/utils",
-    "ui": "@/src/components/cn",
-    "lib": "@/src/lib",
-    "hooks": "@/src/hooks"
+    "components": "@/components/cn",
+    "utils": "@/lib/shadcn/utils",
+    "ui": "@/components/cn",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
   },
   "registries": {
-    "@react-bits": "https://reactbits.dev/r/{name}.json"
+    "@react-bits": "https://reactbits.dev/r/{name}.json",
+    "@blocks": "https://blocks.so/r/{name}.json"
   }
 }

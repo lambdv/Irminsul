@@ -32,6 +32,8 @@ export let links = [
   // {href: "/dmgcalc", icon: "functions", text: "DMG Calc"},
   // {href: "/energycalc", icon: "bolt", text: "Energy Calc"},
 
+  {href: "/graphql", icon: "api", text: "GraphQL"},
+
   {href: "/archive/characters", img: CHARACTER_ICON, text: "Characters"},
   {href: "/archive/weapons", img: WEAPON_ICON, text: "Weapons"},
   {href: "/archive/artifacts", img: ARTIFACT_ICON, text: "Artifacts"},

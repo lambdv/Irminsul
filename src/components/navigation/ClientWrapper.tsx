@@ -1,8 +1,8 @@
 "use client"
 import React, { use, useEffect, useState, useMemo } from 'react'
 import Script from "next/script"
-import "@/lib/waves/waves.css"
-import Waves from '@/lib/waves/waves.js'
+// import "@/lib/waves/waves.css"
+import Waves from '@root/temp/waves/waves.js'
 import { usePathname } from 'next/navigation'
 import { NavigationStore } from "@/store/Navigation"
 import { SearchStore } from "@/store/Search"

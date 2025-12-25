@@ -11,13 +11,23 @@ import Overlay from "@/components/ui/Overlay"
 import Link from "next/link"
 import RoundBtn from "@/components/ui/RoundBtn"
 import MarkdownRenderer from "@/components/ui/MarkdownRenderer"
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
-import { ChevronDown, ChevronRight, Brain, Menu } from "lucide-react"
+import { ChevronDown, ChevronRight, Brain, Menu, Zap, Circle, CircleDot, Cloud, Code, Laptop, History, Paperclip, Plus, Loader2, Bot, Send, User, Wand2, Globe, ArrowUp } from "lucide-react"
 import LaserFlow from "@/components/ui/LaserFlow"
 
 import { availableModels } from "./models"
 import ShinyText from "@/components/cn/ShinyText"
 import ConversationSidebar from "./ConversationSidebar"
+
+import { Textarea } from "@/components/cn/textarea"
+import { Button } from "@/components/cn/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/cn/dropdown-menu"
+import { cn } from "@/lib/shadcn/utils"
 
 const slogans = [
   "Navigate the Truth of Teyvat.",
@@ -40,43 +50,13 @@ export default function Chat(props: { user: any }) {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
   const [input, setInput] = useState<string>("")
 
-  const [conversationId, setConversationId] = useState<string | null>(null)
-  const [sidebarRefreshTrigger, setSidebarRefreshTrigger] = useState(0)
-  const [sidebarOpen, setSidebarOpen] = useState(false)
-
-  const createNewConversation = () => {
-    const newId = crypto.randomUUID()
-    setConversationId(newId)
-    setMessages([]) // Clear messages for new chat
-    setSidebarRefreshTrigger((prev) => prev + 1)
-  }
-
-  const loadConversation = async (id: string) => {
-    try {
-      const response = await fetch(`/api/conversations/${id}`)
-      const data = await response.json()
-      setConversationId(id)
-      // Convert messages to useChat format
-      const chatMessages = data.messages.map((msg: any) => ({
-        id: msg.id,
-        role: msg.role,
-        content: msg.content,
-      }))
-      setMessages(chatMessages as any)
-      setSidebarRefreshTrigger((prev) => prev + 1)
-    } catch (error) {
-      console.error("Failed to load conversation:", error)
-    }
-  }
-
   const { messages, sendMessage, setMessages, status } = useChat({
     transport: new DefaultChatTransport({
       api: "/api/ai",
       prepareSendMessagesRequest: ({ messages }) => ({
-        body: { messages, conversationId, agentType: "agentic" },
+        body: { messages, agentType: "agentic" },
       }),
     }),
-    ///initialMessages: [{id: "1", role: 'assistant', content: 'Ad astra abyssosque traveler! \nIm Seelie, your AI assistant for Genshin Impact. \nHow can I assist you today?'}],
     onError: (e) => {
       setDisabledChat(true)
       setMessages(
@@ -93,8 +73,6 @@ export default function Chat(props: { user: any }) {
     },
   })
 
-  //state for chatbot UI
-  const [tokensLeft, setTokensLeft] = useState(null)
   const [showTokenModal, setShowTokenModal] = useState(false)
   const [showLoginModal, setShowLoginModal] = useState(false)
   const [disabledChat, setDisabledChat] = useState(true)
@@ -102,14 +80,14 @@ export default function Chat(props: { user: any }) {
   // fetch tokens when logged in and on non-auto models; otherwise enable chat without token fetch
   useEffect(() => {
     const load = async () => {
-      if (props.user?.id && selectedModel !== "auto") {
-        const tokens = await getAiTokensLeft(props.user.id)
-        setTokensLeft(tokens)
-        setDisabledChat(false)
-      } else {
-        setTokensLeft(null)
-        setDisabledChat(false)
-      }
+      // if (props.user?.id && selectedModel !== "auto") {
+      //   const tokens = await getAiTokensLeft(props.user.id)
+      //   setTokensLeft(tokens)
+      //   setDisabledChat(false)
+      // } else {
+      //   setTokensLeft(null)
+      //   setDisabledChat(false)
+      // }
     }
     load()
   }, [props.user?.id, selectedModel])
@@ -132,20 +110,20 @@ export default function Chat(props: { user: any }) {
     }
   }, [status])
 
-  // Hide the decorative background when chat has messages
-  useEffect(() => {
-    if (typeof document === "undefined") return
-    const container = document.querySelector(`.${styles.seelieBackground}`)
-    if (!container) return
-    if (messages.length > 0) {
-      container.classList.add(styles.hideSeelieBackground)
-    } else {
-      container.classList.remove(styles.hideSeelieBackground)
-    }
-    return () => {
-      container.classList.remove(styles.hideSeelieBackground)
-    }
-  }, [messages.length])
+  // // Hide the decorative background when chat has messages
+  // useEffect(() => {
+  //   if (typeof document === "undefined") return
+  //   const container = document.querySelector(`.${styles.seelieBackground}`)
+  //   if (!container) return
+  //   if (messages.length > 0) {
+  //     container.classList.add(styles.hideSeelieBackground)
+  //   } else {
+  //     container.classList.remove(styles.hideSeelieBackground)
+  //   }
+  //   return () => {
+  //     container.classList.remove(styles.hideSeelieBackground)
+  //   }
+  // }, [messages.length])
 
   /**
    * Handler for chatbot query submission.
@@ -156,11 +134,11 @@ export default function Chat(props: { user: any }) {
     e.preventDefault()
     setDisabledChat(true) //disable chat while processing
     // if using paid models and user has no tokens left, show pop up
-    if (selectedModel !== "auto" && tokensLeft !== null && tokensLeft <= 0) {
-      setShowTokenModal(true)
-      setInput("")
-      return
-    }
+    // if (selectedModel !== "auto" && tokensLeft !== null && tokensLeft <= 0) {
+    //   setShowTokenModal(true)
+    //   setInput("")
+    //   return
+    // }
     //if input is empty, return and dno nothing
     if (input.trim().length <= 0) {
       return
@@ -209,87 +187,172 @@ export default function Chat(props: { user: any }) {
     setSlogan(slogans[Math.floor(Math.random() * slogans.length)])
   }, [])
 
-  const textFieldMessage = "Any Genshin Questions?"
+  const [selectedAgent, setSelectedAgent] = useState("Agent")
+  const [selectedPerformance, setSelectedPerformance] = useState("High")
+  const [autoMode, setAutoMode] = useState(false)
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
+  const textFieldMessage = "Ask anything"
 
   const ChatTextField = React.memo(() => {
     return (
-      <div style={{ position: "relative" }}>
-        {/* <p className={styles.tokenCount}>Tokens Left: {tokensLeft === null ? "loading..." : tokensLeft}</p> */}
-        <form className={styles.chatForm} onSubmit={handleFormSubmit}>
-          <div>
-            {selectedModel !== "free" && selectedModel !== "auto" && (
-              <p className={styles.tokenCount}>
-                Premium Responses Left:{" "}
-                {tokensLeft === null ? "loading..." : tokensLeft}
-              </p>
-            )}
-          </div>
-          <textarea
-            ref={textareaRef}
-            placeholder={textFieldMessage}
-            value={input}
-            onChange={(e) => {
-              const current = e.currentTarget
-              const caretPos = current.selectionStart || 0
-              setInput(current.value)
-              requestAnimationFrame(() => {
-                const el = textareaRef.current
-                if (!el) return
-                try {
-                  el.setSelectionRange(caretPos, caretPos)
-                } catch {}
-              })
-            }}
-            className={styles.chatTextField}
-            autoFocus={true}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && !e.shiftKey) handleFormSubmit(e)
-            }}
-            style={{
-              opacity: disabledChat ? 0.5 : 1,
-              transition: "opacity 0.3s ease-in-out",
-              paddingBottom: "35px",
-            }}
-            rows={2}
-            required
-            autoComplete="off"
-            disabled={disabledChat}
+      <div className="w-full">
+        <div className="bg-background border border-border rounded-2xl overflow-hidden">
+          <input
+            ref={fileInputRef}
+            type="file"
+            multiple
+            className="sr-only"
+            onChange={(e) => {}}
           />
-        </form>
-        <div
-          style={{
-            position: "absolute",
-            left: "10px",
-            bottom: "15px",
-            display: "flex",
-            alignItems: "center",
-            gap: "6px",
-          }}
-        >
-          <DropdownMenu.Root>
-            <DropdownMenu.Trigger asChild>
-              <button
-                className={styles.modelMenuTrigger}
-                style={{ zIndex: 2, color: "#6b7280" }}
+
+          <div className="px-3 pt-3 pb-2 grow">
+            <form onSubmit={handleFormSubmit}>
+              <Textarea
+                ref={textareaRef}
+                value={input}
+                onChange={(e) => {
+                  const current = e.currentTarget
+                  const caretPos = current.selectionStart || 0
+                  setInput(current.value)
+                  requestAnimationFrame(() => {
+                    const el = textareaRef.current
+                    if (!el) return
+                    try {
+                      el.setSelectionRange(caretPos, caretPos)
+                    } catch {}
+                  })
+                }}
+                placeholder={textFieldMessage}
+                className="w-full bg-transparent p-2 border-0 shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 text-foreground placeholder-muted-foreground resize-none border-none outline-none text-sm min-h-10 max-h-[25vh]"
+                rows={1}
+                autoFocus={true}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.shiftKey) handleFormSubmit(e)
+                }}
+                onInput={(e) => {
+                  const target = e.target as HTMLTextAreaElement
+                  target.style.height = "auto"
+                  target.style.height = target.scrollHeight + "px"
+                }}
+                disabled={disabledChat}
+                style={{
+                  opacity: disabledChat ? 0.5 : 1,
+                  transition: "opacity 0.3s ease-in-out",
+                }}
+                required
+                autoComplete="off"
+              />
+            </form>
+          </div>
+
+          <div className="mb-2 px-2 flex items-center justify-between">
+            <div className="flex items-center gap-1">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-7 w-7 p-0 rounded-full border border-border hover:bg-accent"
+                    disabled={disabledChat}
+                  >
+                    <Plus className="size-3" />
+                  </Button>
+                </DropdownMenuTrigger>
+
+                <DropdownMenuContent
+                  align="start"
+                  className="max-w-xs rounded-2xl p-1.5"
+                >
+                  <DropdownMenuGroup className="space-y-1">
+                    <DropdownMenuItem
+                      className="rounded-[calc(1rem-6px)] text-xs"
+                      onClick={() => fileInputRef.current?.click()}
+                    >
+                      <Paperclip size={16} className="opacity-60" />
+                      Attach Files
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                      className="rounded-[calc(1rem-6px)] text-xs"
+                      onClick={() => {}}
+                    >
+                      <Code size={16} className="opacity-60" />
+                      Code Interpreter
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                      className="rounded-[calc(1rem-6px)] text-xs"
+                      onClick={() => {}}
+                    >
+                      <Globe size={16} className="opacity-60" />
+                      Web Search
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                      className="rounded-[calc(1rem-6px)] text-xs"
+                      onClick={() => {}}
+                    >
+                      <History size={16} className="opacity-60" />
+                      Chat History
+                    </DropdownMenuItem>
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setAutoMode(!autoMode)}
+                className={cn(
+                  "h-7 px-2 rounded-full border border-border hover:bg-accent",
+                  {
+                    "bg-primary/10 text-primary border-primary/30": autoMode,
+                    "text-muted-foreground": !autoMode,
+                  }
+                )}
                 disabled={disabledChat}
               >
-                <span className={styles.modelMenuLabel}>{selectedModel}</span>
-                <ChevronDown size={14} />
-              </button>
-            </DropdownMenu.Trigger>
-            <DropdownMenu.Portal>
-              <DropdownMenu.Content
-                className={styles.modelMenuContent}
-                sideOffset={6}
-                align="start"
-                style={{ zIndex: 1000 }}
+                <Wand2 className="size-3" />
+                <span className="text-xs">Auto</span>
+              </Button>
+            </div>
+
+            <div>
+              <Button
+                type="submit"
+                disabled={!input.trim() || disabledChat}
+                className="size-7 p-0 rounded-full bg-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                onClick={handleFormSubmit}
               >
+                <ArrowUp className="size-3 text-background" />
+                {/* <i className="material-symbols-outlined " style={{ color: "var(--background-color)" }} >arrow_upward</i> */}
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-0 pt-2">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-6 px-2 rounded-full border border-transparent hover:bg-accent text-muted-foreground text-xs"
+                disabled={disabledChat}
+              >
+                <Laptop className="size-3" />
+                <span>{selectedModel}</span>
+                <ChevronDown className="size-3" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              align="start"
+              className="max-w-xs rounded-2xl p-1.5 bg-popover border-border"
+            >
+              <DropdownMenuGroup className="space-y-1">
                 {availableModels.map((m) => (
-                  <DropdownMenu.Item
+                  <DropdownMenuItem
                     key={m}
-                    className={styles.modelMenuItem}
-                    onSelect={(e) => {
-                      e.preventDefault()
+                    className="rounded-[calc(1rem-6px)] text-xs"
+                    onClick={() => {
                       if (m !== "auto" && !props.user) {
                         setShowLoginModal(true)
                         return
@@ -297,26 +360,55 @@ export default function Chat(props: { user: any }) {
                       setSelectedModel(m)
                     }}
                   >
-                    <span>{m}</span>
-                    {selectedModel === m && (
-                      <span className={styles.modelMenuCheck}>✓</span>
+                    {m === "auto" ? (
+                      <Laptop size={16} className="opacity-60" />
+                    ) : (
+                      <Cloud size={16} className="opacity-60" />
                     )}
-                  </DropdownMenu.Item>
+                    {m}
+                  </DropdownMenuItem>
                 ))}
-              </DropdownMenu.Content>
-            </DropdownMenu.Portal>
-          </DropdownMenu.Root>
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-6 px-2 rounded-full border border-transparent hover:bg-accent text-muted-foreground text-xs"
+                disabled={disabledChat}
+              >
+                <User className="size-3" />
+                <span>{selectedAgent}</span>
+                <ChevronDown className="size-3" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              align="start"
+              className="max-w-xs rounded-2xl p-1.5 bg-popover border-border"
+            >
+              <DropdownMenuGroup className="space-y-1">
+                <DropdownMenuItem
+                  className="rounded-[calc(1rem-6px)] text-xs"
+                  onClick={() => setSelectedAgent("Agent")}
+                >
+                  <User size={16} className="opacity-60" />
+                  Agent
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  className="rounded-[calc(1rem-6px)] text-xs"
+                  onClick={() => setSelectedAgent("Assistant")}
+                >
+                  <Bot size={16} className="opacity-60" />
+                  Assistant
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <div className="flex-1" />
         </div>
-        <RoundBtn
-          icon="send"
-          onClick={handleFormSubmit}
-          style={{
-            position: "absolute",
-            right: "10px",
-            bottom: "10px",
-          }}
-          disabled={disabledChat || input.trim().length <= 0}
-        />
       </div>
     )
   })
@@ -506,138 +598,32 @@ export default function Chat(props: { user: any }) {
     )
   }
 
-  // Landing state - no messages yet
-  if (messages.length === 0) {
-    return (
-      <div className={styles.chatLayout}>
-        <ConversationSidebar
-          user={props.user}
-          currentConversationId={conversationId}
-          onNewChat={createNewConversation}
-          onLoadConversation={loadConversation}
-          refreshTrigger={sidebarRefreshTrigger}
-          open={sidebarOpen}
-          onClose={() => setSidebarOpen(false)}
-        />
-        <div id="chat" className={styles.landingContainer}>
-          {/* Menu Button */}
-          <button
-            className={styles.menuButton}
-            onClick={() => setSidebarOpen(true)}
-            style={{
-              position: "absolute",
-              top: "20px",
-              left: "20px",
-              zIndex: 20,
-              background: "rgba(0, 0, 0, 0.5)",
-              border: "1px solid rgba(255, 255, 255, 0.2)",
-              borderRadius: "8px",
-              padding: "8px",
-              color: "white",
-              cursor: "pointer",
-            }}
-          >
-            <Menu size={20} />
-          </button>
-          {/* <LaserFlow
-                      horizontalBeamOffset={0.2}
-                      verticalBeamOffset={0.2}
-                      verticalSizing={2.2}
-                      horizontalSizing={2}
-                      color="#0076a8"
-                      fogIntensity={0.4}
-                      wispIntensity={15.0}
-                      flowSpeed={0.35}
-                      wispSpeed={15.0}
-                  /> */}
-          <div className={styles.landingContent}>
-            {/* Seelie Icon */}
-            <div className={styles.landingIcon}>
-              <Image
-                src={SEELIE_ICON}
-                alt="Seelie"
-                width={80}
-                height={80}
-                className={styles.landingIconImage}
-              />
-            </div>
-
-            {/* Slogan */}
-            <h1 className={styles.landingSloganText}>{slogan}</h1>
-
-            {/* Text field with LaserFlow effect */}
-            <div className={styles.landingTextFieldWrapper}>
-              <div className={styles.laserFlowWrapper}></div>
-              <div className={styles.textFieldOverlay}>
-                <ChatTextField />
-              </div>
-            </div>
-
-            {/* Suggested questions */}
-            <SuggestedQuestions />
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  // Chat state - has messages
   return (
     <div className={styles.chatLayout}>
-      <ConversationSidebar
-        user={props.user}
-        currentConversationId={conversationId}
-        onNewChat={createNewConversation}
-        onLoadConversation={loadConversation}
-        refreshTrigger={sidebarRefreshTrigger}
-        open={sidebarOpen}
-        onClose={() => setSidebarOpen(false)}
-      />
-      <div id="chat">
-        {/* Menu Button */}
-        <button
-          className={styles.menuButton}
-          onClick={() => setSidebarOpen(true)}
-          style={{
-            position: "absolute",
-            top: "20px",
-            left: "20px",
-            zIndex: 20,
-            background: "rgba(0, 0, 0, 0.5)",
-            border: "1px solid rgba(255, 255, 255, 0.2)",
-            borderRadius: "8px",
-            padding: "8px",
-            color: "white",
-            cursor: "pointer",
-          }}
-        >
-          <Menu size={20} />
-        </button>
-        <div className={styles.chatHistory}>
-          {messages.map((message, index) => {
-            const isLastAssistant =
-              message.role === "assistant" && index === messages.length - 1
-            const isStreaming = status === "streaming" && isLastAssistant
-            return (
-              <Message
-                key={index}
-                messageUser={message.role === "user" ? "User" : "Seelie"}
-                message={getMessageText(message)}
-                userImage={props.user?.image}
-                messageOBJ={message}
-                isStreaming={isStreaming}
-              />
-            )
-          })}
-          {status === "submitted" && (
-            <div className={styles.loadingMessage}>
-              <ShinyText text="Thinking..." disabled={false} speed={3} />
-            </div>
-          )}
-        </div>
-        <div className={styles.chatTextFieldContainer + " mt-2"}>
-          <ChatTextField />
-        </div>
+      <div className={styles.chatHistory}>
+        {messages.map((message, index) => {
+          const isLastAssistant =
+            message.role === "assistant" && index === messages.length - 1
+          const isStreaming = status === "streaming" && isLastAssistant
+          return (
+            <Message
+              key={index}
+              messageUser={message.role === "user" ? "User" : "Seelie"}
+              message={getMessageText(message)}
+              userImage={props.user?.image}
+              messageOBJ={message}
+              isStreaming={isStreaming}
+            />
+          )
+        })}
+        {status === "submitted" && (
+          <div className={styles.loadingMessage}>
+            <ShinyText text="Thinking..." disabled={false} speed={3} />
+          </div>
+        )}
+      </div>
+      <div className={styles.chatTextFieldContainer}>
+        <ChatTextField />
       </div>
     </div>
   )
