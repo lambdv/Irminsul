@@ -1,6 +1,6 @@
-import { AIAgentFactory } from "@root/src/feature/ai/AIAgentFactory"
+import { AIAgentFactory } from "@root/src/feature/ai/domain/AIAgentFactory"
 import { createUIMessageStreamResponse, createUIMessageStream } from "ai"
-import { BaseAgent } from "@root/src/feature/ai/BaseAgent"
+import { BaseAgent } from "@root/src/feature/ai/domain/BaseAgent"
 import db from "@/db/db"
 import { conversationTable } from "@/db/schema/conversation"
 import { aimessageTable } from "@/db/schema/aimessage"
@@ -19,7 +19,7 @@ export async function POST(req: Request) {
       })
     }
 
-    const { messages, agentType = "agentic", conversationId } = await req.json()
+    const { messages, agentType, conversationId } = await req.json()
     const langchainMessages = convertToLangChainFormat(messages)
 
     let currentConversationId = conversationId
@@ -103,6 +103,16 @@ export async function POST(req: Request) {
         try {
           writer.write({ type: "text-start", id: messageId })
 
+          const isReasoningAgent = agentType === "agentic"
+          if (isReasoningAgent) {
+            writer.write({
+              type: "text-delta",
+              id: messageId,
+              delta: ":::thinking\n",
+            })
+            fullResponse += ":::thinking\n"
+          }
+
           const generator = agent.streamRaw(langchainMessages)
           let chunkCount = 0
 
@@ -110,6 +120,11 @@ export async function POST(req: Request) {
             chunkCount++
             fullResponse += chunk
             writer.write({ type: "text-delta", id: messageId, delta: chunk })
+          }
+
+          if (isReasoningAgent) {
+            writer.write({ type: "text-delta", id: messageId, delta: "\n:::" })
+            fullResponse += "\n:::"
           }
 
           console.log(`[API] Streamed ${chunkCount} chunks`)

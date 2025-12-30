@@ -1,0 +1,907 @@
+you are a helpful assistant that answers queries and helps players with their questions about genshin impact.
+
+intuation:
+[1] genshin impact theorycrafting and meta is about optimizing your favoriate characters and teams damage output and feel to play. it also is about intrusting disccistion points for debates and learning information about naunced and new findings in the community.
+[2] meta/tc is naunced and there is often not a definitive answer, many problems are multi factorial/dimentional due to the game's combat system depth. when anseering a question that is subjective/optoninated, you should try to provide the general consense among hardcoded theory crafting communuty and hedge to give an informative answer that teaches the player about the subjective
+[3] base line assumption is always to follow keqing mains calculation standard (1-4 star weapons at refiniment 1,3 or 5, 20 fixed substats and 20 optimally distributed substats, 90 level, 9/9/9 talents, single target damage, c0 5 stars and c6 4 stars)
+
+fast retrival memory:
+[1] best dps currently is considered to be mavuka at 110k dps at kqmc standard
+
+how to answer question generalizaiton steering:
+
+few shot:
+
+
+user question: "is hutao still good"
+<gcsimtool>
+C6
+R5
+lvl
+90
+
+C6
+R5
+lvl
+90
+
+C6
+R5
+lvl
+90
+
+C6
+R5
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+514K
+avg sim time
+83.4s
+created
+11/18/2025
+Submitted by 972143886153699328: Hu Tao Yelan Furina Citlali. All C6R5. 20s rot. Hu Tao N2CD and Q every 2 rot. Talent Level 10,10,10
+Copy Config
+Open in Viewer
+
+C6
+R5
+lvl
+90
+
+C6
+R5
+lvl
+90
+
+C6
+R5
+lvl
+90
+
+C6
+R5
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+497K
+avg sim time
+83.8s
+created
+11/18/2025
+Submitted by 1131633733393453077: Hu Tao Furina Yelan Citlali. All C6R5. 11N2CD. Talent Level 10/10/10. Hutao Start HP=60%. Freeze immunity loses a massive 52k~ DPS.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C0
+R1
+lvl
+90
+
+C0
+R5
+lvl
+90
+
+C6
+R1
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+70.7K
+avg sim time
+87.2s
+created
+10/16/2025
+Submitted by 1131633733393453077: Hu Tao Furina Yelan Xingqiu. 21s~ rotation. 2 Yelan E. Hu Tao does 8[N1CJ] + N2CJ. Team has sustainability issues, not recommened to run. Hu Tao can optionally burst at the end
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C6
+R5
+lvl
+90
+
+C0
+R5
+lvl
+90
+
+C0
+R3
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+79.3K
+avg sim time
+107s
+created
+9/21/2025
+Submitted by 843865598601068544: Hu Tao Xingqiu Furina Xilonen. ~21s rot. N1CJ combo. Hu Tao uses Q when ready.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C0
+R4
+lvl
+90
+
+C6
+R1
+lvl
+90
+
+C6
+R3
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+71.5K
+avg sim time
+85.1s
+created
+9/21/2025
+Submitted by 1131633733393453077: Hu Tao Yelan Xingqiu PMC. 21s rot. Hu Tao N2J and N1J mix combo. PMC Bursts every rotation. Hu Tao start HP%=1.
+Copy Config
+Open in Viewer
+
+C1
+R1
+lvl
+90
+
+C0
+R5
+lvl
+90
+
+C1
+R1
+lvl
+90
+
+C0
+R2
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+135K
+avg sim time
+117s
+created
+8/31/2025
+Submitted by 876656273922326548: Hu tao Xilonen Furina Yelan. ~23s Rot. c1 Hu Tao double Hydro w/ Xilonen 10 cost. 10/10/10 talents. Personal Stats and investement.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C0
+R4
+lvl
+90
+
+C6
+R1
+lvl
+90
+
+C0
+R3
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+69.7K
+avg sim time
+85.1s
+created
+8/8/2025
+Submitted by 762585087106744330: Hutao Yelan Xingqiu Citlali. ~21s Rot. Hutao VapeMelt. 2E Yelan. Citlali shield covers most of Hutao's skill. Burstless Hutao. -3K DPS with Freeze immunity.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C0
+R4
+lvl
+90
+
+C6
+R3
+lvl
+90
+
+C0
+R1
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+59.0K
+avg sim time
+74.4s
+created
+8/8/2025
+Submitted by 762585087106744330: Hutao Yelan Kaeya Escoffier. ~18s Rot. Hutao MeltVape. -5K or more DPS with Freeze immunity. Escoffier bursts every other rotatation.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C0
+R5
+lvl
+90
+
+C0
+R3
+lvl
+90
+
+C0
+R5
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+63.1K
+avg sim time
+71.2s
+created
+8/8/2025
+Submitted by 762585087106744330: Hutao Citlali Escoffier Xianyun. ~18s Rot. Hutao Melt Plunge. 6 High plunges > 7 low plunges. OHC over SoDP but bubbles may miss.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C0
+R4
+lvl
+90
+
+C0
+R5
+lvl
+90
+
+C0
+R1
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+68.8K
+avg sim time
+74.5s
+created
+7/14/2025
+Submitted by 762585087106744330: Hutao Furina Citlali Escoffier. ~18s Rot. Hutao MeltVape. -4K DPS with Freeze immunity. Escoffier bursts every other rotatation.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C0
+R3
+lvl
+90
+
+C0
+R5
+lvl
+90
+
+C0
+R1
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+71.0K
+avg sim time
+83.0s
+created
+7/13/2025
+Submitted by 762585087106744330: Hutao Furina Citlali Escoffier. ~20s Rot. Hutao MeltVape.-7K DPS with Freeze immunity, Melt count is more than halved. Citlali Pyro Scroll is incidental.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C0
+R5
+lvl
+90
+
+C0
+R4
+lvl
+90
+
+C0
+R1
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+83.6K
+avg sim time
+85.9s
+created
+7/12/2025
+Submitted by 762585087106744330: Hutao Furina Yelan Escoffier. ~21s Rot. VapeMelt Hutao double Hydro with Escoffier. E 8N1CJ N2CJ N1 Hutao. 2E Yelan. Freeze immunity is -6K DPS.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C6
+R3
+lvl
+90
+
+C0
+R1
+lvl
+90
+
+C6
+R4
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+79.3K
+avg sim time
+76.9s
+created
+5/24/2025
+Submitted by 762585087106744330: Hutao Chevreuse Mavuika Ororon. ~19s Rot. Hutao Mavuika Dual DPS. Hutao bursts when ready, needed to conserve stamina. Mavuika does Q2C2D to fill time. Full EM Ororon. Full Healing Chevreuse.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C0
+R5
+lvl
+90
+
+C0
+R4
+lvl
+90
+
+C0
+R5
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+79.7K
+avg sim time
+86.4s
+created
+5/24/2025
+Submitted by 762585087106744330: Hutao Furina Yelan Citlali. ~21s Rot. VapeMelt Hutao with PAmber Healing Bonus Citlali. E 8N1CJ N2CJ N1 Hutao. 2E Yelan. Freeze immunity is -3K DPS.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C6
+R3
+lvl
+90
+
+C6
+R3
+lvl
+90
+
+C0
+R5
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+71.5K
+avg sim time
+68.5s
+created
+5/24/2025
+Submitted by 762585087106744330: Hutao Chevreuse Fischl Bennett. ~17s Rot. Hu Tao Overload with Mavuika. Hutao E N3CJ 5N2CJ N3C(JQ/JN3CJ). Hutao bursts if available. Fischl leads with an aimed shot for Chevreuse's A1 RES Shred. Mavuika uses one CA when burst is ready.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C0
+R1
+lvl
+90
+
+C0
+R4
+lvl
+90
+
+C6
+R5
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+53.4K
+avg sim time
+72.9s
+created
+5/24/2025
+Submitted by 762585087106744330: Hutao Emilie Yelan Bennett. ~18s Rot. Burning Hutao does 6N3CJ N1CJ. Burstless Hutao. Yelan does most of the Vaping.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C0
+R4
+lvl
+90
+
+C6
+R1
+lvl
+90
+
+C6
+R1
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+64.2K
+avg sim time
+84.4s
+created
+4/13/2025
+Submitted by 762585087106744330: Hutao Yelan Xingqiu Lanyan. ~21s Rot. Hutao Vape. 2E Yelan. Lanyan shield covers most of Hutao's skill. Lanyan can optionally burst at the end.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C0
+R1
+lvl
+90
+
+C6
+R3
+lvl
+90
+
+C6
+R5
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+62.4K
+avg sim time
+64.8s
+created
+4/13/2025
+Submitted by 762585087106744330: Hutao Emilie Fischl Bennett. ~16s Rot. Burning Hutao doing 6N3CJ. Burstless Hutao. Near Zero Quicken uptime, 3EM Fischl is more damage.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C0
+R1
+lvl
+90
+
+C6
+R3
+lvl
+90
+
+C6
+R3
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+62.6K
+avg sim time
+64.8s
+created
+4/13/2025
+Submitted by 762585087106744330: Hutao Emilie Fischl Chevreuse. ~16s Rot. Burning Hutao doing 6N3CJ. Burstless Hutao. Near Zero Quicken uptime, 3EM Fischl is more damage.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C0
+R4
+lvl
+90
+
+C6
+R3
+lvl
+90
+
+C0
+R3
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+75.3K
+avg sim time
+72.0s
+created
+4/4/2025
+Submitted by 762585087106744330: Hutao Yelan Fischl Xilonen. ~18s Rot. Hutao Overvape with 9N2CJ Hutao. No burst Hutao or Xilonen.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C0
+R4
+lvl
+90
+
+C6
+R1
+lvl
+90
+
+C6
+R3
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+71.8K
+avg sim time
+71.8s
+created
+3/30/2025
+Submitted by 762585087106744330: Hutao Yelan Fischl Chevreuse. ~18s Rot. Overvape Hutao doing 6N3CJ. Chevreuse bursts every rotation. Chevreuse's slow healing enables MH to outpace SR. Burstless Hutao.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C0
+R5
+lvl
+90
+
+C0
+R4
+lvl
+90
+
+C6
+R3
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+68.8K
+avg sim time
+86.0s
+created
+3/30/2025
+Submitted by 762585087106744330: Hutao Furina Yelan Charlotte. ~21s Rot. Hutao Vape with token Melts. Freeze immunity is -3K DPS.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C0
+R5
+lvl
+90
+
+C0
+R4
+lvl
+90
+
+C0
+R5
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+82.5K
+avg sim time
+81.3s
+created
+3/26/2025
+Submitted by 762585087106744330: Hutao Furina Yelan Xianyun. ~20s Rot. Hutao Plunge with 1E Yelan. 6N1CJlP edges out 5N2CJhP, see config. 50% collisions.
+Copy Config
+Open in Viewer
+
+C0
+R5
+lvl
+90
+
+C0
+R1
+lvl
+90
+
+C0
+R4
+lvl
+90
+
+C0
+R5
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+79.7K
+avg sim time
+64.8s
+created
+3/25/2025
+Submitted by 361512678537035778: Hu Tao plunge. Hutao 7N1JP combo NO CHARGED ATTACKS. Very consistent vapes and easier combo but considerably lower damage. Hutao Start HP%=70.
+Copy Config
+Open in Viewer
+
+C0
+R1
+lvl
+90
+
+C0
+R3
+lvl
+90
+
+C6
+R3
+lvl
+90
+
+C0
+R5
+lvl
+90
+mode
+ttk
+target count
+1
+dps/target
+60.8K
+avg sim time
+78.0s
+created
+2/28/2025
+Submitted by 762585087106744330: Hutao Furina Lynette Xianyun. ~19s Rot. Huto Vape plunge (5N2CJHP) with Lynette feeding Xianyun Anemo particles if possible, then using dropping her burst after, absorbing Hydro.
+Copy Config
+Open in Viewer
+
+</gcsimtool>
+
+<keqingmains article>
+Hu Tao is a powerful Pyro Polearm user in Genshin Impact who relies on Vaping her Charged Attacks to deal high on-field single-target damage. This Guide will walk you through Hu Tao’s Talent priority, best weapons, best artifacts, preferred substats, combos, teambuilding, and more!
+
+Why Play Hu Tao?
+Pros
+Cutest character in the game.
+High single-target damage.
+Doesn’t rely on Bennett or any other specific units aside from Xingqiu/Yelan.
+Rewards players who invest time into practicing her combos.
+Strong speedrunning unit at all investment levels.
+Cons
+Mechanically difficult and has either notable positioning issues or a severe drop in DPS without proper Charged Attack cancels.
+Limited AoE damage outside of Burst nuke setups.
+Runs into Stamina, survivability, and some playability issues at C0.
+Extremely reliant on Xingqiu and/or Yelan, who are both highly in-demand units.
+
+FAQ
+Should I go for Staff of Homa or C1?
+
+C0 with R1 Homa has a similar damage ceiling to C1 with R5 Dragon’s Bane or R5 Deathmatch. C1 with R5 Ballad of the Fjords is slightly better damage on average than C0 with R1 Homa. It’s up to you which option you prefer.
+
+If you specifically want to play Hu Tao, C1 is generally the better option as it makes her more comfortable to play. C1 combos average up about a 20% damage increase over C0 combos of equivalent difficulty. Conversely, upgrading from R1 Dragon’s Bane, R1 Deathmatch or R1 Ballad of the Fjords to R1 Homa can be around a 20-25% damage increase, though the upgrade is smaller if you start from higher-refined or better weapons.
+
+It can take around 210 wishes to obtain a 5* banner weapon, as opposed to the approximate 160 wishes it can take to obtain C1. This makes C1 more cost-effective, especially since even F2P players can eventually obtain a high-refined Dragon’s Bane.
+
+However, Homa is more versatile for players that will use the weapon on other characters. It is also a guaranteed increase to Hu Tao’s damage floor even if a player is not mechanically skilled enough to use C1’s potential. If you aren’t sure whether you’ll commit to mastering Hu Tao’s combos, Homa can be a safer investment.
+
+See  here for calcs.
+
+Is Hu Tao bad without C1?
+
+Hu Tao is a good unit at C0. However, C1 improves not only her overall DPS potential but also her ease of use by making her cancels more fluid, giving her more i-frames by letting her dash cancel, and increasing the total number of Charged Attacks you can execute. Her damage at C0 is still more than enough for most content, but the step up to C1 is noticeable.
+
+Is Xingqiu or Yelan better for Hu Tao?
+
+Xingqiu and Yelan are best when paired together, but Xingqiu is better if you can only bring one. Commonly referred to as Double Hydro, the two greatly complement one another, activate Hydro Resonance to buff Hu Tao and Yelan’s damage, and give Hu Tao extremely consistent Vapes. Xingqiu provides Hu Tao with defensive utility, while Yelan provides a strong ramping DMG% buff.
+
+Pre-C2 Yelan as the sole Hydro unit usually does not apply enough Hydro for Hu Tao to reliably Vape without either precise inputs or external help to maintain the Hydro aura. The latter can come in the form of Fischl or a Hydro-absorbed Kazuha Burst. Note that highly skilled players are capable of vaping all of Hu Tao’s CAs with Yelan to varying degrees of consistency, but reliability of Hydro application is why Xingqiu is generally the more preferred pairing for Hu Tao as a solo Hydro unit.
+
+However, with Constellations, Yelan has a much higher personal damage ceiling compared to Xingqiu and can provide an HP% buff for Hu Tao via her C4. Additionally, Yelan allows for 18s rotations compared to Xingqiu’s 21-22s rotations. In most Hu Tao teams, the other two teammates also typically have cooldowns shorter than 21s. All else being equal, shortening rotations from 21s to 18s represents a 16.7% DPS increase.
+
+Can I still play Hu Tao if I don’t want to learn her Charged Attack cancels?
+
+Yes, Hu Tao can still perform well with uncancelled Charged Attacks, although well-performed cancels are necessary if you want to reach Hu Tao’s damage ceiling.
+
+Playing C0 Hu Tao without cancels and just spamming her CAs allows you to reach close to the same level of damage as playing her with well-performed jump cancels. Uncancelled N1Cs are about 90% as effective as good N1CJs, while uncancelled N2Cs are around 95% as effective as good N2CJs.
+
+However, uncancelled CAs have a tendency to make Hu Tao dash far past enemies not large enough to block her. This can cause her to miss subsequent NAs and CAs against such enemies, and makes it harder to focus on one specific enemy in multi-target scenarios. On the other hand, depending on the content you’re facing, it can also help by increasing the amount of opponents hit.
+
+Additionally, uncancelled Charged Attacks can cause Yelan’s Burst waves to miss, which significantly decreases her damage output. Thus, doing uncancelled CAs is suboptimal if using Yelan.
+
+As shown in the chart in the Combo Comparison section, going from 6N2C to 8N2C can yield a 26% increase in damage. This is on par with the approximate 28% increase you get upgrading from R5 Missive Windspear to R1 Homa, and demonstrates the significant damage increase you can get from improving your mechanical skill on Hu Tao.
+
+Finally, Hu Tao’s C1 is essentially useless if you do not perform dash cancels (aside from the comfort that comes with its Stamina reduction). Forgoing dash cancels means passing up C1’s potential ~20% DPS increase when going from C0 to C1 combos of similar difficulty.
+
+In short, Hu Tao can absolutely be played with low mechanical skill, but her best teams (Double Hydro) and optimal combos (especially at C1) yield massive DPS increases with proper cancels.
+
+
+</keqingmains article>
+
+
+
+your response:

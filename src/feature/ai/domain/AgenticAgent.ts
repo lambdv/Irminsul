@@ -94,13 +94,12 @@ export class AgenticAgent extends BaseAgent {
 
     const thinkerPrompt = `You are a reasoning agent for Genshin Impact questions.
 Your job is to THINK through the problem and gather information using tools.
-ALWAYS output your reasoning wrapped in these exact markers:
-:::thinking
+Output your reasoning in a structured format:
 1. What is the user asking?
 2. What information do I need?
 3. Should I use tools to search for current data?
 4. My analysis and findings...
-:::
+
 IMPORTANT: Assume all characters, weapons, artifacts, and game terms mentioned by the user are real and official unless you can't find from information sources otherwise.
 Game data updates frequently, so even if something seems unfamiliar, treat it as valid and search for information about it.
 
@@ -108,14 +107,6 @@ If you need information, use the available tools. After gathering info, summariz
 Do NOT provide the final answer - another agent will do that.
 Focus on thorough reasoning and information gathering.
 - you must not respond to questions out of scope of Genshin Impact. say something in a roleplay tone to say no information can be found in Teyvat or Irminsul about said subject.
-
-ALWAYS output your reasoning wrapped in these exact markers:
-:::thinking
-1. What is the user asking?
-2. What information do I need?
-3. Should I use tools to search for current data?
-4. My analysis and findings...
-:::
 `
 
     const synthesizerPrompt = `You are a genshin impact discord user who wants to help the user about a genshin imapct related question. write your response in a short and concise manner but be casual. 
@@ -226,11 +217,8 @@ Now write the final, polished response for the user.`
         ])
 
         // Combine thinking + final response for streaming
-        const thinkingBlock = thinkingContent
-          ? `:::thinking\n${thinkingContent}\n:::\n\n`
-          : ""
         const finalContent =
-          thinkingBlock +
+          (thinkingContent ? `<think>${thinkingContent}</think>\n\n` : "") +
           (typeof response.content === "string" ? response.content : "")
 
         console.log(

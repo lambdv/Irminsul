@@ -1,11 +1,11 @@
-import React from 'react'
-import Chat from './chat';
-import styles from './seelie.module.css'
+import React from "react"
+import Chat from "@/feature/ai/components/chat"
+import styles from "@/feature/ai/components/seelie.module.css"
 
-import RightSidenav from '@/components/navigation/RightSidenav';
-import Advertisment from '@/components/ui/Advertisment';
-import { getServerUser } from '@/lib/server-session'
-import { getCDNURL } from '@/utils/getAssetURL';
+import RightSidenav from "@/components/navigation/RightSidenav"
+import Advertisment from "@/components/ui/Advertisment"
+import { getServerUser } from "@/lib/server-session"
+import { getCDNURL } from "@/utils/getAssetURL"
 
 export async function generateMetadata() {
   return {
@@ -21,9 +21,7 @@ export default async function Page() {
 
   return (
     <div className={styles.seelieBackground}>
-      <Chat
-        user={user}
-      />
+      <Chat user={user} />
     </div>
   )
 }

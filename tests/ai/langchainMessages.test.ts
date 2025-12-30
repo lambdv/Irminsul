@@ -1,5 +1,5 @@
-import { AIAgentFactory } from "@root/src/feature/ai/AIAgentFactory"
-import { GeneralistAgent } from "@root/src/feature/ai/GeneralistAgent"
+import { AIAgentFactory } from "@root/src/feature/ai/domain/AIAgentFactory"
+import { GeneralistAgent } from "@root/src/feature/ai/domain/GeneralistAgent"
 
 describe("AIAgentFactory", () => {
   it('creates a GeneralistAgent when type is "generalist"', () => {

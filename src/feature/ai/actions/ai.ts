@@ -12,7 +12,7 @@ import { aimessageTable } from "@/db/schema/aimessage"
 import { conversationTable } from "@/db/schema/conversation"
 import { createGoogleGenerativeAI } from "@ai-sdk/google"
 import { createOpenAI } from "@ai-sdk/openai"
-import { getAiTokensLeft } from "./numAiTokensLeft"
+import { getAiTokensLeft } from "../utils/numAiTokensLeft"
 
 const google = createGoogleGenerativeAI({
   apiKey: process.env.AISTUDIO_GOOGLE_API_KEY,
@@ -40,7 +40,7 @@ const model = google("models/gemini-flash-latest")
 // })
 
 // Re-export for backward compatibility (server-side only usage)
-export { availableModels } from "./models"
+export { availableModels } from "../utils/models"
 
 const systemPrompt =
   "You are an AI chatbot that answers questions about Genshin Impact. " +

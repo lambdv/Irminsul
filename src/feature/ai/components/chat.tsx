@@ -6,17 +6,39 @@ import Image from "next/image"
 import styles from "./seelie.module.css"
 import { getCDNURL } from "@/utils/getAssetURL"
 
-import { getAiTokensLeft } from "./numAiTokensLeft"
+import { getAiTokensLeft } from "../utils/numAiTokensLeft"
 import Overlay from "@/components/ui/Overlay"
 import Link from "next/link"
 import RoundBtn from "@/components/ui/RoundBtn"
 import MarkdownRenderer from "@/components/ui/MarkdownRenderer"
-import { ChevronDown, ChevronRight, Brain, Menu, Zap, Circle, CircleDot, Cloud, Code, Laptop, History, Paperclip, Plus, Loader2, Bot, Send, User, Wand2, Globe, ArrowUp } from "lucide-react"
+import {
+  ChevronDown,
+  ChevronRight,
+  Brain,
+  Menu,
+  Zap,
+  Circle,
+  CircleDot,
+  Cloud,
+  Code,
+  Laptop,
+  History,
+  Paperclip,
+  Plus,
+  Loader2,
+  Bot,
+  Send,
+  User,
+  Wand2,
+  Globe,
+  ArrowUp,
+  StopCircle,
+  X,
+} from "lucide-react"
 import LaserFlow from "@/components/ui/LaserFlow"
 
-import { availableModels } from "./models"
+import { availableModels } from "../utils/models"
 import ShinyText from "@/components/cn/ShinyText"
-import ConversationSidebar from "./ConversationSidebar"
 
 import { Textarea } from "@/components/cn/textarea"
 import { Button } from "@/components/cn/button"
@@ -28,6 +50,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/cn/dropdown-menu"
 import { cn } from "@/lib/shadcn/utils"
+import { AIAgent } from "@/feature/ai/domain/AIAgentFactory"
 
 const slogans = [
   "Navigate the Truth of Teyvat.",
@@ -47,14 +70,15 @@ const SEELIE_ICON = getCDNURL("imgs/icons/seelie.png")
 export default function Chat(props: { user: any }) {
   //AISDK useChat hook
   const [selectedModel, setSelectedModel] = useState<string>("auto")
+
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
   const [input, setInput] = useState<string>("")
 
-  const { messages, sendMessage, setMessages, status } = useChat({
+  const { messages, sendMessage, setMessages, status, stop } = useChat({
     transport: new DefaultChatTransport({
       api: "/api/ai",
       prepareSendMessagesRequest: ({ messages }) => ({
-        body: { messages, agentType: "agentic" },
+        body: { messages, agentType: selectedAgent },
       }),
     }),
     onError: (e) => {
@@ -181,21 +205,9 @@ export default function Chat(props: { user: any }) {
         ))}
       </div>
     )
-  })
+  });
 
-  useEffect(() => {
-    setSlogan(slogans[Math.floor(Math.random() * slogans.length)])
-  }, [])
-
-  const [selectedAgent, setSelectedAgent] = useState("Agent")
-  const [selectedPerformance, setSelectedPerformance] = useState("High")
-  const [autoMode, setAutoMode] = useState(false)
-  const fileInputRef = useRef<HTMLInputElement>(null)
-
-  const textFieldMessage = "Ask anything"
-
-  const ChatTextField = React.memo(() => {
-    return (
+  return (
       <div className="w-full">
         <div className="bg-background border border-border rounded-2xl overflow-hidden">
           <input
@@ -203,10 +215,55 @@ export default function Chat(props: { user: any }) {
             type="file"
             multiple
             className="sr-only"
-            onChange={(e) => {}}
+            onChange={(e) => {
+              const files = Array.from(e.target.files || [])
+              setAttachedFiles((prev) => [...prev, ...files])
+              // Clear the input
+              e.target.value = ""
+            }}
           />
 
           <div className="px-3 pt-3 pb-2 grow">
+            {attachedFiles.length > 0 && (
+              <div className="mb-3 flex gap-2 overflow-x-auto pb-2">
+                {attachedFiles.map((file, index) => (
+                  <div key={index} className="flex-shrink-0 relative group">
+                    <div className="bg-muted rounded-lg p-2 min-w-24 max-w-32 flex flex-col items-center">
+                      {file.type.startsWith("image/") ? (
+                        <img
+                          src={URL.createObjectURL(file)}
+                          alt={file.name}
+                          className="w-16 h-16 object-cover rounded mb-1"
+                        />
+                      ) : (
+                        <div className="w-16 h-16 bg-primary/10 rounded flex items-center justify-center mb-1">
+                          <Paperclip className="w-6 h-6 text-primary" />
+                        </div>
+                      )}
+                      <span
+                        className="text-xs text-center truncate w-full"
+                        title={file.name}
+                      >
+                        {file.name}
+                      </span>
+                      <span className="text-xs text-muted-foreground">
+                        {file.type || "Unknown"}
+                      </span>
+                    </div>
+                    <button
+                      onClick={() =>
+                        setAttachedFiles((prev) =>
+                          prev.filter((_, i) => i !== index)
+                        )
+                      }
+                      className="absolute -top-1 -right-1 bg-destructive text-destructive-foreground rounded-full w-5 h-5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                    >
+                      <X className="w-3 h-3" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
             <form onSubmit={handleFormSubmit}>
               <Textarea
                 ref={textareaRef}
@@ -260,6 +317,81 @@ export default function Chat(props: { user: any }) {
                   </Button>
                 </DropdownMenuTrigger>
 
+                <div className="flex items-center gap-0">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="h-6 px-2 rounded-full border border-transparent hover:bg-accent text-muted-foreground text-xs"
+                        disabled={disabledChat}
+                      >
+                        <User className="size-3" />
+                        <span>{selectedAgent}</span>
+                        <ChevronDown className="size-3" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent
+                      align="start"
+                      className="max-w-xs rounded-2xl p-1.5 bg-popover border-border"
+                    >
+                      <DropdownMenuGroup className="space-y-1">
+                        {availableAgents.map((agent) => (
+                          <DropdownMenuItem
+                            key={agent}
+                            className="rounded-[calc(1rem-6px)] text-xs"
+                            onClick={() => setSelectedAgent(agent as AIAgent)}
+                          >
+                            {agent}
+                          </DropdownMenuItem>
+                        ))}
+                      </DropdownMenuGroup>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="h-6 px-2 rounded-full border border-transparent hover:bg-accent text-muted-foreground text-xs"
+                        disabled={disabledChat}
+                      >
+                        <Laptop className="size-3" />
+                        <span>{selectedModel}</span>
+                        <ChevronDown className="size-3" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent
+                      align="start"
+                      className="max-w-xs rounded-2xl p-1.5 bg-popover border-border"
+                    >
+                      <DropdownMenuGroup className="space-y-1">
+                        {availableModels.map((m) => (
+                          <DropdownMenuItem
+                            key={m}
+                            className="rounded-[calc(1rem-6px)] text-xs"
+                            onClick={() => {
+                              if (m !== "auto" && !props.user) {
+                                setShowLoginModal(true)
+                                return
+                              }
+                              setSelectedModel(m)
+                            }}
+                          >
+                            {m === "auto" ? (
+                              <Laptop size={16} className="opacity-60" />
+                            ) : (
+                              <Cloud size={16} className="opacity-60" />
+                            )}
+                            {m}
+                          </DropdownMenuItem>
+                        ))}
+                      </DropdownMenuGroup>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                  <div className="flex-1" />
+                </div>
                 <DropdownMenuContent
                   align="start"
                   className="max-w-xs rounded-2xl p-1.5"
@@ -297,7 +429,7 @@ export default function Chat(props: { user: any }) {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              <Button
+              {/* <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setAutoMode(!autoMode)}
@@ -312,106 +444,36 @@ export default function Chat(props: { user: any }) {
               >
                 <Wand2 className="size-3" />
                 <span className="text-xs">Auto</span>
-              </Button>
+              </Button> */}
             </div>
 
             <div>
-              <Button
-                type="submit"
-                disabled={!input.trim() || disabledChat}
-                className="size-7 p-0 rounded-full bg-primary disabled:opacity-50 disabled:cursor-not-allowed"
-                onClick={handleFormSubmit}
-              >
-                <ArrowUp className="size-3 text-background" />
-                {/* <i className="material-symbols-outlined " style={{ color: "var(--background-color)" }} >arrow_upward</i> */}
-              </Button>
+              {isStreaming ? (
+                <Button
+                  onClick={stop}
+                  className="size-7 p-0 rounded-full bg-red-500 hover:bg-red-600"
+                >
+                  <StopCircle className="size-3 text-white" />
+                </Button>
+              ) : (
+                <Button
+                  type="submit"
+                  disabled={!input.trim() || disabledChat}
+                  className="size-7 p-0 rounded-full bg-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                  onClick={handleFormSubmit}
+                >
+                  <ArrowUp className="size-3 text-background" />
+                  {/* <i className="material-symbols-outlined " style={{ color: "var(--background-color)" }} >arrow_upward</i> */}
+                </Button>
+              )}
             </div>
           </div>
-        </div>
-
-        <div className="flex items-center gap-0 pt-2">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="h-6 px-2 rounded-full border border-transparent hover:bg-accent text-muted-foreground text-xs"
-                disabled={disabledChat}
-              >
-                <Laptop className="size-3" />
-                <span>{selectedModel}</span>
-                <ChevronDown className="size-3" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              align="start"
-              className="max-w-xs rounded-2xl p-1.5 bg-popover border-border"
-            >
-              <DropdownMenuGroup className="space-y-1">
-                {availableModels.map((m) => (
-                  <DropdownMenuItem
-                    key={m}
-                    className="rounded-[calc(1rem-6px)] text-xs"
-                    onClick={() => {
-                      if (m !== "auto" && !props.user) {
-                        setShowLoginModal(true)
-                        return
-                      }
-                      setSelectedModel(m)
-                    }}
-                  >
-                    {m === "auto" ? (
-                      <Laptop size={16} className="opacity-60" />
-                    ) : (
-                      <Cloud size={16} className="opacity-60" />
-                    )}
-                    {m}
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="h-6 px-2 rounded-full border border-transparent hover:bg-accent text-muted-foreground text-xs"
-                disabled={disabledChat}
-              >
-                <User className="size-3" />
-                <span>{selectedAgent}</span>
-                <ChevronDown className="size-3" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              align="start"
-              className="max-w-xs rounded-2xl p-1.5 bg-popover border-border"
-            >
-              <DropdownMenuGroup className="space-y-1">
-                <DropdownMenuItem
-                  className="rounded-[calc(1rem-6px)] text-xs"
-                  onClick={() => setSelectedAgent("Agent")}
-                >
-                  <User size={16} className="opacity-60" />
-                  Agent
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  className="rounded-[calc(1rem-6px)] text-xs"
-                  onClick={() => setSelectedAgent("Assistant")}
-                >
-                  <Bot size={16} className="opacity-60" />
-                  Assistant
-                </DropdownMenuItem>
-              </DropdownMenuGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <div className="flex-1" />
         </div>
       </div>
     )
   })
+
+  ChatTextField.displayName = "ChatTextField"
 
   /** Extract text content from message parts */
   const getMessageText = (message: any): string => {
@@ -426,110 +488,25 @@ export default function Chat(props: { user: any }) {
     return ""
   }
 
-  /** Parse message to extract thinking blocks - handles multiple formats */
-  const parseThinkingBlocks = (
-    text: string
-  ): { thinking: string | null; response: string } => {
-    let thinking: string | null = null
-    let response = text
 
-    // Patterns to match (in order of priority):
-    // 1. :::thinking ... ::: (our custom format)
-    // 2. ```thinking ... ```
-    // 3. [THINKING]...[/THINKING]
 
-    const patterns = [
-      {
-        regex: /:::thinking\n?([\s\S]*?):::/gi,
-        extractor: (m: string) =>
-          m.replace(/:::thinking\n?/gi, "").replace(/:::$/g, ""),
-      },
-      {
-        regex: /```thinking\n?([\s\S]*?)```/gi,
-        extractor: (m: string) =>
-          m.replace(/```thinking\n?/gi, "").replace(/```$/g, ""),
-      },
-      {
-        regex: /\[THINKING\]\n?([\s\S]*?)\[\/THINKING\]/gi,
-        extractor: (m: string) =>
-          m.replace(/\[THINKING\]\n?/gi, "").replace(/\[\/THINKING\]$/gi, ""),
-      },
-    ]
-
-    for (const { regex, extractor } of patterns) {
-      const matches = text.match(regex)
-      if (matches && matches.length > 0) {
-        // Collect all thinking blocks
-        const thinkingParts: string[] = []
-        for (const match of matches) {
-          const content = extractor(match).trim()
-          if (content) {
-            thinkingParts.push(content)
-          }
-        }
-
-        if (thinkingParts.length > 0) {
-          thinking = thinkingParts.join("\n\n---\n\n")
-          // Remove ALL thinking blocks from response
-          response = text.replace(regex, "").trim()
-          // Clean up extra newlines
-          response = response.replace(/\n{3,}/g, "\n\n")
-        }
-        break
-      }
-    }
-
-    // Also handle any stray <think> tags that might have slipped through
-    // by escaping them so they don't render as HTML
-    response = response
-      .replace(/<think>/gi, "`<think>`")
-      .replace(/<\/think>/gi, "`</think>`")
-      .replace(/<thinking>/gi, "`<thinking>`")
-      .replace(/<\/thinking>/gi, "`</thinking>`")
-
-    return { thinking, response }
-  }
-
-  function Message({
+  const Message = React.memo(({
     messageUser,
-    message,
+    content,
     userImage,
-    messageOBJ,
     isStreaming = false,
+    messageJSX = null,
   }: {
     messageUser: string
-    message: string | JSX.Element
+    content?: string | JSX.Element
     userImage?: string
-    messageOBJ: any
     isStreaming?: boolean
-  }) {
+    messageJSX?: JSX.Element | null
+  }) => {
     const isUser = messageUser === "User"
-    const [showThinking, setShowThinking] = useState(false)
 
-    // Parse thinking blocks for assistant messages
-    const messageText = typeof message === "string" ? message : ""
-    let thinking: string | null = null
-    let response = messageText
-
-    if (!isUser && messageText) {
-      const parsed = parseThinkingBlocks(messageText)
-      thinking = parsed.thinking
-      response = parsed.response
-
-      // During streaming, check if we're still in a thinking block
-      if (isStreaming && !thinking) {
-        // Check if message starts with :::thinking but hasn't closed yet
-        const unclosedThinking = messageText.match(/^:::thinking\n?([\s\S]*)$/i)
-        if (unclosedThinking) {
-          thinking = unclosedThinking[1] || "Reasoning..."
-          response = "" // Don't show anything in response yet
-        }
-      }
-    }
-
-    // Auto-expand thinking while streaming
-    const shouldShowThinking =
-      showThinking || (isStreaming && thinking && !response)
+    // Get message text
+    const messageText = content && typeof content === "string" ? content : ""
 
     return (
       <div
@@ -556,75 +533,10 @@ export default function Chat(props: { user: any }) {
           )}
         </div>
         <div
-          className={`${styles.messageContent} ${isUser ? styles.messageContentUser : styles.messageContentAssistant} ${isStreaming && !response ? styles.messageStreaming : ""}`}
+          className={`${styles.messageContent} ${isUser ? styles.messageContentUser : styles.messageContentAssistant} ${isStreaming ? styles.messageStreaming : ""}`}
         >
-          {/* Thinking section - collapsible */}
-          {thinking && (
-            <div className={styles.thinkingSection}>
-              <button
-                className={styles.thinkingToggle}
-                onClick={() => setShowThinking(!showThinking)}
-              >
-                {shouldShowThinking ? (
-                  <ChevronDown size={14} />
-                ) : (
-                  <ChevronRight size={14} />
-                )}
-                <Brain size={14} />
-                <span>
-                  {isStreaming && !response
-                    ? "Reasoning..."
-                    : "Chain of Thought"}
-                </span>
-              </button>
-              {shouldShowThinking && (
-                <div
-                  className={`${styles.thinkingContent} ${isStreaming && !response ? styles.messageStreaming : ""}`}
-                >
-                  <MarkdownRenderer>{thinking}</MarkdownRenderer>
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* Main response - only show if there's content */}
-          {response && (
-            <div className={isStreaming ? styles.messageStreaming : ""}>
-              <MarkdownRenderer>{response}</MarkdownRenderer>
-            </div>
-          )}
+          {messageText.trim() ? <MarkdownRenderer>{messageText}</MarkdownRenderer> : <ShinyText text="Thinking..." disabled={false} speed={3} />}
         </div>
       </div>
     )
-  }
-
-  return (
-    <div className={styles.chatLayout}>
-      <div className={styles.chatHistory}>
-        {messages.map((message, index) => {
-          const isLastAssistant =
-            message.role === "assistant" && index === messages.length - 1
-          const isStreaming = status === "streaming" && isLastAssistant
-          return (
-            <Message
-              key={index}
-              messageUser={message.role === "user" ? "User" : "Seelie"}
-              message={getMessageText(message)}
-              userImage={props.user?.image}
-              messageOBJ={message}
-              isStreaming={isStreaming}
-            />
-          )
-        })}
-        {status === "submitted" && (
-          <div className={styles.loadingMessage}>
-            <ShinyText text="Thinking..." disabled={false} speed={3} />
-          </div>
-        )}
-      </div>
-      <div className={styles.chatTextFieldContainer}>
-        <ChatTextField />
-      </div>
-    </div>
-  )
-}
+  })
