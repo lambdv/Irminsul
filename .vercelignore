@@ -1,0 +1,47 @@
+# Include any files or directories that you don't want to be copied to your
+# Vercel deployment here (e.g., local build artifacts, temporary files, etc.).
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.staging
+
+# Development dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage
+.nyc_output
+*.lcov
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local build artifacts
+.next
+dist
+build
+
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+docker-compose*.yml
+
+# Tests
+tests/
+test-results/
+playwright-report/

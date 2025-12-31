@@ -2,6 +2,9 @@
   "name": "irminsul-next",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "dev": "next dev --turbo",
     "dev:cdn": "cd ../genshindata && npm run dev",
