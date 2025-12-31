@@ -9,8 +9,7 @@ export abstract class BaseAgent {
   protected useLocalLLM: boolean
 
   constructor() {
-    this.useLocalLLM = true
-    //process.env.USE_LOCAL_LLM ===
+    this.useLocalLLM = process.env.USE_LOCAL_LLM === "true"
   }
 
   /**

@@ -1,5 +1,5 @@
 import { POST } from "../../../src/app/api/ai/route"
-import { AIAgentFactory } from "../../../src/feature/ai/domain/AIAgentFactory"
+import { AIAgentFactory } from "../../../src/feature/_ai/domain/AIAgentFactory"
 
 // Polyfill Response for Jest environment
 if (typeof global.Response === "undefined") {

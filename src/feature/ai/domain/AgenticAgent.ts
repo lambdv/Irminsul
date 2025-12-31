@@ -265,14 +265,22 @@ Now write the final, polished response for the user.`
       )
 
       let hasYielded = false
+      let inThinkerNode = false
+      let hasStartedThinking = false
 
       for await (const event of eventStream) {
-        // Log events for debugging
-        if (
-          event.event === "on_chain_start" ||
-          event.event === "on_chain_end"
-        ) {
-          console.log(`[Graph] ${event.event}: ${event.name}`)
+        // Track when we enter the thinker node
+        if (event.event === "on_chain_start" && event.name === "thinker") {
+          inThinkerNode = true
+        }
+
+        // Track when we leave the thinker node
+        if (event.event === "on_chain_end" && event.name === "thinker") {
+          if (hasStartedThinking) {
+            yield ":::"
+            hasStartedThinking = false
+          }
+          inThinkerNode = false
         }
 
         // Stream tokens from any chat model
@@ -280,7 +288,16 @@ Now write the final, polished response for the user.`
           const chunk = event.data?.chunk
           if (chunk?.content && typeof chunk.content === "string") {
             hasYielded = true
-            yield chunk.content
+            // Only wrap thinker content, not synthesizer
+            if (inThinkerNode) {
+              if (!hasStartedThinking) {
+                yield ":::thinking\n"
+                hasStartedThinking = true
+              }
+              yield chunk.content
+            } else {
+              yield chunk.content
+            }
           }
         }
 

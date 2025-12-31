@@ -1,5 +1,5 @@
 import { convertToModelMessages, UIMessage } from "ai"
-import { generateResponse } from "@/app/(main)/seelie/ai"
+import { generateResponse } from "@/feature/ai/actions/ai"
 import { getUserFromCookies } from "@/app/(auth)/actions"
 import db from "@/db/db"
 import { conversationTable } from "@/db/schema/conversation"
@@ -8,6 +8,41 @@ import { eq } from "drizzle-orm"
 import { nanoid } from "nanoid"
 
 export const maxDuration = 30
+
+const MAX_MESSAGE_LENGTH = 8000
+const MAX_MESSAGES_PER_REQUEST = 50
+const MAX_CONVERSATION_MESSAGES = 100
+const MAX_TITLE_LENGTH = 100
+
+function sanitizeContent(content: string): string {
+  const dangerousPatterns = [
+    /<script[\s>]/gi,
+    /javascript:/gi,
+    /on\w+=/gi,
+    /<iframe/gi,
+    /<object/gi,
+    /<embed/gi,
+    /expression\s*\(/gi,
+  ]
+  for (const pattern of dangerousPatterns) {
+    if (pattern.test(content)) {
+      return "[content removed for security]"
+    }
+  }
+  return content.slice(0, MAX_MESSAGE_LENGTH)
+}
+
+function getMessageContent(message: UIMessage): string {
+  const msg = message as any
+  if (typeof msg.content === "string") return msg.content
+  if (msg.parts) {
+    return msg.parts
+      .filter((p: any) => p?.type === "text" && typeof p?.text === "string")
+      .map((p: any) => p.text)
+      .join("")
+  }
+  return ""
+}
 
 export async function POST(req: Request) {
   try {
@@ -23,29 +58,43 @@ export async function POST(req: Request) {
       conversationId,
     }: { messages: UIMessage[]; conversationId?: string } = await req.json()
 
-    let currentConversationId = conversationId
-
-    // Helper to extract content from UIMessage
-    const getMessageContent = (message: UIMessage): string => {
-      const msg = message as any
-      if (typeof msg.content === "string") return msg.content
-      if (msg.parts) {
-        return msg.parts
-          .filter((p: any) => p?.type === "text" && typeof p?.text === "string")
-          .map((p: any) => p.text)
-          .join("")
-      }
-      return ""
+    if (!Array.isArray(messages) || messages.length === 0) {
+      return new Response(JSON.stringify({ error: "Invalid messages" }), {
+        status: 400,
+      })
     }
 
-    // If no conversationId provided, create a new conversation
+    if (messages.length > MAX_MESSAGES_PER_REQUEST) {
+      return new Response(
+        JSON.stringify({
+          error: `Too many messages. Maximum ${MAX_MESSAGES_PER_REQUEST} per request.`,
+        }),
+        { status: 400 }
+      )
+    }
+
+    for (const msg of messages) {
+      const content = getMessageContent(msg)
+      if (content.length > MAX_MESSAGE_LENGTH) {
+        return new Response(
+          JSON.stringify({
+            error: `Message content exceeds maximum length of ${MAX_MESSAGE_LENGTH} characters`,
+          }),
+          { status: 400 }
+        )
+      }
+    }
+
+    let currentConversationId = conversationId
+
     if (!currentConversationId) {
       const firstUserMessage = messages.find((m) => m.role === "user")
       const content = firstUserMessage
-        ? getMessageContent(firstUserMessage)
+        ? sanitizeContent(getMessageContent(firstUserMessage))
         : ""
       const title = content
-        ? content.slice(0, 50) + (content.length > 50 ? "..." : "")
+        ? sanitizeContent(content).slice(0, MAX_TITLE_LENGTH) +
+          (content.length > MAX_TITLE_LENGTH ? "..." : "")
         : "New Chat"
 
       const [conversation] = await db
@@ -57,12 +106,54 @@ export async function POST(req: Request) {
         })
         .returning()
       currentConversationId = conversation.id
+    } else {
+      const existing = await db
+        .select()
+        .from(conversationTable)
+        .where(eq(conversationTable.id, currentConversationId))
+        .limit(1)
+
+      if (existing.length === 0) {
+        const firstUserMessage = messages.find((m) => m.role === "user")
+        const content = firstUserMessage
+          ? sanitizeContent(getMessageContent(firstUserMessage))
+          : ""
+        const title = content
+          ? sanitizeContent(content).slice(0, MAX_TITLE_LENGTH) +
+            (content.length > MAX_TITLE_LENGTH ? "..." : "")
+          : "New Chat"
+
+        await db.insert(conversationTable).values({
+          id: currentConversationId,
+          userId: user.id,
+          title,
+        })
+      } else if (existing[0].userId !== user.id) {
+        return new Response(
+          JSON.stringify({ error: "Conversation not found" }),
+          { status: 404 }
+        )
+      }
     }
 
-    // Store the user message if it's the last one
+    const existingMessagesCount = await db
+      .select({ count: aimessageTable.id })
+      .from(aimessageTable)
+      .where(eq(aimessageTable.conversationId, currentConversationId))
+
+    if (existingMessagesCount.length >= MAX_CONVERSATION_MESSAGES) {
+      return new Response(
+        JSON.stringify({
+          error:
+            "Conversation has reached maximum message limit. Please start a new conversation.",
+        }),
+        { status: 400 }
+      )
+    }
+
     const lastMessage = messages[messages.length - 1]
     if (lastMessage.role === "user") {
-      const content = getMessageContent(lastMessage)
+      const content = sanitizeContent(getMessageContent(lastMessage))
       await db.insert(aimessageTable).values({
         userId: user.id,
         conversationId: currentConversationId,
@@ -71,7 +162,6 @@ export async function POST(req: Request) {
       })
     }
 
-    // Use AI SDK's generateResponse with reasoning middleware
     const result = generateResponse(
       user.id,
       currentConversationId,

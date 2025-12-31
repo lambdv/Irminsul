@@ -4,7 +4,7 @@ import {
   wrapLanguageModel,
   extractReasoningMiddleware,
 } from "ai"
-import { tools } from "./tools"
+import { tools } from "../tools/tools"
 import { eq } from "drizzle-orm"
 import db from "@/db/db"
 import { aitokenTable } from "@/db/schema/aitoken"
@@ -68,7 +68,7 @@ export function generateResponse(
     // instead of the default Responses API (/v1/responses)
     model: model as any,
     system: systemPrompt,
-    tools: tools,
+    tools: tools as any,
     stopWhen: stepCountIs(5), // Allow multiple steps: tool call + response generation
     onStepFinish: (step) => {
       // Log to debug tool execution
@@ -126,7 +126,7 @@ export async function consumeAiToken(
   const newTokensLeft: number = tokensLeft - numTokens
   await db
     .update(aitokenTable)
-    .set({ numTokens: newTokensLeft })
+    .set({ numTokens: newTokensLeft } as any)
     .where(eq(aitokenTable.userId, userId))
   return true
 }

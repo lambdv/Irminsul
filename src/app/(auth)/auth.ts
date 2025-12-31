@@ -7,10 +7,12 @@ import { usersTable } from "@/db/schema/user"
 import { accountsTable } from "@/db/schema/account"
 import { sessionsTable } from "@/db/schema/session"
 import { verificationTokensTable } from "@/db/schema/token"
+import { aitokenTable } from "@/db/schema/aitoken"
 import { eq } from "drizzle-orm"
 import React from "react"
 import { redirect } from "next/navigation"
- 
+import { nanoid } from "nanoid"
+
 const adapter = DrizzleAdapter(db, {
   usersTable: usersTable,
   accountsTable: accountsTable,
@@ -20,14 +22,18 @@ const adapter = DrizzleAdapter(db, {
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: adapter,
-  providers: [
-    DiscordProvider
-  ],
+  providers: [DiscordProvider],
+  events: {
+    createUser: async ({ user }) => {
+      // Note: We can't get IP here directly in the auth event,
+      // so token creation will be handled on first API access
+    },
+  },
   pages: {
-    signIn: '/login',
-    signOut: '/auth/signout',
-    error: '/auth/error',
-    verifyRequest: '/auth/verify-request',
-    newUser: '/auth/new-user'
-  }
+    signIn: "/login",
+    signOut: "/auth/signout",
+    error: "/auth/error",
+    verifyRequest: "/auth/verify-request",
+    newUser: "/auth/new-user",
+  },
 })

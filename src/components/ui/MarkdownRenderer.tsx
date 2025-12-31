@@ -302,6 +302,13 @@ const markdownOptions = {
   },
 }
 
+/** Parses :::thinking blocks and converts them to <think> tags */
+function parseThinkingBlocks(content: string): string {
+  // Simple parser for :::thinking blocks
+  const thinkingRegex = /:::thinking\s*\n([\s\S]*?)\n:::/g
+  return content.replace(thinkingRegex, "<think>\n$1\n</think>")
+}
+
 /** Renders markdown content with shadcn-styled components */
 export default function MarkdownRenderer({
   children,
@@ -310,9 +317,12 @@ export default function MarkdownRenderer({
   children: string
   className?: string
 }) {
+  // Parse :::thinking blocks before rendering markdown
+  const processedContent = parseThinkingBlocks(children)
+
   return (
     <div className={cn("prose prose-invert max-w-none", className)}>
-      <Markdown options={markdownOptions as any}>{children}</Markdown>
+      <Markdown options={markdownOptions as any}>{processedContent}</Markdown>
     </div>
   )
 }
