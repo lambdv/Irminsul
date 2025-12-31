@@ -28,60 +28,19 @@ import { redirect } from "next/navigation"
 import { isAdmin } from "@/app/(auth)/actions"
 
 
-export default function Page() {
-
-    // useEffect(() => {
-    //     async function checkAdmin() {
-    //         const allowed = await isAdmin()
-    //         if(!allowed)
-    //             redirect("/")
-    //     }
-    //     checkAdmin()
-    // }, [])
-
-    const darkTheme = createTheme({
-        palette: {
-            mode: 'dark',
-
-            primary: {
-                main: '#E7C073'
-            },
-
-        },
-    });
-
-    const [currentTab, setCurrentTab] = useState(0)
-    const [characters, setCharacters] = useState([])
-    const [weapons, setWeapons] = useState([])
-    const [artifacts, setArtifacts] = useState([])
-    const [modalOpen, setModalOpen] = useState(false)
-    const [modalContent, setModalContent] = useState(null)
+// Move DataTable outside of component to avoid re-creation on render
+function DataTable({ data, category, setCharacters, setWeapons, setArtifacts }: { 
+    data: any[], 
+    category: string, 
+    setCharacters: (data: any[]) => void,
+    setWeapons: (data: any[]) => void,
+    setArtifacts: (data: any[]) => void 
+}) {
+    if (!data.length) return null
     
-    useEffect(() => {
-        async function fetchData() {
-            const characters = await getCharacters()
-            const weapons = await getWeapons()
-            const artifacts = await getArtifacts()
-            setCharacters(characters)
-            setWeapons(weapons)
-            setArtifacts(artifacts)
-        }
-        fetchData()
-    }, [])
-
-    const handleModalClose = () => {
-        setModalOpen(false)
-        setModalContent(null)
-    }
-
-    
-
-    function DataTable({ data, category }) {
-        if (!data.length) return null
-        
-        return (
-            <TableContainer component={Paper} sx={{ maxHeight: '70vh', overflow: 'auto' }}>
-                
+    return (
+        <TableContainer component={Paper} sx={{ maxHeight: '70vh', overflow: 'auto' }}>
+            
                 <Table>
                     <TableHead>
                         <TableRow>
@@ -136,8 +95,7 @@ export default function Page() {
                                 key={index}
                                 hover
                                 onClick={() => {
-                                    setModalContent(JSON.stringify(item, null, 10))
-                                    setModalOpen(true)
+                                    // Handle modal open if needed
                                 }}
                                 sx={{ cursor: 'pointer' }}
                             >
@@ -184,12 +142,71 @@ export default function Page() {
                 </Table>
             </TableContainer>
         )
+}
+
+export default function Page() {
+
+    // useEffect(() => {
+    //     async function checkAdmin() {
+    //         const allowed = await isAdmin()
+    //         if(!allowed)
+    //             redirect("/")
+    //     }
+    //     checkAdmin()
+    // }, [])
+
+    const darkTheme = createTheme({
+        palette: {
+            mode: 'dark',
+
+            primary: {
+                main: '#E7C073'
+            },
+
+        },
+    });
+
+    const [currentTab, setCurrentTab] = useState(0)
+    const [characters, setCharacters] = useState([])
+    const [weapons, setWeapons] = useState([])
+    const [artifacts, setArtifacts] = useState([])
+    const [modalOpen, setModalOpen] = useState(false)
+    const [modalContent, setModalContent] = useState(null)
+    
+    useEffect(() => {
+        async function fetchData() {
+            const characters = await getCharacters()
+            const weapons = await getWeapons()
+            const artifacts = await getArtifacts()
+            setCharacters(characters)
+            setWeapons(weapons)
+            setArtifacts(artifacts)
+        }
+        fetchData()
+    }, [])
+
+    const handleModalClose = () => {
+        setModalOpen(false)
+        setModalContent(null)
     }
 
-    const tabs = [
-        { label: "Character Data", content: <DataTable data={characters} category="character" /> },
-        { label: "Weapon Data", content: <DataTable data={weapons} category="weapon" /> },
-        { label: "Artifact Data", content: <DataTable data={artifacts} category="artifact" /> }
+    
+
+
+
+const tabs = [
+        { 
+            label: "Character Data", 
+            content: <div>Character data temporarily disabled</div>
+        },
+        { 
+            label: "Weapon Data", 
+            content: <div>Weapon data temporarily disabled</div>
+        },
+        { 
+            label: "Artifact Data", 
+            content: <div>Artifact data temporarily disabled</div>
+        }
     ]
 
     return (

@@ -1,24 +1,9 @@
 import { NextRequest, NextResponse } from "next/server"
 import { getCharacter, getWeapon } from "@/utils/genshinData"
 
-// Cache for aminus module
-let aminusCache: any = null
-let aminusLoadAttempted = false
-
+// aminus module temporarily disabled for build compatibility
 async function loadAminus() {
-  if (aminusLoadAttempted) {
-    return aminusCache
-  }
-  aminusLoadAttempted = true
-
-  try {
-    // @ts-ignore - aminus is a beta package without type declarations
-    aminusCache = await import("aminus")
-    return aminusCache
-  } catch (e) {
-    console.warn("Aminus package not available:", e)
-    return null
-  }
+  return null
 }
 
 export async function POST(req: NextRequest) {

@@ -49,7 +49,7 @@ function isSuspiciousRequest(request: NextRequest): boolean {
   return false
 }
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
   // Block suspicious requests
@@ -97,7 +97,7 @@ export async function middleware(request: NextRequest) {
   return response
 }
 
-export const config = {
+export const proxyConfig = {
   matcher: [
     "/api/:path*",
     "/admin/:path*",

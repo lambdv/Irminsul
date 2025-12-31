@@ -67,6 +67,7 @@
     "graphql-yoga": "^5.18.0",
     "gsap": "^3.14.2",
     "langchain": "^1.2.3",
+    "litegraph.js": "^0.7.18",
     "lucide-react": "^0.468.0",
     "markdown-to-jsx": "^9.3.5",
     "mcp-handler": "^1.0.2",
