@@ -1,133 +1,179 @@
-import { redirect } from 'next/navigation'
-import React from 'react'
-import { getUser, getUserById, isAdmin } from '@/app/(auth)/actions'
-import styles from './donate.module.css'
-import { stripe } from '@/lib/stripe'
-import { syncStripePayments } from './actions'
-import Link from 'next/link'
-import DonationGoal from './goal'
-import { eq } from 'drizzle-orm'
-import db from '@/db/db'
-import { purchasesTable } from '@/db/schema/purchase'
-import { BASE_TIER_TOKEN_AMOUNT, SUPPORT_TIER_TOKEN_AMOUNT } from './actions'
-import { getServerSession, getServerUser } from '@/lib/server-session'
+import { redirect } from "next/navigation"
+import React from "react"
+import { getUser, getUserById, isAdmin } from "@/app/(auth)/actions"
+import { stripe } from "@/lib/stripe"
+import { syncStripePayments } from "./actions"
+import Link from "next/link"
+import DonationGoal from "./goal"
+import { eq } from "drizzle-orm"
+import db from "@/db/db"
+import { purchasesTable } from "@/db/schema/purchase"
+import { BASE_TIER_TOKEN_AMOUNT, SUPPORT_TIER_TOKEN_AMOUNT } from "./actions"
+import { getServerSession, getServerUser } from "@/lib/server-session"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/cn/card"
+import { Button } from "@/components/cn/button"
+import { Check } from "lucide-react"
 
-export async function generateMetadata({params}) {
-    return {
-        title: "Donate | Irminsul",
-    }
+export async function generateMetadata({ params }) {
+  return {
+    title: "Pricing | Irminsul",
+  }
 }
 
 export default async function page() {
-    const session = await getServerSession()
-    const user = await getServerUser()
+  const session = await getServerSession()
+  const user = await getServerUser()
 
-    //const payments = await stripe.paymentIntents.list()
+  //const payments = await stripe.paymentIntents.list()
 
-    const payments = await db.select().from(purchasesTable)
-        .where(eq(purchasesTable.status, "succeeded"))
-    // await syncStripePayments()
+  const payments = await db
+    .select()
+    .from(purchasesTable)
+    .where(eq(purchasesTable.status, "succeeded"))
+  // await syncStripePayments()
 
-    return (
-        <div className={styles.donateContainer}>
+  return (
+    <div className="container mx-auto py-10 px-4">
+      <div className="text-center mb-12">
+        <h1 className="text-3xl font-bold mb-4">Upgrade to Pro</h1>
+        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          Unlock premium features and support the development of Irminsul.
+        </p>
+      </div>
 
-            <div className={styles.donateHeader}>
-                <h1>Support Irminsul</h1>
-                <p>Irminsul is Free and Open Source software. If you enjoy using it, consider donating to help support the development of the project.</p>
-            </div>
-
-
-            <div className={styles.donateCardDeck}>
-                <DonateCard 
-                    title="F2P"
-                    price={<div style={{display: "grid", alignItems: "center"}}>
-                        <span>Free</span>
-                    </div>}                    
-                    description="Full access to Irminsul"
-                    features={[
-                        "Access to data, articles and tools",
-                        `${BASE_TIER_TOKEN_AMOUNT} SeelieAI tokens`,
-                    ]}
-                    isCurrent={true}
-                    href=""
-                />
-                <DonateCard 
-                    title="Supporter Tier"
-                    price={<div style={{display: "grid", alignItems: "center"}}>
-                        {/* <span style={{textDecoration: "line-through", marginRight: "8px", fontSize: "12px", color: "#838383"}}>$9.99</span> */}
-                        <span>
-                            $4.99 
-                            {/* <span style={{fontSize: "12px", color: "#838383"}}> (50% off)</span> */}
-                        </span>
-                    </div>}
-                    description="Enhanced experience"
-                    features={[
-                        "Everything in Free tier",
-                        "Ad-Free experience",
-                        `+${SUPPORT_TIER_TOKEN_AMOUNT} SeelieAI tokens`,
-                        "Verified badge on your profile",
-                        "Early access to new preview features",
-                    ]}
-                    buttonText="Donate"
-                    isCurrent={false}
-                    href={user ? "https://buy.stripe.com/5kAaG57cIdzGgF2cMO?prefilled_email=" + user.email : "/login"}
-                    highlight={true}
-                />
-            </div>
-
-            {/* <DonationGoal goalAmount={40} payments={payments}/> */}
-
-        </div>
-    )
-}
-
-function DonateCard(props: {
-    title: string,
-    price: React.ReactNode,
-    description: string,
-    features: string[],
-    buttonText?: string,
-    isCurrent: boolean,
-    href: string | null,
-    highlight?: boolean,
-}) {
-    return (
-        <div className={styles.donateCard + (props.highlight ? " " + styles.highlight : "")}>
-            <h2 className={styles.cardTitle}>{props.title}</h2>
-            <div className={styles.cardPrice}>{props.price}</div>
-            <p className={styles.cardDescription}>{props.description}</p>
-            <ul className={styles.featureList}>
-                {props.features.map((feature, index) => {
-                    if(feature==="+" + SUPPORT_TIER_TOKEN_AMOUNT + " SeelieAI tokens"){
-                        return (
-                            <li key={index}>
-                                <i className="material-symbols-outlined">check</i>
-                                <p style={{backgroundColor: "var(--primary-color)", borderRadius: "3px", padding: "1px 5px", color: "black"}}>{feature}</p>
-                            </li>
-                        )
-                    }
-                    return (
-                        <li key={index}>
-                            <i className="material-symbols-outlined">check</i>
-                        {feature}
-                    </li>
-                    )
-                })}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <Card>
+          <CardHeader>
+            <CardTitle>F2P</CardTitle>
+            <div className="text-2xl font-bold">Free</div>
+            <CardDescription>Full access to Irminsul</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ul className="space-y-2">
+              <li className="flex items-center gap-2">
+                <Check className="h-4 w-4 text-green-500" />
+                <span className="text-sm">
+                  Access to data, articles and tools
+                </span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="h-4 w-4 text-green-500" />
+                <span className="text-sm">
+                  {BASE_TIER_TOKEN_AMOUNT} SeelieAI tokens
+                </span>
+              </li>
             </ul>
-            <Link href={props.href}>
-                <button 
-                    className={props.isCurrent ? styles.currentTier : styles.donateButton
-                        + " waves-effect waves-dark ripple "
-                    }
-                    style={{
-                        backgroundColor: props.highlight ? "var(--primary-color)" : "var(--secondary-color)",
-                        borderRadius: "3px",
-                        color: "black",
-                    }}
-                >
-                    {props.buttonText}
-                </button>
-            </Link>
-        </div>
-    )
+          </CardContent>
+          <CardFooter>
+            <Button className="w-full" disabled>
+              Current Plan
+            </Button>
+          </CardFooter>
+        </Card>
+
+        <Card className="border-primary">
+          <CardHeader>
+            <CardTitle>Pro</CardTitle>
+            <div className="text-2xl font-bold">$20</div>
+            <CardDescription>Enhanced experience</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ul className="space-y-2">
+              <li className="flex items-center gap-2">
+                <Check className="h-4 w-4 text-green-500" />
+                <span className="text-sm">Everything in Free tier</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="h-4 w-4 text-green-500" />
+                <span className="text-sm">Ad-Free experience</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="h-4 w-4 text-green-500" />
+                <span className="text-sm">
+                  +{SUPPORT_TIER_TOKEN_AMOUNT} SeelieAI tokens
+                </span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="h-4 w-4 text-green-500" />
+                <span className="text-sm">Verified badge on your profile</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="h-4 w-4 text-green-500" />
+                <span className="text-sm">
+                  Early access to new preview features
+                </span>
+              </li>
+            </ul>
+          </CardContent>
+          <CardFooter>
+            <Button asChild className="w-full">
+              <Link
+                href={
+                  user
+                    ? "https://buy.stripe.com/YOUR_PRO_LINK?prefilled_email=" +
+                      user.email
+                    : "/login"
+                }
+              >
+                Upgrade
+              </Link>
+            </Button>
+          </CardFooter>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Ultra</CardTitle>
+            <div className="text-2xl font-bold">$100</div>
+            <CardDescription>Ultimate support</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ul className="space-y-2">
+              <li className="flex items-center gap-2">
+                <Check className="h-4 w-4 text-green-500" />
+                <span className="text-sm">Everything in Pro tier</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="h-4 w-4 text-green-500" />
+                <span className="text-sm">Priority support</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="h-4 w-4 text-green-500" />
+                <span className="text-sm">Exclusive features and updates</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="h-4 w-4 text-green-500" />
+                <span className="text-sm">
+                  Direct communication with developers
+                </span>
+              </li>
+            </ul>
+          </CardContent>
+          <CardFooter>
+            <Button asChild className="w-full">
+              <Link
+                href={
+                  user
+                    ? "https://buy.stripe.com/YOUR_ULTRA_LINK?prefilled_email=" +
+                      user.email
+                    : "/login"
+                }
+              >
+                Upgrade
+              </Link>
+            </Button>
+          </CardFooter>
+        </Card>
+      </div>
+
+      {/* <DonationGoal goalAmount={40} payments={payments}/> */}
+    </div>
+  )
 }

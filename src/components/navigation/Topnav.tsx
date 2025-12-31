@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import Link from "next/link"
 import React, { useEffect, useState, useRef } from "react"
 import { usePathname } from "next/navigation"
@@ -13,9 +13,7 @@ import { signIn } from "next-auth/react"
 import { auth } from "@/app/(auth)/auth"
 import Image from "next/image"
 import RoundBtn from "../ui/RoundBtn"
-import { useSessionContext } from '@/lib/session-context'
-
-
+import { useSessionContext } from "@/lib/session-context"
 
 /**
  * Top navigation bar component
@@ -31,70 +29,74 @@ export default function Topnav() {
   const prevIsAtTopRef = useRef(true)
 
   useEffect(() => {
-    const handleScroll = () => setIsAtTop(window.scrollY === 0);
+    const handleScroll = () => setIsAtTop(window.scrollY === 0)
     handleScroll()
-    window.addEventListener('scroll', handleScroll);
-    
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll)
+
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   useEffect(() => {
-    if(!sideNavCollapsed){
-      setIsAtTop(currentIsAtTop => {
+    if (!sideNavCollapsed) {
+      setIsAtTop((currentIsAtTop) => {
         prevIsAtTopRef.current = currentIsAtTop
         return false
       })
-    }
-    else{
+    } else {
       setIsAtTop(prevIsAtTopRef.current)
     }
   }, [sideNavCollapsed])
 
   return (
     <>
-      <nav className={TopnavCSS.topnav + " " + (!isAtTop && TopnavCSS.solidnav)}>
-        <LeftContainer isSupporter={isSupporter}/>
-        <CenterContainer showPallette={showPallette} setShowPallette={setShowPallette}/>
-        <RightContainer/>
+      <nav
+        className={TopnavCSS.topnav + " " + (!isAtTop && TopnavCSS.solidnav)}
+      >
+        <LeftContainer isSupporter={isSupporter} />
+        <CenterContainer
+          showPallette={showPallette}
+          setShowPallette={setShowPallette}
+        />
+        <RightContainer />
       </nav>
 
-      {showPallette &&
-        <Overlay 
-          zIndex={100} 
-          onClick={()=>setShowPallette(false)} 
-          style={{ display: showPallette ? 'block' : 'none' }}
+      {showPallette && (
+        <Overlay
+          zIndex={100}
+          onClick={() => setShowPallette(false)}
+          style={{ display: showPallette ? "block" : "none" }}
         >
-          <SearchPallette/>
+          <SearchPallette />
         </Overlay>
-      }
+      )}
     </>
   )
 }
 
-
-function LeftContainer({ isSupporter }: { isSupporter: boolean }){
+function LeftContainer({ isSupporter }: { isSupporter: boolean }) {
   const { toggleSideNavCollapsed } = NavigationStore()
   const websiteName = "Irminsul"
   const pathname = usePathname()
-  
+
   return (
-    <div id="topnavLeft" className={TopnavCSS.topnavLeft + " " + TopnavCSS.hamburger}>
+    <div
+      id="topnavLeft"
+      className={TopnavCSS.topnavLeft + " " + TopnavCSS.hamburger}
+    >
       <div className={TopnavCSS.hamburgerContainer}>
-        <RoundBtn 
+        <RoundBtn
           icon="menu"
           onClick={toggleSideNavCollapsed}
           className={TopnavCSS.hamburgerBtn}
         />
-          
+
         <Link href="/">
           <p id={TopnavCSS.logo}>
-            {websiteName} <span 
-
-            >.moe</span>
+            {websiteName} <span>.moe</span>
           </p>
         </Link>
       </div>
-      
+
       {/* <div className={TopnavCSS.breadcrumbContainer}>
         {pathname === "/" && 
           <>
@@ -118,66 +120,72 @@ function LeftContainer({ isSupporter }: { isSupporter: boolean }){
             )
         })}
       </div> */}
-
-
     </div>
   )
 }
 
-
-function CenterContainer(props: any){
+function CenterContainer(props: any) {
   const { showPallette, setShowPallette } = props
-  const { SearchQuery, updateQuery, setFirstKeyPress, firstKeyPress } = SearchStore()
+  const { SearchQuery, updateQuery, setFirstKeyPress, firstKeyPress } =
+    SearchStore()
   const pathname = usePathname()
 
   const isExplorePage = () => {
-    return pathname === "/archive/characters" || pathname === "/archive/weapons" || pathname === "/archive/artifacts" || pathname === "/articles/team-dps"
+    return (
+      pathname === "/archive/characters" ||
+      pathname === "/archive/weapons" ||
+      pathname === "/archive/artifacts" ||
+      pathname === "/articles/team-dps"
+    )
   }
 
   const openSearchPallette = (e) => {
-    if(!isExplorePage() && !showPallette && SearchQuery !== "" && SearchQuery !== undefined){
-      if(firstKeyPress && SearchQuery.length > 1){
+    if (
+      !isExplorePage() &&
+      !showPallette &&
+      SearchQuery !== "" &&
+      SearchQuery !== undefined
+    ) {
+      if (firstKeyPress && SearchQuery.length > 1) {
         setFirstKeyPress(false)
       }
       setShowPallette(true)
-     
     }
   }
 
   const handleSearchBarChange = (e) => {
-    if(e.target.selectionStart !== 0 && !isExplorePage()){
+    if (e.target.selectionStart !== 0 && !isExplorePage()) {
       setShowPallette(true)
       updateQuery(e)
     }
 
-    if(isExplorePage()) 
-      updateQuery(e)
+    if (isExplorePage()) updateQuery(e)
   }
 
   return (
     <div id="topnavCenter" className={TopnavCSS.searchContainer}>
-        <input 
-          className={TopnavCSS.searchBar} 
-          placeholder="Search (ctrl+k)" 
-          value={SearchQuery}
-          onChange={handleSearchBarChange}
-          onMouseDown={openSearchPallette}
-        />
+      <input
+        className={TopnavCSS.searchBar}
+        placeholder="Search (ctrl+k)"
+        value={SearchQuery}
+        onChange={handleSearchBarChange}
+        onMouseDown={openSearchPallette}
+      />
     </div>
   )
 }
 
- function RightContainer(){
-
-    const { session, status, isAuthenticated, logout } = useSessionContext()
-    const [showDropdown, setShowDropdown] = useState(false)
+function RightContainer() {
+  const { session, status, isAuthenticated, logout } = useSessionContext()
+  const [showDropdown, setShowDropdown] = useState(false)
 
   return (
-    <div id="topnavRight" className={TopnavCSS.fries + " " + TopnavCSS.hamburger}>
-
+    <div
+      id="topnavRight"
+      className={TopnavCSS.fries + " " + TopnavCSS.hamburger}
+    >
       <div className={TopnavCSS.mobileOnly}>
-
-        <RoundBtn 
+        <RoundBtn
           icon="search"
           onClick={() => SearchStore.getState().setShowPallette(true)}
           className={TopnavCSS.hamburgerBtn}
@@ -185,55 +193,66 @@ function CenterContainer(props: any){
         />
       </div>
 
-
-      {isAuthenticated && session?.user && (
-        <>
-        </>
-      )}
+      {isAuthenticated && session?.user && <></>}
 
       <div className={TopnavCSS.userDropdownContainer}>
         {isAuthenticated && session?.user && (
           <>
-              <div className="relative">
-                <button onClick={() => setShowDropdown(!showDropdown)}>
-                  <Image 
-                    src={session?.user?.image} 
-                    alt="User Avatar" 
-                    className={TopnavCSS.userAvatar}
-                    width={40}
-                    height={40}
-                    unoptimized={true}
-                  />
-                </button>
-                <div 
-                  className={showDropdown ? TopnavCSS.dropdownMenu : TopnavCSS.dropdownMenuHidden}
+            <div className="relative">
+              <button onClick={() => setShowDropdown(!showDropdown)}>
+                <Image
+                  src={session?.user?.image}
+                  alt="User Avatar"
+                  className={TopnavCSS.userAvatar}
+                  width={40}
+                  height={40}
+                  unoptimized={true}
+                />
+              </button>
+              <div
+                className={
+                  showDropdown
+                    ? TopnavCSS.dropdownMenu
+                    : TopnavCSS.dropdownMenuHidden
+                }
+              >
+                <Link
+                  href="/settings"
+                  onClick={() => setShowDropdown(false)}
+                  className={TopnavCSS.dropdownMenuItem}
                 >
-                  <Link href="/settings" onClick={() => setShowDropdown(false)} className={TopnavCSS.dropdownMenuItem}>
-                      <div className={TopnavCSS.dropdownMenuItemContent}>
-                        <span className={`material-symbols-rounded ${TopnavCSS.dropdownMenuIcon}`}>settings</span>
-                        Settings
-                      </div>
-                  </Link>
+                  <div className={TopnavCSS.dropdownMenuItemContent}>
+                    <span
+                      className={`material-symbols-rounded ${TopnavCSS.dropdownMenuIcon}`}
+                    >
+                      settings
+                    </span>
+                    Settings
+                  </div>
+                </Link>
 
-                  <button onClick={logout} className={TopnavCSS.dropdownMenuItem}>
-                    <div className={TopnavCSS.dropdownMenuItemContent}>
-                      <span className={`material-symbols-rounded ${TopnavCSS.dropdownMenuIcon}`}>logout</span>
-                      Sign out
-                    </div>
-                  </button>
-                </div>
-                {showDropdown && (
-                  <div 
-                    className={TopnavCSS.dropdownOverlay}
-                    onClick={() => setShowDropdown(false)}
-                  />
-                )}
+                <button onClick={logout} className={TopnavCSS.dropdownMenuItem}>
+                  <div className={TopnavCSS.dropdownMenuItemContent}>
+                    <span
+                      className={`material-symbols-rounded ${TopnavCSS.dropdownMenuIcon}`}
+                    >
+                      logout
+                    </span>
+                    Sign out
+                  </div>
+                </button>
               </div>
+              {showDropdown && (
+                <div
+                  className={TopnavCSS.dropdownOverlay}
+                  onClick={() => setShowDropdown(false)}
+                />
+              )}
+            </div>
           </>
-          
         )}
 
-        {!isAuthenticated && status !== 'loading' && (
+        {!isAuthenticated && (
           <Link href="/login">
             <Btn>Log In</Btn>
           </Link>
@@ -244,21 +263,32 @@ function CenterContainer(props: any){
 }
 
 function Breadcrumb(props: {
-  href: string,
-  text: string,
-  isHighlighted?: boolean,
+  href: string
+  text: string
+  isHighlighted?: boolean
   key?: any
-}){
+}) {
   const maxLength = 15
   return (
-    <Link href={props.href} key={props.key} style={{
-      padding: "0px",
-      margin: "0px",
-    }}>
-        <p className={TopnavCSS.breadcrumb + " " + (props.isHighlighted && TopnavCSS.highlightedBreadcrumb)}>
-          {props.text.length > maxLength ? props.text.slice(0, maxLength) + "..." : props.text}
+    <Link
+      href={props.href}
+      key={props.key}
+      style={{
+        padding: "0px",
+        margin: "0px",
+      }}
+    >
+      <p
+        className={
+          TopnavCSS.breadcrumb +
+          " " +
+          (props.isHighlighted && TopnavCSS.highlightedBreadcrumb)
+        }
+      >
+        {props.text.length > maxLength
+          ? props.text.slice(0, maxLength) + "..."
+          : props.text}
       </p>
     </Link>
-
   )
 }

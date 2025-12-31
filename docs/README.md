@@ -1,2 +1,0 @@
-# Imrinsul
-web applicaiton

@@ -6,16 +6,20 @@
   "tailwind": {
     "config": "tailwind.config.js",
     "css": "src/app/globals.css",
-    "baseColor": "zinc",
+    "baseColor": "stone",
     "cssVariables": true,
     "prefix": ""
   },
+  "iconLibrary": "lucide",
   "aliases": {
-    "components": "@/src/components/cn",
-    "utils": "@/src/lib/shadcn/utils",
-    "ui": "@/src/components/ui",
-    "lib": "@/src/lib",
-    "hooks": "@/src/hooks"
+    "components": "@/components/cn",
+    "utils": "@/lib/shadcn/utils",
+    "ui": "@/components/cn",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
   },
-  "iconLibrary": "lucide"
+  "registries": {
+    "@react-bits": "https://reactbits.dev/r/{name}.json",
+    "@blocks": "https://blocks.so/r/{name}.json"
+  }
 }

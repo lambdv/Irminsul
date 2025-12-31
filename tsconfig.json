@@ -21,7 +21,7 @@
       ],
       "@utils/*": [
         "./src/utils/*"
-      ],
+      ]
     },
     "lib": [
       "dom",
@@ -38,19 +38,20 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "plugins": [
       {
         "name": "next"
       }
     ],
-    "target": "ES2020",
+    "target": "ES2020"
   },
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

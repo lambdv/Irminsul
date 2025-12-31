@@ -1,62 +1,108 @@
-import { NextResponse, NextRequest } from 'next/server'
-import { getToken } from "next-auth/jwt";
-import { cookies } from 'next/headers'
-import { isAdmin } from '@/app/(auth)/actions'
+import { NextRequest, NextResponse } from "next/server"
+import { rateLimit, getRateLimitConfig } from "@/lib/rate-limit"
+import { isAdmin } from "@/app/(auth)/actions"
 
-/**
- * Middleware for the application
- * @param req 
- * @returns 
- */
-export async function middleware(req: NextRequest) {
-    await AdminOnly(req)
-    await RedirectArchive(req)
-    return NextResponse.next()
+const SECURITY_HEADERS = {
+  "X-DNS-Prefetch-Control": "off",
+  "X-Frame-Options": "DENY",
+  "X-Content-Type-Options": "nosniff",
+  "Referrer-Policy": "origin-when-cross-origin",
+  "X-XSS-Protection": "1; mode=block",
+  "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+  "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+  "Content-Security-Policy":
+    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https: discord.com discordapp.com;",
+  "X-Permitted-Cross-Domain-Policies": "none",
+  "Cross-Origin-Embedder-Policy": "unsafe-none",
+  "Cross-Origin-Opener-Policy": "unsafe-none",
+  "Cross-Origin-Resource-Policy": "cross-origin",
 }
 
-/**
- * Redirects to the archive if the user is not an admin
- * @param req 
- * @returns 
- */
-async function AdminOnly(req: NextRequest): Promise<void> {
-    if(req.nextUrl.pathname.startsWith('/admin')){
-        const allowed = await isAdmin()
-        if(!allowed){
-            NextResponse.redirect(new URL('/', req.url))
-            return
-        }
+function isSuspiciousRequest(request: NextRequest): boolean {
+  const userAgent = request.headers.get("user-agent") || ""
+  const suspiciousUserAgents = [
+    "curl",
+    "wget",
+    "python-requests",
+    // Removed: "bot", "spider", "crawler" - these can be legitimate browser extensions
+  ]
+
+  if (suspiciousUserAgents.some((ua) => userAgent.toLowerCase().includes(ua))) {
+    return true
+  }
+
+  // Check for too many headers (potential header bombing) - increased limit
+  if (Array.from(request.headers.keys()).length > 200) {
+    return true
+  }
+
+  // Check for unusual methods
+  const method = request.method
+  if (
+    !["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"].includes(
+      method
+    )
+  ) {
+    return true
+  }
+
+  return false
+}
+
+export async function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname
+
+  // Block suspicious requests
+  if (isSuspiciousRequest(request)) {
+    return new NextResponse("Forbidden", { status: 403 })
+  }
+
+  if (pathname.startsWith("/api/")) {
+    const rateLimitResponse = rateLimit(request)
+    if (rateLimitResponse) {
+      return rateLimitResponse
     }
-}
+  }
 
-// export const config = {
-//     runtime: 'experimental-edge',
-//     matcher: [
-//         '/admin/:path*',
-//         '/characters/:path*',
-//         '/weapons/:path*',
-//         '/artifacts/:path*'
-//     ]
-// }
-
-/**
- * Redirects to the archive if the user is not an admin
- * @param req 
- * @returns 
- */
-async function RedirectArchive(req: NextRequest): Promise<void> {
-    const pathname = req.nextUrl.pathname
-    switch(pathname){
-        case '/characters/':
-            NextResponse.redirect(new URL('/archive/characters/' + pathname.split('/')[2], req.url))
-            return
-        case '/weapons/':
-            NextResponse.redirect(new URL('/archive/weapons/' + pathname.split('/')[2], req.url))
-            return
-        case '/artifacts/':
-            NextResponse.redirect(new URL('/archive/artifacts/' + pathname.split('/')[2], req.url))
-            return
+  if (pathname.startsWith("/admin")) {
+    const allowed = await isAdmin()
+    if (!allowed) {
+      return NextResponse.redirect(new URL("/", request.url))
     }
+  }
+
+  const response = NextResponse.next()
+
+  for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+    response.headers.set(key, value)
+  }
+
+  const pathnameStr = pathname
+  if (pathnameStr === "/characters/") {
+    return NextResponse.redirect(
+      new URL("/archive/characters/" + pathnameStr.split("/")[2], request.url)
+    )
+  }
+  if (pathnameStr === "/weapons/") {
+    return NextResponse.redirect(
+      new URL("/archive/weapons/" + pathnameStr.split("/")[2], request.url)
+    )
+  }
+  if (pathnameStr === "/artifacts/") {
+    return NextResponse.redirect(
+      new URL("/archive/artifacts/" + pathnameStr.split("/")[2], request.url)
+    )
+  }
+
+  return response
 }
 
-
+export const config = {
+  matcher: [
+    "/api/:path*",
+    "/admin/:path*",
+    "/characters/:path*",
+    "/weapons/:path*",
+    "/artifacts/:path*",
+  ],
+}

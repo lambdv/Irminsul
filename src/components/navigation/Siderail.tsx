@@ -1,13 +1,13 @@
 "use client"
 import Link from "next/link"
-import { usePathname } from 'next/navigation'
+import { usePathname } from "next/navigation"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import SidenavCSS from "./sidenav.module.css"
 import { NavigationStore } from "@/store/Navigation"
 import { SearchStore } from "@/store/Search"
-import Overlay from '../ui/Overlay'
-import { getCDNURL } from '@/utils/getAssetURL'
+import Overlay from "../ui/Overlay"
+import { getCDNURL } from "@/utils/getAssetURL"
 // No longer needed - using session cache instead
 
 const CHARACTER_ICON = getCDNURL("imgs/icons/characterIcon.png")
@@ -19,25 +19,28 @@ const SEELIE_ICON = getCDNURL("imgs/icons/seelie.png")
 // const PARTY_ICON = getCDNURL("imgs/icons/party.png")
 
 export let links = [
-  {href: "/", icon: "home", text: "Home"},
-  {href: "/seelie", 
-    //icon: "stars_2", 
+  // { href: "/", icon: "home", text: "Home" },
+  {
+    href: "/",
+    //icon: "stars_2",
     img: SEELIE_ICON,
-    text: "Ask AI"},
+    text: "Ask AI",
+  },
 
+  {
+    href: "https://aminus.irminsul.moe/",
+    icon: "functions",
+    text: "Damage Calculator",
+    external: true,
+  },
 
-  {href: "https://aminus.irminsul.moe/", icon: "functions", text: "Damage Calculator"},
-  // {href: "/akademiya", icon: "school", text: "Akademiya"},
-  // {href: "/calculator", icon: "automation", text: "Calculator"},
-  // {href: "/dmgcalc", icon: "functions", text: "DMG Calc"},
-  // {href: "/energycalc", icon: "bolt", text: "Energy Calc"},
-
-  {href: "/archive/characters", img: CHARACTER_ICON, text: "Characters"},
-  {href: "/archive/weapons", img: WEAPON_ICON, text: "Weapons"},
-  {href: "/archive/artifacts", img: ARTIFACT_ICON, text: "Artifacts"},
+  { href: "/archive/characters", img: CHARACTER_ICON, text: "CharacterDB" },
+  { href: "/archive/weapons", img: WEAPON_ICON, text: "WeaponsDB" },
+  { href: "/archive/artifacts", img: ARTIFACT_ICON, text: "ArtifactsDB" },
 
   // {href: "/articles", icon: "article", text: "Articles"},
-  {href: "/settings", icon: "settings", text: "Settings"},
+  { href: "/pricing", icon: "shopping_cart", text: "Pricing" },
+  { href: "/settings", icon: "settings", text: "Settings" },
 ]
 
 /**
@@ -45,7 +48,8 @@ export let links = [
  */
 export default function Siderail() {
   const pathname = usePathname() //get path url
-  const [activePage, setActivePage] = useState('') //keep track of active page
+  const [activePage, setActivePage] = useState("") //keep track of active page
+  const { sideNavCollapsed } = NavigationStore() //get side nav collapsed state
   useEffect(() => setActivePage(pathname), [pathname]) //update active page on path change
 
   // const {setShowPallette} = SearchStore()
@@ -60,58 +64,99 @@ export default function Siderail() {
 
   /**
    * Side navigation button component
-   * @param props 
-   * @returns 
+   * @param props
+   * @returns
    */
   function SideNavLink(props: {
-    href?: string, 
-    text: string, 
-    img?: any, 
-    icon?: any, 
-    onClick?: () => void,
+    href?: string
+    text: string
+    img?: any
+    icon?: any
+    onClick?: () => void
     bottom?: boolean
+    external?: boolean
   }) {
-    const handleSideNavLinkClick = (href: string) => { 
-      if(props.onClick !== undefined){
+    const handleSideNavLinkClick = (href: string) => {
+      if (props.onClick !== undefined) {
         props.onClick()
         return
       }
       setActivePage(href)
-      // if(window.innerWidth < 1200) 
+      // if(window.innerWidth < 1200)
       //   setSideNavCollapsed(true)
     }
-    const onLinkedPage: boolean =  props.href === "/" ? activePage === "/" : activePage.includes(props.href)
+    const onLinkedPage: boolean =
+      props.href === "/" ? activePage === "/" : activePage.includes(props.href)
+
+    if (props.external && props.href) {
+      return (
+        <a
+          href={props.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={SidenavCSS.sidenavLink}
+        >
+          <i
+            className={
+              SidenavCSS.sidenavLinkSymbol + " material-symbols-rounded"
+            }
+          >
+            {props.img ? (
+              <Image
+                src={props.img}
+                alt={props.text}
+                width={24}
+                height={24}
+                unoptimized={true}
+              />
+            ) : (
+              props.icon
+            )}
+          </i>
+          {props.text !== "" && <p>{props.text}</p>}
+        </a>
+      )
+    }
+
     return (
-      <Link 
-        href={props.href || "#"} 
+      <Link
+        href={props.href || "#"}
         className={
-          SidenavCSS.sidenavLink + ' '  
-          + (onLinkedPage && SidenavCSS.active)  
+          SidenavCSS.sidenavLink + " " + (onLinkedPage && SidenavCSS.active)
           // +(!sideNavCollapsed ? ' waves-effect waves-light ripple ' : ' ')
         }
         onClick={() => handleSideNavLinkClick(props.href)}
       >
-        <i className={SidenavCSS.sidenavLinkSymbol + ' material-symbols-rounded'}>
-
-          {props.img ? <Image src={props.img} alt = {props.text} width={24} height={24} unoptimized={true}/> : props.icon}
+        <i
+          className={SidenavCSS.sidenavLinkSymbol + " material-symbols-rounded"}
+        >
+          {props.img ? (
+            <Image
+              src={props.img}
+              alt={props.text}
+              width={24}
+              height={24}
+              unoptimized={true}
+            />
+          ) : (
+            props.icon
+          )}
         </i>
-        {props.text !== "" && <p>{props.text}</p> }
+        {props.text !== "" && <p>{props.text}</p>}
       </Link>
-
     )
   }
 
   return (
-      <nav 
-        className={
-          SidenavCSS.sidenav + " " 
-          + SidenavCSS.sidenavCollapsed
-          //+ (sideNavCollapsed && SidenavCSS.sidenavCollapsed)
-        } 
-        style={{zIndex: 1}}
-      >
-        
-        {/* <button style={{
+    <nav
+      className={
+        SidenavCSS.sidenav +
+        " " +
+        (sideNavCollapsed ? SidenavCSS.sidenavCollapsed : "")
+      }
+      style={{ zIndex: 20 }}
+    >
+      {/* <button style={{
           backgroundColor: "var(--ingame-primary-color)",
           padding: "10px",
           borderRadius: "10px",
@@ -128,14 +173,10 @@ export default function Siderail() {
             marginTop: "2.5px",
           }}>search</i>
         </button> */}
-        
 
-        {links.map((link, index) => (
-          <SideNavLink key={index} {...link} />
-        ))}
-      </nav>
+      {links.map((link, index) => (
+        <SideNavLink key={index} {...link} />
+      ))}
+    </nav>
   )
 }
-
-
-

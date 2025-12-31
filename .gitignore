@@ -49,3 +49,5 @@ scrapper/assets/
 ./venv/
 
 .swc
+
+temp/

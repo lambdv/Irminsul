@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 interface SessionData {
   user?: {
@@ -12,7 +12,7 @@ interface SessionData {
 
 interface SessionState {
   data: SessionData | null
-  status: 'loading' | 'authenticated' | 'unauthenticated'
+  status: "loading" | "authenticated" | "unauthenticated"
   error?: string
   lastFetch?: number
 }
@@ -20,9 +20,9 @@ interface SessionState {
 class SessionCache {
   private cache: SessionState = {
     data: null,
-    status: 'loading'
+    status: "loading",
   }
-  
+
   private subscribers: Set<() => void> = new Set()
   private activeRequest: Promise<SessionData | null> | null = null
   private readonly CACHE_DURATION = 5 * 60 * 1000 // 5 minutes
@@ -47,7 +47,7 @@ class SessionCache {
 
   // Notify all subscribers
   private notifySubscribers() {
-    this.subscribers.forEach(callback => callback())
+    this.subscribers.forEach((callback) => callback())
   }
 
   // Update cache and notify subscribers
@@ -62,15 +62,16 @@ class SessionCache {
     const timeoutId = setTimeout(() => controller.abort(), this.REQUEST_TIMEOUT)
 
     try {
-      const response = await fetch('/api/auth/session', {
+      const response = await fetch("/api/auth/session", {
         signal: controller.signal,
         headers: {
-          'Cache-Control': 'no-cache'
-        }
+          "Cache-Control": "no-cache",
+          "User-Agent": "Irminsul/1.0",
+        },
       })
-      
+
       clearTimeout(timeoutId)
-      
+
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}`)
       }
@@ -79,8 +80,8 @@ class SessionCache {
       return data || null
     } catch (error) {
       clearTimeout(timeoutId)
-      if (error.name === 'AbortError') {
-        throw new Error('Session request timed out')
+      if (error.name === "AbortError") {
+        throw new Error("Session request timed out")
       }
       throw error
     }
@@ -89,7 +90,7 @@ class SessionCache {
   // Get session with caching and deduplication
   async getSession(force = false): Promise<SessionData | null> {
     // Return cached data if valid and not forced
-    if (!force && this.isCacheValid() && this.cache.status !== 'loading') {
+    if (!force && this.isCacheValid() && this.cache.status !== "loading") {
       return this.cache.data
     }
 
@@ -107,30 +108,30 @@ class SessionCache {
     this.activeRequest = this.fetchSessionFromAPI()
 
     // Update status to loading
-    this.updateCache({ status: 'loading' })
+    this.updateCache({ status: "loading" })
 
     try {
       const sessionData = await this.activeRequest
-      
+
       // Update cache with new data
       this.updateCache({
         data: sessionData,
-        status: sessionData ? 'authenticated' : 'unauthenticated',
+        status: sessionData ? "authenticated" : "unauthenticated",
         lastFetch: Date.now(),
-        error: undefined
+        error: undefined,
       })
 
       return sessionData
     } catch (error) {
       // Update cache with error
       this.updateCache({
-        status: 'unauthenticated',
+        status: "unauthenticated",
         data: null,
         error: error.message,
-        lastFetch: Date.now()
+        lastFetch: Date.now(),
       })
-      
-      console.error('Session fetch failed:', error)
+
+      console.error("Session fetch failed:", error)
       return null
     } finally {
       this.activeRequest = null
@@ -141,8 +142,8 @@ class SessionCache {
   clearCache() {
     this.cache = {
       data: null,
-      status: 'unauthenticated',
-      lastFetch: Date.now()
+      status: "unauthenticated",
+      lastFetch: Date.now(),
     }
     this.activeRequest = null
     this.notifySubscribers()
@@ -151,33 +152,33 @@ class SessionCache {
   // Logout function that clears cache and calls logout API
   async logout() {
     this.clearCache()
-    
+
     try {
       // Call the logout API endpoint
-      await fetch('/api/logout', {
-        method: 'GET',
+      await fetch("/api/logout", {
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       })
-      
+
       // Redirect to login page
-      if (typeof window !== 'undefined') {
-        window.location.href = '/login'
+      if (typeof window !== "undefined") {
+        window.location.href = "/login"
       }
     } catch (error) {
-      console.error('Logout failed:', error)
+      console.error("Logout failed:", error)
       // Even if logout fails, clear local cache and redirect
       this.clearCache()
-      if (typeof window !== 'undefined') {
-        window.location.href = '/login'
+      if (typeof window !== "undefined") {
+        window.location.href = "/login"
       }
     }
   }
 
   // Preload session (useful for hard reloads)
   preloadSession() {
-    if (typeof window !== 'undefined' && !this.isCacheValid()) {
+    if (typeof window !== "undefined" && !this.isCacheValid()) {
       this.getSession(false).catch(() => {
         // Ignore errors during preload
       })
@@ -199,7 +200,7 @@ export function useSessionCache() {
     })
 
     // Trigger initial load only once
-    if (!initialLoadRef.current && state.status === 'loading') {
+    if (!initialLoadRef.current && state.status === "loading") {
       initialLoadRef.current = true
       sessionCache.getSession()
     }
@@ -213,23 +214,26 @@ export function useSessionCache() {
     session: state.data,
     status: state.status,
     error: state.error,
-    isAuthenticated: state.status === 'authenticated',
+    isAuthenticated: state.status === "authenticated",
     user: state.data?.user || null,
     refresh: () => sessionCache.getSession(true),
     clearCache: () => sessionCache.clearCache(),
-    logout: () => sessionCache.logout()
+    logout: () => sessionCache.logout(),
   }
 }
 
 // Initialize preload on client-side
-if (typeof window !== 'undefined') {
+if (typeof window !== "undefined") {
   // Preload session on page load
   sessionCache.preloadSession()
-  
+
   // Clear cache on storage events (useful for multi-tab logout)
-  window.addEventListener('storage', (event) => {
-    if (event.key === 'nextauth.session-token' || event.key === '__Secure-nextauth.session-token') {
+  window.addEventListener("storage", (event) => {
+    if (
+      event.key === "nextauth.session-token" ||
+      event.key === "__Secure-nextauth.session-token"
+    ) {
       sessionCache.clearCache()
     }
   })
-} 
+}
