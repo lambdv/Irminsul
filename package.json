@@ -64,6 +64,7 @@
     "fs": "^0.0.1-security",
     "fuse.js": "^7.1.0",
     "genshin-data": "*",
+    "google-recaptcha": "^1.1.0",
     "graphql": "^16.12.0",
     "graphql-yoga": "^5.18.0",
     "gsap": "^3.14.2",
