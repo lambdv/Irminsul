@@ -9,10 +9,6 @@ const nextConfig = {
   env: {
     DATABASE_URL: process.env.DATABASE_URL,
   },
-  // Vercel-specific optimizations
-  output: process.env.VERCEL ? "standalone" : undefined,
-  // Ensure proper middleware handling
-  swcMinify: true,
   async headers() {
     return [
       {
