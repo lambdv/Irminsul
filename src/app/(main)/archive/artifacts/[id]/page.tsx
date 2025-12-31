@@ -59,8 +59,13 @@ export default async function ArtifactPage({
 
   return (
     <Suspense fallback={<Loading />}>
+      <div className="mb-4">
+        <Advertisment type="banner" />
+      </div>
       <ArtifactHeader data={data} />
       <RightSidenav>
+        <br />
+        <Advertisment type="card" />
         <br />
         <Advertisment type="card" />
       </RightSidenav>
@@ -70,6 +75,10 @@ export default async function ArtifactPage({
         className={ArchivePageCSS.archiveRecordContentContainer}
       >
         <ArtifactSetBonus data={data} />
+        <br />
+        <Advertisment type="card" />
+        <br />
+        <Advertisment type="card" />
         <br />
         <CommentSection pageID={data.key} />
       </div>

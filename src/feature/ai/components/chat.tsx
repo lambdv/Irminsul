@@ -4,7 +4,7 @@ import { useChat } from "@ai-sdk/react"
 import { DefaultChatTransport } from "ai"
 import Image from "next/image"
 import { getCDNURL } from "@/utils/getAssetURL"
-import { getAiTokensLeft } from "../utils/numAiTokensLeft"
+
 import MarkdownRenderer from "@/components/ui/MarkdownRenderer"
 import {
   ChevronDown,
@@ -472,11 +472,9 @@ const LandingView = React.memo<{
             rootMargin="-50px"
             textAlign="center"
           />
-      <p className="text-sm text-white/60 mt-2" style={{
-      }}>
-        The 1rst AI agent for Genshin Meta & Theorycrafting.
-      </p>
-
+          <p className="text-sm text-white/60 mt-2" style={{}}>
+            The 1rst AI agent for Genshin Meta & Theorycrafting.
+          </p>
         </div>
         <div className="w-full max-w-xl md:max-w-2xl lg:max-w-3xl flex-shrink-0 scale-75 sm:scale-85 md:scale-90">
           <ChatTextField
@@ -651,8 +649,14 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
   useEffect(() => {
     const load = async () => {
       if (props.user?.id && selectedModel !== "auto") {
-        const tokens = await getAiTokensLeft(props.user.id)
-        setTokensLeft(tokens)
+        try {
+          const res = await fetch("/api/tokens")
+          const data = await res.json()
+          setTokensLeft(data.tokensLeft)
+        } catch (error) {
+          console.error("Failed to load tokens:", error)
+          setTokensLeft(null)
+        }
         setDisabledChat(false)
       } else {
         setTokensLeft(null)
@@ -686,6 +690,12 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
   const handleFormSubmit = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault()
+
+      if (!props.user) {
+        window.location.href = "/pricing"
+        return
+      }
+
       setDisabledChat(true)
       if (input.trim().length <= 0) {
         return
@@ -693,7 +703,7 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
       sendMessage({ text: input })
       setInput("")
     },
-    [input, sendMessage]
+    [input, sendMessage, props.user]
   )
 
   const handleInputChange = useCallback((value: string) => {
@@ -714,6 +724,26 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
         setShowLoginModal(true)
         return
       }
+
+      // Check if user is trying to access pro models
+      const proModels = ["gemini-2.5-pro", "deepseek-r1"]
+      if (proModels.includes(model)) {
+        // Check if user is Ultra tier
+        fetch("/api/user/tier")
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.tier !== "ultra") {
+              setShowLoginModal(true)
+              return
+            }
+            setSelectedModel(model)
+          })
+          .catch(() => {
+            setShowLoginModal(true)
+          })
+        return
+      }
+
       setSelectedModel(model)
     },
     [props.user]

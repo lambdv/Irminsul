@@ -1,15 +1,8 @@
-import { redirect } from "next/navigation"
-import React from "react"
-import { getUser, getUserById, isAdmin } from "@/app/(auth)/actions"
-import { stripe } from "@/lib/stripe"
-import { syncStripePayments } from "./actions"
+"use client"
+
+import React, { useState, useEffect } from "react"
 import Link from "next/link"
-import DonationGoal from "./goal"
-import { eq } from "drizzle-orm"
-import db from "@/db/db"
-import { purchasesTable } from "@/db/schema/purchase"
-import { BASE_TIER_TOKEN_AMOUNT, SUPPORT_TIER_TOKEN_AMOUNT } from "./actions"
-import { getServerSession, getServerUser } from "@/lib/server-session"
+import { Check } from "lucide-react"
 import {
   Card,
   CardContent,
@@ -19,25 +12,114 @@ import {
   CardTitle,
 } from "@/components/cn/card"
 import { Button } from "@/components/cn/button"
-import { Check } from "lucide-react"
+import Advertisment from "@/components/ui/Advertisment"
 
-export async function generateMetadata({ params }) {
-  return {
-    title: "Pricing | Irminsul",
+export default function PricingPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}) {
+  const [params, setParams] = useState<{
+    [key: string]: string | string[] | undefined
+  }>({})
+  const [user, setUser] = useState<any>(null)
+  const [isSupporter, setIsSupporter] = useState(false)
+
+  useEffect(() => {
+    const fetchParams = async () => {
+      const p = await searchParams
+      setParams(p)
+    }
+    fetchParams()
+
+    // Fetch user session and supporter status
+    fetch("/api/auth/session")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.user) {
+          setUser(data.user)
+          // Check supporter status
+          return fetch("/api/support/check", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: data.user.email }),
+          })
+        }
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        setIsSupporter(data.isSupporter || false)
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error)
+      })
+  }, [searchParams])
+
+  // Handle checkout success/cancellation
+  useEffect(() => {
+    if (params?.success === "true") {
+      console.log("Checkout successful!")
+    }
+    if (params?.canceled === "true") {
+      console.log("Checkout canceled")
+    }
+  }, [params])
+
+  // Handle post-login checkout
+  useEffect(() => {
+    const selectedPlan = localStorage.getItem("selectedPlan")
+
+    if (selectedPlan && user && !isSupporter) {
+      try {
+        const { priceId, tier } = JSON.parse(selectedPlan)
+        localStorage.removeItem("selectedPlan")
+
+        // Trigger checkout after a short delay
+        setTimeout(() => {
+          triggerCheckout(priceId, tier)
+        }, 500)
+      } catch (error) {
+        console.error("Error parsing selected plan:", error)
+      }
+    }
+  }, [user, isSupporter])
+
+  const triggerCheckout = async (priceId: string, tier: string) => {
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          priceId,
+          tier,
+        }),
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(
+          errorData.details ||
+            errorData.error ||
+            "Failed to create checkout session"
+        )
+      }
+
+      const { url } = await response.json()
+
+      if (url) {
+        window.location.href = url
+      } else {
+        throw new Error("No checkout URL returned")
+      }
+    } catch (error) {
+      console.error("Post-login checkout error:", error)
+      alert(
+        `Checkout error: ${error instanceof Error ? error.message : "Unknown error"}`
+      )
+    }
   }
-}
-
-export default async function page() {
-  const session = await getServerSession()
-  const user = await getServerUser()
-
-  //const payments = await stripe.paymentIntents.list()
-
-  const payments = await db
-    .select()
-    .from(purchasesTable)
-    .where(eq(purchasesTable.status, "succeeded"))
-  // await syncStripePayments()
 
   return (
     <div className="container mx-auto px-4">
@@ -45,10 +127,14 @@ export default async function page() {
         <div className="text-center mb-12">
           <h1 className="text-3xl font-bold mb-4">Upgrade to Pro</h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Unlock premium features and support the development of Irminsul.
+            Unlock premium features and support development of Irminsul.
           </p>
         </div>
+        <div className="mb-8 max-w-5xl mx-auto">
+          <Advertisment type="banner" />
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {/* Free Tier */}
           <Card>
             <CardHeader>
               <CardTitle>F2P</CardTitle>
@@ -72,12 +158,19 @@ export default async function page() {
               </ul>
             </CardContent>
             <CardFooter>
-              <Button className="w-full" disabled>
-                Current Plan
-              </Button>
+              {user && !isSupporter ? (
+                <Button className="w-full" disabled>
+                  Current Plan
+                </Button>
+              ) : (
+                <Button asChild className="w-full" variant="outline">
+                  <Link href="/login">Select</Link>
+                </Button>
+              )}
             </CardFooter>
           </Card>
 
+          {/* Pro Tier */}
           <Card className="border-primary">
             <CardHeader>
               <CardTitle>Pro</CardTitle>
@@ -113,25 +206,33 @@ export default async function page() {
               </ul>
             </CardContent>
             <CardFooter>
-              <Button asChild className="w-full">
-                <Link
-                  href={
-                    user
-                      ? "https://buy.stripe.com/YOUR_PRO_LINK?prefilled_email=" +
-                        user.email
-                      : "/login"
-                  }
-                >
-                  Upgrade
-                </Link>
-              </Button>
+              {user && isSupporter ? (
+                <Button className="w-full" disabled>
+                  Current Plan
+                </Button>
+              ) : user && !isSupporter ? (
+                <Button asChild className="w-full">
+                  <Link
+                    href={`https://buy.stripe.com/5kQ8wPbCc5e2gabfC5awo03?prefilled_email=${user?.email}`}
+                  >
+                    Upgrade
+                  </Link>
+                </Button>
+              ) : (
+                <Button asChild className="w-full">
+                  <Link href="https://buy.stripe.com/5kQ8wPbCc5e2gabfC5awo03">
+                    Upgrade
+                  </Link>
+                </Button>
+              )}
             </CardFooter>
           </Card>
 
+          {/* Ultra Tier */}
           <Card>
             <CardHeader>
               <CardTitle>Ultra</CardTitle>
-              <div className="text-2xl font-bold">$100</div>
+              <div className="text-2xl font-bold">$200</div>
               <CardDescription>Ultimate support</CardDescription>
             </CardHeader>
             <CardContent>
@@ -159,24 +260,32 @@ export default async function page() {
               </ul>
             </CardContent>
             <CardFooter>
-              <Button asChild className="w-full">
-                <Link
-                  href={
-                    user
-                      ? "https://buy.stripe.com/YOUR_ULTRA_LINK?prefilled_email=" +
-                        user.email
-                      : "/login"
-                  }
-                >
-                  Upgrade
-                </Link>
-              </Button>
+              {user && isSupporter ? (
+                <Button className="w-full" disabled>
+                  Current Plan
+                </Button>
+              ) : user && !isSupporter ? (
+                <Button asChild className="w-full">
+                  <Link
+                    href={`https://buy.stripe.com/cNi00jcGg21Qf67ahLawo04?prefilled_email=${user?.email}`}
+                  >
+                    Upgrade
+                  </Link>
+                </Button>
+              ) : (
+                <Button asChild className="w-full">
+                  <Link href="https://buy.stripe.com/cNi00jcGg21Qf67ahLawo04">
+                    Upgrade
+                  </Link>
+                </Button>
+              )}
             </CardFooter>
           </Card>
         </div>
+        <div className="mt-12 max-w-5xl mx-auto">
+          <Advertisment type="banner" />
+        </div>
       </div>
-
-      {/* <DonationGoal goalAmount={40} payments={payments}/> */}
     </div>
   )
 }

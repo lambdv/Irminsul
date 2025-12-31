@@ -65,6 +65,9 @@ export default async function CharacterPage({
 
   return (
     <Suspense fallback={<Loading />}>
+      <div className="mb-4">
+        <Advertisment type="banner" />
+      </div>
       <CharacterHeader data={data} />
       <TableOfContents />
       <div
@@ -74,9 +77,20 @@ export default async function CharacterPage({
         <br />
         {/* <CharacterDetails data={data}/> */}
         <CharacterBaseStats data={data} />
+        <br />
+        <Advertisment type="card" />
+        <br />
         <CharacterTalents data={data} />
+        <br />
+        <Advertisment type="card" />
+        <br />
         <CharacterPassives data={data} />
+        <br />
+        <Advertisment type="card" />
+        <br />
         <CharacterConstellations data={data} />
+        <br />
+        <Advertisment type="card" />
         <br />
         <Suspense fallback={<div>Loading...</div>}>
           <CommentSection pageID={data.key} color={color} />
@@ -204,6 +218,9 @@ function TableOfContents() {
           <Link href="#constellations">Constellations</Link>
         </li>
       </ul>
+      <br />
+      <Advertisment type="card" />
+      <br />
       <Advertisment type="card" />
     </RightSidenav>
   )

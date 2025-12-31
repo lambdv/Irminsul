@@ -54,6 +54,7 @@
     "@xyflow/react": "^12.8.1",
     "ai": "^6.0.0-beta.150",
     "aminus": "^1.0.0-beta",
+    "botid": "^1.5.10",
     "cheerio": "^1.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

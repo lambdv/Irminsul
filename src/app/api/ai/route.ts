@@ -11,6 +11,10 @@ import {
   consumeAiTokens,
   getAiTokensLeft,
 } from "@root/src/feature/ai/utils/numAiTokensLeft"
+import {
+  isUserUltraTierById,
+  getUserTierById,
+} from "@/app/(main)/pricing/actions"
 
 export const maxDuration = 60
 
@@ -112,18 +116,23 @@ export async function POST(req: Request) {
 
     const langchainMessages = convertToLangChainFormat(messages)
 
-    const tokensLeft = await getAiTokensLeft(user.id)
-    if (tokensLeft <= 0) {
-      return new Response(
-        JSON.stringify({
-          error: "Insufficient AI tokens. Please purchase more.",
-        }),
-        { status: 402 }
-      )
+    // Check if user is Ultra tier first
+    const isUltra = await isUserUltraTierById(user.id)
+    if (!isUltra) {
+      const tokensLeft = await getAiTokensLeft(user.id)
+
+      if (tokensLeft <= 0) {
+        return new Response(
+          JSON.stringify({
+            error: "Insufficient AI tokens. Please purchase more.",
+          }),
+          { status: 402 }
+        )
+      }
     }
 
     const consumed = await consumeAiTokens(user.id, 1)
-    if (!consumed) {
+    if (consumed === null) {
       return new Response(
         JSON.stringify({ error: "Failed to consume AI tokens" }),
         { status: 500 }

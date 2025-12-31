@@ -1,5 +1,5 @@
-import { auth } from '@/app/(auth)/auth'
-import { cache } from 'react'
+import { auth } from "@/app/(auth)/auth"
+import { cache } from "react"
 
 // Cache the auth function to avoid multiple calls
 export const getServerSession = cache(async () => {
@@ -16,8 +16,10 @@ export const getServerUser = cache(async () => {
 export const getServerSupporterStatus = cache(async () => {
   const user = await getServerUser()
   if (!user?.email) return false
-  
+
   // Import here to avoid circular dependencies
-  const { isUserSupporterByEmail } = await import('@root/src/app/(main)/support/actions')
+  const { isUserSupporterByEmail } = await import(
+    "@/app/(main)/support/actions"
+  )
   return await isUserSupporterByEmail(user.email)
-}) 
+})

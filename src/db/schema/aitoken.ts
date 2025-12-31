@@ -15,5 +15,6 @@ export const aitokenTable = pgTable("aitoken", {
   ipAddress: varchar("ipAddress").notNull(),
   numTokens: integer("numTokens").notNull().default(20),
   type: varchar("type").notNull().default("free"),
+  tier: varchar("tier").notNull().default("free"),
   createdAt: timestamp("createdAt", { mode: "date" }).defaultNow().notNull(),
 })

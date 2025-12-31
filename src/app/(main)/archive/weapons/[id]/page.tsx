@@ -60,16 +60,27 @@ export default async function WeaponPage({
 
   return (
     <Suspense fallback={<Loading />}>
+      <div className="mb-4">
+        <Advertisment type="banner" />
+      </div>
       <WeaponHeader data={data} />
       <RightSidenav>
+        <br />
+        <Advertisment type="card" />
         <br />
         <Advertisment type="card" />
       </RightSidenav>
       <div className={ArchivePageCSS.archiveRecordContentContainer}>
         <div className="flex flex-col md:flex-row">
           <WeaponBaseStats data={data} />
-          <WeaponPassives data={data} />
+          <div className="md:ml-4">
+            <Advertisment type="card" />
+          </div>
         </div>
+        <br />
+        <WeaponPassives data={data} />
+        <br />
+        <Advertisment type="card" />
         <br />
         <Suspense fallback={<div>Loading...</div>}>
           <CommentSection pageID={data.key} />

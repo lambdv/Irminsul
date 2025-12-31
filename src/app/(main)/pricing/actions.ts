@@ -55,6 +55,8 @@ export async function syncStripePayments() {
 
 export const BASE_TIER_TOKEN_AMOUNT = 200
 export const SUPPORT_TIER_TOKEN_AMOUNT = 500
+export const PRO_TIER_TOKEN_AMOUNT = 200 // Total for Pro tier
+export const ULTRA_TIER_TOKEN_AMOUNT = -1 // -1 indicates unlimited
 
 async function claimAiTokensFromPurchase(payment: any) {
   console.log("payment", payment)
@@ -73,27 +75,73 @@ async function claimAiTokensFromPurchase(payment: any) {
 
   if (!userId) return
 
+  // Get the tier from the payment or product
+  const tier = payment.metadata?.tier || "supporter"
+  const productId =
+    payment.productId || payment.metadata?.productId || "supporter_tier"
+
   const aitoken = await db
     .select()
     .from(aitokenTable)
     .where(eq(aitokenTable.userId, userId))
     .execute()
 
-  if (aitoken.length > 0) {
-    const aiToken = aitoken[0] as any
-    // Update existing tokens
-    await db
-      .update(aitokenTable)
-      .set({
-        numTokens: aiToken.numTokens + SUPPORT_TIER_TOKEN_AMOUNT,
+  if (tier === "ultra") {
+    // Ultra tier gets unlimited tokens
+    if (aitoken.length > 0) {
+      await db
+        .update(aitokenTable)
+        .set({
+          numTokens: -1, // Unlimited
+          tier: "ultra",
+          type: "paid",
+        } as any)
+        .where(eq(aitokenTable.userId, userId))
+    } else {
+      await db.insert(aitokenTable).values({
+        userId: userId,
+        numTokens: -1, // Unlimited
+        tier: "ultra",
+        type: "paid",
       } as any)
-      .where(eq(aitokenTable.userId, userId))
+    }
+  } else if (tier === "pro") {
+    // Pro tier gets 200 tokens
+    if (aitoken.length > 0) {
+      await db
+        .update(aitokenTable)
+        .set({
+          numTokens: PRO_TIER_TOKEN_AMOUNT,
+          tier: "pro",
+          type: "paid",
+        } as any)
+        .where(eq(aitokenTable.userId, userId))
+    } else {
+      await db.insert(aitokenTable).values({
+        userId: userId,
+        numTokens: PRO_TIER_TOKEN_AMOUNT,
+        tier: "pro",
+        type: "paid",
+      } as any)
+    }
   } else {
-    // Create new tokens entry only if userId is valid
-    await db.insert(aitokenTable).values({
-      userId: userId,
-      numTokens: BASE_TIER_TOKEN_AMOUNT + SUPPORT_TIER_TOKEN_AMOUNT,
-    } as any)
+    // Legacy supporter tier
+    if (aitoken.length > 0) {
+      const aiToken = aitoken[0] as any
+      await db
+        .update(aitokenTable)
+        .set({
+          numTokens: aiToken.numTokens + SUPPORT_TIER_TOKEN_AMOUNT,
+          tier: "pro", // Upgrade legacy supporters to pro
+        } as any)
+        .where(eq(aitokenTable.userId, userId))
+    } else {
+      await db.insert(aitokenTable).values({
+        userId: userId,
+        numTokens: BASE_TIER_TOKEN_AMOUNT + SUPPORT_TIER_TOKEN_AMOUNT,
+        tier: "pro",
+      } as any)
+    }
   }
 }
 
@@ -122,7 +170,59 @@ export async function isUserSupporterByEmail(email: string) {
   return false
 }
 
+export async function getUserTier(
+  email: string
+): Promise<"free" | "pro" | "ultra"> {
+  if (!email) return "free"
+
+  const latestPurchaseFromUser = await db
+    .select()
+    .from(purchasesTable)
+    .where(eq(purchasesTable.email, email))
+    .orderBy(desc(purchasesTable.createdAt))
+    .limit(1)
+    .execute()
+    .then((rows) => rows[0])
+
+  if (
+    !latestPurchaseFromUser ||
+    latestPurchaseFromUser.status !== "succeeded"
+  ) {
+    return "free"
+  }
+
+  const tier = latestPurchaseFromUser.tier as string
+  if (tier === "ultra") return "ultra"
+  if (tier === "pro") return "pro"
+  return "free"
+}
+
+export async function isUserUltraTier(email: string): Promise<boolean> {
+  return (await getUserTier(email)) === "ultra"
+}
+
+export async function isUserProTier(email: string): Promise<boolean> {
+  const tier = await getUserTier(email)
+  return tier === "pro" || tier === "ultra"
+}
+
 export async function isUserSupporterById(id: string) {
   const user = await getUserById(id)
   return isUserSupporterByEmail(user.email)
+}
+
+export async function getUserTierById(
+  id: string
+): Promise<"free" | "pro" | "ultra"> {
+  const user = await getUserById(id)
+  return getUserTier(user.email)
+}
+
+export async function isUserUltraTierById(id: string): Promise<boolean> {
+  return (await getUserTierById(id)) === "ultra"
+}
+
+export async function isUserProTierById(id: string): Promise<boolean> {
+  const tier = await getUserTierById(id)
+  return tier === "pro" || tier === "ultra"
 }

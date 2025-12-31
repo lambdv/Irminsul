@@ -28,7 +28,7 @@ export let links = [
   },
 
   {
-    href: "https://aminus.irminsul.moe/",
+    href: "https://aminus.vercel.app/",
     icon: "functions",
     text: "Damage Calculator",
     external: true,

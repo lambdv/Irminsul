@@ -56,7 +56,7 @@ async function getClientIP(request?: Request): Promise<string> {
  * Get the number of AI tokens left for a user/IP combination
  * @param userId user id
  * @param request Request object (optional)
- * @returns number of tokens left
+ * @returns number of tokens left (-1 indicates unlimited)
  */
 export async function getAiTokensLeft(userId: string, request?: Request) {
   const ipAddress = await getClientIP(request)
@@ -128,6 +128,12 @@ export async function consumeAiTokens(
 ) {
   const ipAddress = await getClientIP(request)
   const tokensLeft = await getAiTokensLeft(userId, request)
+
+  // Ultra tier users have unlimited tokens
+  if (tokensLeft === -1) {
+    return -1
+  }
+
   if (tokensLeft < amount) return null
 
   await db
