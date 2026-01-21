@@ -1,13 +1,7 @@
-import NextAuth from "next-auth"
-import DiscordProvider from "next-auth/providers/discord"
+import { auth, currentUser } from "@clerk/nextjs/server"
 import db from "@/db/db"
 import { usersTable } from "@/db/schema/user"
-import { accountsTable } from "@/db/schema/account"
-import { sessionsTable } from "@/db/schema/session"
-import { verificationTokensTable } from "@/db/schema/token"
 import { eq, and, sql } from "drizzle-orm"
-import { cookies } from "next/headers"
-import React from "react"
 
 const ADMIN_USER_ID = "d4882fcc-8326-4fbb-8b32-d09c0fb86875"
 
@@ -30,54 +24,54 @@ export async function getUserById(userId: string) {
 }
 
 export async function isAuthenticated() {
-  const cookieStore = await cookies()
-  let session =
-    cookieStore.get("authjs.session-token") ||
-    cookieStore.get("__Secure-authjs.session-token")
-  if (!session) return false
-  const sessionToken = session.value
-  const dbSession = await db
-    .select()
-    .from(sessionsTable)
-    .where(eq(sessionsTable.sessionToken, sessionToken))
-  if (dbSession.length !== 0) return true
-  return false
+  const { userId } = await auth()
+  return !!userId
 }
 
 export async function getUserFromCookies() {
-  const cookieStore = await cookies()
-  let session =
-    cookieStore.get("authjs.session-token") ||
-    cookieStore.get("__Secure-authjs.session-token")
-  if (!session) return null
-  const sessionToken = session.value
-  const dbSession = await db
-    .select()
-    .from(sessionsTable)
-    .where(eq(sessionsTable.sessionToken, sessionToken))
-  if (dbSession.length === 0) return null
-
-  const user = await db
+  const clerkUser = await currentUser()
+  if (!clerkUser) return null
+  
+  // Try to find user in local database by Clerk ID first
+  let user = await db
     .select()
     .from(usersTable)
-    .where(eq(usersTable.id, dbSession[0].userId))
-  if (user.length === 0) return null
-  return user[0]
+    .where(eq(usersTable.id, clerkUser.id))
+    .limit(1)
+  
+  if (user.length > 0) return user[0]
+  
+  // If not found by ID, try by email
+  const email = clerkUser.emailAddresses[0]?.emailAddress
+  if (email) {
+    user = await db
+      .select()
+      .from(usersTable)
+      .where(eq(usersTable.email, email))
+      .limit(1)
+    
+    if (user.length > 0) return user[0]
+  }
+  
+  // If user doesn't exist in local DB, return Clerk user data structure
+  // This maintains compatibility while migrating
+  return {
+    id: clerkUser.id,
+    email: email || null,
+    name: clerkUser.fullName || clerkUser.firstName || null,
+    image: clerkUser.imageUrl || null,
+  }
 }
 
 export const getUserFromSession = async () => {
-  const cookieStore = await cookies()
-  let session =
-    cookieStore.get("authjs.session-token") ||
-    cookieStore.get("__Secure-authjs.session-token")
-  if (!session) return null
-  const sessionToken = session.value
-  const dbSession = await db
-    .select()
-    .from(sessionsTable)
-    .where(eq(sessionsTable.sessionToken, sessionToken))
-  if (dbSession.length === 0) return null
-  return dbSession[0]
+  const { userId } = await auth()
+  if (!userId) return null
+  
+  // Return a session-like object for compatibility
+  return {
+    userId,
+    sessionToken: userId, // Using userId as session identifier
+  }
 }
 
 export async function isSupporter(userId: string) {
@@ -86,17 +80,14 @@ export async function isSupporter(userId: string) {
 }
 
 export async function isAdmin() {
-  if (!(await isAuthenticated())) {
-    return false
-  }
-  const user = await getUserFromSession()
-  if (!user) return false
+  const { userId } = await auth()
+  if (!userId) return false
 
-  if (user.userId === ADMIN_USER_ID) {
+  if (userId === ADMIN_USER_ID) {
     return true
   }
 
-  const adminRoleExists = await checkDatabaseForAdminRole(user.userId)
+  const adminRoleExists = await checkDatabaseForAdminRole(userId)
   return adminRoleExists
 }
 

@@ -1,16 +1,16 @@
 import { NextRequest, NextResponse } from "next/server"
-import { getServerUser } from "@/lib/server-session"
+import { currentUser } from "@clerk/nextjs/server"
 import { getUserTierById } from "@/app/(main)/pricing/actions"
 
 export async function GET(request: NextRequest) {
   try {
-    const user = await getServerUser()
+    const clerkUser = await currentUser()
 
-    if (!user) {
+    if (!clerkUser) {
       return NextResponse.json({ tier: "free" }, { status: 200 })
     }
 
-    const tier = await getUserTierById(user.id)
+    const tier = await getUserTierById(clerkUser.id)
 
     return NextResponse.json({ tier }, { status: 200 })
   } catch (error) {

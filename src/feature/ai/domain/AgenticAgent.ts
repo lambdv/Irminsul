@@ -118,6 +118,9 @@ RULES:
 - result should be less than 200 words long
 - first sentence should answer the user's question directly
 - do not include any thinking or reasoning - just the polished answer
+- When referring to characters, weapons, or artifact sets, use special tags: [character:Name], [weapon:Name], or [artifact:Name]
+- For example: [character:Raiden Shogun], [weapon:Mistsplitter Reforged], [artifact:Emblem of Severed Fate]
+- Use the exact name as it appears in the game. These tags will be rendered as clickable buttons with icons in the UI.
 `
 
     // Thinker node - reasons and calls tools

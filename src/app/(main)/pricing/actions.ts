@@ -208,14 +208,47 @@ export async function isUserProTier(email: string): Promise<boolean> {
 
 export async function isUserSupporterById(id: string) {
   const user = await getUserById(id)
-  return isUserSupporterByEmail(user.email)
+  
+  // If user exists in local DB, use their email
+  if (user?.email) {
+    return isUserSupporterByEmail(user.email)
+  }
+  
+  // If user doesn't exist in local DB, try to get email from Clerk
+  const { currentUser } = await import("@clerk/nextjs/server")
+  const clerkUser = await currentUser()
+  
+  // If the ID matches the current Clerk user, use their email
+  if (clerkUser?.id === id && clerkUser.emailAddresses?.[0]?.emailAddress) {
+    return isUserSupporterByEmail(clerkUser.emailAddresses[0].emailAddress)
+  }
+  
+  // Default to false if we can't find the user
+  return false
 }
 
 export async function getUserTierById(
   id: string
 ): Promise<"free" | "pro" | "ultra"> {
   const user = await getUserById(id)
-  return getUserTier(user.email)
+  
+  // If user exists in local DB, use their email
+  if (user?.email) {
+    return getUserTier(user.email)
+  }
+  
+  // If user doesn't exist in local DB, try to get email from Clerk
+  // This handles the case where users exist in Clerk but not in local DB
+  const { currentUser } = await import("@clerk/nextjs/server")
+  const clerkUser = await currentUser()
+  
+  // If the ID matches the current Clerk user, use their email
+  if (clerkUser?.id === id && clerkUser.emailAddresses?.[0]?.emailAddress) {
+    return getUserTier(clerkUser.emailAddresses[0].emailAddress)
+  }
+  
+  // Default to free tier if we can't find the user
+  return "free"
 }
 
 export async function isUserUltraTierById(id: string): Promise<boolean> {

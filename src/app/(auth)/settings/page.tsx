@@ -21,6 +21,7 @@ import {
   getServerUser,
   getServerSupporterStatus,
 } from "@/lib/server-session"
+import { currentUser } from "@clerk/nextjs/server"
 import { ArrowLeft, User, Palette, Database, Shield } from "lucide-react"
 
 export const metadata = {
@@ -33,14 +34,37 @@ export const metadata = {
  * @returns
  */
 export default async function Settings() {
+  const clerkUser = await currentUser()
   const session = await getServerSession()
   const user = await getServerUser()
-  const account = await db
-    .select()
-    .from(accountsTable)
-    .where(eq(accountsTable.userId, user?.id))
-  const isLoggedIn = !!user?.email
+  
+  // Get provider from Clerk's external accounts
+  // Clerk stores OAuth providers in externalAccounts array
+  let provider = "discord" // Default to discord since that's what we use
+  if (clerkUser?.externalAccounts && clerkUser.externalAccounts.length > 0) {
+    // Get the provider from the first external account
+    const externalAccount = clerkUser.externalAccounts[0]
+    provider = externalAccount.provider || "discord"
+  }
+  
+  // Create account object compatible with AccountSettings component
+  const account = clerkUser ? [{
+    provider: provider,
+    userId: clerkUser.id,
+  }] : []
+  
+  const isLoggedIn = !!clerkUser
   const isSupporter = await getServerSupporterStatus()
+  
+  // Create session object compatible with AccountSettings component
+  const sessionData = clerkUser ? {
+    user: {
+      id: clerkUser.id,
+      email: clerkUser.emailAddresses[0]?.emailAddress || null,
+      name: clerkUser.fullName || clerkUser.firstName || null,
+      image: clerkUser.imageUrl || null,
+    }
+  } : null
 
   return (
     <div className={settingsStyle.settingsWrapper}>
@@ -63,7 +87,7 @@ export default async function Settings() {
             </CardHeader>
             <CardContent>
               <AccountSettings
-                session={session}
+                session={sessionData}
                 account={account}
                 isSupporter={isSupporter}
               />

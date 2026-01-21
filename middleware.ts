@@ -1,51 +1,61 @@
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server"
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
-import { getToken } from "next-auth/jwt"
-import { isUserSupporterByEmail } from "@/app/(main)/pricing/actions"
 
-export async function middleware(request: NextRequest) {
-  // // Only apply to AI route
-  // if (request.nextUrl.pathname === "/ai") {
-  //   let token
+const isPublicRoute = createRouteMatcher([
+  "/login(.*)",
+  "/sign-in(.*)",
+  "/sign-up(.*)",
+  "/sso-callback(.*)",
+  "/pricing(.*)",
+  "/auth(.*)",
+  "/api/auth(.*)",
+  "/api/webhooks(.*)",
+  "/api/stripe/webhook(.*)",
+  "/",
+  "/archive(.*)",
+  "/characters(.*)",
+  "/weapons(.*)",
+  "/artifacts(.*)",
+])
 
-  //   try {
-  //     token = await getToken({
-  //       req: request,
-  //       secret: process.env.NEXTAUTH_SECRET,
-  //     })
+export default clerkMiddleware(async (auth, request: NextRequest) => {
+  const pathname = request.nextUrl.pathname
 
-  //     if (!token?.email) {
-  //       // User is not authenticated, redirect to Pro tier checkout
-  //       const proCheckoutUrl = "https://buy.stripe.com/5kQ8wPbCc5e2gabfC5awo03"
-  //       return NextResponse.redirect(proCheckoutUrl)
-  //     }
+  // Skip Next.js internal routes
+  if (pathname.startsWith("/_next")) {
+    return NextResponse.next()
+  }
 
-  //     // Check if user is a supporter
-  //     const isSupporter = await isUserSupporterByEmail(token.email)
-  //     if (!isSupporter) {
-  //       // User is not a supporter, redirect to Pro tier checkout
-  //       const proCheckoutUrl = "https://buy.stripe.com/5kQ8wPbCc5e2gabfC5awo03"
-  //       return NextResponse.redirect(proCheckoutUrl)
-  //     }
-  //   } catch (error) {
-  //     console.error("Middleware error:", error)
-  //     // If there's an error, proceed to normal flow
-  //   }
-  // }
+  // Skip protection for API routes (they handle auth themselves)
+  if (pathname.startsWith("/api/")) {
+    return NextResponse.next()
+  }
+
+  // Skip static files (files with extensions like .css, .js, .png, etc.)
+  if (/\.\w+$/.test(pathname)) {
+    return NextResponse.next()
+  }
+
+  // Clerk handles its own authentication routes automatically
+  // No need to explicitly allow them - Clerk middleware handles this
+
+  // Protect routes that are not public
+  if (!isPublicRoute(request)) {
+    await auth.protect()
+  }
 
   return NextResponse.next()
-}
+})
 
 export const config = {
   matcher: [
     /*
-     * Match all request paths except for the ones starting with:
+     * Only match routes that don't start with:
+     * - _next (Next.js internal)
      * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - login, pricing, auth pages (don't redirect from these)
+     * - Static files (have file extensions)
      */
-    "/((?!api|_next/static|_next/image|favicon.ico|login|pricing|auth).*)",
+    "/((?!_next|api|.*\\..*|favicon).*)",
   ],
 }

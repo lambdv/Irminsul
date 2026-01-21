@@ -1,18 +1,16 @@
 import { NextRequest, NextResponse } from "next/server"
 import { stripe } from "@/lib/stripe"
-import { getServerSession, getServerUser } from "@/lib/server-session"
+import { currentUser } from "@clerk/nextjs/server"
 
 export async function POST(request: NextRequest) {
   try {
     console.log("Checkout API called")
 
-    const session = await getServerSession()
-    const user = await getServerUser()
+    const clerkUser = await currentUser()
 
-    console.log("Session:", session)
-    console.log("User:", user)
+    console.log("User:", clerkUser)
 
-    if (!user?.email) {
+    if (!clerkUser?.emailAddresses[0]?.emailAddress) {
       console.log("No session or user email found")
       return NextResponse.json(
         { error: "Unauthorized - Please login first" },
@@ -70,8 +68,10 @@ export async function POST(request: NextRequest) {
       ]
     }
 
+    const userEmail = clerkUser.emailAddresses[0]?.emailAddress
+    
     const checkoutSession = await stripe.checkout.sessions.create({
-      customer_email: user.email,
+      customer_email: userEmail,
       billing_address_collection: "required",
       line_items: lineItems,
       mode: "payment",
@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
       cancel_url: `${process.env.NEXTAUTH_URL || process.env.VERCEL_URL || "http://localhost:3000"}/pricing?canceled=true`,
       metadata: {
         tier: tier,
-        userId: user.id,
+        userId: clerkUser.id,
         priceId: priceId, // Store original ID for reference
       },
     })

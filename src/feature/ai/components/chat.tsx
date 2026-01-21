@@ -32,12 +32,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/cn/dropdown-menu"
-import { AIAgent } from "@root/src/feature/ai/domain/AIAgentFactory"
+import type { AIAgent } from "@root/src/feature/ai/domain/AgentRegistry"
+import { getAllAgentIds, getAgentMetadata } from "@root/src/feature/ai/domain/agents/metadata"
 import LightRays from "@/components/cn/LightRays"
 
 const slogans = ["Navigate Truth of Teyvat."]
 const SEELIE_ICON = getCDNURL("imgs/icons/seelie.png")
-const availableAgents = ["agentic", "generalist"]
+
+// Get available agents from metadata (client-safe)
+const getAvailableAgents = () => getAllAgentIds()
 
 const suggestedQuestions = [
   "What are Mavuika's best teams?",
@@ -323,7 +326,7 @@ const ChatTextField = React.memo<{
                   disabled={disabled}
                 >
                   <User className="w-3.5 h-3.5 mr-1.5" />
-                  <span className="capitalize">{selectedAgent}</span>
+                  <span>{getAgentMetadata(selectedAgent)?.displayName || selectedAgent}</span>
                   <ChevronDown className="w-3 h-3 ml-1" />
                 </Button>
               </DropdownMenuTrigger>
@@ -332,15 +335,18 @@ const ChatTextField = React.memo<{
                 className="w-40 rounded-xl p-2 bg-popover/95 backdrop-blur"
               >
                 <DropdownMenuGroup className="space-y-1">
-                  {availableAgents.map((agent) => (
-                    <DropdownMenuItem
-                      key={agent}
-                      className="rounded-lg text-sm px-3 py-2 cursor-pointer capitalize"
-                      onClick={() => onAgentChange(agent as AIAgent)}
-                    >
-                      {agent}
-                    </DropdownMenuItem>
-                  ))}
+                  {getAvailableAgents().map((agentId) => {
+                    const metadata = getAgentMetadata(agentId)
+                    return (
+                      <DropdownMenuItem
+                        key={agentId}
+                        className="rounded-lg text-sm px-3 py-2 cursor-pointer"
+                        onClick={() => onAgentChange(agentId as AIAgent)}
+                      >
+                        {metadata?.displayName || agentId}
+                      </DropdownMenuItem>
+                    )
+                  })}
                 </DropdownMenuGroup>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -472,8 +478,8 @@ const LandingView = React.memo<{
             rootMargin="-50px"
             textAlign="center"
           />
-          <p className="text-sm text-white/60 mt-2" style={{}}>
-            The 1rst AI agent for Genshin Meta & Theorycrafting.
+          <p className="text-sm text-white/60 mt-2 " style={{}}>
+          First AI agent for Genshin Meta & Theorycrafting
           </p>
         </div>
         <div className="w-full max-w-xl md:max-w-2xl lg:max-w-3xl flex-shrink-0 scale-75 sm:scale-85 md:scale-90">
@@ -544,7 +550,7 @@ const ChatView = React.memo<{
 }) {
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="flex-1 overflow-y-auto pb-32">
+      <div className="flex-1 overflow-y-auto pb-[280px]">
         <div className="max-w-4xl mx-auto py-4 px-4">
           {messages.length === 0 ? (
             <div className="flex flex-col items-center justify-center min-h-[60vh]">
@@ -566,15 +572,6 @@ const ChatView = React.memo<{
                   }
                 />
               ))}
-              {(status === "submitted" || status === "streaming") && (
-                <Message
-                  key="thinking"
-                  messageUser="Seelie"
-                  content="Thinking..."
-                  userImage={user?.image}
-                  isStreaming={true}
-                />
-              )}
             </>
           )}
         </div>
@@ -639,9 +636,24 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
       )
     },
     onFinish: () => {
-      // Remove any thinking messages when streaming finishes
+      // Remove temporary thinking messages (those with ID starting with "thinking-")
+      // but keep actual thinking content from AI responses
       setMessages((prev) =>
-        prev.filter((msg) => getMessageText(msg) !== "Thinking...")
+        prev.filter((msg) => {
+          // Extract message text inline (using type assertion to handle UIMessage structure)
+          const msgAny = msg as any
+          const text = typeof msgAny?.content === "string" 
+            ? msgAny.content 
+            : Array.isArray(msgAny?.parts)
+            ? msgAny.parts
+                .filter((p: any) => p?.type === "text" && typeof p?.text === "string")
+                .map((p: any) => p.text)
+                .join("")
+            : ""
+          // Only remove if it's exactly "Thinking..." AND has a temporary thinking ID
+          // This prevents removing actual thinking content from AI responses
+          return !(text === "Thinking..." && msgAny.id?.toString().startsWith("thinking-"))
+        })
       )
     },
   })
@@ -675,6 +687,22 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
       case "streaming":
         setDisabledChat(true)
         setIsStreaming(true)
+        // Remove temporary thinking message when actual streaming starts
+        setMessages((prev) =>
+          prev.filter((msg: any) => {
+            // Extract message text inline
+            const text = typeof msg?.content === "string" 
+              ? msg.content 
+              : Array.isArray(msg?.parts)
+              ? msg.parts
+                  .filter((p: any) => p?.type === "text" && typeof p?.text === "string")
+                  .map((p: any) => p.text)
+                  .join("")
+              : ""
+            // Remove temporary thinking messages when actual content starts streaming
+            return !(text === "Thinking..." && msg.id?.toString().startsWith("thinking-"))
+          })
+        )
         break
       case "ready":
         setDisabledChat(false)
@@ -683,9 +711,24 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
       case "error":
         setDisabledChat(true)
         setIsStreaming(false)
+        // Remove thinking message on error too
+        setMessages((prev) =>
+          prev.filter((msg: any) => {
+            // Extract message text inline
+            const text = typeof msg?.content === "string" 
+              ? msg.content 
+              : Array.isArray(msg?.parts)
+              ? msg.parts
+                  .filter((p: any) => p?.type === "text" && typeof p?.text === "string")
+                  .map((p: any) => p.text)
+                  .join("")
+              : ""
+            return !(text === "Thinking..." && msg.id?.toString().startsWith("thinking-"))
+          })
+        )
         break
     }
-  }, [status])
+  }, [status, setMessages])
 
   const handleFormSubmit = useCallback(
     async (e: React.FormEvent) => {
@@ -700,11 +743,52 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
       if (input.trim().length <= 0) {
         return
       }
+      
       sendMessage({ text: input })
       setInput("")
     },
     [input, sendMessage, props.user]
   )
+
+  // Add thinking message after user message is sent
+  useEffect(() => {
+    // Only add thinking message when status is "submitted" and last message is from user
+    if (status === "submitted" && messages.length > 0) {
+      const lastMsg = messages[messages.length - 1] as any
+      
+      // Check if last message is a user message
+      if (lastMsg?.role === "user") {
+        // Check if thinking message already exists right after this user message
+        // (check last 2 messages to see if thinking is already there)
+        const lastTwoMessages = messages.slice(-2)
+        const hasThinking = lastTwoMessages.some((msg: any) => {
+          const msgAny = msg as any
+          const text = typeof msgAny?.content === "string" 
+            ? msgAny.content 
+            : Array.isArray(msgAny?.parts)
+            ? msgAny.parts
+                .filter((p: any) => p?.type === "text" && typeof p?.text === "string")
+                .map((p: any) => p.text)
+                .join("")
+            : ""
+          return text === "Thinking..." && msgAny.id?.toString().startsWith("thinking-")
+        })
+        
+        // Add thinking message if it doesn't exist
+        if (!hasThinking) {
+          const thinkingId = `thinking-${Date.now()}`
+          setMessages((prev) => [
+            ...prev,
+            {
+              id: thinkingId,
+              role: "assistant",
+              content: "Thinking...",
+            } as any,
+          ])
+        }
+      }
+    }
+  }, [status, messages.length, setMessages])
 
   const handleInputChange = useCallback((value: string) => {
     setInput(value)

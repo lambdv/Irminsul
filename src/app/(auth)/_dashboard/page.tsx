@@ -6,6 +6,7 @@ import { eq, sql, desc } from "drizzle-orm"
 import Image from "next/image"
 import { format } from "timeago.js"
 import { getServerUser } from "@/lib/server-session"
+import { currentUser } from "@clerk/nextjs/server"
 import { isUserSupporterByEmail } from "@/app/(main)/pricing/actions"
 import { redirect } from "next/navigation"
 import { getCDNURL } from "@/utils/getAssetURL"
@@ -47,16 +48,18 @@ async function getRecentComments(userId: string, limit: number = 5) {
 }
 
 export default async function DashboardPage() {
-  const user = await getServerUser()
+  const clerkUser = await currentUser()
 
-  if (!user) {
+  if (!clerkUser) {
     redirect("/login")
   }
 
+  const userEmail = clerkUser.emailAddresses[0]?.emailAddress || ""
+  
   const [userStats, recentComments, isSupporter] = await Promise.all([
-    getUserStats(user.id),
-    getRecentComments(user.id),
-    isUserSupporterByEmail(user.email || ""),
+    getUserStats(clerkUser.id),
+    getRecentComments(clerkUser.id),
+    isUserSupporterByEmail(userEmail),
   ])
 
   const firstCommentDate = userStats.firstCommentDate
@@ -74,14 +77,14 @@ export default async function DashboardPage() {
           <div className="flex items-center space-x-4">
             <div className="relative">
               <Image
-                src={user.image || getCDNURL("/imgs/icons/defaultavatar.png")}
-                alt={user.name || "User"}
+                src={clerkUser.imageUrl || getCDNURL("/imgs/icons/defaultavatar.png")}
+                alt={clerkUser.fullName || clerkUser.firstName || "User"}
                 width={80}
                 height={80}
                 className="rounded-full border-4 "
                 unoptimized={true}
               />
-              {user.id === "d4882fcc-8326-4fbb-8b32-d09c0fb86875" && (
+              {clerkUser.id === "d4882fcc-8326-4fbb-8b32-d09c0fb86875" && (
                 <div className="absolute -top-1 -right-1  rounded-full p-1">
                   <svg
                     className="w-4 h-4"
@@ -100,7 +103,7 @@ export default async function DashboardPage() {
             <div className="flex-1">
               <div className="flex items-center space-x-2 mb-1">
                 <h2 className="text-xl font-semibold ">
-                  {user.name || "Anonymous"}
+                  {clerkUser.fullName || clerkUser.firstName || "Anonymous"}
                 </h2>
                 {isSupporter && (
                   <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ">
@@ -108,7 +111,7 @@ export default async function DashboardPage() {
                   </span>
                 )}
               </div>
-              <p className="text-sm">{user.email}</p>
+              <p className="text-sm">{userEmail}</p>
               {firstCommentDate && (
                 <p className="text-xs mt-1">
                   Member since{" "}

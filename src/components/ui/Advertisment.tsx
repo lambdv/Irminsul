@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Script from "next/script";
 import { GlobalStore } from "@/store/global";
 
@@ -8,7 +8,8 @@ export default function Advertisment(props: {
   className?: string;
 }) {
   const { isSupporter } = GlobalStore()
-
+  const adRef = useRef<HTMLModElement>(null);
+  const [isAdRendered, setIsAdRendered] = useState(true);
 
   useEffect(() => {
     try {
@@ -18,6 +19,29 @@ export default function Advertisment(props: {
       //console.log(error.message);
     }
   }, []);
+
+  useEffect(() => {
+    if (!adRef.current || isSupporter) return;
+
+    const checkAdRendered = () => {
+      const adElement = adRef.current;
+      if (!adElement) return;
+
+      const hasContent = adElement.children.length > 0 || 
+                         adElement.offsetHeight > 0 ||
+                         adElement.innerHTML.trim().length > 0;
+
+      setIsAdRendered(hasContent);
+    };
+
+    const timeoutId = setTimeout(checkAdRendered, 2000);
+    const intervalId = setInterval(checkAdRendered, 500);
+
+    return () => {
+      clearTimeout(timeoutId);
+      clearInterval(intervalId);
+    };
+  }, [isSupporter]);
 
   if(isSupporter) 
     return null
@@ -33,6 +57,7 @@ export default function Advertisment(props: {
 
       {/* AdSense ad */}
       <ins
+        ref={adRef}
         className="adsbygoogle"
         style={{ 
             display: "block",
@@ -56,8 +81,16 @@ export default function Advertisment(props: {
   );
 
   if (props.className) {
-    return <div className={props.className}>{content}</div>;
+    return (
+      <div className={props.className} style={{ display: "none" }}>
+        {content}
+      </div>
+    );
   }
 
-  return content;
+  return (
+    <div style={{ display: "none" }}>
+      {content}
+    </div>
+  );
 }

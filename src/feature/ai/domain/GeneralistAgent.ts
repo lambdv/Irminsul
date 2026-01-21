@@ -53,7 +53,10 @@ export class GeneralistAgent extends BaseAgent {
       "CRITICAL: You MUST always respond after calling a tool. Never stop without providing an answer. " +
       "Use the search results to inform your answer, then write a complete response to the user. " +
       "Format responses in GitHub markdown. " +
-      "If a character name is unfamiliar, assume it's valid."
+      "If a character name is unfamiliar, assume it's valid. " +
+      "When referring to characters, weapons, or artifact sets, use special tags: [character:Name], [weapon:Name], or [artifact:Name]. " +
+      "For example: [character:Raiden Shogun], [weapon:Mistsplitter Reforged], [artifact:Emblem of Severed Fate]. " +
+      "Use the exact name as it appears in the game. These tags will be rendered as clickable buttons with icons in the UI."
     this.parser = new StringOutputParser()
     this.tools = langchainTools
   }

@@ -22,11 +22,15 @@ export let links = [
   // { href: "/", icon: "home", text: "Home" },
   {
     href: "/",
-    //icon: "stars_2",
-    img: SEELIE_ICON,
+    icon: "chat_bubble",
     text: "Ask AI",
   },
 
+
+
+  { href: "/archive/characters", img: CHARACTER_ICON, text: "CharacterDB" },
+  { href: "/archive/weapons", img: WEAPON_ICON, text: "WeaponsDB" },
+  { href: "/archive/artifacts", img: ARTIFACT_ICON, text: "ArtifactsDB" },
   {
     href: "https://aminus.vercel.app/",
     icon: "functions",
@@ -49,7 +53,7 @@ export let links = [
 export default function Siderail() {
   const pathname = usePathname() //get path url
   const [activePage, setActivePage] = useState("") //keep track of active page
-  const { sideNavCollapsed } = NavigationStore() //get side nav collapsed state
+  const { sideNavCollapsed, setSideNavCollapsed } = NavigationStore() //get side nav collapsed state
   useEffect(() => setActivePage(pathname), [pathname]) //update active page on path change
 
   // const {setShowPallette} = SearchStore()
@@ -148,35 +152,43 @@ export default function Siderail() {
   }
 
   return (
-    <nav
-      className={
-        SidenavCSS.sidenav +
-        " " +
-        (sideNavCollapsed ? SidenavCSS.sidenavCollapsed : "")
-      }
-      style={{ zIndex: 20 }}
-    >
-      {/* <button style={{
-          backgroundColor: "var(--ingame-primary-color)",
-          padding: "10px",
-          borderRadius: "10px",
-          marginBottom: "10px",
-          width: "50px",
-          height: "45px",
-        }}
-          onClick={() => {
-            setShowPallette(true)
+    <>
+      {!sideNavCollapsed && (
+        <Overlay
+          zIndex={5}
+          onClick={() => setSideNavCollapsed(true)}
+          style={{ display: !sideNavCollapsed ? "block" : "none" }}
+        />
+      )}
+      <nav
+        className={
+          SidenavCSS.sidenav +
+          " " +
+          (sideNavCollapsed ? SidenavCSS.sidenavCollapsed : "")
+        }
+      >
+        {/* <button style={{
+            backgroundColor: "var(--ingame-primary-color)",
+            padding: "10px",
+            borderRadius: "10px",
+            marginBottom: "10px",
+            width: "50px",
+            height: "45px",
           }}
-        >
-          <i className={'material-symbols-rounded'} style={{
-            fontSize: "20px",
-            marginTop: "2.5px",
-          }}>search</i>
-        </button> */}
+            onClick={() => {
+              setShowPallette(true)
+            }}
+          >
+            <i className={'material-symbols-rounded'} style={{
+              fontSize: "20px",
+              marginTop: "2.5px",
+            }}>search</i>
+          </button> */}
 
-      {links.map((link, index) => (
-        <SideNavLink key={index} {...link} />
-      ))}
-    </nav>
+        {links.map((link, index) => (
+          <SideNavLink key={index} {...link} />
+        ))}
+      </nav>
+    </>
   )
 }

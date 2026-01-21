@@ -1,4 +1,4 @@
-import { getUserFromCookies } from "@/app/(auth)/actions"
+import { currentUser } from "@clerk/nextjs/server"
 import db from "@/db/db"
 import { conversationTable } from "@/db/schema/conversation"
 import { eq } from "drizzle-orm"
@@ -6,8 +6,8 @@ import { nanoid } from "nanoid"
 
 export async function GET(req: Request) {
   try {
-    const user = await getUserFromCookies()
-    if (!user) {
+    const clerkUser = await currentUser()
+    if (!clerkUser) {
       return new Response(JSON.stringify({ error: "Unauthorized" }), {
         status: 401,
       })
@@ -16,7 +16,7 @@ export async function GET(req: Request) {
     const conversations = await db
       .select()
       .from(conversationTable)
-      .where(eq(conversationTable.userId, user.id))
+      .where(eq(conversationTable.userId, clerkUser.id))
       .orderBy(conversationTable.updatedAt)
 
     return new Response(JSON.stringify({ conversations }), { status: 200 })
@@ -30,8 +30,8 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
   try {
-    const user = await getUserFromCookies()
-    if (!user) {
+    const clerkUser = await currentUser()
+    if (!clerkUser) {
       return new Response(JSON.stringify({ error: "Unauthorized" }), {
         status: 401,
       })
@@ -43,7 +43,7 @@ export async function POST(req: Request) {
       .insert(conversationTable)
       .values({
         id: nanoid(),
-        userId: user.id,
+        userId: clerkUser.id,
         title: title || "New Chat",
       })
       .returning()

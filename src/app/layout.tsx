@@ -11,6 +11,7 @@ import ClientProvider from "@/components/navigation/ClientProvider"
 import BottomNav from "@/components/navigation/bottomnav"
 import MiniAIChat from "@/components/ui/MiniAIChat"
 import RightSidenav from "../components/navigation/RightSidenav"
+import { ClerkThemeProvider } from "@/components/auth/ClerkThemeProvider"
 
 
 const inter = Inter({ subsets: ["latin"] })
@@ -66,13 +67,15 @@ export default async function RootLayout({children}) {
         <meta name="google-adsense-account" content="ca-pub-1739492299738628"/>
       </Head>
       <body className={inter.className}>
-        <ClientProvider>
-          <Sidebar />
-          <div className="">
-            <Topnav />
-            {children}
-          </div>
-        </ClientProvider>
+        <ClerkThemeProvider>
+          <ClientProvider>
+            <Sidebar />
+            <div className="">
+              <Topnav />
+              {children}
+            </div>
+          </ClientProvider>
+        </ClerkThemeProvider>
       </body>
     </html>
   )

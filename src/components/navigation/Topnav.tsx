@@ -4,13 +4,12 @@ import React, { useEffect, useState, useRef } from "react"
 import { usePathname } from "next/navigation"
 import TopnavCSS from "./topnav.module.css"
 import SearchPallette from "@components/navigation/SearchPallete"
+import { Input } from "@/components/cn/input"
 import { SearchStore } from "@/store/Search"
 import { NavigationStore } from "@/store/Navigation"
 import { GlobalStore } from "@/store/global"
 import Overlay from "../ui/Overlay"
 import Btn from "@/components/ui/Btn"
-import { signIn } from "next-auth/react"
-import { auth } from "@/app/(auth)/auth"
 import Image from "next/image"
 import RoundBtn from "../ui/RoundBtn"
 import { useSessionContext } from "@/lib/session-context"
@@ -164,8 +163,8 @@ function CenterContainer(props: any) {
 
   return (
     <div id="topnavCenter" className={TopnavCSS.searchContainer}>
-      <input
-        className={TopnavCSS.searchBar}
+      <Input
+        className={`${TopnavCSS.searchBar} border-0 shadow-none focus-visible:ring-0`}
         placeholder="Search (ctrl+k)"
         value={SearchQuery}
         onChange={handleSearchBarChange}
@@ -254,7 +253,11 @@ function RightContainer() {
 
         {!isAuthenticated && (
           <Link href="/login">
-            <Btn>Log In</Btn>
+            <RoundBtn
+              icon="person_outline"
+              className={TopnavCSS.loginIconBtn}
+              aria-label="Log in"
+            />
           </Link>
         )}
       </div>

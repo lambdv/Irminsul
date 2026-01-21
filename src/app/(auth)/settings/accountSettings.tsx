@@ -43,7 +43,7 @@ export default function AccountSettings(props: {
         <div className="space-y-2">
           <Label className="text-sm font-medium">Provider</Label>
           <p className="text-sm text-muted-foreground">
-            {props.account[0].provider}
+            {props.account?.[0]?.provider || "Discord"}
           </p>
         </div>
       </div>

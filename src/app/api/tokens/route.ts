@@ -1,4 +1,4 @@
-import { getUserFromCookies } from "@/app/(auth)/actions"
+import { currentUser } from "@clerk/nextjs/server"
 import {
   isUserUltraTierById,
   getUserTierById,
@@ -7,21 +7,21 @@ import { getAiTokensLeft } from "@/feature/ai/utils/numAiTokensLeft"
 
 export async function GET() {
   try {
-    const user = await getUserFromCookies()
-    if (!user) {
+    const clerkUser = await currentUser()
+    if (!clerkUser) {
       return new Response(JSON.stringify({ error: "Unauthorized" }), {
         status: 401,
       })
     }
 
-    const isUltra = await isUserUltraTierById(user.id)
+    const isUltra = await isUserUltraTierById(clerkUser.id)
     if (isUltra) {
       return new Response(JSON.stringify({ tokensLeft: -1 }), {
         status: 200,
       })
     }
 
-    const tokensLeft = await getAiTokensLeft(user.id)
+    const tokensLeft = await getAiTokensLeft(clerkUser.id)
     return new Response(JSON.stringify({ tokensLeft }), {
       status: 200,
     })

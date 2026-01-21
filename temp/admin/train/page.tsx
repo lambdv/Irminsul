@@ -1,4 +1,3 @@
-import { auth } from '@/app/(auth)/auth'
 import { isAuthenticated, getUserFromSession} from '@/app/(auth)/actions'
 import { generateResponse } from '@/feature/ai/actions/ai'
 import db from '@/db/db'

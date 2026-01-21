@@ -1,9 +1,11 @@
 import { AIAgentFactory } from "@root/src/feature/ai/domain/AIAgentFactory"
+// Import agents to ensure registration
+import "@root/src/feature/ai/domain/agents"
 import { createUIMessageStreamResponse, createUIMessageStream } from "ai"
 import db from "@/db/db"
 import { conversationTable } from "@/db/schema/conversation"
 import { aimessageTable } from "@/db/schema/aimessage"
-import { getUserFromCookies } from "@/app/(auth)/actions"
+import { currentUser } from "@clerk/nextjs/server"
 import { eq } from "drizzle-orm"
 import { nanoid } from "nanoid"
 import { z } from "zod"
@@ -81,11 +83,17 @@ function sanitizeContent(content: string): string {
 
 export async function POST(req: Request) {
   try {
-    const user = await getUserFromCookies()
-    if (!user) {
+    const clerkUser = await currentUser()
+    if (!clerkUser) {
       return new Response(JSON.stringify({ error: "Unauthorized" }), {
         status: 401,
       })
+    }
+    
+    // Convert Clerk user to compatible format
+    const user = {
+      id: clerkUser.id,
+      email: clerkUser.emailAddresses[0]?.emailAddress || null,
     }
 
     const body = await req.json()

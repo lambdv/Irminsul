@@ -7,7 +7,9 @@ import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { toKey } from "@/utils/standardizers"
 import { getAssetURL } from "@/utils/getAssetURL"
-import RoundBtn from "../ui/RoundBtn"
+import { Button } from "@/components/cn/button"
+import { Card } from "@/components/cn/card"
+import { Input } from "@/components/cn/input"
 import { Page } from "@/types/page"
 import Fuse from "fuse.js"
 import assert from "assert"
@@ -135,18 +137,22 @@ export default function SearchPallete() {
   })
 
   return (
-    <div className={SearchPaletteCSS.searchPalette}>
-      <div className={SearchPaletteCSS.searchBar}>
-        <RoundBtn
-          icon="arrow_back"
+    <Card className={SearchPaletteCSS.searchPalette}>
+      <div className={SearchPaletteCSS.searchBarContainer}>
+        <Button
+          variant="ghost"
+          size="icon"
+          type="button"
+          aria-label="Close search"
           onClick={closePalette}
-          style={{ width: "40px", height: "35px", fontSize: "20px" }}
-          iconStyle={{ fontSize: "20px", color: "#a5a5a5" }}
-        />
+          className="h-9 w-9 text-muted-foreground shrink-0"
+        >
+          <span className="material-symbols-rounded text-lg">arrow_back</span>
+        </Button>
 
-        <input
+        <Input
           ref={searchBarRef}
-          className={SearchPaletteCSS.searchBar}
+          className={`${SearchPaletteCSS.searchBarInput} border-0 shadow-none focus-visible:ring-0`}
           type="text"
           placeholder="Search (ctrl+k)"
           value={SearchQuery}
@@ -154,40 +160,40 @@ export default function SearchPallete() {
         />
 
         {SearchQuery.length > 0 && (
-          <RoundBtn
-            icon="close"
+          <Button
+            variant="ghost"
+            size="icon"
+            type="button"
+            aria-label="Clear search"
             onClick={() => setSearchQuery("")}
-            style={{ width: "40px", height: "35px", fontSize: "20px" }}
-            iconStyle={{ fontSize: "20px", color: "#a5a5a5" }}
-          />
+            className="h-9 w-9 text-muted-foreground shrink-0"
+          >
+            <span className="material-symbols-rounded text-lg">close</span>
+          </Button>
         )}
       </div>
 
-      <ul className={SearchPaletteCSS.searchPaletteResults}>
+      <div className={SearchPaletteCSS.searchPaletteResults}>
         {SearchQuery.length > 0 ? (
           <>
-            <p
-              style={{
-                color: "#787878",
-                fontSize: "12px",
-                marginLeft: "10px",
-                marginBottom: "10px",
-                paddingLeft: "0px",
-              }}
-            >
-              {results.length} results
-            </p>
-            {results.map((item, index) =>
-              ResultItemComponent(
-                item,
-                index === 0,
-                closePalette,
-                setSearchQuery
-              )
-            )}
+            <div className={SearchPaletteCSS.resultsHeader}>
+              <p className={SearchPaletteCSS.resultsCount}>
+                {results.length} {results.length === 1 ? "result" : "results"}
+              </p>
+            </div>
+            <ul className={SearchPaletteCSS.resultsList}>
+              {results.map((item, index) =>
+                ResultItemComponent(
+                  item,
+                  index === 0,
+                  closePalette,
+                  setSearchQuery
+                )
+              )}
+            </ul>
           </>
         ) : (
-          <>
+          <ul className={SearchPaletteCSS.resultsList}>
             {[
               { name: "Home", href: "/" },
               { name: "Ask AI", href: "/ai" },
@@ -207,10 +213,10 @@ export default function SearchPallete() {
                 <p>{item.name}</p>
               </Link>
             ))}
-          </>
+          </ul>
         )}
-      </ul>
-    </div>
+      </div>
+    </Card>
   )
 }
 
@@ -253,17 +259,9 @@ function ResultItemComponent(
       {/* <Image src={imgURL} alt="" width={100} height={100} unoptimized={true}/> */}
       <p>{item.name}</p>
       {highlighted && (
-        <i
-          className="material-symbols-outlined "
-          style={{
-            marginLeft: "auto",
-            color: "#b1b1b1",
-            fontSize: "18px",
-            marginRight: "5px",
-          }}
-        >
+        <span className="material-symbols-rounded text-muted-foreground text-base ml-auto">
           keyboard_return
-        </i>
+        </span>
       )}
     </Link>
   )

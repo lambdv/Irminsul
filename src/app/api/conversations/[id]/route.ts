@@ -1,4 +1,4 @@
-import { getUserFromCookies } from "@/app/(auth)/actions"
+import { currentUser } from "@clerk/nextjs/server"
 import db from "@/db/db"
 import { conversationTable } from "@/db/schema/conversation"
 import { aimessageTable } from "@/db/schema/aimessage"
@@ -9,8 +9,8 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const user = await getUserFromCookies()
-    if (!user) {
+    const clerkUser = await currentUser()
+    if (!clerkUser) {
       return new Response(JSON.stringify({ error: "Unauthorized" }), {
         status: 401,
       })
@@ -23,7 +23,7 @@ export async function GET(
       .from(conversationTable)
       .where(eq(conversationTable.id, id))
 
-    if (!conversation || conversation.userId !== user.id) {
+    if (!conversation || conversation.userId !== clerkUser.id) {
       return new Response(JSON.stringify({ error: "Conversation not found" }), {
         status: 404,
       })

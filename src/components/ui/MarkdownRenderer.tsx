@@ -3,6 +3,8 @@ import React from "react"
 import Markdown from "markdown-to-jsx"
 import { cn } from "@/lib/shadcn/utils"
 import { ChevronDown, ChevronRight, Brain } from "lucide-react"
+import GameItemTag from "./GameItemTag"
+import { resolveGameItems, GameItemInfo, GameItemType } from "@/utils/gameItemResolver"
 
 /** Thinking component for <think> tags */
 function Think({
@@ -309,6 +311,195 @@ function parseThinkingBlocks(content: string): string {
   return content.replace(thinkingRegex, "<think>\n$1\n</think>")
 }
 
+/** Game item tag placeholder component */
+function GameItemPlaceholder({
+  type,
+  name,
+  resolvedItem,
+}: {
+  type: GameItemType
+  name: string
+  resolvedItem: GameItemInfo | null
+}) {
+  if (resolvedItem) {
+    return <GameItemTag item={resolvedItem} />
+  }
+  // Fallback to plain bold text if not resolved
+  return <strong className="font-semibold">{name}</strong>
+}
+
+/** Parses game item tags [character:Name], [weapon:Name], [artifact:Name] */
+function parseGameItemTags(content: string): {
+  processedContent: string
+  tags: Array<{ type: GameItemType; name: string; placeholder: string }>
+} {
+  const tagRegex = /\[(character|weapon|artifact):([^\]]+)\]/g
+  const tags: Array<{ type: GameItemType; name: string; placeholder: string }> = []
+  let match
+  let placeholderIndex = 0
+
+  // Extract all tags
+  while ((match = tagRegex.exec(content)) !== null) {
+    const type = match[1] as GameItemType
+    const name = match[2].trim()
+    const placeholder = `__GAME_ITEM_TAG_${placeholderIndex}__`
+    tags.push({ type, name, placeholder })
+    placeholderIndex++
+  }
+
+  // Replace tags with placeholders
+  const processedContent = content.replace(
+    tagRegex,
+    (match, type, name) => {
+      const tag = tags.find((t) => t.name === name.trim() && t.type === type)
+      return tag ? tag.placeholder : match
+    }
+  )
+
+  return { processedContent, tags }
+}
+
+/** Recursively processes React children to replace game item tags */
+function processGameItemTags(
+  children: React.ReactNode,
+  resolvedItems: Map<string, GameItemInfo>
+): React.ReactNode {
+  return React.Children.map(children, (child) => {
+    if (typeof child === "string") {
+      const parts: React.ReactNode[] = []
+      let lastIndex = 0
+      const tagRegex = /\[(character|weapon|artifact):([^\]]+)\]/g
+      let match
+
+      while ((match = tagRegex.exec(child)) !== null) {
+        // Add text before tag
+        if (match.index > lastIndex) {
+          parts.push(child.substring(lastIndex, match.index))
+        }
+
+        // Add game item tag component
+        const type = match[1] as GameItemType
+        const name = match[2].trim()
+        const key = `${type}:${name}`
+        const resolvedItem = resolvedItems.get(key) || null
+        parts.push(
+          <GameItemPlaceholder
+            key={`${key}-${match.index}`}
+            type={type}
+            name={name}
+            resolvedItem={resolvedItem}
+          />
+        )
+
+        lastIndex = match.index + match[0].length
+      }
+
+      // Add remaining text
+      if (lastIndex < child.length) {
+        parts.push(child.substring(lastIndex))
+      }
+
+      return parts.length > 1 ? parts : child
+    }
+
+    if (React.isValidElement(child)) {
+      // Recursively process children
+      if (child.props.children) {
+        return React.cloneElement(
+          child,
+          { key: child.key },
+          processGameItemTags(child.props.children, resolvedItems)
+        )
+      }
+    }
+
+    return child
+  })
+}
+
+/** Component that renders markdown with game item tags */
+function MarkdownWithGameItems({
+  content,
+  className,
+}: {
+  content: string
+  className?: string
+}) {
+  const [resolvedItems, setResolvedItems] = React.useState<
+    Map<string, GameItemInfo>
+  >(new Map())
+
+  // Parse game item tags
+  const { tags } = parseGameItemTags(content)
+
+  // Resolve all game items
+  React.useEffect(() => {
+    if (tags.length === 0) {
+      return
+    }
+
+    const resolveItems = async () => {
+      const itemsToResolve = tags.map((tag) => ({
+        type: tag.type,
+        name: tag.name,
+      }))
+      const resolved = await resolveGameItems(itemsToResolve)
+      setResolvedItems(resolved)
+    }
+
+    resolveItems()
+  }, [content])
+
+  // Parse thinking blocks
+  const contentWithThinking = parseThinkingBlocks(content)
+
+  // Create custom overrides that process game item tags
+  const customOverrides = {
+    ...markdownOptions.overrides,
+    p: {
+      component: ({ children, ...props }: any) => {
+        const processedChildren = processGameItemTags(children, resolvedItems)
+        return (
+          <p {...props} className="leading-7 [&:not(:first-child)]:mt-4">
+            {processedChildren}
+          </p>
+        )
+      },
+    },
+    li: {
+      component: ({ children, ...props }: any) => {
+        const processedChildren = processGameItemTags(children, resolvedItems)
+        return (
+          <li {...props} className="mt-2 leading-7">
+            {processedChildren}
+          </li>
+        )
+      },
+    },
+    // Also process text in other elements
+    strong: {
+      component: ({ children, ...props }: any) => {
+        const processedChildren = processGameItemTags(children, resolvedItems)
+        return <strong {...props} className="font-semibold">{processedChildren}</strong>
+      },
+    },
+    em: {
+      component: ({ children, ...props }: any) => {
+        const processedChildren = processGameItemTags(children, resolvedItems)
+        return <em {...props} className="italic">{processedChildren}</em>
+      },
+    },
+  }
+
+  return (
+    <div className={cn("prose prose-invert max-w-none", className)}>
+      <Markdown options={{ ...markdownOptions, overrides: customOverrides } as any}>
+        {contentWithThinking}
+      </Markdown>
+    </div>
+  )
+}
+
 /** Renders markdown content with shadcn-styled components */
 export default function MarkdownRenderer({
   children,
@@ -317,12 +508,5 @@ export default function MarkdownRenderer({
   children: string
   className?: string
 }) {
-  // Parse :::thinking blocks before rendering markdown
-  const processedContent = parseThinkingBlocks(children)
-
-  return (
-    <div className={cn("prose prose-invert max-w-none", className)}>
-      <Markdown options={markdownOptions as any}>{processedContent}</Markdown>
-    </div>
-  )
+  return <MarkdownWithGameItems content={children} className={className} />
 }

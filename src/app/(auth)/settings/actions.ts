@@ -1,6 +1,5 @@
 "use server"
 import { accountsTable } from "@/db/schema/account"
-import { signOut } from "../auth"
 import db from "@/db/db"
 import { eq } from "drizzle-orm"
 import { revalidatePath } from "next/cache"

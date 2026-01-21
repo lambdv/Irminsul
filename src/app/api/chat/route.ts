@@ -1,6 +1,6 @@
 import { convertToModelMessages, UIMessage } from "ai"
 import { generateResponse } from "@/feature/ai/actions/ai"
-import { getUserFromCookies } from "@/app/(auth)/actions"
+import { currentUser } from "@clerk/nextjs/server"
 import db from "@/db/db"
 import { conversationTable } from "@/db/schema/conversation"
 import { aimessageTable } from "@/db/schema/aimessage"
@@ -46,11 +46,15 @@ function getMessageContent(message: UIMessage): string {
 
 export async function POST(req: Request) {
   try {
-    const user = await getUserFromCookies()
-    if (!user) {
+    const clerkUser = await currentUser()
+    if (!clerkUser) {
       return new Response(JSON.stringify({ error: "Unauthorized" }), {
         status: 401,
       })
+    }
+    
+    const user = {
+      id: clerkUser.id,
     }
 
     const {

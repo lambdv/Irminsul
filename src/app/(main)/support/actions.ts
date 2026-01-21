@@ -124,5 +124,21 @@ export async function isUserSupporterByEmail(email: string) {
 
 export async function isUserSupporterById(id: string) {
   const user = await getUserById(id)
-  return isUserSupporterByEmail(user.email)
+  
+  // If user exists in local DB, use their email
+  if (user?.email) {
+    return isUserSupporterByEmail(user.email)
+  }
+  
+  // If user doesn't exist in local DB, try to get email from Clerk
+  const { currentUser } = await import("@clerk/nextjs/server")
+  const clerkUser = await currentUser()
+  
+  // If the ID matches the current Clerk user, use their email
+  if (clerkUser?.id === id && clerkUser.emailAddresses?.[0]?.emailAddress) {
+    return isUserSupporterByEmail(clerkUser.emailAddresses[0].emailAddress)
+  }
+  
+  // Default to false if we can't find the user
+  return false
 }

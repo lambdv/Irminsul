@@ -67,9 +67,7 @@ export async function getAiTokensLeft(userId: string, request?: Request) {
     .from(usersTable)
     .where(eq(usersTable.id, userId))
 
-  if (user.length <= 0) return 0
-
-  // Look for existing token record for this IP
+  // Look for existing token record for this IP (even if user doesn't exist in local DB)
   let tokenRecord = await db
     .select()
     .from(aitokenTable)
@@ -81,7 +79,8 @@ export async function getAiTokensLeft(userId: string, request?: Request) {
   }
 
   // Associate user with existing IP token record if not already associated
-  if (!tokenRecord[0].userId) {
+  // This works even if user doesn't exist in local DB (userId can be null)
+  if (!tokenRecord[0].userId && userId) {
     await db
       .update(aitokenTable)
       .set({ userId: userId } as any)

@@ -2,6 +2,7 @@ import Chat from "@root/src/feature/ai/components/chat"
 import LightRays from "@/components/cn/LightRays"
 import { getCDNURL } from "@/utils/getAssetURL"
 import AIPageWrapper from "@/components/ui/AIPageWrapper"
+import { getServerUser } from "@/lib/server-session"
 
 export const metadata = {
   title: "Seelie | Irminsul",
@@ -10,9 +11,11 @@ export const metadata = {
   url: "/ai",
 }
 
-export default function AIPage() {
+export default async function AIPage() {
+  const user = await getServerUser()
+  
   return (
-    <AIPageWrapper user={null}>
+    <AIPageWrapper user={user}>
       <div style={{ position: "relative", minHeight: "100vh" }}>
         <div
           style={{
@@ -41,7 +44,7 @@ export default function AIPage() {
           />
         </div>
         <div style={{ position: "relative", zIndex: 1 }}>
-          <Chat user={null} />
+          <Chat user={user} />
         </div>
       </div>
     </AIPageWrapper>
