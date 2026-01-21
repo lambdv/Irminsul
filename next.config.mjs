@@ -50,13 +50,6 @@ const nextConfig = {
       "@mui/icons-material",
       "lucide-react",
     ],
-    // Fix for .nft.json file tracing on Vercel
-    outputFileTracingIncludes: {
-      "/middleware": [
-        "./middleware.ts",
-        "./node_modules/@clerk/nextjs/**/*",
-      ],
-    },
   },
   images: {
     // domains: ['cdn.discordapp.com', 'avatars.githubusercontent.com', 'nerdhida.netlify.app', 'genshindata.vercel.app'],
@@ -158,6 +151,14 @@ const nextConfig = {
           return config
         },
       }),
+  // Workaround for middleware.js.nft.json error on Vercel
+  // This ensures output file tracing works correctly
+  outputFileTracingRoot: path.join(__dirname),
+  outputFileTracingIncludes: {
+    "/middleware": [
+      "./middleware.ts",
+    ],
+  },
 }
 
 export default nextConfig
