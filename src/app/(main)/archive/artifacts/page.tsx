@@ -27,9 +27,7 @@ export default async function Artifacts({ searchParams }) {
         <Advertisment type="card" />
       </RightSidenav>
       <ArtifactItemList data={artifacts} />
-      <div className="my-4">
-        <Advertisment type="card" />
-      </div>
+      <Advertisment type="card" className="my-4" />
       <Advertisment type="card" />
     </div>
   )

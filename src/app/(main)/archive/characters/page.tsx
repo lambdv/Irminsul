@@ -36,9 +36,7 @@ export default async function Characters({ searchParams }) {
           type="character"
         /> */}
       </div>
-      <div className="my-4">
-        <Advertisment type="card" />
-      </div>
+      <Advertisment type="card" className="my-4" />
       <Advertisment type="card" />
     </>
   )

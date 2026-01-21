@@ -29,9 +29,7 @@ export default async function Weapons() {
         <Advertisment type="card" />
       </RightSidenav>
       <WeaponItemList data={weapons} />
-      <div className="my-4">
-        <Advertisment type="card" />
-      </div>
+      <Advertisment type="card" className="my-4" />
       <Advertisment type="card" />
     </div>
   )

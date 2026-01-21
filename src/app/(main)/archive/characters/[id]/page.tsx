@@ -65,9 +65,7 @@ export default async function CharacterPage({
 
   return (
     <Suspense fallback={<Loading />}>
-      <div className="mb-4">
-        <Advertisment type="banner" />
-      </div>
+      <Advertisment type="banner" className="mb-4" />
       <CharacterHeader data={data} />
       <TableOfContents />
       <div

@@ -3,7 +3,10 @@ import React, { useEffect } from "react";
 import Script from "next/script";
 import { GlobalStore } from "@/store/global";
 
-export default function Advertisment(props: { type: "card" | "banner" | "in-article" }) {
+export default function Advertisment(props: { 
+  type: "card" | "banner" | "in-article";
+  className?: string;
+}) {
   const { isSupporter } = GlobalStore()
 
 
@@ -19,7 +22,7 @@ export default function Advertisment(props: { type: "card" | "banner" | "in-arti
   if(isSupporter) 
     return null
 
-  return (
+  const content = (
     <>
       {/* Load AdSense script only once */}
       <Script
@@ -51,4 +54,10 @@ export default function Advertisment(props: { type: "card" | "banner" | "in-arti
       ></ins>
     </>
   );
+
+  if (props.className) {
+    return <div className={props.className}>{content}</div>;
+  }
+
+  return content;
 }

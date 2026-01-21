@@ -1,15 +1,18 @@
 "use client"
-import { useRouter } from 'next/navigation'
 import { handleLogin } from './handlelogin'
 import Image from 'next/image'
 import { useSessionContext } from '@/lib/session-context'
 import { redirect } from 'next/navigation'
-import loginStyle from './login.module.css'
-import { Metadata } from 'next'
 import { useEffect } from 'react'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/cn/card"
+import { Button } from "@/components/cn/button"
 
-// For Next.js 15, client components can't export metadata directly
-// Instead, we'll use document.title to set the page title on the client side
 export default function Page(props: {message?: string}) {
   const { status } = useSessionContext()
   
@@ -21,37 +24,54 @@ export default function Page(props: {message?: string}) {
     redirect("/")
   
   return (
-    <div className={loginStyle.loginContainer}>
-      {
-        props.message && (
-          <div className={loginStyle.loginMessage}>
+    <div className="min-h-screen flex items-center justify-center px-4 py-12">
+      <div className="w-full max-w-md space-y-4">
+        {props.message && (
+          <div className="p-4 rounded-lg bg-muted border border-border text-sm text-foreground">
             <p>{props.message}</p>
           </div>
-        )
-      }
-      <div className={loginStyle.loginWrapper}>
+        )}
         
-        <h1 className='text-2xl font-bold mb-2'>Login</h1>
-          <div>
-            <form action={handleLogin} className="flex flex-col gap-2">
-              <p className='font-light text-gray-500' style={{fontSize: '12px', marginTop: '-5px'}}>
-                irminsul accounts use discord&apos;s oauth2 for authentication.
-                <br />
-                learn more: <a href="https://discord.com/developers/docs/topics/oauth2" className="text-blue-500" target="_blank" rel="noopener noreferrer">https://discord.com/developers/docs/topics/oauth2</a>
-              </p>
-              <button type="submit" className={loginStyle.loginButton}>
+        <Card className="shadow-lg">
+          <CardHeader className="space-y-3 text-center">
+            <CardTitle className="text-3xl font-bold">Login</CardTitle>
+          </CardHeader>
+          
+          <CardContent className="space-y-6">
+            <form action={handleLogin} className="space-y-4">
+              <Button 
+                type="submit" 
+                className="w-full h-12 bg-[#5865F2] hover:bg-[#4752C4] text-white font-medium text-base"
+                size="lg"
+              >
                 <Image 
                   src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0a6ca814282eca7172c6_icon_clyde_white_RGB.svg" 
                   alt="Discord Icon" 
-                  width={20}
-                  height={20}
+                  width={24}
+                  height={24}
                   className="select-none"
                   unoptimized={true}
                 />
-                <p>Sign in with Discord</p>
-              </button>
+                Sign in with Discord
+              </Button>
             </form>
-          </div>
+            
+            <div className="pt-4 border-t border-border">
+              <p className="text-xs text-muted-foreground text-center leading-relaxed">
+                Irminsul accounts use Discord&apos;s OAuth2 for authentication.
+                <br />
+                <a 
+                  href="https://discord.com/developers/docs/topics/oauth2" 
+                  className="text-primary hover:underline" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  Learn more about OAuth2
+                </a>
+              </p>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   )

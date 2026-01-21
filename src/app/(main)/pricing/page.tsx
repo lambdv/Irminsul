@@ -36,7 +36,7 @@ export default function PricingPage({
     fetch("/api/auth/session")
       .then((res) => res.json())
       .then((data) => {
-        if (data.user) {
+        if (data && data.user) {
           setUser(data.user)
           // Check supporter status
           return fetch("/api/support/check", {
@@ -45,10 +45,18 @@ export default function PricingPage({
             body: JSON.stringify({ email: data.user.email }),
           })
         }
+        return null
       })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res) {
+          return res.json()
+        }
+        return null
+      })
       .then((data) => {
-        setIsSupporter(data.isSupporter || false)
+        if (data) {
+          setIsSupporter(data.isSupporter || false)
+        }
       })
       .catch((error) => {
         console.error("Error fetching user data:", error)
@@ -130,9 +138,7 @@ export default function PricingPage({
             Unlock premium features and support development of Irminsul.
           </p>
         </div>
-        <div className="mb-8 max-w-5xl mx-auto">
-          <Advertisment type="banner" />
-        </div>
+        <Advertisment type="banner" className="mb-8 max-w-5xl mx-auto" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {/* Free Tier */}
           <Card>
@@ -282,9 +288,7 @@ export default function PricingPage({
             </CardFooter>
           </Card>
         </div>
-        <div className="mt-12 max-w-5xl mx-auto">
-          <Advertisment type="banner" />
-        </div>
+        <Advertisment type="banner" className="mt-12 max-w-5xl mx-auto" />
       </div>
     </div>
   )

@@ -59,9 +59,7 @@ export default async function ArtifactPage({
 
   return (
     <Suspense fallback={<Loading />}>
-      <div className="mb-4">
-        <Advertisment type="banner" />
-      </div>
+      <Advertisment type="banner" className="mb-4" />
       <ArtifactHeader data={data} />
       <RightSidenav>
         <br />
