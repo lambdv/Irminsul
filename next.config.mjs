@@ -1,9 +1,3 @@
-import path from "path"
-import { fileURLToPath } from "url"
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
@@ -121,9 +115,8 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },
-  // Turbopack configuration (now stable)
+  // Turbopack configuration (for local dev with --turbo flag only)
   turbopack: {
-    root: process.cwd(),
     rules: {
       "*.svg": {
         loaders: ["@svgr/webpack"],
@@ -151,14 +144,6 @@ const nextConfig = {
           return config
         },
       }),
-  // Workaround for middleware.js.nft.json error on Vercel
-  // This ensures output file tracing works correctly
-  outputFileTracingRoot: path.join(__dirname),
-  outputFileTracingIncludes: {
-    "/middleware": [
-      "./middleware.ts",
-    ],
-  },
 }
 
 export default nextConfig
