@@ -50,6 +50,13 @@ const nextConfig = {
       "@mui/icons-material",
       "lucide-react",
     ],
+    // Fix for .nft.json file tracing on Vercel
+    outputFileTracingIncludes: {
+      "/middleware": [
+        "./middleware.ts",
+        "./node_modules/@clerk/nextjs/**/*",
+      ],
+    },
   },
   images: {
     // domains: ['cdn.discordapp.com', 'avatars.githubusercontent.com', 'nerdhida.netlify.app', 'genshindata.vercel.app'],
