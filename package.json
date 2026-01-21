@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "predev": "npm install genshin-data@latest --no-save || true",
-    "prebuild": "npm install genshin-data@latest --no-save || true",
     "dev": "next dev --turbo",
     "dev:cdn": "cd ../genshindata && npm run dev",
     "build": "next build",
