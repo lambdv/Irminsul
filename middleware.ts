@@ -19,6 +19,53 @@ const isPublicRoute = createRouteMatcher([
   "/artifacts(.*)",
 ])
 
+const SECURITY_HEADERS = {
+  "X-DNS-Prefetch-Control": "off",
+  "X-Frame-Options": "DENY",
+  "X-Content-Type-Options": "nosniff",
+  "Referrer-Policy": "origin-when-cross-origin",
+  "X-XSS-Protection": "1; mode=block",
+  "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+  "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+  "Content-Security-Policy":
+    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https: discord.com discordapp.com;",
+  "X-Permitted-Cross-Domain-Policies": "none",
+  "Cross-Origin-Embedder-Policy": "unsafe-none",
+  "Cross-Origin-Opener-Policy": "unsafe-none",
+  "Cross-Origin-Resource-Policy": "cross-origin",
+}
+
+function isSuspiciousRequest(request: NextRequest): boolean {
+  const userAgent = request.headers.get("user-agent") || ""
+  const suspiciousUserAgents = ["curl", "wget", "python-requests"]
+
+  if (suspiciousUserAgents.some((ua) => userAgent.toLowerCase().includes(ua))) {
+    return true
+  }
+
+  if (Array.from(request.headers.keys()).length > 200) {
+    return true
+  }
+
+  const method = request.method
+  if (
+    !["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"].includes(
+      method
+    )
+  ) {
+    return true
+  }
+
+  return false
+}
+
+function addSecurityHeaders(response: NextResponse): NextResponse {
+  for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+    response.headers.set(key, value)
+  }
+  return response
+}
+
 export default clerkMiddleware(async (auth, request: NextRequest) => {
   const pathname = request.nextUrl.pathname
 
@@ -27,35 +74,46 @@ export default clerkMiddleware(async (auth, request: NextRequest) => {
     return NextResponse.next()
   }
 
-  // Skip protection for API routes (they handle auth themselves)
-  if (pathname.startsWith("/api/")) {
-    return NextResponse.next()
-  }
-
   // Skip static files (files with extensions like .css, .js, .png, etc.)
   if (/\.\w+$/.test(pathname)) {
     return NextResponse.next()
   }
 
-  // Clerk handles its own authentication routes automatically
-  // No need to explicitly allow them - Clerk middleware handles this
+  // Block suspicious requests
+  if (isSuspiciousRequest(request)) {
+    return new NextResponse("Forbidden", { status: 403 })
+  }
+
+  // Handle redirects for old routes
+  if (pathname === "/characters/") {
+    return NextResponse.redirect(
+      new URL("/archive/characters/" + pathname.split("/")[2], request.url)
+    )
+  }
+  if (pathname === "/weapons/") {
+    return NextResponse.redirect(
+      new URL("/archive/weapons/" + pathname.split("/")[2], request.url)
+    )
+  }
+  if (pathname === "/artifacts/") {
+    return NextResponse.redirect(
+      new URL("/archive/artifacts/" + pathname.split("/")[2], request.url)
+    )
+  }
 
   // Protect routes that are not public
   if (!isPublicRoute(request)) {
     await auth.protect()
   }
 
-  return NextResponse.next()
+  const response = NextResponse.next()
+  return addSecurityHeaders(response)
 })
 
 export const config = {
   matcher: [
-    /*
-     * Only match routes that don't start with:
-     * - _next (Next.js internal)
-     * - api (API routes)
-     * - Static files (have file extensions)
-     */
-    "/((?!_next|api|.*\\..*|favicon).*)",
+    "/((?!_next|.*\\..*|favicon).*)",
+    "/api/:path*",
+    "/admin/:path*",
   ],
 }
