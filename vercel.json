@@ -1,12 +1,12 @@
 {
   "functions": {
-    "api/ai/route.js": {
+    "api/ai": {
       "maxDuration": 60
     },
-    "api/chat/route.js": {
+    "api/chat": {
       "maxDuration": 60
     },
-    "api/conversations/route.js": {
+    "api/conversations": {
       "maxDuration": 60
     }
   }
