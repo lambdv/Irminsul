@@ -82,14 +82,14 @@ export default function Advertisment(props: {
 
   if (props.className) {
     return (
-      <div className={props.className} style={{ display: "none" }}>
+      <div className={props.className}>
         {content}
       </div>
     );
   }
 
   return (
-    <div style={{ display: "none" }}>
+    <div>
       {content}
     </div>
   );
