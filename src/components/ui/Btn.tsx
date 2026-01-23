@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import ButtonCSS from './button.module.css'
+import Link from "next/link"
+import ButtonCSS from "./button.module.css"
 
 export default function Btn(props: {
   children: React.ReactNode
@@ -10,16 +10,14 @@ export default function Btn(props: {
   style?: React.CSSProperties
   disabled?: boolean
 }) {
-
-
-  if(props.href){
+  if (props.href) {
     return (
-      <Link href={props.href} className={
-        `${ButtonCSS.btn} 
+      <Link
+        href={props.href}
+        className={`${ButtonCSS.btn} 
         waves-effect waves-light ripple 
         ${props.className} 
-        flex`
-      }
+        flex`}
       >
         {props.children}
       </Link>
@@ -27,22 +25,20 @@ export default function Btn(props: {
   }
 
   return (
-    <button className={
-      `${ButtonCSS.btn} 
+    <button
+      className={`${ButtonCSS.btn} 
       waves-effect waves-light ripple 
       ${props.className} 
-      flex`
-      } 
-      onClick={()=>{
-        if(props.disabled) return
-          props.onClick()
-      }} 
-      type={props.type} 
+      flex`}
+      onClick={() => {
+        if (props.disabled) return
+        if (props.onClick) props.onClick()
+      }}
+      type={props.type}
       style={props.style}
-      disabled={props.disabled}>
-      <div>
-        {props.children}
-      </div>
+      disabled={props.disabled}
+    >
+      <div>{props.children}</div>
     </button>
   )
 }
