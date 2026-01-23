@@ -28,7 +28,7 @@ const SECURITY_HEADERS = {
   "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
   "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
   "Content-Security-Policy":
-    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https: discord.com discordapp.com;",
+    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.clerk.accounts.dev; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https: discord.com discordapp.com;",
   "X-Permitted-Cross-Domain-Policies": "none",
   "Cross-Origin-Embedder-Policy": "unsafe-none",
   "Cross-Origin-Opener-Policy": "unsafe-none",
@@ -111,9 +111,5 @@ export default clerkMiddleware(async (auth, request: NextRequest) => {
 })
 
 export const config = {
-  matcher: [
-    "/((?!_next|.*\\..*|favicon).*)",
-    "/api/:path*",
-    "/admin/:path*",
-  ],
+  matcher: ["/((?!_next|.*\\..*|favicon).*)", "/api/:path*", "/admin/:path*"],
 }
