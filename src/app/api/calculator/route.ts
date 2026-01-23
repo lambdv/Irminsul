@@ -13,7 +13,7 @@ async function loadAminus() {
 
   try {
     // @ts-ignore - aminus is a beta package without type declarations
-    aminusCache = await import("aminus")
+    aminusCache = await import(/* webpackIgnore: true */ "aminus")
     return aminusCache
   } catch (e) {
     console.warn("Aminus package not available:", e)

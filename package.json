@@ -55,6 +55,7 @@
     "ai": "^6.0.0-beta.150",
     "aminus": "^1.0.0-beta",
     "cheerio": "^1.0.0",
+    "litegraph.js": "^0.7.18",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dotenv": "^16.5.0",
