@@ -12,8 +12,6 @@ import {
   getAiTokensLeft,
 } from "@root/src/feature/ai/utils/numAiTokensLeft"
 
-export const maxDuration = 200
-
 const MAX_MESSAGE_LENGTH = 8000
 const MAX_MESSAGES_PER_REQUEST = 50
 const MAX_CONVERSATION_MESSAGES = 100
