@@ -22,22 +22,19 @@ export let links = [
   // { href: "/", icon: "home", text: "Home" },
   {
     href: "/",
-    //icon: "stars_2",
-    img: SEELIE_ICON,
-    text: "Ask AI",
-  },
-
-  {
-    href: "https://aminus.irminsul.moe/",
-    icon: "functions",
-    text: "Damage Calculator",
-    external: true,
+    icon: "chat_bubble",
+    text: "Ask AI"
   },
 
   { href: "/archive/characters", img: CHARACTER_ICON, text: "CharacterDB" },
   { href: "/archive/weapons", img: WEAPON_ICON, text: "WeaponsDB" },
   { href: "/archive/artifacts", img: ARTIFACT_ICON, text: "ArtifactsDB" },
-
+  {
+    href: "https://aminus.irminsul.moe/",
+    icon: "functions",
+    text: "Calculator",
+    external: true,
+  },
   // {href: "/articles", icon: "article", text: "Articles"},
   { href: "/pricing", icon: "shopping_cart", text: "Pricing" },
   { href: "/settings", icon: "settings", text: "Settings" },

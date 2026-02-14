@@ -472,11 +472,9 @@ const LandingView = React.memo<{
             rootMargin="-50px"
             textAlign="center"
           />
-      <p className="text-sm text-white/60 mt-2" style={{
-      }}>
-        The 1rst AI agent for Genshin Meta & Theorycrafting.
-      </p>
-
+          <p className="text-sm text-white/60 mt-2" style={{}}>
+            The 1rst AI agent for Genshin Meta & Theorycrafting.
+          </p>
         </div>
         <div className="w-full max-w-xl md:max-w-2xl lg:max-w-3xl flex-shrink-0 scale-75 sm:scale-85 md:scale-90">
           <ChatTextField
@@ -568,7 +566,7 @@ const ChatView = React.memo<{
                   }
                 />
               ))}
-              {(status === "submitted" || status === "streaming") && (
+              {status === "submitted" && (
                 <Message
                   key="thinking"
                   messageUser="Seelie"
@@ -639,12 +637,14 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
             },
           ] as any
       )
+      setHasAddedThinkingMessage(false)
     },
     onFinish: () => {
       // Remove any thinking messages when streaming finishes
       setMessages((prev) =>
         prev.filter((msg) => getMessageText(msg) !== "Thinking...")
       )
+      setHasAddedThinkingMessage(false)
     },
   })
 

@@ -89,25 +89,27 @@ export default async function Settings() {
         </Card>
       </Suspense>
 
-      <Suspense fallback={<p>Loading...</p>}>
-        <Card className="mb-6">
-          <CardHeader className="pb-3">
-            <CardTitle className="flex items-center gap-2">
-              <Database className="h-5 w-5" />
-              Database
-              <span className="text-sm text-muted-foreground">
-                (Experimental)
-              </span>
-            </CardTitle>
-            <CardDescription>
-              Access experimental database features and settings
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <APISettings />
-          </CardContent>
-        </Card>
-      </Suspense>
+      {/* 
+       <Suspense fallback={<p>Loading...</p>}>
+         <Card className="mb-6">
+           <CardHeader className="pb-3">
+             <CardTitle className="flex items-center gap-2">
+               <Database className="h-5 w-5" />
+               Database
+               <span className="text-sm text-muted-foreground">
+                 (Experimental)
+               </span>
+             </CardTitle>
+             <CardDescription>
+               Access experimental database features and settings
+             </CardDescription>
+           </CardHeader>
+           <CardContent>
+             <APISettings />
+           </CardContent>
+         </Card>
+       </Suspense>
+       */}
 
       {/* 
       <Suspense fallback={<p>Loading...</p>}>
