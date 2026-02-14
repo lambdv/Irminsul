@@ -70,6 +70,8 @@ const SuggestedQuestions = React.memo(
   )
 )
 
+SuggestedQuestions.displayName = "SuggestedQuestions"
+
 const Message = React.memo<{
   messageUser: string
   content?: string | JSX.Element
@@ -212,10 +214,13 @@ const ChatTextField = React.memo<{
                 <div key={index} className="flex-shrink-0 relative group">
                   <div className="bg-muted/50 rounded-lg p-2 min-w-24 max-w-32 flex flex-col items-center">
                     {file.type.startsWith("image/") ? (
-                      <img
+                      <Image
                         src={URL.createObjectURL(file)}
                         alt={file.name}
                         className="w-16 h-16 object-cover rounded mb-1"
+                        width={64}
+                        height={64}
+                        unoptimized
                       />
                     ) : (
                       <div className="w-16 h-16 bg-primary/10 rounded flex items-center justify-center mb-1">
@@ -610,9 +615,8 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
   const [selectedAgent, setSelectedAgent] = useState<AIAgent>("generalist")
   const [input, setInput] = useState<string>("")
   const [attachedFiles, setAttachedFiles] = useState<File[]>([])
-  const [isStreaming, setIsStreaming] = useState(false)
-  const [disabledChat, setDisabledChat] = useState(true)
-  const [slogan] = useState(slogans[Math.floor(Math.random() * slogans.length)])
+  const [isModelLoading, setIsModelLoading] = useState(true)
+  const [slogan] = useState(slogans[0])
   const [showTokenModal, setShowTokenModal] = useState(false)
   const [showLoginModal, setShowLoginModal] = useState(false)
   const [tokensLeft, setTokensLeft] = useState<number | null>(null)
@@ -625,7 +629,6 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
       }),
     }),
     onError: () => {
-      setDisabledChat(true)
       setMessages(
         (prev) =>
           [
@@ -637,14 +640,12 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
             },
           ] as any
       )
-      setHasAddedThinkingMessage(false)
     },
     onFinish: () => {
       // Remove any thinking messages when streaming finishes
       setMessages((prev) =>
         prev.filter((msg) => getMessageText(msg) !== "Thinking...")
       )
-      setHasAddedThinkingMessage(false)
     },
   })
 
@@ -653,40 +654,20 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
       if (props.user?.id && selectedModel !== "auto") {
         const tokens = await getAiTokensLeft(props.user.id)
         setTokensLeft(tokens)
-        setDisabledChat(false)
       } else {
         setTokensLeft(null)
-        setDisabledChat(false)
       }
+      setIsModelLoading(false)
     }
     load()
   }, [props.user?.id, selectedModel])
 
-  useEffect(() => {
-    switch (status) {
-      case "submitted":
-        setDisabledChat(true)
-        setIsStreaming(true)
-        break
-      case "streaming":
-        setDisabledChat(true)
-        setIsStreaming(true)
-        break
-      case "ready":
-        setDisabledChat(false)
-        setIsStreaming(false)
-        break
-      case "error":
-        setDisabledChat(true)
-        setIsStreaming(false)
-        break
-    }
-  }, [status])
+  const isStreaming = status === "submitted" || status === "streaming"
+  const disabledChat = isModelLoading || isStreaming || status === "error"
 
   const handleFormSubmit = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault()
-      setDisabledChat(true)
       if (input.trim().length <= 0) {
         return
       }

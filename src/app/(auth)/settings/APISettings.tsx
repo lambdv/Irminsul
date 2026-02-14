@@ -23,6 +23,11 @@ export default function APISettings() {
 
   //load the custom api config from the cookie
   useEffect(() => {
+    const applyConfig = (provider: string, url: string) => {
+      setCustomAPIURL(url)
+      setDataProvider(provider)
+    }
+
     const apiCookie = document.cookie
       .split("; ")
       .find((row) => row.startsWith("customapi="))
@@ -32,7 +37,7 @@ export default function APISettings() {
     try {
       // Handle non-JSON values first
       if (apiCookie === "gd") {
-        setTimeout(() => setDataProvider("genshin-data"), 0)
+        queueMicrotask(() => applyConfig("genshin-data", ""))
         return
       }
 
@@ -41,15 +46,14 @@ export default function APISettings() {
         const api = JSON.parse(decodeURIComponent(apiCookie))
         console.log(api)
         if (typeof api === "string") {
-          setCustomAPIURL(api)
-          setDataProvider(api === "genshin-data" ? "genshin-data" : "custom")
+          const provider = api === "genshin-data" ? "genshin-data" : "custom"
+          queueMicrotask(() => applyConfig(provider, api))
         }
       } catch (e) {
         // If JSON parsing fails, treat it as a direct URL string
         const decodedValue = decodeURIComponent(apiCookie)
         if (decodedValue.startsWith("http")) {
-          setCustomAPIURL(decodedValue)
-          setDataProvider("custom")
+          queueMicrotask(() => applyConfig("custom", decodedValue))
         }
         console.log("Using direct URL string from cookie:", decodedValue)
       }

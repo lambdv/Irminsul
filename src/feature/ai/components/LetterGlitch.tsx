@@ -16,7 +16,7 @@ const LetterGlitch = ({
   const letters = useRef([])
   const grid = useRef({ columns: 0, rows: 0 })
   const context = useRef(null)
-  const lastGlitchTime = useRef(Date.now())
+  const lastGlitchTime = useRef(0)
 
   const lettersAndSymbols = Array.from(characters)
 
@@ -163,12 +163,11 @@ const LetterGlitch = ({
     }
   }
 
-  const animate = () => {
-    const now = Date.now()
-    if (now - lastGlitchTime.current >= glitchSpeed) {
+  const animate = (time: number) => {
+    if (time - lastGlitchTime.current >= glitchSpeed) {
       updateLetters()
       drawLetters()
-      lastGlitchTime.current = now
+      lastGlitchTime.current = time
     }
 
     if (smooth) {
@@ -184,7 +183,7 @@ const LetterGlitch = ({
 
     context.current = canvas.getContext("2d")
     resizeCanvas()
-    animate()
+    animationRef.current = requestAnimationFrame(animate)
 
     let resizeTimeout
 
@@ -193,7 +192,7 @@ const LetterGlitch = ({
       resizeTimeout = setTimeout(() => {
         cancelAnimationFrame(animationRef.current)
         resizeCanvas()
-        animate()
+        animationRef.current = requestAnimationFrame(animate)
       }, 100)
     }
 
@@ -203,6 +202,7 @@ const LetterGlitch = ({
       cancelAnimationFrame(animationRef.current)
       window.removeEventListener("resize", handleResize)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [glitchSpeed, smooth])
 
   const containerStyle: React.CSSProperties = {

@@ -1,64 +1,62 @@
-"use client";
-import React, { useEffect, useState } from 'react';
-import { useDamageCalculator } from '@/store/DamageCalculator';
-import { Weapon } from '@/types/weapon';
-import CalculatorInput from './CalculatorInput';
-import styles from './calculator.module.css';
+"use client"
+import React, { useEffect, useMemo, useState } from "react"
+import { useDamageCalculator } from "@/store/DamageCalculator"
+import { Weapon } from "@/types/weapon"
+import CalculatorInput from "./CalculatorInput"
+import styles from "./calculator.module.css"
 
 export default function WeaponSection() {
-  const {
-    weaponKey,
-    weaponLevel,
-    weaponRefinement,
-    setWeapon,
-  } = useDamageCalculator();
+  const { weaponKey, weaponLevel, weaponRefinement, setWeapon } =
+    useDamageCalculator()
 
-  const [weapons, setWeapons] = useState<Weapon[]>([]);
-  const [selectedWeapon, setSelectedWeapon] = useState<Weapon | null>(null);
+  const [weapons, setWeapons] = useState<Weapon[]>([])
 
   useEffect(() => {
-    fetch('/api/weapons')
-      .then(res => res.json())
-      .then(data => setWeapons(data.data || []))
-      .catch(err => console.error('Failed to fetch weapons:', err));
-  }, []);
+    fetch("/api/weapons")
+      .then((res) => res.json())
+      .then((data) => setWeapons(data.data || []))
+      .catch((err) => console.error("Failed to fetch weapons:", err))
+  }, [])
 
-  useEffect(() => {
-    if (weaponKey) {
-      const weapon = weapons.find(w => w.key === weaponKey || w.id === weaponKey);
-      setSelectedWeapon(weapon || null);
-    }
-  }, [weaponKey, weapons]);
+  const selectedWeapon = useMemo(() => {
+    if (!weaponKey) return null
+    return (
+      weapons.find((w) => w.key === weaponKey || w.id === weaponKey) || null
+    )
+  }, [weaponKey, weapons])
 
   const handleWeaponChange = (key: string) => {
-    const weapon = weapons.find(w => w.key === key || w.id === key);
+    const weapon = weapons.find((w) => w.key === key || w.id === key)
     if (weapon) {
-      setWeapon(key, weaponLevel, weaponRefinement);
+      setWeapon(key, weaponLevel, weaponRefinement)
     }
-  };
+  }
 
   const getBaseStats = () => {
-    if (!selectedWeapon || !selectedWeapon.base_stats) return null;
+    if (!selectedWeapon || !selectedWeapon.base_stats) return null
     const statsForLevel = selectedWeapon.base_stats.find(
-      stat => parseInt(stat.level) === weaponLevel
-    );
-    return statsForLevel || selectedWeapon.base_stats[selectedWeapon.base_stats.length - 1];
-  };
+      (stat) => parseInt(stat.level) === weaponLevel
+    )
+    return (
+      statsForLevel ||
+      selectedWeapon.base_stats[selectedWeapon.base_stats.length - 1]
+    )
+  }
 
-  const baseStats = getBaseStats();
+  const baseStats = getBaseStats()
 
   return (
     <div className={styles.section}>
       <h3 className={styles.sectionTitle}>Weapon</h3>
-      
+
       <CalculatorInput
         label="Weapon"
         type="select"
         value={weaponKey}
         onChange={handleWeaponChange}
         options={[
-          { value: '', label: 'Select Weapon' },
-          ...weapons.map(weapon => ({
+          { value: "", label: "Select Weapon" },
+          ...weapons.map((weapon) => ({
             value: weapon.key || weapon.id,
             label: weapon.name,
           })),
@@ -69,7 +67,9 @@ export default function WeaponSection() {
         label="Level"
         type="number"
         value={weaponLevel}
-        onChange={(val) => setWeapon(weaponKey, val as number, weaponRefinement)}
+        onChange={(val) =>
+          setWeapon(weaponKey, val as number, weaponRefinement)
+        }
         min={1}
         max={90}
       />
@@ -106,6 +106,5 @@ export default function WeaponSection() {
         </div>
       )}
     </div>
-  );
+  )
 }
-

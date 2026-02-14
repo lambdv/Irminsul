@@ -76,7 +76,7 @@ export default function Page() {
 
     
 
-    function DataTable({ data, category }) {
+    const renderDataTable = (data, category) => {
         if (!data.length) return null
         
         return (
@@ -187,9 +187,9 @@ export default function Page() {
     }
 
     const tabs = [
-        { label: "Character Data", content: <DataTable data={characters} category="character" /> },
-        { label: "Weapon Data", content: <DataTable data={weapons} category="weapon" /> },
-        { label: "Artifact Data", content: <DataTable data={artifacts} category="artifact" /> }
+        { label: "Character Data", content: renderDataTable(characters, "character") },
+        { label: "Weapon Data", content: renderDataTable(weapons, "weapon") },
+        { label: "Artifact Data", content: renderDataTable(artifacts, "artifact") }
     ]
 
     return (

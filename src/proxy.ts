@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { rateLimit, getRateLimitConfig } from "@/lib/rate-limit"
+import { rateLimit } from "@/lib/rate-limit"
 import { isAdmin } from "@/app/(auth)/actions"
 
 const SECURITY_HEADERS = {
@@ -31,12 +31,10 @@ function isSuspiciousRequest(request: NextRequest): boolean {
     return true
   }
 
-  // Check for too many headers (potential header bombing) - increased limit
   if (Array.from(request.headers.keys()).length > 200) {
     return true
   }
 
-  // Check for unusual methods
   const method = request.method
   if (
     !["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"].includes(
@@ -49,52 +47,69 @@ function isSuspiciousRequest(request: NextRequest): boolean {
   return false
 }
 
-export async function middleware(request: NextRequest) {
+function applySecurityHeaders(response: NextResponse): NextResponse {
+  for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+    response.headers.set(key, value)
+  }
+
+  return response
+}
+
+function getArchiveRedirect(request: NextRequest): NextResponse | null {
+  const { pathname, search } = request.nextUrl
+
+  const redirectMap: Record<string, string> = {
+    "/characters": "characters",
+    "/weapons": "weapons",
+    "/artifacts": "artifacts",
+  }
+
+  for (const [legacyPath, archiveSection] of Object.entries(redirectMap)) {
+    if (!pathname.startsWith(legacyPath)) {
+      continue
+    }
+
+    const parts = pathname.split("/").filter(Boolean)
+    const slug = parts[1]
+    const targetPath = slug
+      ? `/archive/${archiveSection}/${slug}`
+      : `/archive/${archiveSection}`
+
+    return NextResponse.redirect(new URL(`${targetPath}${search}`, request.url))
+  }
+
+  return null
+}
+
+export async function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
-  // Block suspicious requests
   if (isSuspiciousRequest(request)) {
-    return new NextResponse("Forbidden", { status: 403 })
+    return applySecurityHeaders(new NextResponse("Forbidden", { status: 403 }))
   }
 
   if (pathname.startsWith("/api/")) {
     const rateLimitResponse = rateLimit(request)
     if (rateLimitResponse) {
-      return rateLimitResponse
+      return applySecurityHeaders(rateLimitResponse)
     }
   }
 
   if (pathname.startsWith("/admin")) {
     const allowed = await isAdmin()
     if (!allowed) {
-      return NextResponse.redirect(new URL("/", request.url))
+      return applySecurityHeaders(
+        NextResponse.redirect(new URL("/", request.url))
+      )
     }
   }
 
-  const response = NextResponse.next()
-
-  for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
-    response.headers.set(key, value)
+  const archiveRedirect = getArchiveRedirect(request)
+  if (archiveRedirect) {
+    return applySecurityHeaders(archiveRedirect)
   }
 
-  const pathnameStr = pathname
-  if (pathnameStr === "/characters/") {
-    return NextResponse.redirect(
-      new URL("/archive/characters/" + pathnameStr.split("/")[2], request.url)
-    )
-  }
-  if (pathnameStr === "/weapons/") {
-    return NextResponse.redirect(
-      new URL("/archive/weapons/" + pathnameStr.split("/")[2], request.url)
-    )
-  }
-  if (pathnameStr === "/artifacts/") {
-    return NextResponse.redirect(
-      new URL("/archive/artifacts/" + pathnameStr.split("/")[2], request.url)
-    )
-  }
-
-  return response
+  return applySecurityHeaders(NextResponse.next())
 }
 
 export const config = {
