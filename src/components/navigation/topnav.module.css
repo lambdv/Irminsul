@@ -15,19 +15,19 @@
   left: 0px;
   height: 60px;
   z-index: 10;
-  background-color: rgb(7, 7, 7, 0.82);
+  background-color: hsl(var(--background) / 0.82);
   backdrop-filter: blur(30px);
   transition: 0.1s ease-in-out;
 }
 
 [data-theme="light"] .solidnav {
-  background-color: rgba(255, 255, 255, 0.82);
+  background-color: hsl(var(--background) / 0.82);
   backdrop-filter: blur(30px);
 }
 
 @media (max-width: 768px) {
   .solidnav {
-    background-color: rgb(7, 7, 7);
+    background-color: var(--background-color);
     backdrop-filter: none;
     transition: 0.1s ease-in-out;
   }
@@ -97,7 +97,7 @@
   font-weight: 100;
   position: relative;
   top: -2px;
-  color: black;
+  color: var(--invert-text-color);
   background-color: var(--ingame-primary-color);
   padding: 2px 4px;
   border-radius: 4px;
@@ -130,25 +130,25 @@
   padding-top: 10px;
   padding-bottom: 10px;
   top: -3px;
-  background-color: rgb(53, 53, 53, 0.6);
+  background-color: hsl(var(--muted) / 0.6);
   border-radius: 3px;
   color: var(--text-color);
 }
 
 .solidnav .searchBar {
-  background-color: rgb(53, 53, 53, 0.8);
+  background-color: hsl(var(--muted) / 0.8);
 }
 
 [data-theme="light"] .searchBar {
-  background-color: rgba(219, 218, 218, 0.6);
+  background-color: hsl(var(--muted) / 0.6);
 }
 
 [data-theme="light"] .solidnav .searchBar {
-  background-color: rgb(255, 255, 255, 0.8);
+  background-color: hsl(var(--muted) / 0.8);
 }
 
 .searchBar::placeholder {
-  color: rgb(124, 124, 124);
+  color: var(--gray-text-color);
 }
 
 .mobileOnly {
@@ -221,7 +221,8 @@
   right: 0;
   margin-top: 8px;
   width: 12rem;
-  background-color: #0e0e0e;
+  background-color: var(--light-elevated-color);
+  border: 1px solid var(--outline-color);
   border-radius: 6px;
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -233,14 +234,14 @@
 }
 
 [data-theme="light"] .dropdownMenu {
-  background-color: #f1f1f1;
+  background-color: var(--light-elevated-color);
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 [data-theme="dark"] .dropdownMenu {
-  background-color: #0e0e0e;
+  background-color: var(--light-elevated-color);
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -259,18 +260,26 @@
   text-align: left;
   padding: 8px 16px;
   font-size: 14px;
+  color: var(--text-color);
 }
 
 .dropdownMenuItem:hover {
-  background-color: #4747477c;
-}
-
-[data-theme="light"] .dropdownMenuItem:hover {
-  background-color: #dedede7c;
+  background-color: var(--elevated-color);
 }
 
 [data-theme="dark"] .dropdownMenuItem:hover {
-  background-color: #4747477c;
+  background-color: var(--elevated-color);
+  opacity: 0.9;
+}
+
+[data-theme="light"] .dropdownMenuItem:hover {
+  background-color: var(--elevated-color);
+  opacity: 0.9;
+}
+
+[data-theme="purple"] .dropdownMenuItem:hover {
+  background-color: var(--elevated-color);
+  opacity: 0.9;
 }
 
 .dropdownMenuIcon {

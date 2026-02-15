@@ -158,7 +158,7 @@ export default function APISettings() {
           >
             <MenuItem
               value="irminsul"
-              sx={{ color: "#404040" }}
+              sx={{ color: "var(--text-color)" }}
               onClick={() => {
                 handleDataProviderChange("irminsul")
               }}
@@ -167,14 +167,14 @@ export default function APISettings() {
             </MenuItem>
             <MenuItem
               value="genshin-data"
-              sx={{ color: "#404040" }}
+              sx={{ color: "var(--text-color)" }}
               onClick={() => {
                 handleDataProviderChange("genshin-data")
               }}
             >
               dvaJi&apos;s Genshin Data
             </MenuItem>
-            <MenuItem value="custom" sx={{ color: "#404040" }}>
+            <MenuItem value="custom" sx={{ color: "var(--text-color)" }}>
               Custom
             </MenuItem>
           </Select>

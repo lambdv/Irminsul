@@ -1,8 +1,8 @@
-"use client"
 import React, { useEffect, useRef, useState, useCallback, useMemo } from "react"
 import { useChat } from "@ai-sdk/react"
 import { DefaultChatTransport } from "ai"
 import Image from "next/image"
+import Link from "next/link"
 import { getCDNURL } from "@/utils/getAssetURL"
 import { getAiTokensLeft } from "../utils/numAiTokensLeft"
 import MarkdownRenderer from "@/components/ui/MarkdownRenderer"
@@ -34,6 +34,8 @@ import {
 } from "@/components/cn/dropdown-menu"
 import { AIAgent } from "@root/src/feature/ai/domain/AIAgentFactory"
 import LightRays from "@/components/cn/LightRays"
+import { getThemeColors } from "@/lib/themeColors"
+import Modal from "@/components/ui/Modal"
 
 const slogans = ["Navigate Truth of Teyvat."]
 const SEELIE_ICON = getCDNURL("imgs/icons/seelie.png")
@@ -59,7 +61,7 @@ const SuggestedQuestions = React.memo(
       {suggestedQuestions.map((question, i) => (
         <button
           key={i}
-          className="w-full px-6 py-3 text-left text-sm text-white/30 hover:text-white transition-colors disabled:opacity-50 cursor-pointer truncate text-left"
+          className="w-full px-6 py-3 text-left text-sm text-muted-foreground/60 hover:text-foreground transition-colors disabled:opacity-50 cursor-pointer truncate text-left"
           onClick={() => onQuestionClick(question)}
           disabled={disabledChat}
         >
@@ -110,7 +112,7 @@ const Message = React.memo<{
           className={`rounded-2xl px-4 py-2.5 ${
             isUser
               ? "bg-primary/20 text-foreground"
-              : "bg-white/5 text-white/90"
+              : "bg-muted/50 text-foreground/90"
           }`}
         >
           {messageText.trim() && messageText !== "Thinking..." ? (
@@ -397,9 +399,9 @@ const ChatTextField = React.memo<{
             {isStreaming ? (
               <Button
                 onClick={onStop}
-                className="h-9 w-9 p-0 rounded-full bg-red-500 hover:bg-red-600 transition-colors"
+                className="h-9 w-9 p-0 rounded-full bg-destructive hover:bg-destructive/90 transition-colors"
               >
-                <StopCircle className="w-4 h-4 text-white" />
+                <StopCircle className="w-4 h-4 text-destructive-foreground" />
               </Button>
             ) : (
               <Button
@@ -408,7 +410,7 @@ const ChatTextField = React.memo<{
                 className="h-9 w-9 p-0 rounded-full bg-primary hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 onClick={onSubmit}
               >
-                <ArrowUp className="w-4 h-4 text-background" />
+                <ArrowUp className="w-4 h-4 text-primary-foreground" />
               </Button>
             )}
           </div>
@@ -466,7 +468,7 @@ const LandingView = React.memo<{
           <SplitText
             text={slogan}
             tag="h1"
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white/90 tracking-tight leading-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight leading-tight"
             delay={40}
             duration={0.2}
             ease="power3.out"
@@ -477,7 +479,7 @@ const LandingView = React.memo<{
             rootMargin="-50px"
             textAlign="center"
           />
-          <p className="text-sm text-white/60 mt-2" style={{}}>
+          <p className="text-sm text-muted-foreground mt-2" style={{}}>
             The 1rst AI agent for Genshin Meta & Theorycrafting.
           </p>
         </div>
@@ -620,6 +622,27 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
   const [showTokenModal, setShowTokenModal] = useState(false)
   const [showLoginModal, setShowLoginModal] = useState(false)
   const [tokensLeft, setTokensLeft] = useState<number | null>(null)
+  const [raysColor, setRaysColor] = useState(getThemeColors("dark").raysColor)
+  const [currentTheme, setCurrentTheme] = useState<string>("dark")
+
+  useEffect(() => {
+    const updateThemeState = () => {
+      const theme =
+        document.documentElement.getAttribute("data-theme") || "dark"
+      setCurrentTheme(theme)
+      setRaysColor(getThemeColors(theme).raysColor)
+    }
+
+    updateThemeState()
+
+    const observer = new MutationObserver(updateThemeState)
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    })
+
+    return () => observer.disconnect()
+  }, [])
 
   const { messages, sendMessage, setMessages, status, stop } = useChat({
     transport: new DefaultChatTransport({
@@ -664,6 +687,7 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
 
   const isStreaming = status === "submitted" || status === "streaming"
   const disabledChat = isModelLoading || isStreaming || status === "error"
+  const isLightTheme = currentTheme === "light" || currentTheme === "purple"
 
   const handleFormSubmit = useCallback(
     async (e: React.FormEvent) => {
@@ -671,10 +695,14 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
       if (input.trim().length <= 0) {
         return
       }
+      if (!props.user) {
+        setShowLoginModal(true)
+        return
+      }
       sendMessage({ text: input })
       setInput("")
     },
-    [input, sendMessage]
+    [input, sendMessage, props.user]
   )
 
   const handleInputChange = useCallback((value: string) => {
@@ -716,7 +744,7 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
 
   return (
     <div style={{ position: "relative", minHeight: "100vh" }}>
-      {isEmpty && (
+      {isEmpty && !isLightTheme && (
         <div
           style={{
             position: "absolute",
@@ -730,17 +758,18 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
         >
           <LightRays
             raysOrigin="top-center"
-            raysColor="#0080FF"
-            raysSpeed={1.5}
-            lightSpread={0.3}
-            rayLength={1.8}
-            fadeDistance={0.7}
-            saturation={1}
+            raysColor={raysColor}
+            raysSpeed={isLightTheme ? 1 : 1.5}
+            lightSpread={isLightTheme ? 0.1 : 0.4}
+            rayLength={2.2}
+            fadeDistance={isLightTheme ? 0.4 : 0.8}
+            saturation={isLightTheme ? 1 : 1}
             followMouse={true}
-            mouseInfluence={0.15}
-            noiseAmount={0.05}
-            distortion={0.1}
-            pulsating={true}
+            mouseInfluence={isLightTheme ? 0.1 : 0.15}
+            noiseAmount={isLightTheme ? 0 : 0.05}
+            distortion={isLightTheme ? 0 : 0.1}
+            pulsating={isLightTheme ? false : true}
+            isLightMode={isLightTheme}
           />
         </div>
       )}
@@ -752,33 +781,6 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
           zIndex: 1,
         }}
       >
-        <style jsx global>{`
-          @keyframes fade-in {
-            from {
-              opacity: 0;
-              transform: translateY(10px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-          @keyframes float {
-            0%,
-            100% {
-              transform: translateY(0);
-            }
-            50% {
-              transform: translateY(-10px);
-            }
-          }
-          .animate-fade-in {
-            animation: fade-in 0.5s ease-out forwards;
-          }
-          .animate-float {
-            animation: float 3s ease-in-out infinite;
-          }
-        `}</style>
         {isEmpty ? (
           <LandingView
             slogan={slogan}
@@ -819,6 +821,19 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
           />
         )}
       </div>
+      {showLoginModal && (
+        <Modal title="Login Required" toggle={() => setShowLoginModal(false)}>
+          <p>You need to be logged in to send messages to Seelie.</p>
+          <div className="flex justify-end gap-2 mt-4">
+            <Button variant="outline" onClick={() => setShowLoginModal(false)}>
+              Cancel
+            </Button>
+            <Link href="/login">
+              <Button>Go to Login</Button>
+            </Link>
+          </div>
+        </Modal>
+      )}
     </div>
   )
 })

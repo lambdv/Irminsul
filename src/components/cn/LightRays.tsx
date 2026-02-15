@@ -27,6 +27,7 @@ interface LightRaysProps {
   mouseInfluence?: number
   noiseAmount?: number
   distortion?: number
+  isLightMode?: boolean
   className?: string
 }
 
@@ -88,6 +89,7 @@ interface Uniforms {
   mouseInfluence: { value: number }
   noiseAmount: { value: number }
   distortion: { value: number }
+  isLightMode: { value: number }
 }
 
 const LightRays: React.FC<LightRaysProps> = ({
@@ -103,6 +105,7 @@ const LightRays: React.FC<LightRaysProps> = ({
   mouseInfluence = 0.1,
   noiseAmount = 0.0,
   distortion = 0.0,
+  isLightMode = false,
   className = "",
 }) => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -193,6 +196,7 @@ uniform vec2  mousePos;
 uniform float mouseInfluence;
 uniform float noiseAmount;
 uniform float distortion;
+uniform float isLightMode;
 
 varying vec2 vUv;
 
@@ -250,10 +254,12 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     fragColor.rgb *= (1.0 - noiseAmount + noiseAmount * n);
   }
 
-  float brightness = 1.0 - (coord.y / iResolution.y);
-  fragColor.x *= 0.1 + brightness * 0.8;
-  fragColor.y *= 0.3 + brightness * 0.6;
-  fragColor.z *= 0.5 + brightness * 0.5;
+  if (isLightMode < 0.5) {
+    float brightness = 1.0 - (coord.y / iResolution.y);
+    fragColor.x *= 0.1 + brightness * 0.8;
+    fragColor.y *= 0.3 + brightness * 0.6;
+    fragColor.z *= 0.5 + brightness * 0.5;
+  }
 
   if (saturation != 1.0) {
     float gray = dot(fragColor.rgb, vec3(0.299, 0.587, 0.114));
@@ -287,6 +293,7 @@ void main() {
         mouseInfluence: { value: mouseInfluence },
         noiseAmount: { value: noiseAmount },
         distortion: { value: distortion },
+        isLightMode: { value: isLightMode ? 1.0 : 0.0 },
       }
       uniformsRef.current = uniforms
 
@@ -407,6 +414,7 @@ void main() {
     mouseInfluence,
     noiseAmount,
     distortion,
+    isLightMode,
   ])
 
   useEffect(() => {
@@ -426,6 +434,7 @@ void main() {
     u.mouseInfluence.value = mouseInfluence
     u.noiseAmount.value = noiseAmount
     u.distortion.value = distortion
+    u.isLightMode.value = isLightMode ? 1.0 : 0.0
 
     const { clientWidth: wCSS, clientHeight: hCSS } = containerRef.current
     const dpr = renderer.dpr
@@ -444,6 +453,7 @@ void main() {
     mouseInfluence,
     noiseAmount,
     distortion,
+    isLightMode,
   ])
 
   useEffect(() => {

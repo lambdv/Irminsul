@@ -4,25 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global non-theme variables + semantic aliases used across the app */
 :root {
-  --ingame-primary-color: #e7c073;
-}
+  --topnav-height: 60px;
+  --mobile-width: 768px;
+  --tablet-width: 1200px;
+  --desktop-width: 1800px;
 
-/* [data-theme="dark"] { */
-:root {
-  /* /#FFD52A */
-  --ingame-primary-color: #F49F1E;
-  --primary-color: var(--ingame-primary-color);
-
-  --background-color: #070707;
-  --elevated-color: #2d2d2d;
-  --light-elevated-color: #1b1b1b;
-  --outline-color: #262626;
-
-  --text-color: #ececec;
-  --dim-text-color: #d1d1d1;
-  --gray-text-color: #878787;
-  --invert-text-color: #191919;
+  --surface-bg: var(--background-color);
+  --surface-elevated: var(--elevated-color);
+  --surface-elevated-soft: var(--light-elevated-color);
+  --surface-border: var(--outline-color);
+  --text-primary: var(--text-color);
+  --text-secondary: var(--dim-text-color);
+  --text-muted: var(--gray-text-color);
 }
 
 [data-theme="light"] {
@@ -38,21 +33,134 @@
   --dim-text-color: #2c2c2c;
   --gray-text-color: #494949;
   --invert-text-color: #ececec;
+  --table-bg: #e0e0e0;
+  --table-row-odd: #f1f1f1;
+  --table-row-even: #e0e0e0;
+  --talent-icon-bg: #d9d9d9;
+
+  /* HSL variables for Tailwind/Shadcn */
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 240 10% 3.9%;
+  --radius: 0.75rem;
+  --chart-1: 12 76% 61%;
+  --chart-2: 173 58% 39%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
 }
 
-:root {
-  --radius: 0.75rem; /* large */
+[data-theme="purple"] {
+  --ingame-primary-color: #b58900;
+  --primary-color: var(--ingame-primary-color);
 
-  --primary: 38 92% 50%; /* amber */
-  --primary-foreground: 48 96% 89%;
+  --background-color: #fdf6e3;
+  --elevated-color: #eee8d5;
+  --light-elevated-color: #f5efdc;
+  --outline-color: #d7ceb2;
 
-  --accent: 210 40% 96.1%; /* subtle */
-  --accent-foreground: 222.2 47.4% 11.2%;
+  --text-color: #586e75;
+  --dim-text-color: #657b83;
+  --gray-text-color: #93a1a1;
+  --invert-text-color: #073642;
+  --table-bg: #eee8d5;
+  --table-row-odd: #fdf6e3;
+  --table-row-even: #eee8d5;
+  --talent-icon-bg: #e6dfca;
+
+  /* HSL variables for Tailwind/Shadcn */
+  --background: 44 87% 94%;
+  --foreground: 192 18% 40%;
+  --card: 44 87% 94%;
+  --card-foreground: 192 18% 40%;
+  --popover: 44 87% 94%;
+  --popover-foreground: 192 18% 40%;
+  --primary: 45 100% 35%;
+  --primary-foreground: 192 83% 14%;
+  --secondary: 47 32% 88%;
+  --secondary-foreground: 192 18% 40%;
+  --muted: 47 32% 88%;
+  --muted-foreground: 184 8% 65%;
+  --accent: 47 32% 88%;
+  --accent-foreground: 192 18% 40%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 44 30% 80%;
+  --input: 44 30% 80%;
+  --ring: 45 100% 35%;
+  --chart-1: 45 100% 35%;
+  --chart-2: 175 59% 40%;
+  --chart-3: 205 82% 43%;
+  --chart-4: 331 64% 52%;
+  --chart-5: 18 80% 44%;
+}
+
+[data-theme="dark"],
+.dark,
+:root:not([data-theme]) {
+  --ingame-primary-color: #f49f1e;
+  --primary-color: var(--ingame-primary-color);
+
+  --background-color: #070707;
+  --elevated-color: #2d2d2d;
+  --light-elevated-color: #1b1b1b;
+  --outline-color: #262626;
+
+  --text-color: #ececec;
+  --dim-text-color: #d1d1d1;
+  --gray-text-color: #878787;
+  --invert-text-color: #191919;
+  --table-bg: #1c1c1c;
+  --table-row-odd: #161616;
+  --table-row-even: #1c1c1c;
+  --talent-icon-bg: #0c0c0c;
+
+  /* HSL variables for Tailwind/Shadcn */
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 240 5.9% 10%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 240 4.9% 83.9%;
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
 }
 
 ::selection {
   background-color: var(--primary-color);
-  color: var(--primary-text-color);
+  color: var(--invert-text-color);
 }
 
 @font-face {
@@ -131,6 +239,8 @@
 }
 
 body {
+  background-color: var(--background-color);
+  color: var(--text-color);
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -144,15 +254,6 @@ body {
   overflow-x: hidden;
   background-color: transparent;
 }
-
-/**css variables*/
-:root {
-  --topnav-height: 60px;
-  --mobile-width: 768px;
-  --tablet-width: 1200px;
-  --desktop-width: 1800px;
-}
-/* css variables end */
 
 @media all and (max-width: 1800px) {
   .minimalPageContentWrapper {
@@ -282,67 +383,28 @@ body {
   }
 }
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.75rem;
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-
-@layer base {
-  * {
-    @apply border-border;
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
   }
-  body {
-    @apply bg-background text-foreground;
+  50% {
+    transform: translateY(-10px);
   }
+}
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }

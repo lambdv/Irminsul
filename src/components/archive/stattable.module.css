@@ -1,5 +1,5 @@
 .stattable {
-    background-color: #1c1c1c;
+    background-color: var(--table-bg);
     color: var(--dim-text-color);
     transition: all 0.2s ease-in-out;
     font-family: 'Inter', sans-serif;
@@ -9,10 +9,6 @@
     border-radius: 2px;
     width: auto;
 
-}
-
-[data-theme="light"] .stattable {
-    background-color: #e0e0e0;
 }
 
 
@@ -45,19 +41,11 @@
 }
 
 .stattable tbody tr:nth-child(odd) {
-    background-color: #161616;
-}
-
-[data-theme="light"] .stattable tbody tr:nth-child(odd) {
-    background-color: #f1f1f1;
+    background-color: var(--table-row-odd);
 }
 
 .stattable tbody tr:nth-child(even) {
-    background-color: #1c1c1c;
-}
-
-[data-theme="light"] .stattable tbody tr:nth-child(even) {
-    background-color: #e0e0e0;
+    background-color: var(--table-row-even);
 }
 
 /* .stattable tbody tr:hover {

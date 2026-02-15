@@ -1,9 +1,11 @@
 import React from "react"
-import Chat from "@root/src/feature/ai/components/chat"
+import ChatWrapper from "./ChatWrapper"
 import LightRays from "@/components/cn/LightRays"
 
 import { getServerUser } from "@/lib/server-session"
+import { getThemeColors } from "@/lib/themeColors"
 import { getCDNURL } from "@/utils/getAssetURL"
+import { cookies } from "next/headers"
 
 export async function generateMetadata() {
   return {
@@ -16,6 +18,9 @@ export async function generateMetadata() {
 
 export default async function Page() {
   const user = await getServerUser()
+  const cookieStore = await cookies()
+  const theme = cookieStore.get("theme")?.value || "dark"
+  const isLightTheme = theme === "light" || theme === "purple"
 
   return (
     <div style={{ position: "relative", minHeight: "100vh" }}>
@@ -32,21 +37,22 @@ export default async function Page() {
       >
         <LightRays
           raysOrigin="top-center"
-          raysColor="#00ffff"
+          raysColor={getThemeColors(theme).raysColor}
           raysSpeed={1}
-          lightSpread={0.2}
-          rayLength={1.5}
-          fadeDistance={0.6}
-          saturation={0.7}
+          lightSpread={isLightTheme ? 0.1 : 0.4}
+          rayLength={2.2}
+          fadeDistance={isLightTheme ? 0.4 : 0.8}
+          saturation={isLightTheme ? 1 : 0.7}
           followMouse={true}
           mouseInfluence={0.1}
           noiseAmount={0}
           distortion={0}
           pulsating={false}
+          isLightMode={isLightTheme}
         />
       </div>
       <div style={{ position: "relative", zIndex: 1 }}>
-        <Chat user={user} />
+        <ChatWrapper user={user} />
       </div>
     </div>
   )

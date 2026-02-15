@@ -21,7 +21,7 @@
 }
 
 .talentHeader img{
-    background-color: #0c0c0cff;
+    background-color: var(--talent-icon-bg);
     border-radius: 100px;
     padding: 5px;
     width: 50px;

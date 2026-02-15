@@ -49,7 +49,7 @@
         "esbuild": "^0.27.2",
         "fs": "^0.0.1-security",
         "fuse.js": "^7.1.0",
-        "genshin-data": "*",
+        "genshin-data": "^0.57.0",
         "graphql": "^16.12.0",
         "graphql-yoga": "^5.18.0",
         "gsap": "^3.14.2",
@@ -1286,7 +1286,7 @@
 
     "generic-pool": ["generic-pool@3.9.0", "", {}, "sha512-hymDOu5B53XvN4QT9dBmZxPX4CWhBPPLguTZ9MMFeFa/Kg0xWVfylOVNlJji/E7yTZWFd/q9GO5TxDLq156D7g=="],
 
-    "genshin-data": ["genshin-data@0.56.0", "", {}, "sha512-jg3avdz3a2oJx99+nROXYAQDZbwHAWx4LsocXN5GEh762BJKW5RiwcoOg+BGvnMG61SQtWLuPqqppOUhMQIsuQ=="],
+    "genshin-data": ["genshin-data@0.57.0", "", {}, "sha512-Z8mT7OUTC50SUCk94VGxvQ+KI7BkAjYAwYuPWjJENekzEPTTP0BCT8QwEtBelN3kfeybvxQAGjebVNbTYcZJpw=="],
 
     "gensync": ["gensync@1.0.0-beta.2", "", {}, "sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg=="],
 

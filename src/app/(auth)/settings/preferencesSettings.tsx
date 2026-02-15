@@ -69,6 +69,7 @@ export default function PreferencesSettings() {
           <SelectContent>
             <SelectItem value="dark">Dark</SelectItem>
             <SelectItem value="light">Light</SelectItem>
+            <SelectItem value="purple">Solized Light</SelectItem>
           </SelectContent>
         </Select>
       </div>

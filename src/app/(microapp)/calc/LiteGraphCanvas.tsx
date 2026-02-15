@@ -100,13 +100,19 @@ export default function LiteGraphCanvasComponent({
 
       // Set canvas styling
       canvas.background_image = null
-      canvas.bgcanvas.style.background = "#1a1a1a"
-      canvas.canvas.style.background = "#1a1a1a"
+      const style = getComputedStyle(document.documentElement)
+      const bgColor =
+        style.getPropertyValue("--background-color").trim() || "#070707"
+      const gridColor =
+        style.getPropertyValue("--outline-color").trim() || "#262626"
+
+      canvas.bgcanvas.style.background = bgColor
+      canvas.canvas.style.background = bgColor
 
       // Enable grid background
       ;(canvas as any).show_grid = true
       ;(canvas as any).grid_size = 20
-      ;(canvas as any).grid_color = "#333333"
+      ;(canvas as any).grid_color = gridColor
 
       // Enable context menu
       canvas.allow_dragcanvas = true

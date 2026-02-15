@@ -141,7 +141,7 @@ export default function SearchPallete() {
           icon="arrow_back"
           onClick={closePalette}
           style={{ width: "40px", height: "35px", fontSize: "20px" }}
-          iconStyle={{ fontSize: "20px", color: "#a5a5a5" }}
+          iconStyle={{ fontSize: "20px", color: "var(--gray-text-color)" }}
         />
 
         <input
@@ -158,7 +158,7 @@ export default function SearchPallete() {
             icon="close"
             onClick={() => setSearchQuery("")}
             style={{ width: "40px", height: "35px", fontSize: "20px" }}
-            iconStyle={{ fontSize: "20px", color: "#a5a5a5" }}
+            iconStyle={{ fontSize: "20px", color: "var(--gray-text-color)" }}
           />
         )}
       </div>
@@ -168,7 +168,7 @@ export default function SearchPallete() {
           <>
             <p
               style={{
-                color: "#787878",
+                color: "var(--gray-text-color)",
                 fontSize: "12px",
                 marginLeft: "10px",
                 marginBottom: "10px",
@@ -257,7 +257,7 @@ function ResultItemComponent(
           className="material-symbols-outlined "
           style={{
             marginLeft: "auto",
-            color: "#b1b1b1",
+            color: "var(--dim-text-color)",
             fontSize: "18px",
             marginRight: "5px",
           }}

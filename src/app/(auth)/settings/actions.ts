@@ -93,7 +93,7 @@ export async function setApiAdaptorCookie(){
     const apiAdaptorCookie = cookieStore.get('apiAdaptor')
 }
 
-export async function setTheme(theme: 'light' | 'dark') {
+export async function setTheme(theme: "light" | "dark" | "purple") {
     const cookieStore = await cookies()
     cookieStore.set('theme', theme, { path: '/' })
     revalidatePath('/')

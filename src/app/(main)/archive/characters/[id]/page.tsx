@@ -132,11 +132,19 @@ async function CharacterHeader({ data }) {
                 style={{
                   borderRadius: "50px",
                   border:
-                    theme === "dark" ? "1px solid #333" : "1px solid #a5a4a4",
+                    theme === "dark"
+                      ? "1px solid var(--outline-color)"
+                      : "1px solid var(--outline-color)",
                   padding: "2px 8px",
                   fontSize: "12px",
-                  color: theme === "dark" ? "#cacaca" : "#181818",
-                  backgroundColor: theme === "dark" ? "#181818" : "#e3e3e3",
+                  color:
+                    theme === "dark"
+                      ? "var(--dim-text-color)"
+                      : "var(--text-color)",
+                  backgroundColor:
+                    theme === "dark"
+                      ? "var(--elevated-color)"
+                      : "var(--light-elevated-color)",
                 }}
               >
                 <Image
