@@ -1,5 +1,4 @@
 "use server"
-
 import { Weapon } from "@/types/weapon"
 import { Artifact } from "@/types/artifact"
 import { toKey } from "@/utils/standardizers"
@@ -11,13 +10,13 @@ import { Character, instanceOfCharacter } from "@/types/character"
 import { gdGetCharacters, gdGetWeapons, gdGetArtifacts } from "./APIAdaptor"
 import { unstable_cache } from "next/cache"
 
-//let CDN_URL = "https://cdn.irminsul.moe/"
-let CDN_URL =
-  "https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/"
 
-// Use genshin-data as default for characters
+/// ================================
+/// Multiple data
+/// ================================
+
 export const getCharacters = unstable_cache(
-  async (): Promise<any[]> => {
+  async (): Promise<Character[]> => {
     return await gdGetCharacters()
   },
   ["characters-data-gd"],
@@ -27,34 +26,6 @@ export const getCharacters = unstable_cache(
   }
 )
 
-// Separate function for custom API handling (not cached)
-export async function getCharactersWithCustomAPI(): Promise<any[]> {
-  const cookieStore = await cookies()
-  const customAPI = cookieStore.get("customapi")?.value || null
-
-  if (customAPI) {
-    if (customAPI === "gd") return await gdGetCharacters()
-    if (customAPI.includes("http")) {
-      try {
-        const response = await fetch(customAPI)
-        const { data } = await response.json()
-
-        // Validate the response data structure
-        if (
-          Array.isArray(data) &&
-          data.length > 0 &&
-          instanceOfCharacter(data[0])
-        ) {
-          return data
-        }
-      } catch (error) {
-        console.error("Error fetching from custom API:", error)
-      }
-    }
-  }
-
-  return await getCharacters()
-}
 
 export const getWeapons = unstable_cache(
   async (): Promise<Weapon[]> => {
@@ -78,6 +49,10 @@ export const getArtifacts = unstable_cache(
   }
 )
 
+/// ================================
+/// Single data
+/// ================================
+
 export async function getCharacter(id: string): Promise<Character | null> {
   return await getCharacters()
     .then(
@@ -100,6 +75,11 @@ export async function getArtifact(id: string): Promise<Artifact | null> {
     )
     .catch(() => null)
 }
+
+
+/// ================================
+/// Pages data
+/// ================================
 
 export async function getAllPages(): Promise<Page[]> {
   //"use cache"
@@ -129,3 +109,9 @@ export async function getAllPages(): Promise<Page[]> {
     })),
   ]
 }
+
+
+
+//let CDN_URL = "https://cdn.irminsul.moe/"
+// let CDN_URL =
+//   "https://raw.githubusercontent.com/lambdv/genshin-scraper/refs/heads/main/genshindata/public/"
