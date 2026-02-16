@@ -4,7 +4,8 @@
   top: 0;
   left: 0;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   text-align: center;
   padding-top: 65px;
   z-index: 9;
@@ -17,8 +18,9 @@
 
 .sidenavCollapsed {
   /* width: 90px; */
-  width: 5.5rem;
+  width: var(--siderail-collapsed-width);
   padding: 10px 5px;
+  overflow: hidden;
   transition: ease-in-out 0.15s;
   background-color: transparent;
   animation: none;
@@ -75,7 +77,7 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   /* .sidenav{
         background-color: var(--elevated-color);
 
@@ -126,6 +128,15 @@
   -ms-user-select: none;
   margin-top: 5px;
   margin-left: 15px;
+}
+
+.sidenav .archiveChildLink {
+  padding-left: 28px;
+}
+
+.sidenav .archiveChildLink p {
+  font-size: 11px;
+  color: var(--dim-text-color);
 }
 
 .sidenavCollapsed .sidenavLink p {
@@ -248,4 +259,62 @@
 
 .sidenavCollapsing {
   animation: slideOut 0.15s forwards;
+}
+
+.archiveSecondarySidenav {
+  position: fixed;
+  left: var(--siderail-collapsed-width);
+  top: 60px;
+  width: var(--archive-secondary-width);
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: left;
+  padding: 8px;
+  z-index: 8;
+  background-color: transparent;
+  border-left: 1px solid hsl(var(--border) / 0.45);
+}
+
+.archiveSecondaryLink {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  color: var(--text-color);
+  display: flex;
+  margin-bottom: 5px;
+  border-radius: 12px;
+  transition: 0.2s ease;
+  align-items: center;
+}
+
+.archiveSecondaryLink p {
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 3px;
+  margin-left: 12px;
+}
+
+.archiveSecondaryLink:hover {
+  background-color: var(--elevated-color);
+  cursor: pointer;
+}
+
+.archiveSecondarySidenav .active {
+  background-color: var(--elevated-color);
+}
+
+.archiveSecondarySidenav .active:hover {
+  background-color: var(--elevated-color);
+}
+
+.archiveSecondarySidenav .active p {
+  color: var(--text-color);
+}
+
+@media (max-width: 1400px) {
+  .archiveSecondarySidenav {
+    display: none;
+  }
 }

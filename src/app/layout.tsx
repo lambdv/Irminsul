@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google"
 import "./globals.css"
 import Sidebar from "@/components/navigation/Siderail"
+import ArchiveSecondarySidenav from "@/components/navigation/ArchiveSecondarySidenav"
 import Topnav from "@/components/navigation/Topnav"
 import ClientWrapper from "@/components/navigation/ClientWrapper"
 import Footer from "@/components/navigation/Footer"
@@ -68,6 +69,7 @@ export default async function RootLayout({children}) {
       <body className={inter.className}>
         <ClientProvider>
           <Sidebar />
+          <ArchiveSecondarySidenav />
           <div className="">
             <Topnav />
             {children}

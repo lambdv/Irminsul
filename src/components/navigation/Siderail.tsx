@@ -2,88 +2,80 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import Image from "next/image"
-import { useEffect, useState } from "react"
 import SidenavCSS from "./sidenav.module.css"
 import { NavigationStore } from "@/store/Navigation"
-import { SearchStore } from "@/store/Search"
-import Overlay from "../ui/Overlay"
 import { getCDNURL } from "@/utils/getAssetURL"
-// No longer needed - using session cache instead
 
 const CHARACTER_ICON = getCDNURL("imgs/icons/characterIcon.png")
 const WEAPON_ICON = getCDNURL("imgs/icons/weaponIcon.png")
 const ARTIFACT_ICON = getCDNURL("imgs/icons/artifactIcon.png")
-const SEELIE_ICON = getCDNURL("imgs/icons/seelie.png")
-// const ENEMY_ICON = getCDNURL("imgs/icons/enemyIcon.png")
-// const WISH_ICON = getCDNURL("imgs/icons/wish.png")
-// const PARTY_ICON = getCDNURL("imgs/icons/party.png")
 
-export let links = [
-  // { href: "/", icon: "home", text: "Home" },
+type SideRailLink = {
+  href: string
+  text: string
+  img?: string
+  icon?: string
+  external?: boolean
+  archiveParent?: boolean
+}
+
+export const archiveChildLinks: SideRailLink[] = [
+  { href: "/archive/characters", img: CHARACTER_ICON, text: "Characters" },
+  { href: "/archive/weapons", img: WEAPON_ICON, text: "Weapons" },
+  { href: "/archive/artifacts", img: ARTIFACT_ICON, text: "Artifacts" },
+]
+
+export const primaryLinks: SideRailLink[] = [
   {
     href: "/",
     icon: "chat_bubble",
     text: "Ask AI",
   },
-
-  { href: "/archive/characters", img: CHARACTER_ICON, text: "CharacterDB" },
-  { href: "/archive/weapons", img: WEAPON_ICON, text: "WeaponsDB" },
-  { href: "/archive/artifacts", img: ARTIFACT_ICON, text: "ArtifactsDB" },
+  {
+    href: "/archive/characters",
+    icon: "database",
+    text: "Archive",
+    archiveParent: true,
+  },
   {
     href: "https://aminus.irminsul.moe/",
     icon: "functions",
     text: "Calculator",
     external: true,
   },
-  // {href: "/articles", icon: "article", text: "Articles"},
   { href: "/pricing", icon: "shopping_cart", text: "Pricing" },
   { href: "/settings", icon: "settings", text: "Settings" },
 ]
+
+// Backwards-compatible export for older navigation consumers.
+export const links = primaryLinks
 
 /**
  * Side navigation component
  */
 export default function Siderail() {
-  const pathname = usePathname() //get path url
-  const [activePage, setActivePage] = useState("") //keep track of active page
-  const { sideNavCollapsed } = NavigationStore() //get side nav collapsed state
-  useEffect(() => setActivePage(pathname), [pathname]) //update active page on path change
+  const pathname = usePathname()
+  const { sideNavCollapsed, setSideNavCollapsed } = NavigationStore()
+  const isExpanded = !sideNavCollapsed
+  const isArchiveRoute = pathname.startsWith("/archive/")
 
-  // const {setShowPallette} = SearchStore()
-  // const [session, setSession] = useState(null)
-  // useEffect(() => {
-  //   const fetchSession = async () => {
-  //     const session = await getSession()
-  //     setSession(session)
-  //   }
-  //   fetchSession()
-  // }, [])
+  const isLinkActive = (href?: string, archiveParent?: boolean) => {
+    if (!href) return false
+    if (archiveParent) return isArchiveRoute
+    if (href === "/") return pathname === "/"
+    return pathname.startsWith(href)
+  }
 
-  /**
-   * Side navigation button component
-   * @param props
-   * @returns
-   */
   function SideNavLink(props: {
     href?: string
     text: string
-    img?: any
-    icon?: any
-    onClick?: () => void
-    bottom?: boolean
+    img?: string
+    icon?: string
+    archiveParent?: boolean
+    child?: boolean
     external?: boolean
   }) {
-    const handleSideNavLinkClick = (href: string) => {
-      if (props.onClick !== undefined) {
-        props.onClick()
-        return
-      }
-      setActivePage(href)
-      // if(window.innerWidth < 1200)
-      //   setSideNavCollapsed(true)
-    }
-    const onLinkedPage: boolean =
-      props.href === "/" ? activePage === "/" : activePage.includes(props.href)
+    const onLinkedPage = isLinkActive(props.href, props.archiveParent)
 
     if (props.external && props.href) {
       return (
@@ -119,10 +111,12 @@ export default function Siderail() {
       <Link
         href={props.href || "#"}
         className={
-          SidenavCSS.sidenavLink + " " + (onLinkedPage && SidenavCSS.active)
-          // +(!sideNavCollapsed ? ' waves-effect waves-light ripple ' : ' ')
+          SidenavCSS.sidenavLink +
+          " " +
+          (props.child ? SidenavCSS.archiveChildLink : "") +
+          " " +
+          (onLinkedPage ? SidenavCSS.active : "")
         }
-        onClick={() => handleSideNavLinkClick(props.href)}
       >
         <i
           className={SidenavCSS.sidenavLinkSymbol + " material-symbols-rounded"}
@@ -152,26 +146,15 @@ export default function Siderail() {
         (sideNavCollapsed ? SidenavCSS.sidenavCollapsed : "")
       }
     >
-      {/* <button style={{
-          backgroundColor: "var(--ingame-primary-color)",
-          padding: "10px",
-          borderRadius: "10px",
-          marginBottom: "10px",
-          width: "50px",
-          height: "45px",
-        }}
-          onClick={() => {
-            setShowPallette(true)
-          }}
-        >
-          <i className={'material-symbols-rounded'} style={{
-            fontSize: "20px",
-            marginTop: "2.5px",
-          }}>search</i>
-        </button> */}
-
-      {links.map((link, index) => (
-        <SideNavLink key={index} {...link} />
+      {primaryLinks.map((link, index) => (
+        <div key={index}>
+          <SideNavLink {...link} />
+          {isExpanded &&
+            link.archiveParent &&
+            archiveChildLinks.map((archiveLink, childIndex) => (
+              <SideNavLink key={childIndex} {...archiveLink} child={true} />
+            ))}
+        </div>
       ))}
     </nav>
   )

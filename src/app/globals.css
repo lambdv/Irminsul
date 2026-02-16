@@ -7,6 +7,8 @@
 /* Global non-theme variables + semantic aliases used across the app */
 :root {
   --topnav-height: 60px;
+  --siderail-collapsed-width: 5.5rem;
+  --archive-secondary-width: 12rem;
   --mobile-width: 768px;
   --tablet-width: 1200px;
   --desktop-width: 1800px;
@@ -269,6 +271,18 @@ body {
   }
 }
 
+body[data-archive-secondary-open="true"] .minimalPageContentWrapper {
+  padding-left: calc(
+    var(--siderail-collapsed-width) + var(--archive-secondary-width) + 1rem
+  );
+}
+
+@media all and (max-width: 1400px) {
+  body[data-archive-secondary-open="true"] .minimalPageContentWrapper {
+    padding-left: 0rem;
+  }
+}
+
 .focusedPageContentContainer {
   position: relative;
   width: 100%;
@@ -293,6 +307,18 @@ body {
   .focusedPageContentContainer {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+}
+
+body[data-archive-secondary-open="true"] .focusedPageContentContainer {
+  padding-left: calc(
+    var(--siderail-collapsed-width) + var(--archive-secondary-width) + 1rem
+  );
+}
+
+@media all and (max-width: 1400px) {
+  body[data-archive-secondary-open="true"] .focusedPageContentContainer {
+    padding-left: 1rem;
   }
 }
 
