@@ -84,6 +84,7 @@ export default function Siderail() {
           target="_blank"
           rel="noopener noreferrer"
           className={SidenavCSS.sidenavLink}
+          onClick={() => setSideNavCollapsed(true)}
         >
           <i
             className={
@@ -117,6 +118,7 @@ export default function Siderail() {
           " " +
           (onLinkedPage ? SidenavCSS.active : "")
         }
+        onClick={() => setSideNavCollapsed(true)}
       >
         <i
           className={SidenavCSS.sidenavLinkSymbol + " material-symbols-rounded"}
