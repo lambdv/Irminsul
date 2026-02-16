@@ -23,7 +23,7 @@ export let links = [
   {
     href: "/",
     icon: "chat_bubble",
-    text: "Ask AI"
+    text: "Ask AI",
   },
 
   { href: "/archive/characters", img: CHARACTER_ICON, text: "CharacterDB" },
@@ -151,7 +151,6 @@ export default function Siderail() {
         " " +
         (sideNavCollapsed ? SidenavCSS.sidenavCollapsed : "")
       }
-      style={{ zIndex: 20 }}
     >
       {/* <button style={{
           backgroundColor: "var(--ingame-primary-color)",

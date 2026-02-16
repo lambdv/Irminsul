@@ -19,7 +19,10 @@
     "db:studio": "drizzle-kit studio",
     "db:migrate": "drizzle-kit migrate",
     "db:generate": "drizzle-kit generate",
-    "db:drop": "drizzle-kit drop"
+    "db:drop": "drizzle-kit drop",
+    "openapi:generate": "tsx scripts/generate-openapi.ts",
+    "openapi:validate": "swagger-cli validate public/openapi.json",
+    "prebuild": "bun run openapi:generate"
   },
   "dependencies": {
     "@ai-sdk/google": "^2.0.46",
@@ -28,6 +31,7 @@
     "@ai-sdk/openai-compatible": "^0.1.2",
     "@ai-sdk/react": "^3.0.0-beta.153",
     "@ai-sdk/rsc": "^1.0.115",
+    "@asteasolutions/zod-to-openapi": "^8.4.1",
     "@auth/drizzle-adapter": "^1.8.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
@@ -57,7 +61,7 @@
     "@types/uuid": "^10.0.0",
     "@xyflow/react": "^12.8.1",
     "ai": "^6.0.0-beta.150",
-    "aminus": "^1.0.0-beta",
+    "aminus": "^2.0.0",
     "cheerio": "^1.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -85,6 +89,7 @@
     "react-dom": "^19.2.4",
     "sharp": "^0.33.5",
     "stripe": "^17.7.0",
+    "swagger-ui-react": "^5.31.0",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.182.0",

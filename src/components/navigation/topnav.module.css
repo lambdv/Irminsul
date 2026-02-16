@@ -53,6 +53,8 @@
   padding-top: 5px;
   padding-right: 10px;
   padding-left: 10px;
+
+  z-index: 60;
 }
 
 .topnav .fries {
@@ -90,6 +92,8 @@
   top: 11px;
 
   transition: 0.2s ease-in-out;
+
+  z-index: 60;
 }
 
 .topnav #logo span {

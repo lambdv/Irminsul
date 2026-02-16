@@ -1,0 +1,1150 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Irminsul API",
+    "description": "Genshin Impact theorycrafting and metagaming API",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Irminsul Team",
+      "url": "https://irminsul.app"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Development server"
+    },
+    {
+      "url": "https://irminsul.app",
+      "description": "Production server"
+    }
+  ],
+  "security": [],
+  "tags": [
+    {
+      "name": "Characters",
+      "description": "Character data and statistics"
+    },
+    {
+      "name": "Weapons",
+      "description": "Weapon information and stats"
+    },
+    {
+      "name": "Artifacts",
+      "description": "Artifact sets and bonuses"
+    }
+  ],
+  "paths": {
+    "/api/characters": {
+      "get": {
+        "summary": "Get all characters",
+        "description": "Retrieve a list of all Genshin Impact characters",
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "element",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Filter by character element"
+          },
+          {
+            "name": "rarity",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 4,
+              "maximum": 5
+            },
+            "description": "Filter by character rarity"
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Filter by character region"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "description": "Limit the number of results"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "description": "Offset for pagination"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of characters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Character"
+                      }
+                    },
+                    "total": {
+                      "type": "integer"
+                    },
+                    "limit": {
+                      "type": "integer"
+                    },
+                    "offset": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid query parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "details": {
+                      "type": "array"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/characters/{id}": {
+      "get": {
+        "summary": "Get character by ID",
+        "description": "Retrieve a specific character by their ID",
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Character ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Character data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Character"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Character not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/weapons": {
+      "get": {
+        "summary": "Get all weapons",
+        "description": "Retrieve a list of all Genshin Impact weapons",
+        "tags": [
+          "Weapons"
+        ],
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Filter by weapon category"
+          },
+          {
+            "name": "rarity",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "description": "Filter by weapon rarity"
+          },
+          {
+            "name": "series",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Filter by weapon series"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "description": "Limit the number of results"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "description": "Offset for pagination"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of weapons",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Weapon"
+                      }
+                    },
+                    "total": {
+                      "type": "integer"
+                    },
+                    "limit": {
+                      "type": "integer"
+                    },
+                    "offset": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid query parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "details": {
+                      "type": "array"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/weapons/{id}": {
+      "get": {
+        "summary": "Get weapon by ID",
+        "description": "Retrieve a specific weapon by their ID",
+        "tags": [
+          "Weapons"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Weapon ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Weapon data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Weapon"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Weapon not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/artifacts": {
+      "get": {
+        "summary": "Get all artifacts",
+        "description": "Retrieve a list of all Genshin Impact artifact sets",
+        "tags": [
+          "Artifacts"
+        ],
+        "parameters": [
+          {
+            "name": "rarity_min",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "description": "Minimum rarity filter"
+          },
+          {
+            "name": "rarity_max",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "description": "Maximum rarity filter"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "description": "Limit the number of results"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "description": "Offset for pagination"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of artifacts",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Artifact"
+                      }
+                    },
+                    "total": {
+                      "type": "integer"
+                    },
+                    "limit": {
+                      "type": "integer"
+                    },
+                    "offset": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid query parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "details": {
+                      "type": "array"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/artifacts/{id}": {
+      "get": {
+        "summary": "Get artifact by ID",
+        "description": "Retrieve a specific artifact set by their ID",
+        "tags": [
+          "Artifacts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Artifact ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Artifact data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Artifact"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Artifact not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Character": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique character identifier",
+            "example": "ayaka"
+          },
+          "index": {
+            "type": "number",
+            "description": "Character index/order"
+          },
+          "name": {
+            "type": "string",
+            "description": "Character display name",
+            "example": "Ayaka"
+          },
+          "key": {
+            "type": "string",
+            "description": "Character key identifier",
+            "example": "ayaka"
+          },
+          "title": {
+            "type": "string",
+            "description": "Character title",
+            "example": "Frostflake Heron"
+          },
+          "rarity": {
+            "type": "number",
+            "description": "Character rarity (4-5 stars)",
+            "example": 5,
+            "minimum": 4,
+            "maximum": 5
+          },
+          "element": {
+            "type": "string",
+            "description": "Character element",
+            "example": "Cryo"
+          },
+          "vision": {
+            "type": "string",
+            "description": "Character vision (same as element)",
+            "example": "Cryo"
+          },
+          "weapon": {
+            "type": "string",
+            "description": "Character weapon type",
+            "example": "Sword"
+          },
+          "release_date": {
+            "type": "string",
+            "description": "Character release date",
+            "example": "2021-07-21"
+          },
+          "release_date_epoch": {
+            "type": "number",
+            "description": "Release date as Unix timestamp",
+            "example": 1626825600
+          },
+          "constellation": {
+            "type": "string",
+            "description": "Character constellation name",
+            "example": "Grus Nivis"
+          },
+          "birthday": {
+            "type": "string",
+            "description": "Character birthday (MM-DD)",
+            "example": "09-28"
+          },
+          "affiliation": {
+            "type": "string",
+            "description": "Character affiliation/group",
+            "example": "Yashiro Commission"
+          },
+          "region": {
+            "type": "string",
+            "description": "Character region",
+            "example": "Inazuma"
+          },
+          "special_dish": {
+            "type": "string",
+            "description": "Character special dish",
+            "example": "Snow on the Hearth"
+          },
+          "alternate_title": {
+            "type": "string",
+            "description": "Alternate character title"
+          },
+          "description": {
+            "type": "string",
+            "description": "Character description"
+          },
+          "ascension_stat": {
+            "type": "string",
+            "description": "Character ascension stat bonus",
+            "example": "CRIT_DMG"
+          },
+          "base_stats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CharacterBaseStat"
+            }
+          },
+          "ascension_costs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CharacterAscensionCost"
+            }
+          },
+          "talents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CharacterTalent"
+            }
+          },
+          "passives": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CharacterPassive"
+            }
+          },
+          "constellations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CharacterConstellation"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "key",
+          "title",
+          "rarity",
+          "element",
+          "vision",
+          "weapon",
+          "release_date",
+          "release_date_epoch",
+          "constellation",
+          "birthday",
+          "affiliation",
+          "region",
+          "special_dish",
+          "description",
+          "ascension_stat",
+          "base_stats",
+          "ascension_costs",
+          "talents",
+          "passives",
+          "constellations"
+        ]
+      },
+      "CharacterBaseStat": {
+        "type": "object",
+        "properties": {
+          "LVL": {
+            "type": "string",
+            "description": "Character level"
+          },
+          "BaseHP": {
+            "type": "string",
+            "description": "Base HP value"
+          },
+          "BaseATK": {
+            "type": "string",
+            "description": "Base ATK value"
+          },
+          "BaseDEF": {
+            "type": "string",
+            "description": "Base DEF value"
+          },
+          "AscensionStatType": {
+            "type": "string",
+            "description": "Type of ascension stat bonus"
+          },
+          "AscensionStatValue": {
+            "type": "string",
+            "description": "Value of ascension stat bonus"
+          },
+          "AscensionPhase": {
+            "type": "number",
+            "description": "Ascension phase level"
+          }
+        },
+        "required": [
+          "LVL",
+          "BaseHP",
+          "BaseATK",
+          "BaseDEF",
+          "AscensionStatType",
+          "AscensionStatValue",
+          "AscensionPhase"
+        ]
+      },
+      "CharacterTalent": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Talent name"
+          },
+          "type": {
+            "type": "string",
+            "description": "Talent type"
+          },
+          "description": {
+            "type": "string",
+            "description": "Talent description"
+          },
+          "attributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CharacterTalentAttribute"
+            }
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "type": "any"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "description",
+          "properties"
+        ]
+      },
+      "CharacterTalentAttribute": {
+        "type": "object",
+        "properties": {
+          "hit": {
+            "type": "string",
+            "description": "Hit type or condition"
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "description": "Array of talent values for different levels"
+          }
+        },
+        "required": [
+          "hit",
+          "values"
+        ]
+      },
+      "CharacterPassive": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Passive talent name"
+          },
+          "type": {
+            "type": "string",
+            "description": "Passive type"
+          },
+          "description": {
+            "type": "string",
+            "description": "Passive talent description"
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "type": "any"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "description"
+        ]
+      },
+      "CharacterConstellation": {
+        "type": "object",
+        "properties": {
+          "level": {
+            "type": "number",
+            "description": "Constellation level"
+          },
+          "name": {
+            "type": "string",
+            "description": "Constellation name"
+          },
+          "description": {
+            "type": "string",
+            "description": "Constellation effect description"
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "type": "any"
+            }
+          }
+        },
+        "required": [
+          "level",
+          "name",
+          "description",
+          "properties"
+        ]
+      },
+      "CharacterAscensionCost": {
+        "type": "object",
+        "properties": {
+          "AscensionPhase": {
+            "type": "number",
+            "description": "Ascension phase number"
+          },
+          "materials": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CharacterAscensionMaterial"
+            }
+          }
+        },
+        "required": [
+          "AscensionPhase",
+          "materials"
+        ]
+      },
+      "CharacterAscensionMaterial": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Material name"
+          },
+          "amount": {
+            "type": "string",
+            "description": "Required amount"
+          }
+        },
+        "required": [
+          "name",
+          "amount"
+        ]
+      },
+      "Weapon": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique weapon identifier"
+          },
+          "name": {
+            "type": "string",
+            "description": "Weapon display name"
+          },
+          "key": {
+            "type": "string",
+            "description": "Weapon key identifier"
+          },
+          "rarity": {
+            "type": "number",
+            "description": "Weapon rarity (1-5 stars)"
+          },
+          "description": {
+            "type": "string",
+            "description": "Weapon description"
+          },
+          "category": {
+            "type": "string",
+            "description": "Weapon category"
+          },
+          "series": {
+            "type": "string",
+            "description": "Weapon series"
+          },
+          "release_date": {
+            "type": "string",
+            "description": "Weapon release date"
+          },
+          "release_date_epoch": {
+            "type": "number",
+            "description": "Release date as Unix timestamp"
+          },
+          "base_atk_min": {
+            "type": "number",
+            "description": "Minimum base attack"
+          },
+          "base_atk_max": {
+            "type": "number",
+            "description": "Maximum base attack"
+          },
+          "sub_stat_type": {
+            "type": "string",
+            "description": "Sub stat type"
+          },
+          "sub_stat_value_min": {
+            "type": "string",
+            "description": "Minimum sub stat value"
+          },
+          "sub_stat_value_max": {
+            "type": "string",
+            "description": "Maximum sub stat value"
+          },
+          "refinement_name": {
+            "type": "string",
+            "description": "Refinement effect name"
+          },
+          "refinements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Refinement descriptions"
+          },
+          "base_stats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WeaponBaseStat"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "key",
+          "rarity",
+          "description",
+          "category",
+          "series",
+          "release_date",
+          "release_date_epoch",
+          "base_atk_min",
+          "base_atk_max",
+          "sub_stat_type",
+          "sub_stat_value_min",
+          "sub_stat_value_max",
+          "refinement_name",
+          "refinements",
+          "base_stats"
+        ]
+      },
+      "WeaponBaseStat": {
+        "type": "object",
+        "properties": {
+          "level": {
+            "type": "string",
+            "description": "Weapon level"
+          },
+          "base_atk": {
+            "type": "string",
+            "description": "Base attack at this level"
+          },
+          "sub_stat_type": {
+            "type": "string",
+            "description": "Sub stat type"
+          },
+          "sub_stat_value": {
+            "type": "string",
+            "description": "Sub stat value"
+          },
+          "ascension_phase": {
+            "type": "number",
+            "description": "Ascension phase"
+          }
+        },
+        "required": [
+          "level",
+          "base_atk"
+        ]
+      },
+      "Artifact": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique artifact identifier"
+          },
+          "name": {
+            "type": "string",
+            "description": "Artifact set name"
+          },
+          "key": {
+            "type": "string",
+            "description": "Artifact key identifier"
+          },
+          "rarity_max": {
+            "type": "number",
+            "description": "Maximum rarity"
+          },
+          "rarity_min": {
+            "type": "number",
+            "description": "Minimum rarity"
+          },
+          "release_version": {
+            "type": "string",
+            "description": "Release version"
+          },
+          "flower_description": {
+            "type": "string",
+            "description": "Flower piece description"
+          },
+          "feather_description": {
+            "type": "string",
+            "description": "Feather piece description"
+          },
+          "sand_description": {
+            "type": "string",
+            "description": "Sand piece description"
+          },
+          "goblet_description": {
+            "type": "string",
+            "description": "Goblet piece description"
+          },
+          "circlet_description": {
+            "type": "string",
+            "description": "Circlet piece description"
+          },
+          "flower_name": {
+            "type": "string",
+            "description": "Flower piece name"
+          },
+          "feather_name": {
+            "type": "string",
+            "description": "Feather piece name"
+          },
+          "sand_name": {
+            "type": "string",
+            "description": "Sand piece name"
+          },
+          "goblet_name": {
+            "type": "string",
+            "description": "Goblet piece name"
+          },
+          "circlet_name": {
+            "type": "string",
+            "description": "Circlet piece name"
+          },
+          "two_pc_bonus": {
+            "type": "string",
+            "description": "2-piece set bonus"
+          },
+          "four_pc_bonus": {
+            "type": "string",
+            "description": "4-piece set bonus"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "key",
+          "rarity_max",
+          "rarity_min",
+          "release_version"
+        ]
+      }
+    }
+  }
+}

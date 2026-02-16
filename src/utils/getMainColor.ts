@@ -29,14 +29,47 @@ export async function getMainColor(imageURL: string): Promise<string> {
   try {
     // Fetch the image
     const response = await fetch(imageURL)
+
+    // Check if response is ok and has content
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch image: ${response.status} ${response.statusText}`
+      )
+    }
+
+    const contentType = response.headers.get("content-type") || ""
+    // Skip if not an image
+    if (!contentType.startsWith("image/")) {
+      throw new Error(`Invalid content type: ${contentType}`)
+    }
+
     const buffer = await response.arrayBuffer()
 
     // Process with sharp
-    const image = sharp(Buffer.from(buffer))
+    let image
+    try {
+      image = sharp(Buffer.from(buffer))
+    } catch (sharpError) {
+      console.warn(
+        `Sharp failed to process image ${imageURL}:`,
+        sharpError.message
+      )
+      throw new Error(`Unsupported image format`)
+    }
 
     // Resize image maintaining aspect ratio
     const maxDimension = 250
-    const metadata = await image.metadata()
+    let metadata
+    try {
+      metadata = await image.metadata()
+    } catch (metadataError) {
+      console.warn(
+        `Failed to get metadata for image ${imageURL}:`,
+        metadataError.message
+      )
+      throw new Error(`Cannot read image metadata`)
+    }
+
     const scale = Math.min(
       maxDimension / (metadata.width || 1),
       maxDimension / (metadata.height || 1)
@@ -121,7 +154,8 @@ export async function getMainColor(imageURL: string): Promise<string> {
 
     return adjustedColor
   } catch (error) {
-    console.error("Error getting main color:", error)
+    console.error("Error getting main color for", imageURL, ":", error.message)
+    // Return fallback color for any processing errors
     return "rgb(165, 165, 165)" // Fallback color
   }
 }
