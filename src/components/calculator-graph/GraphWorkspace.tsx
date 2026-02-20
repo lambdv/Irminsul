@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./GraphWorkspace.module.css";
+import { registerCalculatorNodes } from "@/feature/calculator/graph/registerCalculatorNodes";
 
 type LiteGraphModule = {
   default: {
@@ -15,36 +16,6 @@ type LiteGraphModule = {
 };
 
 let nodesRegistered = false;
-
-function registerDemoNodes(liteGraph: LiteGraphModule["default"]["LiteGraph"]) {
-  if (nodesRegistered) return;
-
-  function NumberNode(this: any) {
-    this.addOutput("Value", "number");
-    this.properties = { value: 12 };
-    this.addWidget("number", "value", this.properties.value, "value");
-  }
-  NumberNode.title = "Number";
-  NumberNode.prototype.onExecute = function onExecute(this: any) {
-    this.setOutputData(0, this.properties.value);
-  };
-
-  function MathAddNode(this: any) {
-    this.addInput("A", "number");
-    this.addInput("B", "number");
-    this.addOutput("Result", "number");
-  }
-  MathAddNode.title = "Add";
-  MathAddNode.prototype.onExecute = function onExecute(this: any) {
-    const a = this.getInputData(0) || 0;
-    const b = this.getInputData(1) || 0;
-    this.setOutputData(0, a + b);
-  };
-
-  liteGraph.registerNodeType("basic/number", NumberNode);
-  liteGraph.registerNodeType("math/add", MathAddNode);
-  nodesRegistered = true;
-}
 
 export default function GraphWorkspace() {
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -111,13 +82,17 @@ export default function GraphWorkspace() {
     if (!canvasElementRef.current) return;
 
     let mounted = true;
+    let detachContextMenu = () => {};
 
     const setupGraph = async () => {
       const liteGraphModule = (await import("litegraph.js")) as LiteGraphModule;
       if (!mounted || !canvasElementRef.current) return;
 
       const { default: lg } = liteGraphModule;
-      registerDemoNodes(lg.LiteGraph);
+      if (!nodesRegistered) {
+        registerCalculatorNodes(lg.LiteGraph);
+        nodesRegistered = true;
+      }
 
       const graph = new lg.LGraph();
       const graphCanvas = new lg.LGraphCanvas(canvasElementRef.current, graph);
@@ -128,19 +103,70 @@ export default function GraphWorkspace() {
       graphCanvas.allow_dragcanvas = true;
       graphCanvas.allow_dragnodes = true;
       graphCanvas.allow_interaction = true;
+      graphCanvas.allow_searchbox = true;
       graphCanvas.show_grid = true;
       graphCanvas.grid_size = 20;
       graphCanvas.background_image = null;
 
-      const numberNode = lg.LiteGraph.createNode("basic/number");
-      const addNode = lg.LiteGraph.createNode("math/add");
+      const onContextMenu = (event: MouseEvent) => {
+        event.preventDefault();
+        event.stopPropagation();
+        try {
+          // LiteGraph internals rely on this global pointer during menu rendering.
+          (lg.LiteGraph as any).active_canvas = graphCanvas;
+          if (typeof graphCanvas.adjustMouseEvent === "function") {
+            graphCanvas.adjustMouseEvent(event);
+          }
 
-      if (numberNode && addNode) {
-        numberNode.pos = [100, 140];
-        addNode.pos = [380, 140];
-        graph.add(numberNode);
-        graph.add(addNode);
-        numberNode.connect(0, addNode, 0);
+          const node =
+            graphCanvas?.graph?.getNodeOnPos?.(
+              (event as any).canvasX,
+              (event as any).canvasY,
+              graphCanvas.visible_nodes,
+              5,
+            ) ?? null;
+
+          if (typeof graphCanvas.processContextMenu === "function") {
+            graphCanvas.processContextMenu(node, event);
+            return;
+          }
+        } catch {
+          // Fall through to search-box fallback.
+        }
+
+        if (typeof graphCanvas.showSearchBox === "function") {
+          graphCanvas.showSearchBox(event);
+        }
+      };
+      canvasElementRef.current.addEventListener("contextmenu", onContextMenu);
+      detachContextMenu = () => {
+        canvasElementRef.current?.removeEventListener("contextmenu", onContextMenu);
+      };
+
+      const baseStatsNode = lg.LiteGraph.createNode("calc/stat_table");
+      const buffStatsNode = lg.LiteGraph.createNode("calc/stat_table");
+      const actionNode = lg.LiteGraph.createNode("calc/damage_action");
+      const rotationNode = lg.LiteGraph.createNode("calc/rotation");
+
+      if (baseStatsNode && buffStatsNode && actionNode && rotationNode) {
+        baseStatsNode.pos = [80, 120];
+        buffStatsNode.pos = [80, 380];
+        actionNode.pos = [420, 250];
+        rotationNode.pos = [760, 250];
+
+        buffStatsNode.properties.rows = [{ stat: "PyroDMGBonus", value: 0.2 }];
+        if (typeof buffStatsNode.onConfigure === "function") {
+          buffStatsNode.onConfigure();
+        }
+
+        graph.add(baseStatsNode);
+        graph.add(buffStatsNode);
+        graph.add(actionNode);
+        graph.add(rotationNode);
+
+        baseStatsNode.connect(0, rotationNode, 0);
+        buffStatsNode.connect(0, actionNode, 0);
+        actionNode.connect(0, rotationNode, 1);
       }
 
       graph.start();
@@ -150,6 +176,7 @@ export default function GraphWorkspace() {
 
     return () => {
       mounted = false;
+      detachContextMenu();
 
       if (graphRef.current?.stop) {
         graphRef.current.stop();

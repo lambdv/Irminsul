@@ -10,6 +10,10 @@ const createJestConfig = nextJest({
 const config: Config = {
   coverageProvider: 'v8',
   testEnvironment: 'jsdom',
+  transformIgnorePatterns: ['/node_modules/(?!(aminus)/)'],
+  moduleNameMapper: {
+    '^aminus$': '<rootDir>/tests/mocks/aminus.ts',
+  },
   // Add more setup options before each test is run
   setupFilesAfterEnv: ['<rootDir>/tests/setup.ts'],
 }
