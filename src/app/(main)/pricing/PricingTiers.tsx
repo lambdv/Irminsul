@@ -1,8 +1,8 @@
 "use client"
 
 import React, { useState, useEffect } from "react"
-import Link from "next/link"
-import { Check } from "lucide-react"
+import { useRouter } from "next/navigation"
+import { Check, Loader2 } from "lucide-react"
 import { Button } from "@/components/cn/button"
 import {
   Card,
@@ -13,7 +13,48 @@ import {
 } from "@/components/cn/card"
 import { cn } from "@/lib/shadcn/utils"
 
-export default function PricingTiers({ user }: { user: any }) {
+type BillingCycle = "monthly" | "yearly"
+type TierKey = "pro" | "ultra"
+
+interface PricingTiersProps {
+  user: any
+  proProductId: string
+  ultraProductId: string
+}
+
+// Stripe payment links - monthly and yearly
+const STRIPE_LINKS = {
+  pro: {
+    monthly: "https://buy.stripe.com/4gMbJ17lWeOC1fh61vawo08",
+    yearly: "https://buy.stripe.com/6oU28ray8bCq4rtey1awo0b",
+  },
+  ultra: {
+    monthly: "https://buy.stripe.com/4gMbJ17lW5e2gabfC5awo07",
+    yearly: "https://buy.stripe.com/cNi28r9u4aym0bd75zawo09",
+  },
+}
+
+// Hardcoded pricing display - matching Stripe dashboard
+const PRICING = {
+  pro: {
+    monthly: { display: "$20", amount: 20 },
+    yearly: { display: "$192", amount: 192 },
+  },
+  ultra: {
+    monthly: { display: "$60", amount: 60 },
+    yearly: { display: "$576", amount: 576 },
+  },
+}
+
+export default function PricingTiers({
+  user,
+  proProductId,
+  ultraProductId,
+}: PricingTiersProps) {
+  const router = useRouter()
+  const [billingCycle, setBillingCycle] = useState<BillingCycle>("monthly")
+  const [loading, setLoading] = useState<TierKey | null>(null)
+
   useEffect(() => {
     document.body.style.overflow = "hidden"
     return () => {
@@ -21,12 +62,32 @@ export default function PricingTiers({ user }: { user: any }) {
     }
   }, [])
 
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">(
-    "monthly"
-  )
+  const handleUpgrade = (tier: TierKey) => {
+    if (!user) {
+      router.push("/login")
+      return
+    }
+
+    const link = STRIPE_LINKS[tier][billingCycle]
+    const url = user
+      ? `${link}?prefilled_email=${encodeURIComponent(user.email)}`
+      : link
+    window.location.href = url
+  }
+
+  const getPlanPrice = (tier: TierKey) => {
+    const price = PRICING[tier][billingCycle]
+    if (billingCycle === "yearly") {
+      // Show effective monthly price for yearly (divide by 12)
+      const monthlyEquivalent = Math.round(price.amount / 12)
+      return `$${monthlyEquivalent}`
+    }
+    return price.display
+  }
 
   const plans = [
     {
+      key: "f2p",
       name: "F2P",
       price: "Free",
       description: "Full access to Irminsul",
@@ -35,13 +96,14 @@ export default function PricingTiers({ user }: { user: any }) {
         "20 prompts until refresh",
       ],
       buttonText: "Current Plan",
-      buttonHref: "#",
       featured: false,
       disabled: true,
+      action: () => {},
     },
     {
+      key: "pro" as TierKey,
       name: "Pro",
-      price: billingCycle === "monthly" ? "$20" : "$16",
+      price: getPlanPrice("pro"),
       description: "Enhanced experience",
       features: [
         "Everything in Free tier",
@@ -51,15 +113,15 @@ export default function PricingTiers({ user }: { user: any }) {
         "Early access to new preview features",
       ],
       buttonText: "Upgrade",
-      buttonHref: user
-        ? "https://buy.stripe.com/YOUR_PRO_LINK?prefilled_email=" + user.email
-        : "/login",
       featured: true,
       badge: "Recommended",
+      disabled: false,
+      action: () => handleUpgrade("pro"),
     },
     {
+      key: "ultra" as TierKey,
       name: "Ultra",
-      price: billingCycle === "monthly" ? "$100" : "$80",
+      price: getPlanPrice("ultra"),
       description: "Ultimate support",
       features: [
         "Everything in Pro tier",
@@ -68,10 +130,9 @@ export default function PricingTiers({ user }: { user: any }) {
         "Direct communication with developers",
       ],
       buttonText: "Upgrade",
-      buttonHref: user
-        ? "https://buy.stripe.com/YOUR_ULTRA_LINK?prefilled_email=" + user.email
-        : "/login",
       featured: false,
+      disabled: false,
+      action: () => handleUpgrade("ultra"),
     },
   ]
 
@@ -134,7 +195,7 @@ export default function PricingTiers({ user }: { user: any }) {
                   </div>
                   <div className="flex flex-col pt-1">
                     <span className="text-3xl font-bold text-foreground tracking-tight">
-                      {plan.price === "Free" ? "Free" : `${plan.price}/mo.`}
+                      {plan.price}
                     </span>
                   </div>
                 </CardHeader>
@@ -155,19 +216,22 @@ export default function PricingTiers({ user }: { user: any }) {
                 </CardContent>
                 <CardFooter className="p-7 pt-2 pb-8">
                   <Button
-                    asChild={!plan.disabled}
-                    disabled={plan.disabled}
+                    disabled={plan.disabled || loading === plan.key}
+                    onClick={plan.action}
                     className={cn(
                       "w-full rounded-xl py-6 text-sm font-bold transition-all duration-200",
-                      plan.featured
-                        ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                        : "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border"
+                      plan.disabled
+                        ? "bg-muted text-muted-foreground cursor-not-allowed"
+                        : "bg-primary text-primary-foreground hover:bg-primary/90"
                     )}
                   >
-                    {plan.disabled ? (
-                      plan.buttonText
+                    {loading === plan.key ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Loading...
+                      </>
                     ) : (
-                      <Link href={plan.buttonHref}>{plan.buttonText}</Link>
+                      plan.buttonText
                     )}
                   </Button>
                 </CardFooter>

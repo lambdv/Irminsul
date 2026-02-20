@@ -1,5 +1,5 @@
 "use client"
-import React, { use, useEffect, useState, useMemo } from "react"
+import React, { useEffect, useMemo } from "react"
 import Script from "next/script"
 // import "@/lib/waves/waves.css"
 // import Waves from "waves"
@@ -18,19 +18,15 @@ export default function ClientWrapper(props: any) {
   const { togglePalette } = SearchStore((state) => ({
     togglePalette: state.togglePalette,
   }))
-  const { setIsSupporter, isSupporter } = GlobalStore((state) => ({
+  const { setIsSupporter, setUserTier } = GlobalStore((state) => ({
     setIsSupporter: state.setIsSupporter,
-    isSupporter: state.isSupporter,
+    setUserTier: state.setUserTier,
   }))
   const { session } = useSessionContext()
 
-  // Memoize the supporter check to prevent unnecessary re-renders
-  const supporterStatus = useMemo(() => {
-    if (session?.user?.email) {
-      // Return a promise that will be handled in useEffect
-      return session.user.email
-    }
-    return null
+  // Memoize the user email to prevent unnecessary re-renders
+  const userEmail = useMemo(() => {
+    return session?.user?.email || null
   }, [session?.user?.email])
 
   //initialize waves effect
@@ -50,31 +46,43 @@ export default function ClientWrapper(props: any) {
     return () => {
       window.removeEventListener("keydown", handleKeyDown)
     }
-  }, [togglePalette]) // Added togglePalette to the dependency array
+  }, [togglePalette])
 
   useEffect(() => {
-    // Check supporter status when user email changes
-    if (supporterStatus) {
-      const checkSupporterStatus = async () => {
+    // Check supporter status and tier when user email changes
+    if (userEmail) {
+      const checkUserStatus = async () => {
         try {
-          const response = await fetch(
-            `/api/auth/supporter?email=${encodeURIComponent(supporterStatus)}`
+          // Check supporter status (legacy)
+          const supporterResponse = await fetch(
+            `/api/auth/supporter?email=${encodeURIComponent(userEmail)}`
           )
-          if (response.ok) {
-            const data = await response.json()
-            setIsSupporter(data.isSupporter)
+          if (supporterResponse.ok) {
+            const supporterData = await supporterResponse.json()
+            setIsSupporter(supporterData.isSupporter)
+          }
+
+          // Check user tier
+          const tierResponse = await fetch(
+            `/api/auth/tier?email=${encodeURIComponent(userEmail)}`
+          )
+          if (tierResponse.ok) {
+            const tierData = await tierResponse.json()
+            setUserTier(tierData.tier)
           }
         } catch (error) {
-          console.error("Error checking supporter status:", error)
+          console.error("Error checking user status:", error)
           setIsSupporter(false)
+          setUserTier("free")
         }
       }
-      checkSupporterStatus()
+      checkUserStatus()
     } else {
-      // No user email, set supporter to false
+      // No user email, reset to defaults
       setIsSupporter(false)
+      setUserTier("free")
     }
-  }, [supporterStatus]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [userEmail, setIsSupporter, setUserTier])
 
   return <>{props.children}</>
 }

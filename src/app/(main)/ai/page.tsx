@@ -26,10 +26,10 @@ export default async function Page() {
     <div style={{ position: "relative", minHeight: "100vh" }}>
       <div
         style={{
-          position: "absolute",
+          position: "fixed",
           top: "-60px",
-          left: "-20%",
-          width: "calc(100% + 40%)",
+          left: 0,
+          width: "100vw",
           height: "calc(100vh + 60px)",
           zIndex: -1,
           pointerEvents: "none",

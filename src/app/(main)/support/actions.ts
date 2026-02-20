@@ -5,6 +5,10 @@ import { eq, desc } from "drizzle-orm"
 import { getUserById } from "@/app/(auth)/actions"
 import { usersTable } from "@/db/schema/user"
 import { aitokenTable } from "@/db/schema/aitoken"
+import {
+  isUserSupporterByEmail as pricingIsUserSupporterByEmail,
+  getUserTierByEmail,
+} from "@/app/(main)/pricing/actions"
 
 export async function syncStripePayments() {
   const payments = await stripe.paymentIntents.list()
@@ -97,32 +101,13 @@ async function claimAiTokensFromPurchase(payment: any) {
   }
 }
 
-export async function isUserSupporterByEmail(email: string) {
-  if (!email) return false
-
-  const latestPurchaseFromUser = await db
-    .select()
-    .from(purchasesTable)
-    .where(eq(purchasesTable.email, email))
-    .orderBy(desc(purchasesTable.createdAt))
-    .limit(1)
-    .execute()
-    .then((rows) => rows[0])
-
-  if (!latestPurchaseFromUser) return false
-
-  //if the user has a purchase that is not expired (created at is less than a month ago)
-  if (
-    latestPurchaseFromUser &&
-    //&& latestPurchaseFromUser.createdAt > new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
-    latestPurchaseFromUser.status === "succeeded"
-  )
-    return true
-
-  return false
+// Re-export from pricing/actions.ts to avoid duplication
+export {
+  pricingIsUserSupporterByEmail as isUserSupporterByEmail,
+  getUserTierByEmail,
 }
 
 export async function isUserSupporterById(id: string) {
   const user = await getUserById(id)
-  return isUserSupporterByEmail(user.email)
+  return pricingIsUserSupporterByEmail(user.email)
 }

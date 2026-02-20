@@ -43,14 +43,6 @@ const nextConfig = {
       },
     ]
   },
-  experimental: {
-    // dynamicIO: true,
-    optimizePackageImports: [
-      "@mui/material",
-      "@mui/icons-material",
-      "lucide-react",
-    ],
-  },
   images: {
     // domains: ['cdn.discordapp.com', 'avatars.githubusercontent.com', 'nerdhida.netlify.app', 'genshindata.vercel.app'],
     remotePatterns: [

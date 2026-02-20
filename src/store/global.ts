@@ -1,11 +1,17 @@
-import { create } from 'zustand';
+import { create } from "zustand"
+
+type Tier = "free" | "pro" | "ultra"
 
 type State = {
-    isSupporter: boolean;
-    setIsSupporter: (isSupporter: boolean) => void;
-};
+  isSupporter: boolean
+  userTier: Tier
+  setIsSupporter: (isSupporter: boolean) => void
+  setUserTier: (userTier: Tier) => void
+}
 
 export const GlobalStore = create<State>((set) => ({
-    isSupporter: false,
-    setIsSupporter: (isSupporter) => set({ isSupporter }),
-}));
+  isSupporter: false,
+  userTier: "free",
+  setIsSupporter: (isSupporter) => set({ isSupporter }),
+  setUserTier: (userTier) => set({ userTier }),
+}))

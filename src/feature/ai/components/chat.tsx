@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState, useCallback, useMemo } from "react"
 import { useChat } from "@ai-sdk/react"
 import { DefaultChatTransport } from "ai"
 import Image from "next/image"
-import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { getCDNURL } from "@/utils/getAssetURL"
 import { getAiTokensLeft } from "../utils/numAiTokensLeft"
 import MarkdownRenderer from "@/components/ui/MarkdownRenderer"
@@ -35,7 +35,6 @@ import {
 import { AIAgent } from "@root/src/feature/ai/domain/AIAgentFactory"
 import LightRays from "@/components/cn/LightRays"
 import { getThemeColors } from "@/lib/themeColors"
-import Modal from "@/components/ui/Modal"
 
 const slogans = ["Navigate Truth of Teyvat."]
 const SEELIE_ICON = getCDNURL("imgs/icons/seelie.png")
@@ -551,7 +550,7 @@ const ChatView = React.memo<{
 }) {
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="flex-1 overflow-y-auto pb-32">
+      <div className="flex-1 overflow-y-auto pb-[calc(12rem+env(safe-area-inset-bottom))]">
         <div className="max-w-4xl mx-auto py-4 px-4">
           {messages.length === 0 ? (
             <div className="flex flex-col items-center justify-center min-h-[60vh]">
@@ -587,7 +586,7 @@ const ChatView = React.memo<{
         </div>
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 z-10 pt-4 pb-4 px-4 border-border/50">
+      <div className="fixed bottom-0 left-0 right-0 z-10 pt-4 pb-[calc(1rem+env(safe-area-inset-bottom))] px-4 border-border/50">
         <div className="max-w-4xl mx-auto">
           <ChatTextField
             inputValue={input}
@@ -613,6 +612,7 @@ const ChatView = React.memo<{
 })
 
 const ChatComponent = React.memo(function Chat(props: { user: any }) {
+  const router = useRouter()
   const [selectedModel, setSelectedModel] = useState<string>("auto")
   const [selectedAgent, setSelectedAgent] = useState<AIAgent>("generalist")
   const [input, setInput] = useState<string>("")
@@ -620,7 +620,6 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
   const [isModelLoading, setIsModelLoading] = useState(true)
   const [slogan] = useState(slogans[0])
   const [showTokenModal, setShowTokenModal] = useState(false)
-  const [showLoginModal, setShowLoginModal] = useState(false)
   const [tokensLeft, setTokensLeft] = useState<number | null>(null)
   const [raysColor, setRaysColor] = useState(getThemeColors("dark").raysColor)
   const [currentTheme, setCurrentTheme] = useState<string>("dark")
@@ -696,13 +695,13 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
         return
       }
       if (!props.user) {
-        setShowLoginModal(true)
+        router.push("/login")
         return
       }
       sendMessage({ text: input })
       setInput("")
     },
-    [input, sendMessage, props.user]
+    [input, sendMessage, props.user, router]
   )
 
   const handleInputChange = useCallback((value: string) => {
@@ -720,12 +719,12 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
   const handleModelChange = useCallback(
     (model: string) => {
       if (model !== "auto" && !props.user) {
-        setShowLoginModal(true)
+        router.push("/login")
         return
       }
       setSelectedModel(model)
     },
-    [props.user]
+    [props.user, router]
   )
 
   const getMessageText = useCallback((message: any): string => {
@@ -794,7 +793,7 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
             selectedModel={selectedModel}
             onAgentChange={handleAgentChange}
             onModelChange={handleModelChange}
-            onShowLogin={() => setShowLoginModal(true)}
+            onShowLogin={() => router.push("/login")}
             user={props.user}
             onStop={stop}
             isStreaming={isStreaming}
@@ -812,7 +811,7 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
             selectedModel={selectedModel}
             onAgentChange={handleAgentChange}
             onModelChange={handleModelChange}
-            onShowLogin={() => setShowLoginModal(true)}
+            onShowLogin={() => router.push("/login")}
             user={props.user}
             onStop={stop}
             isStreaming={isStreaming}
@@ -821,19 +820,6 @@ const ChatComponent = React.memo(function Chat(props: { user: any }) {
           />
         )}
       </div>
-      {showLoginModal && (
-        <Modal title="Login Required" toggle={() => setShowLoginModal(false)}>
-          <p>You need to be logged in to send messages to Seelie.</p>
-          <div className="flex justify-end gap-2 mt-4">
-            <Button variant="outline" onClick={() => setShowLoginModal(false)}>
-              Cancel
-            </Button>
-            <Link href="/login">
-              <Button>Go to Login</Button>
-            </Link>
-          </div>
-        </Modal>
-      )}
     </div>
   )
 })

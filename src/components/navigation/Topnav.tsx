@@ -177,7 +177,32 @@ function CenterContainer(props: any) {
 
 function RightContainer() {
   const { session, status, isAuthenticated, logout } = useSessionContext()
+  const { userTier } = GlobalStore()
   const [showDropdown, setShowDropdown] = useState(false)
+
+  // Get tier display name
+  const getTierDisplayName = (tier: string) => {
+    switch (tier) {
+      case "pro":
+        return "Pro"
+      case "ultra":
+        return "Ultra"
+      default:
+        return "Free"
+    }
+  }
+
+  // Get tier color
+  const getTierColor = (tier: string) => {
+    switch (tier) {
+      case "pro":
+        return "var(--primary-color, #f59e0b)"
+      case "ultra":
+        return "var(--accent-color, #8b5cf6)"
+      default:
+        return "var(--gray-text-color, #6b7280)"
+    }
+  }
 
   return (
     <div
@@ -216,6 +241,61 @@ function RightContainer() {
                     : TopnavCSS.dropdownMenuHidden
                 }
               >
+                {/* User Info with Tier Badge */}
+                <div
+                  className={TopnavCSS.dropdownMenuItem}
+                  style={{ cursor: "default" }}
+                >
+                  <div
+                    className={TopnavCSS.dropdownMenuItemContent}
+                    style={{
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      maxWidth: "100%",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontWeight: 600,
+                        fontSize: "14px",
+                        wordBreak: "break-word",
+                        overflowWrap: "break-word",
+                        maxWidth: "100%",
+                        lineHeight: "1.3",
+                      }}
+                    >
+                      {session?.user?.name}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: "12px",
+                        color: "var(--gray-text-color)",
+                        wordBreak: "break-word",
+                        overflowWrap: "break-word",
+                        maxWidth: "100%",
+                        lineHeight: "1.3",
+                      }}
+                    >
+                      {session?.user?.email}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: "11px",
+                        fontWeight: 700,
+                        color: getTierColor(userTier),
+                        textTransform: "uppercase",
+                        letterSpacing: "0.5px",
+                        marginTop: "4px",
+                        wordBreak: "break-word",
+                      }}
+                    >
+                      {getTierDisplayName(userTier)} Tier
+                    </span>
+                  </div>
+                </div>
+
+                <div className={TopnavCSS.dropdownDivider} />
+
                 <Link
                   href="/settings"
                   onClick={() => setShowDropdown(false)}

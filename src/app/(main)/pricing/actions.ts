@@ -97,8 +97,21 @@ async function claimAiTokensFromPurchase(payment: any) {
   }
 }
 
+// Legacy supporter tier product names that should be treated as Pro
+const PRO_TIER_PRODUCTS = ["supporter_tier", "Supporter Tier", "pro", "Pro"]
+const ULTRA_TIER_PRODUCTS = ["ultra", "Ultra"]
+
 export async function isUserSupporterByEmail(email: string) {
   if (!email) return false
+
+  const tier = await getUserTierByEmail(email)
+  return tier !== "free"
+}
+
+export async function getUserTierByEmail(
+  email: string
+): Promise<"free" | "pro" | "ultra"> {
+  if (!email) return "free"
 
   const latestPurchaseFromUser = await db
     .select()
@@ -109,17 +122,36 @@ export async function isUserSupporterByEmail(email: string) {
     .execute()
     .then((rows) => rows[0])
 
-  if (!latestPurchaseFromUser) return false
+  if (!latestPurchaseFromUser) return "free"
 
-  //if the user has a purchase that is not expired (created at is less than a month ago)
+  if (latestPurchaseFromUser.status !== "succeeded") return "free"
+
+  const productName = latestPurchaseFromUser.productName?.toLowerCase() || ""
+  const productId = latestPurchaseFromUser.productId?.toLowerCase() || ""
+
+  // Check for Ultra tier
   if (
-    latestPurchaseFromUser &&
-    //&& latestPurchaseFromUser.createdAt > new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
-    latestPurchaseFromUser.status === "succeeded"
-  )
-    return true
+    ULTRA_TIER_PRODUCTS.some(
+      (tier) =>
+        productName.includes(tier.toLowerCase()) ||
+        productId.includes(tier.toLowerCase())
+    )
+  ) {
+    return "ultra"
+  }
 
-  return false
+  // Check for Pro tier (including legacy supporter)
+  if (
+    PRO_TIER_PRODUCTS.some(
+      (tier) =>
+        productName.includes(tier.toLowerCase()) ||
+        productId.includes(tier.toLowerCase())
+    )
+  ) {
+    return "pro"
+  }
+
+  return "free"
 }
 
 export async function isUserSupporterById(id: string) {
