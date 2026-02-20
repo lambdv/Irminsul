@@ -6,8 +6,15 @@ irminsul is a genshin impact ai power web applcation for theorycrafting and meta
 ## Tech Stack
 - Next.js 16
 - Bun
-- Tailwind CSS
 - TypeScript
 - React
-- Node.js
-- Express
+- Drizzle ORM
+- Neon Database
+- Auth.js
+- Stripe
+- Google AI Studio
+- LangChain
+- LangGraph
+
+## Code Style
+you should always write turse and concise code, with a focus on ease of readability for humans.

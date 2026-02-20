@@ -1,13 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import "litegraph.js/css/litegraph.css";
 import styles from "./GraphWorkspace.module.css";
 import { registerCalculatorNodes } from "@/feature/calculator/graph/registerCalculatorNodes";
 
 type LiteGraphModule = {
   default: {
     LGraph: new () => any;
-    LGraphCanvas: new (canvas: HTMLCanvasElement, graph: any) => any;
+    LGraphCanvas: (new (canvas: HTMLCanvasElement, graph: any) => any) & {
+      active_canvas: unknown;
+    };
     LiteGraph: {
       registerNodeType: (path: string, nodeType: any) => void;
       createNode: (path: string) => any;
@@ -108,20 +111,51 @@ export default function GraphWorkspace() {
       graphCanvas.grid_size = 20;
       graphCanvas.background_image = null;
 
+      const CALC_NODES = [
+        { type: "calc/stat_table", title: "Stat Table" },
+        { type: "calc/add_table", title: "Add Tables" },
+        { type: "calc/damage_action", title: "Damage Action" },
+        { type: "calc/rotation", title: "Rotation" },
+      ] as const;
+
+      graphCanvas.getMenuOptions = function () {
+        const canvas = graphCanvas;
+        return CALC_NODES.map(({ type, title }) => ({
+          content: title,
+          callback: function (
+            _value: unknown,
+            opts: { event?: MouseEvent; callback?: unknown },
+          ) {
+            const ev = opts?.event;
+            if (!ev || !canvas?.graph) return;
+            canvas.graph.beforeChange();
+            const node = lg.LiteGraph.createNode(type);
+            if (node) {
+              const pos =
+                typeof canvas.convertEventToCanvasOffset === "function"
+                  ? canvas.convertEventToCanvasOffset(ev)
+                  : [100, 100];
+              node.pos = pos;
+              canvas.graph.add(node);
+            }
+            canvas.graph.afterChange();
+          },
+        }));
+      };
+
       const onContextMenu = (event: MouseEvent) => {
         event.preventDefault();
         event.stopPropagation();
         try {
-          // LiteGraph internals rely on this global pointer during menu rendering.
-          (lg.LiteGraph as any).active_canvas = graphCanvas;
+          lg.LGraphCanvas.active_canvas = graphCanvas;
           if (typeof graphCanvas.adjustMouseEvent === "function") {
             graphCanvas.adjustMouseEvent(event);
           }
 
           const node =
             graphCanvas?.graph?.getNodeOnPos?.(
-              (event as any).canvasX,
-              (event as any).canvasY,
+              (event as { canvasX?: number }).canvasX ?? 0,
+              (event as { canvasY?: number }).canvasY ?? 0,
               graphCanvas.visible_nodes,
               5,
             ) ?? null;
