@@ -38,10 +38,9 @@ export const primaryLinks: SideRailLink[] = [
     archiveParent: true,
   },
   {
-    href: "https://aminus.irminsul.moe/",
+    href: "/calculator",
     icon: "functions",
     text: "Calculator",
-    external: true,
   },
   { href: "/pricing", icon: "shopping_cart", text: "Pricing" },
   { href: "/settings", icon: "settings", text: "Settings" },

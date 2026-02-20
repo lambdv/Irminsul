@@ -1,5 +1,5 @@
-import CalculatorViewport from "./viewport"
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  return <CalculatorViewport />
+  redirect("/calculator");
 }

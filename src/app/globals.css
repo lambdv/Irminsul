@@ -296,6 +296,47 @@ body[data-archive-secondary-open="true"] .minimalPageContentWrapper {
   background-color: transparent;
 }
 
+/* Calculator page specific: prevent scrolling and ensure full height */
+.focusedPageContentContainer:has(.calculator-page-wrapper) {
+  padding-left: 0;
+  padding-right: 0;
+  height: 100vh;
+  max-height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+body:has(.calculator-page-wrapper) {
+  overflow: hidden;
+}
+
+html:has(.calculator-page-wrapper) {
+  overflow: hidden;
+}
+
+.calculator-page-wrapper {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  transition: margin-left 0.15s ease-in-out, width 0.15s ease-in-out;
+}
+
+/* Mobile: sidebar hidden, use full width */
+@media (max-width: 1400px) {
+  .calculator-page-wrapper {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+.calculator-page-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
 @media all and (max-width: 1800px) {
   .focusedPageContentContainer {
     padding-left: 8rem;
