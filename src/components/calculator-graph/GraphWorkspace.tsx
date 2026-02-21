@@ -4,6 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import "litegraph.js/css/litegraph.css";
 import styles from "./GraphWorkspace.module.css";
 import { registerCalculatorNodes } from "@/feature/calculator/graph/registerCalculatorNodes";
+import { buildStarterDoc } from "@/feature/calculator/graph/state/starterDoc";
+import { attachLiteGraphToStoreSync } from "@/feature/calculator/graph/state/bridge";
+import { cloneGraphDoc } from "@/feature/calculator/graph/state/docUtils";
+import { useCalculatorGraphStore } from "@/store/CalculatorGraph";
 
 type LiteGraphModule = {
   default: {
@@ -47,24 +51,6 @@ export default function GraphWorkspace() {
     };
   }, []);
 
-  const zoomIn = () => {
-    const graphCanvas = canvasRef.current;
-    if (!graphCanvas?.setZoom) return;
-    graphCanvas.setZoom(graphCanvas.scale * 1.2, [
-      graphCanvas.canvas.width / 2,
-      graphCanvas.canvas.height / 2,
-    ]);
-  };
-
-  const zoomOut = () => {
-    const graphCanvas = canvasRef.current;
-    if (!graphCanvas?.setZoom) return;
-    graphCanvas.setZoom(graphCanvas.scale * 0.8, [
-      graphCanvas.canvas.width / 2,
-      graphCanvas.canvas.height / 2,
-    ]);
-  };
-
   useEffect(() => {
     const viewport = viewportRef.current;
     if (!viewport) return;
@@ -86,6 +72,7 @@ export default function GraphWorkspace() {
 
     let mounted = true;
     let detachContextMenu = () => {};
+    let detachStoreSync = () => {};
 
     const setupGraph = async () => {
       const liteGraphModule = (await import("litegraph.js")) as LiteGraphModule;
@@ -177,31 +164,18 @@ export default function GraphWorkspace() {
         canvasElementRef.current?.removeEventListener("contextmenu", onContextMenu);
       };
 
-      const baseStatsNode = lg.LiteGraph.createNode("calc/stat_table");
-      const buffStatsNode = lg.LiteGraph.createNode("calc/stat_table");
-      const actionNode = lg.LiteGraph.createNode("calc/damage_action");
-      const rotationNode = lg.LiteGraph.createNode("calc/rotation");
+      const starterDoc = buildStarterDoc(lg);
+      useCalculatorGraphStore.getState().hydrateFromStorage();
+      useCalculatorGraphStore.getState().initIfEmpty(starterDoc);
+      const initialDoc = useCalculatorGraphStore.getState().doc ?? starterDoc;
+      graph.configure(cloneGraphDoc(initialDoc));
+      graph.setDirtyCanvas?.(true, true);
 
-      if (baseStatsNode && buffStatsNode && actionNode && rotationNode) {
-        baseStatsNode.pos = [80, 120];
-        buffStatsNode.pos = [80, 380];
-        actionNode.pos = [420, 250];
-        rotationNode.pos = [760, 250];
-
-        buffStatsNode.properties.rows = [{ stat: "PyroDMGBonus", value: 0.2 }];
-        if (typeof buffStatsNode.onConfigure === "function") {
-          buffStatsNode.onConfigure();
-        }
-
-        graph.add(baseStatsNode);
-        graph.add(buffStatsNode);
-        graph.add(actionNode);
-        graph.add(rotationNode);
-
-        baseStatsNode.connect(0, rotationNode, 0);
-        buffStatsNode.connect(0, actionNode, 0);
-        actionNode.connect(0, rotationNode, 1);
-      }
+      detachStoreSync = attachLiteGraphToStoreSync({
+        graph,
+        graphCanvas,
+        store: useCalculatorGraphStore,
+      });
 
       graph.start();
     };
@@ -210,6 +184,7 @@ export default function GraphWorkspace() {
 
     return () => {
       mounted = false;
+      detachStoreSync();
       detachContextMenu();
 
       if (graphRef.current?.stop) {

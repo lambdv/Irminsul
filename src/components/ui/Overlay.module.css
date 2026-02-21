@@ -23,8 +23,6 @@
     -o-backdrop-filter: blur(0px);
     -ms-backdrop-filter: blur(0px);
 
-    background-color: red;
-
     transition: all 0.2s ease-in-out;
     animation: fadeBackground 0.2s forwards;
 }

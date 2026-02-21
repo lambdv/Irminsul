@@ -5,6 +5,7 @@ import Image from "next/image"
 import SidenavCSS from "./sidenav.module.css"
 import { NavigationStore } from "@/store/Navigation"
 import { getCDNURL } from "@/utils/getAssetURL"
+import Overlay from "@/components/ui/Overlay"
 
 const CHARACTER_ICON = getCDNURL("imgs/icons/characterIcon.png")
 const WEAPON_ICON = getCDNURL("imgs/icons/weaponIcon.png")
@@ -139,24 +140,51 @@ export default function Siderail() {
     )
   }
 
+  const handleCloseSidebar = () => {
+    document.querySelector(`.${SidenavCSS.sidenav}`)?.classList.add(SidenavCSS.sidenavCollapsing)
+    setTimeout(() => {
+      setSideNavCollapsed(true)
+    }, 150)
+  }
+
+  if (sideNavCollapsed) {
+    return (
+      <nav
+        className={
+          SidenavCSS.sidenav +
+          " " +
+          SidenavCSS.sidenavCollapsed
+        }
+      >
+        {primaryLinks.map((link, index) => (
+          <div key={index}>
+            <SideNavLink {...link} />
+          </div>
+        ))}
+      </nav>
+    )
+  }
+
   return (
-    <nav
-      className={
-        SidenavCSS.sidenav +
-        " " +
-        (sideNavCollapsed ? SidenavCSS.sidenavCollapsed : "")
-      }
+    <Overlay
+      zIndex={3}
+      onClick={handleCloseSidebar}
+      style={{ top: "60px" }}
     >
-      {primaryLinks.map((link, index) => (
-        <div key={index}>
-          <SideNavLink {...link} />
-          {isExpanded &&
-            link.archiveParent &&
-            archiveChildLinks.map((archiveLink, childIndex) => (
-              <SideNavLink key={childIndex} {...archiveLink} child={true} />
-            ))}
-        </div>
-      ))}
-    </nav>
+      <nav
+        className={SidenavCSS.sidenav}
+      >
+        {primaryLinks.map((link, index) => (
+          <div key={index}>
+            <SideNavLink {...link} />
+            {isExpanded &&
+              link.archiveParent &&
+              archiveChildLinks.map((archiveLink, childIndex) => (
+                <SideNavLink key={childIndex} {...archiveLink} child={true} />
+              ))}
+          </div>
+        ))}
+      </nav>
+    </Overlay>
   )
 }

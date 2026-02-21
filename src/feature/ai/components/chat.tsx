@@ -78,9 +78,19 @@ const Message = React.memo<{
   content?: string | JSX.Element
   userImage?: string
   isStreaming?: boolean
-}>(function Message({ messageUser, content, userImage, isStreaming = false }) {
+  chatStatus?: string
+}>(function Message({
+  messageUser,
+  content,
+  userImage,
+  isStreaming = false,
+  chatStatus,
+}) {
   const isUser = messageUser === "User"
   const messageText = content && typeof content === "string" ? content : ""
+  const hasContent = messageText.trim() && messageText !== "Thinking..."
+  const isEmptySeelie = !isUser && (messageText === "" || messageText === "Thinking...")
+  const showStreamingCursor = isEmptySeelie && chatStatus === "streaming"
 
   return (
     <div
@@ -114,13 +124,15 @@ const Message = React.memo<{
               : "bg-muted/50 text-foreground/90"
           }`}
         >
-          {messageText.trim() && messageText !== "Thinking..." ? (
+          {hasContent ? (
             <div className="prose prose-invert prose-sm max-w-none">
               <MarkdownRenderer>{messageText}</MarkdownRenderer>
             </div>
-          ) : (
+          ) : showStreamingCursor ? (
+            <span className="animate-pulse text-foreground/80">▊</span>
+          ) : isEmptySeelie ? (
             <ShinyText text="Thinking..." disabled={false} speed={3} />
-          )}
+          ) : null}
         </div>
       </div>
     </div>
@@ -547,10 +559,16 @@ const ChatView = React.memo<{
   onStop,
   isStreaming,
   getMessageText,
+  status,
 }) {
+  const hasEmptyAssistant = messages.some(
+    (m) => m.role === "assistant" && getMessageText(m) === ""
+  )
+  const showThinking = status === "submitted" && !hasEmptyAssistant
+
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="flex-1 overflow-y-auto pb-[calc(12rem+env(safe-area-inset-bottom))]">
+      <div className="flex-1 overflow-y-auto pb-[calc(20rem+env(safe-area-inset-bottom))]">
         <div className="max-w-4xl mx-auto py-4 px-4">
           {messages.length === 0 ? (
             <div className="flex flex-col items-center justify-center min-h-[60vh]">
@@ -570,15 +588,17 @@ const ChatView = React.memo<{
                   isStreaming={
                     m.role === "assistant" && getMessageText(m) === ""
                   }
+                  chatStatus={status}
                 />
               ))}
-              {status === "submitted" && (
+              {showThinking && (
                 <Message
                   key="thinking"
                   messageUser="Seelie"
                   content="Thinking..."
                   userImage={user?.image}
                   isStreaming={true}
+                  chatStatus="submitted"
                 />
               )}
             </>
