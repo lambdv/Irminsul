@@ -10,11 +10,13 @@ const WeaponPathSchema = z.object({
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const resolvedParams = await params
+
     // Validate path parameters
-    const pathValidation = WeaponPathSchema.safeParse(params)
+    const pathValidation = WeaponPathSchema.safeParse(resolvedParams)
     if (!pathValidation.success) {
       return NextResponse.json(
         {

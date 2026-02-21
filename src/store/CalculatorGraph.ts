@@ -24,7 +24,11 @@ type CalculatorGraphState = {
 
 const createInitialState = (): Omit<
   CalculatorGraphState,
-  "initIfEmpty" | "replaceFromLiteGraph" | "replaceFromStore" | "resetToStarter"
+  | "hydrateFromStorage"
+  | "initIfEmpty"
+  | "replaceFromLiteGraph"
+  | "replaceFromStore"
+  | "resetToStarter"
 > => ({
   doc: null,
   starterDoc: null,
