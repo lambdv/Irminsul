@@ -101,6 +101,10 @@ export default function GraphWorkspace() {
       const CALC_NODES = [
         { type: "calc/stat_table", title: "Stat Table" },
         { type: "calc/add_table", title: "Add Tables" },
+        { type: "calc/display_table", title: "Display Table" },
+        { type: "calc/display_number", title: "Display Number" },
+        { type: "calc/character_factory", title: "Character Factory" },
+        { type: "calc/weapon_factory", title: "Weapon Factory" },
         { type: "calc/damage_action", title: "Damage Action" },
         { type: "calc/rotation", title: "Rotation" },
       ] as const;

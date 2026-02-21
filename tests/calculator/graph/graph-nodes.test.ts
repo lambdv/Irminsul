@@ -32,6 +32,9 @@ describe("calculator graph nodes", () => {
 
     expect(nodeTypes["calc/stat_table"]).toBeDefined();
     expect(nodeTypes["calc/add_table"]).toBeDefined();
+    expect(nodeTypes["calc/display_table"]).toBeDefined();
+    expect(nodeTypes["calc/character_factory"]).toBeDefined();
+    expect(nodeTypes["calc/weapon_factory"]).toBeDefined();
     expect(nodeTypes["calc/damage_action"]).toBeDefined();
     expect(nodeTypes["calc/rotation"]).toBeDefined();
   });
@@ -77,5 +80,34 @@ describe("calculator graph nodes", () => {
 
     expect(Number.isFinite(rotation._outputsData[0])).toBe(true);
     expect(rotation._outputsData[0]).toBeGreaterThan(0);
+  });
+
+  test("display_table forwards table and computes preview rows", () => {
+    const nodeTypes: Record<string, any> = {};
+    registerCalculatorNodes({
+      registerNodeType: (path: string, nodeType: any) => {
+        nodeTypes[path] = nodeType;
+      },
+    });
+
+    const DisplayNode = nodeTypes["calc/display_table"];
+    const display = createNodeInstance(DisplayNode);
+    display._inputsData[0] = {
+      BaseATK: 1000,
+      CritRate: 0.5,
+      ATKPercent: 0.466,
+      None: 0,
+    };
+
+    DisplayNode.prototype.onExecute.call(display);
+
+    expect(display._outputsData[0]).toMatchObject({
+      BaseATK: 1000,
+      CritRate: 0.5,
+      ATKPercent: 0.466,
+      None: 0,
+    });
+    expect(Array.isArray(display.__displayRows)).toBe(true);
+    expect(display.__displayRows.length).toBeGreaterThan(0);
   });
 });

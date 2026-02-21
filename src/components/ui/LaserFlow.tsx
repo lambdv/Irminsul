@@ -330,6 +330,7 @@ export const LaserFlow: React.FC<Props> = ({
     canvas.style.width = '100%';
     canvas.style.height = '100%';
     canvas.style.display = 'block';
+    canvas.style.setProperty('background-color', 'var(--background-color)');
     mount.appendChild(canvas);
 
     const scene = new THREE.Scene();

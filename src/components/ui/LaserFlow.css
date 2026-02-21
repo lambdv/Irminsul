@@ -6,6 +6,11 @@
   left: 0;
   pointer-events: none;
   z-index: 0;
+  background-color: var(--background-color);
+}
+
+.laser-flow-container canvas {
+  background-color: var(--background-color);
 }
 
 
