@@ -44,6 +44,45 @@ export const STAT_TYPES = [
 
 export type StatType = (typeof STAT_TYPES)[number];
 
+/** Stats stored as decimal (0.5 = 50%), display as % */
+export const PERCENT_STATS = new Set<StatType>([
+  "HPPercent",
+  "ATKPercent",
+  "DEFPercent",
+  "CritRate",
+  "CritDMG",
+  "EnergyRecharge",
+  "DMGBonus",
+  "ElementalDMGBonus",
+  "PyroDMGBonus",
+  "CryoDMGBonus",
+  "GeoDMGBonus",
+  "DendroDMGBonus",
+  "ElectroDMGBonus",
+  "HydroDMGBonus",
+  "AnemoDMGBonus",
+  "PhysicalDMGBonus",
+  "NormalATKDMGBonus",
+  "ChargeATKDMGBonus",
+  "PlungeATKDMGBonus",
+  "SkillDMGBonus",
+  "BurstDMGBonus",
+  "HealingBonus",
+  "ReactionBonus",
+  "DefReduction",
+  "DefIgnore",
+  "PyroResistanceReduction",
+  "HydroResistanceReduction",
+  "ElectroResistanceReduction",
+  "CryoResistanceReduction",
+  "AnemoResistanceReduction",
+  "GeoResistanceReduction",
+  "DendroResistanceReduction",
+  "PhysicalResistanceReduction",
+]);
+
+export const isPercentStat = (stat: StatType): boolean => PERCENT_STATS.has(stat);
+
 export type StatTableLike = Partial<Record<StatType, number>>;
 
 export type DamageType =
@@ -86,6 +125,11 @@ export type RotationSpec = {
   actions: DamageActionSpec[];
 };
 
+export type RotationPayload = {
+  rotation: RotationSpec;
+  buffTablesById: Record<string, StatTableLike>;
+};
+
 export type DamageCompute = (
   base: StatTableLike,
   linkedBuffs?: StatTableLike[],
@@ -95,4 +139,3 @@ export type ActionPayload = {
   spec: DamageActionSpec;
   buffTablesById: Record<string, StatTableLike>;
 };
-

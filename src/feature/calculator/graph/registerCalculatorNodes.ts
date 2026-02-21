@@ -1,14 +1,21 @@
 import {
   ActionPayload,
   Amplifier,
+  ArtifactType,
   BaseScaling,
   DamageActionSpec,
   DamageType,
   Element,
+  isPercentStat,
+  KqmcMode,
+  KqmcOptimizationError,
+  RotationPayload,
   STAT_TYPES,
   StatTableLike,
+  StatType,
   executeRotation,
   mergeStatTables,
+  optimizeKqmcArtifacts,
 } from "../core";
 import { FactoryStatRow } from "./factoryStatRows";
 
@@ -94,8 +101,14 @@ const toDisplayStatLabel = (stat: (typeof STAT_TYPES)[number]): string =>
     .replace(/\s+/g, " ")
     .trim();
 
-const formatDisplayStatValue = (value: number): string => {
+const formatDisplayStatValue = (value: number, stat?: StatType): string => {
   if (!Number.isFinite(value)) return "0";
+  if (stat && isPercentStat(stat)) {
+    const pct = value * 100;
+    const abs = Math.abs(pct);
+    const precision = abs >= 100 ? 1 : abs >= 1 ? 2 : 3;
+    return pct.toFixed(precision).replace(/\.?0+$/, "") + "%";
+  }
   const abs = Math.abs(value);
   const precision = abs >= 100 ? 1 : abs >= 1 ? 3 : 4;
   return value.toFixed(precision).replace(/\.?0+$/, "");
@@ -167,13 +180,85 @@ const factoryRowsCaches: Record<FactoryEntityType, Map<string, FactoryRowsCache>
   weapon: new Map<string, FactoryRowsCache>(),
 };
 
+type KqmcNodeProperties = {
+  mode: KqmcMode;
+  fiveStarSlot: ArtifactType;
+  locked: boolean;
+};
+
+const KQMC_MODE_OPTIONS: KqmcMode[] = ["5-star", "4+1"];
+const KQMC_FIVE_STAR_SLOT_OPTIONS: ArtifactType[] = [
+  "flower",
+  "feather",
+  "sands",
+  "goblet",
+  "circlet",
+];
+
+const normalizeKqmcProperties = (properties: unknown): KqmcNodeProperties => {
+  const source = (properties || {}) as Partial<KqmcNodeProperties>;
+  const mode = KQMC_MODE_OPTIONS.includes(source.mode as KqmcMode)
+    ? (source.mode as KqmcMode)
+    : "5-star";
+  const fiveStarSlot = KQMC_FIVE_STAR_SLOT_OPTIONS.includes(source.fiveStarSlot as ArtifactType)
+    ? (source.fiveStarSlot as ArtifactType)
+    : "goblet";
+  const locked = source.locked === true;
+  return { mode, fiveStarSlot, locked };
+};
+
+const isRotationPayload = (value: unknown): value is RotationPayload => {
+  if (!value || typeof value !== "object") return false;
+  const candidate = value as RotationPayload;
+  if (!candidate.rotation || typeof candidate.rotation !== "object") return false;
+  if (!Array.isArray(candidate.rotation.actions)) return false;
+  if (!candidate.buffTablesById || typeof candidate.buffTablesById !== "object") return false;
+  return true;
+};
+
+const formatDistributedRolls = (extra: number, total: number): string =>
+  `+${extra} (${total})`;
+
+let actionNodeKeyCounter = 0;
+
+const toPercentWidgetDisplayValue = (value: number): number => value * 100;
+
+const fromPercentWidgetInputValue = (value: number): number => {
+  if (!Number.isFinite(value)) return 0;
+  const abs = Math.abs(value);
+  // Accept both decimal-style inputs (0.3 = 30%) and percent-style inputs (30 = 30%).
+  if (abs <= 2) return value;
+  return value / 100;
+};
+
+const getStableActionNodeKey = (node: any): string => {
+  if (typeof node.__actionNodeKey === "string" && node.__actionNodeKey.length > 0) {
+    return node.__actionNodeKey;
+  }
+
+  const nodeId = node.id;
+  if (typeof nodeId === "number" || typeof nodeId === "string") {
+    node.__actionNodeKey = `node:${String(nodeId)}`;
+    return node.__actionNodeKey;
+  }
+
+  actionNodeKeyCounter += 1;
+  node.__actionNodeKey = `action:${actionNodeKeyCounter}`;
+  return node.__actionNodeKey;
+};
+
 const rebuildStatTableWidgets = (node: any) => {
   const rows = normalizeRows(node.properties.rows);
   node.properties.rows = rows;
 
+  const signature = JSON.stringify(rows);
+  if (node.__statTableWidgetSignature === signature) return;
+  node.__statTableWidgetSignature = signature;
+
   node.widgets = [];
   node.addWidget("button", "+ Add Row", "", () => {
     node.properties.rows.push({ stat: "BaseATK", value: 0 });
+    node.__statTableWidgetSignature = null;
     rebuildStatTableWidgets(node);
     if (node.setDirtyCanvas) node.setDirtyCanvas(true, true);
   });
@@ -185,11 +270,20 @@ const rebuildStatTableWidgets = (node: any) => {
       row.stat,
       (value: (typeof STAT_TYPES)[number]) => {
         row.stat = value;
+        node.__statTableWidgetSignature = null;
+        rebuildStatTableWidgets(node);
+        if (node.setDirtyCanvas) node.setDirtyCanvas(true, true);
       },
       { values: STAT_TYPES },
     );
-    node.addWidget("number", `Value ${index + 1}`, row.value, (value: number) => {
-      row.value = Number.isFinite(value) ? value : 0;
+    const displayValue = isPercentStat(row.stat)
+      ? toPercentWidgetDisplayValue(row.value)
+      : row.value;
+    node.addWidget("number", `Value ${index + 1}`, displayValue, (value: number) => {
+      row.value = Number.isFinite(value)
+        ? (isPercentStat(row.stat) ? fromPercentWidgetInputValue(value) : value)
+        : 0;
+      if (node.setDirtyCanvas) node.setDirtyCanvas(true, true);
     });
   });
 };
@@ -492,8 +586,21 @@ StatTableNode.prototype.onConfigure = function onConfigure(this: any) {
   rebuildStatTableWidgets(this);
 };
 StatTableNode.prototype.onExecute = function onExecute(this: any) {
-  const rows = normalizeRows(this.properties.rows);
-  this.properties.rows = rows;
+  const rowsInput = Array.isArray(this.properties.rows) ? this.properties.rows : [];
+  const rows: StatRow[] = [];
+
+  for (const row of rowsInput) {
+    const stat = (row as { stat?: unknown }).stat;
+    if (typeof stat !== "string" || !STAT_TYPES.includes(stat as StatType)) continue;
+
+    const rawValue = (row as { value?: unknown }).value;
+    const nextValue = Number.isFinite(rawValue) ? (rawValue as number) : 0;
+
+    (row as { stat: StatType }).stat = stat as StatType;
+    (row as { value: number }).value = nextValue;
+    rows.push({ stat: stat as StatType, value: nextValue });
+  }
+
   this.setOutputData(0, rowsToStatTable(rows));
 };
 
@@ -576,7 +683,7 @@ DisplayTableNode.prototype.onDrawForeground = function onDrawForeground(this: an
 
     ctx.fillStyle = "rgba(150, 236, 190, 0.96)";
     ctx.textAlign = "right";
-    ctx.fillText(formatDisplayStatValue(row.value), panelX + width - 10, y);
+    ctx.fillText(formatDisplayStatValue(row.value, row.stat), panelX + width - 10, y);
     y += 16;
   }
 
@@ -592,13 +699,9 @@ function DisplayNumberNode(this: any) {
   this.addInput("Value", "number");
   this.addOutput("Value", "number");
   this.properties = { label: "Value" };
-  this.__hasValue = false;
-  this.__displayValue = 0;
   this.__displayText = "0";
+  this.__hasValue = false;
   this.size = [240, 110];
-  this.addWidget("text", "label", this.properties.label, (value: string) => {
-    this.properties.label = value;
-  });
 }
 DisplayNumberNode.title = "Display Number";
 DisplayNumberNode.prototype.onExecute = function onExecute(this: any) {
@@ -607,36 +710,25 @@ DisplayNumberNode.prototype.onExecute = function onExecute(this: any) {
   const hasValue = Number.isFinite(numeric);
   const nextValue = hasValue ? numeric : 0;
   this.__hasValue = hasValue;
-  this.__displayValue = nextValue;
   this.__displayText = formatDisplayStatValue(nextValue);
   this.setOutputData(0, nextValue);
 
-  const label = typeof this.properties.label === "string" ? this.properties.label : "Value";
-  const estimatedWidth = Math.max(
-    220,
-    label.length * 7 + this.__displayText.length * 10 + 48,
-  );
+  const nextHeight = 110;
   if (!Array.isArray(this.size)) {
-    this.size = [estimatedWidth, 110];
+    this.size = [240, nextHeight];
   } else {
-    this.size[0] = Math.max(estimatedWidth, Number(this.size[0]) || estimatedWidth);
-    this.size[1] = Math.max(110, Number(this.size[1]) || 110);
-  }
-
-  if (typeof this.setDirtyCanvas === "function") {
-    this.setDirtyCanvas(true, true);
+    this.size[0] = Math.max(240, Number(this.size[0]) || 240);
+    this.size[1] = Math.max(110, nextHeight);
   }
 };
 DisplayNumberNode.prototype.onDrawForeground = function onDrawForeground(this: any, ctx: any) {
   if (!ctx || this.flags?.collapsed) return;
   const hasValue = !!this.__hasValue;
-  const label = typeof this.properties.label === "string" ? this.properties.label : "Value";
   const displayText = this.__displayText || "0";
-
-  const panelX = 8;
-  const panelY = 34;
   const width = Math.max(120, (this.size?.[0] || 240) - 16);
   const height = Math.max(56, (this.size?.[1] || 110) - 42);
+  const panelX = 8;
+  const panelY = 34;
 
   ctx.save();
   ctx.fillStyle = "rgba(20, 24, 30, 0.88)";
@@ -660,9 +752,8 @@ DisplayNumberNode.prototype.onDrawForeground = function onDrawForeground(this: a
     return;
   }
 
-  ctx.save();
+  const label = typeof this.properties?.label === "string" ? this.properties.label : "Value";
   ctx.fillStyle = "rgba(228, 232, 241, 0.96)";
-  ctx.font = "12px sans-serif";
   ctx.textAlign = "left";
   ctx.fillText(label, panelX + 10, panelY + 18);
 
@@ -670,6 +761,58 @@ DisplayNumberNode.prototype.onDrawForeground = function onDrawForeground(this: a
   ctx.fillStyle = "rgba(150, 236, 190, 0.96)";
   ctx.textAlign = "right";
   ctx.fillText(displayText, panelX + width - 10, panelY + 42);
+  ctx.restore();
+};
+
+function NumberNode(this: any) {
+  this.addOutput("Number", "number");
+  this.properties = { value: 1.0 };
+  this.__displayText = "1";
+  this.size = [220, 96];
+  this.addWidget("number", "value", this.properties.value, (value: number) => {
+    this.properties.value = Number.isFinite(value) ? value : 0;
+    if (typeof this.setDirtyCanvas === "function") {
+      this.setDirtyCanvas(true, true);
+    }
+  });
+}
+NumberNode.title = "Number";
+NumberNode.prototype.onExecute = function onExecute(this: any) {
+  const numeric = Number(this.properties.value);
+  const nextValue = Number.isFinite(numeric) ? numeric : 0;
+  this.properties.value = nextValue;
+  this.__displayText = formatDisplayStatValue(nextValue);
+  this.setOutputData(0, nextValue);
+};
+NumberNode.prototype.onDrawForeground = function onDrawForeground(this: any, ctx: any) {
+  if (!ctx || this.flags?.collapsed) return;
+  const panelX = 8;
+  const panelY = 34;
+  const width = Math.max(120, (this.size?.[0] || 220) - 16);
+  const height = Math.max(48, (this.size?.[1] || 96) - 42);
+
+  ctx.save();
+  ctx.fillStyle = "rgba(20, 24, 30, 0.88)";
+  ctx.strokeStyle = "rgba(255, 255, 255, 0.14)";
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  if (typeof ctx.roundRect === "function") {
+    ctx.roundRect(panelX, panelY, width, height, [8]);
+  } else {
+    ctx.rect(panelX, panelY, width, height);
+  }
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = "rgba(228, 232, 241, 0.96)";
+  ctx.font = "12px sans-serif";
+  ctx.textAlign = "left";
+  ctx.fillText("Output", panelX + 10, panelY + 18);
+
+  ctx.font = "bold 24px 'Courier New', monospace";
+  ctx.fillStyle = "rgba(150, 236, 190, 0.96)";
+  ctx.textAlign = "right";
+  ctx.fillText(this.__displayText || "0", panelX + width - 10, panelY + 42);
   ctx.restore();
 };
 
@@ -690,9 +833,11 @@ function DamageActionNode(this: any) {
   };
   this.addWidget("text", "label", this.properties.label, (v: string) => {
     this.properties.label = v;
+    if (this.setDirtyCanvas) this.setDirtyCanvas(true, true);
   });
   this.addWidget("combo", "element", this.properties.element, (v: Element) => {
     this.properties.element = v;
+    if (this.setDirtyCanvas) this.setDirtyCanvas(true, true);
   }, { values: ELEMENT_OPTIONS });
   this.addWidget(
     "combo",
@@ -700,37 +845,48 @@ function DamageActionNode(this: any) {
     this.properties.damageType,
     (v: DamageType) => {
       this.properties.damageType = v;
+      if (this.setDirtyCanvas) this.setDirtyCanvas(true, true);
     },
     { values: DAMAGE_TYPE_OPTIONS },
   );
   this.addWidget("number", "motionValue", this.properties.motionValue, (v: number) => {
     this.properties.motionValue = Math.max(0, v);
+    if (this.setDirtyCanvas) this.setDirtyCanvas(true, true);
   });
   this.addWidget("number", "instances", this.properties.instances, (v: number) => {
     this.properties.instances = Math.max(1, Math.floor(v));
+    if (this.setDirtyCanvas) this.setDirtyCanvas(true, true);
   });
   this.addWidget("combo", "scaling", this.properties.scaling, (v: BaseScaling) => {
     this.properties.scaling = v;
+    if (this.setDirtyCanvas) this.setDirtyCanvas(true, true);
   }, { values: SCALING_OPTIONS });
   this.addWidget("combo", "amplifier", this.properties.amplifier, (v: Amplifier) => {
     this.properties.amplifier = v;
+    if (this.setDirtyCanvas) this.setDirtyCanvas(true, true);
   }, { values: AMPLIFIER_OPTIONS });
+  getStableActionNodeKey(this);
 }
 DamageActionNode.title = "Damage Action";
 DamageActionNode.prototype.onExecute = function onExecute(this: any) {
   const buffTablesById: Record<string, StatTableLike> = {};
   const buffTableNodeIds: string[] = [];
   const ids = ["buff1", "buff2", "buff3"] as const;
+  const actionKey = getStableActionNodeKey(this);
 
   for (let i = 0; i < ids.length; i++) {
     const input = this.getInputData(i) as StatTableLike | undefined;
     if (!input) continue;
-    buffTablesById[ids[i]] = input;
-    buffTableNodeIds.push(ids[i]);
+    const scopedBuffId = `${actionKey}:${ids[i]}`;
+    buffTablesById[scopedBuffId] = input;
+    buffTableNodeIds.push(scopedBuffId);
   }
 
+  const configuredId = typeof this.properties.id === "string" ? this.properties.id.trim() : "";
+  const resolvedId = configuredId && configuredId !== "action" ? configuredId : actionKey;
+
   const spec: DamageActionSpec = {
-    id: this.properties.id || this.properties.label || "action",
+    id: resolvedId,
     label: this.properties.label || "Action",
     element: this.properties.element,
     damageType: this.properties.damageType,
@@ -758,6 +914,7 @@ function RotationNode(this: any) {
   this.addInput("Action5", "damage_action");
   this.addInput("Action6", "damage_action");
   this.addOutput("Damage", "number");
+  this.addOutput("Rotation", "rotation");
   this.properties = { id: "rotation" };
 }
 RotationNode.title = "Rotation";
@@ -773,6 +930,15 @@ RotationNode.prototype.onExecute = function onExecute(this: any) {
     Object.assign(buffTablesById, payload.buffTablesById || {});
   }
 
+  const rotationPayload: RotationPayload = {
+    rotation: {
+      id: this.properties.id || "rotation",
+      actions,
+    },
+    buffTablesById,
+  };
+  this.setOutputData(1, rotationPayload);
+
   if (actions.length === 0) {
     this.setOutputData(0, 0);
     return;
@@ -784,6 +950,387 @@ RotationNode.prototype.onExecute = function onExecute(this: any) {
     buffTablesById,
   );
   this.setOutputData(0, total);
+};
+
+function KqmcOptimizerNode(this: any) {
+  this.addInput("Target", "stat_table");
+  this.addInput("ER Req", "number");
+  this.addInput("Rotation", "rotation");
+  this.addOutput("Sub Stats", "stat_table");
+  this.addOutput("Main Stats", "stat_table");
+  this.addOutput("Combined", "stat_table");
+  this.addOutput("Damage", "number");
+  this.properties = normalizeKqmcProperties(this.properties);
+  this.__kqmcCache = null;
+  this.__kqmcRecomputeCount = 0;
+  this.__kqmcRows = [];
+  this.__kqmcTotals = {
+    totalConstraint: 0,
+    totalDistributedExtra: 0,
+    totalDistributed: 0,
+    totalStatValue: 0,
+  };
+  this.__kqmcSelectedMainStats = {
+    flower: "FlatHP",
+    feather: "FlatATK",
+    sands: "ATKPercent",
+    goblet: "PyroDMGBonus",
+    circlet: "CritRate",
+  };
+  this.__kqmcMessage = "Connect target stats, ER requirement, and rotation payload";
+  this.size = [460, 380];
+
+  this.addWidget("combo", "mode", this.properties.mode, (value: KqmcMode) => {
+    if (this.properties.mode === value) return;
+    this.properties.mode = value;
+    if (this.setDirtyCanvas) this.setDirtyCanvas(true, true);
+  }, { values: KQMC_MODE_OPTIONS });
+  this.addWidget(
+    "combo",
+    "5-star slot",
+    this.properties.fiveStarSlot,
+    (value: ArtifactType) => {
+      if (this.properties.fiveStarSlot === value) return;
+      this.properties.fiveStarSlot = value;
+      if (this.setDirtyCanvas) this.setDirtyCanvas(true, true);
+    },
+    { values: KQMC_FIVE_STAR_SLOT_OPTIONS },
+  );
+  this.addWidget("toggle", "lock", this.properties.locked, (value: boolean) => {
+    this.properties.locked = !!value;
+    if (this.setDirtyCanvas) this.setDirtyCanvas(true, true);
+  });
+}
+KqmcOptimizerNode.title = "KQMC Optimizer";
+KqmcOptimizerNode.prototype.onConfigure = function onConfigure(this: any) {
+  this.properties = normalizeKqmcProperties(this.properties);
+};
+KqmcOptimizerNode.prototype.onExecute = function onExecute(this: any) {
+  this.properties = normalizeKqmcProperties(this.properties);
+  const target = normalizeStatTable(this.getInputData(0) || {});
+  const erRequirement = Number(this.getInputData(1));
+  const rotationInput = this.getInputData(2);
+  const signature = JSON.stringify({
+    target,
+    erRequirement: Number.isFinite(erRequirement) ? erRequirement : null,
+    rotationInput,
+    mode: this.properties.mode,
+    fiveStarSlot: this.properties.fiveStarSlot,
+  });
+
+  const applyCachedResult = (cache: any) => {
+    this.setOutputData(0, cache.subStats || {});
+    this.setOutputData(1, cache.mainStats || {});
+    this.setOutputData(2, cache.combined || target);
+    this.setOutputData(3, Number(cache.damage) || 0);
+    this.__kqmcRows = cache.rows || [];
+    this.__kqmcSelectedMainStats = cache.selectedMainStats || this.__kqmcSelectedMainStats;
+    this.__kqmcTotals = cache.totals || this.__kqmcTotals;
+    this.__kqmcMessage = cache.message || "";
+  };
+
+  const cacheCurrentResult = (next: {
+    subStats: StatTableLike;
+    mainStats: StatTableLike;
+    combined: StatTableLike;
+    damage: number;
+    rows: unknown[];
+    selectedMainStats: Record<string, string>;
+    totals: {
+      totalConstraint: number;
+      totalDistributedExtra: number;
+      totalDistributed: number;
+      totalStatValue: number;
+    };
+    message: string;
+  }) => {
+    this.__kqmcCache = {
+      signature,
+      subStats: next.subStats,
+      mainStats: next.mainStats,
+      combined: next.combined,
+      damage: next.damage,
+      rows: next.rows,
+      selectedMainStats: next.selectedMainStats,
+      totals: next.totals,
+      message: next.message,
+    };
+  };
+
+  if (this.properties.locked && this.__kqmcCache) {
+    applyCachedResult(this.__kqmcCache);
+    return;
+  }
+
+  if (!this.properties.locked && this.__kqmcCache?.signature === signature) {
+    applyCachedResult(this.__kqmcCache);
+    return;
+  }
+
+  const logRecompute = (reason: "primary" | "fallback") => {
+    this.__kqmcRecomputeCount = (Number(this.__kqmcRecomputeCount) || 0) + 1;
+    const nodeId = this.id ?? "unknown";
+    console.log(
+      `[kqmc_optimizer] recompute #${this.__kqmcRecomputeCount} node=${nodeId} reason=${reason}`,
+    );
+  };
+
+  const clearResult = () => {
+    this.setOutputData(0, {});
+    this.setOutputData(1, {});
+    this.setOutputData(2, target);
+    this.setOutputData(3, 0);
+    this.__kqmcRows = [];
+    this.__kqmcTotals = {
+      totalConstraint: 0,
+      totalDistributedExtra: 0,
+      totalDistributed: 0,
+      totalStatValue: 0,
+    };
+  };
+
+  if (!isRotationPayload(rotationInput)) {
+    clearResult();
+    this.__kqmcMessage = "Rotation payload missing. Use Rotation node output 2.";
+    cacheCurrentResult({
+      subStats: {},
+      mainStats: {},
+      combined: target,
+      damage: 0,
+      rows: [],
+      selectedMainStats: this.__kqmcSelectedMainStats || {},
+      totals: this.__kqmcTotals,
+      message: this.__kqmcMessage,
+    });
+    return;
+  }
+
+  try {
+    logRecompute("primary");
+    const result = optimizeKqmcArtifacts({
+      base: target,
+      rotationPayload: rotationInput,
+      energyRechargeRequirement: erRequirement,
+      mode: this.properties.mode,
+      fiveStarSlot: this.properties.fiveStarSlot,
+    });
+
+    this.setOutputData(0, result.subStats);
+    this.setOutputData(1, result.mainStats);
+    this.setOutputData(2, result.combined);
+    this.setOutputData(3, result.damage);
+    this.__kqmcRows = result.rows;
+    this.__kqmcSelectedMainStats = result.selectedMainStats;
+    const totalStatValue = result.rows.reduce(
+      (sum: number, row: { value: number }) => sum + (row.value || 0),
+      0,
+    );
+    this.__kqmcTotals = {
+      totalConstraint: result.totalConstraint,
+      totalDistributedExtra: result.totalDistributedExtra,
+      totalDistributed: result.totalDistributed,
+      totalStatValue,
+    };
+    this.__kqmcMessage = "";
+  } catch (error) {
+    if (error instanceof KqmcOptimizationError && error.code === "UNMET_ER") {
+      try {
+        logRecompute("fallback");
+        const fallback = optimizeKqmcArtifacts({
+          base: target,
+          rotationPayload: rotationInput,
+          energyRechargeRequirement: 0,
+          mode: this.properties.mode,
+          fiveStarSlot: this.properties.fiveStarSlot,
+        });
+        this.setOutputData(0, fallback.subStats);
+        this.setOutputData(1, fallback.mainStats);
+        this.setOutputData(2, fallback.combined);
+        this.setOutputData(3, fallback.damage);
+        this.__kqmcRows = fallback.rows;
+        this.__kqmcSelectedMainStats = fallback.selectedMainStats;
+        const totalStatValue = fallback.rows.reduce(
+          (sum: number, row: { value: number }) => sum + (row.value || 0),
+          0,
+        );
+        this.__kqmcTotals = {
+          totalConstraint: fallback.totalConstraint,
+          totalDistributedExtra: fallback.totalDistributedExtra,
+          totalDistributed: fallback.totalDistributed,
+          totalStatValue,
+        };
+        this.__kqmcMessage = "ER target unmet; showing best damage without ER constraint.";
+        cacheCurrentResult({
+          subStats: fallback.subStats,
+          mainStats: fallback.mainStats,
+          combined: fallback.combined,
+          damage: fallback.damage,
+          rows: fallback.rows,
+          selectedMainStats: fallback.selectedMainStats as Record<string, string>,
+          totals: this.__kqmcTotals,
+          message: this.__kqmcMessage,
+        });
+        return;
+      } catch {
+        clearResult();
+        this.__kqmcMessage = "KQMC optimization failed";
+        cacheCurrentResult({
+          subStats: {},
+          mainStats: {},
+          combined: target,
+          damage: 0,
+          rows: [],
+          selectedMainStats: this.__kqmcSelectedMainStats || {},
+          totals: this.__kqmcTotals,
+          message: this.__kqmcMessage,
+        });
+        return;
+      }
+    }
+    clearResult();
+    if (error instanceof KqmcOptimizationError) {
+      this.__kqmcMessage = error.message;
+    } else if (error instanceof Error) {
+      this.__kqmcMessage = error.message;
+    } else {
+      this.__kqmcMessage = "KQMC optimization failed";
+    }
+    cacheCurrentResult({
+      subStats: {},
+      mainStats: {},
+      combined: target,
+      damage: 0,
+      rows: [],
+      selectedMainStats: this.__kqmcSelectedMainStats || {},
+      totals: this.__kqmcTotals,
+      message: this.__kqmcMessage,
+    });
+    return;
+  }
+
+  const rowCount = Array.isArray(this.__kqmcRows) ? this.__kqmcRows.length : 0;
+  const fieldsHeight = 150; // title(30) + 3 inputs(60) + 3 widgets(60)
+  const nextHeight = rowCount > 0 ? fieldsHeight + 250 + (rowCount + 1) * 16 : fieldsHeight + 220;
+  if (!Array.isArray(this.size)) {
+    this.size = [460, nextHeight];
+  } else {
+    this.size[0] = Math.max(460, Number(this.size[0]) || 460);
+    this.size[1] = Math.max(370, nextHeight);
+  }
+  cacheCurrentResult({
+    subStats: this.getOutputData ? (this.getOutputData(0) || {}) : this._outputsData?.[0] || {},
+    mainStats: this.getOutputData ? (this.getOutputData(1) || {}) : this._outputsData?.[1] || {},
+    combined: this.getOutputData ? (this.getOutputData(2) || target) : this._outputsData?.[2] || target,
+    damage: this.getOutputData ? Number(this.getOutputData(3)) || 0 : Number(this._outputsData?.[3]) || 0,
+    rows: this.__kqmcRows || [],
+    selectedMainStats: this.__kqmcSelectedMainStats || {},
+    totals: this.__kqmcTotals,
+    message: this.__kqmcMessage || "",
+  });
+};
+KqmcOptimizerNode.prototype.onDrawForeground = function onDrawForeground(this: any, ctx: any) {
+  if (!ctx || this.flags?.collapsed) return;
+
+  const panelX = 8;
+  const panelY = 150; // below title + 3 inputs + 3 widgets
+  const width = Math.max(220, (this.size?.[0] || 460) - 16);
+  const height = Math.max(120, (this.size?.[1] || 380) - panelY - 8);
+
+  ctx.save();
+  ctx.fillStyle = "rgba(20, 24, 30, 0.92)";
+  ctx.strokeStyle = "rgba(255, 255, 255, 0.14)";
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  if (typeof ctx.roundRect === "function") {
+    ctx.roundRect(panelX, panelY, width, height, [8]);
+  } else {
+    ctx.rect(panelX, panelY, width, height);
+  }
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.font = "12px sans-serif";
+  const mains = this.__kqmcSelectedMainStats || {};
+  const mainLine1 = `Flower: ${toDisplayStatLabel(mains.flower || "FlatHP")}  Feather: ${toDisplayStatLabel(mains.feather || "FlatATK")}`;
+  const mainLine2 = `Sands: ${toDisplayStatLabel(mains.sands || "ATKPercent")}  Goblet: ${toDisplayStatLabel(mains.goblet || "PyroDMGBonus")}  Circlet: ${toDisplayStatLabel(mains.circlet || "CritRate")}`;
+
+  ctx.fillStyle = "rgba(220, 226, 238, 0.9)";
+  ctx.textAlign = "left";
+  ctx.fillText(mainLine1, panelX + 10, panelY + 18);
+  ctx.fillText(mainLine2, panelX + 10, panelY + 34);
+
+  const message = typeof this.__kqmcMessage === "string" ? this.__kqmcMessage : "";
+  if (message) {
+    ctx.fillStyle = "rgba(255, 180, 170, 0.95)";
+    ctx.fillText(message, panelX + 10, panelY + 52);
+    ctx.restore();
+    return;
+  }
+
+  const rows = Array.isArray(this.__kqmcRows) ? this.__kqmcRows : [];
+  if (rows.length === 0) {
+    ctx.fillStyle = "rgba(220, 226, 238, 0.75)";
+    ctx.fillText("No KQMC rows to display", panelX + 10, panelY + 52);
+    ctx.restore();
+    return;
+  }
+
+  const colStat = panelX + 10;
+  const colConstraint = panelX + width - 220;
+  const colDistributed = panelX + width - 145;
+  const colStats = panelX + width - 10;
+
+  ctx.fillStyle = "rgba(220, 226, 238, 0.8)";
+  ctx.textAlign = "left";
+  ctx.fillText("KQMC", colStat, panelY + 56);
+  ctx.fillText("Constraint", colConstraint, panelY + 56);
+  ctx.fillText("Distributed", colDistributed, panelY + 56);
+  ctx.textAlign = "right";
+  ctx.fillText("Stats", colStats, panelY + 56);
+
+  let y = panelY + 74;
+  for (const row of rows) {
+    ctx.fillStyle = "rgba(220, 226, 238, 0.92)";
+    ctx.textAlign = "left";
+    ctx.fillText(row.label, colStat, y);
+    ctx.fillText(String(Math.max(0, Math.round(row.constraint))), colConstraint, y);
+
+    ctx.fillStyle = "rgba(255, 224, 168, 0.96)";
+    ctx.fillText(
+      formatDistributedRolls(row.distributedExtra, row.distributedTotal),
+      colDistributed,
+      y,
+    );
+
+    ctx.fillStyle = "rgba(150, 236, 190, 0.96)";
+    ctx.textAlign = "right";
+    ctx.fillText(formatDisplayStatValue(row.value, row.stat), colStats, y);
+    y += 16;
+  }
+
+  const totals = this.__kqmcTotals || {
+    totalConstraint: 0,
+    totalDistributedExtra: 0,
+    totalDistributed: 0,
+    totalStatValue: 0,
+  };
+  ctx.fillStyle = "rgba(220, 226, 238, 0.95)";
+  ctx.textAlign = "left";
+  ctx.fillText("Total", colStat, y);
+  ctx.fillText(String(Math.max(0, Math.round(totals.totalConstraint || 0))), colConstraint, y);
+  ctx.fillStyle = "rgba(255, 224, 168, 0.96)";
+  ctx.fillText(
+    formatDistributedRolls(
+      Math.max(0, Math.round(totals.totalDistributedExtra || 0)),
+      Math.max(0, Math.round(totals.totalDistributed || 0)),
+    ),
+    colDistributed,
+    y,
+  );
+  ctx.fillStyle = "rgba(150, 236, 190, 0.96)";
+  ctx.textAlign = "right";
+  ctx.fillText(formatDisplayStatValue(Number(totals.totalStatValue || 0)), colStats, y);
+  ctx.restore();
 };
 
 function CharacterFactoryNode(this: any) {
@@ -809,12 +1356,14 @@ WeaponFactoryNode.prototype.onExecute = function onExecute(this: any) {
 };
 
 export const registerCalculatorNodes = (liteGraph: LiteGraphLike) => {
+  liteGraph.registerNodeType("calc/number", NumberNode);
   liteGraph.registerNodeType("calc/stat_table", StatTableNode);
   liteGraph.registerNodeType("calc/add_table", AddTableNode);
   liteGraph.registerNodeType("calc/display_table", DisplayTableNode);
   liteGraph.registerNodeType("calc/display_number", DisplayNumberNode);
   liteGraph.registerNodeType("calc/damage_action", DamageActionNode);
   liteGraph.registerNodeType("calc/rotation", RotationNode);
+  liteGraph.registerNodeType("calc/kqmc_optimizer", KqmcOptimizerNode);
   liteGraph.registerNodeType("calc/character_factory", CharacterFactoryNode);
   liteGraph.registerNodeType("calc/weapon_factory", WeaponFactoryNode);
 };

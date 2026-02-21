@@ -58,6 +58,9 @@ Key Patterns:
 - Zustand for client state
 ---
 
+Calculator graph artifact optimization modules:
+- `src/feature/calculator/core/artifacts/` # KQMC artifact constants, builder, and optimizer logic
+
 ## Tech Stack
 - Next.js 16
 - Bun

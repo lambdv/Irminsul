@@ -337,6 +337,23 @@ html:has(.calculator-page-wrapper) {
   flex-direction: column;
 }
 
+/* Override LiteGraph's default dark gray background when zooming out */
+.lgraphcanvas,
+.lgraphcanvas > canvas,
+canvas.lgraphcanvas,
+.lgraphcanvas-container,
+.litegraph,
+[class*="lgraph"],
+[class*="litegraph"] {
+  background-color: var(--background-color) !important;
+}
+
+/* Ensure canvas element itself uses app background */
+canvas[class*="lgraph"],
+canvas.lgraphcanvas {
+  background-color: var(--background-color) !important;
+}
+
 @media all and (max-width: 1800px) {
   .focusedPageContentContainer {
     padding-left: 8rem;

@@ -1,6 +1,6 @@
 import { CharacterBaseStat } from "@/types/character";
 import { WeaponBaseStat } from "@/types/weapon";
-import { STAT_TYPES, StatTableLike, StatType } from "../core";
+import { STAT_TYPES, StatTableLike, StatType, isPercentStat } from "../core";
 
 export type FactoryStatRow = {
   label: string;
@@ -43,41 +43,12 @@ const STAT_NAME_TO_TYPE: Record<string, StatType> = {
   "PHYSICAL DMG BONUS": "PhysicalDMGBonus",
 };
 
-const PERCENT_LIKE_STATS = new Set<StatType>([
-  "HPPercent",
-  "ATKPercent",
-  "DEFPercent",
-  "CritRate",
-  "CritDMG",
-  "EnergyRecharge",
-  "DMGBonus",
-  "ElementalDMGBonus",
-  "PyroDMGBonus",
-  "CryoDMGBonus",
-  "GeoDMGBonus",
-  "DendroDMGBonus",
-  "ElectroDMGBonus",
-  "HydroDMGBonus",
-  "AnemoDMGBonus",
-  "PhysicalDMGBonus",
-  "NormalATKDMGBonus",
-  "ChargeATKDMGBonus",
-  "PlungeATKDMGBonus",
-  "SkillDMGBonus",
-  "BurstDMGBonus",
-  "HealingBonus",
-  "ReactionBonus",
-  "DefReduction",
-  "DefIgnore",
-  "PyroResistanceReduction",
-  "HydroResistanceReduction",
-  "ElectroResistanceReduction",
-  "CryoResistanceReduction",
-  "AnemoResistanceReduction",
-  "GeoResistanceReduction",
-  "DendroResistanceReduction",
-  "PhysicalResistanceReduction",
-]);
+/** Minimum stat floors for character factory (decimal: 0.05 = 5% crit, 0.5 = 50% cdmg, 1.0 = 100% er) */
+const CHARACTER_STAT_MINIMA: Partial<Record<StatType, number>> = {
+  CritRate: 0.05,
+  CritDMG: 0.5,
+  EnergyRecharge: 1.0,
+};
 
 const normalizeStatName = (value: string): string =>
   value
@@ -118,7 +89,7 @@ const parseScalar = (value: string | number | null | undefined): ParsedScalar | 
 const toStatValue = (statType: StatType, value: string | number | null | undefined): number | null => {
   const parsed = parseScalar(value);
   if (!parsed) return null;
-  if (parsed.explicitPercent || PERCENT_LIKE_STATS.has(statType)) {
+  if (parsed.explicitPercent || isPercentStat(statType)) {
     return parsed.value / 100;
   }
   return parsed.value;
@@ -141,6 +112,13 @@ const withBaseStat = (table: StatTableLike, statType: StatType, value: string | 
   table[statType] = (table[statType] || 0) + parsed.value;
 };
 
+const applyCharacterStatMinima = (table: StatTableLike): void => {
+  for (const [stat, min] of Object.entries(CHARACTER_STAT_MINIMA) as [StatType, number][]) {
+    const curr = table[stat] ?? 0;
+    if (curr < min) table[stat] = min;
+  }
+};
+
 const toCharacterRawRows = (baseStats: CharacterBaseStat[]): RawFactoryRow[] =>
   baseStats.map((row, index) => {
     const table: StatTableLike = {};
@@ -148,6 +126,7 @@ const toCharacterRawRows = (baseStats: CharacterBaseStat[]): RawFactoryRow[] =>
     withBaseStat(table, "BaseATK", row.BaseATK);
     withBaseStat(table, "BaseDEF", row.BaseDEF);
     withStat(table, toSupportedStatType(row.AscensionStatType), row.AscensionStatValue);
+    applyCharacterStatMinima(table);
 
     return {
       level: row.LVL,

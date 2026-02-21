@@ -67,5 +67,36 @@ describe("calculator rotation engine", () => {
     expect(total).toBeGreaterThan(0);
     expect(warn).toHaveBeenCalled();
   });
-});
 
+  test("executeRotation skips invalid actions and keeps valid action damage", () => {
+    const warn = jest.fn();
+    const total = executeRotation(
+      { BaseATK: 1000, ATKPercent: 0.5, CritRate: 0.5, CritDMG: 1.0 },
+      {
+        id: "rot",
+        actions: [
+          {
+            id: "valid",
+            label: "Valid",
+            element: "Pyro",
+            damageType: "Skill",
+            motionValue: 2,
+          },
+          {
+            id: "invalid",
+            label: "Invalid",
+            element: "Electro",
+            damageType: "Skill",
+            motionValue: 2,
+            amplifier: "Forward",
+          },
+        ],
+      },
+      {},
+      { warn },
+    );
+
+    expect(total).toBeGreaterThan(0);
+    expect(warn).toHaveBeenCalled();
+  });
+});

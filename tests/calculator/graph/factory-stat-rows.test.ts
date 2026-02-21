@@ -73,6 +73,44 @@ describe("factory stat row builder", () => {
     ]);
   });
 
+  test("applies minimum crit rate 5%, crit dmg 50%, er 100%", () => {
+    const input: CharacterBaseStat[] = [
+      {
+        LVL: "1",
+        BaseHP: "1000",
+        BaseATK: "100",
+        BaseDEF: "50",
+        AscensionStatType: "",
+        AscensionStatValue: "",
+        AscensionPhase: 0,
+      },
+    ];
+
+    const rows = buildCharacterFactoryStatRows(input);
+    expect(rows[0].table.CritRate).toBeCloseTo(0.05);
+    expect(rows[0].table.CritDMG).toBeCloseTo(0.5);
+    expect(rows[0].table.EnergyRecharge).toBeCloseTo(1.0);
+  });
+
+  test("keeps higher values when above minimum", () => {
+    const input: CharacterBaseStat[] = [
+      {
+        LVL: "90",
+        BaseHP: "1000",
+        BaseATK: "100",
+        BaseDEF: "50",
+        AscensionStatType: "CRIT RATE",
+        AscensionStatValue: "19.2%",
+        AscensionPhase: 6,
+      },
+    ];
+
+    const rows = buildCharacterFactoryStatRows(input);
+    expect(rows[0].table.CritRate).toBeCloseTo(0.192);
+    expect(rows[0].table.CritDMG).toBeCloseTo(0.5);
+    expect(rows[0].table.EnergyRecharge).toBeCloseTo(1.0);
+  });
+
   test("skips unsupported stat names", () => {
     const input: CharacterBaseStat[] = [
       {

@@ -81,7 +81,7 @@ const createMockNode = (type: string): MockNode => {
 };
 
 describe("calculator starter graph document", () => {
-  test("buildStarterDoc creates 4 starter nodes and 3 starter links", () => {
+  test("buildStarterDoc creates 5 starter nodes and 4 starter links", () => {
     const runtime = {
       LGraph: MockGraph,
       LiteGraph: {
@@ -90,8 +90,8 @@ describe("calculator starter graph document", () => {
     };
 
     const doc = buildStarterDoc(runtime as any);
-    expect(doc.nodes).toHaveLength(4);
-    expect(doc.links).toHaveLength(3);
+    expect(doc.nodes).toHaveLength(5);
+    expect(doc.links).toHaveLength(4);
 
     const buffNode = doc.nodes.find(
       (node) =>
@@ -106,4 +106,3 @@ describe("calculator starter graph document", () => {
     ]);
   });
 });
-

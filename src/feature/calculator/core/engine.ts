@@ -27,9 +27,16 @@ export const executeRotation = (
       linkedBuffs.push(buff);
     }
 
-    total += buildDamageComputeFromSpec(action)(base, linkedBuffs);
+    try {
+      total += buildDamageComputeFromSpec(action)(base, linkedBuffs);
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Unknown damage computation error";
+      logger.warn(
+        `[calculator] failed action "${action.label || action.id}" (${action.id}): ${message}`,
+      );
+    }
   }
 
   return total;
 };
-

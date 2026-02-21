@@ -34,6 +34,66 @@ const withBuffs = (base: StatTable, buffs: StatTable): StatTable => {
   return merged;
 };
 
+const elementBonusMap: Record<string, string> = {
+  Pyro: "PyroDMGBonus",
+  Hydro: "HydroDMGBonus",
+  Electro: "ElectroDMGBonus",
+  Anemo: "AnemoDMGBonus",
+  Geo: "GeoDMGBonus",
+  Dendro: "DendroDMGBonus",
+  Cryo: "CryoDMGBonus",
+  Physical: "PhysicalDMGBonus",
+  None: "None",
+};
+const attackTypeBonusMap: Record<string, string> = {
+  Normal: "NormalATKDMGBonus",
+  Charged: "ChargeATKDMGBonus",
+  Plunging: "PlungeATKDMGBonus",
+  Skill: "SkillDMGBonus",
+  Burst: "BurstDMGBonus",
+  None: "None",
+};
+
+const amplifierMultiplier = (amp: number, em: number, reactionBonus: number): number =>
+  amp * (1 + (2.78 * em) / (1400 + em) + reactionBonus);
+
+export const calculate_damage = (
+  element: string,
+  damageType: string,
+  scaling: BaseScaling,
+  amplifier: Amplifier,
+  instances: number,
+  motionValue: number,
+  character: StatTable,
+  buffs?: StatTable,
+): number => {
+  if (amplifier === "Forward" || amplifier === "Reverse") {
+    const valid = new Set(["Pyro", "Hydro", "Cryo", "Anemo"]);
+    if (!valid.has(element)) {
+      throw new Error(
+        `Amplifier ${amplifier} requires Pyro, Hydro, Cryo, or Anemo element`,
+      );
+    }
+  }
+
+  const s = buffs ? withBuffs(character, buffs) : withBuffs(character, new StatTable());
+  const scaleValue =
+    scaling === "ATK" ? totalAttack(s) : scaling === "DEF" ? totalDefense(s) : totalHealth(s);
+  const totalBonus =
+    s.get("DMGBonus") +
+    s.get("ElementalDMGBonus") +
+    s.get(elementBonusMap[element] || "None") +
+    s.get(attackTypeBonusMap[damageType] || "None");
+  const amp =
+    amplifier === "Forward"
+      ? amplifierMultiplier(2, s.get("ElementalMastery"), s.get("ReactionBonus"))
+      : amplifier === "Reverse"
+        ? amplifierMultiplier(1.5, s.get("ElementalMastery"), s.get("ReactionBonus"))
+        : 1;
+  const crit = avgCritMultiplier(s);
+  return scaleValue * motionValue * (1 + totalBonus) * crit * amp * instances;
+};
+
 export const dmg_formula =
   (
     element: string,
@@ -44,45 +104,14 @@ export const dmg_formula =
     scaling: BaseScaling = "ATK",
     amplifier: Amplifier = "None",
   ) =>
-  (base: StatTable): number => {
-    const s = withBuffs(base, buffs);
-
-    const scaleValue =
-      scaling === "ATK"
-        ? totalAttack(s)
-        : scaling === "DEF"
-          ? totalDefense(s)
-          : totalHealth(s);
-
-    const elementBonusMap: Record<string, string> = {
-      Pyro: "PyroDMGBonus",
-      Hydro: "HydroDMGBonus",
-      Electro: "ElectroDMGBonus",
-      Anemo: "AnemoDMGBonus",
-      Geo: "GeoDMGBonus",
-      Dendro: "DendroDMGBonus",
-      Cryo: "CryoDMGBonus",
-      Physical: "PhysicalDMGBonus",
-      None: "None",
-    };
-    const attackTypeBonusMap: Record<string, string> = {
-      Normal: "NormalATKDMGBonus",
-      Charged: "ChargeATKDMGBonus",
-      Plunging: "PlungeATKDMGBonus",
-      Skill: "SkillDMGBonus",
-      Burst: "BurstDMGBonus",
-      None: "None",
-    };
-
-    const totalBonus =
-      s.get("DMGBonus") +
-      s.get("ElementalDMGBonus") +
-      s.get(elementBonusMap[element] || "None") +
-      s.get(attackTypeBonusMap[damageType] || "None");
-
-    const amp = amplifier === "Forward" ? 2 : amplifier === "Reverse" ? 1.5 : 1;
-    const crit = avgCritMultiplier(s);
-
-    return scaleValue * motionValue * (1 + totalBonus) * crit * amp * instances;
-  };
-
+  (base: StatTable): number =>
+    calculate_damage(
+      element,
+      damageType,
+      scaling,
+      amplifier,
+      instances,
+      motionValue,
+      base,
+      buffs,
+    );

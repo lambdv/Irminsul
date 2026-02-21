@@ -1,4 +1,4 @@
-import { StatTable as AminusStatTable, dmg_formula } from "aminus";
+import { StatTable as AminusStatTable, calculate_damage, dmg_formula } from "aminus";
 import { mergeStatTables } from "./statTable";
 import {
   DamageActionSpec,
@@ -9,6 +9,23 @@ import {
 
 const toTupleEntries = (table: StatTableLike): [typeof STAT_TYPES[number], number][] =>
   STAT_TYPES.map((stat) => [stat, table[stat] || 0]);
+
+const hasWorkingDmgFormula = (() => {
+  try {
+    const base = new AminusStatTable(
+      ["BaseATK", 1000],
+      ["ATKPercent", 0],
+      ["FlatATK", 0],
+      ["CritRate", 0],
+      ["CritDMG", 0],
+    );
+    const low = dmg_formula("Pyro", "Skill", 1, new AminusStatTable(), 1, "ATK", "None")(base);
+    const high = dmg_formula("Pyro", "Skill", 2, new AminusStatTable(), 1, "ATK", "None")(base);
+    return Number.isFinite(low) && Number.isFinite(high) && Math.abs(high - low) > 1e-9;
+  } catch {
+    return false;
+  }
+})();
 
 export const toAminusStatTable = (table: StatTableLike): AminusStatTable =>
   new AminusStatTable(...toTupleEntries(table));
@@ -34,16 +51,31 @@ export const buildDamageComputeFromSpec = (
 
   return (base, linkedBuffs = []) => {
     const mergedBuffs = mergeStatTables(...linkedBuffs);
-    const formula = dmg_formula(
+    const baseStats = toAminusStatTable(base);
+    const buffStats = linkedBuffs.length > 0 ? toAminusStatTable(mergedBuffs) : undefined;
+
+    if (hasWorkingDmgFormula) {
+      const formula = dmg_formula(
+        spec.element,
+        spec.damageType,
+        motionValue,
+        buffStats || new AminusStatTable(),
+        instances,
+        scaling,
+        amplifier,
+      );
+      return formula(baseStats);
+    }
+
+    return calculate_damage(
       spec.element,
       spec.damageType,
-      motionValue,
-      toAminusStatTable(mergedBuffs),
-      instances,
       scaling,
       amplifier,
+      instances,
+      motionValue,
+      baseStats,
+      buffStats,
     );
-
-    return formula(toAminusStatTable(base));
   };
 };

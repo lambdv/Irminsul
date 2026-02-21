@@ -14,6 +14,7 @@
     "lint": "eslint .",
     "build:css": "tailwindcss -i ./src/app/index.css -o ./src/app/output.css --watch",
     "test": "jest",
+    "test:e2e": "playwright test",
     "test:watch": "jest --watch",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
