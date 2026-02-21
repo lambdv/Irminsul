@@ -2,16 +2,35 @@
 
 import dynamic from "next/dynamic"
 import { Suspense } from "react"
+import type { ComponentType } from "react"
+
+type SwaggerUIProps = {
+  url?: string
+  docExpansion?: "list" | "full" | "none"
+  defaultModelsExpandDepth?: number
+  defaultModelExpandDepth?: number
+  displayRequestDuration?: boolean
+  tryItOutEnabled?: boolean
+  requestInterceptor?: (req: unknown) => unknown | Promise<unknown>
+  responseInterceptor?: (res: unknown) => unknown | Promise<unknown>
+}
 
 // Dynamically import Swagger UI to avoid SSR issues
-const SwaggerUI = dynamic(() => import("swagger-ui-react"), {
-  ssr: false,
-  loading: () => (
-    <div className="flex items-center justify-center min-h-screen">
-      Loading API Documentation...
-    </div>
-  ),
-})
+const SwaggerUI = dynamic<SwaggerUIProps>(
+  () =>
+    import("swagger-ui-react").then((mod) => {
+      return (mod as { default?: ComponentType<SwaggerUIProps> }).default ??
+        (mod as unknown as ComponentType<SwaggerUIProps>)
+    }),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex items-center justify-center min-h-screen">
+        Loading API Documentation...
+      </div>
+    ),
+  },
+)
 
 export default function ApiDocsPage() {
   return (
